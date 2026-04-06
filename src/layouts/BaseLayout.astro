@@ -1,0 +1,119 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalURL?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  image = '/images/og-default.jpg',
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  noindex = false,
+  schema,
+} = Astro.props;
+
+const siteName = 'LeGuideAuditif.fr';
+const fullTitle = `${title} | ${siteName}`;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site).href} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site).href} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org -->
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <header class="bg-marine text-blanc">
+      <nav class="mx-auto flex max-w-[var(--max-width-wide)] items-center justify-between px-6 py-4">
+        <a href="/" class="text-xl font-bold font-serif no-underline text-blanc">
+          LeGuideAuditif<span class="text-orange">.fr</span>
+        </a>
+        <ul class="flex gap-6 list-none m-0 p-0">
+          <li><a href="/guides/" class="text-creme hover:text-orange no-underline transition-colors">Guides</a></li>
+          <li><a href="/comparatifs/" class="text-creme hover:text-orange no-underline transition-colors">Comparatifs</a></li>
+          <li><a href="/a-propos/" class="text-creme hover:text-orange no-underline transition-colors">À propos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="bg-marine text-creme mt-16 py-12">
+      <div class="mx-auto max-w-[var(--max-width-wide)] px-6">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div>
+            <p class="font-serif text-lg font-bold mb-2">LeGuideAuditif<span class="text-orange">.fr</span></p>
+            <p class="text-gris-light text-sm">Votre guide indépendant sur l'audition, rédigé par un audioprothésiste DE avec 25+ ans d'expérience.</p>
+          </div>
+          <div>
+            <p class="font-semibold mb-2">Ressources</p>
+            <ul class="list-none p-0 space-y-1 text-sm">
+              <li><a href="/guides/" class="text-gris-light hover:text-orange no-underline">Guides</a></li>
+              <li><a href="/comparatifs/" class="text-gris-light hover:text-orange no-underline">Comparatifs</a></li>
+              <li><a href="/auteur/franck-olivier/" class="text-gris-light hover:text-orange no-underline">L'auteur</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold mb-2">Informations</p>
+            <ul class="list-none p-0 space-y-1 text-sm">
+              <li><a href="/a-propos/politique-editoriale/" class="text-gris-light hover:text-orange no-underline">Politique éditoriale</a></li>
+              <li><a href="/mentions-legales/" class="text-gris-light hover:text-orange no-underline">Mentions légales</a></li>
+              <li><a href="/politique-confidentialite/" class="text-gris-light hover:text-orange no-underline">Confidentialité</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8 border-t border-marine-light pt-6 text-center text-sm text-gris-light">
+          <p>&copy; {new Date().getFullYear()} LeGuideAuditif.fr — Tous droits réservés</p>
+          <p class="mt-1">Ce site ne remplace pas un avis médical. Consultez un professionnel de santé.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

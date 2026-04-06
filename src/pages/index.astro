@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'LeGuideAuditif.fr',
+  url: 'https://leguideauditif.fr',
+  description: 'Guide indépendant sur l\'audition rédigé par un audioprothésiste DE avec 25+ ans d\'expérience.',
+  author: {
+    '@type': 'Person',
+    name: 'Franck-Olivier',
+    jobTitle: 'Audioprothésiste DE',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'LeGuideAuditif.fr',
+  },
+};
+---
+
+<BaseLayout
+  title="Votre guide indépendant sur l'audition"
+  description="Guides, comparatifs et conseils sur l'audition par un audioprothésiste DE avec 25+ ans d'expérience. Appareils auditifs, perte auditive, acouphènes."
+  schema={schema}
+>
+  <section class="bg-marine text-blanc py-20">
+    <div class="mx-auto max-w-[var(--max-width-wide)] px-6 text-center">
+      <h1 class="font-serif text-4xl font-bold leading-tight md:text-5xl">
+        Votre guide <span class="text-orange">indépendant</span><br />sur l'audition
+      </h1>
+      <p class="mt-6 mx-auto max-w-2xl text-lg text-creme leading-relaxed">
+        Des guides clairs, des comparatifs honnêtes et des conseils d'expert
+        pour vous accompagner dans votre parcours auditif.
+      </p>
+      <p class="mt-4 text-gris-light text-sm">
+        Par Franck-Olivier, audioprothésiste DE — 25+ ans d'expérience
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a
+          href="/guides/"
+          class="rounded-[var(--radius-md)] bg-orange px-8 py-3 text-lg font-semibold text-blanc no-underline hover:bg-orange-dark transition-colors"
+        >
+          Découvrir les guides
+        </a>
+        <a
+          href="/comparatifs/"
+          class="rounded-[var(--radius-md)] border-2 border-blanc px-8 py-3 text-lg font-semibold text-blanc no-underline hover:bg-blanc hover:text-marine transition-colors"
+        >
+          Voir les comparatifs
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-[var(--max-width-wide)] px-6">
+      <h2 class="font-serif text-2xl font-bold text-marine text-center mb-12">
+        Pourquoi nous faire confiance ?
+      </h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div class="rounded-lg bg-blanc p-8 text-center shadow-sm">
+          <p class="text-3xl mb-4">🎓</p>
+          <h3 class="font-semibold text-marine text-lg mb-2">Expertise certifiée</h3>
+          <p class="text-gris text-sm">
+            Audioprothésiste diplômé d'État avec plus de 25 ans d'expérience
+            et 18 centres dirigés.
+          </p>
+        </div>
+        <div class="rounded-lg bg-blanc p-8 text-center shadow-sm">
+          <p class="text-3xl mb-4">⚖️</p>
+          <h3 class="font-semibold text-marine text-lg mb-2">Indépendance totale</h3>
+          <p class="text-gris text-sm">
+            Aucun fabricant ne finance ce site. Nos recommandations sont basées
+            uniquement sur l'expérience clinique.
+          </p>
+        </div>
+        <div class="rounded-lg bg-blanc p-8 text-center shadow-sm">
+          <p class="text-3xl mb-4">❤️</p>
+          <h3 class="font-semibold text-marine text-lg mb-2">Accessible à tous</h3>
+          <p class="text-gris text-sm">
+            Un langage clair, sans jargon, pour vous permettre de prendre
+            des décisions éclairées sur votre audition.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

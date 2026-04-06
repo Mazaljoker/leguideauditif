@@ -1,0 +1,46 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+  title?: string;
+}
+
+const { items, title = 'Questions fréquentes' } = Astro.props;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<section class="my-12" aria-label="Questions fréquentes">
+  <h2 class="font-serif text-2xl font-bold text-marine mb-6">{title}</h2>
+
+  <div class="space-y-4">
+    {items.map((item) => (
+      <details class="group rounded-lg border border-creme-dark bg-blanc">
+        <summary class="cursor-pointer px-6 py-4 text-lg font-medium text-marine hover:text-orange transition-colors list-none flex justify-between items-center">
+          {item.question}
+          <span class="ml-2 text-gris group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="px-6 pb-4 text-gris leading-relaxed">
+          <Fragment set:html={item.answer} />
+        </div>
+      </details>
+    ))}
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</section>

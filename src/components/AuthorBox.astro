@@ -1,0 +1,37 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<aside class="my-8 rounded-lg border border-creme-dark bg-blanc p-6" aria-label="À propos de l'auteur">
+  <div class="flex items-start gap-4">
+    <img
+      src="/images/auteur/franck-olivier.webp"
+      alt="Franck-Olivier, audioprothésiste DE"
+      class="h-16 w-16 rounded-full object-cover"
+      width="64"
+      height="64"
+      loading="lazy"
+    />
+    <div>
+      <p class="font-semibold text-marine">Franck-Olivier</p>
+      <p class="text-sm text-gris">Audioprothésiste diplômé d'État</p>
+      {!compact && (
+        <p class="mt-2 text-sm leading-relaxed text-gris">
+          Plus de 25 ans d'expérience dans le secteur de l'audition. Ancien directeur de 18 centres
+          Alain Afflelou Acousticien, j'ai accompagné des milliers de patients dans leur parcours
+          d'appareillage auditif.
+        </p>
+      )}
+      <a
+        href="/auteur/franck-olivier/"
+        class="mt-2 inline-block text-sm text-orange hover:text-orange-dark no-underline"
+      >
+        En savoir plus →
+      </a>
+    </div>
+  </div>
+</aside>
