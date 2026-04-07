@@ -4,7 +4,8 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
 import AudioMap from '../../../components/AudioMap.tsx';
 import '../../../styles/audiomap.css';
-import audioprothesistes from '../../../data/audioprothesistes.json';
+import rawData from '../../../data/audioprothesistes.json';
+const audioprothesistes = Array.isArray(rawData) ? rawData : (rawData as any).default ?? [];
 
 const title = 'Trouver un audioprothesiste pres de chez vous | LeGuideAuditif';
 const description =
