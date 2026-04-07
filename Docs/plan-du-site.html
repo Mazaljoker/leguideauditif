@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan du site — LeGuideAuditif.fr</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #F8F5F0; color: #1B2E4A; line-height: 1.6; }
+
+  .header { background: #1B2E4A; color: white; padding: 32px 0; text-align: center; }
+  .header h1 { font-size: 28px; margin-bottom: 8px; }
+  .header p { opacity: 0.8; font-size: 15px; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+
+  .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+  .stat-card { flex: 1; min-width: 150px; background: white; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(27,46,74,0.08); }
+  .stat-card .number { font-size: 32px; font-weight: 700; color: #D97B3D; }
+  .stat-card .label { font-size: 13px; color: #1B2E4A; opacity: 0.7; margin-top: 4px; }
+
+  .legend { background: white; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; display: flex; gap: 24px; flex-wrap: wrap; align-items: center; box-shadow: 0 2px 8px rgba(27,46,74,0.08); }
+  .legend-title { font-weight: 600; font-size: 14px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-pilier { background: #1B2E4A; color: white; }
+  .badge-info { background: #e0ecff; color: #1B2E4A; }
+  .badge-commercial { background: #fff3e0; color: #D97B3D; }
+  .badge-howto { background: #e8f5e9; color: #2e7d32; }
+  .badge-trust { background: #f3e5f5; color: #7b1fa2; }
+  .badge-lead { background: #D97B3D; color: white; }
+  .badge-legal { background: #ccc; color: #333; }
+  .badge-seo { background: #e0f2f1; color: #00695c; }
+
+  .section { margin-bottom: 32px; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; cursor: pointer; user-select: none; }
+  .section-header h2 { font-size: 20px; }
+  .section-header .count { background: #D97B3D; color: white; border-radius: 20px; padding: 2px 12px; font-size: 13px; font-weight: 600; }
+  .section-header .toggle { font-size: 18px; transition: transform 0.2s; }
+  .section-header.collapsed .toggle { transform: rotate(-90deg); }
+
+  .cluster { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(27,46,74,0.08); }
+  .cluster.collapsed .cluster-body { display: none; }
+
+  .cluster-header { background: #1B2E4A; color: white; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  .cluster-header h3 { font-size: 16px; display: flex; align-items: center; gap: 10px; }
+  .cluster-header .emoji { font-size: 20px; }
+  .cluster-header .page-count { background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 12px; font-size: 12px; }
+
+  .pilier { background: #f0f4f8; padding: 16px 20px; border-bottom: 2px solid #D97B3D; }
+  .pilier-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #D97B3D; font-weight: 700; margin-bottom: 4px; }
+  .pilier-url { font-family: 'Courier New', monospace; font-size: 14px; color: #1B2E4A; font-weight: 600; }
+  .pilier-title { font-size: 15px; color: #555; margin-top: 2px; }
+
+  .satellites { padding: 0; }
+  .satellite { display: flex; align-items: center; padding: 12px 20px; border-bottom: 1px solid #f0f0f0; transition: background 0.15s; }
+  .satellite:hover { background: #f8f8f8; }
+  .satellite:last-child { border-bottom: none; }
+  .satellite .url { font-family: 'Courier New', monospace; font-size: 13px; color: #1B2E4A; min-width: 340px; }
+  .satellite .title { font-size: 14px; color: #555; flex: 1; }
+  .satellite .intent { margin-left: auto; }
+
+  .nav-section { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(27,46,74,0.08); margin-bottom: 16px; }
+  .nav-section h3 { font-size: 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .nav-item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+  .nav-item:last-child { border-bottom: none; }
+  .nav-item .url { font-family: 'Courier New', monospace; font-size: 13px; min-width: 300px; }
+  .nav-item .desc { font-size: 14px; color: #555; flex: 1; }
+  .nav-item .type { margin-left: auto; }
+
+  .priority { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-left: 8px; }
+  .p1 { background: #ff5252; color: white; }
+  .p2 { background: #FFB74D; color: #333; }
+  .p3 { background: #81C784; color: #333; }
+
+  .footer { text-align: center; padding: 32px; color: #1B2E4A; opacity: 0.5; font-size: 13px; }
+
+  .url-tree { margin-left: 24px; border-left: 2px solid #e0e0e0; padding-left: 16px; }
+
+  @media (max-width: 768px) {
+    .satellite { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .satellite .url { min-width: auto; }
+    .nav-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .nav-item .url { min-width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Plan du site — LeGuideAuditif.fr</h1>
+  <p>Arborescence complète a valider par Franck-Olivier — 7 avril 2026</p>
+</div>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-card"><div class="number">8</div><div class="label">Clusters</div></div>
+    <div class="stat-card"><div class="number">7</div><div class="label">Pages pilier</div></div>
+    <div class="stat-card"><div class="number">55</div><div class="label">Satellites</div></div>
+    <div class="stat-card"><div class="number">9</div><div class="label">Comparatifs</div></div>
+    <div class="stat-card"><div class="number">7</div><div class="label">Pages transversales</div></div>
+    <div class="stat-card"><div class="number">78</div><div class="label">Total pages</div></div>
+  </div>
+
+  <!-- Legende -->
+  <div class="legend">
+    <span class="legend-title">Legende :</span>
+    <span class="legend-item"><span class="badge badge-pilier">PILIER</span> Page pilier du cluster</span>
+    <span class="legend-item"><span class="badge badge-info">Info</span> Article informatif</span>
+    <span class="legend-item"><span class="badge badge-commercial">Commercial</span> Comparatif / guide d'achat</span>
+    <span class="legend-item"><span class="badge badge-howto">HowTo</span> Tutoriel pratique</span>
+    <span class="legend-item"><span class="badge badge-trust">Trust</span> Page confiance E-E-A-T</span>
+    <span class="legend-item"><span class="badge badge-lead">Lead</span> Generation de leads</span>
+    <span class="legend-item"><span class="badge badge-seo">SEO</span> Longue traine</span>
+    <span class="legend-item"><span class="priority p1">P1</span> Mois 1-2</span>
+    <span class="legend-item"><span class="priority p2">P2</span> Mois 3-4</span>
+    <span class="legend-item"><span class="priority p3">P3</span> Mois 5-6</span>
+  </div>
+
+  <!-- ========== NAVIGATION PRINCIPALE ========== -->
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="toggle">▼</span>
+      <h2>Navigation principale (header)</h2>
+    </div>
+    <div class="nav-section">
+      <div class="nav-item">
+        <span class="url">/</span>
+        <span class="desc">Page d'accueil</span>
+        <span class="priority p1">P1</span>
+      </div>
+      <div class="nav-item">
+        <span class="url">/guides/perte-auditive/</span>
+        <span class="desc">Comprendre la perte auditive</span>
+      </div>
+      <div class="nav-item">
+        <span class="url">/guides/appareils-auditifs/</span>
+        <span class="desc">Choisir son appareil</span>
+      </div>
+      <div class="nav-item">
+        <span class="url">/guides/acouphenes/</span>
+        <span class="desc">Acouphenes</span>
+      </div>
+      <div class="nav-item">
+        <span class="url">/guides/remboursement/</span>
+        <span class="desc">Prix et remboursement</span>
+      </div>
+      <div class="nav-item">
+        <span class="url">/comparatifs/meilleur-appareil-auditif-2026/</span>
+        <span class="desc">Meilleur appareil 2026</span>
+      </div>
+      <div class="nav-item">
+        <span class="url">/trouver-audioprothesiste/</span>
+        <span class="desc">Trouver un audio pres de chez vous</span>
+        <span class="badge badge-lead">Lead</span>
+      </div>
+      <div class="nav-item">
+        <span class="url">/a-propos/</span>
+        <span class="desc">A propos / Qui suis-je</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CLUSTER 1 : PERTE AUDITIVE ========== -->
+  <div class="section">
+    <div class="cluster" id="cluster1">
+      <div class="cluster-header" onclick="toggleCluster('cluster1')">
+        <h3><span class="emoji">👂</span> Cluster 1 — Perte auditive</h3>
+        <span class="page-count">1 pilier + 9 satellites</span>
+      </div>
+      <div class="cluster-body">
+        <div class="pilier">
+          <div class="pilier-label">Page pilier</div>
+          <div class="pilier-url">/guides/perte-auditive/ <span class="priority p2">P2</span></div>
+          <div class="pilier-title">Perte auditive : comprendre, detecter et agir</div>
+        </div>
+        <div class="satellites">
+          <div class="satellite">
+            <span class="url">/guides/perte-auditive/symptomes/</span>
+            <span class="title">Les 7 symptomes d'une perte auditive</span>
+            <span class="badge badge-info">Info</span><span class="priority p1">P1</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/perte-auditive/causes/</span>
+            <span class="title">Causes de la perte auditive : age, bruit, maladie</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/perte-auditive/types/</span>
+            <span class="title">Transmission, perception, mixte : les differences</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/perte-auditive/audiogramme/</span>
+            <span class="title">Comment lire votre audiogramme</span>
+            <span class="badge badge-howto">HowTo</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/perte-auditive/enfant/</span>
+            <span class="title">Perte auditive chez l'enfant : depistage et signes</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/perte-auditive/surdite-brusque/</span>
+            <span class="title">Surdite brusque : urgence medicale</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/perte-auditive/test-auditif-en-ligne/</span>
+            <span class="title">Test auditif en ligne : fiable ou pas ?</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/perte-auditive/presbyacousie/</span>
+            <span class="title">Presbyacousie : la perte auditive liee a l'age</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/perte-auditive/quand-consulter-orl/</span>
+            <span class="title">Quand consulter un ORL pour votre audition</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CLUSTER 2 : APPAREILS AUDITIFS ========== -->
+  <div class="section">
+    <div class="cluster" id="cluster2">
+      <div class="cluster-header" onclick="toggleCluster('cluster2')">
+        <h3><span class="emoji">🔊</span> Cluster 2 — Appareils auditifs</h3>
+        <span class="page-count">1 pilier + 9 info + 9 comparatifs</span>
+      </div>
+      <div class="cluster-body">
+        <div class="pilier">
+          <div class="pilier-label">Page pilier</div>
+          <div class="pilier-url">/guides/appareils-auditifs/ <span class="priority p2">P2</span></div>
+          <div class="pilier-title">Appareils auditifs : le guide complet pour bien choisir</div>
+        </div>
+        <div class="satellites">
+          <div class="satellite">
+            <span class="url">/guides/appareils-auditifs/types/</span>
+            <span class="title">Contour, intra, RIC, invisible : quel type choisir ?</span>
+            <span class="badge badge-info">Info</span><span class="priority p1">P1</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/appareils-auditifs/classe-1-vs-classe-2/</span>
+            <span class="title">Classe 1 vs Classe 2 : quelles differences concretes ?</span>
+            <span class="badge badge-info">Info</span><span class="priority p1">P1</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/appareils-auditifs/premier-appareil/</span>
+            <span class="title">Premier appareil auditif : ce qu'il faut savoir</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/appareils-auditifs/adaptation/</span>
+            <span class="title">Periode d'adaptation : les 30 premiers jours</span>
+            <span class="badge badge-howto">HowTo</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/appareils-auditifs/entretien/</span>
+            <span class="title">Entretien de vos appareils : le guide complet</span>
+            <span class="badge badge-howto">HowTo</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/appareils-auditifs/rechargeable-vs-piles/</span>
+            <span class="title">Rechargeable ou a piles : avantages et inconvenients</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/appareils-auditifs/bluetooth/</span>
+            <span class="title">Bluetooth et connectivite : streaming, telephone, TV</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/appareils-auditifs/invisible/</span>
+            <span class="title">Appareils invisibles : options et limites</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/appareils-auditifs/accessoires/</span>
+            <span class="title">TV Connector, micro distant, chargeur : les essentiels</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+        </div>
+        <!-- Comparatifs -->
+        <div class="pilier" style="border-bottom-color: #D97B3D;">
+          <div class="pilier-label" style="color: #D97B3D;">Comparatifs (monetises)</div>
+        </div>
+        <div class="satellites">
+          <div class="satellite">
+            <span class="url">/comparatifs/meilleur-appareil-auditif-2026/</span>
+            <span class="title">Meilleur appareil auditif 2026 : notre classement</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p1">P1</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/comparatifs/phonak-vs-signia-vs-resound/</span>
+            <span class="title">Phonak vs Signia vs ReSound : le match</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/comparatifs/meilleur-appareil-classe-1/</span>
+            <span class="title">Meilleur appareil Classe 1 (100% Sante)</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/comparatifs/meilleur-intra-auriculaire/</span>
+            <span class="title">Meilleur intra-auriculaire invisible 2026</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/comparatifs/meilleur-appareil-acouphenes/</span>
+            <span class="title">Meilleur appareil auditif contre les acouphenes</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/comparatifs/meilleur-tv-connector/</span>
+            <span class="title">Meilleur TV Connector 2026</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/comparatifs/meilleur-accessoire-auditif/</span>
+            <span class="title">Accessoires auditifs : les indispensables compares</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/comparatifs/meilleure-protection-auditive/</span>
+            <span class="title">Meilleures protections auditives 2026</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/comparatifs/meilleure-app-audition/</span>
+            <span class="title">Meilleures apps smartphone pour appareils auditifs</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p3">P3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CLUSTER 3 : ACOUPHENES ========== -->
+  <div class="section">
+    <div class="cluster" id="cluster3">
+      <div class="cluster-header" onclick="toggleCluster('cluster3')">
+        <h3><span class="emoji">🔔</span> Cluster 3 — Acouphenes</h3>
+        <span class="page-count">1 pilier + 9 satellites</span>
+      </div>
+      <div class="cluster-body">
+        <div class="pilier">
+          <div class="pilier-label">Page pilier</div>
+          <div class="pilier-url">/guides/acouphenes/ <span class="priority p1">P1</span></div>
+          <div class="pilier-title">Acouphenes : comprendre, soulager, vivre avec</div>
+        </div>
+        <div class="satellites">
+          <div class="satellite">
+            <span class="url">/guides/acouphenes/causes/</span>
+            <span class="title">Acouphenes : les causes principales</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/acouphenes/traitement/</span>
+            <span class="title">Traitement des acouphenes : ce qui marche en 2026</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/acouphenes/stress/</span>
+            <span class="title">Acouphenes et stress : le cercle vicieux</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/acouphenes/therapie-sonore/</span>
+            <span class="title">Therapie sonore (TRT, masquage) : comment ca marche</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/acouphenes/pulsatiles/</span>
+            <span class="title">Acouphenes pulsatiles : quand s'inquieter</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/acouphenes/sommeil/</span>
+            <span class="title">Acouphenes et sommeil : retrouver des nuits calmes</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/acouphenes/appareil-auditif/</span>
+            <span class="title">Appareil auditif et acouphenes : une solution efficace ?</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/acouphenes/hyperacousie/</span>
+            <span class="title">Hyperacousie : quand le bruit devient douleur</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/acouphenes/lenire/</span>
+            <span class="title">Dispositif Lenire : le point sur cette innovation</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CLUSTER 4 : PREVENTION ========== -->
+  <div class="section">
+    <div class="cluster" id="cluster4">
+      <div class="cluster-header" onclick="toggleCluster('cluster4')">
+        <h3><span class="emoji">🛡️</span> Cluster 4 — Prevention auditive</h3>
+        <span class="page-count">1 pilier + 7 satellites</span>
+      </div>
+      <div class="cluster-body">
+        <div class="pilier">
+          <div class="pilier-label">Page pilier</div>
+          <div class="pilier-url">/guides/prevention/ <span class="priority p2">P2</span></div>
+          <div class="pilier-title">Proteger votre audition : le guide prevention</div>
+        </div>
+        <div class="satellites">
+          <div class="satellite">
+            <span class="url">/guides/prevention/bruit-travail/</span>
+            <span class="title">Bruit au travail : 56% des actifs genes en 2025</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/prevention/protections-auditives/</span>
+            <span class="title">Bouchons et protections : comment choisir</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/prevention/ecouteurs-volume/</span>
+            <span class="title">Ecouteurs et casques : les regles pour preserver votre audition</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/prevention/depistage-auditif/</span>
+            <span class="title">Depistage auditif : a quel age et a quelle frequence</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/prevention/bilan-auditif-gratuit/</span>
+            <span class="title">Bilan auditif gratuit : ou et comment</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/prevention/seniors/</span>
+            <span class="title">Prevention auditive apres 60 ans</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/prevention/concerts-festivals/</span>
+            <span class="title">Concerts et festivals : proteger vos oreilles</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CLUSTER 5 : REMBOURSEMENT ========== -->
+  <div class="section">
+    <div class="cluster" id="cluster5">
+      <div class="cluster-header" onclick="toggleCluster('cluster5')">
+        <h3><span class="emoji">💰</span> Cluster 5 — Remboursement et prix</h3>
+        <span class="page-count">1 pilier + 7 satellites</span>
+      </div>
+      <div class="cluster-body">
+        <div class="pilier">
+          <div class="pilier-label">Page pilier — priorite maximale</div>
+          <div class="pilier-url">/guides/remboursement/ <span class="priority p1">P1</span></div>
+          <div class="pilier-title">Remboursement des appareils auditifs en 2026 : le guide complet</div>
+        </div>
+        <div class="satellites">
+          <div class="satellite">
+            <span class="url">/guides/remboursement/100-sante-audition/</span>
+            <span class="title">100% Sante audition : tout comprendre en 5 minutes</span>
+            <span class="badge badge-info">Info</span><span class="priority p1">P1</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/remboursement/prix-appareil-auditif/</span>
+            <span class="title">Prix d'un appareil auditif en 2026 : tous les tarifs</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p1">P1</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/remboursement/mutuelle/</span>
+            <span class="title">Quelle mutuelle pour un appareil auditif ?</span>
+            <span class="badge badge-commercial">Commercial</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/remboursement/reste-a-charge-zero/</span>
+            <span class="title">Reste a charge zero : comment en beneficier</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/remboursement/devis/</span>
+            <span class="title">Comprendre votre devis audioprothesiste</span>
+            <span class="badge badge-howto">HowTo</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/remboursement/aides-financieres/</span>
+            <span class="title">Aides financieres : APA, MDPH, PCH</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/remboursement/renouvellement/</span>
+            <span class="title">Renouveler ses appareils : quand et comment</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CLUSTER 6 : VIE QUOTIDIENNE ========== -->
+  <div class="section">
+    <div class="cluster" id="cluster6">
+      <div class="cluster-header" onclick="toggleCluster('cluster6')">
+        <h3><span class="emoji">🏠</span> Cluster 6 — Vie quotidienne</h3>
+        <span class="page-count">1 pilier + 8 satellites</span>
+      </div>
+      <div class="cluster-body">
+        <div class="pilier">
+          <div class="pilier-label">Page pilier</div>
+          <div class="pilier-url">/guides/vie-quotidienne/ <span class="priority p2">P2</span></div>
+          <div class="pilier-title">Vivre au quotidien avec des appareils auditifs</div>
+        </div>
+        <div class="satellites">
+          <div class="satellite">
+            <span class="url">/guides/vie-quotidienne/telephone/</span>
+            <span class="title">Telephoner avec un appareil auditif</span>
+            <span class="badge badge-howto">HowTo</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/vie-quotidienne/television/</span>
+            <span class="title">Regarder la TV avec un appareil auditif</span>
+            <span class="badge badge-howto">HowTo</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/vie-quotidienne/sport/</span>
+            <span class="title">Sport et appareil auditif : ce qu'il faut savoir</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/vie-quotidienne/voyage/</span>
+            <span class="title">Voyager avec ses appareils auditifs</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/vie-quotidienne/entourage/</span>
+            <span class="title">Comment communiquer avec un proche malentendant</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/vie-quotidienne/applications/</span>
+            <span class="title">Apps smartphone pour vos appareils (myPhonak, Oticon...)</span>
+            <span class="badge badge-howto">HowTo</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/vie-quotidienne/travail/</span>
+            <span class="title">Travailler avec un appareil auditif : droits et conseils</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/vie-quotidienne/panne/</span>
+            <span class="title">Panne d'appareil : que faire avant d'aller chez l'audio</span>
+            <span class="badge badge-howto">HowTo</span><span class="priority p3">P3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CLUSTER 7 : AUDIOPROTHESISTE ========== -->
+  <div class="section">
+    <div class="cluster" id="cluster7">
+      <div class="cluster-header" onclick="toggleCluster('cluster7')">
+        <h3><span class="emoji">🩺</span> Cluster 7 — L'audioprothesiste</h3>
+        <span class="page-count">1 pilier + 5 satellites</span>
+      </div>
+      <div class="cluster-body">
+        <div class="pilier">
+          <div class="pilier-label">Page pilier — renforcement E-E-A-T</div>
+          <div class="pilier-url">/guides/audioprothesiste/ <span class="priority p2">P2</span></div>
+          <div class="pilier-title">L'audioprothesiste : role, parcours, comment bien choisir</div>
+        </div>
+        <div class="satellites">
+          <div class="satellite">
+            <span class="url">/guides/audioprothesiste/choisir/</span>
+            <span class="title">Comment choisir son audioprothesiste</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/audioprothesiste/premier-rdv/</span>
+            <span class="title">Premier rendez-vous : a quoi vous attendre</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/audioprothesiste/suivi/</span>
+            <span class="title">Le suivi post-appareillage : pourquoi c'est crucial</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/audioprothesiste/teleaudiologie/</span>
+            <span class="title">Teleaudiologie : reglages a distance en 2026</span>
+            <span class="badge badge-info">Info</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/guides/audioprothesiste/orl-vs-audio/</span>
+            <span class="title">ORL, audioprothesiste, orthophoniste : qui fait quoi</span>
+            <span class="badge badge-info">Info</span><span class="priority p2">P2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CLUSTER 8 : PAGES TRANSVERSALES ========== -->
+  <div class="section">
+    <div class="cluster" id="cluster8">
+      <div class="cluster-header" onclick="toggleCluster('cluster8')">
+        <h3><span class="emoji">📄</span> Pages transversales</h3>
+        <span class="page-count">7 pages</span>
+      </div>
+      <div class="cluster-body">
+        <div class="satellites">
+          <div class="satellite">
+            <span class="url">/a-propos/</span>
+            <span class="title">A propos de LeGuideAuditif.fr — qui est Franck-Olivier</span>
+            <span class="badge badge-trust">Trust</span><span class="priority p1">P1</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/contact/</span>
+            <span class="title">Contactez-nous</span>
+            <span class="badge badge-lead">Lead</span><span class="priority p1">P1</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/trouver-audioprothesiste/</span>
+            <span class="title">Trouver un audioprothesiste pres de chez vous</span>
+            <span class="badge badge-lead">Lead</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/glossaire/</span>
+            <span class="title">Glossaire de l'audition de A a Z</span>
+            <span class="badge badge-seo">SEO</span><span class="priority p3">P3</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/faq/</span>
+            <span class="title">Questions frequentes sur l'audition (schema FAQ)</span>
+            <span class="badge badge-seo">SEO</span><span class="priority p2">P2</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/mentions-legales/</span>
+            <span class="title">Mentions legales</span>
+            <span class="badge badge-legal">Legal</span><span class="priority p1">P1</span>
+          </div>
+          <div class="satellite">
+            <span class="url">/politique-confidentialite/</span>
+            <span class="title">Politique de confidentialite (RGPD)</span>
+            <span class="badge badge-legal">Legal</span><span class="priority p1">P1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== RESUME PLANNING ========== -->
+  <div class="section">
+    <div class="nav-section">
+      <h3>📅 Resume du planning de production</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 12px;">
+        <thead>
+          <tr style="background: #1B2E4A; color: white; text-align: left;">
+            <th style="padding: 10px 12px;">Phase</th>
+            <th style="padding: 10px 12px;">Periode</th>
+            <th style="padding: 10px 12px;">Pages</th>
+            <th style="padding: 10px 12px;">Contenu cle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: #fff3e0;">
+            <td style="padding: 10px 12px;"><span class="priority p1">P1</span> Fondations</td>
+            <td style="padding: 10px 12px;">Mois 1-2</td>
+            <td style="padding: 10px 12px; font-weight: 700;">14 pages</td>
+            <td style="padding: 10px 12px;">Accueil, A propos, Remboursement (pilier + 100% Sante + Prix), Meilleur appareil 2026, Symptomes, Classe 1 vs 2, Types appareils, Acouphenes pilier, Legales, RGPD, Contact</td>
+          </tr>
+          <tr style="background: #fff8e1;">
+            <td style="padding: 10px 12px;"><span class="priority p2">P2</span> Expansion</td>
+            <td style="padding: 10px 12px;">Mois 3-4</td>
+            <td style="padding: 10px 12px; font-weight: 700;">30 pages</td>
+            <td style="padding: 10px 12px;">Piliers restants, satellites a fort volume, comparatifs Phonak/Signia/ReSound, FAQ, Trouver audio</td>
+          </tr>
+          <tr style="background: #e8f5e9;">
+            <td style="padding: 10px 12px;"><span class="priority p3">P3</span> Profondeur</td>
+            <td style="padding: 10px 12px;">Mois 5-6</td>
+            <td style="padding: 10px 12px; font-weight: 700;">34 pages</td>
+            <td style="padding: 10px 12px;">Tous satellites restants, HowTo, comparatifs accessoires/apps, Glossaire</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== STRUCTURE URL ========== -->
+  <div class="section">
+    <div class="nav-section">
+      <h3>🌳 Arborescence URL</h3>
+      <pre style="background: #1B2E4A; color: #F8F5F0; padding: 20px; border-radius: 8px; font-size: 13px; overflow-x: auto; line-height: 1.8;">
+leguideauditif.fr/
+├── /                                    ← Accueil
+├── /a-propos/                           ← Confiance E-E-A-T
+├── /contact/                            ← Lead gen
+├── /trouver-audioprothesiste/           ← Lead gen (annuaire)
+├── /glossaire/                          ← SEO longue traine
+├── /faq/                                ← FAQ Schema
+├── /mentions-legales/
+├── /politique-confidentialite/
+│
+├── /guides/
+│   ├── /perte-auditive/                 ← PILIER Cluster 1
+│   │   ├── /symptomes/
+│   │   ├── /causes/
+│   │   ├── /types/
+│   │   ├── /audiogramme/
+│   │   ├── /enfant/
+│   │   ├── /surdite-brusque/
+│   │   ├── /test-auditif-en-ligne/
+│   │   ├── /presbyacousie/
+│   │   └── /quand-consulter-orl/
+│   │
+│   ├── /appareils-auditifs/             ← PILIER Cluster 2
+│   │   ├── /types/
+│   │   ├── /classe-1-vs-classe-2/
+│   │   ├── /premier-appareil/
+│   │   ├── /adaptation/
+│   │   ├── /entretien/
+│   │   ├── /rechargeable-vs-piles/
+│   │   ├── /bluetooth/
+│   │   ├── /invisible/
+│   │   └── /accessoires/
+│   │
+│   ├── /acouphenes/                     ← PILIER Cluster 3
+│   │   ├── /causes/
+│   │   ├── /traitement/
+│   │   ├── /stress/
+│   │   ├── /therapie-sonore/
+│   │   ├── /pulsatiles/
+│   │   ├── /sommeil/
+│   │   ├── /appareil-auditif/
+│   │   ├── /hyperacousie/
+│   │   └── /lenire/
+│   │
+│   ├── /prevention/                     ← PILIER Cluster 4
+│   │   ├── /bruit-travail/
+│   │   ├── /protections-auditives/
+│   │   ├── /ecouteurs-volume/
+│   │   ├── /depistage-auditif/
+│   │   ├── /bilan-auditif-gratuit/
+│   │   ├── /seniors/
+│   │   └── /concerts-festivals/
+│   │
+│   ├── /remboursement/                  ← PILIER Cluster 5 (priorite #1)
+│   │   ├── /100-sante-audition/
+│   │   ├── /prix-appareil-auditif/
+│   │   ├── /mutuelle/
+│   │   ├── /reste-a-charge-zero/
+│   │   ├── /devis/
+│   │   ├── /aides-financieres/
+│   │   └── /renouvellement/
+│   │
+│   ├── /vie-quotidienne/                ← PILIER Cluster 6
+│   │   ├── /telephone/
+│   │   ├── /television/
+│   │   ├── /sport/
+│   │   ├── /voyage/
+│   │   ├── /entourage/
+│   │   ├── /applications/
+│   │   ├── /travail/
+│   │   └── /panne/
+│   │
+│   └── /audioprothesiste/               ← PILIER Cluster 7
+│       ├── /choisir/
+│       ├── /premier-rdv/
+│       ├── /suivi/
+│       ├── /teleaudiologie/
+│       └── /orl-vs-audio/
+│
+└── /comparatifs/                        ← Collection monetisee
+    ├── /meilleur-appareil-auditif-2026/
+    ├── /phonak-vs-signia-vs-resound/
+    ├── /meilleur-appareil-classe-1/
+    ├── /meilleur-intra-auriculaire/
+    ├── /meilleur-appareil-acouphenes/
+    ├── /meilleur-tv-connector/
+    ├── /meilleur-accessoire-auditif/
+    ├── /meilleure-protection-auditive/
+    └── /meilleure-app-audition/
+      </pre>
+    </div>
+  </div>
+
+  <div class="footer">
+    LeGuideAuditif.fr — Plan du site v1.0 — A valider par Franck-Olivier — 7 avril 2026
+  </div>
+
+</div>
+
+<script>
+function toggleCluster(id) {
+  document.getElementById(id).classList.toggle('collapsed');
+}
+function toggleSection(el) {
+  el.classList.toggle('collapsed');
+  const next = el.nextElementSibling;
+  if (next) next.style.display = next.style.display === 'none' ? '' : 'none';
+}
+</script>
+</body>
+</html>
