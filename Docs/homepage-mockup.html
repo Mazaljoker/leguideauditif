@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeGuideAuditif.fr — Le guide independant pour mieux entendre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --marine: #1B2E4A;
+    --creme: #F8F5F0;
+    --orange: #D97B3D;
+    --blanc: #FFFFFF;
+    --marine-light: #2a4268;
+    --orange-hover: #c46a2e;
+    --gris-texte: #4a5568;
+    --gris-clair: #e8e4df;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Merriweather', Georgia, serif;
+    background: var(--creme);
+    color: var(--marine);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6, nav, .btn, .stat-number, .tag, .nav-link, .footer-link, .badge, .author-title, .trust-label {
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+
+  a { color: var(--orange); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== HEADER / NAV ===== */
+  .top-bar {
+    background: var(--marine);
+    color: white;
+    padding: 8px 0;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    letter-spacing: 0.3px;
+  }
+  .top-bar span { opacity: 0.8; }
+
+  header {
+    background: var(--blanc);
+    border-bottom: 1px solid var(--gris-clair);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(27,46,74,0.06);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--marine);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .logo-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--marine);
+    line-height: 1.2;
+  }
+
+  .logo-text small {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--gris-texte);
+    letter-spacing: 0.5px;
+  }
+
+  nav { display: flex; align-items: center; gap: 28px; }
+
+  .nav-link {
+    color: var(--marine);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-link:hover {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+    text-decoration: none;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn:hover { text-decoration: none; }
+
+  .btn-primary {
+    background: var(--orange);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--orange-hover); }
+
+  .btn-secondary {
+    background: var(--blanc);
+    color: var(--marine);
+    border: 2px solid var(--marine);
+  }
+  .btn-secondary:hover { background: var(--marine); color: white; }
+
+  .btn-nav {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--marine) 0%, var(--marine-light) 100%);
+    color: white;
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(217,123,61,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 .highlight {
+    color: var(--orange);
+  }
+
+  .hero p {
+    font-size: 19px;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-author {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 28px;
+    backdrop-filter: blur(10px);
+  }
+
+  .author-photo {
+    width: 80px;
+    height: 80px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    margin-bottom: 16px;
+    border: 3px solid rgba(255,255,255,0.3);
+  }
+
+  .author-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .author-title {
+    font-size: 15px;
+    opacity: 0.8;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .author-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* ===== TRUST BAR ===== */
+  .trust-bar {
+    background: var(--blanc);
+    border-bottom: 1px solid var(--gris-clair);
+    padding: 24px 0;
+  }
+
+  .trust-items {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--marine);
+  }
+
+  .trust-icon {
+    font-size: 24px;
+  }
+
+  /* ===== SECTION STYLES ===== */
+  section {
+    padding: 72px 0;
+  }
+
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--gris-texte);
+    font-size: 18px;
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ===== GUIDES GRID ===== */
+  .guides-section { background: var(--creme); }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .guide-card {
+    background: var(--blanc);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(27,46,74,0.06);
+    transition: all 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(27,46,74,0.12);
+    text-decoration: none;
+  }
+
+  .card-visual {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    position: relative;
+  }
+
+  .card-visual.perte { background: linear-gradient(135deg, #e8edf5, #d4dce8); }
+  .card-visual.appareils { background: linear-gradient(135deg, #e0ecff, #c8d9f5); }
+  .card-visual.acouphenes { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+  .card-visual.prevention { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+  .card-visual.remboursement { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+  .card-visual.vie { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+  .card-visual.audio { background: linear-gradient(135deg, #e0f2f1, #b2dfdb); }
+
+  .card-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--marine);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .card-body {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-body h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--marine);
+  }
+
+  .card-body p {
+    color: var(--gris-texte);
+    font-size: 15px;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--orange);
+    margin-top: 16px;
+  }
+
+  /* ===== COMPARATIF BANNER ===== */
+  .comparatif-section {
+    background: var(--marine);
+    color: white;
+    padding: 64px 0;
+  }
+
+  .comparatif-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .comparatif-inner h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .comparatif-inner h2 .highlight { color: var(--orange); }
+
+  .comparatif-inner p {
+    font-size: 17px;
+    opacity: 0.85;
+    margin-bottom: 28px;
+  }
+
+  .comparatif-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mini-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .mini-card:hover { background: rgba(255,255,255,0.14); }
+
+  .mini-card .emoji { font-size: 24px; }
+  .mini-card .arrow { margin-left: auto; opacity: 0.5; }
+
+  /* ===== CHIFFRES CLES ===== */
+  .stats-section { background: var(--blanc); }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 32px 20px;
+    border-radius: 16px;
+    background: var(--creme);
+  }
+
+  .stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-unit {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--marine);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .stat-desc {
+    font-size: 14px;
+    color: var(--gris-texte);
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ===== FAQ APERCU ===== */
+  .faq-section { background: var(--creme); }
+
+  .faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--blanc);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(27,46,74,0.05);
+  }
+
+  .faq-question {
+    padding: 20px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--marine);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-answer {
+    padding: 0 24px 20px;
+    color: var(--gris-texte);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ===== CTA FINAL ===== */
+  .cta-section {
+    background: linear-gradient(135deg, var(--orange) 0%, #c46a2e 100%);
+    color: white;
+    padding: 72px 0;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-white {
+    background: white;
+    color: var(--marine);
+    font-size: 18px;
+    padding: 16px 36px;
+    border-radius: 10px;
+  }
+  .btn-white:hover { background: var(--creme); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--marine);
+    color: white;
+    padding: 56px 0 32px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand p {
+    font-size: 15px;
+    opacity: 0.7;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .footer-col h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+
+  .footer-link {
+    display: block;
+    color: white;
+    opacity: 0.8;
+    font-size: 15px;
+    padding: 4px 0;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+  }
+  .footer-link:hover { opacity: 1; color: var(--orange); text-decoration: none; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    opacity: 0.5;
+  }
+
+  /* ===== DISCLAIMER ===== */
+  .health-disclaimer {
+    max-width: 780px;
+    margin: 0 auto 0;
+    background: #fef9f0;
+    border: 1px solid #f0dcc4;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--gris-texte);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .health-disclaimer strong { color: var(--marine); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 32px; }
+    .guides-grid { grid-template-columns: 1fr; }
+    .comparatif-inner { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    nav { display: none; }
+  }
+
+  /* ===== MOCKUP WATERMARK ===== */
+  .watermark {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    background: var(--orange);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="watermark">Maquette v1 — a valider</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>Guide independant redige par un audioprothesiste diplome d'Etat — 25 ans d'experience</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">👂</div>
+      <div class="logo-text">
+        LeGuideAuditif
+        <small>Le guide independant pour mieux entendre</small>
+      </div>
+    </div>
+    <nav>
+      <a href="/guides/perte-auditive/" class="nav-link">Perte auditive</a>
+      <a href="/guides/appareils-auditifs/" class="nav-link">Appareils</a>
+      <a href="/guides/acouphenes/" class="nav-link">Acouphenes</a>
+      <a href="/guides/remboursement/" class="nav-link">Prix & remboursement</a>
+      <a href="/comparatifs/meilleur-appareil-auditif-2026/" class="nav-link">Comparatifs</a>
+      <a href="/trouver-audioprothesiste/" class="btn btn-primary btn-nav">Trouver un audio</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div>
+        <h1>Vous entendez moins bien ?<br><span class="highlight">On vous explique tout.</span></h1>
+        <p>Perte auditive, appareils, remboursement, acouphenes... Des guides clairs, ecrits par un audioprothesiste independant. Pas de jargon, pas de publicite deguisee — juste l'essentiel pour prendre les bonnes decisions.</p>
+        <div class="hero-ctas">
+          <a href="/guides/remboursement/" class="btn btn-primary">Comprendre le remboursement →</a>
+          <a href="/comparatifs/meilleur-appareil-auditif-2026/" class="btn btn-secondary" style="color:white; border-color: rgba(255,255,255,0.4);">Voir le comparatif 2026</a>
+        </div>
+      </div>
+      <div class="hero-author">
+        <div class="author-photo">FO</div>
+        <div class="author-name">Franck-Olivier</div>
+        <div class="author-title">Audioprothesiste diplome d'Etat<br>25+ ans d'experience — 18 centres Alain Afflelou</div>
+        <div class="author-badges">
+          <span class="badge">🎓 Diplome d'Etat</span>
+          <span class="badge">🏥 25 ans terrain</span>
+          <span class="badge">🔬 100% independant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-items">
+    <div class="trust-item"><span class="trust-icon">🔬</span> Sources medicales verifiees (HAS, INSERM)</div>
+    <div class="trust-item"><span class="trust-icon">🚫</span> Aucun lien avec un fabricant</div>
+    <div class="trust-item"><span class="trust-icon">📅</span> Contenu mis a jour en 2026</div>
+    <div class="trust-item"><span class="trust-icon">💶</span> Tarifs 100% Sante inclus</div>
+  </div>
+</div>
+
+<!-- GUIDES -->
+<section class="guides-section">
+  <div class="container">
+    <h2 class="section-title">Nos guides pour mieux entendre</h2>
+    <p class="section-subtitle">Chaque guide est redige avec l'expertise de 25 ans de pratique en audioprothese.</p>
+
+    <div class="guides-grid">
+
+      <a href="/guides/remboursement/" class="guide-card">
+        <div class="card-visual remboursement">💰<span class="card-tag">Populaire</span></div>
+        <div class="card-body">
+          <h3>Prix et remboursement</h3>
+          <p>100% Sante, mutuelles, reste a charge zero... Tout comprendre pour ne pas payer plus que necessaire.</p>
+          <span class="card-link">Lire le guide →</span>
+        </div>
+      </a>
+
+      <a href="/guides/appareils-auditifs/" class="guide-card">
+        <div class="card-visual appareils">🔊</div>
+        <div class="card-body">
+          <h3>Choisir son appareil auditif</h3>
+          <p>Contour, intra, invisible, rechargeable... Les criteres qui comptent vraiment pour votre quotidien.</p>
+          <span class="card-link">Lire le guide →</span>
+        </div>
+      </a>
+
+      <a href="/guides/perte-auditive/" class="guide-card">
+        <div class="card-visual perte">👂</div>
+        <div class="card-body">
+          <h3>Comprendre la perte auditive</h3>
+          <p>Symptomes, causes, types de surdite et quand consulter. Le point de depart pour agir.</p>
+          <span class="card-link">Lire le guide →</span>
+        </div>
+      </a>
+
+      <a href="/guides/acouphenes/" class="guide-card">
+        <div class="card-visual acouphenes">🔔</div>
+        <div class="card-body">
+          <h3>Acouphenes</h3>
+          <p>Comprendre ces bruits fantomes, les traitements qui marchent et comment retrouver le calme.</p>
+          <span class="card-link">Lire le guide →</span>
+        </div>
+      </a>
+
+      <a href="/guides/prevention/" class="guide-card">
+        <div class="card-visual prevention">🛡️</div>
+        <div class="card-body">
+          <h3>Proteger votre audition</h3>
+          <p>Bruit au travail, ecouteurs, concerts... Comment preserver votre capital auditif au quotidien.</p>
+          <span class="card-link">Lire le guide →</span>
+        </div>
+      </a>
+
+      <a href="/guides/vie-quotidienne/" class="guide-card">
+        <div class="card-visual vie">🏠</div>
+        <div class="card-body">
+          <h3>Vivre avec ses appareils</h3>
+          <p>Telephone, television, sport, voyage... Tous les conseils pratiques pour votre quotidien.</p>
+          <span class="card-link">Lire le guide →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIF BANNER -->
+<section class="comparatif-section">
+  <div class="container">
+    <div class="comparatif-inner">
+      <div>
+        <h2>Nos comparatifs<br><span class="highlight">independants</span></h2>
+        <p>Nous testons et comparons les appareils auditifs des grandes marques avec un seul objectif : vous aider a trouver celui qui correspond a votre situation et a votre budget.</p>
+        <a href="/comparatifs/meilleur-appareil-auditif-2026/" class="btn btn-primary">Voir tous les comparatifs →</a>
+      </div>
+      <div class="comparatif-cards">
+        <div class="mini-card">
+          <span class="emoji">🏆</span>
+          <span>Meilleur appareil auditif 2026</span>
+          <span class="arrow">→</span>
+        </div>
+        <div class="mini-card">
+          <span class="emoji">💶</span>
+          <span>Meilleur appareil Classe 1 (reste a charge 0€)</span>
+          <span class="arrow">→</span>
+        </div>
+        <div class="mini-card">
+          <span class="emoji">⚔️</span>
+          <span>Phonak vs Signia vs ReSound</span>
+          <span class="arrow">→</span>
+        </div>
+        <div class="mini-card">
+          <span class="emoji">👁️</span>
+          <span>Meilleur appareil invisible</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHIFFRES CLES -->
+<section class="stats-section">
+  <div class="container">
+    <h2 class="section-title">L'audition en France — les chiffres</h2>
+    <p class="section-subtitle">Des donnees pour comprendre l'importance de la sante auditive.</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">6M</div>
+        <div class="stat-unit">de Francais</div>
+        <div class="stat-desc">souffrent de perte auditive</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0€</div>
+        <div class="stat-unit">de reste a charge</div>
+        <div class="stat-desc">possible avec le 100% Sante</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7</div>
+        <div class="stat-unit">ans en moyenne</div>
+        <div class="stat-desc">entre premiers symptomes et appareillage</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">950€</div>
+        <div class="stat-unit">max par oreille</div>
+        <div class="stat-desc">pour un appareil Classe 1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ APERCU -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title">Questions frequentes</h2>
+    <p class="section-subtitle">Les reponses aux questions que vous vous posez le plus souvent.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Combien coute un appareil auditif en 2026 ?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Un appareil auditif coute entre 0€ (Classe 1, 100% Sante) et 2 200€ par oreille (Classe 2 premium). La Securite sociale rembourse 240€/oreille en base. Votre mutuelle peut couvrir le reste selon votre contrat.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>C'est quoi le 100% Sante audition ?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Le 100% Sante est une reforme qui garantit un reste a charge de 0€ pour les appareils auditifs Classe 1 (plafonnes a 950€/oreille). Si vous avez une mutuelle responsable, vous ne payez rien.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Comment savoir si j'ai besoin d'un appareil auditif ?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Si vous faites repeter regulierement, montez le volume de la TV, ou avez du mal a suivre les conversations en groupe, consultez votre medecin puis un ORL. Un audiogramme determinera votre niveau de perte.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Quelle est la difference entre Classe 1 et Classe 2 ?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Les appareils Classe 1 sont plafonnes a 950€ avec un reste a charge de 0€ — ils offrent une bonne correction de base. Les appareils Classe 2 (prix libre) proposent plus de canaux, une meilleure reduction de bruit et le Bluetooth.
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 28px;">
+      <a href="/faq/" class="btn btn-secondary">Voir toutes les questions →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Pret a prendre soin de votre audition ?</h2>
+    <p>Trouvez un audioprothesiste qualifie pres de chez vous pour un bilan auditif gratuit et sans engagement.</p>
+    <a href="/trouver-audioprothesiste/" class="btn btn-white">Trouver un audioprothesiste →</a>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div style="padding: 24px 20px; background: var(--creme);">
+  <div class="health-disclaimer">
+    <strong>Information sante :</strong> Ce site est a visee informative et ne remplace pas une consultation medicale. Consultez votre medecin ou un ORL pour tout probleme d'audition.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text" style="color: white;">LeGuideAuditif<br><small style="color: rgba(255,255,255,0.5);">Le guide independant pour mieux entendre</small></div>
+        <p>Redige par Franck-Olivier, audioprothesiste DE avec 25 ans d'experience. Contenu independant, sources medicales verifiees.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <a href="/guides/perte-auditive/" class="footer-link">Perte auditive</a>
+        <a href="/guides/appareils-auditifs/" class="footer-link">Appareils auditifs</a>
+        <a href="/guides/acouphenes/" class="footer-link">Acouphenes</a>
+        <a href="/guides/prevention/" class="footer-link">Prevention</a>
+        <a href="/guides/remboursement/" class="footer-link">Remboursement</a>
+        <a href="/guides/vie-quotidienne/" class="footer-link">Vie quotidienne</a>
+        <a href="/guides/audioprothesiste/" class="footer-link">L'audioprothesiste</a>
+      </div>
+      <div class="footer-col">
+        <h4>Comparatifs</h4>
+        <a href="/comparatifs/meilleur-appareil-auditif-2026/" class="footer-link">Meilleur appareil 2026</a>
+        <a href="/comparatifs/meilleur-appareil-classe-1/" class="footer-link">Meilleur Classe 1</a>
+        <a href="/comparatifs/phonak-vs-signia-vs-resound/" class="footer-link">Phonak vs Signia vs ReSound</a>
+        <a href="/comparatifs/meilleur-intra-auriculaire/" class="footer-link">Meilleur invisible</a>
+      </div>
+      <div class="footer-col">
+        <h4>Le site</h4>
+        <a href="/a-propos/" class="footer-link">A propos</a>
+        <a href="/contact/" class="footer-link">Contact</a>
+        <a href="/trouver-audioprothesiste/" class="footer-link">Trouver un audio</a>
+        <a href="/glossaire/" class="footer-link">Glossaire</a>
+        <a href="/faq/" class="footer-link">FAQ</a>
+        <a href="/mentions-legales/" class="footer-link">Mentions legales</a>
+        <a href="/politique-confidentialite/" class="footer-link">Confidentialite</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 LeGuideAuditif.fr — Tous droits reserves</span>
+      <span>Contenu verifie par un audioprothesiste DE</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

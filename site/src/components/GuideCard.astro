@@ -1,0 +1,30 @@
+---
+interface Props {
+  href: string;
+  emoji: string;
+  title: string;
+  description: string;
+  visualClass: string;
+  tag?: string;
+}
+
+const { href, emoji, title, description, visualClass, tag } = Astro.props;
+---
+
+<a href={href} class="group bg-blanc rounded-2xl overflow-hidden shadow-[0_2px_12px_rgba(27,46,74,0.06)] hover:shadow-[0_8px_32px_rgba(27,46,74,0.12)] hover:-translate-y-1 transition-all duration-250 no-underline text-inherit flex flex-col hover:no-underline">
+  <div class:list={['h-40 flex items-center justify-center text-[56px] relative', visualClass]}>
+    <span aria-hidden="true">{emoji}</span>
+    {tag && (
+      <span class="absolute top-3 right-3 font-sans text-[11px] font-semibold uppercase tracking-widest bg-marine text-white px-2.5 py-1 rounded">
+        {tag}
+      </span>
+    )}
+  </div>
+  <div class="p-6 flex-1 flex flex-col">
+    <h3 class="font-sans text-[19px] font-bold text-marine mb-2">{title}</h3>
+    <p class="text-gris-texte text-[15px] leading-relaxed flex-1">{description}</p>
+    <span class="inline-flex items-center gap-1.5 font-sans text-sm font-semibold text-orange mt-4 group-hover:gap-2.5 transition-all">
+      Lire le guide &rarr;
+    </span>
+  </div>
+</a>

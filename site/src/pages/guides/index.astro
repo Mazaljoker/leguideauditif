@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const guides = await getCollection('guides');
+const grouped = guides.reduce<Record<string, typeof guides>>((acc, guide) => {
+  const cluster = guide.data.cluster;
+  if (!acc[cluster]) acc[cluster] = [];
+  acc[cluster].push(guide);
+  return acc;
+}, {});
+
+const clusterLabels: Record<string, string> = {
+  'perte-auditive': 'Perte auditive',
+  'appareils-auditifs': 'Appareils auditifs',
+  'acouphenes': 'Acouphenes',
+  'prevention': 'Prevention',
+  'remboursement': 'Remboursement',
+  'vie-quotidienne': 'Vie quotidienne',
+  'audioprothesiste': "L'audioprothesiste",
+};
+---
+
+<BaseLayout
+  title="Tous nos guides — LeGuideAuditif.fr"
+  description="Retrouvez tous nos guides sur l'audition : perte auditive, appareils, acouphenes, remboursement, prevention et vie quotidienne."
+>
+  <section class="bg-creme py-16">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <h1 class="font-sans text-[38px] font-extrabold text-marine text-center mb-4">Nos guides</h1>
+      <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto">
+        Tous nos contenus sur la sante auditive, rediges par un audioprothesiste DE.
+      </p>
+
+      {Object.entries(clusterLabels).map(([cluster, label]) => {
+        const entries = grouped[cluster];
+        if (!entries || entries.length === 0) return null;
+        return (
+          <div class="mb-12">
+            <h2 class="font-sans text-2xl font-bold text-marine mb-6">{label}</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {entries.map((guide) => (
+                <a
+                  href={`/guides/${guide.id}/`}
+                  class="bg-blanc rounded-xl p-6 shadow-[0_2px_8px_rgba(27,46,74,0.06)] hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline hover:no-underline"
+                >
+                  <h3 class="font-sans text-lg font-bold text-marine mb-2">{guide.data.title}</h3>
+                  <p class="text-sm text-gris-texte leading-relaxed">{guide.data.metaDescription}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+</BaseLayout>

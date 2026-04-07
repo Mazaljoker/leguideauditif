@@ -1,0 +1,26 @@
+---
+interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { headings } = Astro.props;
+const h2s = headings.filter((h) => h.depth === 2);
+---
+
+{h2s.length > 0 && (
+  <nav class="bg-blanc border border-gris-clair rounded-2xl p-6 my-8" aria-label="Sommaire">
+    <h2 class="font-sans text-lg font-bold text-marine mb-3">Sommaire</h2>
+    <ol class="list-decimal list-inside space-y-2">
+      {h2s.map((heading) => (
+        <li>
+          <a
+            href={`#${heading.slug}`}
+            class="font-sans text-[15px] text-gris-texte hover:text-orange transition-colors"
+          >
+            {heading.text}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}

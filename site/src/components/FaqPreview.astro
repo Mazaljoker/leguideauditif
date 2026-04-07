@@ -1,0 +1,65 @@
+---
+const faqs = [
+  {
+    question: 'Combien coute un appareil auditif en 2026 ?',
+    answer: "Un appareil auditif coute entre 0\u20AC (Classe 1, 100% Sante) et 2 200\u20AC par oreille (Classe 2 premium). La Securite sociale rembourse 240\u20AC/oreille en base. Votre mutuelle peut couvrir le reste selon votre contrat.",
+  },
+  {
+    question: "C'est quoi le 100% Sante audition ?",
+    answer: "Le 100% Sante est une reforme qui garantit un reste a charge de 0\u20AC pour les appareils auditifs Classe 1 (plafonnes a 950\u20AC/oreille). Si vous avez une mutuelle responsable, vous ne payez rien.",
+  },
+  {
+    question: "Comment savoir si j'ai besoin d'un appareil auditif ?",
+    answer: "Si vous faites repeter regulierement, montez le volume de la TV, ou avez du mal a suivre les conversations en groupe, consultez votre medecin puis un ORL. Un audiogramme determinera votre niveau de perte.",
+  },
+  {
+    question: 'Quelle est la difference entre Classe 1 et Classe 2 ?',
+    answer: "Les appareils Classe 1 sont plafonnes a 950\u20AC avec un reste a charge de 0\u20AC — ils offrent une bonne correction de base. Les appareils Classe 2 (prix libre) proposent plus de canaux, une meilleure reduction de bruit et le Bluetooth.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<section class="bg-creme py-18">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <h2 class="font-sans text-[32px] font-extrabold text-center mb-3">Questions frequentes</h2>
+    <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto">
+      Les reponses aux questions que vous vous posez le plus souvent.
+    </p>
+    <div class="max-w-[780px] mx-auto">
+      {faqs.map((faq) => (
+        <details class="bg-blanc rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
+          <summary class="px-6 py-5 font-sans text-[17px] font-semibold text-marine cursor-pointer list-none flex justify-between items-center">
+            <span>{faq.question}</span>
+            <span class="text-xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-6 pb-5 text-gris-texte text-base leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+    <div class="text-center mt-7">
+      <a
+        href="/faq/"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-blanc text-marine font-sans text-base font-semibold rounded-lg border-2 border-marine hover:bg-marine hover:text-white transition-colors no-underline hover:no-underline"
+      >
+        Voir toutes les questions &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

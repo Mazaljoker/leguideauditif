@@ -1,0 +1,19 @@
+---
+const items = [
+  { icon: '&#x1F52C;', label: 'Sources medicales verifiees (HAS, INSERM)' },
+  { icon: '&#x1F6AB;', label: 'Aucun lien avec un fabricant' },
+  { icon: '&#x1F4C5;', label: 'Contenu mis a jour en 2026' },
+  { icon: '&#x1F4B6;', label: 'Tarifs 100% Sante inclus' },
+];
+---
+
+<div class="bg-blanc border-b border-gris-clair py-6">
+  <div class="max-w-[1140px] mx-auto px-5 flex flex-wrap justify-center gap-8 lg:gap-12">
+    {items.map((item) => (
+      <div class="flex items-center gap-2.5 font-sans text-[15px] font-medium text-marine">
+        <span class="text-2xl" aria-hidden="true" set:html={item.icon} />
+        <span>{item.label}</span>
+      </div>
+    ))}
+  </div>
+</div>

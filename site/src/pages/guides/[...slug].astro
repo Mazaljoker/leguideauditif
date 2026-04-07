@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const { title, metaDescription, cluster, author, authorTitle, publishDate, updateDate, sources, faq } = entry.data;
+---
+
+<GuideLayout
+  title={title}
+  metaDescription={metaDescription}
+  cluster={cluster}
+  author={author}
+  authorTitle={authorTitle}
+  publishDate={publishDate}
+  updateDate={updateDate}
+  headings={headings}
+  sources={sources}
+  faq={faq}
+>
+  <Content />
+</GuideLayout>

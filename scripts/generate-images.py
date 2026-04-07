@@ -53,10 +53,10 @@ except ImportError:
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIRS = [
-    PROJECT_ROOT / "src" / "content" / "guides",
-    PROJECT_ROOT / "src" / "content" / "comparatifs",
+    PROJECT_ROOT / "site" / "src" / "content" / "guides",
+    PROJECT_ROOT / "site" / "src" / "content" / "comparatifs",
 ]
-IMAGE_OUTPUT_DIR = PROJECT_ROOT / "public" / "images" / "blog"
+IMAGE_OUTPUT_DIR = PROJECT_ROOT / "site" / "public" / "images" / "blog"
 
 # LeGuideAuditif Palette — Chaleureux Senior
 PALETTE = {
@@ -220,7 +220,11 @@ def scan_articles(slug_filter: str | None = None) -> list[dict[str, Any]]:
                 log.debug(f"Skipping draft: {filepath.stem}")
                 continue
 
-            slug = filepath.stem
+            # Build slug: use parent dir for index files to avoid collisions
+            if filepath.stem == "index":
+                slug = filepath.parent.name
+            else:
+                slug = filepath.stem
             if slug_filter and slug != slug_filter:
                 continue
 
@@ -235,7 +239,8 @@ def scan_articles(slug_filter: str | None = None) -> list[dict[str, Any]]:
                 log.debug(f"Images exist for {slug}, skipping")
                 continue
 
-            category = fm.get("category", "")
+            # Use "category" for comparatifs, "cluster" for guides
+            category = fm.get("category", "") or fm.get("cluster", "")
             is_comparatif = collection_type == "comparatifs"
 
             articles.append({
@@ -311,7 +316,7 @@ def generate_image(
             config=types.GenerateImagesConfig(
                 number_of_images=1,
                 aspect_ratio=aspect_ratio,
-                safety_filter_level="BLOCK_ONLY_HIGH",
+                safety_filter_level="BLOCK_LOW_AND_ABOVE",
             ),
         )
 

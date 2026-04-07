@@ -1,0 +1,44 @@
+---
+const miniCards = [
+  { emoji: '&#x1F3C6;', label: 'Meilleur appareil auditif 2026', href: '/comparatifs/meilleur-appareil-auditif-2026/' },
+  { emoji: '&#x1F4B6;', label: 'Meilleur appareil Classe 1 (reste a charge 0\u20AC)', href: '/comparatifs/meilleur-appareil-classe-1/' },
+  { emoji: '&#x2694;&#xFE0F;', label: 'Phonak vs Signia vs ReSound', href: '/comparatifs/phonak-vs-signia-vs-resound/' },
+  { emoji: '&#x1F441;&#xFE0F;', label: 'Meilleur appareil invisible', href: '/comparatifs/meilleur-intra-auriculaire/' },
+];
+---
+
+<section class="bg-marine text-white py-16">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left -->
+      <div>
+        <h2 class="font-sans text-[32px] font-extrabold mb-4">
+          Nos comparatifs<br /><span class="text-orange">independants</span>
+        </h2>
+        <p class="text-[17px] opacity-85 mb-7">
+          Nous testons et comparons les appareils auditifs des grandes marques avec un seul objectif : vous aider a trouver celui qui correspond a votre situation et a votre budget.
+        </p>
+        <a
+          href="/comparatifs/meilleur-appareil-auditif-2026/"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-orange text-white font-sans text-base font-semibold rounded-lg hover:bg-orange-hover transition-colors no-underline hover:no-underline"
+        >
+          Voir tous les comparatifs &rarr;
+        </a>
+      </div>
+
+      <!-- Right: Mini cards -->
+      <div class="flex flex-col gap-3">
+        {miniCards.map((card) => (
+          <a
+            href={card.href}
+            class="bg-white/8 border border-white/12 rounded-xl px-5 py-4 flex items-center gap-3.5 font-sans text-[15px] font-medium hover:bg-white/14 transition-colors no-underline text-white hover:no-underline"
+          >
+            <span class="text-2xl" aria-hidden="true" set:html={card.emoji} />
+            <span>{card.label}</span>
+            <span class="ml-auto opacity-50">&rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+{
+  "date": "2026-04-07T08:00:11.951349",
+  "model": "imagen-4.0-generate-001",
+  "dry_run": false,
+  "generated": [
+    {
+      "slug": "acouphenes",
+      "title": "Acouphenes : comprendre, soulager, vivre avec",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\acouphenes\\acouphenes.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\acouphenes\\acouphenes-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "classe-1-vs-classe-2",
+      "title": "Classe 1 vs Classe 2 : quelles differences concretes ?",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\classe-1-vs-classe-2\\classe-1-vs-classe-2.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\classe-1-vs-classe-2\\classe-1-vs-classe-2-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "types",
+      "title": "Contour, intra, RIC, invisible : quel type choisir ?",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\types\\types.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\types\\types-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "symptomes",
+      "title": "Les 7 symptomes d'une perte auditive",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\symptomes\\symptomes.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\symptomes\\symptomes-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "100-sante-audition",
+      "title": "100% Sante audition : tout comprendre en 5 minutes",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\100-sante-audition\\100-sante-audition.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\100-sante-audition\\100-sante-audition-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "remboursement",
+      "title": "Remboursement des appareils auditifs en 2026 : le guide complet",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\remboursement\\remboursement.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\remboursement\\remboursement-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "prix-appareil-auditif",
+      "title": "Prix d'un appareil auditif en 2026 : tous les tarifs",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\prix-appareil-auditif\\prix-appareil-auditif.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\prix-appareil-auditif\\prix-appareil-auditif-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "meilleur-appareil-auditif-2026",
+      "title": "Meilleur appareil auditif 2026 : notre classement",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\meilleur-appareil-auditif-2026\\meilleur-appareil-auditif-2026.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\meilleur-appareil-auditif-2026\\meilleur-appareil-auditif-2026-og.webp"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "skipped": []
+}

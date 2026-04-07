@@ -1,0 +1,26 @@
+---
+const stats = [
+  { number: '6M', unit: 'de Francais', desc: 'souffrent de perte auditive' },
+  { number: '0\u20AC', unit: 'de reste a charge', desc: 'possible avec le 100% Sante' },
+  { number: '7', unit: 'ans en moyenne', desc: 'entre premiers symptomes et appareillage' },
+  { number: '950\u20AC', unit: 'max par oreille', desc: 'pour un appareil Classe 1' },
+];
+---
+
+<section class="bg-blanc py-18">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <h2 class="font-sans text-[32px] font-extrabold text-center mb-3">L'audition en France — les chiffres</h2>
+    <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto">
+      Des donnees pour comprendre l'importance de la sante auditive.
+    </p>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((stat) => (
+        <div class="text-center p-8 rounded-2xl bg-creme">
+          <div class="font-sans text-5xl font-extrabold text-orange leading-none mb-2">{stat.number}</div>
+          <div class="font-sans text-base font-semibold text-marine mb-1">{stat.unit}</div>
+          <div class="font-sans text-sm text-gris-texte">{stat.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

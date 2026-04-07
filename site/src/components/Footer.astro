@@ -1,0 +1,83 @@
+---
+const guideLinks = [
+  { href: '/guides/perte-auditive/', label: 'Perte auditive' },
+  { href: '/guides/appareils-auditifs/', label: 'Appareils auditifs' },
+  { href: '/guides/acouphenes/', label: 'Acouphenes' },
+  { href: '/guides/prevention/', label: 'Prevention' },
+  { href: '/guides/remboursement/', label: 'Remboursement' },
+  { href: '/guides/vie-quotidienne/', label: 'Vie quotidienne' },
+  { href: '/guides/audioprothesiste/', label: "L'audioprothesiste" },
+];
+
+const comparatifLinks = [
+  { href: '/comparatifs/meilleur-appareil-auditif-2026/', label: 'Meilleur appareil 2026' },
+  { href: '/comparatifs/meilleur-appareil-classe-1/', label: 'Meilleur Classe 1' },
+  { href: '/comparatifs/phonak-vs-signia-vs-resound/', label: 'Phonak vs Signia vs ReSound' },
+  { href: '/comparatifs/meilleur-intra-auriculaire/', label: 'Meilleur invisible' },
+];
+
+const siteLinks = [
+  { href: '/a-propos/', label: 'A propos' },
+  { href: '/contact/', label: 'Contact' },
+  { href: '/trouver-audioprothesiste/', label: 'Trouver un audio' },
+  { href: '/glossaire/', label: 'Glossaire' },
+  { href: '/faq/', label: 'FAQ' },
+  { href: '/mentions-legales/', label: 'Mentions legales' },
+  { href: '/politique-confidentialite/', label: 'Confidentialite' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-marine text-white pt-14 pb-8">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-10 mb-10">
+      <!-- Brand -->
+      <div>
+        <div class="font-sans font-extrabold text-xl leading-tight">
+          LeGuideAuditif
+          <small class="block font-normal text-xs text-white/50">Le guide independant pour mieux entendre</small>
+        </div>
+        <p class="text-[15px] opacity-70 mt-3 leading-relaxed">
+          Redige par Franck-Olivier, audioprothesiste DE avec 25 ans d'experience. Contenu independant, sources medicales verifiees.
+        </p>
+      </div>
+
+      <!-- Guides -->
+      <div>
+        <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Guides</h4>
+        {guideLinks.map((link) => (
+          <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Comparatifs -->
+      <div>
+        <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Comparatifs</h4>
+        {comparatifLinks.map((link) => (
+          <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Le site -->
+      <div>
+        <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Le site</h4>
+        {siteLinks.map((link) => (
+          <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center font-sans text-[13px] opacity-50 gap-2">
+      <span>&copy; {year} LeGuideAuditif.fr — Tous droits reserves</span>
+      <span>Contenu verifie par un audioprothesiste DE</span>
+    </div>
+  </div>
+</footer>

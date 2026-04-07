@@ -1,0 +1,173 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+import HealthDisclaimer from '../components/HealthDisclaimer.astro';
+
+interface Product {
+  brand: string;
+  model: string;
+  type?: string;
+  class?: string;
+  priceRange: string;
+  channels?: number;
+  bluetooth: boolean;
+  rechargeable: boolean;
+  warrantyYears: number;
+  verdict: string;
+  bestFor: string;
+  affiliateUrl?: string;
+}
+
+interface Props {
+  title: string;
+  metaDescription: string;
+  category: string;
+  author: string;
+  authorTitle: string;
+  publishDate: Date;
+  updateDate?: Date;
+  headings: { depth: number; slug: string; text: string }[];
+  products?: Product[];
+  faq?: { question: string; answer: string }[];
+}
+
+const {
+  title,
+  metaDescription,
+  category,
+  author,
+  authorTitle,
+  publishDate,
+  updateDate,
+  headings,
+  products,
+  faq,
+} = Astro.props;
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Comparatifs', href: '/comparatifs/' },
+  { label: title },
+];
+
+const articleSchema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: metaDescription,
+  author: {
+    '@type': 'Person',
+    name: author,
+    jobTitle: authorTitle,
+  },
+  datePublished: publishDate.toISOString(),
+  ...(updateDate && { dateModified: updateDate.toISOString() }),
+  publisher: {
+    '@type': 'Organization',
+    name: 'LeGuideAuditif.fr',
+    url: 'https://leguideauditif.fr',
+  },
+};
+
+const schemas: Record<string, unknown>[] = [articleSchema];
+
+if (products && products.length > 0) {
+  for (const product of products) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: `${product.brand} ${product.model}`,
+      brand: { '@type': 'Brand', name: product.brand },
+      description: product.verdict,
+    });
+  }
+}
+
+if (faq && faq.length > 0) {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  });
+}
+
+const formattedDate = publishDate.toLocaleDateString('fr-FR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${title} — LeGuideAuditif.fr`}
+  description={metaDescription}
+  ogType="article"
+  publishDate={publishDate}
+  updateDate={updateDate}
+  schema={schemas}
+>
+  <div class="bg-creme">
+    <div class="max-w-[780px] mx-auto px-5 py-4">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+
+  <article class="bg-creme pb-16">
+    <div class="max-w-[780px] mx-auto px-5">
+      <header class="mb-8">
+        <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-4">{title}</h1>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-sans text-gris-texte">
+          <span>Par <strong class="text-marine">{author}</strong>, {authorTitle}</span>
+          <span>|</span>
+          <time datetime={publishDate.toISOString()}>Publie le {formattedDate}</time>
+        </div>
+      </header>
+
+      <AffiliateDisclosure />
+
+      <div class="bg-[#fef9f0] border border-[#f0dcc4] rounded-xl px-5 py-4 mb-8 text-sm text-gris-texte font-sans">
+        <strong class="text-marine">Information sante :</strong> Ce contenu est informatif et ne remplace pas une consultation avec un professionnel de sante.
+      </div>
+
+      <TableOfContents headings={headings} />
+
+      <div class="prose prose-lg max-w-none
+        prose-headings:font-sans prose-headings:text-marine prose-headings:font-bold
+        prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
+        prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+        prose-p:text-marine prose-p:leading-relaxed
+        prose-a:text-orange prose-a:font-medium hover:prose-a:underline
+        prose-strong:text-marine
+        prose-li:text-marine
+      ">
+        <slot />
+      </div>
+
+      {faq && faq.length > 0 && (
+        <section class="mt-12">
+          <h2 class="font-sans text-2xl font-bold text-marine mb-6">Questions frequentes</h2>
+          {faq.map((f) => (
+            <details class="bg-blanc rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
+              <summary class="px-6 py-5 font-sans text-[17px] font-semibold text-marine cursor-pointer list-none flex justify-between items-center">
+                <span>{f.question}</span>
+                <span class="text-xl transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <div class="px-6 pb-5 text-gris-texte text-base leading-relaxed">{f.answer}</div>
+            </details>
+          ))}
+        </section>
+      )}
+
+      <AuthorBox name={author} title={authorTitle} />
+    </div>
+  </article>
+
+  <HealthDisclaimer />
+</BaseLayout>

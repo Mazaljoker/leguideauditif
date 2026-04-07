@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+---
+
+<BaseLayout
+  title="A propos — LeGuideAuditif.fr"
+  description="Decouvrez LeGuideAuditif.fr, le guide independant sur l'audition redige par Franck-Olivier, audioprothesiste DE avec 25 ans d'experience."
+>
+  <section class="bg-creme py-16">
+    <div class="max-w-[780px] mx-auto px-5">
+      <h1 class="font-sans text-[38px] font-extrabold text-marine mb-8">A propos de LeGuideAuditif.fr</h1>
+      <p class="text-lg leading-relaxed mb-6">
+        LeGuideAuditif.fr est un site independant d'information sur la sante auditive. Notre mission : vous fournir des guides clairs, honnetes et a jour pour vous aider a comprendre votre audition et prendre les bonnes decisions.
+      </p>
+      <p class="text-lg leading-relaxed mb-6">
+        Tous nos contenus sont rediges ou supervises par un audioprothesiste diplome d'Etat. Nous ne sommes lies a aucun fabricant ni enseigne.
+      </p>
+      <AuthorBox />
+    </div>
+  </section>
+</BaseLayout>
