@@ -12,8 +12,11 @@ const LeadForm: FC = () => {
   if (submitted) {
     return (
       <div className="my-8 rounded-lg border-2 border-[var(--color-success)] bg-[var(--color-success)]/5 p-8 text-center">
-        <p className="text-xl font-semibold text-[var(--color-success)]">
-          ✓ Votre demande a bien été envoyée
+        <p className="text-xl font-semibold text-[var(--color-success)] flex items-center justify-center gap-2">
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+          Votre demande a bien été envoyée
         </p>
         <p className="mt-2 text-[var(--color-gris)]">
           Un audioprothésiste de votre secteur vous contactera sous 48h.

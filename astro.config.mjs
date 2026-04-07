@@ -4,6 +4,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
+import icon from 'astro-icon';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
@@ -12,7 +13,7 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: true },
   }),
-  integrations: [react(), sitemap(), mdx()],
+  integrations: [react(), sitemap(), mdx(), icon()],
   vite: {
     plugins: [tailwindcss()],
   },

@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props {
   name?: string;
   title?: string;
@@ -16,13 +18,13 @@ const { name = 'Franck-Olivier', title = "Audioprothesiste diplome d'Etat, 25+ a
     <div class="font-sans text-sm text-gris-texte mb-3">{title}</div>
     <div class="flex flex-wrap gap-2">
       <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
-        &#x1F393; Diplome d'Etat
+        <Icon name="lucide:graduation-cap" class="w-3.5 h-3.5" aria-hidden="true" /> Diplome d'Etat
       </span>
       <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
-        &#x1F3E5; 18 centres diriges
+        <Icon name="lucide:building-2" class="w-3.5 h-3.5" aria-hidden="true" /> 18 centres diriges
       </span>
       <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
-        &#x1F465; 3000+ patients
+        <Icon name="lucide:users" class="w-3.5 h-3.5" aria-hidden="true" /> 3000+ patients
       </span>
     </div>
     <p class="text-sm text-gris-texte mt-3 leading-relaxed">

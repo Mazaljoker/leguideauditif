@@ -1,9 +1,11 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const items = [
-  { icon: '&#x1F52C;', label: 'Sources medicales verifiees (HAS, INSERM)' },
-  { icon: '&#x1F6AB;', label: 'Aucun lien avec un fabricant' },
-  { icon: '&#x1F4C5;', label: 'Contenu mis a jour en 2026' },
-  { icon: '&#x1F4B6;', label: 'Tarifs 100% Sante inclus' },
+  { icon: 'lucide:microscope', label: 'Sources medicales verifiees (HAS, INSERM)' },
+  { icon: 'lucide:shield-check', label: 'Aucun lien avec un fabricant' },
+  { icon: 'lucide:calendar', label: 'Contenu mis a jour en 2026' },
+  { icon: 'lucide:euro', label: 'Tarifs 100% Sante inclus' },
 ];
 ---
 
@@ -11,7 +13,7 @@ const items = [
   <div class="max-w-[1140px] mx-auto px-5 flex flex-wrap justify-center gap-8 lg:gap-12">
     {items.map((item) => (
       <div class="flex items-center gap-2.5 font-sans text-[15px] font-medium text-marine">
-        <span class="text-2xl" aria-hidden="true" set:html={item.icon} />
+        <Icon name={item.icon} class="w-6 h-6 text-orange" aria-hidden="true" />
         <span>{item.label}</span>
       </div>
     ))}

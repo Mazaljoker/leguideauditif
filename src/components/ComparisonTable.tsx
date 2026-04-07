@@ -21,8 +21,16 @@ interface ComparisonTableProps {
 }
 
 const ComparisonTable: FC<ComparisonTableProps> = ({ products, title }) => {
-  const Check = () => <span className="text-success font-bold">✓</span>;
-  const Cross = () => <span className="text-error font-bold">✗</span>;
+  const Check = () => (
+    <svg className="inline w-5 h-5 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+  const Cross = () => (
+    <svg className="inline w-5 h-5 text-error" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+    </svg>
+  );
 
   return (
     <div className="my-8 overflow-x-auto">

@@ -1,9 +1,11 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const miniCards = [
-  { emoji: '&#x1F3C6;', label: 'Meilleur appareil auditif 2026', href: '/comparatifs/meilleur-appareil-auditif-2026/' },
-  { emoji: '&#x1F4B6;', label: 'Meilleur appareil Classe 1 (reste a charge 0\u20AC)', href: '/comparatifs/meilleur-appareil-classe-1/' },
-  { emoji: '&#x2694;&#xFE0F;', label: 'Phonak vs Signia vs ReSound', href: '/comparatifs/phonak-vs-signia-vs-resound/' },
-  { emoji: '&#x1F441;&#xFE0F;', label: 'Meilleur appareil invisible', href: '/comparatifs/meilleur-intra-auriculaire/' },
+  { icon: 'lucide:trophy', label: 'Meilleur appareil auditif 2026', href: '/comparatifs/meilleur-appareil-auditif-2026/' },
+  { icon: 'lucide:euro', label: 'Meilleur appareil Classe 1 (reste a charge 0\u20AC)', href: '/comparatifs/meilleur-appareil-classe-1/' },
+  { icon: 'lucide:swords', label: 'Phonak vs Signia vs ReSound', href: '/comparatifs/phonak-vs-signia-vs-resound/' },
+  { icon: 'lucide:eye', label: 'Meilleur appareil invisible', href: '/comparatifs/meilleur-intra-auriculaire/' },
 ];
 ---
 
@@ -33,7 +35,7 @@ const miniCards = [
             href={card.href}
             class="bg-white/8 border border-white/12 rounded-xl px-5 py-4 flex items-center gap-3.5 font-sans text-[15px] font-medium hover:bg-white/14 transition-colors no-underline text-white hover:no-underline"
           >
-            <span class="text-2xl" aria-hidden="true" set:html={card.emoji} />
+            <Icon name={card.icon} class="w-6 h-6 text-orange" aria-hidden="true" />
             <span>{card.label}</span>
             <span class="ml-auto opacity-50">&rarr;</span>
           </a>
