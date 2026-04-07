@@ -1,10 +1,10 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../../components/Breadcrumbs.astro';
-import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
-import AudioMap from '../../../components/AudioMap.tsx';
-import '../../../styles/audiomap.css';
-import rawData from '../../../data/audioprothesistes.json';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
+import AudioMap from '../../components/AudioMap.tsx';
+import '../../styles/audiomap.css';
+import rawData from '../../data/audioprothesistes.json';
 const audioprothesistes = Array.isArray(rawData) ? rawData : (rawData as any).default ?? [];
 
 const title = 'Trouver un audioprothesiste pres de chez vous | LeGuideAuditif';
@@ -22,7 +22,7 @@ const schemaWebPage = {
   '@type': 'WebPage',
   name: title,
   description,
-  url: 'https://leguideauditif.fr/fr/trouver-mon-audio/',
+  url: 'https://leguideauditif.fr/trouver-audioprothesiste/',
   isPartOf: {
     '@type': 'WebSite',
     name: 'LeGuideAuditif',
@@ -33,7 +33,7 @@ const schemaWebPage = {
     target: {
       '@type': 'EntryPoint',
       urlTemplate:
-        'https://leguideauditif.fr/fr/trouver-mon-audio/?q={search_term_string}',
+        'https://leguideauditif.fr/trouver-audioprothesiste/?q={search_term_string}',
     },
     'query-input': 'required name=search_term_string',
   },
@@ -53,7 +53,7 @@ const schemaLocalBusinesses = audioprothesistes.slice(0, 50).map((centre: {
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': `https://leguideauditif.fr/fr/trouver-mon-audio/#${centre.cp}-${centre.nom.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`,
+  '@id': `https://leguideauditif.fr/trouver-audioprothesiste/#${centre.cp}-${centre.nom.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`,
   name: centre.nom,
   address: {
     '@type': 'PostalAddress',
@@ -80,7 +80,7 @@ const allSchemas = [schemaWebPage, ...schemaLocalBusinesses];
 <BaseLayout
   title={title}
   description={description}
-  canonical="https://leguideauditif.fr/fr/trouver-mon-audio/"
+  canonical="https://leguideauditif.fr/trouver-audioprothesiste/"
   ogType="website"
   schema={allSchemas}
 >
