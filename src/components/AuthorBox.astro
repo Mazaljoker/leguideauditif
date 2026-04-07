@@ -1,37 +1,32 @@
 ---
 interface Props {
-  compact?: boolean;
+  name?: string;
+  title?: string;
 }
 
-const { compact = false } = Astro.props;
+const { name = 'Franck-Olivier', title = "Audioprothesiste diplome d'Etat, 25+ ans d'experience" } = Astro.props;
 ---
 
-<aside class="my-8 rounded-lg border border-creme-dark bg-blanc p-6" aria-label="À propos de l'auteur">
-  <div class="flex items-start gap-4">
-    <img
-      src="/images/auteur/franck-olivier.webp"
-      alt="Franck-Olivier, audioprothésiste DE"
-      class="h-16 w-16 rounded-full object-cover"
-      width="64"
-      height="64"
-      loading="lazy"
-    />
-    <div>
-      <p class="font-semibold text-marine">Franck-Olivier</p>
-      <p class="text-sm text-gris">Audioprothésiste diplômé d'État</p>
-      {!compact && (
-        <p class="mt-2 text-sm leading-relaxed text-gris">
-          Plus de 25 ans d'expérience dans le secteur de l'audition. Ancien directeur de 18 centres
-          Alain Afflelou Acousticien, j'ai accompagné des milliers de patients dans leur parcours
-          d'appareillage auditif.
-        </p>
-      )}
-      <a
-        href="/auteur/franck-olivier/"
-        class="mt-2 inline-block text-sm text-orange hover:text-orange-dark no-underline"
-      >
-        En savoir plus →
-      </a>
+<aside class="bg-blanc border border-gris-clair rounded-2xl p-6 my-8 flex flex-col sm:flex-row items-start gap-5" aria-label="A propos de l'auteur">
+  <div class="w-16 h-16 bg-orange rounded-full flex items-center justify-center text-2xl font-sans font-bold text-white shrink-0">
+    FO
+  </div>
+  <div>
+    <div class="font-sans text-lg font-bold text-marine mb-1">{name}</div>
+    <div class="font-sans text-sm text-gris-texte mb-3">{title}</div>
+    <div class="flex flex-wrap gap-2">
+      <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
+        &#x1F393; Diplome d'Etat
+      </span>
+      <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
+        &#x1F3E5; 18 centres diriges
+      </span>
+      <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
+        &#x1F465; 3000+ patients
+      </span>
     </div>
+    <p class="text-sm text-gris-texte mt-3 leading-relaxed">
+      Audioprothesiste independant, Franck-Olivier a dirige 18 centres Alain Afflelou Acousticien et adapte plus de 3 000 patients. Il partage son expertise pour vous aider a mieux entendre.
+    </p>
   </div>
 </aside>

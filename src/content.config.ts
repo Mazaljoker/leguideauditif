@@ -4,78 +4,86 @@ import { glob } from 'astro/loaders';
 const guides = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/guides' }),
   schema: z.object({
-    title: z.string().max(60),
-    description: z.string().max(155),
-    pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    category: z.enum([
+    title: z.string(),
+    metaDescription: z.string().max(155),
+    cluster: z.enum([
       'perte-auditive',
       'appareils-auditifs',
       'acouphenes',
       'prevention',
       'remboursement',
       'vie-quotidienne',
+      'audioprothesiste',
     ]),
-    author: z.string().default('Franck-Olivier, Audioprothésiste DE'),
-    image: z.string().optional(),
-    imageAlt: z.string().optional(),
-    lang: z.literal('fr').default('fr'),
-    alternate: z.string().optional(),
-    tags: z.array(z.string()).default([]),
-    schema: z.object({
-      type: z.enum(['Article', 'FAQPage', 'HowTo']).default('Article'),
-      datePublished: z.string(),
-      dateModified: z.string(),
-      author: z.string().default('Franck-Olivier'),
-      publisher: z.string().default('LeGuideAuditif.fr'),
-    }),
-    draft: z.boolean().default(false),
+    isPillar: z.boolean().default(false),
+    publishDate: z.coerce.date(),
+    updateDate: z.coerce.date().optional(),
+    author: z.string().default('Franck-Olivier'),
+    authorTitle: z.string().default("Audioprothesiste DE"),
+    readingTime: z.number().optional(),
+    sources: z
+      .array(
+        z.object({
+          name: z.string(),
+          url: z.string().url(),
+        }),
+      )
+      .optional(),
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        }),
+      )
+      .optional(),
+    relatedGuides: z.array(z.string()).optional(),
+    relatedComparatifs: z.array(z.string()).optional(),
   }),
 });
 
 const comparatifs = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/comparatifs' }),
   schema: z.object({
-    title: z.string().max(60),
-    description: z.string().max(155),
-    pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
+    title: z.string(),
+    metaDescription: z.string().max(155),
     category: z.enum([
       'appareils-auditifs',
       'protections-auditives',
       'accessoires',
       'aides-ecoute',
     ]),
-    author: z.string().default('Franck-Olivier, Audioprothésiste DE'),
-    image: z.string().optional(),
-    imageAlt: z.string().optional(),
-    lang: z.literal('fr').default('fr'),
-    alternate: z.string().optional(),
-    tags: z.array(z.string()).default([]),
-    productsCompared: z.number().min(2),
-    affiliateDisclosure: z.boolean().default(true),
-    schema: z.object({
-      type: z.literal('Article').default('Article'),
-      datePublished: z.string(),
-      dateModified: z.string(),
-      author: z.string().default('Franck-Olivier'),
-      publisher: z.string().default('LeGuideAuditif.fr'),
-    }),
-    products: z.array(z.object({
-      brand: z.string(),
-      model: z.string(),
-      type: z.enum(['contour', 'intra', 'RIC', 'invisible']),
-      class: z.enum(['1', '2']),
-      priceRange: z.string(),
-      channels: z.number(),
-      bluetooth: z.boolean(),
-      rechargeable: z.boolean(),
-      warrantyYears: z.number(),
-      verdict: z.string(),
-      bestFor: z.string(),
-      affiliateUrl: z.string().nullable().optional(),
-    })).optional(),
-    draft: z.boolean().default(false),
+    publishDate: z.coerce.date(),
+    updateDate: z.coerce.date().optional(),
+    author: z.string().default('Franck-Olivier'),
+    authorTitle: z.string().default("Audioprothesiste DE"),
+    products: z
+      .array(
+        z.object({
+          brand: z.string(),
+          model: z.string(),
+          type: z.enum(['contour', 'RIC', 'intra', 'invisible']).optional(),
+          class: z.enum(['1', '2']).optional(),
+          priceRange: z.string(),
+          channels: z.number().optional(),
+          bluetooth: z.boolean().default(false),
+          rechargeable: z.boolean().default(false),
+          warrantyYears: z.number().default(4),
+          verdict: z.string(),
+          bestFor: z.string(),
+          affiliateUrl: z.string().url().optional(),
+        }),
+      )
+      .optional(),
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        }),
+      )
+      .optional(),
+    relatedGuides: z.array(z.string()).optional(),
   }),
 });
 
