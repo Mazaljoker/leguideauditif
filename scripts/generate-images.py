@@ -53,10 +53,10 @@ except ImportError:
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIRS = [
-    PROJECT_ROOT / "site" / "src" / "content" / "guides",
-    PROJECT_ROOT / "site" / "src" / "content" / "comparatifs",
+    PROJECT_ROOT / "src" / "content" / "guides",
+    PROJECT_ROOT / "src" / "content" / "comparatifs",
 ]
-IMAGE_OUTPUT_DIR = PROJECT_ROOT / "site" / "public" / "images" / "blog"
+IMAGE_OUTPUT_DIR = PROJECT_ROOT / "public" / "images" / "blog"
 
 # LeGuideAuditif Palette — Chaleureux Senior
 PALETTE = {
@@ -76,7 +76,7 @@ MAX_HERO_SIZE_KB = 200
 MAX_OG_SIZE_KB = 150
 
 # Default model
-DEFAULT_MODEL = "imagen-4.0-generate-001"  # Imagen 4 Fast: $0.02/image
+DEFAULT_MODEL = "gemini-2.5-flash-image"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -91,85 +91,91 @@ log = logging.getLogger("lga-imagegen")
 SCENE_LIBRARY: dict[str, dict[str, str]] = {
     "perte-auditive": {
         "hero": (
-            "Photorealistic image of a caring audiologist (woman, 40s, white coat) "
-            "sitting across from an elderly patient (70s) in a bright, modern hearing clinic. "
-            "The audiologist shows test results on a tablet screen. Hearing aid models visible "
-            "on the desk. Warm natural lighting from large windows. "
-            "Empathetic, professional atmosphere. No text overlay. 16:9 format, high resolution."
+            "Photorealistic close-up of a modern audiometer device on a clean desk "
+            "in a bright hearing clinic. Headphones connected to the device, audiogram chart "
+            "visible on screen. Soft warm lighting from large windows, cream colored walls. "
+            "Professional medical equipment, warm atmosphere. "
+            "No text, no watermark. 16:9 format, high resolution."
         ),
-        "og_element": "audiologist examining elderly patient's ear with otoscope, warm clinic setting",
+        "og_element": "audiometer and headphones on clinic desk, warm lighting",
     },
     "appareils-auditifs": {
         "hero": (
-            "Photorealistic close-up of modern hearing aids (RIC and intra-ear types) "
-            "arranged on a clean white surface next to their charging case. "
-            "An elderly person's hand (70s) gently picks up one hearing aid. "
-            "Soft warm lighting, shallow depth of field. "
-            "Medical precision meets everyday comfort. No text overlay. 16:9 format, high resolution."
+            "Photorealistic close-up of three modern hearing aids (RIC type, beige and silver) "
+            "arranged on a clean cream surface next to their white charging case. "
+            "Soft warm directional lighting, shallow depth of field, bokeh background. "
+            "Medical precision meets everyday elegance. "
+            "No text, no watermark. 16:9 format, high resolution."
         ),
-        "og_element": "modern hearing aids next to charging case, warm professional lighting",
+        "og_element": "modern hearing aids next to charging case on cream surface",
     },
     "acouphenes": {
         "hero": (
-            "Photorealistic image of a middle-aged person (50s) in a peaceful therapy room, "
-            "wearing over-ear headphones connected to a sound therapy device. "
-            "An audiologist (white coat) monitors settings on a laptop nearby. "
-            "Calm, serene atmosphere with soft ambient lighting and plants. "
-            "No text overlay. 16:9 format, high resolution."
+            "Photorealistic image of over-ear therapy headphones on a wooden desk "
+            "next to a sound therapy device with soft LED lights. "
+            "Calm zen atmosphere, green plant in background, soft ambient lighting. "
+            "Peaceful therapy room setting. "
+            "No text, no watermark. 16:9 format, high resolution."
         ),
-        "og_element": "person wearing headphones in therapy room, calming atmosphere",
+        "og_element": "therapy headphones and sound device in calm room",
     },
     "prevention": {
         "hero": (
-            "Photorealistic image of a happy senior couple (65-70s) walking in a park, "
-            "one wearing small discreet hearing aids visible behind the ear. "
-            "Sunlight filtering through trees. Active, healthy lifestyle. "
-            "Natural warm tones. No text overlay. 16:9 format, high resolution."
+            "Photorealistic image of custom-molded ear protection plugs and a hearing "
+            "protection case on a wooden table. Sunny park visible through window. "
+            "Bright warm natural lighting, healthy lifestyle concept. "
+            "No text, no watermark. 16:9 format, high resolution."
         ),
-        "og_element": "senior person doing hearing protection exercises, bright outdoor setting",
+        "og_element": "ear protection plugs on wooden surface, bright natural light",
     },
     "remboursement": {
         "hero": (
-            "Photorealistic image of an audiologist (40s, professional attire) at a desk "
-            "explaining a document to a senior couple (70s). The desk has a laptop showing "
-            "a cost breakdown with highlighted amounts. Carte Vitale and mutuelle documents "
-            "visible. Well-lit modern office. Professional and reassuring. "
-            "No text overlay. 16:9 format, high resolution."
+            "Photorealistic image of a hearing aid next to a French Carte Vitale card "
+            "and insurance documents on a clean white desk. A calculator and pen nearby. "
+            "Bright office lighting, organized professional setting. "
+            "No text, no watermark. 16:9 format, high resolution."
         ),
-        "og_element": "Carte Vitale next to hearing aid and cost document on desk",
+        "og_element": "hearing aid next to health insurance card on desk",
     },
     "vie-quotidienne": {
         "hero": (
-            "Photorealistic image of a joyful grandfather (70s) wearing small hearing aids, "
-            "sitting at a family dinner table with children and grandchildren. "
-            "He is smiling, clearly engaged in conversation. Warm home environment, "
-            "evening lighting, a meal on the table. Emotional, heartwarming. "
-            "No text overlay. 16:9 format, high resolution."
+            "Photorealistic image of a cozy living room with a TV, a TV Connector device "
+            "plugged in, and a small hearing aid on the coffee table next to a cup of tea. "
+            "Warm evening lighting, comfortable home atmosphere. "
+            "No text, no watermark. 16:9 format, high resolution."
         ),
-        "og_element": "elderly person with hearing aids enjoying family conversation",
+        "og_element": "hearing aid on coffee table in warm living room",
+    },
+    "audioprothesiste": {
+        "hero": (
+            "Photorealistic image of a modern hearing clinic interior. Clean white desk "
+            "with audiometer, otoscope, and hearing aid samples on display. "
+            "Bright warm lighting, cream walls, professional medical office. "
+            "No text, no watermark. 16:9 format, high resolution."
+        ),
+        "og_element": "modern hearing clinic desk with professional equipment",
     },
     "comparatif": {
         "hero": (
             "Photorealistic top-down view of 5 different hearing aid models arranged "
-            "in a neat row on a navy blue surface ({marine}). Each model has a small label card. "
-            "An audiologist's hands (wearing a white coat sleeve) point at one model "
-            "with a pen. Bright studio lighting, clean composition. "
-            "No text overlay. 16:9 format, high resolution."
+            "in a neat row on a dark navy blue surface. Each model slightly different design. "
+            "Bright studio lighting, clean minimalist composition, shallow depth of field. "
+            "No text, no watermark. 16:9 format, high resolution."
         ),
-        "og_element": "multiple hearing aids side by side on professional surface with comparison cards",
+        "og_element": "multiple hearing aids side by side on navy surface",
     },
 }
 
 # Fallback scene for unknown categories
 DEFAULT_SCENE = {
     "hero": (
-        "Photorealistic image of a modern hearing clinic reception area. "
-        "A friendly audiologist (40s, white coat) greets a senior patient (70s) "
-        "at the entrance. Clean, bright, welcoming space with hearing health posters. "
-        "Warm lighting, professional but accessible. "
-        "No text overlay. 16:9 format, high resolution."
+        "Photorealistic image of a modern hearing clinic desk with an otoscope, "
+        "a pair of hearing aids, and an audiogram printout. Clean, bright space "
+        "with cream colored walls and warm natural lighting. "
+        "Professional medical atmosphere. "
+        "No text, no watermark. 16:9 format, high resolution."
     ),
-    "og_element": "welcoming hearing clinic with audiologist and patient",
+    "og_element": "hearing clinic desk with otoscope and hearing aids",
 }
 
 
@@ -290,12 +296,11 @@ def build_og_prompt(article: dict[str, Any]) -> str:
     og_title = title if len(title) <= 50 else title[:47] + "..."
 
     prompt = (
-        f'Marketing banner image, dark navy background ({PALETTE["marine"]}). '
-        f'Left side: photorealistic {scene["og_element"]}. '
-        f'Right side: bold white text "{og_title}" with a warm orange ({PALETTE["orange"]}) underline. '
-        f'Small "LeGuideAuditif.fr" text in orange at bottom right corner. '
-        f"Soft warm bokeh in background. "
-        f"Clean, professional, healthcare composition. 1200x630 pixels."
+        f'Professional banner image with dark navy background ({PALETTE["marine"]}). '
+        f'Photorealistic {scene["og_element"]}. '
+        f'Soft warm bokeh effect, shallow depth of field. '
+        f'Clean medical composition, warm cream and orange accent tones. '
+        f"No text, no watermark, no words. 1200x630 pixels."
     )
     return prompt
 
@@ -308,26 +313,44 @@ def generate_image(
     model: str,
     aspect_ratio: str = "16:9",
 ) -> bytes | None:
-    """Call Gemini Imagen API and return raw image bytes."""
+    """Call Gemini API to generate an image and return raw bytes."""
     try:
-        response = client.models.generate_images(
-            model=model,
-            prompt=prompt,
-            config=types.GenerateImagesConfig(
-                number_of_images=1,
-                aspect_ratio=aspect_ratio,
-                safety_filter_level="BLOCK_LOW_AND_ABOVE",
-            ),
-        )
+        # Use Imagen API for imagen models
+        if "imagen" in model:
+            response = client.models.generate_images(
+                model=model,
+                prompt=prompt,
+                config=types.GenerateImagesConfig(
+                    number_of_images=1,
+                    aspect_ratio=aspect_ratio,
+                ),
+            )
+            if response.generated_images:
+                return response.generated_images[0].image.image_bytes
+            else:
+                log.warning("No image returned by Imagen API")
+                return None
 
-        if response.generated_images:
-            return response.generated_images[0].image.image_bytes
+        # Use generate_content for Gemini Flash models
         else:
-            log.warning("No image returned by API")
+            response = client.models.generate_content(
+                model=model,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_modalities=["IMAGE"],
+                ),
+            )
+            if (response.candidates
+                    and response.candidates[0].content
+                    and response.candidates[0].content.parts):
+                for part in response.candidates[0].content.parts:
+                    if part.inline_data and part.inline_data.data:
+                        return part.inline_data.data
+            log.warning("No image returned by Gemini Flash API")
             return None
 
     except Exception as e:
-        log.error(f"Imagen API error: {e}")
+        log.error(f"Image generation API error: {e}")
         return None
 
 

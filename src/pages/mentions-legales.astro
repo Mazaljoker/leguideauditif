@@ -1,26 +1,93 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Mentions legales' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+  })),
+};
 ---
 
 <BaseLayout
   title="Mentions legales — LeGuideAuditif.fr"
   description="Mentions legales du site LeGuideAuditif.fr — editeur, hebergeur, propriete intellectuelle."
+  schema={schema}
 >
-  <section class="bg-creme py-16">
+  <div class="bg-creme">
     <div class="max-w-[780px] mx-auto px-5">
-      <h1 class="font-sans text-[38px] font-extrabold text-marine mb-8">Mentions legales</h1>
-      <h2 class="font-sans text-2xl font-bold text-marine mt-8 mb-4">Editeur du site</h2>
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+  <section class="bg-creme py-16">
+    <div class="max-w-[780px] mx-auto px-5 prose-legal">
+      <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-4">Mentions legales</h1>
+      <p class="text-sm text-gris-texte mb-8">Derniere mise a jour : 7 avril 2026</p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">1. Editeur du site</h2>
+      <p class="leading-relaxed mb-2">Le site <strong>LeGuideAuditif.fr</strong> est edite par :</p>
+      <ul class="list-none space-y-1 mb-6 text-base">
+        <li><strong>Nom :</strong> Franck-Olivier Chabbat</li>
+        <li><strong>Statut :</strong> Entrepreneur individuel</li>
+        <li><strong>Activite :</strong> Edition de site internet d'information sur la sante auditive</li>
+        <li><strong>Adresse :</strong> Dubai, Emirats Arabes Unis (NPOSTS ADVERTISING SERVICES - FZCO, IFZA)</li>
+        <li><strong>Email :</strong> <a href="mailto:contact@leguideauditif.fr" class="text-orange">contact@leguideauditif.fr</a></li>
+        <li><strong>Directeur de la publication :</strong> Franck-Olivier Chabbat</li>
+      </ul>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">2. Hebergement</h2>
       <p class="leading-relaxed mb-6">
-        LeGuideAuditif.fr<br />
-        Responsable de la publication : Franck-Olivier Chabbat
+        Ce site est heberge par <strong>Vercel Inc.</strong><br />
+        Adresse : 340 S Lemon Ave #4133, Walnut, CA 91789, Etats-Unis<br />
+        Site : vercel.com
       </p>
-      <h2 class="font-sans text-2xl font-bold text-marine mt-8 mb-4">Hebergement</h2>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">3. Propriete intellectuelle</h2>
       <p class="leading-relaxed mb-6">
-        Ce site est heberge par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
+        L'ensemble des contenus publies sur LeGuideAuditif.fr (textes, images, illustrations, guides, comparatifs) sont proteges par le droit d'auteur et les lois applicables en matiere de propriete intellectuelle. Toute reproduction, meme partielle, sans autorisation ecrite prealable de l'editeur est interdite.
       </p>
-      <h2 class="font-sans text-2xl font-bold text-marine mt-8 mb-4">Propriete intellectuelle</h2>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">4. Responsabilite editoriale</h2>
+      <p class="leading-relaxed mb-4">
+        Les informations publiees sur ce site sont fournies a titre informatif et ne sauraient se substituer a un avis medical professionnel. LeGuideAuditif.fr s'efforce de fournir des informations exactes et a jour, mais ne garantit pas l'absence d'erreurs ou d'omissions.
+      </p>
+      <p class="leading-relaxed mb-6">
+        Tous les contenus relatifs a la sante auditive sont rediges ou supervises par un audioprothesiste diplome d'Etat. Les sources sont systematiquement citees (HAS, INSERM, OMS, publications scientifiques).
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">5. Liens hypertextes et affiliation</h2>
+      <p class="leading-relaxed mb-4">
+        Le site peut contenir des liens vers des sites tiers. LeGuideAuditif.fr n'est pas responsable du contenu de ces sites externes.
+      </p>
+      <p class="leading-relaxed mb-6">
+        Certains liens sont des liens affilies : si vous effectuez un achat via ces liens, nous pouvons recevoir une commission, sans cout supplementaire pour vous. Cette affiliation est clairement signalee sur les pages concernees et ne modifie jamais notre verdict editorial.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">6. Donnees personnelles</h2>
+      <p class="leading-relaxed mb-6">
+        La collecte et le traitement des donnees personnelles sont decrits dans notre <a href="/politique-confidentialite/" class="text-orange font-semibold hover:underline">politique de confidentialite</a>.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">7. Credits</h2>
+      <p class="leading-relaxed mb-6">
+        Design et developpement : Franck-Olivier Chabbat<br />
+        Icones : Lucide (licence ISC)<br />
+        Typographies : Inter et Merriweather (Google Fonts, licences libres)
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">8. Droit applicable</h2>
       <p class="leading-relaxed">
-        L'ensemble des contenus de ce site (textes, images, guides) sont proteges par le droit d'auteur. Toute reproduction sans autorisation prealable est interdite.
+        Les presentes mentions legales sont soumises au droit francais pour ce qui concerne la protection des consommateurs et les obligations d'information. Tout litige sera soumis aux tribunaux competents.
       </p>
     </div>
   </section>

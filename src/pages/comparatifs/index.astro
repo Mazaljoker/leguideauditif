@@ -1,14 +1,35 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
 const comparatifs = await getCollection('comparatifs');
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Comparatifs' },
+];
 ---
 
 <BaseLayout
   title="Nos comparatifs independants — LeGuideAuditif.fr"
   description="Comparatifs d'appareils auditifs, protections et accessoires. Tests independants par un audioprothesiste DE."
+  schema={{
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+    })),
+  }}
 >
+  <div class="bg-creme">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
   <section class="bg-creme py-16">
     <div class="max-w-[1140px] mx-auto px-5">
       <h1 class="font-sans text-[38px] font-extrabold text-marine text-center mb-4">Nos comparatifs</h1>

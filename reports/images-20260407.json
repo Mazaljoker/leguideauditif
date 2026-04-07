@@ -1,121 +1,738 @@
 {
-  "date": "2026-04-07T08:00:11.951349",
+  "date": "2026-04-07T13:33:16.396521",
   "model": "imagen-4.0-generate-001",
   "dry_run": false,
   "generated": [
     {
-      "slug": "acouphenes",
-      "title": "Acouphenes : comprendre, soulager, vivre avec",
+      "slug": "appareil-auditif",
+      "title": "Appareil auditif et acouphenes : une solution efficace ?",
       "images": [
         {
           "type": "hero",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\acouphenes\\acouphenes.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\appareil-auditif\\appareil-auditif.webp"
         },
         {
           "type": "og",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\acouphenes\\acouphenes-og.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\appareil-auditif\\appareil-auditif-og.webp"
         }
       ]
     },
     {
-      "slug": "classe-1-vs-classe-2",
-      "title": "Classe 1 vs Classe 2 : quelles differences concretes ?",
+      "slug": "causes",
+      "title": "Acouphenes : les causes principales",
       "images": [
         {
           "type": "hero",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\classe-1-vs-classe-2\\classe-1-vs-classe-2.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\causes\\causes.webp"
         },
         {
           "type": "og",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\classe-1-vs-classe-2\\classe-1-vs-classe-2-og.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\causes\\causes-og.webp"
         }
       ]
     },
     {
-      "slug": "types",
-      "title": "Contour, intra, RIC, invisible : quel type choisir ?",
+      "slug": "hyperacousie",
+      "title": "Hyperacousie : quand le bruit devient douleur",
       "images": [
         {
           "type": "hero",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\types\\types.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\hyperacousie\\hyperacousie.webp"
         },
         {
           "type": "og",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\types\\types-og.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\hyperacousie\\hyperacousie-og.webp"
         }
       ]
     },
     {
-      "slug": "symptomes",
-      "title": "Les 7 symptomes d'une perte auditive",
+      "slug": "lenire",
+      "title": "Dispositif Lenire : le point sur cette innovation",
       "images": [
         {
           "type": "hero",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\symptomes\\symptomes.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\lenire\\lenire.webp"
         },
         {
           "type": "og",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\symptomes\\symptomes-og.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\lenire\\lenire-og.webp"
         }
       ]
     },
     {
-      "slug": "100-sante-audition",
-      "title": "100% Sante audition : tout comprendre en 5 minutes",
+      "slug": "pulsatiles",
+      "title": "Acouphenes pulsatiles : quand s'inquieter",
       "images": [
         {
           "type": "hero",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\100-sante-audition\\100-sante-audition.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\pulsatiles\\pulsatiles.webp"
         },
         {
           "type": "og",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\100-sante-audition\\100-sante-audition-og.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\pulsatiles\\pulsatiles-og.webp"
         }
       ]
     },
     {
-      "slug": "remboursement",
-      "title": "Remboursement des appareils auditifs en 2026 : le guide complet",
+      "slug": "sommeil",
+      "title": "Acouphenes et sommeil : retrouver des nuits calmes",
       "images": [
         {
           "type": "hero",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\remboursement\\remboursement.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\sommeil\\sommeil.webp"
         },
         {
           "type": "og",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\remboursement\\remboursement-og.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\sommeil\\sommeil-og.webp"
         }
       ]
     },
     {
-      "slug": "prix-appareil-auditif",
-      "title": "Prix d'un appareil auditif en 2026 : tous les tarifs",
+      "slug": "stress",
+      "title": "Acouphenes et stress : le cercle vicieux",
       "images": [
         {
           "type": "hero",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\prix-appareil-auditif\\prix-appareil-auditif.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\stress\\stress.webp"
         },
         {
           "type": "og",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\prix-appareil-auditif\\prix-appareil-auditif-og.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\stress\\stress-og.webp"
         }
       ]
     },
     {
-      "slug": "meilleur-appareil-auditif-2026",
-      "title": "Meilleur appareil auditif 2026 : notre classement",
+      "slug": "therapie-sonore",
+      "title": "Therapie sonore (TRT, masquage) : comment ca marche",
       "images": [
         {
           "type": "hero",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\meilleur-appareil-auditif-2026\\meilleur-appareil-auditif-2026.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\therapie-sonore\\therapie-sonore.webp"
         },
         {
           "type": "og",
-          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\site\\public\\images\\blog\\meilleur-appareil-auditif-2026\\meilleur-appareil-auditif-2026-og.webp"
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\therapie-sonore\\therapie-sonore-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "traitement",
+      "title": "Traitement des acouphenes : ce qui marche en 2026",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\traitement\\traitement.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\traitement\\traitement-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "accessoires",
+      "title": "TV Connector, micro distant, chargeur : les essentiels",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\accessoires\\accessoires.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\accessoires\\accessoires-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "adaptation",
+      "title": "Periode d'adaptation : les 30 premiers jours",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\adaptation\\adaptation.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\adaptation\\adaptation-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "bluetooth",
+      "title": "Bluetooth et connectivite : streaming, telephone, TV",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\bluetooth\\bluetooth.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\bluetooth\\bluetooth-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "entretien",
+      "title": "Entretien de vos appareils : le guide complet",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\entretien\\entretien.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\entretien\\entretien-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "appareils-auditifs",
+      "title": "Appareils auditifs : le guide complet pour bien choisir",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\appareils-auditifs\\appareils-auditifs.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\appareils-auditifs\\appareils-auditifs-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "invisible",
+      "title": "Appareils invisibles : options et limites",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\invisible\\invisible.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\invisible\\invisible-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "premier-appareil",
+      "title": "Premier appareil auditif : ce qu'il faut savoir",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\premier-appareil\\premier-appareil.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\premier-appareil\\premier-appareil-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "rechargeable-vs-piles",
+      "title": "Rechargeable ou a piles : avantages et inconvenients",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\rechargeable-vs-piles\\rechargeable-vs-piles.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\rechargeable-vs-piles\\rechargeable-vs-piles-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "choisir",
+      "title": "Comment choisir son audioprothesiste",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\choisir\\choisir.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\choisir\\choisir-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "audioprothesiste",
+      "title": "L'audioprothesiste : role, parcours, comment bien choisir",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\audioprothesiste\\audioprothesiste.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\audioprothesiste\\audioprothesiste-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "orl-vs-audio",
+      "title": "ORL, audioprothesiste, orthophoniste : qui fait quoi",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\orl-vs-audio\\orl-vs-audio.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\orl-vs-audio\\orl-vs-audio-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "premier-rdv",
+      "title": "Premier rendez-vous : a quoi vous attendre",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\premier-rdv\\premier-rdv.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\premier-rdv\\premier-rdv-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "suivi",
+      "title": "Le suivi post-appareillage : pourquoi c'est crucial",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\suivi\\suivi.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\suivi\\suivi-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "teleaudiologie",
+      "title": "Teleaudiologie : reglages a distance en 2026",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\teleaudiologie\\teleaudiologie.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\teleaudiologie\\teleaudiologie-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "audiogramme",
+      "title": "Comment lire votre audiogramme",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\audiogramme\\audiogramme.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\audiogramme\\audiogramme-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "causes",
+      "title": "Causes de la perte auditive : age, bruit, maladie",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\causes\\causes.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\causes\\causes-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "enfant",
+      "title": "Perte auditive chez l'enfant : depistage et signes",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\enfant\\enfant.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\enfant\\enfant-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "perte-auditive",
+      "title": "Perte auditive : comprendre, detecter et agir",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\perte-auditive\\perte-auditive.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\perte-auditive\\perte-auditive-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "presbyacousie",
+      "title": "Presbyacousie : la perte auditive liee a l'age",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\presbyacousie\\presbyacousie.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\presbyacousie\\presbyacousie-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "quand-consulter-orl",
+      "title": "Quand consulter un ORL pour votre audition",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\quand-consulter-orl\\quand-consulter-orl.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\quand-consulter-orl\\quand-consulter-orl-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "surdite-brusque",
+      "title": "Surdite brusque : urgence medicale",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\surdite-brusque\\surdite-brusque.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\surdite-brusque\\surdite-brusque-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "test-auditif-en-ligne",
+      "title": "Test auditif en ligne : fiable ou pas ?",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\test-auditif-en-ligne\\test-auditif-en-ligne.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\test-auditif-en-ligne\\test-auditif-en-ligne-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "bilan-auditif-gratuit",
+      "title": "Bilan auditif gratuit : ou et comment",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\bilan-auditif-gratuit\\bilan-auditif-gratuit.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\bilan-auditif-gratuit\\bilan-auditif-gratuit-og.webp"
         }
       ]
     }
   ],
-  "errors": [],
+  "errors": [
+    {
+      "slug": "bruit-travail",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "bruit-travail",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "concerts-festivals",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "concerts-festivals",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "depistage-auditif",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "depistage-auditif",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "ecouteurs-volume",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "ecouteurs-volume",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "prevention",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "protections-auditives",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "protections-auditives",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "seniors",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "seniors",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "aides-financieres",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "aides-financieres",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "devis",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "devis",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "mutuelle",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "mutuelle",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "renouvellement",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "renouvellement",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "reste-a-charge-zero",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "reste-a-charge-zero",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "applications",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "applications",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "entourage",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "entourage",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "vie-quotidienne",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "panne",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "panne",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "sport",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "sport",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "telephone",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "telephone",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "television",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "television",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "travail",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "travail",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "voyage",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "voyage",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-accessoire-auditif",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-accessoire-auditif",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-appareil-acouphenes",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-appareil-acouphenes",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-appareil-classe-1",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-appareil-classe-1",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-intra-auriculaire",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-intra-auriculaire",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-tv-connector",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleur-tv-connector",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleure-app-audition",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleure-app-audition",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleure-protection-auditive",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "meilleure-protection-auditive",
+      "type": "og",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "phonak-vs-signia-vs-resound",
+      "type": "hero",
+      "error": "API returned no image"
+    },
+    {
+      "slug": "phonak-vs-signia-vs-resound",
+      "type": "og",
+      "error": "API returned no image"
+    }
+  ],
   "skipped": []
 }

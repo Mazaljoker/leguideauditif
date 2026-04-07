@@ -1,25 +1,137 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Politique de confidentialite' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+  })),
+};
 ---
 
 <BaseLayout
   title="Politique de confidentialite — LeGuideAuditif.fr"
   description="Politique de confidentialite de LeGuideAuditif.fr — collecte de donnees, cookies, droits RGPD."
+  schema={schema}
 >
+  <div class="bg-creme">
+    <div class="max-w-[780px] mx-auto px-5">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
   <section class="bg-creme py-16">
     <div class="max-w-[780px] mx-auto px-5">
-      <h1 class="font-sans text-[38px] font-extrabold text-marine mb-8">Politique de confidentialite</h1>
-      <h2 class="font-sans text-2xl font-bold text-marine mt-8 mb-4">Collecte de donnees</h2>
-      <p class="leading-relaxed mb-6">
-        LeGuideAuditif.fr peut collecter des donnees de navigation anonymes a des fins statistiques. Aucune donnee personnelle n'est vendue a des tiers.
+      <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-4">Politique de confidentialite</h1>
+      <p class="text-sm text-gris-texte mb-8">Derniere mise a jour : 7 avril 2026</p>
+
+      <p class="text-lg leading-relaxed mb-8">
+        La protection de vos donnees personnelles est une priorite pour LeGuideAuditif.fr. Cette politique explique quelles donnees nous collectons, pourquoi et comment nous les utilisons, conformement au Reglement General sur la Protection des Donnees (RGPD).
       </p>
-      <h2 class="font-sans text-2xl font-bold text-marine mt-8 mb-4">Cookies</h2>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">1. Responsable du traitement</h2>
       <p class="leading-relaxed mb-6">
-        Ce site utilise des cookies strictement necessaires a son fonctionnement. Des cookies analytiques peuvent etre utilises avec votre consentement.
+        Franck-Olivier Chabbat<br />
+        NPOSTS ADVERTISING SERVICES - FZCO (IFZA, Dubai)<br />
+        Email : <a href="mailto:contact@leguideauditif.fr" class="text-orange">contact@leguideauditif.fr</a>
       </p>
-      <h2 class="font-sans text-2xl font-bold text-marine mt-8 mb-4">Vos droits</h2>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">2. Donnees collectees</h2>
+      <p class="leading-relaxed mb-3">Nous pouvons collecter les categories de donnees suivantes :</p>
+      <ul class="list-disc list-inside space-y-2 mb-6 text-base">
+        <li><strong>Formulaire de contact :</strong> nom, adresse email, sujet, message.</li>
+        <li><strong>Formulaire de demande de devis :</strong> nom, telephone, ville, type de perte auditive, situation d'appareillage.</li>
+        <li><strong>Newsletter :</strong> adresse email.</li>
+        <li><strong>Donnees de navigation :</strong> adresse IP anonymisee, pages visitees, duree de visite (via Vercel Analytics, sans cookies tiers).</li>
+      </ul>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">3. Finalites et bases legales</h2>
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full text-sm border border-gris-clair rounded-lg overflow-hidden">
+          <thead>
+            <tr class="bg-marine text-white">
+              <th class="px-4 py-3 text-left font-sans font-semibold">Finalite</th>
+              <th class="px-4 py-3 text-left font-sans font-semibold">Base legale</th>
+              <th class="px-4 py-3 text-left font-sans font-semibold">Duree de conservation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-gris-clair">
+              <td class="px-4 py-3">Repondre a vos messages</td>
+              <td class="px-4 py-3">Interet legitime</td>
+              <td class="px-4 py-3">12 mois</td>
+            </tr>
+            <tr class="border-t border-gris-clair bg-blanc">
+              <td class="px-4 py-3">Transmission de demande de devis a un audioprothesiste partenaire</td>
+              <td class="px-4 py-3">Consentement</td>
+              <td class="px-4 py-3">12 mois</td>
+            </tr>
+            <tr class="border-t border-gris-clair">
+              <td class="px-4 py-3">Envoi de la newsletter</td>
+              <td class="px-4 py-3">Consentement</td>
+              <td class="px-4 py-3">Jusqu'a desinscription</td>
+            </tr>
+            <tr class="border-t border-gris-clair bg-blanc">
+              <td class="px-4 py-3">Statistiques de navigation</td>
+              <td class="px-4 py-3">Interet legitime</td>
+              <td class="px-4 py-3">26 mois (anonymise)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">4. Cookies</h2>
+      <p class="leading-relaxed mb-3">LeGuideAuditif.fr utilise les cookies suivants :</p>
+      <ul class="list-disc list-inside space-y-2 mb-4 text-base">
+        <li><strong>Cookies strictement necessaires :</strong> fonctionnement du site (session, preferences). Pas de consentement requis.</li>
+        <li><strong>Cookies analytiques :</strong> Vercel Web Analytics (donnees anonymisees, sans cookies tiers par defaut). Base : interet legitime.</li>
+      </ul>
+      <p class="leading-relaxed mb-6">
+        Aucun cookie publicitaire ou de profilage n'est utilise sur ce site. Vous pouvez desactiver les cookies via les parametres de votre navigateur.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">5. Partage des donnees</h2>
+      <p class="leading-relaxed mb-3">Vos donnees personnelles peuvent etre partagees avec :</p>
+      <ul class="list-disc list-inside space-y-2 mb-4 text-base">
+        <li><strong>Supabase Inc.</strong> (stockage des formulaires) — serveurs UE.</li>
+        <li><strong>Vercel Inc.</strong> (hebergement, analytics) — donnees anonymisees.</li>
+        <li><strong>Audioprothesistes partenaires</strong> (uniquement pour les demandes de devis, avec votre consentement explicite).</li>
+      </ul>
+      <p class="leading-relaxed mb-6">
+        Aucune donnee n'est vendue a des tiers a des fins commerciales ou publicitaires.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">6. Vos droits</h2>
+      <p class="leading-relaxed mb-3">Conformement au RGPD, vous disposez des droits suivants :</p>
+      <ul class="list-disc list-inside space-y-2 mb-4 text-base">
+        <li><strong>Droit d'acces :</strong> obtenir une copie de vos donnees.</li>
+        <li><strong>Droit de rectification :</strong> corriger des donnees inexactes.</li>
+        <li><strong>Droit de suppression :</strong> demander l'effacement de vos donnees.</li>
+        <li><strong>Droit d'opposition :</strong> vous opposer au traitement fonde sur l'interet legitime.</li>
+        <li><strong>Droit a la portabilite :</strong> recevoir vos donnees dans un format structure.</li>
+        <li><strong>Droit au retrait du consentement :</strong> a tout moment, sans affecter la licite du traitement effectue avant.</li>
+      </ul>
+      <p class="leading-relaxed mb-6">
+        Pour exercer vos droits, contactez-nous a <a href="mailto:contact@leguideauditif.fr" class="text-orange font-semibold hover:underline">contact@leguideauditif.fr</a>. Nous repondrons dans un delai de 30 jours.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">7. Securite</h2>
+      <p class="leading-relaxed mb-6">
+        Nous mettons en place des mesures techniques et organisationnelles pour proteger vos donnees : connexion HTTPS, acces restreint aux bases de donnees, mots de passe chiffres.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">8. Reclamation</h2>
       <p class="leading-relaxed">
-        Conformement au RGPD, vous disposez d'un droit d'acces, de rectification et de suppression de vos donnees. Contactez-nous a <a href="mailto:contact@leguideauditif.fr" class="text-orange">contact@leguideauditif.fr</a>.
+        Si vous estimez que vos droits ne sont pas respectes, vous pouvez introduire une reclamation aupres de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertes) : cnil.fr.
       </p>
     </div>
   </section>

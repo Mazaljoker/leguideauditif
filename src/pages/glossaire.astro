@@ -1,18 +1,158 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Glossaire' },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+  })),
+};
+
+const siteUrl = 'https://leguideauditif.fr';
+
+const termes = [
+  { terme: 'Acouphene', definition: 'Perception d\'un son (bourdonnement, sifflement) sans source sonore externe. Les acouphenes touchent environ 10 a 15 % de la population adulte et peuvent etre temporaires ou chroniques.', lien: '/guides/acouphenes/', lienTexte: 'Comprendre les acouphenes' },
+  { terme: 'Acouphenometrie', definition: 'Examen audiologique qui mesure la frequence et l\'intensite des acouphenes percus par le patient. Ce test aide l\'audioprothesiste a proposer une prise en charge adaptee.', lien: '/guides/acouphenes/traitement/', lienTexte: 'Traitements des acouphenes' },
+  { terme: 'Aide auditive', definition: 'Dispositif medical electronique amplifiant les sons pour compenser une perte auditive. On parle aussi d\'appareil auditif ou de prothese auditive.', lien: '/guides/appareils-auditifs/', lienTexte: 'Guide des appareils auditifs' },
+  { terme: 'Antilarsen', definition: 'Systeme electronique integre aux aides auditives qui supprime le sifflement (effet Larsen) provoque par le retour du son amplifie vers le microphone.', lien: '/guides/appareils-auditifs/premier-appareil/', lienTexte: 'Choisir son premier appareil' },
+  { terme: 'Appareillage binaural', definition: 'Equipement des deux oreilles avec des aides auditives. L\'appareillage binaural ameliore la localisation des sons et la comprehension dans le bruit.', lien: '/guides/appareils-auditifs/types/', lienTexte: 'Types d\'appareils auditifs' },
+  { terme: 'Audiogramme', definition: 'Graphique representant votre capacite auditive pour chaque frequence (grave a aigue). C\'est le resultat de l\'examen audiometrique realise par l\'ORL ou l\'audioprothesiste.', lien: '/guides/perte-auditive/audiogramme/', lienTexte: 'Lire un audiogramme' },
+  { terme: 'Audioprothesiste', definition: 'Professionnel de sante diplome d\'Etat specialise dans l\'appareillage et le suivi des personnes malentendantes. Il realise les tests, adapte et regle vos aides auditives.', lien: '/guides/audioprothesiste/', lienTexte: 'Role de l\'audioprothesiste' },
+  { terme: 'Bobine T (telecoil)', definition: 'Petite antenne integree dans certaines aides auditives qui capte les signaux des boucles a induction magnetique. Elle permet d\'entendre directement le son dans les lieux equipes (guichets, salles de spectacle).', lien: '/guides/appareils-auditifs/accessoires/', lienTexte: 'Accessoires pour aides auditives' },
+  { terme: 'BTE (contour d\'oreille)', definition: 'Type d\'aide auditive dont le boitier se place derriere le pavillon de l\'oreille. Le son est conduit vers le conduit auditif par un tube. Robuste et adapte a toutes les pertes auditives.', lien: '/guides/appareils-auditifs/types/', lienTexte: 'Types d\'appareils auditifs' },
+  { terme: 'Cellules ciliees', definition: 'Cellules sensorielles situees dans la cochlee (oreille interne) qui transforment les vibrations sonores en signaux nerveux. Leur destruction est irreversible et constitue la principale cause de surdite de perception.', lien: '/guides/perte-auditive/causes/', lienTexte: 'Causes de la perte auditive' },
+  { terme: 'CIC (Completely-in-Canal)', definition: 'Aide auditive intra-auriculaire placee entierement dans le conduit auditif. Tres discrete, elle convient aux pertes auditives legeres a moyennes.', lien: '/guides/appareils-auditifs/invisible/', lienTexte: 'Appareils auditifs invisibles' },
+  { terme: 'Classe 1', definition: 'Categorie d\'aides auditives dont le prix est plafonne et le reste a charge nul grace au dispositif 100 % Sante. Ces appareils offrent les fonctionnalites essentielles.', lien: '/guides/appareils-auditifs/classe-1-vs-classe-2/', lienTexte: 'Classe 1 vs Classe 2' },
+  { terme: 'Classe 2', definition: 'Categorie d\'aides auditives a prix libre, offrant des fonctionnalites avancees (rechargeable, Bluetooth, reducteur de bruit superieur). Le reste a charge depend de votre mutuelle.', lien: '/guides/appareils-auditifs/classe-1-vs-classe-2/', lienTexte: 'Classe 1 vs Classe 2' },
+  { terme: 'Conduction aerienne', definition: 'Transmission du son par le conduit auditif externe, le tympan et les osselets jusqu\'a l\'oreille interne. C\'est la voie normale d\'audition, testee lors de l\'audiogramme avec un casque.', lien: '/guides/perte-auditive/audiogramme/', lienTexte: 'Lire un audiogramme' },
+  { terme: 'Conduction osseuse', definition: 'Transmission du son directement par les os du crane jusqu\'a l\'oreille interne, sans passer par le conduit auditif. Testee avec un vibrateur lors de l\'audiogramme pour distinguer surdite de transmission et de perception.', lien: '/guides/perte-auditive/audiogramme/', lienTexte: 'Lire un audiogramme' },
+  { terme: 'Decibel (dB)', definition: 'Unite de mesure de l\'intensite sonore. Une conversation normale se situe autour de 60 dB. Au-dela de 85 dB d\'exposition prolongee, le risque de lesion auditive augmente significativement.', lien: '/guides/prevention/', lienTexte: 'Prevention auditive' },
+  { terme: 'Deshumidificateur', definition: 'Boitier ou capsule qui absorbe l\'humidite accumulee dans vos aides auditives. Son utilisation quotidienne prolonge la duree de vie de l\'appareil et previent les pannes.', lien: '/guides/appareils-auditifs/entretien/', lienTexte: 'Entretien des appareils' },
+  { terme: 'Dome', definition: 'Embout souple en silicone place a l\'extremite du tube ou du fil de l\'aide auditive. Il existe en differentes tailles (ouvert, semi-ouvert, ferme) selon le degre de perte auditive.', lien: '/guides/appareils-auditifs/adaptation/', lienTexte: 'Adaptation de l\'appareil' },
+  { terme: 'Embout', definition: 'Piece moulee sur mesure en silicone ou resine qui s\'insere dans le conduit auditif. L\'embout sur mesure assure un maintien optimal et reduit le risque d\'effet Larsen pour les pertes auditives moyennes a severes.', lien: '/guides/appareils-auditifs/adaptation/', lienTexte: 'Adaptation de l\'appareil' },
+  { terme: 'Essai 30 jours', definition: 'Periode legale d\'essai de 30 jours minimum pendant laquelle vous pouvez tester votre aide auditive en conditions reelles et la restituer sans frais si elle ne vous convient pas.', lien: '/guides/audioprothesiste/premier-rdv/', lienTexte: 'Premier rendez-vous' },
+  { terme: 'Filtre anti-cerumen', definition: 'Petit filtre de protection place a l\'extremite de l\'aide auditive pour empecher le cerumen de penetrer dans le recepteur. A remplacer regulierement pour maintenir une bonne qualite sonore.', lien: '/guides/appareils-auditifs/entretien/', lienTexte: 'Entretien des appareils' },
+  { terme: 'HAS (Haute Autorite de Sante)', definition: 'Institution publique francaise qui evalue les dispositifs medicaux, emet des recommandations de bonne pratique et definit les conditions de remboursement des aides auditives.', lien: '/guides/remboursement/', lienTexte: 'Guide du remboursement' },
+  { terme: 'Hyperacousie', definition: 'Hypersensibilite aux sons d\'intensite normale, qui sont percus comme desagreables voire douloureux. L\'hyperacousie est souvent associee aux acouphenes.', lien: '/guides/acouphenes/hyperacousie/', lienTexte: 'Comprendre l\'hyperacousie' },
+  { terme: 'IIC (Invisible-in-Canal)', definition: 'Aide auditive la plus discrete, inseree profondement dans le conduit auditif. Invisible de l\'exterieur, elle est reservee aux pertes auditives legeres a moyennes.', lien: '/guides/appareils-auditifs/invisible/', lienTexte: 'Appareils auditifs invisibles' },
+  { terme: 'Implant cochleaire', definition: 'Dispositif medical chirurgicalement implante qui stimule directement le nerf auditif. Il est propose aux personnes atteintes de surdite severe a profonde pour lesquelles les aides auditives classiques ne suffisent plus.', lien: '/guides/perte-auditive/', lienTexte: 'Comprendre la perte auditive' },
+  { terme: 'LPPR (Liste des Produits et Prestations Remboursables)', definition: 'Liste officielle de la Securite sociale repertoriant les dispositifs medicaux pris en charge, dont les aides auditives. L\'inscription a la LPPR conditionne le remboursement.', lien: '/guides/remboursement/', lienTexte: 'Guide du remboursement' },
+  { terme: 'Mesure in vivo', definition: 'Technique de verification du reglage de l\'aide auditive realisee avec une sonde placee dans le conduit auditif. Elle mesure le son reel delivre au tympan et permet un ajustement precis et objectif.', lien: '/guides/audioprothesiste/suivi/', lienTexte: 'Suivi audioprothesique' },
+  { terme: 'Mutuelle responsable', definition: 'Contrat de complementaire sante respectant un cahier des charges fixe par la loi, incluant la prise en charge minimale des aides auditives de classe 1 (reste a charge zero).', lien: '/guides/remboursement/mutuelle/', lienTexte: 'Mutuelle et audition' },
+  { terme: 'ORL (Oto-Rhino-Laryngologiste)', definition: 'Medecin specialiste des pathologies de l\'oreille, du nez et de la gorge. C\'est l\'ORL qui pose le diagnostic de perte auditive et prescrit l\'appareillage.', lien: '/guides/audioprothesiste/orl-vs-audio/', lienTexte: 'ORL vs audioprothesiste' },
+  { terme: 'Otoscopie', definition: 'Examen visuel du conduit auditif et du tympan a l\'aide d\'un otoscope. Cet examen permet de verifier l\'absence de bouchon de cerumen ou de pathologie avant tout appareillage.', lien: '/guides/audioprothesiste/premier-rdv/', lienTexte: 'Premier rendez-vous' },
+  { terme: 'Otoemissions acoustiques (OEA)', definition: 'Sons tres faibles emis spontanement par les cellules ciliees externes de la cochlee. Leur mesure permet de verifier le bon fonctionnement de l\'oreille interne, notamment lors du depistage neonatal.', lien: '/guides/perte-auditive/', lienTexte: 'Comprendre la perte auditive' },
+  { terme: 'PCH (Prestation de Compensation du Handicap)', definition: 'Aide financiere versee par le departement aux personnes en situation de handicap. La PCH peut couvrir une partie du cout des aides auditives et de leurs accessoires.', lien: '/guides/remboursement/aides-financieres/', lienTexte: 'Aides financieres' },
+  { terme: 'Presbyacousie', definition: 'Perte auditive progressive liee au vieillissement naturel de l\'oreille interne. Elle touche d\'abord les frequences aigues et concerne la majorite des personnes apres 60 ans.', lien: '/guides/perte-auditive/', lienTexte: 'Comprendre la perte auditive' },
+  { terme: 'RIC (Receiver-in-Canal)', definition: 'Type d\'aide auditive dont le recepteur (haut-parleur) est place directement dans le conduit auditif, relie au boitier derriere l\'oreille par un fil fin. C\'est le format le plus prescrit aujourd\'hui pour sa discretion et sa qualite sonore.', lien: '/guides/appareils-auditifs/types/', lienTexte: 'Types d\'appareils auditifs' },
+  { terme: 'RQTH (Reconnaissance de la Qualite de Travailleur Handicape)', definition: 'Statut delivre par la MDPH qui ouvre des droits specifiques en milieu professionnel. En cas de perte auditive, la RQTH peut faciliter l\'amenagement de poste et l\'acces a des aides complementaires.', lien: '/guides/remboursement/aides-financieres/', lienTexte: 'Aides financieres' },
+  { terme: 'Schema de remboursement', definition: 'Parcours de prise en charge financiere d\'une aide auditive : prescription ORL, devis normalise, accord de la Securite sociale, complement mutuelle. Chaque etape conditionne le remboursement.', lien: '/guides/remboursement/', lienTexte: 'Guide du remboursement' },
+  { terme: 'Surdite de perception', definition: 'Perte auditive causee par une atteinte de l\'oreille interne (cochlee) ou du nerf auditif. C\'est le type de surdite le plus frequent chez l\'adulte, souvent lie au vieillissement ou au bruit.', lien: '/guides/perte-auditive/causes/', lienTexte: 'Causes de la perte auditive' },
+  { terme: 'Surdite de transmission', definition: 'Perte auditive causee par un obstacle mecanique dans l\'oreille externe ou moyenne (bouchon de cerumen, otite, otospongiose). Elle est souvent traitable medicalement ou chirurgicalement.', lien: '/guides/perte-auditive/causes/', lienTexte: 'Causes de la perte auditive' },
+  { terme: 'Teleaudiologie', definition: 'Pratique de l\'audioprothese a distance grace aux outils numeriques. Elle permet les reglages a distance, le suivi et les teleconsultations, particulierement utile pour les personnes a mobilite reduite.', lien: '/guides/audioprothesiste/teleaudiologie/', lienTexte: 'Teleaudiologie' },
+  { terme: 'TRT (Tinnitus Retraining Therapy)', definition: 'Methode de reeducation des acouphenes combinant une therapie sonore (generateur de bruit) et un accompagnement psychologique. L\'objectif est d\'habituer le cerveau a ne plus percevoir l\'acouphene comme genant.', lien: '/guides/acouphenes/therapie-sonore/', lienTexte: 'Therapie sonore' },
+  { terme: '100 % Sante (audiologie)', definition: 'Reforme entree en vigueur en 2021 qui garantit un reste a charge nul sur les aides auditives de classe 1 pour les assures disposant d\'une mutuelle responsable. Le prix est plafonne a 950 euros par oreille.', lien: '/guides/remboursement/100-sante-audition/', lienTexte: '100 % Sante audiologie' },
+];
+
+const lettres = [...new Set(termes.map(t => {
+  const first = t.terme.charAt(0).toUpperCase();
+  return /[0-9]/.test(first) ? '#' : first;
+}))];
+
+const termesParLettre = lettres.map(lettre => ({
+  lettre,
+  items: termes.filter(t => {
+    const first = t.terme.charAt(0).toUpperCase();
+    const group = /[0-9]/.test(first) ? '#' : first;
+    return group === lettre;
+  }),
+}));
+
+const definedTermSetSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  name: 'Glossaire de l\'audition',
+  description: 'Definitions des termes essentiels de l\'audition et des aides auditives.',
+  url: `${siteUrl}/glossaire/`,
+  hasDefinedTerm: termes.map(t => ({
+    '@type': 'DefinedTerm',
+    name: t.terme,
+    description: t.definition,
+    url: `${siteUrl}/glossaire/#${t.terme.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`,
+  })),
+};
+
+const schemas = [breadcrumbSchema, definedTermSetSchema];
 ---
 
 <BaseLayout
   title="Glossaire de l'audition — LeGuideAuditif.fr"
-  description="Glossaire complet des termes de l'audition : presbyacousie, acouphenes, audiogramme, contour, RIC, et plus."
+  description="Glossaire complet des termes de l'audition : presbyacousie, acouphenes, audiogramme, contour, RIC, et plus. Definitions claires pour les seniors."
+  schema={schemas}
 >
+  <div class="bg-creme">
+    <div class="max-w-[780px] mx-auto px-5">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
   <section class="bg-creme py-16">
     <div class="max-w-[780px] mx-auto px-5">
       <h1 class="font-sans text-[38px] font-extrabold text-marine mb-8">Glossaire de l'audition</h1>
-      <p class="text-lg leading-relaxed mb-8">
-        Les termes essentiels pour comprendre l'audition et les appareils auditifs, expliques simplement.
+      <p class="text-lg leading-relaxed text-gris-texte mb-10">
+        Vous rencontrez un terme technique que vous ne comprenez pas ? Ce glossaire reunit les definitions essentielles de l'audiologie, des aides auditives et du remboursement. Chaque terme est explique simplement, avec un lien vers le guide correspondant pour approfondir.
       </p>
-      <p class="text-gris-texte font-sans">Contenu a venir.</p>
+
+      <!-- Navigation alphabetique -->
+      <nav aria-label="Navigation alphabetique du glossaire" class="flex flex-wrap gap-2 mb-12">
+        {lettres.map(lettre => (
+          <a
+            href={`#lettre-${lettre === '#' ? 'num' : lettre.toLowerCase()}`}
+            class="inline-flex items-center justify-center w-10 h-10 rounded-md bg-marine text-creme font-sans font-bold text-base hover:bg-orange transition-colors focus:outline-3 focus:outline-orange"
+          >
+            {lettre}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Definitions par lettre -->
+      {termesParLettre.map(({ lettre, items }) => (
+        <div id={`lettre-${lettre === '#' ? 'num' : lettre.toLowerCase()}`} class="mb-12 scroll-mt-24">
+          <h2 class="font-sans text-2xl font-bold text-marine border-b-2 border-orange pb-2 mb-6">{lettre}</h2>
+          <dl class="space-y-6">
+            {items.map(item => {
+              const ancre = item.terme.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              return (
+                <div id={ancre} class="scroll-mt-24">
+                  <dt class="font-serif text-lg font-bold text-marine mb-1">{item.terme}</dt>
+                  <dd class="text-gris-texte leading-relaxed">
+                    {item.definition}
+                    {item.lien && (
+                      <span class="ml-1">
+                        &rarr; <a href={item.lien} class="text-orange font-semibold hover:underline focus:outline-3 focus:outline-orange">{item.lienTexte}</a>
+                      </span>
+                    )}
+                  </dd>
+                </div>
+              );
+            })}
+          </dl>
+        </div>
+      ))}
+
+      <!-- Retour en haut -->
+      <div class="text-center mt-8 mb-4">
+        <a href="#" class="text-orange font-semibold hover:underline focus:outline-3 focus:outline-orange">&uarr; Retour en haut de page</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
