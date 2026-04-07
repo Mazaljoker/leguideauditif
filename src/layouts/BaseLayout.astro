@@ -34,6 +34,14 @@ const props = Astro.props;
     />
     <SEOHead {...props} />
     <slot name="head" />
+    <!-- Google Analytics -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-1GHQCKDVPM"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1GHQCKDVPM');
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
