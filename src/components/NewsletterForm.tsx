@@ -1,15 +1,32 @@
 import { useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+
     setStatus('loading');
-    // TODO: Connect to email service (Mailchimp, Brevo, etc.)
-    setTimeout(() => setStatus('success'), 800);
+    setErrorMsg('');
+
+    const { error } = await supabase
+      .from('newsletter_subscribers')
+      .insert({ email, source: 'homepage' });
+
+    if (error) {
+      if (error.code === '23505') {
+        setStatus('success');
+      } else {
+        setStatus('error');
+        setErrorMsg('Une erreur est survenue. Veuillez reessayer.');
+      }
+    } else {
+      setStatus('success');
+    }
   };
 
   if (status === 'success') {
@@ -23,14 +40,7 @@ export default function NewsletterForm() {
           textAlign: 'center',
         }}
       >
-        <p
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '18px',
-            fontWeight: 600,
-            marginBottom: '8px',
-          }}
-        >
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '18px', fontWeight: 600, marginBottom: '8px' }}>
           Inscription confirmee !
         </p>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', opacity: 0.8 }}>
@@ -83,6 +93,11 @@ export default function NewsletterForm() {
       >
         {status === 'loading' ? 'Envoi...' : "S'inscrire gratuitement"}
       </button>
+      {status === 'error' && (
+        <p style={{ width: '100%', color: '#ff6b6b', fontFamily: "'Inter', sans-serif", fontSize: '14px' }}>
+          {errorMsg}
+        </p>
+      )}
     </form>
   );
 }

@@ -1,12 +1,33 @@
 import { useState, type FC, type FormEvent } from 'react';
+import { supabase } from '../lib/supabase';
 
 const LeadForm: FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to backend/Supabase
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const { error: dbError } = await supabase.from('leads').insert({
+      first_name: formData.get('prenom') as string,
+      phone: formData.get('tel') as string,
+      zip_code: formData.get('cp') as string,
+      hearing_loss_type: formData.get('perte') as string,
+      source: 'homepage',
+    });
+
+    setLoading(false);
+    if (dbError) {
+      setError('Une erreur est survenue. Veuillez reessayer.');
+    } else {
+      setSubmitted(true);
+    }
   };
 
   if (submitted) {
@@ -16,10 +37,10 @@ const LeadForm: FC = () => {
           <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M20 6 9 17l-5-5" />
           </svg>
-          Votre demande a bien été envoyée
+          Votre demande a bien ete envoyee
         </p>
         <p className="mt-2 text-[var(--color-gris)]">
-          Un audioprothésiste de votre secteur vous contactera sous 48h.
+          Un audioprothesiste de votre secteur vous contactera sous 48h.
         </p>
       </div>
     );
@@ -31,16 +52,17 @@ const LeadForm: FC = () => {
         Demandez votre bilan auditif gratuit
       </h3>
       <p className="text-sm text-[var(--color-gris)] mb-6">
-        Un audioprothésiste proche de chez vous vous rappelle sous 48h.
+        Un audioprothesiste proche de chez vous vous rappelle sous 48h.
       </p>
 
       <form onSubmit={handleSubmit} className="grid gap-4 md:grid-cols-2">
         <div>
           <label htmlFor="lead-prenom" className="block text-sm font-medium text-[var(--color-marine)] mb-1">
-            Prénom
+            Prenom
           </label>
           <input
             id="lead-prenom"
+            name="prenom"
             type="text"
             required
             className="w-full rounded-[var(--radius-md)] border border-[var(--color-creme-dark)] px-4 py-3 text-base focus:border-[var(--color-orange)] focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]/20"
@@ -49,10 +71,11 @@ const LeadForm: FC = () => {
 
         <div>
           <label htmlFor="lead-tel" className="block text-sm font-medium text-[var(--color-marine)] mb-1">
-            Téléphone
+            Telephone
           </label>
           <input
             id="lead-tel"
+            name="tel"
             type="tel"
             required
             pattern="^(\+33|0)[1-9]\d{8}$"
@@ -67,6 +90,7 @@ const LeadForm: FC = () => {
           </label>
           <input
             id="lead-cp"
+            name="cp"
             type="text"
             required
             pattern="^\d{5}$"
@@ -81,13 +105,14 @@ const LeadForm: FC = () => {
           </label>
           <select
             id="lead-perte"
+            name="perte"
             required
             className="w-full rounded-[var(--radius-md)] border border-[var(--color-creme-dark)] px-4 py-3 text-base focus:border-[var(--color-orange)] focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]/20"
           >
-            <option value="">Sélectionnez</option>
-            <option value="legere">Légère</option>
+            <option value="">Selectionnez</option>
+            <option value="legere">Legere</option>
             <option value="moyenne">Moyenne</option>
-            <option value="severe">Sévère</option>
+            <option value="severe">Severe</option>
             <option value="profonde">Profonde</option>
             <option value="ne-sais-pas">Je ne sais pas</option>
           </select>
@@ -97,20 +122,27 @@ const LeadForm: FC = () => {
           <label className="flex items-start gap-2 text-sm text-[var(--color-gris)]">
             <input type="checkbox" required className="mt-1" />
             <span>
-              J'accepte que mes données soient traitées pour être mis en relation avec un audioprothésiste.
+              J'accepte que mes donnees soient traitees pour etre mis en relation avec un audioprothesiste.{' '}
               <a href="/politique-confidentialite/" className="text-[var(--color-orange)] underline">
-                Politique de confidentialité
+                Politique de confidentialite
               </a>
             </span>
           </label>
         </div>
 
+        {error && (
+          <div className="md:col-span-2">
+            <p className="text-sm text-red-500">{error}</p>
+          </div>
+        )}
+
         <div className="md:col-span-2">
           <button
             type="submit"
-            className="w-full rounded-[var(--radius-md)] bg-[var(--color-orange)] px-6 py-3 text-lg font-semibold text-[var(--color-blanc)] transition-colors hover:bg-[var(--color-orange-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]/50 cursor-pointer"
+            disabled={loading}
+            className="w-full rounded-[var(--radius-md)] bg-[var(--color-orange)] px-6 py-3 text-lg font-semibold text-[var(--color-blanc)] transition-colors hover:bg-[var(--color-orange-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]/50 cursor-pointer disabled:opacity-60"
           >
-            Demander un devis gratuit
+            {loading ? 'Envoi en cours...' : 'Demander un devis gratuit'}
           </button>
         </div>
       </form>
