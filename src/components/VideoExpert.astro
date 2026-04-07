@@ -30,9 +30,10 @@ import { Icon } from 'astro-icon/components';
         </div>
       </div>
 
-      <!-- Right: Video facade -->
+      <!-- Right: Video player -->
       <div class="relative" data-animate>
-        <div class="youtube-facade relative rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(27,46,74,0.15)] aspect-video bg-marine">
+        <div class="video-container relative rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(27,46,74,0.15)] aspect-video bg-marine">
+          <!-- Thumbnail poster -->
           <img
             src="/images/homepage/video-thumbnail.webp"
             alt="Video presentation par Franck-Olivier, audioprothesiste"
@@ -40,13 +41,12 @@ import { Icon } from 'astro-icon/components';
             height="360"
             loading="lazy"
             decoding="async"
-            class="w-full h-full object-cover"
+            class="video-poster w-full h-full object-cover absolute inset-0 z-10"
           />
           <!-- Play button overlay -->
           <button
-            class="absolute inset-0 flex items-center justify-center bg-marine/30 hover:bg-marine/20 transition-colors group"
+            class="video-play-btn absolute inset-0 z-20 flex items-center justify-center bg-marine/30 hover:bg-marine/20 transition-colors group cursor-pointer"
             aria-label="Lire la video : presentation par Franck-Olivier"
-            data-video-id="PLACEHOLDER_VIDEO_ID"
           >
             <div class="w-20 h-20 bg-orange rounded-full flex items-center justify-center shadow-[0_4px_16px_rgba(217,123,61,0.4)] group-hover:scale-110 transition-transform">
               <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -54,10 +54,17 @@ import { Icon } from 'astro-icon/components';
               </svg>
             </div>
           </button>
-          <!-- "Coming soon" overlay — remove when video is ready -->
-          <div class="absolute bottom-4 right-4 bg-marine/80 backdrop-blur-sm text-white font-sans text-sm font-medium px-4 py-2 rounded-lg">
-            Video bientot disponible
-          </div>
+          <!-- Actual video (hidden until play) -->
+          <video
+            class="video-player w-full h-full object-cover"
+            preload="none"
+            playsinline
+            controls
+            poster="/images/homepage/video-thumbnail.webp"
+          >
+            <source src="/videos/homepage/expert-presentation.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la lecture video.
+          </video>
         </div>
       </div>
     </div>
@@ -65,18 +72,14 @@ import { Icon } from 'astro-icon/components';
 </section>
 
 <script>
-  document.querySelector('.youtube-facade button')?.addEventListener('click', function(this: HTMLButtonElement) {
-    const videoId = this.dataset.videoId;
-    if (!videoId || videoId === 'PLACEHOLDER_VIDEO_ID') return;
-    const facade = this.closest('.youtube-facade');
-    if (!facade) return;
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-    iframe.title = 'Video presentation par Franck-Olivier, audioprothesiste';
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    iframe.allowFullscreen = true;
-    iframe.className = 'w-full h-full absolute inset-0';
-    facade.innerHTML = '';
-    facade.appendChild(iframe);
+  const playBtn = document.querySelector('.video-play-btn');
+  const poster = document.querySelector('.video-poster');
+  const video = document.querySelector('.video-player') as HTMLVideoElement | null;
+
+  playBtn?.addEventListener('click', () => {
+    if (!video) return;
+    playBtn.classList.add('hidden');
+    poster?.classList.add('hidden');
+    video.play();
   });
 </script>
