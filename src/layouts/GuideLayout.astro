@@ -60,8 +60,11 @@ const articleSchema = {
   ...(ogImage && { image: new URL(ogImage, Astro.site).href }),
   author: {
     '@type': 'Person',
+    '@id': 'https://leguideauditif.fr/#author',
     name: author,
     jobTitle: authorTitle,
+    url: 'https://leguideauditif.fr/a-propos/',
+    sameAs: ['https://www.linkedin.com/in/franck-olivier-chabbat-/'],
   },
   datePublished: publishDate.toISOString(),
   ...(updateDate && { dateModified: updateDate.toISOString() }),
@@ -72,7 +75,18 @@ const articleSchema = {
   },
 };
 
-const schemas: Record<string, unknown>[] = [articleSchema];
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: new URL(item.href, Astro.site).href }),
+  })),
+};
+
+const schemas: Record<string, unknown>[] = [articleSchema, breadcrumbSchema];
 
 if (faq && faq.length > 0) {
   schemas.push({
