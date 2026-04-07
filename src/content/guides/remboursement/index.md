@@ -6,6 +6,8 @@ isPillar: true
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/remboursement/remboursement.webp
+ogImage: /images/blog/remboursement/remboursement-og.webp
 readingTime: 12
 faq:
   - question: "Combien rembourse la Securite sociale pour un appareil auditif ?"

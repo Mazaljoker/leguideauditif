@@ -6,6 +6,8 @@ isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/symptomes/symptomes.webp
+ogImage: /images/blog/symptomes/symptomes-og.webp
 readingTime: 5
 relatedGuides:
   - acouphenes/index

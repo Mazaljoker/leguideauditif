@@ -6,6 +6,8 @@ isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/classe-1-vs-classe-2/classe-1-vs-classe-2.webp
+ogImage: /images/blog/classe-1-vs-classe-2/classe-1-vs-classe-2-og.webp
 readingTime: 7
 relatedGuides:
   - remboursement/index

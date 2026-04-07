@@ -6,6 +6,8 @@ isPillar: true
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/acouphenes/acouphenes.webp
+ogImage: /images/blog/acouphenes/acouphenes-og.webp
 readingTime: 15
 faq:
   - question: "Les acouphenes peuvent-ils disparaitre ?"

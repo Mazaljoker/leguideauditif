@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
-const { title, metaDescription, cluster, author, authorTitle, publishDate, updateDate, sources, faq } = entry.data;
+const { title, metaDescription, cluster, author, authorTitle, publishDate, updateDate, sources, faq, image, ogImage } = entry.data;
 ---
 
 <GuideLayout
@@ -26,6 +26,8 @@ const { title, metaDescription, cluster, author, authorTitle, publishDate, updat
   headings={headings}
   sources={sources}
   faq={faq}
+  image={image}
+  ogImage={ogImage}
 >
   <Content />
 </GuideLayout>

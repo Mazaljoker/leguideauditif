@@ -6,6 +6,8 @@ isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/types/types.webp
+ogImage: /images/blog/types/types-og.webp
 readingTime: 6
 relatedGuides:
   - appareils-auditifs/classe-1-vs-classe-2

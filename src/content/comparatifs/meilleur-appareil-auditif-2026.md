@@ -2,6 +2,8 @@
 title: "Meilleur appareil auditif 2026 : notre classement"
 metaDescription: "Comparatif des meilleurs appareils auditifs 2026 : Phonak, ReSound, Signia. Tests independants par un audioprothesiste DE."
 category: appareils-auditifs
+image: /images/blog/meilleur-appareil-auditif-2026/meilleur-appareil-auditif-2026.webp
+ogImage: /images/blog/meilleur-appareil-auditif-2026/meilleur-appareil-auditif-2026-og.webp
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"

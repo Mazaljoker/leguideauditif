@@ -6,6 +6,8 @@ isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/100-sante-audition/100-sante-audition.webp
+ogImage: /images/blog/100-sante-audition/100-sante-audition-og.webp
 readingTime: 5
 relatedGuides:
   - remboursement/index

@@ -37,6 +37,8 @@ const guides = defineCollection({
         }),
       )
       .optional(),
+    image: z.string().optional(),
+    ogImage: z.string().optional(),
     relatedGuides: z.array(z.string()).optional(),
     relatedComparatifs: z.array(z.string()).optional(),
   }),
@@ -83,6 +85,8 @@ const comparatifs = defineCollection({
         }),
       )
       .optional(),
+    image: z.string().optional(),
+    ogImage: z.string().optional(),
     relatedGuides: z.array(z.string()).optional(),
   }),
 });

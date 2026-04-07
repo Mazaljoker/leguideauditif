@@ -16,6 +16,8 @@ interface Props {
   headings: { depth: number; slug: string; text: string }[];
   sources?: { name: string; url: string }[];
   faq?: { question: string; answer: string }[];
+  image?: string;
+  ogImage?: string;
 }
 
 const {
@@ -29,6 +31,8 @@ const {
   headings,
   sources,
   faq,
+  image,
+  ogImage,
 } = Astro.props;
 
 const clusterLabels: Record<string, string> = {
@@ -53,6 +57,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: title,
   description: metaDescription,
+  ...(ogImage && { image: new URL(ogImage, Astro.site).href }),
   author: {
     '@type': 'Person',
     name: author,
@@ -97,6 +102,7 @@ const formattedUpdate = updateDate?.toLocaleDateString('fr-FR', {
 <BaseLayout
   title={`${title} — LeGuideAuditif.fr`}
   description={metaDescription}
+  ogImage={ogImage}
   ogType="article"
   publishDate={publishDate}
   updateDate={updateDate}
@@ -110,6 +116,18 @@ const formattedUpdate = updateDate?.toLocaleDateString('fr-FR', {
 
   <article class="bg-creme pb-16">
     <div class="max-w-[780px] mx-auto px-5">
+      <!-- Hero image -->
+      {image && (
+        <img
+          src={image}
+          alt={title}
+          class="w-full rounded-2xl mb-8"
+          width="780"
+          height="440"
+          loading="eager"
+        />
+      )}
+
       <!-- Header -->
       <header class="mb-8">
         <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-4">{title}</h1>
