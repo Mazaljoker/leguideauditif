@@ -1,19 +1,21 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props {
   href: string;
-  emoji: string;
+  icon: string;
   title: string;
   description: string;
   visualClass: string;
   tag?: string;
 }
 
-const { href, emoji, title, description, visualClass, tag } = Astro.props;
+const { href, icon, title, description, visualClass, tag } = Astro.props;
 ---
 
 <a href={href} class="group bg-blanc rounded-2xl overflow-hidden shadow-[0_2px_12px_rgba(27,46,74,0.06)] hover:shadow-[0_8px_32px_rgba(27,46,74,0.12)] hover:-translate-y-1 transition-all duration-250 no-underline text-inherit flex flex-col hover:no-underline">
-  <div class:list={['h-40 flex items-center justify-center text-[56px] relative', visualClass]}>
-    <span aria-hidden="true">{emoji}</span>
+  <div class:list={['h-40 flex items-center justify-center relative', visualClass]}>
+    <Icon name={icon} class="w-14 h-14 text-marine/70" aria-hidden="true" />
     {tag && (
       <span class="absolute top-3 right-3 font-sans text-[11px] font-semibold uppercase tracking-widest bg-marine text-white px-2.5 py-1 rounded">
         {tag}
