@@ -1,24 +1,27 @@
 ---
 const stats = [
-  { number: '6M', unit: 'de Francais', desc: 'souffrent de perte auditive' },
-  { number: '0\u20AC', unit: 'de reste a charge', desc: 'possible avec le 100% Sante' },
-  { number: '7', unit: 'ans en moyenne', desc: 'entre premiers symptomes et appareillage' },
-  { number: '950\u20AC', unit: 'max par oreille', desc: 'pour un appareil Classe 1' },
+  { number: '6M', unit: 'de Francais', desc: 'souffrent de perte auditive', source: 'INSERM 2023' },
+  { number: '0\u20AC', unit: 'de reste a charge', desc: 'possible avec le 100% Sante', source: 'Ministere de la Sante' },
+  { number: '7', unit: 'ans en moyenne', desc: 'entre premiers symptomes et appareillage', source: 'EuroTrak 2024' },
+  { number: '950\u20AC', unit: 'max par oreille', desc: 'pour un appareil Classe 1', source: 'Arrete du 14/11/2018' },
+  { number: '45%', unit: 'non appareilles', desc: 'des malentendants en France', source: 'SNITEM 2023' },
+  { number: '92%', unit: 'de satisfaction', desc: 'chez les porteurs d\'appareils', source: 'EuroTrak 2024' },
 ];
 ---
 
-<section class="bg-blanc py-18">
+<section class="bg-creme py-18">
   <div class="max-w-[1140px] mx-auto px-5">
-    <h2 class="font-sans text-[32px] font-extrabold text-center mb-3">L'audition en France — les chiffres</h2>
-    <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto">
-      Des donnees pour comprendre l'importance de la sante auditive.
+    <h2 class="font-sans text-[32px] font-extrabold text-center mb-3" data-animate>L'audition en France &mdash; les chiffres</h2>
+    <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto" data-animate>
+      Des donnees sourcees pour comprendre l'importance de la sante auditive.
     </p>
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
       {stats.map((stat) => (
-        <div class="text-center p-8 rounded-2xl bg-creme">
-          <div class="font-sans text-5xl font-extrabold text-orange leading-none mb-2">{stat.number}</div>
+        <div class="text-center p-7 rounded-2xl bg-blanc shadow-[0_1px_4px_rgba(27,46,74,0.05)]" data-animate>
+          <div class="font-sans text-4xl lg:text-5xl font-extrabold text-orange leading-none mb-2">{stat.number}</div>
           <div class="font-sans text-base font-semibold text-marine mb-1">{stat.unit}</div>
-          <div class="font-sans text-sm text-gris-texte">{stat.desc}</div>
+          <div class="font-sans text-sm text-gris-texte mb-2">{stat.desc}</div>
+          <div class="font-sans text-[11px] text-gris-texte/50">{stat.source}</div>
         </div>
       ))}
     </div>

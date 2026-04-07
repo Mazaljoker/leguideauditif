@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const stats = [
+  { number: '0\u20AC', label: 'de reste a charge', desc: 'pour les appareils Classe 1' },
+  { number: '950\u20AC', label: 'max par oreille', desc: 'prix plafonne par la loi' },
+  { number: '4 ans', label: 'de garantie', desc: 'minimum legal obligatoire' },
+  { number: '30 jours', label: "d'essai", desc: "periode d'adaptation garantie" },
+];
+---
+
+<section class="bg-marine text-white py-18">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+      <!-- Left: Editorial -->
+      <div data-animate>
+        <div class="inline-flex items-center gap-2 bg-orange/20 border border-orange/30 px-4 py-1.5 rounded-full font-sans text-sm font-medium text-orange mb-5">
+          <Icon name="lucide:sparkles" class="w-4 h-4" aria-hidden="true" />
+          Reforme 100% Sante
+        </div>
+        <h2 class="font-sans text-[32px] font-extrabold mb-5">
+          Un appareil auditif a <span class="text-orange">0&nbsp;&euro; de reste a charge</span>, c'est possible
+        </h2>
+        <p class="text-[17px] opacity-85 leading-relaxed mb-5">
+          Depuis la reforme 100% Sante, tous les Francais disposant d'une mutuelle responsable peuvent beneficier d'appareils auditifs de Classe 1 sans rien debourser. Ces appareils offrent une correction efficace avec un minimum de 12 canaux de reglage, la reduction de bruit et un choix entre piles et rechargeable.
+        </p>
+        <p class="text-[17px] opacity-85 leading-relaxed mb-7">
+          Si vous souhaitez des fonctionnalites avancees (Bluetooth, recharge sans fil, intelligence artificielle), les appareils de Classe 2 restent accessibles avec un remboursement partiel de la Securite sociale et de votre mutuelle.
+        </p>
+        <a
+          href="/guides/remboursement/100-sante-audition/"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-orange text-white font-sans text-base font-semibold rounded-lg hover:bg-orange-hover transition-colors no-underline hover:no-underline"
+        >
+          Tout comprendre en 5 minutes &rarr;
+        </a>
+      </div>
+
+      <!-- Right: Stat cards -->
+      <div class="grid grid-cols-2 gap-4" data-animate>
+        {stats.map((stat) => (
+          <div class="bg-white/8 border border-white/12 rounded-xl p-5 text-center">
+            <div class="font-sans text-3xl lg:text-4xl font-extrabold text-orange leading-none mb-1.5">{stat.number}</div>
+            <div class="font-sans text-sm font-semibold opacity-95 mb-0.5">{stat.label}</div>
+            <div class="font-sans text-xs opacity-60">{stat.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <p class="mt-8 text-xs opacity-40 font-sans text-center">
+      Source : Ministere de la Sante, reforme 100% Sante (2021). Tarifs et garanties en vigueur au 1er janvier 2026.
+    </p>
+  </div>
+</section>

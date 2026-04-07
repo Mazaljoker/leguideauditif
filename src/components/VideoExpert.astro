@@ -1,0 +1,82 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="bg-blanc py-18">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 items-center">
+      <!-- Left: Text + credentials -->
+      <div data-animate>
+        <div class="inline-flex items-center gap-2 bg-orange/10 border border-orange/20 px-4 py-1.5 rounded-full font-sans text-sm font-medium text-orange mb-5">
+          <Icon name="lucide:video" class="w-4 h-4" aria-hidden="true" />
+          Video expert
+        </div>
+        <h2 class="font-sans text-[28px] lg:text-[32px] font-extrabold text-marine mb-5">
+          Franck-Olivier vous explique
+        </h2>
+        <p class="text-gris-texte text-base leading-relaxed mb-5">
+          En tant qu'audioprothesiste diplome d'Etat avec 25 ans d'experience, je reponds en video aux
+          questions les plus frequentes sur la perte auditive, le choix d'un appareil et le remboursement.
+          Des explications claires, sans jargon, comme si vous etiez dans mon cabinet.
+        </p>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-12 h-12 bg-orange rounded-full flex items-center justify-center font-sans font-bold text-white text-lg">
+            FO
+          </div>
+          <div>
+            <div class="font-sans text-base font-bold text-marine">Franck-Olivier</div>
+            <div class="font-sans text-sm text-gris-texte">Audioprothesiste DE &mdash; 25 ans d'experience</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Video facade -->
+      <div class="relative" data-animate>
+        <div class="youtube-facade relative rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(27,46,74,0.15)] aspect-video bg-marine">
+          <img
+            src="/images/homepage/video-thumbnail.webp"
+            alt="Video presentation par Franck-Olivier, audioprothesiste"
+            width="640"
+            height="360"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+          <!-- Play button overlay -->
+          <button
+            class="absolute inset-0 flex items-center justify-center bg-marine/30 hover:bg-marine/20 transition-colors group"
+            aria-label="Lire la video : presentation par Franck-Olivier"
+            data-video-id="PLACEHOLDER_VIDEO_ID"
+          >
+            <div class="w-20 h-20 bg-orange rounded-full flex items-center justify-center shadow-[0_4px_16px_rgba(217,123,61,0.4)] group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </button>
+          <!-- "Coming soon" overlay — remove when video is ready -->
+          <div class="absolute bottom-4 right-4 bg-marine/80 backdrop-blur-sm text-white font-sans text-sm font-medium px-4 py-2 rounded-lg">
+            Video bientot disponible
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelector('.youtube-facade button')?.addEventListener('click', function(this: HTMLButtonElement) {
+    const videoId = this.dataset.videoId;
+    if (!videoId || videoId === 'PLACEHOLDER_VIDEO_ID') return;
+    const facade = this.closest('.youtube-facade');
+    if (!facade) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+    iframe.title = 'Video presentation par Franck-Olivier, audioprothesiste';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.className = 'w-full h-full absolute inset-0';
+    facade.innerHTML = '';
+    facade.appendChild(iframe);
+  });
+</script>

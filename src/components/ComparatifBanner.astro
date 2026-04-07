@@ -9,16 +9,28 @@ const miniCards = [
 ];
 ---
 
-<section class="bg-marine text-white py-16">
+<section class="bg-creme py-16">
   <div class="max-w-[1140px] mx-auto px-5">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Left -->
-      <div>
-        <h2 class="font-sans text-[32px] font-extrabold mb-4">
+      <!-- Left: Image + Text -->
+      <div data-animate>
+        <img
+          src="/images/homepage/comparatif-appareils.webp"
+          alt="Trois appareils auditifs modernes compares"
+          width="500"
+          height="300"
+          loading="lazy"
+          decoding="async"
+          class="rounded-2xl shadow-[0_4px_16px_rgba(27,46,74,0.1)] mb-6 w-full h-auto"
+        />
+        <h2 class="font-sans text-[32px] font-extrabold mb-4 text-marine">
           Nos comparatifs<br /><span class="text-orange">independants</span>
         </h2>
-        <p class="text-[17px] opacity-85 mb-7">
+        <p class="text-[17px] text-gris-texte mb-4">
           Nous testons et comparons les appareils auditifs des grandes marques avec un seul objectif : vous aider a trouver celui qui correspond a votre situation et a votre budget.
+        </p>
+        <p class="text-[17px] text-gris-texte mb-7">
+          Chaque comparatif est base sur des criteres objectifs : nombre de canaux, reduction de bruit, connectivite, autonomie, confort et rapport qualite-prix. Nous incluons systematiquement des appareils Classe 1 (100% Sante) et Classe 2 pour vous offrir une vision complete.
         </p>
         <a
           href="/comparatifs/meilleur-appareil-auditif-2026/"
@@ -29,15 +41,15 @@ const miniCards = [
       </div>
 
       <!-- Right: Mini cards -->
-      <div class="flex flex-col gap-3">
+      <div class="flex flex-col gap-3" data-animate>
         {miniCards.map((card) => (
           <a
             href={card.href}
-            class="bg-white/8 border border-white/12 rounded-xl px-5 py-4 flex items-center gap-3.5 font-sans text-[15px] font-medium hover:bg-white/14 transition-colors no-underline text-white hover:no-underline"
+            class="bg-blanc border border-gris-clair rounded-xl px-5 py-4 flex items-center gap-3.5 font-sans text-[15px] font-medium hover:shadow-[0_4px_12px_rgba(27,46,74,0.08)] transition-shadow no-underline text-marine hover:no-underline"
           >
             <Icon name={card.icon} class="w-6 h-6 text-orange" aria-hidden="true" />
             <span>{card.label}</span>
-            <span class="ml-auto opacity-50">&rarr;</span>
+            <span class="ml-auto text-gris-texte/50">&rarr;</span>
           </a>
         ))}
       </div>

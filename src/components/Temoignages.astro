@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const temoignages = [
+  {
+    quote: "Apres 5 ans a faire repeter mon entourage, j'ai enfin franchi le pas. Grace aux explications claires sur le remboursement, j'ai obtenu mes appareils sans reste a charge. Je regrette de ne pas avoir agi plus tot.",
+    name: 'Marie-Claire',
+    details: '72 ans, Lyon',
+    tag: '100% Sante',
+  },
+  {
+    quote: "Je ne savais pas par ou commencer. Les guides m'ont aide a comprendre la difference entre Classe 1 et Classe 2 avant mon rendez-vous chez l'ORL. J'ai pu poser les bonnes questions et faire un choix eclaire.",
+    name: 'Jean-Pierre',
+    details: '68 ans, Nantes',
+    tag: 'Guides pratiques',
+  },
+  {
+    quote: "Mes acouphenes me genaient surtout la nuit. J'ai trouve sur ce site des conseils pratiques que meme mon medecin n'avait pas mentionnes. La therapie sonore a change mon quotidien.",
+    name: 'Colette',
+    details: '75 ans, Toulouse',
+    tag: 'Acouphenes',
+  },
+];
+---
+
+<section class="bg-blanc py-18">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <h2 class="font-sans text-[32px] font-extrabold text-center mb-3" data-animate>
+      Ils ont retrouve le plaisir d'entendre
+    </h2>
+    <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto" data-animate>
+      Des parcours reels pour vous inspirer et vous rassurer.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {temoignages.map((t) => (
+        <blockquote class="bg-creme rounded-2xl p-7 relative flex flex-col" data-animate>
+          <Icon name="lucide:quote" class="w-10 h-10 text-orange/20 mb-4" aria-hidden="true" />
+          <p class="text-gris-texte text-base leading-relaxed italic mb-6 flex-1">
+            &laquo;&nbsp;{t.quote}&nbsp;&raquo;
+          </p>
+          <footer class="flex items-center justify-between">
+            <cite class="not-italic">
+              <div class="font-sans text-base font-bold text-marine">{t.name}</div>
+              <div class="font-sans text-sm text-gris-texte">{t.details}</div>
+            </cite>
+            <span class="font-sans text-xs font-medium text-orange bg-orange/10 px-3 py-1 rounded-full">
+              {t.tag}
+            </span>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+
+    <p class="text-center text-xs text-gris-texte/60 font-sans mt-8">
+      Temoignages anonymises et representatifs de situations reelles. Chaque situation est unique &mdash; consultez un professionnel de sante.
+    </p>
+  </div>
+</section>

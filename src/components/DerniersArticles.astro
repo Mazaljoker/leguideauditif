@@ -1,0 +1,102 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+
+const allGuides = await getCollection('guides');
+const allComparatifs = await getCollection('comparatifs');
+
+const clusterLabels: Record<string, string> = {
+  'perte-auditive': 'Perte auditive',
+  'appareils-auditifs': 'Appareils',
+  'acouphenes': 'Acouphenes',
+  'prevention': 'Prevention',
+  'remboursement': 'Remboursement',
+  'vie-quotidienne': 'Vie quotidienne',
+  'audioprothesiste': 'Audioprothesiste',
+};
+
+const allContent = [
+  ...allGuides.map((g) => ({
+    slug: g.id,
+    title: g.data.title,
+    description: g.data.metaDescription,
+    date: g.data.publishDate,
+    readingTime: g.data.readingTime,
+    cluster: g.data.cluster,
+    type: 'guide' as const,
+    image: g.data.image,
+    href: `/guides/${g.id}/`,
+  })),
+  ...allComparatifs.map((c) => ({
+    slug: c.id,
+    title: c.data.title,
+    description: c.data.metaDescription,
+    date: c.data.publishDate,
+    readingTime: undefined,
+    cluster: c.data.category,
+    type: 'comparatif' as const,
+    image: c.data.image,
+    href: `/comparatifs/${c.id}/`,
+  })),
+]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
+---
+
+<section class="bg-creme py-18">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <h2 class="font-sans text-[32px] font-extrabold text-center mb-3" data-animate>
+      Derniers articles publies
+    </h2>
+    <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto" data-animate>
+      Nos guides et comparatifs les plus recents.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {allContent.map((article) => (
+        <a
+          href={article.href}
+          class="bg-blanc rounded-2xl overflow-hidden shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-[0_4px_16px_rgba(27,46,74,0.1)] hover:-translate-y-1 transition-all no-underline group"
+          data-animate
+        >
+          {article.image && (
+            <img
+              src={article.image}
+              alt=""
+              width="400"
+              height="220"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-[180px] object-cover"
+            />
+          )}
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="font-sans text-xs font-medium text-orange bg-orange/10 px-2.5 py-1 rounded-full">
+                {article.type === 'comparatif' ? 'Comparatif' : clusterLabels[article.cluster] || article.cluster}
+              </span>
+              <time
+                datetime={new Date(article.date).toISOString().split('T')[0]}
+                class="font-sans text-xs text-gris-texte/60"
+              >
+                {new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </time>
+            </div>
+            <h3 class="font-sans text-base font-bold text-marine mb-2 group-hover:text-orange transition-colors">
+              {article.title}
+            </h3>
+            <p class="text-sm text-gris-texte leading-relaxed line-clamp-2">
+              {article.description}
+            </p>
+            {article.readingTime && (
+              <div class="flex items-center gap-1 mt-3 font-sans text-xs text-gris-texte/50">
+                <Icon name="lucide:clock" class="w-3.5 h-3.5" aria-hidden="true" />
+                {article.readingTime}
+              </div>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -2,10 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import TrustBar from '../components/TrustBar.astro';
+import EditorialIntro from '../components/EditorialIntro.astro';
+import ParcoursUtilisateur from '../components/ParcoursUtilisateur.astro';
 import GuideCard from '../components/GuideCard.astro';
+import ZoomSanteSection from '../components/ZoomSanteSection.astro';
 import ComparatifBanner from '../components/ComparatifBanner.astro';
+import VideoExpert from '../components/VideoExpert.astro';
 import StatsSection from '../components/StatsSection.astro';
+import Temoignages from '../components/Temoignages.astro';
+import MotExpert from '../components/MotExpert.astro';
 import FaqPreview from '../components/FaqPreview.astro';
+import NewsletterCapture from '../components/NewsletterCapture.astro';
+import DerniersArticles from '../components/DerniersArticles.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 import HealthDisclaimer from '../components/HealthDisclaimer.astro';
 
@@ -14,7 +22,7 @@ const guides = [
     href: '/guides/remboursement/',
     icon: 'lucide:euro',
     title: 'Prix et remboursement',
-    description: "100% Sante, mutuelles, reste a charge zero... Tout comprendre pour ne pas payer plus que necessaire.",
+    description: "100% Sante, mutuelles, reste a charge zero... Tout comprendre sur le financement de vos appareils auditifs pour ne pas payer plus que necessaire.",
     visualClass: 'bg-gradient-to-br from-[#fff3e0] to-[#ffe0b2]',
     tag: 'Populaire',
   },
@@ -22,35 +30,35 @@ const guides = [
     href: '/guides/appareils-auditifs/',
     icon: 'lucide:headphones',
     title: 'Choisir son appareil auditif',
-    description: "Contour, intra, invisible, rechargeable... Les criteres qui comptent vraiment pour votre quotidien.",
+    description: "Contour, intra, invisible, rechargeable... Les criteres qui comptent vraiment pour votre confort au quotidien et les erreurs a eviter.",
     visualClass: 'bg-gradient-to-br from-[#e0ecff] to-[#c8d9f5]',
   },
   {
     href: '/guides/perte-auditive/',
     icon: 'lucide:ear',
     title: 'Comprendre la perte auditive',
-    description: "Symptomes, causes, types de surdite et quand consulter. Le point de depart pour agir.",
+    description: "Symptomes, causes, types de surdite et quand consulter un ORL. Le point de depart indispensable pour agir au bon moment.",
     visualClass: 'bg-gradient-to-br from-[#e8edf5] to-[#d4dce8]',
   },
   {
     href: '/guides/acouphenes/',
     icon: 'lucide:bell-ring',
     title: 'Acouphenes',
-    description: "Comprendre ces bruits fantomes, les traitements qui marchent et comment retrouver le calme.",
+    description: "Comprendre ces bruits fantomes, les traitements qui marchent en 2026 et les strategies pour retrouver le calme au quotidien.",
     visualClass: 'bg-gradient-to-br from-[#fce4ec] to-[#f8bbd0]',
   },
   {
     href: '/guides/prevention/',
     icon: 'lucide:shield-check',
     title: 'Proteger votre audition',
-    description: "Bruit au travail, ecouteurs, concerts... Comment preserver votre capital auditif au quotidien.",
+    description: "Bruit au travail, ecouteurs, concerts... Comment preserver votre capital auditif a tout age avec des gestes simples et efficaces.",
     visualClass: 'bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9]',
   },
   {
     href: '/guides/vie-quotidienne/',
     icon: 'lucide:home',
     title: 'Vivre avec ses appareils',
-    description: "Telephone, television, sport, voyage... Tous les conseils pratiques pour votre quotidien.",
+    description: "Telephone, television, sport, voyage... Tous les conseils pratiques pour profiter pleinement de vos appareils au quotidien.",
     visualClass: 'bg-gradient-to-br from-[#f3e5f5] to-[#e1bee7]',
   },
 ];
@@ -58,15 +66,27 @@ const guides = [
 const schema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'MedicalWebPage',
     name: 'LeGuideAuditif.fr',
     url: 'https://leguideauditif.fr',
-    description: "Le guide independant pour mieux entendre — redige par un audioprothesiste DE",
-    founder: {
+    description: "Le guide independant pour mieux entendre — redige par un audioprothesiste DE avec 25 ans d'experience. Guides, comparatifs et conseils sur la perte auditive, les appareils auditifs et le remboursement 100% Sante.",
+    about: {
+      '@type': 'MedicalCondition',
+      name: 'Perte auditive',
+    },
+    author: {
       '@type': 'Person',
       name: 'Franck-Olivier',
       jobTitle: "Audioprothesiste diplome d'Etat",
+      description: "Audioprothesiste DE avec 25 ans d'experience, 18 centres diriges, 3 000+ patients appareilles.",
+      url: 'https://leguideauditif.fr/a-propos/',
     },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LeGuideAuditif.fr',
+      url: 'https://leguideauditif.fr',
+    },
+    lastReviewed: '2026-04-01',
   },
   {
     '@context': 'https://schema.org',
@@ -84,17 +104,26 @@ const schema = [
 
 <BaseLayout
   title="LeGuideAuditif.fr — Le guide independant pour mieux entendre"
-  description="Guides clairs sur la perte auditive, appareils, remboursement et acouphenes. Rediges par un audioprothesiste DE independant avec 25 ans d'experience."
+  description="Guides clairs sur la perte auditive, appareils auditifs, remboursement 100% Sante et acouphenes. Rediges par un audioprothesiste DE independant avec 25 ans d'experience et 3 000+ patients appareilles."
   schema={schema}
 >
+  <!-- 1. Hero -->
   <Hero />
+
+  <!-- 2. Trust Bar -->
   <TrustBar />
 
-  <!-- Guides Section -->
-  <section class="bg-creme py-18">
+  <!-- 3. Editorial Introduction -->
+  <EditorialIntro />
+
+  <!-- 4. Parcours Utilisateur -->
+  <ParcoursUtilisateur />
+
+  <!-- 5. Guides Section -->
+  <section class="bg-blanc py-18">
     <div class="max-w-[1140px] mx-auto px-5">
-      <h2 class="font-sans text-[32px] font-extrabold text-center mb-3">Nos guides pour mieux entendre</h2>
-      <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto">
+      <h2 class="font-sans text-[32px] font-extrabold text-center mb-3" data-animate>Nos guides pour mieux entendre</h2>
+      <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto" data-animate>
         Chaque guide est redige avec l'expertise de 25 ans de pratique en audioprothese.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -105,9 +134,34 @@ const schema = [
     </div>
   </section>
 
+  <!-- 6. Zoom 100% Sante -->
+  <ZoomSanteSection />
+
+  <!-- 7. Comparatifs -->
   <ComparatifBanner />
+
+  <!-- 8. Video Expert -->
+  <VideoExpert />
+
+  <!-- 9. Stats -->
   <StatsSection />
+
+  <!-- 10. Temoignages -->
+  <Temoignages />
+
+  <!-- 11. Le mot de l'expert -->
+  <MotExpert />
+
+  <!-- 12. FAQ -->
   <FaqPreview />
+
+  <!-- 13. Newsletter -->
+  <NewsletterCapture />
+
+  <!-- 14. Derniers articles -->
+  <DerniersArticles />
+
+  <!-- 15. CTA + Disclaimer -->
   <CtaBanner />
   <HealthDisclaimer />
 </BaseLayout>

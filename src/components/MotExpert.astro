@@ -1,0 +1,62 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="bg-creme py-18">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 items-center">
+      <!-- Left: Portrait -->
+      <div class="flex flex-col items-center lg:items-start" data-animate>
+        <img
+          src="/images/homepage/franck-olivier-portrait.webp"
+          alt="Franck-Olivier, audioprothesiste diplome d'Etat"
+          width="300"
+          height="300"
+          loading="lazy"
+          decoding="async"
+          class="rounded-2xl shadow-[0_4px_16px_rgba(27,46,74,0.12)] w-[220px] h-[220px] object-cover mb-5"
+        />
+        <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
+          <span class="inline-flex items-center gap-1.5 bg-marine/8 border border-marine/15 px-3 py-1.5 rounded-full font-sans text-[12px] font-medium text-marine">
+            <Icon name="lucide:graduation-cap" class="w-3.5 h-3.5" aria-hidden="true" /> Diplome d'Etat
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-marine/8 border border-marine/15 px-3 py-1.5 rounded-full font-sans text-[12px] font-medium text-marine">
+            <Icon name="lucide:building-2" class="w-3.5 h-3.5" aria-hidden="true" /> 18 centres
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-marine/8 border border-marine/15 px-3 py-1.5 rounded-full font-sans text-[12px] font-medium text-marine">
+            <Icon name="lucide:users" class="w-3.5 h-3.5" aria-hidden="true" /> 3 000+ patients
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: Editorial -->
+      <div data-animate>
+        <h2 class="font-sans text-[28px] lg:text-[32px] font-extrabold text-marine mb-5">
+          Le mot de <span class="text-orange">Franck-Olivier</span>
+        </h2>
+        <div class="text-gris-texte text-base leading-relaxed space-y-4">
+          <p>
+            Apres 25 ans a accompagner des patients dans mes centres Alain Afflelou Acousticien, j'ai cree
+            LeGuideAuditif pour une raison simple : <strong class="text-marine">trop de personnes repoussent
+            leur appareillage par manque d'information fiable</strong>.
+          </p>
+          <p>
+            J'ai vu des milliers de patients transformer leur quotidien en osant franchir le pas. J'ai aussi vu
+            les consequences du report : isolement social, fatigue cognitive, perte de confiance. Chaque annee
+            d'attente rend l'adaptation plus difficile.
+          </p>
+          <p>
+            Sur ce site, je partage l'expertise du terrain &mdash; sans langue de bois, sans conflit d'interet.
+            Mon seul objectif : vous donner les cles pour prendre les bonnes decisions pour votre audition.
+          </p>
+        </div>
+        <a
+          href="/a-propos/"
+          class="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-marine text-white font-sans text-base font-semibold rounded-lg hover:bg-marine-light transition-colors no-underline hover:no-underline"
+        >
+          En savoir plus sur l'auteur &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

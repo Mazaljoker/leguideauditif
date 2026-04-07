@@ -1,0 +1,74 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const steps = [
+  {
+    number: 1,
+    icon: 'lucide:ear',
+    title: 'Identifier les symptomes',
+    desc: "Vous faites repeter, vous montez le volume ? Reconnaissez les premiers signes d'une perte auditive.",
+    href: '/guides/perte-auditive/',
+  },
+  {
+    number: 2,
+    icon: 'lucide:stethoscope',
+    title: 'Passer un bilan auditif',
+    desc: "Consultez un ORL et passez un audiogramme. Le bilan est gratuit et sans engagement.",
+    href: '/guides/prevention/',
+  },
+  {
+    number: 3,
+    icon: 'lucide:headphones',
+    title: 'Choisir son appareil',
+    desc: "Comparez les types d'appareils, les classes et le remboursement pour trouver le bon choix.",
+    href: '/guides/appareils-auditifs/',
+  },
+  {
+    number: 4,
+    icon: 'lucide:home',
+    title: 'Vivre pleinement',
+    desc: "Adaptez-vous a vos appareils et profitez de chaque conversation, chaque moment.",
+    href: '/guides/vie-quotidienne/',
+  },
+];
+---
+
+<section class="bg-creme py-18">
+  <div class="max-w-[1140px] mx-auto px-5">
+    <h2 class="font-sans text-[32px] font-extrabold text-center mb-3" data-animate>
+      Votre parcours vers une meilleure audition
+    </h2>
+    <p class="text-center text-gris-texte text-lg mb-14 max-w-[600px] mx-auto" data-animate>
+      Quatre etapes pour retrouver le plaisir d'entendre.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 relative">
+      {steps.map((step, i) => (
+        <div class="relative flex flex-col items-center text-center" data-animate>
+          <!-- Connecting line (hidden on mobile, hidden on last item) -->
+          {i < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] border-t-2 border-dashed border-orange/30" aria-hidden="true"></div>
+          )}
+
+          <!-- Numbered circle with icon -->
+          <div class="relative w-16 h-16 bg-marine rounded-full flex items-center justify-center mb-5 shadow-[0_4px_12px_rgba(27,46,74,0.2)]">
+            <Icon name={step.icon} class="w-7 h-7 text-white" aria-hidden="true" />
+            <span class="absolute -top-1 -right-1 w-6 h-6 bg-orange rounded-full flex items-center justify-center font-sans text-xs font-bold text-white">
+              {step.number}
+            </span>
+          </div>
+
+          <!-- Content -->
+          <h3 class="font-sans text-lg font-bold text-marine mb-2">{step.title}</h3>
+          <p class="text-gris-texte text-[15px] leading-relaxed mb-4 max-w-[240px]">{step.desc}</p>
+          <a
+            href={step.href}
+            class="font-sans text-sm font-semibold text-orange hover:text-orange-hover transition-colors no-underline hover:no-underline"
+          >
+            En savoir plus &rarr;
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

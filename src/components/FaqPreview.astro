@@ -2,19 +2,35 @@
 const faqs = [
   {
     question: 'Combien coute un appareil auditif en 2026 ?',
-    answer: "Un appareil auditif coute entre 0\u20AC (Classe 1, 100% Sante) et 2 200\u20AC par oreille (Classe 2 premium). La Securite sociale rembourse 240\u20AC/oreille en base. Votre mutuelle peut couvrir le reste selon votre contrat.",
+    answer: "Un appareil auditif coute entre 0\u20AC (Classe 1, 100% Sante) et 2 200\u20AC par oreille (Classe 2 premium). La Securite sociale rembourse 240\u20AC/oreille en base. Votre mutuelle peut couvrir le reste selon votre contrat. <a href='/guides/remboursement/prix-appareil-auditif/'>Voir tous les tarifs detailles</a>.",
   },
   {
     question: "C'est quoi le 100% Sante audition ?",
-    answer: "Le 100% Sante est une reforme qui garantit un reste a charge de 0\u20AC pour les appareils auditifs Classe 1 (plafonnes a 950\u20AC/oreille). Si vous avez une mutuelle responsable, vous ne payez rien.",
+    answer: "Le 100% Sante est une reforme qui garantit un reste a charge de 0\u20AC pour les appareils auditifs Classe 1 (plafonnes a 950\u20AC/oreille). Si vous avez une mutuelle responsable, vous ne payez rien. <a href='/guides/remboursement/100-sante-audition/'>Tout comprendre en 5 minutes</a>.",
   },
   {
     question: "Comment savoir si j'ai besoin d'un appareil auditif ?",
-    answer: "Si vous faites repeter regulierement, montez le volume de la TV, ou avez du mal a suivre les conversations en groupe, consultez votre medecin puis un ORL. Un audiogramme determinera votre niveau de perte.",
+    answer: "Si vous faites repeter regulierement, montez le volume de la TV, ou avez du mal a suivre les conversations en groupe, consultez votre medecin puis un ORL. Un audiogramme determinera votre niveau de perte. <a href='/guides/perte-auditive/symptomes/'>Voir les 7 symptomes</a>.",
   },
   {
     question: 'Quelle est la difference entre Classe 1 et Classe 2 ?',
-    answer: "Les appareils Classe 1 sont plafonnes a 950\u20AC avec un reste a charge de 0\u20AC — ils offrent une bonne correction de base. Les appareils Classe 2 (prix libre) proposent plus de canaux, une meilleure reduction de bruit et le Bluetooth.",
+    answer: "Les appareils Classe 1 sont plafonnes a 950\u20AC avec un reste a charge de 0\u20AC \u2014 ils offrent une bonne correction de base. Les appareils Classe 2 (prix libre) proposent plus de canaux, une meilleure reduction de bruit et le Bluetooth. <a href='/guides/appareils-auditifs/classe-1-vs-classe-2/'>Comparer en detail</a>.",
+  },
+  {
+    question: "Peut-on essayer un appareil auditif avant de l'acheter ?",
+    answer: "Oui, la loi impose une periode d'essai de 30 jours minimum. Pendant cette periode, vous pouvez tester l'appareil dans votre quotidien et le retourner sans frais si vous n'etes pas satisfait. Votre audioprothesiste ajustera les reglages durant cette phase. <a href='/guides/appareils-auditifs/'>En savoir plus</a>.",
+  },
+  {
+    question: 'Les acouphenes peuvent-ils etre soignes ?',
+    answer: "Il n'existe pas de traitement curatif universel, mais plusieurs solutions permettent de reduire significativement la gene : therapie sonore (TRT), appareils auditifs avec masqueur, therapies cognitives et comportementales (TCC). L'accompagnement par un professionnel est essentiel. <a href='/guides/acouphenes/'>Decouvrir les solutions</a>.",
+  },
+  {
+    question: 'A quel age faut-il faire un bilan auditif ?',
+    answer: "Il est recommande de faire un bilan auditif des 50 ans, puis tous les 2 a 3 ans apres 60 ans. Si vous travaillez dans un environnement bruyant ou si vous ressentez des symptomes, n'attendez pas. Le bilan est gratuit chez la plupart des audioprothesistes. <a href='/guides/prevention/'>Conseils prevention</a>.",
+  },
+  {
+    question: 'Contour ou intra-auriculaire : comment choisir ?',
+    answer: "Le choix depend de votre perte auditive, de votre dexterite et de vos preferences esthetiques. Les contours (BTE/RIC) sont plus puissants et faciles a manipuler. Les intra-auriculaires (ITE/CIC) sont plus discrets mais moins adaptes aux pertes severes. <a href='/guides/appareils-auditifs/types/'>Comparer tous les types</a>.",
   },
 ];
 
@@ -26,35 +42,33 @@ const faqSchema = {
     name: faq.question,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: faq.answer,
+      text: faq.answer.replace(/<[^>]*>/g, ''),
     },
   })),
 };
 ---
 
-<section class="bg-creme py-18">
+<section class="bg-blanc py-18">
   <div class="max-w-[1140px] mx-auto px-5">
-    <h2 class="font-sans text-[32px] font-extrabold text-center mb-3">Questions frequentes</h2>
-    <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto">
+    <h2 class="font-sans text-[32px] font-extrabold text-center mb-3" data-animate>Questions frequentes</h2>
+    <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto" data-animate>
       Les reponses aux questions que vous vous posez le plus souvent.
     </p>
     <div class="max-w-[780px] mx-auto">
       {faqs.map((faq) => (
-        <details class="bg-blanc rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
+        <details class="bg-creme rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
           <summary class="px-6 py-5 font-sans text-[17px] font-semibold text-marine cursor-pointer list-none flex justify-between items-center">
             <span>{faq.question}</span>
             <span class="text-xl transition-transform group-open:rotate-45">+</span>
           </summary>
-          <div class="px-6 pb-5 text-gris-texte text-base leading-relaxed">
-            {faq.answer}
-          </div>
+          <div class="px-6 pb-5 text-gris-texte text-base leading-relaxed" set:html={faq.answer} />
         </details>
       ))}
     </div>
     <div class="text-center mt-7">
       <a
         href="/faq/"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-blanc text-marine font-sans text-base font-semibold rounded-lg border-2 border-marine hover:bg-marine hover:text-white transition-colors no-underline hover:no-underline"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-creme text-marine font-sans text-base font-semibold rounded-lg border-2 border-marine hover:bg-marine hover:text-white transition-colors no-underline hover:no-underline"
       >
         Voir toutes les questions &rarr;
       </a>
