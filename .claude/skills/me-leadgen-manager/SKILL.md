@@ -1,6 +1,10 @@
 ---
 name: me-leadgen-manager
 description: "Gère le pipeline de leads LeGuideAuditif : formulaires devis, tracking conversions, dashboard partenaires audioprothésistes. Utiliser dès que l'utilisateur dit 'leads', 'formulaire devis', 'partenaire audio', 'combien de leads', 'conversion', 'tracking lead', 'dashboard leads', 'audioprothésiste partenaire', 'monetisation'. Produit un rapport de performance lead gen + actions. NE PAS utiliser pour la rédaction SEO (seo-content-writer) ni les visuels (social-creator)."
+metadata:
+  author: Franck-Olivier Chabbat
+  version: "1.0.0"
+  chain-position: "Level 4 feedback"
 ---
 
 # LeGuideAuditif Lead Gen Manager v1.0

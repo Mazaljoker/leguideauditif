@@ -1,6 +1,10 @@
 ---
 name: me-affiliate-writer
 description: "Rédige les contenus comparatifs et fiches produits monétisés pour LeGuideAuditif : tableaux specs, comparatifs appareils auditifs, guides d'achat, liens affiliés. Utiliser dès que l'utilisateur dit 'comparatif', 'fiche produit', 'guide d'achat', 'tableau comparatif', 'affiliate', 'test appareil', 'avis appareil', 'meilleur appareil auditif', 'classe 1 vs classe 2', 'lien affilié'. Produit un article comparatif prêt pour PR GitHub. NE PAS utiliser pour les articles informationnels purs (seo-content-writer) ni les pages de vente (sales-pitch)."
+metadata:
+  author: Franck-Olivier Chabbat
+  version: "1.0.0"
+  chain-position: 1
 ---
 
 # LeGuideAuditif Affiliate Writer v1.0

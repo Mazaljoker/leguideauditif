@@ -1,6 +1,10 @@
 ---
 name: me-eeat-compliance
 description: "Vérifie la conformité E-E-A-T et YMYL de chaque page LeGuideAuditif avant publication. Utiliser AUTOMATIQUEMENT après nposts-content-evaluator (double gate YMYL), ou quand l'utilisateur dit 'E-E-A-T', 'YMYL', 'conformité santé', 'mentions légales', 'auteur', 'sources médicales', 'crédibilité', 'Google santé', 'vérifier la page'. Produit un score E-E-A-T /100 + corrections. NE PAS utiliser pour la rédaction (content-writer, affiliate-writer) ni l'audit technique SEO (seo-auditor)."
+metadata:
+  author: Franck-Olivier Chabbat
+  version: "1.0.0"
+  chain-position: 4
 ---
 
 # LeGuideAuditif E-E-A-T Compliance v1.0
