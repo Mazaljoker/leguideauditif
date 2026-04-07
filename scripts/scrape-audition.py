@@ -3,7 +3,7 @@
 Script de collecte de données audioprothésistes en France.
 
 Sources:
-  1. FINESS via OpenDataSoft
+  1. RPPS LibreAcces via OpenDataSoft (Répertoire Partagé des Professionnels de Santé)
   2. Scraping annuaire-audition.com (polite scraping avec délais)
 
 Fusion & déduplication par adresse normalisée.
@@ -33,19 +33,43 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Constantes
-FINESS_API_URL = "https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/finess-extraction-du-fichier-des-etablissements/records"
+RPPS_API_URL = "https://arssante.opendatasoft.com/api/explore/v2.1/catalog/datasets/ps_libreacces_personne_activite/records"
 ANNUAIRE_AUDITION_BASE = "https://www.annuaire-audition.com"
 GEOCODE_API_URL = "https://api-adresse.data.gouv.fr/search/"
 OUTPUT_DIR = Path(__file__).parent.parent / "src" / "data"
 OUTPUT_FILE = OUTPUT_DIR / "audioprothesistes.json"
 
-# Codes activité pour audioprothésistes (FINESS)
-CODES_ACTIVITE_AUDIO = ["603", "6302", "6301"]
-TYPES_ETABLISSEMENT_AUDIO = [
-    "Centre d'audioprothèse",
-    "Audioprothésiste",
-    "Laboratoire d'audioprothèse",
-]
+# Mapping departement -> slug pour annuaire-audition.com
+DEPARTMENTS = {
+    "01": "ain", "02": "aisne", "03": "allier", "04": "alpes-de-haute-provence",
+    "05": "hautes-alpes", "06": "alpes-maritimes", "07": "ardeche", "08": "ardennes",
+    "09": "ariege", "10": "aube", "11": "aude", "12": "aveyron",
+    "13": "bouches-du-rhone", "14": "calvados", "15": "cantal", "16": "charente",
+    "17": "charente-maritime", "18": "cher", "19": "correze",
+    "2A": "corse-du-sud", "2B": "haute-corse",
+    "21": "cote-d-or", "22": "cotes-d-armor", "23": "creuse", "24": "dordogne",
+    "25": "doubs", "26": "drome", "27": "eure", "28": "eure-et-loir",
+    "29": "finistere", "30": "gard", "31": "haute-garonne", "32": "gers",
+    "33": "gironde", "34": "herault", "35": "ille-et-vilaine", "36": "indre",
+    "37": "indre-et-loire", "38": "isere", "39": "jura", "40": "landes",
+    "41": "loir-et-cher", "42": "loire", "43": "haute-loire", "44": "loire-atlantique",
+    "45": "loiret", "46": "lot", "47": "lot-et-garonne", "48": "lozere",
+    "49": "maine-et-loire", "50": "manche", "51": "marne", "52": "haute-marne",
+    "53": "mayenne", "54": "meurthe-et-moselle", "55": "meuse", "56": "morbihan",
+    "57": "moselle", "58": "nievre", "59": "nord", "60": "oise",
+    "61": "orne", "62": "pas-de-calais", "63": "puy-de-dome", "64": "pyrenees-atlantiques",
+    "65": "hautes-pyrenees", "66": "pyrenees-orientales", "67": "bas-rhin", "68": "haut-rhin",
+    "69": "rhone", "70": "haute-saone", "71": "saone-et-loire", "72": "sarthe",
+    "73": "savoie", "74": "haute-savoie", "75": "paris", "76": "seine-maritime",
+    "77": "seine-et-marne", "78": "yvelines", "79": "deux-sevres", "80": "somme",
+    "81": "tarn", "82": "tarn-et-garonne", "83": "var", "84": "vaucluse",
+    "85": "vendee", "86": "vienne", "87": "haute-vienne", "88": "vosges",
+    "89": "yonne", "90": "territoire-de-belfort", "91": "essonne",
+    "92": "hauts-de-seine", "93": "seine-saint-denis", "94": "val-de-marne",
+    "95": "val-d-oise",
+    "971": "guadeloupe", "972": "martinique", "973": "guyane",
+    "974": "reunion", "976": "mayotte",
+}
 
 # User-Agent pour le scraping
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -55,18 +79,10 @@ REQUEST_DELAY = 1.0
 
 
 def normalize_address(address: str) -> str:
-    """
-    Normalise une adresse pour la déduplication.
-
-    - Minuscules
-    - Supprime accents
-    - Supprime espaces multiples
-    - Normalise abréviations (rue → r, avenue → av, etc.)
-    """
+    """Normalise une adresse pour la déduplication."""
     if not address:
         return ""
 
-    # Minuscules
     addr = address.lower().strip()
 
     # Supprime accents
@@ -92,34 +108,30 @@ def normalize_address(address: str) -> str:
     for pattern, replacement in replacements.items():
         addr = re.sub(pattern, replacement, addr)
 
-    # Supprime espaces multiples
     addr = re.sub(r"\s+", " ", addr)
-
     return addr.strip()
 
 
 def extract_dept_from_cp(cp: str) -> str:
-    """Extrait le département du code postal (2 premiers chiffres)."""
+    """Extrait le département du code postal."""
     if not cp or len(cp) < 2:
         return ""
-    # Gère DOM-TOM (97 + 1 chiffre)
     if cp.startswith("97"):
         return cp[:3] if len(cp) >= 3 else cp[:2]
+    # Corse
+    if cp.startswith("20"):
+        cp_num = int(cp[:5]) if len(cp) >= 5 else int(cp)
+        if 20000 <= cp_num <= 20190:
+            return "2A"
+        return "2B"
     return cp[:2]
 
 
 def geocode_address(address: str, city: str) -> Optional[Dict[str, float]]:
-    """
-    Géocode une adresse via l'API adresse.data.gouv.fr.
-
-    Retourne: {"lat": float, "lng": float} ou None
-    """
+    """Géocode une adresse via api-adresse.data.gouv.fr."""
     try:
         query = f"{address}, {city}"
-        params = {
-            "q": query,
-            "limit": 1,
-        }
+        params = {"q": query, "limit": 1}
 
         response = requests.get(GEOCODE_API_URL, params=params, timeout=5)
         response.raise_for_status()
@@ -136,13 +148,129 @@ def geocode_address(address: str, city: str) -> Optional[Dict[str, float]]:
         return None
 
 
-def fetch_finess_data(dry_run: bool = False) -> List[Dict[str, Any]]:
+def geocode_batch(records: List[Dict[str, Any]], batch_size: int = 2000) -> int:
     """
-    Récupère les données FINESS via OpenDataSoft.
+    Géocode par lot via POST https://api-adresse.data.gouv.fr/search/csv/.
+    Retourne le nombre d'adresses géocodées.
+    """
+    import csv
+    import io
 
-    Filtre par code activité ou type d'établissement.
+    BATCH_URL = "https://api-adresse.data.gouv.fr/search/csv/"
+    geocoded = 0
+
+    to_geocode = [r for r in records if not r.get("lat") or not r.get("lng")]
+    if not to_geocode:
+        return 0
+
+    logger.info(f"Géocodage batch de {len(to_geocode)} adresses...")
+
+    for i in range(0, len(to_geocode), batch_size):
+        chunk = to_geocode[i:i + batch_size]
+        batch_num = i // batch_size + 1
+        logger.info(f"  Batch {batch_num}: {len(chunk)} adresses...")
+
+        # Crée le CSV en mémoire
+        csv_buffer = io.StringIO()
+        writer = csv.writer(csv_buffer)
+        writer.writerow(["id", "adresse", "postcode"])
+        for idx, record in enumerate(chunk):
+            # Combine adresse + ville pour meilleur géocodage
+            full_addr = f"{record.get('adresse', '')} {record.get('ville', '')}".strip()
+            writer.writerow([
+                idx,
+                full_addr,
+                record.get("cp", ""),
+            ])
+
+        csv_content = csv_buffer.getvalue().encode("utf-8")
+
+        try:
+            response = requests.post(
+                BATCH_URL,
+                files={"data": ("addresses.csv", csv_content, "text/csv")},
+                data={
+                    "columns": "adresse",
+                    "postcode": "postcode",
+                },
+                timeout=120,
+            )
+            response.raise_for_status()
+
+            # Parse le CSV résultat
+            batch_geocoded = 0
+            result_reader = csv.DictReader(io.StringIO(response.text))
+            for row in result_reader:
+                idx = int(row.get("id", -1))
+                lat = row.get("latitude", "")
+                lng = row.get("longitude", "")
+                score = float(row.get("result_score", "0") or "0")
+
+                if 0 <= idx < len(chunk) and lat and lng and score > 0.3:
+                    chunk[idx]["lat"] = float(lat)
+                    chunk[idx]["lng"] = float(lng)
+                    # Enrichit la ville si manquante
+                    result_city = row.get("result_city", "")
+                    if result_city and not chunk[idx].get("ville"):
+                        chunk[idx]["ville"] = result_city
+                    geocoded += 1
+                    batch_geocoded += 1
+
+            logger.info(f"  Batch {batch_num}: {batch_geocoded}/{len(chunk)} géocodés")
+            time.sleep(2)  # Délai entre batches
+
+        except Exception as e:
+            logger.error(f"Erreur géocodage batch {batch_num}: {e}")
+            logger.info(f"  Retry batch {batch_num} en sous-lots de 500...")
+            # Retry en plus petits morceaux
+            for j in range(0, len(chunk), 500):
+                sub = chunk[j:j + 500]
+                try:
+                    csv_buf2 = io.StringIO()
+                    w2 = csv.writer(csv_buf2)
+                    w2.writerow(["id", "adresse", "postcode"])
+                    for si, sr in enumerate(sub):
+                        full = f"{sr.get('adresse', '')} {sr.get('ville', '')}".strip()
+                        w2.writerow([si, full, sr.get("cp", "")])
+
+                    resp2 = requests.post(
+                        BATCH_URL,
+                        files={"data": ("addr.csv", csv_buf2.getvalue().encode("utf-8"), "text/csv")},
+                        data={"columns": "adresse", "postcode": "postcode"},
+                        timeout=60,
+                    )
+                    resp2.raise_for_status()
+
+                    for row in csv.DictReader(io.StringIO(resp2.text)):
+                        si = int(row.get("id", -1))
+                        lat = row.get("latitude", "")
+                        lng = row.get("longitude", "")
+                        sc = float(row.get("result_score", "0") or "0")
+                        if 0 <= si < len(sub) and lat and lng and sc > 0.3:
+                            sub[si]["lat"] = float(lat)
+                            sub[si]["lng"] = float(lng)
+                            result_city = row.get("result_city", "")
+                            if result_city and not sub[si].get("ville"):
+                                sub[si]["ville"] = result_city
+                            geocoded += 1
+
+                    time.sleep(3)
+                except Exception as e2:
+                    logger.error(f"  Sous-lot échoué: {e2}")
+
+    logger.info(f"Géocodage terminé: {geocoded}/{len(to_geocode)} adresses géocodées")
+    return geocoded
+
+
+def fetch_rpps_data(dry_run: bool = False) -> List[Dict[str, Any]]:
     """
-    logger.info("Récupération des données FINESS...")
+    Récupère les audioprothésistes via le RPPS (Répertoire Partagé des
+    Professionnels de Santé) sur OpenDataSoft.
+
+    Regroupe par site (adresse unique) pour éviter les doublons
+    quand plusieurs professionnels exercent au même endroit.
+    """
+    logger.info("Récupération des données RPPS (audioprothésistes)...")
 
     records = []
     offset = 0
@@ -151,21 +279,34 @@ def fetch_finess_data(dry_run: bool = False) -> List[Dict[str, Any]]:
     try:
         while True:
             if dry_run:
-                logger.info("[DRY RUN] Simule requête FINESS (offset=%d)", offset)
+                logger.info("[DRY RUN] Simule requête RPPS (offset=%d)", offset)
                 break
 
             params = {
                 "offset": offset,
                 "limit": limit,
-                "where": f"(code_activite_principale IN ({','.join(repr(c) for c in CODES_ACTIVITE_AUDIO)}))",
+                "where": 'libelle_profession="Audio-Prothésiste" AND code_postal_coord_structure IS NOT NULL',
+                "select": (
+                    "raison_sociale_site,"
+                    "enseigne_commerciale_site,"
+                    "numero_voie_coord_structure,"
+                    "libelle_type_de_voie_coord_structure,"
+                    "libelle_voie_coord_structure,"
+                    "code_postal_coord_structure,"
+                    "libelle_commune_coord_structure,"
+                    "telephone_coord_structure,"
+                    "numero_finess_site,"
+                    "numero_siret_site,"
+                    "code_departement_structure"
+                ),
             }
 
-            logger.info(f"Requête FINESS offset={offset}...")
+            logger.info(f"Requête RPPS offset={offset}...")
             response = requests.get(
-                FINESS_API_URL,
+                RPPS_API_URL,
                 params=params,
                 headers={"User-Agent": USER_AGENT},
-                timeout=10,
+                timeout=15,
             )
             response.raise_for_status()
 
@@ -176,80 +317,123 @@ def fetch_finess_data(dry_run: bool = False) -> List[Dict[str, Any]]:
                 break
 
             for record in batch:
-                # Champs FINESS pertinents
+                # Construit l'adresse complète
+                num = record.get("numero_voie_coord_structure", "") or ""
+                type_voie = record.get("libelle_type_de_voie_coord_structure", "") or ""
+                voie = record.get("libelle_voie_coord_structure", "") or ""
+                adresse = f"{num} {type_voie} {voie}".strip()
+
+                cp = record.get("code_postal_coord_structure", "") or ""
+                ville = record.get("libelle_commune_coord_structure", "") or ""
+                tel = record.get("telephone_coord_structure", "") or ""
+
+                # Formate le téléphone
+                if tel:
+                    tel = re.sub(r"\D", "", tel)
+                    if len(tel) == 10:
+                        tel = " ".join([tel[i:i+2] for i in range(0, 10, 2)])
+
                 entry = {
-                    "nom": record.get("raison_sociale", ""),
-                    "adresse": record.get("numero_voie_etab", "") + " " + record.get("libelle_voie_etab", ""),
-                    "cp": record.get("code_postal_etab", ""),
-                    "ville": record.get("libelle_commune_etab", ""),
-                    "tel": record.get("telephone_etab", ""),
-                    "finess": record.get("numero_finess_etab", ""),
+                    "nom": record.get("raison_sociale_site", "") or "",
+                    "enseigne": record.get("enseigne_commerciale_site", "") or "",
+                    "adresse": adresse,
+                    "cp": cp,
+                    "ville": ville,
+                    "tel": tel,
+                    "finess": record.get("numero_finess_site", "") or "",
+                    "siret": record.get("numero_siret_site", "") or "",
+                    "departement": record.get("code_departement_structure", "") or extract_dept_from_cp(cp),
                     "lat": None,
                     "lng": None,
-                    "source": "finess",
+                    "source": "rpps",
                 }
 
-                # Parse lat/lng si disponible
-                try:
-                    geo = record.get("geo_localisation", "").strip()
-                    if geo:
-                        lat_str, lng_str = geo.split(",")
-                        entry["lat"] = float(lat_str)
-                        entry["lng"] = float(lng_str)
-                except (ValueError, AttributeError):
-                    pass
-
-                # Valide l'entrée
-                if entry["nom"] and entry["adresse"].strip():
+                if entry["adresse"] and entry["cp"]:
                     records.append(entry)
 
             offset += limit
-            time.sleep(0.5)  # Délai entre requêtes
+            time.sleep(0.3)
 
     except Exception as e:
-        logger.error(f"Erreur lors de la récupération FINESS: {e}")
+        logger.error(f"Erreur lors de la récupération RPPS: {e}")
 
-    logger.info(f"FINESS: {len(records)} records collectés")
+    logger.info(f"RPPS: {len(records)} records collectés")
     return records
+
+
+def group_rpps_by_site(records: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Regroupe les enregistrements RPPS par site (même adresse).
+    Plusieurs audioprothésistes exercent souvent au même centre.
+    """
+    sites: Dict[str, Dict[str, Any]] = {}
+
+    for record in records:
+        norm_addr = normalize_address(record["adresse"])
+        ville = record["ville"].lower().strip()
+        key = f"{norm_addr}|{ville}"
+
+        if key not in sites:
+            sites[key] = record.copy()
+        else:
+            # Enrichit avec les infos manquantes
+            existing = sites[key]
+            if not existing["enseigne"] and record["enseigne"]:
+                existing["enseigne"] = record["enseigne"]
+            if not existing["tel"] and record["tel"]:
+                existing["tel"] = record["tel"]
+            if not existing["finess"] and record["finess"]:
+                existing["finess"] = record["finess"]
+
+    result = list(sites.values())
+    logger.info(f"RPPS: {len(records)} records -> {len(result)} sites uniques")
+    return result
 
 
 def scrape_annuaire_audition(dry_run: bool = False) -> List[Dict[str, Any]]:
     """
     Scrape annuaire-audition.com département par département.
-
-    Departments: 01-95 + DOM-TOM (971, 972, 973, 974, 976)
+    URL pattern: /centres-audioprothese-{dept}-{dept_name_slug}.html
     """
     logger.info("Scraping annuaire-audition.com...")
 
     records = []
-
-    # Departments à scraper
-    departments = [
-        f"{i:02d}" for i in range(1, 96)  # 01-95
-    ] + ["971", "972", "973", "974", "976"]  # DOM-TOM
-
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
 
-    for dept in tqdm(departments, desc="Departments", disable=dry_run):
+    for dept, slug in tqdm(DEPARTMENTS.items(), desc="Departments", disable=dry_run):
         if dry_run:
             logger.info(f"[DRY RUN] Simule scrape département {dept}")
             continue
 
         try:
-            url = f"{ANNUAIRE_AUDITION_BASE}/audioprothesiste-{dept}/"
+            url = f"{ANNUAIRE_AUDITION_BASE}/centres-audioprothese-{dept}-{slug}.html"
 
             response = session.get(url, timeout=10)
             response.raise_for_status()
 
             soup = BeautifulSoup(response.content, "html.parser")
 
-            # Cherche les éléments centre audition (structure dépend du site)
-            # Généralement: divs/articles avec classe "center", "establishment", "item", etc.
-            items = soup.find_all(["article", "div"], class_=re.compile(r"(center|establishment|item|listing)", re.I))
+            # Cherche les liens vers les centres individuels
+            center_links = []
+            for link in soup.find_all("a", href=True):
+                href = link["href"]
+                if "/centres-audioprothese/" in href and href.endswith(".html"):
+                    full_url = urljoin(ANNUAIRE_AUDITION_BASE, href)
+                    if full_url not in center_links:
+                        center_links.append(full_url)
 
-            for item in items:
+            logger.info(f"Dept {dept}: {len(center_links)} centres trouvés")
+
+            # Scrape chaque centre
+            for center_url in center_links:
                 try:
+                    time.sleep(REQUEST_DELAY * 0.5)
+                    resp = session.get(center_url, timeout=10)
+                    resp.raise_for_status()
+
+                    center_soup = BeautifulSoup(resp.content, "html.parser")
+
                     entry = {
                         "nom": "",
                         "enseigne": "",
@@ -264,136 +448,124 @@ def scrape_annuaire_audition(dry_run: bool = False) -> List[Dict[str, Any]]:
                         "source": "annuaire-audition",
                     }
 
-                    # Cherche nom/enseigne (généralement h2/h3 ou span.name)
-                    name_elem = item.find(["h2", "h3"]) or item.find("span", class_=re.compile(r"name", re.I))
-                    if name_elem:
-                        entry["nom"] = name_elem.get_text(strip=True)
+                    # Nom du centre (h1 ou h2)
+                    title = center_soup.find("h1") or center_soup.find("h2")
+                    if title:
+                        entry["nom"] = title.get_text(strip=True)
 
-                    # Cherche adresse
-                    addr_elem = item.find("span", class_=re.compile(r"address", re.I)) or item.find(["p", "div"], class_=re.compile(r"address|lieu", re.I))
-                    if addr_elem:
-                        full_addr = addr_elem.get_text(strip=True)
-                        # Parse adresse (généralement "rue, CP Ville")
-                        parts = full_addr.split("\n")
-                        if len(parts) >= 3:
-                            entry["adresse"] = parts[0].strip()
-                            cp_city = parts[-1].strip()
-                            cp_match = re.search(r"(\d{5}|97\d{3})", cp_city)
-                            if cp_match:
-                                entry["cp"] = cp_match.group(1)
-                                entry["ville"] = cp_city.replace(cp_match.group(1), "").strip()
-                        elif len(parts) >= 2:
-                            entry["adresse"] = parts[0].strip()
-                            cp_city = parts[-1].strip()
-                            cp_match = re.search(r"(\d{5}|97\d{3})", cp_city)
-                            if cp_match:
-                                entry["cp"] = cp_match.group(1)
-                                entry["ville"] = cp_city.replace(cp_match.group(1), "").strip()
+                    # Téléphone (liens tel:)
+                    tel_link = center_soup.find("a", href=re.compile(r"^tel:"))
+                    if tel_link:
+                        tel_raw = tel_link["href"].replace("tel:", "").strip()
+                        tel_digits = re.sub(r"\D", "", tel_raw)
+                        if len(tel_digits) == 10:
+                            entry["tel"] = " ".join([tel_digits[i:i+2] for i in range(0, 10, 2)])
+                        elif tel_digits:
+                            entry["tel"] = tel_digits
 
-                    # Cherche téléphone
-                    tel_elem = item.find(["a", "span"], class_=re.compile(r"phone|tel", re.I))
-                    if tel_elem:
-                        tel_text = tel_elem.get_text(strip=True)
-                        entry["tel"] = re.sub(r"\D", "", tel_text)  # Garde seulement chiffres
+                    # Adresse - cherche près des icônes pin
+                    # Le texte complet contient souvent "adresse, CP Ville"
+                    page_text = center_soup.get_text(" ", strip=True)
 
-                    # Cherche horaires
-                    hours_elem = item.find(["span", "div"], class_=re.compile(r"hours|horaires", re.I))
-                    if hours_elem:
-                        entry["horaires"] = hours_elem.get_text(strip=True)
+                    # Cherche un pattern CP + Ville dans le texte
+                    cp_match = re.search(r"(\d{5})\s+([A-ZÉÈÊÀÂÔÙÛÜÏÎÇ][A-ZÉÈÊÀÂÔÙÛÜÏÎÇa-zéèêàâôùûüïîç\s\-]+)", page_text)
+                    if cp_match:
+                        entry["cp"] = cp_match.group(1)
+                        entry["ville"] = cp_match.group(2).strip()
 
-                    # Cherche site web
-                    web_elem = item.find("a", class_=re.compile(r"website|web|site", re.I))
-                    if web_elem and web_elem.get("href"):
-                        entry["site_web"] = web_elem["href"]
+                    # Site web
+                    for a_tag in center_soup.find_all("a", href=True):
+                        href = a_tag["href"]
+                        if href.startswith("http") and "annuaire-audition" not in href:
+                            parsed = urlparse(href)
+                            if parsed.scheme in ("http", "https") and "." in parsed.netloc:
+                                entry["site_web"] = href
+                                break
 
-                    # Valide l'entrée
-                    if entry["nom"] and entry["adresse"]:
+                    # Valide
+                    if entry["nom"] and entry["cp"]:
+                        entry["departement"] = extract_dept_from_cp(entry["cp"])
                         records.append(entry)
 
+                except requests.exceptions.RequestException as e:
+                    logger.debug(f"Erreur scrape centre {center_url}: {e}")
                 except Exception as e:
-                    logger.debug(f"Erreur parsing item: {e}")
-                    continue
+                    logger.debug(f"Erreur parsing centre {center_url}: {e}")
 
         except requests.exceptions.RequestException as e:
             logger.warning(f"Erreur scrape département {dept}: {e}")
         except Exception as e:
             logger.warning(f"Erreur parsing département {dept}: {e}")
 
-        # Délai polite scraping
         time.sleep(REQUEST_DELAY)
 
     logger.info(f"Annuaire Audition: {len(records)} records collectés")
     return records
 
 
-def deduplicate_and_merge(finess_records: List[Dict], audition_records: List[Dict]) -> List[Dict[str, Any]]:
+def deduplicate_and_merge(
+    rpps_records: List[Dict],
+    audition_records: List[Dict],
+    skip_geocode: bool = False,
+) -> List[Dict[str, Any]]:
     """
-    Déduplique et fusionne les données FINESS et annuaire-audition.
-
-    Stratégie:
-    - Normalise les adresses
-    - Cherche doublons par (adresse_normalisée, ville)
-    - Fusionne les champs manquants
+    Déduplique et fusionne les données RPPS et annuaire-audition.
     """
     logger.info("Déduplication et fusion...")
 
-    # Index par adresse normalisée + ville
-    index: Dict[tuple, Dict[str, Any]] = {}
+    index: Dict[str, Dict[str, Any]] = {}
 
-    # Ajoute FINESS
-    for record in finess_records:
+    # Ajoute RPPS
+    for record in rpps_records:
         norm_addr = normalize_address(record["adresse"])
         ville = record["ville"].lower().strip() if record["ville"] else ""
-        key = (norm_addr, ville)
+        key = f"{norm_addr}|{ville}"
 
-        # Génère un ID unique
-        record["id"] = f"audio-{record['cp']}-{len([k for k in index.keys() if k[1] == ville])+1:03d}"
-        record["departement"] = extract_dept_from_cp(record["cp"])
+        dept = record.get("departement", extract_dept_from_cp(record["cp"]))
+        ville_count = sum(1 for k in index if k.endswith(f"|{ville}"))
+        record["id"] = f"audio-{record['cp']}-{ville_count+1:03d}"
+        record["departement"] = dept
 
         index[key] = record
 
     # Fusionne annuaire-audition
     merged_count = 0
     for record in audition_records:
-        norm_addr = normalize_address(record["adresse"])
+        norm_addr = normalize_address(record.get("adresse", ""))
         ville = record["ville"].lower().strip() if record["ville"] else ""
-        key = (norm_addr, ville)
+        key = f"{norm_addr}|{ville}"
 
         if key in index:
-            # Doublon trouvé: fusionne les champs
             existing = index[key]
-            existing["enseigne"] = record.get("enseigne") or existing.get("enseigne", "")
-            existing["horaires"] = record.get("horaires") or existing.get("horaires", "")
-            existing["site_web"] = record.get("site_web") or existing.get("site_web", "")
-            existing["source"] = "finess+annuaire"
+            if not existing.get("horaires") and record.get("horaires"):
+                existing["horaires"] = record["horaires"]
+            if not existing.get("site_web") and record.get("site_web"):
+                existing["site_web"] = record["site_web"]
+            if not existing.get("tel") and record.get("tel"):
+                existing["tel"] = record["tel"]
+            existing["source"] = "rpps+annuaire"
             merged_count += 1
         else:
-            # Nouveau record
-            record["id"] = f"audio-{record['cp']}-{len([k for k in index.keys() if k[1] == ville])+1:03d}"
-            record["departement"] = extract_dept_from_cp(record["cp"])
+            dept = record.get("departement", extract_dept_from_cp(record.get("cp", "")))
+            ville_count = sum(1 for k in index if k.endswith(f"|{ville}"))
+            record["id"] = f"audio-{record.get('cp', '00000')}-{ville_count+1:03d}"
+            record["departement"] = dept
             record["source"] = "annuaire-audition"
             index[key] = record
 
     logger.info(f"Fusions trouvées: {merged_count}")
 
-    # Géocode les records sans lat/lng
     records_list = list(index.values())
-    to_geocode = [r for r in records_list if not r.get("lat") or not r.get("lng")]
 
-    if to_geocode:
-        logger.info(f"Géocodage de {len(to_geocode)} records...")
-        for record in tqdm(to_geocode, desc="Géocodage"):
-            coords = geocode_address(record["adresse"], record["ville"])
-            if coords:
-                record["lat"] = coords["lat"]
-                record["lng"] = coords["lng"]
-            time.sleep(0.2)  # Délai respectueux API géocodage
+    # Géocodage batch
+    if not skip_geocode:
+        geocode_batch(records_list)
 
     logger.info(f"Total records après fusion: {len(records_list)}")
     return records_list
 
 
-def save_results(records: List[Dict[str, Any]]) -> None:
+def save_results(records: List[Dict[str, Any]], output_file: Path = OUTPUT_FILE) -> None:
     """Sauvegarde les résultats en JSON."""
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -403,10 +575,33 @@ def save_results(records: List[Dict[str, Any]]) -> None:
         key=lambda r: (r.get("departement", ""), r.get("ville", ""), r.get("nom", ""))
     )
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(records_sorted, f, ensure_ascii=False, indent=2)
+    # Assure tous les champs requis par AudioMap.tsx
+    cleaned = []
+    for r in records_sorted:
+        entry = {
+            "id": r.get("id", ""),
+            "nom": r.get("nom", ""),
+            "enseigne": r.get("enseigne", ""),
+            "adresse": r.get("adresse", ""),
+            "cp": r.get("cp", ""),
+            "ville": r.get("ville", ""),
+            "departement": r.get("departement", ""),
+            "lat": r.get("lat"),
+            "lng": r.get("lng"),
+            "tel": r.get("tel", ""),
+            "horaires": r.get("horaires") or None,
+            "site_web": r.get("site_web") or None,
+            "finess": r.get("finess") or None,
+            "source": r.get("source", ""),
+        }
+        # Exclut les records sans coordonnées GPS (inutiles pour la carte)
+        if entry["lat"] and entry["lng"]:
+            cleaned.append(entry)
 
-    logger.info(f"Résultats sauvegardés: {OUTPUT_FILE}")
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(cleaned, f, ensure_ascii=False, indent=2)
+
+    logger.info(f"Résultats sauvegardés: {output_file} ({len(cleaned)} centres)")
 
 
 def print_summary(records: List[Dict[str, Any]]) -> None:
@@ -415,9 +610,8 @@ def print_summary(records: List[Dict[str, Any]]) -> None:
     print("RÉSUMÉ COLLECTE DONNÉES AUDIOPROTHÉSISTES")
     print("="*60)
 
-    print(f"\nTotal records: {len(records)}")
+    print(f"\nTotal centres: {len(records)}")
 
-    # Par source
     by_source = defaultdict(int)
     for record in records:
         by_source[record.get("source", "unknown")] += 1
@@ -426,7 +620,6 @@ def print_summary(records: List[Dict[str, Any]]) -> None:
     for source, count in sorted(by_source.items()):
         print(f"  {source}: {count}")
 
-    # Par département
     by_dept = defaultdict(int)
     for record in records:
         dept = record.get("departement", "unknown")
@@ -434,17 +627,24 @@ def print_summary(records: List[Dict[str, Any]]) -> None:
 
     print(f"\nCouverture: {len(by_dept)} départements")
 
-    # Stats géocodage
+    # Top 5 départements
+    top5 = sorted(by_dept.items(), key=lambda x: x[1], reverse=True)[:5]
+    print("Top 5 départements:")
+    for dept, count in top5:
+        name = DEPARTMENTS.get(dept, "?")
+        print(f"  {dept} ({name}): {count}")
+
     with_coords = sum(1 for r in records if r.get("lat") and r.get("lng"))
-    print(f"Avec coordonnées GPS: {with_coords}/{len(records)} ({100*with_coords//len(records)}%)")
+    pct = 100 * with_coords // len(records) if records else 0
+    print(f"\nAvec coordonnées GPS: {with_coords}/{len(records)} ({pct}%)")
 
-    # Avec téléphone
     with_phone = sum(1 for r in records if r.get("tel"))
-    print(f"Avec téléphone: {with_phone}/{len(records)} ({100*with_phone//len(records)}%)")
+    pct = 100 * with_phone // len(records) if records else 0
+    print(f"Avec téléphone: {with_phone}/{len(records)} ({pct}%)")
 
-    # Avec site web
     with_web = sum(1 for r in records if r.get("site_web"))
-    print(f"Avec site web: {with_web}/{len(records)} ({100*with_web//len(records)}%)")
+    pct = 100 * with_web // len(records) if records else 0
+    print(f"Avec site web: {with_web}/{len(records)} ({pct}%)")
 
     print("\n" + "="*60)
 
@@ -454,62 +654,41 @@ def main():
     parser = argparse.ArgumentParser(
         description="Collecte de données audioprothésistes en France"
     )
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Simule les appels API/scraping sans télécharger"
-    )
-    parser.add_argument(
-        "--finess-only",
-        action="store_true",
-        help="Collecte seulement les données FINESS"
-    )
-    parser.add_argument(
-        "--audition-only",
-        action="store_true",
-        help="Scrape seulement annuaire-audition.com"
-    )
-    parser.add_argument(
-        "--no-geocode",
-        action="store_true",
-        help="Saute le géocodage des adresses manquantes"
-    )
-    parser.add_argument(
-        "--output",
-        type=Path,
-        default=OUTPUT_FILE,
-        help=f"Fichier de sortie (défaut: {OUTPUT_FILE})"
-    )
+    parser.add_argument("--dry-run", action="store_true", help="Simule sans télécharger")
+    parser.add_argument("--rpps-only", action="store_true", help="Collecte seulement RPPS")
+    parser.add_argument("--audition-only", action="store_true", help="Scrape seulement annuaire-audition")
+    parser.add_argument("--no-geocode", action="store_true", help="Saute le géocodage")
+    parser.add_argument("--output", type=Path, default=OUTPUT_FILE, help=f"Fichier de sortie (défaut: {OUTPUT_FILE})")
 
     args = parser.parse_args()
 
     logger.info("Démarrage collecte audioprothésistes")
     logger.info(f"Mode: {'DRY RUN' if args.dry_run else 'PRODUCTION'}")
 
-    all_records = []
+    rpps_records = []
+    audition_records = []
 
-    # FINESS
+    # RPPS
     if not args.audition_only:
-        finess_records = fetch_finess_data(dry_run=args.dry_run)
-        all_records.extend(finess_records)
+        raw_rpps = fetch_rpps_data(dry_run=args.dry_run)
+        rpps_records = group_rpps_by_site(raw_rpps)
 
     # Annuaire Audition
-    if not args.finess_only:
+    if not args.rpps_only:
         audition_records = scrape_annuaire_audition(dry_run=args.dry_run)
-        all_records.extend(audition_records)
 
     # Fusion et déduplication
+    all_records = rpps_records + audition_records
     if all_records:
         merged = deduplicate_and_merge(
-            [r for r in all_records if r.get("source") == "finess"],
-            [r for r in all_records if r.get("source") == "annuaire-audition"]
+            rpps_records,
+            audition_records,
+            skip_geocode=args.no_geocode or args.dry_run,
         )
 
-        # Sauvegarde
         if not args.dry_run:
-            save_results(merged)
+            save_results(merged, args.output)
 
-        # Résumé
         print_summary(merged)
     else:
         logger.warning("Aucune donnée collectée")
