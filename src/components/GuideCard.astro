@@ -1,6 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 interface Props {
   href: string;
   icon: string;
@@ -8,14 +6,27 @@ interface Props {
   description: string;
   visualClass: string;
   tag?: string;
+  image?: string;
 }
 
-const { href, icon, title, description, visualClass, tag } = Astro.props;
+const { href, title, description, tag, image } = Astro.props;
 ---
 
 <a href={href} class="group bg-blanc rounded-2xl overflow-hidden shadow-[0_2px_12px_rgba(27,46,74,0.06)] hover:shadow-[0_8px_32px_rgba(27,46,74,0.12)] hover:-translate-y-1 transition-all duration-250 no-underline text-inherit flex flex-col hover:no-underline">
-  <div class:list={['h-40 flex items-center justify-center relative', visualClass]}>
-    <Icon name={icon} class="w-14 h-14 text-marine/70" aria-hidden="true" />
+  <div class="h-44 relative overflow-hidden">
+    {image ? (
+      <img
+        src={image}
+        alt=""
+        width="400"
+        height="220"
+        loading="lazy"
+        decoding="async"
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      />
+    ) : (
+      <div class="w-full h-full bg-gradient-to-br from-[#e8edf5] to-[#d4dce8]" />
+    )}
     {tag && (
       <span class="absolute top-3 right-3 font-sans text-[11px] font-semibold uppercase tracking-widest bg-marine text-white px-2.5 py-1 rounded">
         {tag}
