@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
+import AudioMap from '../../../components/AudioMap.tsx';
+import '../../../styles/audiomap.css';
+import rawData from '../../../data/audioprothesistes.json';
+const audioprothesistes = rawData.audioprothesistes;
+
+const title = 'Trouver un audioprothesiste pres de chez vous | LeGuideAuditif';
+const description =
+  'Carte interactive de tous les audioprothesistes en France. Recherchez par ville ou code postal et trouvez un professionnel de l\'audition qualifie pres de chez vous.';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Trouver un audioprothesiste' },
+];
+
+// Schema.org -- WebPage + SearchAction
+const schemaWebPage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: 'https://leguideauditif.fr/fr/trouver-mon-audio/',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'LeGuideAuditif',
+    url: 'https://leguideauditif.fr',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate:
+        'https://leguideauditif.fr/fr/trouver-mon-audio/?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+// Schema.org -- LocalBusiness pour chaque centre (max 50 pour le JSON-LD)
+const schemaLocalBusinesses = audioprothesistes.slice(0, 50).map((centre: {
+  nom: string;
+  adresse: string;
+  cp: string;
+  ville: string;
+  tel: string;
+  horaires: string | null;
+  site_web: string | null;
+  lat: number;
+  lng: number;
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `https://leguideauditif.fr/fr/trouver-mon-audio/#${centre.cp}-${centre.nom.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`,
+  name: centre.nom,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: centre.adresse,
+    postalCode: centre.cp,
+    addressLocality: centre.ville,
+    addressCountry: 'FR',
+  },
+  telephone: centre.tel || undefined,
+  openingHours: centre.horaires || undefined,
+  url: centre.site_web || undefined,
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: centre.lat,
+    longitude: centre.lng,
+  },
+  additionalType: 'https://schema.org/MedicalBusiness',
+  medicalSpecialty: 'Audioprothese',
+}));
+
+const allSchemas = [schemaWebPage, ...schemaLocalBusinesses];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://leguideauditif.fr/fr/trouver-mon-audio/"
+  ogType="website"
+  schema={allSchemas}
+>
+  {/* Leaflet CSS -- loaded only on this page */}
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+    slot="head"
+  />
+
+  <section class="bg-creme pt-8 pb-16">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="mb-8">
+        <h1 class="font-sans text-[32px] sm:text-[38px] font-extrabold text-marine leading-tight mb-4">
+          Trouver un audioprothesiste pres de chez vous
+        </h1>
+        <p class="text-lg leading-relaxed max-w-[680px]">
+          Utilisez notre carte interactive pour localiser un audioprothesiste
+          diplome d'Etat dans votre ville. Entrez votre ville ou code postal
+          pour afficher les centres les plus proches.
+        </p>
+      </header>
+
+      {/* Carte interactive -- React island, chargee cote client */}
+      <AudioMap client:only="react" data={audioprothesistes} />
+
+      {/* Section informative sous la carte */}
+      <div class="mt-12 max-w-[780px]">
+        <h2 class="font-sans text-[26px] font-bold text-marine mb-4">
+          Comment choisir votre audioprothesiste ?
+        </h2>
+        <p class="mb-4">
+          Le choix de votre audioprothesiste est une etape cruciale dans votre
+          parcours de soin auditif. Ce professionnel de sante, titulaire du
+          Diplome d'Etat d'audioprothesiste (DE), vous accompagnera pendant
+          toute la duree de vie de vos appareils auditifs -- en moyenne 4 a 5 ans.
+        </p>
+        <p class="mb-4">
+          Lors de votre premier rendez-vous, l'audioprothesiste realise un
+          bilan auditif complet et gratuit. Ce bilan permet de determiner
+          votre degre de perte auditive et de vous orienter vers la solution
+          la plus adaptee a vos besoins et a votre mode de vie.
+        </p>
+
+        <h3 class="font-sans text-[20px] font-bold text-marine mb-3 mt-8">
+          Les criteres essentiels
+        </h3>
+        <p class="mb-4">
+          Privilegiez un centre offrant un suivi personnalise sur la duree.
+          Le nombre de rendez-vous de reglage apres l'appareillage est un
+          indicateur important de la qualite du suivi. Verifiez egalement
+          que le centre propose des appareils de classe 1 (100% Sante, reste
+          a charge zero) et de classe 2 pour avoir le choix.
+        </p>
+
+        <h3 class="font-sans text-[20px] font-bold text-marine mb-3 mt-8">
+          Vos droits en tant que patient
+        </h3>
+        <p class="mb-6">
+          Depuis la reforme 100% Sante, vous avez droit a un devis normalise
+          detaillant le prix des appareils, le cout du suivi et les
+          remboursements. L'audioprothesiste est tenu de vous proposer au
+          moins une offre de classe 1 entierement prise en charge par
+          l'Assurance Maladie et votre complementaire sante.
+        </p>
+
+        {/* Liens internes vers les guides */}
+        <div class="bg-blanc rounded-2xl p-6 shadow-[0_2px_12px_rgba(27,46,74,0.06)]">
+          <h3 class="font-sans text-[18px] font-bold text-marine mb-3">
+            Guides utiles pour votre parcours auditif
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="/guides/remboursement/" class="text-orange hover:underline font-medium">
+                Remboursement des appareils auditifs : le guide complet
+              </a>
+            </li>
+            <li>
+              <a href="/guides/remboursement/100-sante-audition/" class="text-orange hover:underline font-medium">
+                100% Sante audition : ce que vous devez savoir
+              </a>
+            </li>
+            <li>
+              <a href="/guides/appareils-auditifs/classe-1-vs-classe-2/" class="text-orange hover:underline font-medium">
+                Classe 1 vs Classe 2 : comparaison detaillee
+              </a>
+            </li>
+            <li>
+              <a href="/guides/perte-auditive/symptomes/" class="text-orange hover:underline font-medium">
+                Les symptomes d'une perte auditive
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <HealthDisclaimer />
+    </div>
+  </section>
+</BaseLayout>
