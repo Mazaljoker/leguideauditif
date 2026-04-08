@@ -1,0 +1,90 @@
+---
+/**
+ * PriceDisclaimer — Mention légale prix + remboursement (YMYL)
+ */
+interface Props {
+  prixMin?: number | null;
+  prixMax?: number | null;
+  prixFourchette?: string;
+  classe?: string;
+  remboursementSecu?: number;
+}
+
+const {
+  prixMin,
+  prixMax,
+  prixFourchette,
+  classe,
+  remboursementSecu = 240,
+} = Astro.props;
+
+const prix = prixFourchette || (prixMin && prixMax ? `${prixMin.toLocaleString("fr-FR")} € – ${prixMax.toLocaleString("fr-FR")} €` : null);
+---
+
+<div class="price-disclaimer">
+  {prix && (
+    <div class="price-disclaimer__price">
+      <span class="price-disclaimer__label">Prix indicatif par oreille</span>
+      <span class="price-disclaimer__value">{prix}</span>
+    </div>
+  )}
+
+  <div class="price-disclaimer__info">
+    {classe === "1" ? (
+      <p><strong>Classe 1 — 100% Santé :</strong> reste à charge 0 € avec une complémentaire santé responsable (plafond 950 € TTC/oreille).</p>
+    ) : (
+      <p><strong>Remboursement Sécurité sociale :</strong> base de {remboursementSecu} € par oreille.
+      Votre mutuelle peut compléter ce montant. Demandez un devis à votre audioprothésiste.</p>
+    )}
+  </div>
+
+  <p class="price-disclaimer__legal">
+    Les prix affichés sont des prix indicatifs constatés, fournis à titre informatif uniquement.
+    Ils ne constituent ni une offre commerciale, ni un engagement contractuel.
+    Le prix définitif est fixé par l'audioprothésiste après bilan auditif.
+    Tarifs susceptibles de varier selon l'audioprothésiste et le niveau de prestations incluses.
+  </p>
+</div>
+
+<style>
+  .price-disclaimer {
+    background: var(--color-cream);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .price-disclaimer__price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .price-disclaimer__label {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+  }
+  .price-disclaimer__value {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+  .price-disclaimer__info {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--color-navy);
+  }
+  .price-disclaimer__info strong {
+    color: var(--color-navy);
+  }
+  .price-disclaimer__legal {
+    font-size: var(--text-xs);
+    color: var(--color-gray-500);
+    line-height: 1.5;
+    border-top: 1px solid var(--color-gray-200);
+    padding-top: var(--space-3);
+  }
+</style>

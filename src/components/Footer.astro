@@ -9,6 +9,16 @@ const guideLinks = [
   { href: '/guides/audioprothesiste/', label: "L'audioprothesiste" },
 ];
 
+const catalogueLinks = [
+  { href: '/catalogue/', label: 'Tous les appareils' },
+  { href: '/catalogue/classe-1/', label: 'Classe 1 — 100% Sante' },
+  { href: '/catalogue/marques/phonak/', label: 'Phonak' },
+  { href: '/catalogue/marques/signia/', label: 'Signia' },
+  { href: '/catalogue/marques/oticon/', label: 'Oticon' },
+  { href: '/catalogue/marques/resound/', label: 'ReSound' },
+  { href: '/catalogue/comparer/', label: 'Comparer des appareils' },
+];
+
 const comparatifLinks = [
   { href: '/comparatifs/meilleur-appareil-auditif-2026/', label: 'Meilleur appareil 2026' },
   { href: '/comparatifs/meilleur-appareil-classe-1/', label: 'Meilleur Classe 1' },
@@ -31,9 +41,9 @@ const year = new Date().getFullYear();
 
 <footer class="bg-marine text-white pt-14 pb-8">
   <div class="max-w-[1140px] mx-auto px-5">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-10 mb-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
       <!-- Brand -->
-      <div>
+      <div class="lg:col-span-1">
         <div class="font-sans font-extrabold text-xl leading-tight">
           LeGuideAuditif
           <small class="block font-normal text-xs text-white/50">Le guide independant pour mieux entendre</small>
@@ -47,6 +57,16 @@ const year = new Date().getFullYear();
       <div>
         <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Guides</h4>
         {guideLinks.map((link) => (
+          <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Catalogue -->
+      <div>
+        <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Catalogue</h4>
+        {catalogueLinks.map((link) => (
           <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
             {link.label}
           </a>

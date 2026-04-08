@@ -69,6 +69,15 @@ const guides = [
   },
 ];
 
+const topBrands = [
+  { slug: 'phonak', label: 'Phonak', groupe: 'Sonova' },
+  { slug: 'signia', label: 'Signia', groupe: 'WS Audiology' },
+  { slug: 'oticon', label: 'Oticon', groupe: 'Demant' },
+  { slug: 'resound', label: 'ReSound', groupe: 'GN' },
+  { slug: 'widex', label: 'Widex', groupe: 'WS Audiology' },
+  { slug: 'starkey', label: 'Starkey', groupe: 'Starkey' },
+];
+
 const schema = [
   {
     '@context': 'https://schema.org',
@@ -136,6 +145,81 @@ const schema = [
         {guides.map((guide) => (
           <GuideCard {...guide} />
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5b. Catalogue Vitrine -->
+  <section class="bg-creme py-18">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <div class="text-center mb-10">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-orange/10 text-orange font-sans text-sm font-bold mb-4">Nouveau</span>
+        <h2 class="font-sans text-[32px] font-extrabold text-marine mb-3" data-animate>
+          Catalogue des aides auditives
+        </h2>
+        <p class="text-gris-texte text-lg max-w-[640px] mx-auto" data-animate>
+          Comparez les appareils auditifs disponibles en France : prix, caracteristiques, Classe 1 ou 2. Un outil gratuit, independant, par un audioprothesiste DE.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+          <div class="font-sans text-3xl font-extrabold text-orange">139</div>
+          <div class="font-sans text-sm text-gris-texte mt-1">Appareils references</div>
+        </div>
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+          <div class="font-sans text-3xl font-extrabold text-orange">12</div>
+          <div class="font-sans text-sm text-gris-texte mt-1">Marques europeennes</div>
+        </div>
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+          <div class="font-sans text-3xl font-extrabold text-emerald-600">0€</div>
+          <div class="font-sans text-sm text-gris-texte mt-1">Reste a charge Classe 1</div>
+        </div>
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+          <div class="font-sans text-3xl font-extrabold text-orange">6</div>
+          <div class="font-sans text-sm text-gris-texte mt-1">Types d'appareils</div>
+        </div>
+      </div>
+
+      <!-- Top marques -->
+      <h3 class="font-sans text-lg font-bold text-marine mb-4 text-center">Parcourir par marque</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+        {topBrands.map((brand) => (
+          <a
+            href={`/catalogue/marques/${brand.slug}/`}
+            class="bg-blanc rounded-xl p-4 text-center shadow-sm hover:shadow-md transition-shadow no-underline hover:no-underline group"
+          >
+            <div class="font-sans text-base font-bold text-marine group-hover:text-orange transition-colors">{brand.label}</div>
+            <div class="font-sans text-xs text-gris-texte mt-0.5">{brand.groupe}</div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Liens rapides -->
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <a href="/catalogue/classe-1/" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 text-white font-sans text-sm font-semibold rounded-lg no-underline hover:bg-emerald-700 transition-colors hover:no-underline">
+          Classe 1 — 0€ de reste a charge
+        </a>
+        <a href="/catalogue/types/ric/" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blanc text-marine border border-gris-clair font-sans text-sm font-semibold rounded-lg no-underline hover:border-orange hover:text-orange transition-colors hover:no-underline">
+          Contours RIC
+        </a>
+        <a href="/catalogue/types/iic/" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blanc text-marine border border-gris-clair font-sans text-sm font-semibold rounded-lg no-underline hover:border-orange hover:text-orange transition-colors hover:no-underline">
+          Invisibles IIC
+        </a>
+        <a href="/catalogue/comparer/" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blanc text-marine border border-gris-clair font-sans text-sm font-semibold rounded-lg no-underline hover:border-orange hover:text-orange transition-colors hover:no-underline">
+          Comparer des appareils
+        </a>
+      </div>
+
+      <!-- CTA principal -->
+      <div class="text-center">
+        <a
+          href="/catalogue/"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-orange text-white font-sans text-lg font-bold rounded-xl no-underline hover:bg-orange-hover transition-colors hover:no-underline"
+        >
+          Explorer le catalogue complet →
+        </a>
       </div>
     </div>
   </section>

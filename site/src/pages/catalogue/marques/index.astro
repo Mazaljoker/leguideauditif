@@ -1,0 +1,182 @@
+---
+/**
+ * Index Marques — /catalogue/marques/
+ * Liste des marques d'aides auditives du catalogue
+ */
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../../components/catalogue/Breadcrumbs.astro";
+import LeadCTA from "../../../components/catalogue/LeadCTA.astro";
+
+const allMarques = await getCollection("marques");
+const marques = allMarques.sort((a, b) => a.data.nom.localeCompare(b.data.nom));
+
+// Compter les appareils par marque
+const appareils = await getCollection("catalogue-appareils");
+const countByMarque: Record<string, number> = {};
+appareils.forEach((a) => {
+  const m = a.data.marque;
+  countByMarque[m] = (countByMarque[m] || 0) + 1;
+});
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Marques d'aides auditives",
+  description: "Découvrez les grandes marques d'aides auditives : Oticon, Phonak, Signia, ReSound, Widex, Starkey et plus.",
+  url: "https://leguideauditif.fr/catalogue/marques/",
+});
+---
+
+<BaseLayout
+  title="Marques d'Aides Auditives — Guide Expert"
+  description="Découvrez les grandes marques d'aides auditives : Oticon, Phonak, Signia, ReSound, Widex, Starkey. Histoire, gammes et avis d'expert."
+  schemaMarkup={schemaMarkup}
+>
+  <div class="container">
+    <Breadcrumbs items={[
+      { label: "Accueil", href: "/" },
+      { label: "Catalogue", href: "/catalogue/" },
+      { label: "Marques" },
+    ]} />
+
+    <header class="page-header">
+      <h1>Les marques d'aides auditives</h1>
+      <p>Découvrez les fabricants présents dans notre catalogue, leur histoire et leurs gammes.</p>
+    </header>
+
+    <div class="brands-grid">
+      {marques.map((marque) => (
+        <a href={`/catalogue/marques/${marque.data.slug}/`} class="brand-card">
+          <div class="brand-card__logo">
+            {marque.data.logo ? (
+              <img src={marque.data.logo} alt={`Logo ${marque.data.nom}`} loading="lazy" />
+            ) : (
+              <span class="brand-card__initials">{marque.data.nom.slice(0, 2).toUpperCase()}</span>
+            )}
+          </div>
+          <div class="brand-card__body">
+            <h2>{marque.data.nom}</h2>
+            <p class="brand-card__meta">
+              {marque.data.pays}
+              {marque.data.maisonMere && ` · Groupe ${marque.data.maisonMere}`}
+              {marque.data.fondee && ` · Depuis ${marque.data.fondee}`}
+            </p>
+            <p class="brand-card__desc">{marque.data.descriptionCourte}</p>
+            <div class="brand-card__footer">
+              <span class="brand-card__count">
+                {countByMarque[marque.data.slug] || 0} appareil{(countByMarque[marque.data.slug] || 0) > 1 ? "s" : ""} au catalogue
+              </span>
+              <span class="brand-card__gammes">
+                {marque.data.gammesPrincipales.join(", ")}
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <LeadCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    text-align: center;
+    padding: var(--space-8) 0 var(--space-6);
+  }
+  .page-header h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-2);
+  }
+  .page-header p {
+    font-size: var(--text-lg);
+    color: var(--color-gray-500);
+  }
+
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: var(--space-6);
+    padding-bottom: var(--space-12);
+  }
+
+  .brand-card {
+    display: flex;
+    gap: var(--space-4);
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .brand-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  .brand-card__logo {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    background: var(--color-cream);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .brand-card__logo img {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: contain;
+  }
+  .brand-card__initials {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+  .brand-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    flex: 1;
+  }
+  .brand-card h2 {
+    font-size: var(--text-xl);
+    margin: 0;
+  }
+  .brand-card__meta {
+    font-size: var(--text-xs);
+    color: var(--color-gray-500);
+  }
+  .brand-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-gray-700);
+    line-height: 1.5;
+  }
+  .brand-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--color-gray-100);
+    font-size: var(--text-xs);
+  }
+  .brand-card__count {
+    font-weight: 600;
+    color: var(--color-orange);
+  }
+  .brand-card__gammes {
+    color: var(--color-gray-500);
+  }
+
+  @media (max-width: 768px) {
+    .brands-grid { grid-template-columns: 1fr; }
+    .brand-card { flex-direction: column; align-items: center; text-align: center; }
+    .brand-card__footer { flex-direction: column; gap: var(--space-1); }
+  }
+</style>
