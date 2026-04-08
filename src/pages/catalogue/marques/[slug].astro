@@ -1,0 +1,123 @@
+---
+/**
+ * /catalogue/marques/[slug]/ — Page marque
+ * Tous les modèles d'une marque, groupés par gamme
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AuthorBox from '../../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
+import ProductCard from '../../../components/catalogue/ProductCard.astro';
+import { getCollection } from 'astro:content';
+import {
+  BRAND_LABELS, GROUPE_LABELS, GROUPE_BRANDS, FORME_TYPE_LABELS,
+  formatPrice, getProductPrice, isClasse1, groupByModel, brandUrl
+} from '../../../lib/catalogue-utils';
+
+export async function getStaticPaths() {
+  const brands = Object.keys(BRAND_LABELS);
+  return brands.map(b => ({ params: { slug: b }, props: { brandSlug: b } }));
+}
+
+const { brandSlug } = Astro.props;
+const brandLabel = BRAND_LABELS[brandSlug] || brandSlug;
+
+// Trouver le groupe
+const groupe = Object.entries(GROUPE_BRANDS).find(([, brands]) => brands.includes(brandSlug));
+const groupeLabel = groupe ? GROUPE_LABELS[groupe[0]] : '';
+
+const allProducts = await getCollection('catalogueAppareils');
+const brandProducts = allProducts.map(p => p.data).filter(p => p.marque === brandSlug);
+const models = groupByModel(brandProducts);
+
+// Stats
+const totalProducts = brandProducts.length;
+const totalModels = Object.keys(models).length;
+const classe1Count = brandProducts.filter(p => isClasse1(p)).length;
+const prices = brandProducts.map(p => getProductPrice(p)).filter(Boolean) as number[];
+const minPrice = prices.length ? Math.min(...prices) : undefined;
+
+const title = `${brandLabel} — Tous les appareils auditifs ${brandLabel} ${new Date().getFullYear()}`;
+const description = `Comparez les ${totalProducts} aides auditives ${brandLabel} (${groupeLabel}). Prix, caractéristiques, Classe 1. Guide indépendant par un audioprothésiste DE.`;
+---
+
+<BaseLayout title={title} description={description} canonical={brandUrl(brandSlug)}>
+  <Breadcrumbs items={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Catalogue', href: '/catalogue/' },
+    { label: brandLabel }
+  ]} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    {/* Hero marque */}
+    <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 sm:p-12 mb-8 relative overflow-hidden">
+      <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-orange/10" aria-hidden="true"></div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="px-3 py-1 rounded-full bg-blanc/20 font-sans text-sm font-semibold">
+          Groupe {groupeLabel}
+        </span>
+      </div>
+      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">
+        Appareils auditifs {brandLabel}
+      </h1>
+      <p class="text-lg opacity-90 max-w-2xl leading-relaxed">
+        Découvrez les {totalProducts} aides auditives {brandLabel} disponibles en France.
+        Comparez les modèles, les niveaux technologiques et les prix.
+      </p>
+    </div>
+
+    {/* Stats bar */}
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+      <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+        <div class="font-sans text-3xl font-extrabold text-orange">{totalModels}</div>
+        <div class="font-sans text-sm text-gris-texte mt-1">Modèles</div>
+      </div>
+      <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+        <div class="font-sans text-3xl font-extrabold text-orange">{totalProducts}</div>
+        <div class="font-sans text-sm text-gris-texte mt-1">Références</div>
+      </div>
+      <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+        <div class="font-sans text-3xl font-extrabold text-emerald-600">{classe1Count}</div>
+        <div class="font-sans text-sm text-gris-texte mt-1">Classe 1 (RAC 0€)</div>
+      </div>
+      {minPrice && (
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+          <div class="font-sans text-3xl font-extrabold text-orange">{formatPrice(minPrice)}</div>
+          <div class="font-sans text-sm text-gris-texte mt-1">À partir de</div>
+        </div>
+      )}
+    </div>
+
+    {/* Modèles groupés */}
+    {Object.entries(models).map(([modelKey, levels]) => {
+      const firstProduct = levels[0];
+      return (
+        <div class="mb-8">
+          <h2 class="font-sans text-xl font-bold text-marine mb-1">
+            {firstProduct.marqueLabel} {firstProduct.modele}
+          </h2>
+          <p class="font-sans text-sm text-gris-texte mb-4">
+            {FORME_TYPE_LABELS[firstProduct.formeType] || firstProduct.formeType}
+            {firstProduct.puce ? ` · Puce ${firstProduct.puce}` : ''}
+            {` · ${levels.length} niveau${levels.length > 1 ? 'x' : ''}`}
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {levels.map(p => <ProductCard product={p} />)}
+          </div>
+        </div>
+      );
+    })}
+
+    {/* Lead CTA */}
+    <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 text-center mb-8">
+      <h2 class="font-sans text-2xl font-bold mb-2">Besoin d'aide pour choisir votre {brandLabel} ?</h2>
+      <p class="opacity-80 mb-5">Un audioprothésiste spécialisé {brandLabel} vous conseille gratuitement</p>
+      <a href="/devis/" class="inline-block bg-orange text-blanc px-8 py-3.5 rounded-xl font-sans text-lg font-bold no-underline hover:bg-orange-hover transition-colors">
+        Demander un devis gratuit →
+      </a>
+    </div>
+
+    <AuthorBox />
+    <HealthDisclaimer />
+  </div>
+</BaseLayout>
