@@ -1,0 +1,42 @@
+{
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "modele": "Xceed",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE SP",
+  "puce": "Velox S",
+  "annee": 2019,
+  "specs": {
+    "canaux": 64,
+    "bandes": 24,
+    "batterie": "Disposable 13",
+    "plageAdaptation": "Severe to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Oticon Companion",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": true,
+    "micDirectionnels": "OpenSound Navigator"
+  },
+  "couleurs": 7,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "oticon-xceed-2",
+  "niveau": "2",
+  "niveauRaw": "2",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1757
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "marque": "hansaton",
+  "marqueLabel": "Hansaton",
+  "groupe": "sonova",
+  "modele": "Sound XC Pro",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R|RIC 312",
+  "annee": 2021,
+  "specs": {
+    "batterie": "Li-ion|312",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "couleurs": 8,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "hansaton-sound-xc-pro",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1190,
+      "max": 2390
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "marque": "philips",
+  "marqueLabel": "Philips",
+  "groupe": "demant",
+  "modele": "HearLink IdO",
+  "formeType": "ITE",
+  "formesDisponibles": "ITC|CIC|IIC",
+  "annee": 2022,
+  "specs": {
+    "batterie": "Disposable",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "auracast": false,
+    "application": "HearLink 2",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "couleurs": 5,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "philips-hearlink-ido",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1290,
+      "max": 3190
+    }
+  }
+}

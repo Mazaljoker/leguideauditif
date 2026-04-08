@@ -1,0 +1,39 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Pure AX",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC 312|RIC 13T",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Disposable|Li-ion",
+    "autonomie": "5-7 days rechargeable",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "mySignia",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "signia-pure-ax-7",
+  "niveau": "7",
+  "niveauRaw": "7",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1340
+    }
+  }
+}

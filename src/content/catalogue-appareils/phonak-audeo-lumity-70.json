@@ -1,0 +1,44 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Audéo Lumity",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R|RIC RT|RIC RL|RIC 312|Slim",
+  "puce": "AutoSense OS 5.0",
+  "annee": 2022,
+  "specs": {
+    "canaux": 20,
+    "bandes": 20,
+    "batterie": "Li-ion|312",
+    "autonomie": "16-18",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE 4.2",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "StereoZoom 2.0"
+  },
+  "couleurs": 11,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "phonak-audeo-lumity-70",
+  "niveau": "70",
+  "niveauRaw": "L70",
+  "niveauPosition": 3,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 3765
+    }
+  }
+}

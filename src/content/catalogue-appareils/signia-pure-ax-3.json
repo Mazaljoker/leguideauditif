@@ -1,0 +1,37 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Pure Charge&Go AX",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC",
+  "puce": "AX Platform",
+  "annee": 2021,
+  "specs": {
+    "canaux": 48,
+    "bandes": 20,
+    "batterie": "Li-ion",
+    "autonomie": "36",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "Yes",
+    "micDirectionnels": "Augmented Focus"
+  },
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "signia-pure-ax-3",
+  "niveau": "3",
+  "niveauRaw": "3AX",
+  "niveauPosition": 2,
+  "rac0": false
+}

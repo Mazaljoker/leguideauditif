@@ -1,0 +1,42 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Silk Charge&Go IX",
+  "formeType": "CIC",
+  "formesDisponibles": "CIC instant-fit",
+  "puce": "IX Platform",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Li-ion",
+    "autonomie": "28",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "bluetooth": "No",
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "couleurs": 2,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "signia-silk-ix",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1249,
+      "max": 1549
+    },
+    "usd": {
+      "min": 2698
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "modele": "Omega AI",
+  "formeType": "RIC",
+  "formesDisponibles": "mRIC R|RIC RT|RIC 312|ITE R|ITC R|CIC",
+  "puce": "G3 Neuro",
+  "annee": 2025,
+  "specs": {
+    "canaux": 64,
+    "bandes": 24,
+    "batterie": "Li-ion|312",
+    "autonomie": "51",
+    "ip": "IP68+",
+    "reductionBruit": 22,
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": false,
+    "application": "My Starkey",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "Yes (top)",
+    "micDirectionnels": "DNN 360",
+    "capteursSante": "Accel|Gyro|Fall|Resp"
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "starkey-omega-ai-24",
+  "niveau": "24",
+  "niveauRaw": "24",
+  "niveauPosition": 3,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 4798
+    }
+  }
+}

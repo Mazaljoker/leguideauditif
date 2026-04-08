@@ -1,0 +1,33 @@
+{
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "modele": "Moxi Smile",
+  "formeType": "RIC",
+  "formesDisponibles": "M-R|M-RT|M-312",
+  "puce": "Tempus ERA",
+  "annee": 2022,
+  "specs": {
+    "batterie": "Li-ion|312",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Remote Plus",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "micDirectionnels": "Yes"
+  },
+  "couleurs": 6,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "unitron-moxi-smile",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false
+}

@@ -1,0 +1,41 @@
+---
+/**
+ * /catalogue/comparer/ — Comparateur d'aides auditives
+ * Tableau comparatif côte à côte (max 3 appareils)
+ * Sélection via query params ?ids=slug1,slug2,slug3
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
+import ComparatorTool from '../../components/catalogue/ComparatorTool.tsx';
+import { getCollection } from 'astro:content';
+
+const allProducts = await getCollection('catalogueAppareils');
+const products = allProducts.map(p => p.data);
+
+const title = 'Comparer des aides auditives — LeGuideAuditif.fr';
+const description = 'Comparez jusqu\'\u00e0 3 appareils auditifs côte à côte : prix, caractéristiques, connectivité. Outil gratuit par un audioprothésiste DE.';
+---
+
+<BaseLayout title={title} description={description} canonical="/catalogue/comparer/">
+  <Breadcrumbs items={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Catalogue', href: '/catalogue/' },
+    { label: 'Comparer' }
+  ]} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="font-sans text-2xl sm:text-3xl font-extrabold text-marine mb-2">
+      Comparez vos aides auditives
+    </h1>
+    <p class="font-sans text-gris-texte mb-8">
+      Sélectionnez jusqu'à 3 appareils pour les comparer côte à côte.
+    </p>
+
+    <ComparatorTool client:load products={products} />
+
+    <AuthorBox />
+    <HealthDisclaimer />
+  </div>
+</BaseLayout>

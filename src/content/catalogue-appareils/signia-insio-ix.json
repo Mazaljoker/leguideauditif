@@ -1,0 +1,28 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Insio IX",
+  "formeType": "ITE",
+  "formesDisponibles": "CIC|IIC|ITC|ITE",
+  "annee": 2023,
+  "specs": {
+    "autonomie": "Zinc-air",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "signia-insio-ix",
+  "niveauPosition": 1,
+  "rac0": false
+}

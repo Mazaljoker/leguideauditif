@@ -1,0 +1,31 @@
+{
+  "marque": "audio-service",
+  "marqueLabel": "Audio Service",
+  "groupe": "ws-audiology",
+  "modele": "Ida BT G5",
+  "formeType": "ITE",
+  "formesDisponibles": "ITE",
+  "annee": 2020,
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "audio-service-ida-bt-g5",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1090,
+      "max": 2890
+    }
+  }
+}

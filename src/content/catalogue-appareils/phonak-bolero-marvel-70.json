@@ -1,0 +1,39 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Bolero Marvel",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE M|BTE P|BTE SP",
+  "puce": "AutoSense OS 3.0",
+  "annee": 2019,
+  "specs": {
+    "batterie": "Li-ion|13|675",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "couleurs": 8,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "phonak-bolero-marvel-70",
+  "niveau": "70",
+  "niveauRaw": "M70",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1390
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "modele": "Insera Vivante",
+  "formeType": "ITE",
+  "formesDisponibles": "ITE|ITC|CIC|IIC",
+  "annee": 2023,
+  "specs": {
+    "batterie": "312|10",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE (312 only)",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "unitron-insera-vivante-7",
+  "niveau": "7",
+  "niveauRaw": "7",
+  "niveauPosition": 4,
+  "rac0": false
+}

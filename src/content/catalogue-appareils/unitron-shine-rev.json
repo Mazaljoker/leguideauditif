@@ -1,0 +1,38 @@
+{
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "modele": "Shine Rev+",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC|BTE|ITE|ITC|CIC",
+  "annee": 2020,
+  "specs": {
+    "canaux": 12,
+    "batterie": "Disposable",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE (limited)",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "couleurs": 3,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "unitron-shine-rev",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "min": 890,
+      "max": 890
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "modele": "Ruby",
+  "formeType": "RIC",
+  "formesDisponibles": "miniRITE R|miniRITE T|miniBTE T",
+  "puce": "Polaris",
+  "annee": 2020,
+  "specs": {
+    "batterie": "Li-ion|312",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Oticon Companion",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": false,
+    "micDirectionnels": "SuperShield FB"
+  },
+  "couleurs": 5,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "oticon-ruby-2",
+  "niveau": "2",
+  "niveauRaw": "2",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1290
+    }
+  }
+}

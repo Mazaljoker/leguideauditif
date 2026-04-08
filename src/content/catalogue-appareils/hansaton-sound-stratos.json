@@ -1,0 +1,36 @@
+{
+  "marque": "hansaton",
+  "marqueLabel": "Hansaton",
+  "groupe": "sonova",
+  "modele": "Sound Stratos",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R",
+  "annee": 2021,
+  "specs": {
+    "batterie": "Li-ion",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "couleurs": 5,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "hansaton-sound-stratos",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1290,
+      "max": 2490
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "modele": "Zeal",
+  "formeType": "CIC",
+  "formesDisponibles": "NXT ITE",
+  "annee": 2026,
+  "specs": {
+    "batterie": "Li-ion",
+    "autonomie": "20",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": true,
+    "application": "Oticon Companion",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "oticon-zeal",
+  "niveauPosition": 1,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 4798
+    }
+  }
+}

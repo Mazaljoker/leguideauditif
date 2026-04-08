@@ -1,0 +1,37 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Pure Charge&Go IX",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC",
+  "puce": "IX Platform",
+  "annee": 2023,
+  "specs": {
+    "canaux": 48,
+    "bandes": 20,
+    "batterie": "Li-ion",
+    "autonomie": "39",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "micDirectionnels": "OVP 2.0|Split processing"
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "signia-pure-ix-7",
+  "niveau": "7",
+  "niveauRaw": "7IX",
+  "niveauPosition": 4,
+  "rac0": false
+}

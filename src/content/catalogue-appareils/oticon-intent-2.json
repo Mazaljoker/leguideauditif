@@ -1,0 +1,50 @@
+{
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "modele": "Intent",
+  "formeType": "RIC",
+  "formesDisponibles": "miniRITE R",
+  "puce": "Sirius",
+  "annee": 2024,
+  "specs": {
+    "canaux": 64,
+    "bandes": 24,
+    "batterie": "Li-ion",
+    "autonomie": "20",
+    "ip": "IP68",
+    "reductionBruit": 12,
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": false,
+    "application": "Oticon Companion",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "Feedback Shield",
+    "micDirectionnels": "4D Sensor + Spatial Sound",
+    "capteursSante": "Accelerometer|Gyroscope"
+  },
+  "couleurs": 9,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "oticon-intent-2",
+  "niveau": "2",
+  "niveauRaw": "2",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1899
+    },
+    "usd": {
+      "min": 4231
+    }
+  }
+}

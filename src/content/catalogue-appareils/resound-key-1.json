@@ -1,0 +1,38 @@
+{
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "Key",
+  "formeType": "RIC",
+  "formesDisponibles": "RIE|BTE|Custom",
+  "annee": 2020,
+  "specs": {
+    "batterie": "Disposable|Li-ion",
+    "ip": "IP58",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE (3-4 only)",
+    "auracast": false,
+    "application": "Smart 3D",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "resound-key-1",
+  "niveau": "1",
+  "niveauRaw": "1",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 849
+    }
+  }
+}

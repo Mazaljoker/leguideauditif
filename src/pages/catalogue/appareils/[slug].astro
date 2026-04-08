@@ -1,0 +1,322 @@
+---
+/**
+ * /catalogue/appareils/[slug]/ — Fiche produit détaillée
+ * Affiche specs complètes, sélecteur de niveaux, CTA lead gen
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AuthorBox from '../../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
+import ProductCard from '../../../components/catalogue/ProductCard.astro';
+import { getCollection } from 'astro:content';
+import {
+  formatPrice, getProductPrice, isClasse1, productUrl, brandUrl,
+  NIVEAU_LABELS, FORME_TYPE_LABELS, GROUPE_LABELS, productJsonLd
+} from '../../../lib/catalogue-utils';
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('catalogueAppareils');
+  return allProducts.map(p => ({ params: { slug: p.data.slug }, props: { product: p.data } }));
+}
+
+const { product } = Astro.props;
+const allProducts = await getCollection('catalogueAppareils');
+const allData = allProducts.map(p => p.data);
+
+// Trouver les autres niveaux du même modèle
+const sameModel = allData
+  .filter(p => p.marque === product.marque && p.modele === product.modele && p.slug !== product.slug)
+  .sort((a, b) => (a.niveauPosition ?? 0) - (b.niveauPosition ?? 0));
+
+const allLevels = [product, ...sameModel].sort((a, b) => (a.niveauPosition ?? 0) - (b.niveauPosition ?? 0));
+
+// Produits similaires (même type, même gamme de prix)
+const price = getProductPrice(product);
+const similar = allData
+  .filter(p => p.slug !== product.slug && p.formeType === product.formeType && p.marque !== product.marque)
+  .slice(0, 3);
+
+const classe1 = isClasse1(product);
+const fullName = `${product.marqueLabel} ${product.modele}${product.niveau ? ' ' + product.niveau : ''}`;
+const title = `${fullName} — Prix, avis et caractéristiques`;
+const description = `${fullName} : ${FORME_TYPE_LABELS[product.formeType] || product.formeType}, ${product.puce || ''}. ${price ? formatPrice(price) + ' par appareil.' : ''} Fiche complète par un audioprothésiste DE.`;
+const schema = productJsonLd(product);
+---
+
+<BaseLayout title={title} description={description} canonical={`/catalogue/appareils/${product.slug}/`} schema={schema}>
+  <Breadcrumbs items={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Catalogue', href: '/catalogue/' },
+    { label: product.marqueLabel, href: brandUrl(product.marque) },
+    { label: fullName }
+  ]} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    {/* Hero produit */}
+    <div class="bg-blanc rounded-2xl p-6 sm:p-8 mb-6 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Image */}
+      <div class="bg-gris-clair/30 rounded-xl h-72 md:h-96 flex items-center justify-center">
+        {product.image ? (
+          <img src={product.image} alt={fullName} class="w-full h-full object-contain p-8" />
+        ) : (
+          <span class="text-8xl opacity-15" aria-hidden="true">👂</span>
+        )}
+      </div>
+
+      {/* Info */}
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="font-sans text-lg font-bold text-orange">{product.marqueLabel}</span>
+          <span class="px-2.5 py-1 rounded bg-blue-50 font-sans text-xs font-semibold text-marine">
+            Groupe {GROUPE_LABELS[product.groupe] || product.groupe}
+          </span>
+          <span class="px-2.5 py-1 rounded bg-orange/10 font-sans text-xs font-semibold text-orange">
+            {product.annee}
+          </span>
+        </div>
+
+        <h1 class="font-sans text-2xl sm:text-3xl font-extrabold text-marine">{fullName}</h1>
+        <p class="font-sans text-gris-texte">
+          {FORME_TYPE_LABELS[product.formeType] || product.formeType}
+          {product.puce ? ` · Puce ${product.puce}` : ''}
+          {product.specs?.canaux ? ` · ${product.specs.canaux} canaux` : ''}
+          {product.specs?.ip ? ` · ${product.specs.ip}` : ''}
+        </p>
+
+        {/* Bloc prix */}
+        {price ? (
+          <div class:list={['rounded-xl p-5', classe1 ? 'bg-emerald-50 border-l-4 border-emerald-500' : 'bg-creme border-l-4 border-orange']}>
+            <div class="font-sans text-3xl font-extrabold text-marine">
+              {formatPrice(price)}
+              <span class="text-sm font-normal text-gris-texte"> / appareil</span>
+            </div>
+            <div class="font-sans text-sm text-gris-texte mt-1">
+              Paire : ~{formatPrice(price * 2)} · {product.classe ? `Classe ${product.classe}` : ''}
+            </div>
+            {classe1 && (
+              <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full font-sans text-xs font-bold">
+                ✓ 100% Santé — Reste à charge 0€
+              </span>
+            )}
+          </div>
+        ) : (
+          <div class="bg-creme rounded-xl p-5 border-l-4 border-orange">
+            <div class="font-sans text-lg font-bold text-marine">Prix sur devis</div>
+            <div class="font-sans text-sm text-gris-texte">Contactez un audioprothésiste pour un tarif personnalisé</div>
+          </div>
+        )}
+
+        {/* CTAs */}
+        <div class="flex gap-3 mt-auto">
+          <a href={`/devis/?appareil=${product.slug}`}
+            class="flex-1 text-center bg-orange text-blanc px-6 py-3.5 rounded-xl font-sans text-base font-bold no-underline hover:bg-orange-hover transition-colors">
+            Demander un devis gratuit
+          </a>
+          <a href={`/catalogue/comparer/?ids=${product.slug}`}
+            class="px-5 py-3.5 rounded-xl border-2 border-gris-clair font-sans text-sm font-semibold text-marine no-underline hover:border-orange hover:text-orange transition-colors">
+            ⚖️ Comparer
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Niveaux du même modèle */}
+    {allLevels.length > 1 && (
+      <div class="bg-blanc rounded-2xl p-6 mb-6 shadow-sm">
+        <h2 class="font-sans text-xl font-bold mb-4">Choisissez votre niveau technologique</h2>
+        <div class="grid gap-3 grid-cols-2 md:grid-cols-4">
+          {allLevels.map(level => {
+            const levelPrice = getProductPrice(level);
+            const isCurrent = level.slug === product.slug;
+            return (
+              <a href={productUrl(level.slug)}
+                class:list={[
+                  'block p-4 rounded-xl text-center no-underline transition-all border-2',
+                  isCurrent
+                    ? 'border-orange bg-orange/5'
+                    : 'border-gris-clair hover:border-orange/50'
+                ]}>
+                <div class="font-sans text-lg font-bold text-marine">
+                  {level.modele} {level.niveau || ''}
+                </div>
+                {levelPrice && (
+                  <div class="font-sans text-base font-semibold text-orange mt-1">{formatPrice(levelPrice)}</div>
+                )}
+                <div class:list={[
+                  'font-sans text-xs mt-1',
+                  isCurrent ? 'text-orange font-semibold' : 'text-gris-texte'
+                ]}>
+                  {isCurrent ? '★ ' : ''}{NIVEAU_LABELS[level.niveauPosition] || ''}
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+    {/* Specs détaillées */}
+    <div class="bg-blanc rounded-2xl p-6 mb-6 shadow-sm">
+      <h2 class="font-sans text-xl font-bold mb-4 pb-3 border-b-2 border-gris-clair">Caractéristiques techniques</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+        <div class="flex justify-between py-3 border-b border-gris-clair/50">
+          <span class="font-sans text-sm text-gris-texte">Type</span>
+          <span class="font-sans text-sm font-semibold text-marine">{FORME_TYPE_LABELS[product.formeType] || product.formeType}</span>
+        </div>
+        {product.puce && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Puce</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.puce}</span>
+          </div>
+        )}
+        {product.specs?.canaux && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Canaux</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.specs.canaux}</span>
+          </div>
+        )}
+        {product.specs?.bandes && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Bandes</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.specs.bandes}</span>
+          </div>
+        )}
+        {product.connectivite?.bluetooth && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Bluetooth</span>
+            <span class="font-sans text-sm font-semibold text-orange">{product.connectivite.bluetooth}</span>
+          </div>
+        )}
+        {product.connectivite?.auracast !== undefined && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Auracast</span>
+            <span class:list={['font-sans text-sm font-semibold', product.connectivite.auracast ? 'text-orange' : 'text-marine']}>
+              {product.connectivite.auracast ? 'Oui ✓' : 'Non'}
+            </span>
+          </div>
+        )}
+        {product.fonctionnalites?.rechargeable !== undefined && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Rechargeable</span>
+            <span class:list={['font-sans text-sm font-semibold', product.fonctionnalites.rechargeable ? 'text-orange' : 'text-marine']}>
+              {product.fonctionnalites.rechargeable ? 'Oui ✓' : 'Non'}
+            </span>
+          </div>
+        )}
+        {product.specs?.autonomie && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Autonomie</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.specs.autonomie} heures</span>
+          </div>
+        )}
+        {product.specs?.ip && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Étanchéité</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.specs.ip}</span>
+          </div>
+        )}
+        {product.fonctionnalites?.bobineT !== undefined && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Bobine T</span>
+            <span class:list={['font-sans text-sm font-semibold', product.fonctionnalites.bobineT ? 'text-orange' : 'text-marine']}>
+              {product.fonctionnalites.bobineT ? 'Oui ✓' : 'Non'}
+            </span>
+          </div>
+        )}
+        {product.fonctionnalites?.acouphenes !== undefined && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Gestion acouphènes</span>
+            <span class:list={['font-sans text-sm font-semibold', product.fonctionnalites.acouphenes ? 'text-orange' : 'text-marine']}>
+              {product.fonctionnalites.acouphenes ? 'Oui ✓' : 'Non'}
+            </span>
+          </div>
+        )}
+        {product.fonctionnalites?.capteursSante && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Capteurs santé</span>
+            <span class="font-sans text-sm font-semibold text-orange">{product.fonctionnalites.capteursSante}</span>
+          </div>
+        )}
+        {product.specs?.reductionBruit && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Réduction bruit</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.specs.reductionBruit} dB</span>
+          </div>
+        )}
+        {product.fonctionnalites?.antiFeedback && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Anti-larsen</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.fonctionnalites.antiFeedback}</span>
+          </div>
+        )}
+        {product.fonctionnalites?.micDirectionnels && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Microphones</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.fonctionnalites.micDirectionnels}</span>
+          </div>
+        )}
+        {product.connectivite?.mainLibre !== undefined && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Mains libres</span>
+            <span class:list={['font-sans text-sm font-semibold', product.connectivite.mainLibre ? 'text-orange' : 'text-marine']}>
+              {product.connectivite.mainLibre ? 'Oui ✓' : 'Non'}
+            </span>
+          </div>
+        )}
+        {product.connectivite?.application && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Application</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.connectivite.application}</span>
+          </div>
+        )}
+        {product.couleurs && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Couleurs</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.couleurs} coloris</span>
+          </div>
+        )}
+        {product.specs?.plageAdaptation && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Adaptation</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.specs.plageAdaptation}</span>
+          </div>
+        )}
+        {product.classe && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Classe</span>
+            <span class="font-sans text-sm font-semibold text-marine">Classe {product.classe}</span>
+          </div>
+        )}
+        {product.formesDisponibles && (
+          <div class="flex justify-between py-3 border-b border-gris-clair/50">
+            <span class="font-sans text-sm text-gris-texte">Formes</span>
+            <span class="font-sans text-sm font-semibold text-marine">{product.formesDisponibles.replace(/\|/g, ', ')}</span>
+          </div>
+        )}
+      </div>
+    </div>
+
+    {/* Lead CTA */}
+    <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 text-center mb-6">
+      <h2 class="font-sans text-2xl font-bold mb-2">Essayez le {fullName} sans engagement</h2>
+      <p class="opacity-80 mb-5">Recevez un devis personnalisé de votre audioprothésiste en 24h</p>
+      <a href={`/devis/?appareil=${product.slug}`}
+        class="inline-block bg-orange text-blanc px-8 py-3.5 rounded-xl font-sans text-lg font-bold no-underline hover:bg-orange-hover transition-colors">
+        Demander mon devis gratuit →
+      </a>
+    </div>
+
+    {/* Produits similaires */}
+    {similar.length > 0 && (
+      <div class="mb-6">
+        <h2 class="font-sans text-xl font-bold mb-4">Appareils similaires</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          {similar.map(p => <ProductCard product={p} />)}
+        </div>
+      </div>
+    )}
+
+    <AuthorBox />
+    <HealthDisclaimer />
+  </div>
+</BaseLayout>

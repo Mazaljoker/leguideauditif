@@ -1,0 +1,44 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Audéo Paradise",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R|RIC RT|RIC 312|RIC 13T",
+  "annee": 2020,
+  "specs": {
+    "canaux": 20,
+    "bandes": 20,
+    "batterie": "Li-ion|312",
+    "autonomie": "16",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": "Yes",
+    "micDirectionnels": "Speech Enhancer"
+  },
+  "couleurs": 6,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "phonak-audeo-paradise-30",
+  "niveau": "30",
+  "niveauRaw": "P30",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1390
+    }
+  }
+}

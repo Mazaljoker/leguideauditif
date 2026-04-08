@@ -1,0 +1,34 @@
+{
+  "marque": "widex",
+  "marqueLabel": "Widex",
+  "groupe": "ws-audiology",
+  "modele": "Magnify",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R|RIC 312",
+  "annee": 2021,
+  "specs": {
+    "autonomie": "Li-ion|312",
+    "ip": "No",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "couleurs": 11,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "widex-magnify",
+  "niveauPosition": 1,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 1690
+    }
+  }
+}

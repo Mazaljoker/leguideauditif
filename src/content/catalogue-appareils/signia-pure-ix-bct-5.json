@@ -1,0 +1,36 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Pure Charge&Go IX BCT",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC",
+  "puce": "IX Platform",
+  "annee": 2025,
+  "specs": {
+    "canaux": 48,
+    "bandes": 20,
+    "batterie": "Li-ion",
+    "autonomie": "36",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BT Classic + BLE",
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "signia-pure-ix-bct-5",
+  "niveau": "5",
+  "niveauRaw": "5IX",
+  "niveauPosition": 3,
+  "rac0": false
+}

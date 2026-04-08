@@ -1,0 +1,38 @@
+{
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "modele": "Moxi Blu",
+  "formeType": "RIC",
+  "formesDisponibles": "B-R|B-RT|B-312",
+  "puce": "Prism",
+  "annee": 2021,
+  "specs": {
+    "batterie": "Li-ion|312",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Remote Plus",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "couleurs": 6,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "unitron-moxi-blu",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 990,
+      "max": 2490
+    }
+  }
+}

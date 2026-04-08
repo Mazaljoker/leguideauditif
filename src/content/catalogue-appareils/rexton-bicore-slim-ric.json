@@ -1,0 +1,29 @@
+{
+  "marque": "rexton",
+  "marqueLabel": "Rexton",
+  "groupe": "ws-audiology",
+  "modele": "BiCore Slim RIC",
+  "formeType": "Slim RIC",
+  "formesDisponibles": "SR",
+  "annee": 2023,
+  "specs": {
+    "batterie": "20",
+    "autonomie": "BLE",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": false
+  },
+  "couleurs": 5,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "rexton-bicore-slim-ric",
+  "niveauPosition": 1,
+  "rac0": false
+}

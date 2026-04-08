@@ -1,0 +1,42 @@
+{
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "modele": "More",
+  "formeType": "RIC",
+  "formesDisponibles": "miniRITE R|miniRITE T",
+  "puce": "Polaris",
+  "annee": 2021,
+  "specs": {
+    "canaux": 64,
+    "bandes": 24,
+    "batterie": "Li-ion|312",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Oticon Companion",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "micDirectionnels": "MoreSound Intelligence"
+  },
+  "couleurs": 8,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "oticon-more-2",
+  "niveau": "2",
+  "niveauRaw": "2",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1706
+    }
+  }
+}

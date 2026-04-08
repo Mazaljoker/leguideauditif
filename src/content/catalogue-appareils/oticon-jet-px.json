@@ -1,0 +1,36 @@
+{
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "modele": "Jet PX",
+  "formeType": "RIC",
+  "formesDisponibles": "miniRITE|miniBTE",
+  "annee": 2025,
+  "specs": {
+    "batterie": "Li-ion|disposable",
+    "autonomie": "24",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Oticon Companion",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false,
+    "micDirectionnels": "DNN"
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "oticon-jet-px",
+  "niveauPosition": 1,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 2598
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "OMNIA",
+  "formeType": "RIC",
+  "formesDisponibles": "RIE|BTE",
+  "annee": 2022,
+  "specs": {
+    "batterie": "Li-ion|312|13",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Smart 3D",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": false,
+    "micDirectionnels": "360° All-Around"
+  },
+  "couleurs": 8,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "resound-omnia-9",
+  "niveau": "9",
+  "niveauRaw": "9",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1990
+    }
+  }
+}

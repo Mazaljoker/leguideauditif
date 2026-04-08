@@ -1,0 +1,44 @@
+{
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "modele": "Genesis AI",
+  "formeType": "RIC",
+  "formesDisponibles": "mRIC R|RIC RT|ITE R|ITC R|CIC|BTE",
+  "puce": "Neuro Processor",
+  "annee": 2023,
+  "specs": {
+    "canaux": 60,
+    "bandes": 20,
+    "batterie": "Li-ion|312|10",
+    "autonomie": "41-51",
+    "ip": "IP68",
+    "reductionBruit": 12,
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "My Starkey",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "Yes",
+    "capteursSante": "Accel|Gyro|Fall"
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "starkey-genesis-ai-24",
+  "niveau": "24",
+  "niveauRaw": "24",
+  "niveauPosition": 3,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 2798
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Motion Charge&Go IX",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE M|BTE P|BTE SP",
+  "puce": "IX Platform",
+  "annee": 2025,
+  "specs": {
+    "batterie": "Li-ion",
+    "autonomie": "73 (SP)",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": false
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "signia-motion-ix",
+  "niveauPosition": 1,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 1199
+    }
+  }
+}

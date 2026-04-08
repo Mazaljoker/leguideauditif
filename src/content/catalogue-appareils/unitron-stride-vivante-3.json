@@ -1,0 +1,32 @@
+{
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "modele": "Stride Vivante",
+  "formeType": "BTE",
+  "formesDisponibles": "V-PR|V-M|SP|V-UP",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Li-ion|312|13|675",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Remote Plus",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "couleurs": 6,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "unitron-stride-vivante-3",
+  "niveau": "3",
+  "niveauRaw": "3",
+  "niveauPosition": 2,
+  "rac0": false
+}

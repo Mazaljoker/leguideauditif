@@ -1,0 +1,38 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Naida Marvel",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE SP",
+  "puce": "AutoSense OS 3.0",
+  "annee": 2019,
+  "specs": {
+    "batterie": "Disposable",
+    "plageAdaptation": "Severe to profound"
+  },
+  "connectivite": {
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "couleurs": 8,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "phonak-naida-marvel-70",
+  "niveau": "70",
+  "niveauRaw": "M70",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1323
+    }
+  }
+}

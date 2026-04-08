@@ -1,0 +1,30 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Lyric 4",
+  "formeType": "IIC",
+  "formesDisponibles": "IIC Extended-wear",
+  "annee": 2024,
+  "specs": {
+    "autonomie": "2-4 months",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "bluetooth": "No",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false,
+    "antiFeedback": "No",
+    "micDirectionnels": "No"
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "phonak-lyric-4",
+  "niveauPosition": 1,
+  "rac0": false
+}
