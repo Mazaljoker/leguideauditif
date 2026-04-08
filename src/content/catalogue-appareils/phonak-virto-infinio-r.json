@@ -1,0 +1,27 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Virto Infinio R",
+  "formeType": "ITE",
+  "formesDisponibles": "ITE R",
+  "annee": 2025,
+  "specs": {
+    "autonomie": "Li-ion",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "phonak-virto-infinio-r",
+  "niveauPosition": 1,
+  "rac0": false
+}

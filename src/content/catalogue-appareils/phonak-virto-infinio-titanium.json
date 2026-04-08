@@ -1,0 +1,27 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Virto Infinio Titanium",
+  "formeType": "CIC",
+  "formesDisponibles": "CIC|IIC",
+  "annee": 2025,
+  "specs": {
+    "autonomie": "Li-ion (non-rechargeable)",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "phonak-virto-infinio-titanium",
+  "niveauPosition": 1,
+  "rac0": false
+}

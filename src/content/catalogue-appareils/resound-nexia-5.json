@@ -1,0 +1,41 @@
+{
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "Nexia",
+  "formeType": "RIC",
+  "formesDisponibles": "microRIE|RIE 61|RIE 62|BTE 77|BTE 88|ITE|ITC|CIC",
+  "annee": 2023,
+  "specs": {
+    "canaux": 17,
+    "bandes": 17,
+    "batterie": "Li-ion|312|13",
+    "autonomie": "24-30",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE 5.2 LE Audio",
+    "auracast": true,
+    "application": "Smart 3D",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "couleurs": 8,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "resound-nexia-5",
+  "niveau": "5",
+  "niveauRaw": "5",
+  "niveauPosition": 3,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 2765
+    }
+  }
+}

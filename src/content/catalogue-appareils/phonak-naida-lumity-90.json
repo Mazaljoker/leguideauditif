@@ -1,0 +1,41 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Naida Lumity P-PR",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE SP",
+  "puce": "AutoSense OS 5.0",
+  "annee": 2022,
+  "specs": {
+    "batterie": "Li-ion|675",
+    "autonomie": "16",
+    "ip": "IP68",
+    "plageAdaptation": "Severe to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "couleurs": 7,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "phonak-naida-lumity-90",
+  "niveau": "90",
+  "niveauRaw": "L90",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 2090
+    }
+  }
+}

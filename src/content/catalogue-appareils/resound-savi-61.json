@@ -1,0 +1,29 @@
+{
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "Savi",
+  "formeType": "RIC",
+  "formesDisponibles": "RIE|ITC|CIC",
+  "annee": 2025,
+  "specs": {
+    "ip": "IP68"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": true,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "resound-savi-61",
+  "niveau": "61",
+  "niveauRaw": "61",
+  "niveauPosition": 2,
+  "rac0": false
+}
