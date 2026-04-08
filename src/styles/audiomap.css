@@ -263,6 +263,49 @@
   text-decoration: underline;
 }
 
+/* Premium card highlight */
+.result-card--premium {
+  border-left: 3px solid #D97B3D;
+}
+
+.result-badge-premium {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #D97B3D;
+  background: rgba(217, 123, 61, 0.1);
+  border: 1px solid rgba(217, 123, 61, 0.25);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: auto;
+}
+
+.result-cta {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #D97B3D;
+}
+
+.result-link {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #1B2E4A;
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+.result-link:hover {
+  color: #D97B3D;
+  text-decoration: underline;
+}
+
 /* Map area */
 .audiomap-map {
   flex: 1;
@@ -350,15 +393,67 @@
   text-decoration: none;
 }
 
+.popup-badge-premium {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #D97B3D;
+  background: rgba(217, 123, 61, 0.1);
+  border: 1px solid rgba(217, 123, 61, 0.25);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+}
+
+.popup-cta {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  background: #D97B3D;
+  color: white;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.popup-cta:hover {
+  background: #c46a2e;
+  color: white;
+  text-decoration: none;
+}
+
+.popup-link {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #1B2E4A;
+  text-decoration: none;
+}
+
+.popup-link:hover {
+  color: #D97B3D;
+  text-decoration: underline;
+}
+
 /* ===== Cluster marker ===== */
 .cluster-icon {
   background: transparent !important;
   border: none !important;
 }
 
+/* Premium marker drop-shadow */
+.marker-premium {
+  filter: drop-shadow(0 2px 4px rgba(217, 123, 61, 0.4));
+}
+
 /* Active marker glow */
 .marker-active {
-  filter: hue-rotate(-20deg) brightness(1.2);
+  filter: drop-shadow(0 3px 8px rgba(217, 123, 61, 0.6));
 }
 
 /* ===== Leaflet overrides ===== */

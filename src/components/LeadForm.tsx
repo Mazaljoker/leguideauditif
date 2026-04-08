@@ -1,7 +1,11 @@
 import { useState, type FC, type FormEvent } from 'react';
 import { supabase } from '../lib/supabase';
 
-const LeadForm: FC = () => {
+interface LeadFormProps {
+  centreSlug?: string;
+}
+
+const LeadForm: FC<LeadFormProps> = ({ centreSlug }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -19,7 +23,7 @@ const LeadForm: FC = () => {
       phone: formData.get('tel') as string,
       zip_code: formData.get('cp') as string,
       hearing_loss_type: formData.get('perte') as string,
-      source: 'homepage',
+      source: centreSlug ? `centre/${centreSlug}` : 'homepage',
     });
 
     setLoading(false);

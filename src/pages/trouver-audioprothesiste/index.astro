@@ -4,8 +4,16 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
 import AudioMap from '../../components/AudioMap.tsx';
 import '../../styles/audiomap.css';
-import rawData from '../../data/audioprothesistes.json';
-const audioprothesistes = Array.isArray(rawData) ? rawData : (rawData as any).default ?? [];
+import { supabase } from '../../lib/supabase';
+
+// Fetch depuis Supabase — uniquement les centres avec GPS pour la carte
+const { data: audioprothesistes } = await supabase
+  .from('centres_auditifs')
+  .select('id, slug, nom, adresse, cp, ville, departement, lat, lng, tel, horaires, site_web, finess, source, is_premium')
+  .not('lat', 'is', null)
+  .not('lng', 'is', null);
+
+const centres = audioprothesistes ?? [];
 
 const title = 'Trouver un audioprothesiste pres de chez vous | LeGuideAuditif';
 const description =
@@ -40,7 +48,8 @@ const schemaWebPage = {
 };
 
 // Schema.org -- LocalBusiness pour chaque centre (max 50 pour le JSON-LD)
-const schemaLocalBusinesses = audioprothesistes.slice(0, 50).map((centre: {
+const schemaLocalBusinesses = centres.slice(0, 50).map((centre: {
+  slug: string;
   nom: string;
   adresse: string;
   cp: string;
@@ -50,10 +59,11 @@ const schemaLocalBusinesses = audioprothesistes.slice(0, 50).map((centre: {
   site_web: string | null;
   lat: number;
   lng: number;
+  is_premium: boolean;
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': `https://leguideauditif.fr/trouver-audioprothesiste/#${centre.cp}-${centre.nom.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`,
+  '@id': `https://leguideauditif.fr/centre/${centre.slug}/`,
   name: centre.nom,
   address: {
     '@type': 'PostalAddress',
@@ -109,7 +119,7 @@ const allSchemas = [schemaWebPage, ...schemaLocalBusinesses];
       </header>
 
       {/* Carte interactive -- React island, chargee cote client */}
-      <AudioMap client:only="react" data={audioprothesistes} />
+      <AudioMap client:only="react" data={centres} />
 
       {/* Section informative sous la carte */}
       <div class="mt-12 max-w-[780px]">

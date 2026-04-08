@@ -12,6 +12,7 @@ import L from 'leaflet';
 /* ===== Types ===== */
 interface Audioprothesiste {
   id: string;
+  slug: string;
   nom: string;
   enseigne: string;
   adresse: string;
@@ -25,31 +26,34 @@ interface Audioprothesiste {
   site_web: string | null;
   finess: string | null;
   source: string;
+  is_premium: boolean;
 }
 
 interface AudioMapProps {
   data: Audioprothesiste[];
 }
 
-/* ===== Custom marker icon ===== */
-const markerIcon = new L.Icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+/* ===== Custom marker icons ===== */
+const markerIconFree = new L.Icon({
+  iconUrl: '/images/marker-free.svg',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
-  shadowSize: [41, 41],
 });
 
-const markerIconActive = new L.Icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+const markerIconPremium = new L.Icon({
+  iconUrl: '/images/marker-premium.svg',
   iconSize: [30, 49],
   iconAnchor: [15, 49],
   popupAnchor: [1, -40],
-  shadowSize: [49, 49],
+  className: 'marker-premium',
+});
+
+const markerIconActive = new L.Icon({
+  iconUrl: '/images/marker-premium.svg',
+  iconSize: [34, 55],
+  iconAnchor: [17, 55],
+  popupAnchor: [1, -46],
   className: 'marker-active',
 });
 
@@ -123,7 +127,13 @@ function clusterMarkers(
     }
   }
 
-  return Array.from(clusters.values());
+  // Sort: premium clusters first
+  return Array.from(clusters.values()).sort((a, b) => {
+    const aPremium = a.items.some((i) => i.is_premium);
+    const bPremium = b.items.some((i) => i.is_premium);
+    if (aPremium !== bPremium) return bPremium ? 1 : -1;
+    return 0;
+  });
 }
 
 /* ===== MapController: handle zoom changes + fly-to ===== */
@@ -334,13 +344,19 @@ function ResultsList({
     );
   }
 
+  // Sort premium first
+  const sorted = [...items].sort((a, b) => {
+    if (a.is_premium !== b.is_premium) return b.is_premium ? 1 : -1;
+    return 0;
+  });
+
   return (
     <ul ref={listRef} className="results-list" role="list">
-      {items.map((item) => (
+      {sorted.map((item) => (
         <li
           key={item.id}
           data-id={item.id}
-          className={`result-card ${selectedId === item.id ? 'result-card--active' : ''}`}
+          className={`result-card ${selectedId === item.id ? 'result-card--active' : ''} ${item.is_premium ? 'result-card--premium' : ''}`}
           onClick={() => onSelect(item)}
           onKeyDown={(e) => e.key === 'Enter' && onSelect(item)}
           tabIndex={0}
@@ -349,12 +365,15 @@ function ResultsList({
         >
           <div className="result-card-header">
             <span className="result-enseigne">{item.enseigne}</span>
+            {item.is_premium && (
+              <span className="result-badge-premium">Centre verifie</span>
+            )}
           </div>
           <h3 className="result-nom">{item.nom}</h3>
           <p className="result-adresse">
             {item.adresse}, {item.cp} {item.ville}
           </p>
-          {item.tel && (
+          {item.is_premium && item.tel ? (
             <a
               href={`tel:${item.tel.replace(/\s/g, '')}`}
               className="result-tel"
@@ -362,7 +381,16 @@ function ResultsList({
             >
               {item.tel}
             </a>
-          )}
+          ) : !item.is_premium ? (
+            <span className="result-cta">Demander un devis gratuit</span>
+          ) : null}
+          <a
+            href={`/centre/${item.slug}/`}
+            className="result-link"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Voir la fiche
+          </a>
         </li>
       ))}
     </ul>
@@ -373,6 +401,9 @@ function ResultsList({
 function CentrePopup({ centre }: { centre: Audioprothesiste }) {
   return (
     <div className="popup-content">
+      {centre.is_premium && (
+        <span className="popup-badge-premium">Centre verifie</span>
+      )}
       <span className="popup-enseigne">{centre.enseigne}</span>
       <h3 className="popup-nom">{centre.nom}</h3>
       <p className="popup-adresse">
@@ -380,29 +411,40 @@ function CentrePopup({ centre }: { centre: Audioprothesiste }) {
         <br />
         {centre.cp} {centre.ville}
       </p>
-      {centre.tel && (
-        <a
-          href={`tel:${centre.tel.replace(/\s/g, '')}`}
-          className="popup-tel"
-        >
-          {centre.tel}
+      {centre.is_premium ? (
+        <>
+          {centre.tel && (
+            <a
+              href={`tel:${centre.tel.replace(/\s/g, '')}`}
+              className="popup-tel"
+            >
+              {centre.tel}
+            </a>
+          )}
+          {centre.horaires && (
+            <p className="popup-horaires">
+              <strong>Horaires :</strong> {centre.horaires}
+            </p>
+          )}
+          {centre.site_web && (
+            <a
+              href={centre.site_web}
+              target="_blank"
+              rel="noopener"
+              className="popup-web"
+            >
+              Visiter le site web
+            </a>
+          )}
+        </>
+      ) : (
+        <a href={`/centre/${centre.slug}/`} className="popup-cta">
+          Prendre RDV
         </a>
       )}
-      {centre.horaires && (
-        <p className="popup-horaires">
-          <strong>Horaires :</strong> {centre.horaires}
-        </p>
-      )}
-      {centre.site_web && (
-        <a
-          href={centre.site_web}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="popup-web"
-        >
-          Visiter le site web
-        </a>
-      )}
+      <a href={`/centre/${centre.slug}/`} className="popup-link">
+        Voir la fiche
+      </a>
     </div>
   );
 }
@@ -516,8 +558,11 @@ export default function AudioMap({ data }: AudioMapProps) {
                   icon={
                     selectedId === cluster.items[0].id
                       ? markerIconActive
-                      : markerIcon
+                      : cluster.items[0].is_premium
+                        ? markerIconPremium
+                        : markerIconFree
                   }
+                  zIndexOffset={cluster.items[0].is_premium ? 1000 : 0}
                   eventHandlers={{
                     click: () => handleMarkerClick(cluster.items[0]),
                   }}
