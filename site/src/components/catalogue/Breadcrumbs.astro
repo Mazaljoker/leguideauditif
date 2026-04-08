@@ -1,0 +1,76 @@
+---
+/**
+ * Breadcrumbs — Fil d'Ariane avec Schema.org BreadcrumbList
+ */
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+const schemaItems = items.map((item, i) => ({
+  "@type": "ListItem",
+  position: i + 1,
+  name: item.label,
+  ...(item.href ? { item: `https://leguideauditif.fr${item.href}` } : {}),
+}));
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: schemaItems,
+});
+---
+
+<nav class="breadcrumbs" aria-label="Fil d'Ariane">
+  <ol>
+    {items.map((item, i) => (
+      <li>
+        {item.href && i < items.length - 1 ? (
+          <a href={item.href}>{item.label}</a>
+        ) : (
+          <span aria-current="page">{item.label}</span>
+        )}
+        {i < items.length - 1 && <span class="breadcrumbs__sep" aria-hidden="true">›</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={schema} />
+
+<style>
+  .breadcrumbs {
+    padding: var(--space-3) 0;
+    font-size: var(--text-sm);
+  }
+  .breadcrumbs ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    align-items: center;
+  }
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+  .breadcrumbs a {
+    color: var(--color-gray-500);
+  }
+  .breadcrumbs a:hover {
+    color: var(--color-orange);
+  }
+  .breadcrumbs span[aria-current] {
+    color: var(--color-navy);
+    font-weight: 600;
+  }
+  .breadcrumbs__sep {
+    color: var(--color-gray-300);
+  }
+</style>

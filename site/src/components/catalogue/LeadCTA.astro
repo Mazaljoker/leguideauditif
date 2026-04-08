@@ -1,0 +1,122 @@
+---
+/**
+ * LeadCTA — Bandeau CTA "Demander un devis gratuit"
+ * CTA principal du site lead gen — PAS d'achat, PAS de panier
+ */
+interface Props {
+  appareilNom?: string;
+  variant?: "banner" | "inline" | "sidebar";
+}
+
+const { appareilNom, variant = "banner" } = Astro.props;
+
+const heading = appareilNom
+  ? `Intéressé(e) par le ${appareilNom} ?`
+  : "Trouvez l'aide auditive qui vous convient";
+
+const subtext = appareilNom
+  ? "Recevez un devis personnalisé et gratuit d'un audioprothésiste près de chez vous."
+  : "Comparez les prix et recevez un devis gratuit d'un audioprothésiste diplômé d'État.";
+---
+
+<aside class={`lead-cta lead-cta--${variant}`} aria-label="Demander un devis">
+  <div class="lead-cta__content">
+    <h2 class="lead-cta__title">{heading}</h2>
+    <p class="lead-cta__text">{subtext}</p>
+    <div class="lead-cta__actions">
+      <a href="/devis/" class="btn btn--primary">
+        Demander un devis gratuit
+      </a>
+      <a href="/trouver-audioprothesiste/" class="btn btn--outline">
+        Trouver un audioprothésiste
+      </a>
+    </div>
+    <p class="lead-cta__reassurance">
+      100% gratuit · Sans engagement · Réponse sous 48h
+    </p>
+  </div>
+</aside>
+
+<style>
+  .lead-cta {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  /* Banner (pleine largeur) */
+  .lead-cta--banner {
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+    color: var(--color-white);
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+  }
+  .lead-cta--banner .lead-cta__title {
+    color: var(--color-white);
+    font-size: var(--text-2xl);
+  }
+  .lead-cta--banner .lead-cta__text {
+    color: var(--color-gray-300);
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  /* Inline (dans le contenu) */
+  .lead-cta--inline {
+    background: var(--color-cream);
+    border: 2px solid var(--color-orange);
+    padding: var(--space-6);
+  }
+  .lead-cta--inline .lead-cta__title {
+    font-size: var(--text-xl);
+  }
+
+  /* Sidebar */
+  .lead-cta--sidebar {
+    background: var(--color-cream);
+    border: 1px solid var(--color-gray-200);
+    padding: var(--space-4);
+  }
+  .lead-cta--sidebar .lead-cta__title {
+    font-size: var(--text-lg);
+  }
+  .lead-cta--sidebar .lead-cta__actions {
+    flex-direction: column;
+  }
+
+  /* Commun */
+  .lead-cta__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: center;
+  }
+  .lead-cta__title {
+    margin: 0;
+  }
+  .lead-cta__text {
+    font-size: var(--text-base);
+    line-height: 1.5;
+  }
+  .lead-cta__actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .lead-cta--banner .btn--outline {
+    border-color: var(--color-white);
+    color: var(--color-white);
+  }
+  .lead-cta--banner .btn--outline:hover {
+    background: var(--color-white);
+    color: var(--color-navy);
+  }
+  .lead-cta__reassurance {
+    font-size: var(--text-xs);
+    color: var(--color-gray-500);
+    margin-top: var(--space-1);
+  }
+  .lead-cta--banner .lead-cta__reassurance {
+    color: var(--color-gray-300);
+  }
+</style>

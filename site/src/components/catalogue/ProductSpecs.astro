@@ -1,0 +1,127 @@
+---
+/**
+ * ProductSpecs — Tableau de spécifications techniques d'un appareil
+ */
+interface Props {
+  forme: string;
+  classe: string;
+  bluetooth: boolean;
+  rechargeable: boolean;
+  masqueurAcouphenes: boolean;
+  ip?: string;
+  canaux?: number;
+  batterie?: string;
+  puissanceSortie?: number;
+  gainMax?: number;
+  garantieAnnees?: number;
+  niveaux?: string[];
+  niveauTechno?: string;
+  telecommande?: boolean;
+  synchronisationBinaurale?: boolean;
+}
+
+const {
+  forme,
+  classe,
+  bluetooth,
+  rechargeable,
+  masqueurAcouphenes,
+  ip,
+  canaux,
+  batterie,
+  puissanceSortie,
+  gainMax,
+  garantieAnnees = 4,
+  niveaux,
+  niveauTechno,
+  telecommande,
+  synchronisationBinaurale,
+} = Astro.props;
+
+const formeLabels: Record<string, string> = {
+  ric: "RIC (micro-contour)",
+  contour: "Contour d'oreille (BTE)",
+  intra: "Intra-auriculaire (ITE)",
+  invisible: "Invisible (CIC/IIC)",
+};
+
+const niveauLabels: Record<string, string> = {
+  essentiel: "Essentiel",
+  standard: "Standard",
+  avance: "Avancé",
+  premium: "Premium",
+};
+
+const boolIcon = (v: boolean) => v ? "✓" : "—";
+
+const specs = [
+  { label: "Forme", value: formeLabels[forme] || forme },
+  { label: "Classe", value: `Classe ${classe}${classe === "1" ? " (100% Santé)" : ""}` },
+  ...(niveauTechno ? [{ label: "Niveau technologique", value: niveauLabels[niveauTechno] || niveauTechno }] : []),
+  ...(niveaux && niveaux.length > 0 ? [{ label: "Niveaux disponibles", value: niveaux.join(", ") }] : []),
+  ...(canaux ? [{ label: "Canaux de réglage", value: `${canaux}` }] : []),
+  { label: "Bluetooth", value: boolIcon(bluetooth) },
+  { label: "Rechargeable", value: boolIcon(rechargeable) },
+  { label: "Masqueur d'acouphènes", value: boolIcon(masqueurAcouphenes) },
+  ...(telecommande !== undefined ? [{ label: "Télécommande", value: boolIcon(telecommande) }] : []),
+  ...(synchronisationBinaurale !== undefined ? [{ label: "Synchronisation binaurale", value: boolIcon(synchronisationBinaurale) }] : []),
+  ...(batterie ? [{ label: "Batterie / Pile", value: batterie }] : []),
+  ...(puissanceSortie ? [{ label: "Puissance de sortie", value: `${puissanceSortie} dB SPL` }] : []),
+  ...(gainMax ? [{ label: "Gain maximum", value: `${gainMax} dB` }] : []),
+  ...(ip ? [{ label: "Indice de protection", value: ip }] : []),
+  { label: "Garantie", value: `${garantieAnnees} ans` },
+];
+---
+
+<section class="product-specs" aria-labelledby="specs-title">
+  <h2 id="specs-title">Caractéristiques techniques</h2>
+  <table>
+    <tbody>
+      {specs.map((spec) => (
+        <tr>
+          <th scope="row">{spec.label}</th>
+          <td>{spec.value}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</section>
+
+<style>
+  .product-specs {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .product-specs h2 {
+    font-size: var(--text-xl);
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 2px solid var(--color-navy);
+    margin: 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  tr {
+    border-bottom: 1px solid var(--color-gray-100);
+  }
+  tr:last-child {
+    border-bottom: none;
+  }
+  th, td {
+    padding: var(--space-3) var(--space-6);
+    text-align: left;
+    font-size: var(--text-sm);
+  }
+  th {
+    font-weight: 600;
+    color: var(--color-navy);
+    width: 40%;
+    background: var(--color-cream);
+  }
+  td {
+    color: var(--color-gray-700);
+  }
+</style>

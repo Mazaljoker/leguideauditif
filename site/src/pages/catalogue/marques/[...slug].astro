@@ -1,0 +1,198 @@
+---
+/**
+ * Page Marque — /catalogue/marques/[slug]/
+ * Histoire de la marque + tous ses appareils au catalogue
+ */
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../../components/catalogue/Breadcrumbs.astro";
+import ProductCard from "../../../components/catalogue/ProductCard.astro";
+import LeadCTA from "../../../components/catalogue/LeadCTA.astro";
+
+export async function getStaticPaths() {
+  const marques = await getCollection("marques");
+  return marques.map((marque) => ({
+    params: { slug: marque.data.slug },
+    props: { marque },
+  }));
+}
+
+const { marque } = Astro.props;
+const { Content } = await marque.render();
+
+// Récupérer les appareils de cette marque
+const allAppareils = await getCollection("catalogue-appareils");
+const appareils = allAppareils
+  .filter((a) => a.data.marque === marque.data.slug && a.data.actif !== false)
+  .sort((a, b) => (b.data.noteExpert || 0) - (a.data.noteExpert || 0));
+---
+
+<BaseLayout
+  title={`${marque.data.nom} — Aides Auditives, Gammes et Avis Expert`}
+  description={marque.data.metaDescription}
+>
+  <div class="container">
+    <Breadcrumbs items={[
+      { label: "Accueil", href: "/" },
+      { label: "Catalogue", href: "/catalogue/" },
+      { label: "Marques", href: "/catalogue/marques/" },
+      { label: marque.data.nom },
+    ]} />
+
+    <header class="brand-header">
+      <div class="brand-header__logo">
+        {marque.data.logo ? (
+          <img src={marque.data.logo} alt={`Logo ${marque.data.nom}`} />
+        ) : (
+          <span>{marque.data.nom.slice(0, 2).toUpperCase()}</span>
+        )}
+      </div>
+      <div>
+        <h1>{marque.data.nom}</h1>
+        <p class="brand-header__meta">
+          {marque.data.pays}
+          {marque.data.maisonMere && ` · Groupe ${marque.data.maisonMere}`}
+          {marque.data.fondee && ` · Fondée en ${marque.data.fondee}`}
+        </p>
+        {marque.data.siteOfficiel && (
+          <a href={marque.data.siteOfficiel} target="_blank" rel="noopener noreferrer" class="brand-header__site">
+            Site officiel →
+          </a>
+        )}
+      </div>
+    </header>
+
+    <!-- Contenu éditorial Markdown -->
+    <div class="brand-content prose">
+      <Content />
+    </div>
+
+    <!-- Appareils de la marque -->
+    {appareils.length > 0 && (
+      <section class="brand-products" aria-labelledby="brand-products-title">
+        <h2 id="brand-products-title">
+          {appareils.length} appareil{appareils.length > 1 ? "s" : ""} {marque.data.nom} au catalogue
+        </h2>
+        <div class="brand-products__grid">
+          {appareils.map((appareil) => (
+            <ProductCard
+              slug={appareil.data.slug}
+              nom={appareil.data.nom}
+              marque={appareil.data.marque}
+              forme={appareil.data.forme}
+              classe={appareil.data.classe}
+              noteExpert={appareil.data.noteExpert}
+              prixFourchette={appareil.data.prixFourchette}
+              prixMin={appareil.data.prixMin}
+              prixMax={appareil.data.prixMax}
+              bluetooth={appareil.data.bluetooth}
+              rechargeable={appareil.data.rechargeable}
+              imageUrl={appareil.data.imageUrl}
+              descriptionCourte={appareil.data.descriptionCourte}
+              enAvant={appareil.data.enAvant}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <LeadCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .brand-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-8) 0;
+  }
+  .brand-header__logo {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    background: var(--color-cream);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .brand-header__logo img {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: contain;
+  }
+  .brand-header__logo span {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+  .brand-header h1 {
+    font-size: var(--text-3xl);
+    margin: 0 0 var(--space-1);
+  }
+  .brand-header__meta {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+    margin-bottom: var(--space-2);
+  }
+  .brand-header__site {
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  /* Contenu Markdown */
+  .prose {
+    max-width: var(--max-width-narrow);
+    line-height: 1.7;
+    padding-bottom: var(--space-8);
+  }
+  .prose :global(h2) {
+    font-size: var(--text-2xl);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+  .prose :global(h3) {
+    font-size: var(--text-xl);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
+  }
+  .prose :global(p) {
+    margin-bottom: var(--space-4);
+  }
+  .prose :global(ul), .prose :global(ol) {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-6);
+  }
+  .prose :global(li) {
+    margin-bottom: var(--space-1);
+  }
+  .prose :global(a) {
+    color: var(--color-orange);
+    font-weight: 500;
+  }
+  .prose :global(strong) {
+    color: var(--color-navy);
+  }
+
+  /* Grille appareils */
+  .brand-products {
+    padding: var(--space-8) 0;
+    border-top: 2px solid var(--color-gray-200);
+  }
+  .brand-products h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+  }
+  .brand-products__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 768px) {
+    .brand-header { flex-direction: column; text-align: center; }
+  }
+</style>
