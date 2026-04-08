@@ -1,0 +1,38 @@
+{
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "modele": "Insera Discover Next",
+  "formeType": "ITE",
+  "formesDisponibles": "ITE|ITC|CIC",
+  "annee": 2020,
+  "specs": {
+    "batterie": "312|10",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE (312)",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": "Ear Match"
+  },
+  "couleurs": 4,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "unitron-insera-discover-next-5",
+  "niveau": "5",
+  "niveauRaw": "5",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1690
+    }
+  }
+}

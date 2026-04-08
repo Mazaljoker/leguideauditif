@@ -1,0 +1,31 @@
+{
+  "marque": "rexton",
+  "marqueLabel": "Rexton",
+  "groupe": "ws-audiology",
+  "modele": "BiCore R-Li",
+  "formeType": "RIC",
+  "formesDisponibles": "R-Li|R-Li T|R 312",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Li-ion|312",
+    "autonomie": "28-39",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Rexton App",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "couleurs": 10,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "rexton-bicore-r-li",
+  "niveauPosition": 1,
+  "rac0": false
+}

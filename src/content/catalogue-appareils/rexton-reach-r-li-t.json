@@ -1,0 +1,37 @@
+{
+  "marque": "rexton",
+  "marqueLabel": "Rexton",
+  "groupe": "ws-audiology",
+  "modele": "Reach R-Li T",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC T",
+  "puce": "IX Platform",
+  "annee": 2024,
+  "specs": {
+    "batterie": "Li-ion",
+    "autonomie": "39",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": false,
+    "application": "Rexton App",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": false
+  },
+  "couleurs": 4,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "rexton-reach-r-li-t",
+  "niveauPosition": 1,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 1500
+    }
+  }
+}

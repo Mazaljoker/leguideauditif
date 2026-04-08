@@ -1,0 +1,30 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Active Pro IX",
+  "formeType": "Earbud",
+  "formesDisponibles": "Earbud instant-fit",
+  "puce": "IX Platform",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Li-ion",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "signia-active-pro-ix",
+  "niveauPosition": 1,
+  "rac0": false
+}

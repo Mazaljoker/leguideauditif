@@ -1,0 +1,48 @@
+{
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "Vivia",
+  "formeType": "RIC",
+  "formesDisponibles": "microRIE 60|RIE 61|RIE 62",
+  "puce": "Dual-chip AI + DNN",
+  "annee": 2025,
+  "specs": {
+    "canaux": 17,
+    "bandes": 17,
+    "batterie": "Li-ion|312|13",
+    "autonomie": "24-30",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": true,
+    "application": "Smart 3D",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "DFS Ultra III",
+    "micDirectionnels": "4-mic binaural beamformer"
+  },
+  "couleurs": 10,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "resound-vivia-4",
+  "niveau": "4",
+  "niveauRaw": "4",
+  "niveauPosition": 2,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1490
+    },
+    "usd": {
+      "min": 2798
+    }
+  }
+}

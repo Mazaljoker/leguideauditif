@@ -1,0 +1,33 @@
+{
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "modele": "Signature Series",
+  "formeType": "CIC",
+  "formesDisponibles": "CIC R NW|CIC NW|IIC NW",
+  "puce": "Genesis AI platform",
+  "annee": 2024,
+  "specs": {
+    "batterie": "Li-ion|10",
+    "autonomie": "38 (CIC R)",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "bluetooth": "No",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false,
+    "antiFeedback": "No",
+    "micDirectionnels": "No"
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "starkey-signature-series",
+  "niveauPosition": 1,
+  "rac0": false
+}
