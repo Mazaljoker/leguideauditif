@@ -1,0 +1,49 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Styletto IX",
+  "formeType": "Slim RIC",
+  "formesDisponibles": "Slim RIC",
+  "puce": "IX Platform",
+  "annee": 2024,
+  "specs": {
+    "canaux": 48,
+    "bandes": 20,
+    "batterie": "Li-ion",
+    "autonomie": "20",
+    "ip": "IP68",
+    "reductionBruit": 5,
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": "Yes",
+    "micDirectionnels": "RealTime Conversation"
+  },
+  "couleurs": 8,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "signia-styletto-ix-5",
+  "niveau": "5",
+  "niveauRaw": "5IX",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1782
+    },
+    "usd": {
+      "min": 3098
+    }
+  }
+}

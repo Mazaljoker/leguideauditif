@@ -1,0 +1,35 @@
+{
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "modele": "Edge AI",
+  "formeType": "RIC",
+  "formesDisponibles": "mRIC R|RIC RT|RIC 312|ITE R|ITC R|CIC|BTE",
+  "puce": "G2 Neuro",
+  "annee": 2024,
+  "specs": {
+    "batterie": "Li-ion|312",
+    "autonomie": "51",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "My Starkey",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "capteursSante": "Accel|Gyro|Fall"
+  },
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "starkey-edge-ai-24",
+  "niveau": "24",
+  "niveauRaw": "24",
+  "niveauPosition": 3,
+  "rac0": false
+}

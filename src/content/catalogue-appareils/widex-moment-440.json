@@ -19,7 +19,7 @@
   "connectivite": {
     "bluetooth": "BLE",
     "auracast": false,
-    "application": "Widex MOMENT\u0119",
+    "application": "Widex MOMENT",
     "mainLibre": true
   },
   "fonctionnalites": {
