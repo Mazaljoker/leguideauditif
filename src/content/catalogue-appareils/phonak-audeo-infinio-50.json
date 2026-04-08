@@ -1,0 +1,48 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Audéo Infinio Ultra Sphere",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R",
+  "puce": "ERA + DEEPSONIC",
+  "annee": 2024,
+  "specs": {
+    "canaux": 20,
+    "bandes": 20,
+    "batterie": "Li-ion",
+    "autonomie": "56 (quiet) 10-11 (Spheric)",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE + A2DP",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "StereoZoom 2.0|UltraZoom"
+  },
+  "couleurs": 11,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "phonak-audeo-infinio-50",
+  "niveau": "50",
+  "niveauRaw": "I50",
+  "niveauPosition": 2,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1699
+    },
+    "usd": {
+      "min": 3198
+    }
+  }
+}

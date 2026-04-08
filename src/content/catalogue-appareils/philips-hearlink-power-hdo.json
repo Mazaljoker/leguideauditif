@@ -1,0 +1,37 @@
+{
+  "marque": "philips",
+  "marqueLabel": "Philips",
+  "groupe": "demant",
+  "modele": "HearLink Power HdO",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE P|BTE SP",
+  "annee": 2022,
+  "specs": {
+    "batterie": "Disposable",
+    "plageAdaptation": "Severe to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "HearLink 2",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "couleurs": 6,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "philips-hearlink-power-hdo",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1290,
+      "max": 2090
+    }
+  }
+}

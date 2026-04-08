@@ -1,0 +1,43 @@
+{
+  "marque": "philips",
+  "marqueLabel": "Philips",
+  "groupe": "demant",
+  "modele": "HearLink 9050",
+  "formeType": "RIC",
+  "formesDisponibles": "miniRITE",
+  "puce": "Sirius",
+  "annee": 2024,
+  "specs": {
+    "canaux": 64,
+    "batterie": "Li-ion",
+    "autonomie": "24",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": false,
+    "application": "HearLink 2",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "philips-hearlink-9050",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1290,
+      "max": 2090
+    },
+    "usd": {
+      "min": 1499
+    }
+  }
+}
