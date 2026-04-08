@@ -1,0 +1,44 @@
+{
+  "marque": "widex",
+  "marqueLabel": "Widex",
+  "groupe": "ws-audiology",
+  "modele": "Allure",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R D|ITE R D|BTE R D",
+  "puce": "W1",
+  "annee": 2025,
+  "specs": {
+    "canaux": 15,
+    "bandes": 15,
+    "batterie": "Li-ion",
+    "autonomie": "25",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio + ASHA",
+    "auracast": false,
+    "application": "Widex Allure",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "Adaptive Dynamic FB",
+    "micDirectionnels": "Speech Enhancer Pro"
+  },
+  "couleurs": 10,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "widex-allure-330",
+  "niveau": "330",
+  "niveauRaw": "330",
+  "niveauPosition": 3,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 3531
+    }
+  }
+}

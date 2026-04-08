@@ -1,0 +1,35 @@
+{
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "modele": "Moxi Vivante",
+  "formeType": "RIC",
+  "formesDisponibles": "V-R|V-RT|V-RS|V-312",
+  "puce": "ERA + Integra OS",
+  "annee": 2023,
+  "specs": {
+    "autonomie": "BLE",
+    "ip": "Yes (V-RT)",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "No",
+    "auracast": false,
+    "application": "Remote Plus",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": false,
+    "micDirectionnels": "HyperFocus|AutoFocus 360"
+  },
+  "couleurs": 6,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "unitron-moxi-vivante-7",
+  "niveau": "7",
+  "niveauRaw": "7",
+  "niveauPosition": 4,
+  "rac0": false
+}

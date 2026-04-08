@@ -1,0 +1,37 @@
+{
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "modele": "Stride Discover Next",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE PR|BTE M|BTE UP",
+  "annee": 2020,
+  "specs": {
+    "batterie": "Li-ion|312|675",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "couleurs": 8,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "unitron-stride-discover-next-9",
+  "niveau": "9",
+  "niveauRaw": "9",
+  "niveauPosition": 5,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 2390
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "marque": "widex",
+  "marqueLabel": "Widex",
+  "groupe": "ws-audiology",
+  "modele": "MOMENT",
+  "formeType": "RIC",
+  "formesDisponibles": "SHEER sRIC|SmartRIC|RIC 312|RIC 10|BTE 13|BTE R|CIC|ITE",
+  "puce": "PureSound",
+  "annee": 2020,
+  "specs": {
+    "canaux": 15,
+    "bandes": 15,
+    "batterie": "Li-ion|312|10",
+    "autonomie": "29-37",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE MFi + ASHA",
+    "auracast": false,
+    "application": "MOMENT App",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "micDirectionnels": "Yes"
+  },
+  "couleurs": 13,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "widex-moment-110",
+  "niveau": "110",
+  "niveauRaw": "110",
+  "niveauPosition": 1,
+  "rac0": false,
+  "prix": {
+    "usd": {
+      "min": 2798
+    }
+  }
+}
