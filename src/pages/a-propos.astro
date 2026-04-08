@@ -14,7 +14,7 @@ const schema = [
     '@type': 'AboutPage',
     name: 'A propos de LeGuideAuditif.fr',
     url: 'https://leguideauditif.fr/a-propos/',
-    description: "Le guide independant sur l'audition redige par Franck-Olivier Chabbat, audioprothesiste DE avec 28 ans d'experience, diplome ISTR Lyon, ADELI 692606494.",
+    description: "Le guide independant sur l'audition redige par Franck-Olivier Chabbat, audioprothesiste DE avec 28 ans d'experience clinique et 5 ans chez Auzen.com, leader europeen de la vente en ligne d'aides auditives.",
     author: {
       '@type': 'Person',
       '@id': 'https://leguideauditif.fr/#author',
@@ -22,7 +22,7 @@ const schema = [
       givenName: 'Franck-Olivier',
       familyName: 'Chabbat',
       jobTitle: "Audioprothesiste diplome d'Etat",
-      description: "28 ans d'experience en audioprothese, 18 centres diriges, 3 000+ patients appareilles.",
+      description: "28 ans d'experience en audioprothese, 18 centres diriges, 3 000+ patients appareilles, 5 ans chez Auzen.com — leader europeen de la vente en ligne d'aides auditives.",
       url: 'https://leguideauditif.fr/a-propos/',
       sameAs: [
         'https://www.linkedin.com/in/franck-olivier-chabbat-/'
@@ -59,7 +59,10 @@ const schema = [
         'appareils auditifs',
         'perte auditive',
         'acouphenes',
-        'presbyacousie'
+        'presbyacousie',
+        'commerce en ligne d\'aides auditives',
+        'comparaison de puces auditives',
+        'marges et tarification en audioprothese'
       ]
     },
   },
@@ -78,7 +81,7 @@ const schema = [
 
 <BaseLayout
   title="A propos — LeGuideAuditif.fr"
-  description="Franck-Olivier Chabbat, audioprothesiste DE (ISTR Lyon), 28 ans d'experience, ADELI 692606494. Decouvrez le parcours et la methodologie du guide independant sur l'audition."
+  description="Franck-Olivier Chabbat, audioprothesiste DE (ISTR Lyon), 28 ans d'experience clinique, 5 ans chez Auzen.com. Decouvrez pourquoi j'ai cree le guide independant sur l'audition."
   schema={schema}
 >
   <div class="bg-creme">
@@ -90,33 +93,57 @@ const schema = [
   <!-- Hero section -->
   <section class="bg-creme pt-8 pb-12">
     <div class="max-w-[780px] mx-auto px-5">
-      <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-6">A propos de LeGuideAuditif.fr</h1>
+      <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-6">28 ans d'audioprothese, 5 ans chez Auzen.com : je leve le voile sur les appareils auditifs</h1>
       <p class="text-xl leading-relaxed text-gris-texte mb-4 font-serif">
-        Le guide independant pour mieux entendre, redige par un audioprothesiste diplome d'Etat (ISTR Lyon), 28 ans d'experience clinique.
+        Quand on commence a moins bien entendre, on decouvre un univers opaque : des devis a 3 000&nbsp;&euro;, du jargon technique incomprehensible, et tres peu d'information reellement independante. <strong class="text-marine">J'ai passe 28 ans en cabinet et 5 ans chez un leader europeen de la vente d'aides auditives en ligne.</strong> Aujourd'hui, je ne vends plus rien. Je vous dis tout.
       </p>
     </div>
   </section>
 
-  <!-- Mission -->
+  <!-- Mon Parcours -->
   <section class="bg-blanc py-12">
     <div class="max-w-[780px] mx-auto px-5">
-      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Notre mission</h2>
-      <p class="text-lg leading-relaxed mb-5">
-        LeGuideAuditif.fr est ne d'un constat simple : trop de personnes repoussent leur appareillage auditif par manque d'information fiable. Entre les sites de fabricants, les forums approximatifs et les promesses marketing, il est difficile de s'y retrouver.
+      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Mon parcours</h2>
+      <p class="text-lg leading-relaxed mb-8">
+        Ce n'est pas un parcours lineaire, et c'est justement ce qui fait sa valeur. J'ai vu l'audition depuis le fauteuil du patient, depuis le bureau du directeur de centre, et depuis les coulisses d'un geant du e-commerce auditif.
       </p>
-      <p class="text-lg leading-relaxed mb-5">
-        Notre mission est de vous fournir des guides clairs, honnetes et fondes sur la pratique clinique, pour vous aider a comprendre votre audition et prendre les bonnes decisions. Chaque article est redige ou supervise par un audioprothesiste diplome d'Etat avec 28 ans d'experience terrain.
-      </p>
-      <p class="text-lg leading-relaxed">
-        Nous ne sommes lies a aucun fabricant ni enseigne. Cette independance editoriale est la garantie d'une information objective, au service de votre sante auditive.
-      </p>
+      <ol class="space-y-6 mb-6">
+        <li class="flex gap-4">
+          <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0 mt-0.5">1</span>
+          <div>
+            <strong class="font-sans text-marine">Formation a l'ISTR Lyon</strong>
+            <p class="text-gris-texte text-base mt-1">Diplome d'Etat d'audioprothesiste obtenu a l'Institut des Sciences et Techniques de Readaptation (Universite Claude Bernard Lyon 1). Trois ans d'une formation exigeante combinant sciences medicales, acoustique et pratique clinique.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0 mt-0.5">2</span>
+          <div>
+            <strong class="font-sans text-marine">28 ans de terrain &mdash; 18 centres Alain Afflelou Acousticien</strong>
+            <p class="text-gris-texte text-base mt-1">Pendant pres de trois decennies, j'ai dirige 18 centres d'audioprothese. Plus de 3 000 patients appareilles et suivis sur le long terme, de la premiere consultation au renouvellement. C'est la que j'ai appris l'essentiel : <strong class="text-marine">ce qui compte, ce n'est pas l'appareil le plus cher, c'est celui qui correspond a votre perte auditive, a votre mode de vie et a votre budget.</strong></p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0 mt-0.5">3</span>
+          <div>
+            <strong class="font-sans text-marine">5 ans chez Auzen.com &mdash; les coulisses de l'industrie</strong>
+            <p class="text-gris-texte text-base mt-1">J'ai ensuite rejoint <strong class="text-marine">Auzen.com</strong>, l'un des pionniers et leaders de la vente d'appareils auditifs en ligne en Europe. Pendant 5 ans, j'ai redige une grande partie de leur catalogue technique. J'ai decouvert l'envers du decor : les <strong class="text-marine">marges reelles</strong> pratiquees dans l'industrie, les <strong class="text-marine">differences concretes entre les puces</strong> (Phonak, Signia, Starkey...), les strategies de positionnement des fabricants, et surtout &mdash; pourquoi le marche reste aussi opaque. Spoiler : cette opacite profite a toute la chaine, sauf au patient.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0 mt-0.5">4</span>
+          <div>
+            <strong class="font-sans text-marine">Le declic &mdash; creation de LeGuideAuditif.fr</strong>
+            <p class="text-gris-texte text-base mt-1">J'ai decide de quitter la vente directe. Pourquoi ? Parce que j'en savais trop pour continuer a me taire. J'ai cree LeGuideAuditif.fr avec un objectif simple : <strong class="text-marine">rendre le pouvoir aux patients</strong>. Je ne vends pas d'appareils. J'offre de l'information technique 100 % transparente, des avis impartiaux sur les modeles, et un annuaire de plus de 7 500 centres auditifs pour vous aider a trouver le bon professionnel, au bon prix, pres de chez vous.</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- Auteur / E-E-A-T -->
   <section class="bg-creme py-12">
     <div class="max-w-[780px] mx-auto px-5">
-      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Qui redige nos contenus ?</h2>
+      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Qui suis-je ?</h2>
       <div class="bg-blanc border border-gris-clair rounded-2xl p-8 mb-8">
         <div class="flex flex-col sm:flex-row items-start gap-6">
           <img
@@ -129,7 +156,7 @@ const schema = [
           />
           <div>
             <div class="font-sans text-xl font-bold text-marine mb-1">Franck-Olivier Chabbat</div>
-            <div class="font-sans text-base text-orange font-medium mb-3">Audioprothesiste diplome d'Etat</div>
+            <div class="font-sans text-base text-orange font-medium mb-3">Audioprothesiste diplome d'Etat &mdash; 28 ans de clinique, 5 ans dans l'industrie</div>
 
             <!-- Badge ADELI -->
             <div class="inline-flex items-center gap-2 bg-creme border border-gris-clair px-4 py-2 rounded-lg text-sm font-sans mb-4">
@@ -138,17 +165,17 @@ const schema = [
             </div>
 
             <p class="text-base leading-relaxed mb-4">
-              Diplome de l'Institut des Sciences et Techniques de Readaptation (ISTR) de Lyon (Universite Claude Bernard Lyon 1), Franck-Olivier exerce l'audioprothese depuis 28 ans. Il a dirige 18 centres Alain Afflelou Acousticien et accompagne plus de 3 000 patients dans leur parcours d'appareillage auditif.
+              Diplome de l'ISTR Lyon (Universite Claude Bernard Lyon 1), j'ai exerce l'audioprothese pendant 28 ans. J'ai dirige 18 centres Alain Afflelou Acousticien et accompagne plus de 3 000 patients dans leur parcours d'appareillage. Puis j'ai passe 5 ans chez <strong class="text-marine">Auzen.com</strong>, ou j'ai redige le catalogue technique et decouvert les coulisses de l'industrie.
             </p>
             <p class="text-base leading-relaxed mb-4">
-              Cette experience de terrain &mdash; de la premiere consultation au suivi a long terme &mdash; lui donne une vision globale et pragmatique. Sur LeGuideAuditif.fr, il partage les conseils qu'il donne chaque jour en consultation : sans jargon, sans publicite deguisee, avec l'exigence d'un professionnel de sante.
+              Cette double experience &mdash; clinique et industrielle &mdash; me donne une vision que peu de professionnels possedent. Sur LeGuideAuditif.fr, je partage cette connaissance sans filtre : les vraies differences entre les appareils, les pieges a eviter, et les conseils que je donnerais a mes propres parents.
             </p>
 
             <!-- LinkedIn -->
             <a href="https://www.linkedin.com/in/franck-olivier-chabbat-/" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-2 text-orange hover:underline text-sm font-sans font-medium mt-2 no-underline hover:no-underline">
               <Icon name="lucide:linkedin" class="w-4 h-4" aria-hidden="true" />
-              Voir le profil LinkedIn
+              Voir mon profil LinkedIn
             </a>
           </div>
         </div>
@@ -162,7 +189,7 @@ const schema = [
         <div class="text-center sm:text-left">
           <div class="font-sans text-lg font-bold text-white mb-1">Contenu verifie par un expert</div>
           <p class="text-white/80 text-sm leading-relaxed">
-            Tous les guides et comparatifs publies sur LeGuideAuditif.fr sont rediges ou supervises par Franck-Olivier Chabbat, audioprothesiste diplome d'Etat (ISTR Lyon), enregistre au repertoire ADELI sous le n. 692606494. Chaque article suit un processus de double validation qualite avant publication.
+            Tous les guides et comparatifs publies sur LeGuideAuditif.fr sont rediges ou supervises par Franck-Olivier Chabbat, audioprothesiste DE (ISTR Lyon), ADELI 692606494. Avec 28 ans de pratique clinique et 5 ans d'experience industrielle chez Auzen.com, chaque article suit un processus de double validation qualite avant publication.
           </p>
         </div>
       </div>
@@ -177,8 +204,8 @@ const schema = [
         </div>
         <div class="bg-blanc rounded-xl p-5 border border-gris-clair">
           <Icon name="lucide:calendar-clock" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
-          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Experience</div>
-          <p class="text-base text-marine">28 ans de pratique clinique en audioprothese</p>
+          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Experience clinique</div>
+          <p class="text-base text-marine">28 ans de pratique en audioprothese</p>
         </div>
         <div class="bg-blanc rounded-xl p-5 border border-gris-clair">
           <Icon name="lucide:building-2" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
@@ -191,6 +218,11 @@ const schema = [
           <p class="text-base text-marine">3 000+ patients appareilles et suivis</p>
         </div>
         <div class="bg-blanc rounded-xl p-5 border border-gris-clair">
+          <Icon name="lucide:globe" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
+          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Industrie</div>
+          <p class="text-base text-marine">5 ans chez Auzen.com &mdash; leader europeen de la vente en ligne d'aides auditives</p>
+        </div>
+        <div class="bg-blanc rounded-xl p-5 border border-gris-clair">
           <Icon name="lucide:shield-check" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
           <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Enregistrement professionnel</div>
           <p class="text-base text-marine">N. ADELI 692606494 &mdash; Repertoire national des professionnels de sante</p>
@@ -199,47 +231,80 @@ const schema = [
     </div>
   </section>
 
-  <!-- Parcours professionnel -->
+  <!-- La Mission du Guide Auditif -->
   <section class="bg-blanc py-12">
     <div class="max-w-[780px] mx-auto px-5">
-      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Parcours professionnel</h2>
-      <ol class="space-y-4 mb-6">
-        <li class="flex gap-4">
-          <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0">1</span>
-          <div>
-            <strong class="font-sans text-marine">Formation a l'ISTR Lyon</strong>
-            <p class="text-gris-texte text-base mt-1">Diplome d'Etat d'audioprothesiste obtenu a l'Institut des Sciences et Techniques de Readaptation, Universite Claude Bernard Lyon 1. Une formation exigeante combinant sciences medicales, acoustique et pratique clinique.</p>
+      <h2 class="font-sans text-2xl font-bold text-marine mb-6">La mission du Guide Auditif</h2>
+      <p class="text-lg leading-relaxed mb-8">
+        Mon objectif est simple : vous donner les cles pour comprendre le marche de l'audition et faire les bons choix, sans dependre de celui qui vous vend l'appareil.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="bg-creme rounded-2xl p-6 border border-gris-clair">
+          <div class="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center mb-4">
+            <Icon name="lucide:book-open" class="w-6 h-6 text-orange" aria-hidden="true" />
           </div>
-        </li>
-        <li class="flex gap-4">
-          <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0">2</span>
-          <div>
-            <strong class="font-sans text-marine">Debut de carriere et experience terrain</strong>
-            <p class="text-gris-texte text-base mt-1">Premiers pas en tant qu'audioprothesiste : apprentissage au contact direct des patients, maitrise des protocoles d'appareillage et de suivi pour tous les profils de perte auditive.</p>
+          <h3 class="font-sans text-lg font-bold text-marine mb-2">Information decryptee</h3>
+          <p class="text-base text-gris-texte leading-relaxed">
+            Des guides techniques rediges par un professionnel qui connait les produits de l'interieur. Pas du marketing fabricant, pas des fiches recopiees : des <strong class="text-marine">analyses independantes</strong> basees sur l'experience clinique et la connaissance industrielle.
+          </p>
+        </div>
+        <div class="bg-creme rounded-2xl p-6 border border-gris-clair">
+          <div class="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center mb-4">
+            <Icon name="lucide:map-pin" class="w-6 h-6 text-orange" aria-hidden="true" />
           </div>
-        </li>
-        <li class="flex gap-4">
-          <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0">3</span>
-          <div>
-            <strong class="font-sans text-marine">Direction de 18 centres Alain Afflelou Acousticien</strong>
-            <p class="text-gris-texte text-base mt-1">Gestion d'equipes, mise en place de protocoles cliniques, relation patient a grande echelle. Plus de 3 000 patients appareilles et suivis sur le long terme, de la premiere consultation au renouvellement.</p>
+          <h3 class="font-sans text-lg font-bold text-marine mb-2">Plus de 7 500 centres recenses</h3>
+          <p class="text-base text-gris-texte leading-relaxed">
+            Une <strong class="text-marine">carte interactive gratuite</strong> recensant plus de 7 500 centres auditifs en France. Pour vous aider a trouver le bon professionnel, au bon prix, pres de chez vous.
+          </p>
+          <a href="/trouver-audioprothesiste/" class="inline-flex items-center gap-2 text-orange hover:underline text-sm font-sans font-medium mt-3 no-underline hover:no-underline">
+            Voir la carte
+            <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi me faire confiance -->
+  <section class="bg-creme py-12">
+    <div class="max-w-[780px] mx-auto px-5">
+      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Pourquoi me faire confiance</h2>
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+            <Icon name="lucide:shield-check" class="w-5 h-5 text-orange" aria-hidden="true" />
           </div>
-        </li>
-        <li class="flex gap-4">
-          <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0">4</span>
           <div>
-            <strong class="font-sans text-marine">Creation de LeGuideAuditif.fr</strong>
-            <p class="text-gris-texte text-base mt-1">Lancement du guide independant pour rendre accessible 28 ans d'expertise clinique. Objectif : fournir une information fiable, sourcee et sans conflit d'interet a ceux qui cherchent a mieux entendre.</p>
+            <strong class="font-sans text-marine text-lg">Independance totale</strong>
+            <p class="text-base text-gris-texte leading-relaxed mt-1">Aucun lien capitalistique avec un fabricant d'appareils auditifs ou une enseigne. J'ai <strong class="text-marine">quitte la vente</strong> pour creer ce guide. Mon seul engagement est envers vous, pas envers un catalogue produit.</p>
           </div>
-        </li>
-      </ol>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+            <Icon name="lucide:cpu" class="w-5 h-5 text-orange" aria-hidden="true" />
+          </div>
+          <div>
+            <strong class="font-sans text-marine text-lg">Transparence technique</strong>
+            <p class="text-base text-gris-texte leading-relaxed mt-1">Je compare les appareils sur des <strong class="text-marine">criteres objectifs</strong> : qualite de la puce, reduction du bruit, connectivite, autonomie, confort. Je connais les differences reelles entre Phonak, Signia, Starkey, ReSound et Oticon &mdash; pas les arguments commerciaux. Je presente toujours les options Classe 1 (reste a charge zero) et Classe 2.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+            <Icon name="lucide:map-pin" class="w-5 h-5 text-orange" aria-hidden="true" />
+          </div>
+          <div>
+            <strong class="font-sans text-marine text-lg">Proximite</strong>
+            <p class="text-base text-gris-texte leading-relaxed mt-1">Un appareil auditif, ca s'essaie en centre. C'est pourquoi je mets a votre disposition un <strong class="text-marine">annuaire gratuit de plus de 7 500 centres auditifs</strong> en France, pour que vous puissiez trouver un professionnel qualifie pres de chez vous.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Methodologie editoriale -->
-  <section class="bg-creme py-12">
+  <section class="bg-blanc py-12">
     <div class="max-w-[780px] mx-auto px-5">
-      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Notre methodologie editoriale</h2>
+      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Ma methodologie editoriale</h2>
       <p class="text-lg leading-relaxed mb-6">
         Chaque guide publie sur LeGuideAuditif.fr suit un processus rigoureux pour garantir la fiabilite de l'information :
       </p>
@@ -248,14 +313,14 @@ const schema = [
           <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0">1</span>
           <div>
             <strong class="font-sans text-marine">Recherche sourcee</strong>
-            <p class="text-gris-texte text-base mt-1">Chaque affirmation medicale est fondee sur des sources officielles : HAS, INSERM, OMS, PubMed. Nous privilegions les etudes de moins de 3 ans.</p>
+            <p class="text-gris-texte text-base mt-1">Chaque affirmation medicale est fondee sur des sources officielles : HAS, INSERM, OMS, PubMed. Je privilegie les etudes de moins de 3 ans.</p>
           </div>
         </li>
         <li class="flex gap-4">
           <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0">2</span>
           <div>
             <strong class="font-sans text-marine">Redaction par un professionnel</strong>
-            <p class="text-gris-texte text-base mt-1">Le contenu est redige ou supervise par un audioprothesiste DE, avec une voix accessible (Flesch FR 60-80) et un vouvoiement systematique.</p>
+            <p class="text-gris-texte text-base mt-1">Le contenu est redige ou supervise par un audioprothesiste DE, avec une double expertise clinique et industrielle. Le ton est accessible (Flesch FR 60-80) et le vouvoiement systematique.</p>
           </div>
         </li>
         <li class="flex gap-4">
@@ -269,14 +334,14 @@ const schema = [
           <span class="w-8 h-8 bg-orange text-white rounded-full flex items-center justify-center font-sans font-bold text-sm shrink-0">4</span>
           <div>
             <strong class="font-sans text-marine">Mise a jour reguliere</strong>
-            <p class="text-gris-texte text-base mt-1">Les tarifs, remboursements et recommandations evoluent. Nos guides sont revises periodiquement pour rester a jour.</p>
+            <p class="text-gris-texte text-base mt-1">Les tarifs, remboursements et recommandations evoluent. Les guides sont revises periodiquement pour rester a jour.</p>
           </div>
         </li>
       </ol>
 
       <!-- Transparence sur les avis -->
-      <h3 class="font-sans text-xl font-bold text-marine mb-4">Comment nos avis et comparatifs sont rediges</h3>
-      <div class="bg-blanc rounded-2xl p-6 border border-gris-clair">
+      <h3 class="font-sans text-xl font-bold text-marine mb-4">Comment les avis et comparatifs sont rediges</h3>
+      <div class="bg-creme rounded-2xl p-6 border border-gris-clair">
         <ul class="space-y-3 text-base">
           <li class="flex items-start gap-3">
             <span class="text-orange font-bold mt-0.5" aria-hidden="true">&check;</span>
@@ -284,11 +349,11 @@ const schema = [
           </li>
           <li class="flex items-start gap-3">
             <span class="text-orange font-bold mt-0.5" aria-hidden="true">&check;</span>
-            <span>Les tests s'appuient sur l'<strong class="text-marine">experience clinique</strong> de Franck-Olivier et les retours patients recueillis en cabinet sur 28 ans.</span>
+            <span>Les tests s'appuient sur mon <strong class="text-marine">experience clinique</strong> (28 ans, 3 000+ patients) et ma <strong class="text-marine">connaissance industrielle</strong> (5 ans de catalogue technique chez Auzen.com).</span>
           </li>
           <li class="flex items-start gap-3">
             <span class="text-orange font-bold mt-0.5" aria-hidden="true">&check;</span>
-            <span><strong class="text-marine">Aucun fabricant</strong> (Phonak, Signia, ReSound, Oticon, etc.) ne valide ni ne relit nos contenus avant publication.</span>
+            <span><strong class="text-marine">Aucun fabricant</strong> (Phonak, Signia, ReSound, Oticon, etc.) ne valide ni ne relit les contenus avant publication.</span>
           </li>
           <li class="flex items-start gap-3">
             <span class="text-orange font-bold mt-0.5" aria-hidden="true">&check;</span>
@@ -299,51 +364,46 @@ const schema = [
     </div>
   </section>
 
-  <!-- Engagement independance -->
-  <section class="bg-blanc py-12">
+  <!-- Transparence affiliation -->
+  <section class="bg-creme py-12">
     <div class="max-w-[780px] mx-auto px-5">
-      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Notre engagement d'independance et de transparence</h2>
-      <div class="bg-creme rounded-2xl p-6 border border-gris-clair">
-        <ul class="space-y-3 text-base">
-          <li class="flex items-start gap-3">
-            <span class="text-orange font-bold mt-0.5" aria-hidden="true">&check;</span>
-            <span><strong class="text-marine">Aucun lien capitalistique</strong> avec un fabricant d'appareils auditifs ou une enseigne.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-orange font-bold mt-0.5" aria-hidden="true">&check;</span>
-            <span><strong class="text-marine">Tests independants</strong> : nos comparatifs sont bases sur des criteres techniques objectifs, pas sur des accords commerciaux.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-orange font-bold mt-0.5" aria-hidden="true">&check;</span>
-            <span><strong class="text-marine">Transparence affiliation</strong> : lorsqu'un lien est affilie, c'est clairement indique. Cela ne modifie jamais notre verdict.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-orange font-bold mt-0.5" aria-hidden="true">&check;</span>
-            <span><strong class="text-marine">Classe 1 et Classe 2</strong> : nous presentons toujours les deux options, y compris le reste a charge zero, pour un choix eclaire.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-orange font-bold mt-0.5" aria-hidden="true">&check;</span>
-            <span><strong class="text-marine">Modele de financement transparent</strong> : LeGuideAuditif.fr se finance par des liens affilies. Lorsque vous cliquez sur un lien vers un produit et effectuez un achat, nous pouvons recevoir une commission, sans cout supplementaire pour vous. Ce modele nous permet de rester independants de tout fabricant. Nos recommandations ne sont jamais influencees par ces commissions : le verdict editorial est redige avant toute consideration commerciale.</span>
-          </li>
-        </ul>
+      <div class="bg-blanc rounded-2xl p-6 border border-gris-clair">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-orange/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+            <Icon name="lucide:info" class="w-5 h-5 text-orange" aria-hidden="true" />
+          </div>
+          <div>
+            <strong class="font-sans text-marine text-lg">Comment ce site se finance</strong>
+            <p class="text-base text-gris-texte leading-relaxed mt-2">
+              LeGuideAuditif.fr se finance par des liens affilies. Lorsque vous cliquez sur un lien vers un produit et effectuez un achat, je peux recevoir une commission, <strong class="text-marine">sans cout supplementaire pour vous</strong>. Ce modele me permet de rester independant de tout fabricant. Mes recommandations ne sont jamais influencees par ces commissions : le verdict editorial est redige avant toute consideration commerciale.
+            </p>
+          </div>
+        </div>
       </div>
       <p class="text-sm text-gris-texte mt-6">
         <Icon name="lucide:mail" class="w-4 h-4 inline-block mr-1 align-text-bottom" aria-hidden="true" />
-        Pour toute question sur notre independance editoriale :
+        Pour toute question sur mon independance editoriale :
         <a href="mailto:contact@leguideauditif.fr" class="text-orange hover:underline">contact@leguideauditif.fr</a>
       </p>
     </div>
   </section>
 
-  <!-- Contact CTA -->
-  <section class="bg-creme py-12">
+  <!-- CTA -->
+  <section class="bg-marine py-12">
     <div class="max-w-[780px] mx-auto px-5 text-center">
-      <h2 class="font-sans text-2xl font-bold text-marine mb-4">Une question ? Un partenariat ?</h2>
-      <p class="text-lg text-gris-texte mb-6">N'hesitez pas a nous contacter pour toute question sur nos guides ou pour discuter d'un partenariat.</p>
-      <a href="/contact/" class="inline-flex items-center gap-2 px-6 py-3 bg-orange text-white font-sans font-semibold rounded-lg hover:bg-orange-hover transition-colors no-underline hover:no-underline">
-        Nous contacter
-      </a>
-      <p class="text-sm text-gris-texte mt-4">
+      <h2 class="font-sans text-2xl font-bold text-white mb-4">Vous cherchez le bon appareil auditif ?</h2>
+      <p class="text-lg text-white/80 mb-8">Je mets a votre disposition des comparatifs independants et un annuaire de plus de 7 500 centres auditifs en France.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/comparatifs/" class="inline-flex items-center gap-2 px-6 py-3 bg-orange text-white font-sans font-semibold rounded-lg hover:bg-orange-hover transition-colors no-underline hover:no-underline">
+          Decouvrir les comparatifs
+        </a>
+        <a href="/trouver-audioprothesiste/" class="inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-white text-white font-sans font-semibold rounded-lg hover:bg-white/10 transition-colors no-underline hover:no-underline">
+          <Icon name="lucide:map-pin" class="w-5 h-5" aria-hidden="true" />
+          Trouver un centre pres de chez vous
+        </a>
+      </div>
+      <p class="text-sm text-white/60 mt-6">
+        Une question ? Ecrivez-moi a
         <a href="mailto:contact@leguideauditif.fr" class="text-orange hover:underline">contact@leguideauditif.fr</a>
       </p>
     </div>
