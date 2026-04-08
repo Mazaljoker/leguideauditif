@@ -4,7 +4,9 @@ import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
 import { createServerClient } from '../../lib/supabase';
 
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2022-11-15' as Stripe.LatestApiVersion,
+});
 const webhookSecret = import.meta.env.STRIPE_WEBHOOK_SECRET;
 
 export const POST: APIRoute = async ({ request }) => {

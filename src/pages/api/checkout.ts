@@ -4,7 +4,9 @@ import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
 import { supabase } from '../../lib/supabase';
 
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2022-11-15' as Stripe.LatestApiVersion,
+});
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -73,7 +75,8 @@ export const POST: APIRoute = async ({ request }) => {
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (err) {
-    console.error('Checkout error:', err);
+    const errMsg = err instanceof Error ? err.message : String(err);
+    console.error('Checkout error:', errMsg);
     return new Response(
       JSON.stringify({ error: 'Erreur lors de la creation de la session de paiement.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
