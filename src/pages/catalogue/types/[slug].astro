@@ -1,0 +1,183 @@
+---
+/**
+ * /catalogue/types/[slug]/ — Page type d'appareil
+ * Tous les appareils d'un même type (RIC, BTE, ITE, etc.)
+ * + contenu éducatif sur le type
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AuthorBox from '../../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
+import ProductCard from '../../../components/catalogue/ProductCard.astro';
+import { getCollection } from 'astro:content';
+import {
+  FORME_TYPE_LABELS, FORME_TYPE_SHORT,
+  formatPrice, getProductPrice, isClasse1, sortProducts
+} from '../../../lib/catalogue-utils';
+
+const TYPE_DESCRIPTIONS: Record<string, { intro: string; pourQui: string; avantages: string[]; inconvenients: string[] }> = {
+  'RIC': {
+    intro: "Le contour à écouteur déporté (RIC) est aujourd'hui le type d'appareil auditif le plus prescrit en France. L'écouteur est placé directement dans le conduit auditif, relié au boîtier par un fil discret. Cette conception offre un excellent compromis entre puissance, confort et discrétion.",
+    pourQui: "Pour les pertes auditives légères à sévères. C'est le choix le plus polyvalent et celui que recommandent la majorité des audioprothésistes en première intention.",
+    avantages: ["Très discret derrière l'oreille", "Son naturel grâce à l'écouteur dans l'oreille", "Compatible avec la plupart des pertes auditives", "Large choix de modèles et de prix"],
+    inconvenients: ["Le fil peut être fragile", "Entretien régulier de l'écouteur nécessaire"]
+  },
+  'BTE': {
+    intro: "Le contour d'oreille classique (BTE) est le format historique des aides auditives. Tout le système électronique est logé dans un boîtier derrière l'oreille, relié à un embout sur mesure par un tube. C'est le format le plus puissant et le plus robuste.",
+    pourQui: "Pour les pertes auditives sévères à profondes, les personnes ayant besoin d'une puissance maximale, ou celles qui préfèrent un appareil facile à manipuler.",
+    avantages: ["Puissance maximale pour les pertes profondes", "Très robuste et fiable", "Facile à manipuler (taille plus grande)", "Autonomie souvent supérieure"],
+    inconvenients: ["Moins discret que le RIC", "Le tube peut durcir avec le temps"]
+  },
+  'ITE': {
+    intro: "L'intra-auriculaire (ITE) est un appareil auditif entièrement logé dans le pavillon de l'oreille. Fabriqué sur mesure à partir d'une empreinte de votre oreille, il offre un bon compromis entre discrétion et facilité d'utilisation.",
+    pourQui: "Pour les pertes auditives légères à modérées, les personnes qui portent des lunettes (pas de conflit derrière l'oreille), ou celles qui souhaitent un appareil facile à insérer.",
+    avantages: ["Pas de boîtier derrière l'oreille", "Fabriqué sur mesure pour votre oreille", "Compatible avec le port de lunettes", "Bonne tenue en place"],
+    inconvenients: ["Moins discret que les CIC/IIC", "Sensation d'oreille bouchée possible"]
+  },
+  'CIC': {
+    intro: "Le CIC (Completely-in-Canal) est un appareil auditif miniaturisé qui se place entièrement dans le conduit auditif. Quasiment invisible de l'extérieur, c'est un choix prisé des personnes soucieuses de discrétion.",
+    pourQui: "Pour les pertes auditives légères à moyennes, les personnes qui recherchent une discrétion maximale.",
+    avantages: ["Quasi-invisible de l'extérieur", "Son très naturel", "Pas d'effet du vent"],
+    inconvenients: ["Puissance limitée (pertes légères à moyennes)", "Pile plus petite = autonomie réduite", "Moins de fonctionnalités (pas de Bluetooth direct sur certains modèles)"]
+  },
+  'IIC': {
+    intro: "L'IIC (Invisible-in-Canal) est le plus petit appareil auditif existant. Placé profondément dans le conduit auditif, il est totalement invisible. C'est le summum de la discrétion.",
+    pourQui: "Pour les pertes auditives légères, les personnes pour qui la discrétion est la priorité absolue.",
+    avantages: ["100% invisible", "Son très naturel", "Aucune gêne esthétique"],
+    inconvenients: ["Réservé aux pertes légères", "Autonomie limitée", "Peu de connectivité Bluetooth"]
+  },
+  'Slim RIC': {
+    intro: "Le Slim RIC est une évolution ultra-discrète du RIC classique. Son boîtier affiné épouse le contour de l'oreille avec une élégance remarquable, inspirée des écouteurs modernes.",
+    pourQui: "Pour les pertes auditives légères à modérées, les personnes actives qui veulent allier technologie et design.",
+    avantages: ["Design moderne et ultra-fin", "Très discret", "Technologies haut de gamme", "Look « écouteur » plutôt qu'appareil médical"],
+    inconvenients: ["Gamme de prix plutôt élevée", "Puissance parfois limitée vs RIC classique"]
+  },
+};
+
+export async function getStaticPaths() {
+  const types = Object.keys(FORME_TYPE_LABELS);
+  return types.map(t => ({
+    params: { slug: t.toLowerCase().replace(/\s+/g, '-') },
+    props: { typeKey: t }
+  }));
+}
+
+const { typeKey } = Astro.props;
+const typeLabel = FORME_TYPE_LABELS[typeKey] || typeKey;
+const typeShort = FORME_TYPE_SHORT[typeKey] || typeKey;
+const typeInfo = TYPE_DESCRIPTIONS[typeKey];
+
+const allProducts = await getCollection('catalogueAppareils');
+const typeProducts = allProducts.map(p => p.data).filter(p => p.formeType === typeKey);
+const sorted = sortProducts(typeProducts, 'year-desc');
+
+// Stats
+const totalProducts = sorted.length;
+const brands = new Set(sorted.map(p => p.marque)).size;
+const classe1Count = sorted.filter(p => isClasse1(p)).length;
+const prices = sorted.map(p => getProductPrice(p)).filter(Boolean) as number[];
+const minPrice = prices.length ? Math.min(...prices) : undefined;
+
+const title = `Appareils auditifs ${typeShort} — Comparez ${totalProducts} modèles ${typeKey}`;
+const description = `Comparez ${totalProducts} aides auditives de type ${typeLabel}. Prix, caractéristiques, avis. Guide indépendant par un audioprothésiste DE.`;
+---
+
+<BaseLayout title={title} description={description} canonical={`/catalogue/types/${typeKey.toLowerCase().replace(/\s+/g, '-')}/`}>
+  <Breadcrumbs items={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Catalogue', href: '/catalogue/' },
+    { label: `Type ${typeShort}` }
+  ]} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    {/* Hero */}
+    <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 sm:p-12 mb-8 relative overflow-hidden">
+      <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-orange/10" aria-hidden="true"></div>
+      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">
+        Appareils auditifs {typeShort}
+      </h1>
+      <p class="text-lg opacity-90 max-w-2xl leading-relaxed">
+        {typeLabel} — Comparez les {totalProducts} modèles disponibles en France
+        parmi {brands} marques.
+      </p>
+    </div>
+
+    {/* Stats */}
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+      <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+        <div class="font-sans text-3xl font-extrabold text-orange">{totalProducts}</div>
+        <div class="font-sans text-sm text-gris-texte mt-1">Appareils {typeShort}</div>
+      </div>
+      <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+        <div class="font-sans text-3xl font-extrabold text-orange">{brands}</div>
+        <div class="font-sans text-sm text-gris-texte mt-1">Marques</div>
+      </div>
+      <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+        <div class="font-sans text-3xl font-extrabold text-emerald-600">{classe1Count}</div>
+        <div class="font-sans text-sm text-gris-texte mt-1">Classe 1 (RAC 0€)</div>
+      </div>
+      {minPrice && (
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-sm">
+          <div class="font-sans text-3xl font-extrabold text-orange">{formatPrice(minPrice)}</div>
+          <div class="font-sans text-sm text-gris-texte mt-1">À partir de</div>
+        </div>
+      )}
+    </div>
+
+    {/* Contenu éducatif */}
+    {typeInfo && (
+      <div class="bg-blanc rounded-2xl p-6 sm:p-8 mb-8 shadow-sm">
+        <h2 class="font-sans text-xl font-bold text-marine mb-4">
+          Qu'est-ce qu'un appareil auditif {typeShort} ?
+        </h2>
+        <p class="font-sans text-gris-texte leading-relaxed mb-4">{typeInfo.intro}</p>
+
+        <h3 class="font-sans text-lg font-bold text-marine mb-2">Pour qui ?</h3>
+        <p class="font-sans text-gris-texte leading-relaxed mb-4">{typeInfo.pourQui}</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-emerald-50 rounded-xl p-5">
+            <h4 class="font-sans text-base font-bold text-emerald-700 mb-3">Avantages</h4>
+            <ul class="space-y-2">
+              {typeInfo.avantages.map(a => (
+                <li class="font-sans text-sm text-emerald-800 flex items-start gap-2">
+                  <span class="text-emerald-500 mt-0.5">✓</span> {a}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-red-50 rounded-xl p-5">
+            <h4 class="font-sans text-base font-bold text-red-700 mb-3">Limites</h4>
+            <ul class="space-y-2">
+              {typeInfo.inconvenients.map(i => (
+                <li class="font-sans text-sm text-red-800 flex items-start gap-2">
+                  <span class="text-red-500 mt-0.5">✗</span> {i}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    )}
+
+    {/* Grille produits */}
+    <h2 class="font-sans text-xl font-bold text-marine mb-4">
+      Tous les appareils {typeShort} ({totalProducts})
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+      {sorted.map(p => <ProductCard product={p} />)}
+    </div>
+
+    {/* Lead CTA */}
+    <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 text-center mb-8">
+      <h2 class="font-sans text-2xl font-bold mb-2">Quel {typeShort} est fait pour vous ?</h2>
+      <p class="opacity-80 mb-5">Un audioprothésiste vous aide à choisir le modèle adapté à votre audition</p>
+      <a href="/devis/" class="inline-block bg-orange text-blanc px-8 py-3.5 rounded-xl font-sans text-lg font-bold no-underline hover:bg-orange-hover transition-colors">
+        Demander un devis gratuit →
+      </a>
+    </div>
+
+    <AuthorBox />
+    <HealthDisclaimer />
+  </div>
+</BaseLayout>
