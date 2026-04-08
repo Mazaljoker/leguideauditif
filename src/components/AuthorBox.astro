@@ -6,7 +6,7 @@ interface Props {
   title?: string;
 }
 
-const { name = 'Franck-Olivier', title = "Audioprothesiste diplome d'Etat, 28 ans d'experience" } = Astro.props;
+const { name = 'Franck-Olivier', title = "Audioprothesiste DE — 28 ans de clinique, 5 ans chez Auzen.com" } = Astro.props;
 ---
 
 <aside class="bg-blanc border border-gris-clair rounded-2xl p-6 my-8 flex flex-col sm:flex-row items-start gap-5" aria-label="A propos de l'auteur">
@@ -32,11 +32,14 @@ const { name = 'Franck-Olivier', title = "Audioprothesiste diplome d'Etat, 28 an
         <Icon name="lucide:users" class="w-3.5 h-3.5" aria-hidden="true" /> 3000+ patients
       </span>
       <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
+        <Icon name="lucide:globe" class="w-3.5 h-3.5" aria-hidden="true" /> 5 ans Auzen.com
+      </span>
+      <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
         <Icon name="lucide:shield-check" class="w-3.5 h-3.5" aria-hidden="true" /> ADELI 692606494
       </span>
     </div>
     <p class="text-sm text-gris-texte mt-3 leading-relaxed">
-      Audioprothesiste independant, Franck-Olivier a dirige 18 centres Alain Afflelou Acousticien et adapte plus de 3 000 patients. Il partage son expertise pour vous aider a mieux entendre.
+      Apres 28 ans en cabinet (18 centres Alain Afflelou Acousticien, 3 000+ patients) et 5 ans chez Auzen.com, Franck-Olivier partage sa double expertise clinique et industrielle pour vous aider a faire les bons choix.
     </p>
   </div>
 </aside>
