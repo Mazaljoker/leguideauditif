@@ -91,4 +91,93 @@ const comparatifs = defineCollection({
   }),
 });
 
-export const collections = { guides, comparatifs };
+// ─── Catalogue Appareils Auditifs ───────────────────────────
+// Nomenclature fabricant : Marque + Forme + Niveau + Puce
+// Ex: Phonak Audéo Lumity 90, Signia Styletto IX 7, Oticon Intent 1
+// Chaque SKU = un niveau technologique d'un modèle
+// ~139 SKUs, 58 modèles, 12 marques, 4 groupes industriels
+
+const catalogueAppareils = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/catalogue-appareils' }),
+  schema: z.object({
+    // ── Nomenclature Marque + Forme + Niveau + Puce ──
+    slug: z.string(),
+    marque: z.enum([
+      'phonak', 'signia', 'resound', 'oticon', 'starkey', 'widex',
+      'unitron', 'bernafon', 'philips', 'rexton', 'audio-service', 'hansaton',
+    ]),
+    marqueLabel: z.string(),
+    groupe: z.enum(['sonova', 'demant', 'ws-audiology', 'gn', 'starkey']),
+    modele: z.string(),                  // Nom commercial: "Audéo Lumity"
+    formeType: z.enum(['RIC', 'BTE', 'ITE', 'ITC', 'CIC', 'IIC', 'Slim RIC', 'Earbud', 'CROS']),
+    formesDisponibles: z.string().optional(), // "RIC R|RIC RT|Slim"
+    puce: z.string().optional(),          // "IX Platform", "Sirius", "ERA"
+
+    // ── Niveau technologique ──
+    niveau: z.string().optional(),        // "90", "7", "440"
+    niveauRaw: z.string().optional(),     // "L90", "7IX", "440"
+    niveauPosition: z.number().min(1).max(5), // 1=entrée → 4-5=premium (normalisé)
+
+    // ── Classification française ──
+    classe: z.enum(['1', '2']).optional(),
+    rac0: z.boolean().default(false),     // Reste à Charge 0 (100% Santé)
+
+    // ── Prix ──
+    prix: z.object({
+      eur: z.object({
+        unitaire: z.number().optional(),  // Prix unitaire estimé EUR
+        min: z.number().optional(),
+        max: z.number().optional(),
+      }).optional(),
+      usd: z.object({
+        min: z.number().optional(),
+        max: z.number().optional(),
+      }).optional(),
+    }).optional(),
+
+    // ── Année de sortie ──
+    annee: z.number(),
+
+    // ── Specs techniques ──
+    specs: z.object({
+      canaux: z.number().optional(),
+      bandes: z.number().optional(),
+      batterie: z.string().optional(),       // "Li-ion", "312", "675"
+      autonomie: z.string().optional(),      // "16-18", "39"
+      ip: z.string().optional(),             // "IP68"
+      reductionBruit: z.number().optional(), // dB
+      plageAdaptation: z.string().optional(),// "Mild to severe"
+      poids: z.string().optional(),
+    }).optional(),
+
+    // ── Connectivité ──
+    connectivite: z.object({
+      bluetooth: z.string().optional(),      // "BLE LE Audio"
+      auracast: z.boolean().default(false),
+      application: z.string().optional(),    // "myPhonak"
+      mainLibre: z.boolean().default(false),
+    }).optional(),
+
+    // ── Fonctionnalités ──
+    fonctionnalites: z.object({
+      rechargeable: z.boolean().default(false),
+      bobineT: z.boolean().default(false),
+      acouphenes: z.boolean().default(false),
+      antiFeedback: z.string().optional(),
+      micDirectionnels: z.string().optional(),
+      capteursSante: z.string().optional(),
+    }).optional(),
+
+    // ── Meta ──
+    couleurs: z.number().optional(),
+    image: z.string().optional(),
+    sourceUrl: z.string().optional(),
+    venduEnEurope: z.boolean().default(true),
+
+    // ── SEO ──
+    metaTitle: z.string().optional(),
+    metaDescription: z.string().optional(),
+  }),
+});
+
+export const collections = { guides, comparatifs, catalogueAppareils };
