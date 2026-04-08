@@ -1,0 +1,38 @@
+{
+  "marque": "bernafon",
+  "marqueLabel": "Bernafon",
+  "groupe": "demant",
+  "modele": "Alpha",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R|RIC 312",
+  "puce": "Hybrid",
+  "annee": 2021,
+  "specs": {
+    "autonomie": "BLE",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "No",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": false
+  },
+  "couleurs": 10,
+  "sourceUrl": "HearingTracker+MySecondEar",
+  "venduEnEurope": true,
+  "slug": "bernafon-alpha-9",
+  "niveau": "9",
+  "niveauRaw": "9",
+  "niveauPosition": 5,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1990
+    }
+  }
+}

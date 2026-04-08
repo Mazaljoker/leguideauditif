@@ -1,0 +1,37 @@
+{
+  "marque": "audio-service",
+  "marqueLabel": "Audio Service",
+  "groupe": "ws-audiology",
+  "modele": "Mood R G7",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R|RIC 312",
+  "annee": 2021,
+  "specs": {
+    "batterie": "Li-ion|312",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE ASHA",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false,
+    "antiFeedback": "Motion sensor"
+  },
+  "couleurs": 10,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "audio-service-mood-r-g7",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 990,
+      "max": 2990
+    }
+  }
+}

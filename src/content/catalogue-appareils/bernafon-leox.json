@@ -1,0 +1,37 @@
+{
+  "marque": "bernafon",
+  "marqueLabel": "Bernafon",
+  "groupe": "demant",
+  "modele": "Leox",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE SP|BTE UP",
+  "annee": 2021,
+  "specs": {
+    "batterie": "Disposable 13|675",
+    "ip": "IP68",
+    "plageAdaptation": "Severe to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "couleurs": 6,
+  "sourceUrl": "MySecondEar",
+  "venduEnEurope": true,
+  "slug": "bernafon-leox",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1190,
+      "max": 1590
+    }
+  }
+}
