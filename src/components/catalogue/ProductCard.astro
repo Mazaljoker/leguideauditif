@@ -1,0 +1,105 @@
+---
+/**
+ * Carte produit pour la grille catalogue
+ * Affiche : badge classe, niveau, marque, modèle, specs clés, prix, CTA devis
+ */
+import { formatPrice, getProductPrice, isClasse1, NIVEAU_LABELS, FORME_TYPE_SHORT, productUrl } from '../../lib/catalogue-utils';
+
+interface Props {
+  product: any;
+  showCompare?: boolean;
+}
+
+const { product, showCompare = false } = Astro.props;
+const price = getProductPrice(product);
+const classe1 = isClasse1(product);
+const niveauLabel = NIVEAU_LABELS[product.niveauPosition] || '';
+const typeShort = FORME_TYPE_SHORT[product.formeType] || product.formeType;
+const href = productUrl(product.slug);
+---
+
+<article class="bg-blanc rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 relative group">
+  {/* Badges */}
+  {product.classe && (
+    <span class:list={[
+      'absolute top-3 left-3 z-10 px-3 py-1 rounded-full font-sans text-xs font-bold',
+      classe1 ? 'bg-emerald-100 text-emerald-700' : 'bg-blue-100 text-marine'
+    ]}>
+      {classe1 ? '✓ Classe 1 — RAC 0€' : 'Classe 2'}
+    </span>
+  )}
+  {niveauLabel && (
+    <span class="absolute top-3 right-3 z-10 px-3 py-1 rounded-full font-sans text-xs font-semibold bg-orange/10 text-orange">
+      {niveauLabel}
+    </span>
+  )}
+
+  {/* Image placeholder */}
+  <a href={href} class="block bg-gris-clair/50 h-44 flex items-center justify-center no-underline">
+    {product.image ? (
+      <img src={product.image} alt={`${product.marqueLabel} ${product.modele}`} class="w-full h-full object-contain p-4" loading="lazy" />
+    ) : (
+      <span class="text-5xl opacity-20" aria-hidden="true">👂</span>
+    )}
+  </a>
+
+  {/* Body */}
+  <div class="p-4">
+    <div class="font-sans text-xs font-bold uppercase tracking-wider text-orange mb-1">
+      {product.marqueLabel}
+      <span class="text-gris-texte font-normal"> · {product.groupe === 'starkey' ? '' : (
+        product.groupe === 'sonova' ? 'Sonova' :
+        product.groupe === 'demant' ? 'Demant' :
+        product.groupe === 'ws-audiology' ? 'WS Audiology' :
+        product.groupe === 'gn' ? 'GN' : ''
+      )}</span>
+    </div>
+
+    <a href={href} class="no-underline">
+      <h3 class="font-sans text-base font-bold text-marine leading-snug mb-2 group-hover:text-orange transition-colors">
+        {product.marqueLabel} {product.modele}{product.niveau ? ` ${product.niveau}` : ''}
+      </h3>
+    </a>
+
+    {/* Specs pills */}
+    <div class="flex flex-wrap gap-1.5 mb-3">
+      <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">{typeShort}</span>
+      {product.specs?.canaux && (
+        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">{product.specs.canaux} canaux</span>
+      )}
+      {product.fonctionnalites?.rechargeable && (
+        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">🔋 Rechargeable</span>
+      )}
+      {product.connectivite?.bluetooth && (
+        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">📱 Bluetooth</span>
+      )}
+      {product.connectivite?.auracast && (
+        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">📡 Auracast</span>
+      )}
+    </div>
+
+    {/* Prix + CTA */}
+    <div class="flex items-end justify-between pt-3 border-t border-gris-clair">
+      <div>
+        {price ? (
+          <>
+            <div class:list={['font-sans text-xl font-bold', classe1 ? 'text-emerald-600' : 'text-marine']}>
+              {formatPrice(price)}
+            </div>
+            <div class:list={['font-sans text-xs', classe1 ? 'text-emerald-600' : 'text-gris-texte']}>
+              {classe1 ? 'Reste à charge : 0€ *' : 'par appareil'}
+            </div>
+          </>
+        ) : (
+          <div class="font-sans text-sm text-gris-texte">Prix sur devis</div>
+        )}
+      </div>
+      <a
+        href={`/devis/?appareil=${product.slug}`}
+        class="inline-flex items-center gap-1 bg-orange text-blanc px-4 py-2 rounded-lg font-sans text-sm font-semibold no-underline hover:bg-orange-hover transition-colors"
+      >
+        Devis <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</article>
