@@ -1,0 +1,49 @@
+{
+  "marque": "widex",
+  "marqueLabel": "Widex",
+  "groupe": "widex",
+  "modele": "Moment 440",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC|RIC TX|ITE|ITC|CIC|BTE",
+  "puce": "Moment Platform",
+  "annee": 2021,
+  "specs": {
+    "canaux": 48,
+    "bandes": 20,
+    "batterie": "Li-ion|312",
+    "autonomie": "40-44",
+    "ip": "IP68",
+    "reductionBruit": 8,
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Widex MOMENT\u0119",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": "Yes",
+    "micDirectionnels": "Natural focus"
+  },
+  "couleurs": 8,
+  "sourceUrl": "HearingTracker",
+  "venduEnEurope": true,
+  "slug": "widex-moment-440",
+  "niveau": "440",
+  "niveauRaw": "440",
+  "niveauPosition": 2,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1998
+    },
+    "usd": {
+      "min": 3498
+    }
+  }
+}
