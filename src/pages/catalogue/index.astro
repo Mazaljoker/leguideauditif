@@ -1,0 +1,76 @@
+---
+/**
+ * /catalogue/ — Index du catalogue d'aides auditives
+ * Grille filtrable avec 139 SKUs, 12 marques, 4 groupes
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
+import CatalogueGrid from '../../components/catalogue/CatalogueGrid.tsx';
+import { getCollection } from 'astro:content';
+import { formatPrice, isClasse1 } from '../../lib/catalogue-utils';
+
+const allProducts = await getCollection('catalogueAppareils');
+const products = allProducts.map(p => p.data);
+
+// Stats
+const totalProducts = products.length;
+const brands = new Set(products.map(p => p.marque)).size;
+const classe1Count = products.filter(p => isClasse1(p)).length;
+const minPrice = Math.min(...products.filter(p => p.prix?.eur?.unitaire).map(p => p.prix!.eur!.unitaire!));
+
+const title = 'Catalogue des aides auditives 2025 — Comparez 139 modèles';
+const description = `Comparez ${totalProducts} aides auditives de ${brands} marques. Prix, caractéristiques, Classe 1 (RAC 0€). Guide indépendant par un audioprothésiste DE.`;
+---
+
+<BaseLayout title={title} description={description} canonical="/catalogue/">
+  <Breadcrumbs items={[{ label: 'Accueil', href: '/' }, { label: 'Catalogue' }]} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    {/* Hero */}
+    <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 sm:p-12 mb-8 relative overflow-hidden">
+      <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-orange/10" aria-hidden="true"></div>
+      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">Catalogue des aides auditives 2025</h1>
+      <p class="text-lg opacity-90 max-w-2xl leading-relaxed">
+        Comparez les {totalProducts} modèles de notre base de données. Retrouvez toutes les informations : prix, technologies, Classe 1, remboursement Sécu.
+      </p>
+    </div>
+
+    {/* Filters & Grid */}
+    <CatalogueGrid products={products} />
+
+    {/* Stats Bloc */}
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-gris-light">
+      <div>
+        <div class="text-2xl font-bold text-marine">{totalProducts}</div>
+        <div class="text-sm text-gris">modèles référencés</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-marine">{brands}</div>
+        <div class="text-sm text-gris">marques disponibles</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-marine">{classe1Count}</div>
+        <div class="text-sm text-gris">en Classe 1 (RAC 0€)</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-orange">À partir de {formatPrice(minPrice)}</div>
+        <div class="text-sm text-gris">le prix le plus bas</div>
+      </div>
+    </div>
+
+    {/* CTA Bloc */}
+    <div class="mt-12 p-8 bg-gris-lightest rounded-xl border border-gris-light">
+      <h2 class="font-sans text-xl font-bold mb-3">Besoin de conseil ?</h2>
+      <p class="text-gris mb-6 max-w-2xl">
+        Tous nos modèles sont sélectionnés et testés par un audioprothésiste diplômé d'État. Parcourez nos fiches détaillées pour trouver l'aide auditive qui vous convient.
+      </p>
+      <a href="/contact" class="inline-block px-6 py-3 bg-marine text-blanc rounded-lg font-medium hover:bg-marine-dark transition">
+        Contactez un audioprothésiste
+      </a>
+    </div>
+
+    <AuthorBox />
+  </div>
+</BaseLayout>
