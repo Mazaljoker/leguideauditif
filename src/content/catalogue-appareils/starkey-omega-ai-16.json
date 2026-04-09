@@ -42,5 +42,21 @@
       "min": 3398
     }
   },
-  "image": "/images/appareils/aide-auditive-starkey-omega-ai-16.jpg"
+  "image": "/images/appareils/aide-auditive-starkey-omega-ai-16.jpg",
+  "descriptionCourte": "Le Starkey Omega AI 16 est un appareil auditif RIC entree de gamme equipe de la puce G3 Neuro, lance en 2025 par Starkey (groupe Starkey). Rechargeable avec 51h d'autonomie. Connectivite BLE LE Audio.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce G3 Neuro",
+    "Rechargeable (51h)",
+    "Bluetooth BLE LE Audio",
+    "Etanche IP68+",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de support Auracast",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 7,
+  "enAvant": false
 }

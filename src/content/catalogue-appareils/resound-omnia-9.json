@@ -36,5 +36,20 @@
       "unitaire": 1990
     }
   },
-  "image": "/images/appareils/aide-auditive-resound-omnia-5.jpg"
+  "image": "/images/appareils/aide-auditive-resound-omnia-5.jpg",
+  "descriptionCourte": "Le ReSound OMNIA 9 est un appareil auditif RIC premium, lance en 2022 par ReSound (groupe GN). Rechargeable. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Rechargeable",
+    "Bluetooth BLE",
+    "Application Smart 3D",
+    "8 coloris disponibles"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 8.4,
+  "enAvant": false
 }

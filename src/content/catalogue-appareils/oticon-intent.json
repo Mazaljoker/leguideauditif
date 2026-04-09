@@ -36,5 +36,23 @@
       "max": 2050
     }
   },
-  "metaDescription": "Test complet de l'Oticon Intent par un audioprothésiste DE. Specs techniques, 4 niveaux, technologie 4D Sensor, prix indicatifs et avis professionnel."
+  "metaDescription": "Test complet de l'Oticon Intent par un audioprothésiste DE. Specs techniques, 4 niveaux, technologie 4D Sensor, prix indicatifs et avis professionnel.",
+  "descriptionCourte": "l'Oticon Intent est l'aide auditive la plus avancée d'Oticon à ce jour. Sa technologie 4D Sensor en fait un appareil qui s'adapte non seulement à votre environnement sonore, mais aussi à *la façon dont vous interagissez* avec cet environnement. Un vrai changement de paradigme.",
+  "pointsForts": [
+    "Technologie 4D Sensor unique",
+    "Puce Sirius de dernière génération",
+    "Autonomie solide",
+    "IP68",
+    "LE Audio + Auracast",
+    "SoundScore HearAdvisor de 4.9/5"
+  ],
+  "pointsFaibles": [
+    "Technologie 4D Sensor unique",
+    "Puce Sirius de dernière génération",
+    "Autonomie solide",
+    "IP68",
+    "LE Audio + Auracast"
+  ],
+  "noteExpert": 9.2,
+  "enAvant": true
 }

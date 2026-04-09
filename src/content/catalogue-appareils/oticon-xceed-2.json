@@ -39,5 +39,21 @@
       "unitaire": 1757
     }
   },
-  "image": "/images/appareils/aide-auditive-oticon-xceed-1.jpg"
+  "image": "/images/appareils/aide-auditive-oticon-xceed-1.jpg",
+  "descriptionCourte": "Le Oticon Xceed 2 est un appareil auditif BTE avance equipe de la puce Velox S, lance en 2019 par Oticon (groupe Demant). Connectivite BLE.",
+  "pointsForts": [
+    "Puissant, robuste, adapte aux pertes severes a profondes",
+    "Puce Velox S",
+    "Bluetooth BLE",
+    "Generateur de bruit pour acouphenes",
+    "Appels mains libres",
+    "Application Oticon Companion"
+  ],
+  "pointsFaibles": [
+    "Plus visible derriere l'oreille",
+    "Non rechargeable (piles)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 7.2,
+  "enAvant": false
 }

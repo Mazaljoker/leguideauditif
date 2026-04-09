@@ -27,5 +27,18 @@
   "slug": "phonak-lyric-4",
   "niveauPosition": 1,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-phonak-lyric-4.jpg"
+  "image": "/images/appareils/aide-auditive-phonak-lyric-4.jpg",
+  "descriptionCourte": "Le Phonak Lyric 4 est un appareil auditif IIC entree de gamme, lance en 2024 par Phonak (groupe Sonova). Connectivite No.",
+  "pointsForts": [
+    "Totalement invisible, porte en permanence",
+    "Bluetooth No"
+  ],
+  "pointsFaibles": [
+    "Autonomie limitee, un seul microphone",
+    "Non rechargeable (piles)",
+    "Pas de support Auracast",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.4,
+  "enAvant": false
 }

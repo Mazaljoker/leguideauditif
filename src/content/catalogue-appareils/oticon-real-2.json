@@ -42,5 +42,23 @@
       "min": 3065
     }
   },
-  "image": "/images/appareils/aide-auditive-oticon-real.png"
+  "image": "/images/appareils/aide-auditive-oticon-real.png",
+  "descriptionCourte": "l'Oticon Real est l'aide auditive qui a introduit le Wind & Handling Stabilizer et le SuddenSound Stabilizer chez Oticon — deux technologies qui rendent le son du quotidien plus naturel et moins fatigant. Proposé en 4 formats (dont 2 à piles), il offre une flexibilité que l'Intent ne propose pas, à un prix plus accessible.",
+  "pointsForts": [
+    "4 formats disponibles",
+    "Wind & Handling Stabilizer",
+    "SuddenSound Stabilizer",
+    "64 canaux sur les 3 niveaux",
+    "IP68",
+    "Prix plus accessible"
+  ],
+  "pointsFaibles": [
+    "4 formats disponibles",
+    "Wind & Handling Stabilizer",
+    "SuddenSound Stabilizer",
+    "64 canaux sur les 3 niveaux",
+    "IP68"
+  ],
+  "noteExpert": 8.5,
+  "enAvant": false
 }

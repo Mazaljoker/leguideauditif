@@ -27,5 +27,18 @@
   "niveauRaw": "9",
   "niveauPosition": 5,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-unitron-insera-vivante-3.jpg"
+  "image": "/images/appareils/aide-auditive-unitron-insera-vivante-3.jpg",
+  "descriptionCourte": "Le Unitron Insera Vivante 9 est un appareil auditif ITE excellence, lance en 2023 par Unitron (groupe Sonova). Connectivite BLE (312 only).",
+  "pointsForts": [
+    "Sur-mesure, bonne prehension pour les seniors",
+    "Bluetooth BLE (312 only)",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Moins discret qu'un RIC",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)"
+  ],
+  "noteExpert": 8.7,
+  "enAvant": false
 }

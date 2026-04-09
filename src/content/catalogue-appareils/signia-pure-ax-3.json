@@ -34,5 +34,20 @@
   "niveauRaw": "3AX",
   "niveauPosition": 2,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-signia-pure-ax-3.jpg"
+  "image": "/images/appareils/aide-auditive-signia-pure-ax-3.jpg",
+  "descriptionCourte": "Le Signia Pure Charge&Go AX 3 est un appareil auditif RIC milieu de gamme equipe de la puce AX Platform, lance en 2021 par Signia (groupe WS Audiology). Rechargeable avec 36h d'autonomie. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce AX Platform",
+    "Rechargeable (36h)",
+    "Bluetooth BLE",
+    "Generateur de bruit pour acouphenes",
+    "Appels mains libres"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.9,
+  "enAvant": false
 }

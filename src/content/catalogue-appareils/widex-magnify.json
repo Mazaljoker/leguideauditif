@@ -31,5 +31,20 @@
       "min": 1690
     }
   },
-  "image": "/images/appareils/aide-auditive-widex-magnify.jpg"
+  "image": "/images/appareils/aide-auditive-widex-magnify.jpg",
+  "descriptionCourte": "Le Widex Magnify est un appareil auditif RIC entree de gamme, lance en 2021 par Widex (groupe WS Audiology).",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Etanche No",
+    "Generateur de bruit pour acouphenes",
+    "11 coloris disponibles"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de connectivite Bluetooth",
+    "Pas de bobine T (boucle magnetique)"
+  ],
+  "noteExpert": 6.1,
+  "enAvant": false
 }

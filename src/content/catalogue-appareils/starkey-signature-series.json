@@ -30,5 +30,20 @@
   "slug": "starkey-signature-series",
   "niveauPosition": 1,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-starkey-signature-series.png"
+  "image": "/images/appareils/aide-auditive-starkey-signature-series.png",
+  "descriptionCourte": "Le Starkey Signature Series est un appareil auditif CIC entree de gamme equipe de la puce Genesis AI platform, lance en 2024 par Starkey (groupe Starkey). Connectivite No.",
+  "pointsForts": [
+    "Quasi-invisible dans le conduit auditif",
+    "Puce Genesis AI platform",
+    "Bluetooth No",
+    "Etanche IP68"
+  ],
+  "pointsFaibles": [
+    "Autonomie reduite, pas de connectivite directe",
+    "Non rechargeable (piles)",
+    "Pas de support Auracast",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.5,
+  "enAvant": false
 }

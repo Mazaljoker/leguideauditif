@@ -174,6 +174,13 @@ const catalogueAppareils = defineCollection({
     sourceUrl: z.string().optional(),
     venduEnEurope: z.boolean().default(true),
 
+    // ── Editorial ──
+    descriptionCourte: z.string().optional(),
+    pointsForts: z.array(z.string()).optional(),
+    pointsFaibles: z.array(z.string()).optional(),
+    noteExpert: z.number().min(0).max(10).optional(),
+    enAvant: z.boolean().default(false),
+
     // ── SEO ──
     metaTitle: z.string().optional(),
     metaDescription: z.string().optional(),

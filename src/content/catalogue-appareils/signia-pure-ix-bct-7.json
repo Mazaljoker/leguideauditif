@@ -33,5 +33,20 @@
   "niveauRaw": "7IX",
   "niveauPosition": 4,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-signia-pure-ix-bct-3.jpg"
+  "image": "/images/appareils/aide-auditive-signia-pure-ix-bct-3.jpg",
+  "descriptionCourte": "Le Signia Pure Charge&Go IX BCT 7 est un appareil auditif RIC premium equipe de la puce IX Platform, lance en 2025 par Signia (groupe WS Audiology). Rechargeable avec 36h d'autonomie. Connectivite BT Classic + BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce IX Platform",
+    "Rechargeable (36h)",
+    "Bluetooth BT Classic + BLE",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de support Auracast"
+  ],
+  "noteExpert": 8.7,
+  "enAvant": true
 }

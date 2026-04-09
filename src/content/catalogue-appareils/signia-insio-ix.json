@@ -25,5 +25,19 @@
   "slug": "signia-insio-ix",
   "niveauPosition": 1,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-signia-insio-ix.jpg"
+  "image": "/images/appareils/aide-auditive-signia-insio-ix.jpg",
+  "descriptionCourte": "Le Signia Insio IX est un appareil auditif ITE entree de gamme, lance en 2023 par Signia (groupe WS Audiology).",
+  "pointsForts": [
+    "Sur-mesure, bonne prehension pour les seniors",
+    "Generateur de bruit pour acouphenes",
+    "Application Signia App"
+  ],
+  "pointsFaibles": [
+    "Moins discret qu'un RIC",
+    "Non rechargeable (piles)",
+    "Pas de connectivite Bluetooth",
+    "Pas de bobine T (boucle magnetique)"
+  ],
+  "noteExpert": 6,
+  "enAvant": false
 }

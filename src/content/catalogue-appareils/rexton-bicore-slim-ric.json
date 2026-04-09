@@ -26,5 +26,17 @@
   "slug": "rexton-bicore-slim-ric",
   "niveauPosition": 1,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-rexton-bicore-slim-ric.jpg"
+  "image": "/images/appareils/aide-auditive-rexton-bicore-slim-ric.jpg",
+  "descriptionCourte": "Le Rexton BiCore Slim RIC est un appareil auditif Slim RIC entree de gamme, lance en 2023 par Rexton (groupe WS Audiology).",
+  "pointsForts": [
+    "Design ultra-fin et elegant, port discret"
+  ],
+  "pointsFaibles": [
+    "Autonomie parfois inferieure aux RIC classiques",
+    "Non rechargeable (piles)",
+    "Pas de connectivite Bluetooth",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6,
+  "enAvant": false
 }

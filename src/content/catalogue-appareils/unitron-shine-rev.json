@@ -35,5 +35,20 @@
       "max": 890
     }
   },
-  "image": "/images/appareils/aide-auditive-unitron-shine-rev.jpg"
+  "image": "/images/appareils/aide-auditive-unitron-shine-rev.jpg",
+  "descriptionCourte": "Le Unitron Shine Rev+ est un appareil auditif RIC entree de gamme, lance en 2020 par Unitron (groupe Sonova). Connectivite BLE (limited).",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Bluetooth BLE (limited)",
+    "Etanche IP68",
+    "Classe 1 — Reste a charge 0 euros"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.3,
+  "enAvant": false
 }

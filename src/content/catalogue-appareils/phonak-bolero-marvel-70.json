@@ -36,5 +36,21 @@
       "unitaire": 1390
     }
   },
-  "image": "/images/appareils/aide-auditive-phonak-bolero-marvel-30.png"
+  "image": "/images/appareils/aide-auditive-phonak-bolero-marvel-30.png",
+  "descriptionCourte": "Le Phonak Bolero Marvel 70 est un appareil auditif BTE avance equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "pointsForts": [
+    "Puissant, robuste, adapte aux pertes severes a profondes",
+    "Puce AutoSense OS 3.0",
+    "Rechargeable",
+    "Bluetooth BLE",
+    "Application myPhonak",
+    "8 coloris disponibles"
+  ],
+  "pointsFaibles": [
+    "Plus visible derriere l'oreille",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 7.4,
+  "enAvant": false
 }

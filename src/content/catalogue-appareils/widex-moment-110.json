@@ -40,5 +40,20 @@
       "min": 2798
     }
   },
-  "image": "/images/appareils/aide-auditive-widex-moment-110.jpg"
+  "image": "/images/appareils/aide-auditive-widex-moment-110.jpg",
+  "descriptionCourte": "Le Widex MOMENT 110 est un appareil auditif RIC entree de gamme equipe de la puce PureSound, lance en 2020 par Widex (groupe WS Audiology). Rechargeable avec 29-37h d'autonomie. Connectivite BLE MFi + ASHA.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce PureSound",
+    "Rechargeable (29-37h)",
+    "Bluetooth BLE MFi + ASHA",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.5,
+  "enAvant": false
 }

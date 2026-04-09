@@ -45,5 +45,20 @@
       "min": 2998
     }
   },
-  "image": "/images/appareils/aide-auditive-resound-vivia-4.jpg"
+  "image": "/images/appareils/aide-auditive-resound-vivia-4.jpg",
+  "descriptionCourte": "Le ReSound Vivia 7 est un appareil auditif RIC avance equipe de la puce Dual-chip AI + DNN, lance en 2025 par ReSound (groupe GN). Rechargeable avec 24-30h d'autonomie. Connectivite BLE LE Audio avec Auracast.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce Dual-chip AI + DNN",
+    "Rechargeable (24-30h)",
+    "Bluetooth BLE LE Audio",
+    "Compatible Auracast",
+    "Etanche IP68"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 7.9,
+  "enAvant": false
 }

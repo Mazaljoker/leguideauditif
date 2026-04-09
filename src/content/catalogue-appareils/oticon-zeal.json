@@ -32,5 +32,20 @@
       "min": 4798
     }
   },
-  "image": "/images/appareils/aide-auditive-oticon-zeal.webp"
+  "image": "/images/appareils/aide-auditive-oticon-zeal.webp",
+  "descriptionCourte": "Le Oticon Zeal est un appareil auditif CIC entree de gamme, lance en 2026 par Oticon (groupe Demant). Connectivite BLE LE Audio avec Auracast.",
+  "pointsForts": [
+    "Quasi-invisible dans le conduit auditif",
+    "Bluetooth BLE LE Audio",
+    "Compatible Auracast",
+    "Generateur de bruit pour acouphenes",
+    "Application Oticon Companion"
+  ],
+  "pointsFaibles": [
+    "Autonomie reduite, pas de connectivite directe",
+    "Non rechargeable (piles)",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.6,
+  "enAvant": false
 }

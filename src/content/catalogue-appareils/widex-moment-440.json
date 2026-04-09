@@ -46,5 +46,22 @@
       "min": 3498
     }
   },
-  "image": "/images/appareils/aide-auditive-widex-moment-110.jpg"
+  "image": "/images/appareils/aide-auditive-widex-moment-110.jpg",
+  "descriptionCourte": "Le Widex Moment 440 440 est un appareil auditif RIC milieu de gamme equipe de la puce Moment Platform, lance en 2021 par Widex (groupe WS Audiology). Rechargeable avec 40-44h d'autonomie. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce Moment Platform",
+    "Rechargeable (40-44h)",
+    "Bluetooth BLE",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 7,
+  "enAvant": false
 }

@@ -32,5 +32,21 @@
   "niveauRaw": "20",
   "niveauPosition": 2,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-starkey-edge-ai-16.jpg"
+  "image": "/images/appareils/aide-auditive-starkey-edge-ai-16.jpg",
+  "descriptionCourte": "Le Starkey Edge AI 20 est un appareil auditif RIC milieu de gamme equipe de la puce G2 Neuro, lance en 2024 par Starkey (groupe Starkey). Rechargeable avec 51h d'autonomie. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce G2 Neuro",
+    "Rechargeable (51h)",
+    "Bluetooth BLE",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de support Auracast",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 7.5,
+  "enAvant": false
 }

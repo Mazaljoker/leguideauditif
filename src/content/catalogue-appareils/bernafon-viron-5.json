@@ -34,5 +34,18 @@
       "unitaire": 1290
     }
   },
-  "image": "/images/appareils/aide-auditive-bernafon-viron-1.png"
+  "image": "/images/appareils/aide-auditive-bernafon-viron-1.png",
+  "descriptionCourte": "Le Bernafon Viron 5 est un appareil auditif RIC avance, lance en 2019 par Bernafon (groupe Demant). Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Bluetooth BLE"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 7.2,
+  "enAvant": false
 }

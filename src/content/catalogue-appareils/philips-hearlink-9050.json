@@ -40,5 +40,22 @@
       "min": 1499
     }
   },
-  "image": "/images/appareils/aide-auditive-philips-hearlink-9050.png"
+  "image": "/images/appareils/aide-auditive-philips-hearlink-9050.png",
+  "descriptionCourte": "Le Philips HearLink 9050 est un appareil auditif RIC entree de gamme equipe de la puce Sirius, lance en 2024 par Philips (groupe Demant). Rechargeable avec 24h d'autonomie. Connectivite BLE LE Audio.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce Sirius",
+    "Rechargeable (24h)",
+    "Bluetooth BLE LE Audio",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de support Auracast",
+    "Classe 2 — reste a charge variable",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.7,
+  "enAvant": false
 }

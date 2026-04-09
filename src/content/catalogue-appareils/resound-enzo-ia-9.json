@@ -29,5 +29,18 @@
   "niveauRaw": "9",
   "niveauPosition": 4,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-resound-enzo-ia-9.jpg"
+  "image": "/images/appareils/aide-auditive-resound-enzo-ia-9.jpg",
+  "descriptionCourte": "Le ReSound Enzo IA 9 est un appareil auditif BTE premium, lance en 2025 par ReSound (groupe GN). Rechargeable avec 28h d'autonomie. Connectivite BLE LE Audio avec Auracast.",
+  "pointsForts": [
+    "Puissant, robuste, adapte aux pertes severes a profondes",
+    "Rechargeable (28h)",
+    "Bluetooth BLE LE Audio",
+    "Compatible Auracast",
+    "Etanche IP68"
+  ],
+  "pointsFaibles": [
+    "Plus visible derriere l'oreille"
+  ],
+  "noteExpert": 8.9,
+  "enAvant": true
 }

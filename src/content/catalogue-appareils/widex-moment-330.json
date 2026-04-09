@@ -40,5 +40,19 @@
       "min": 3198
     }
   },
-  "image": "/images/appareils/aide-auditive-widex-moment-110.jpg"
+  "image": "/images/appareils/aide-auditive-widex-moment-110.jpg",
+  "descriptionCourte": "Le Widex MOMENT 330 est un appareil auditif RIC avance equipe de la puce PureSound, lance en 2020 par Widex (groupe WS Audiology). Rechargeable avec 29-37h d'autonomie. Connectivite BLE MFi + ASHA.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce PureSound",
+    "Rechargeable (29-37h)",
+    "Bluetooth BLE MFi + ASHA",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier"
+  ],
+  "noteExpert": 7.5,
+  "enAvant": false
 }

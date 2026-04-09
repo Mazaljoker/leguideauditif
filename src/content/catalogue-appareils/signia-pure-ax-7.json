@@ -36,5 +36,21 @@
       "unitaire": 1340
     }
   },
-  "image": "/images/appareils/aide-auditive-signia-pure-ax-3.jpg"
+  "image": "/images/appareils/aide-auditive-signia-pure-ax-3.jpg",
+  "descriptionCourte": "Le Signia Pure AX 7 est un appareil auditif RIC avance, lance en 2023 par Signia (groupe WS Audiology). Rechargeable avec 5-7 days rechargeableh d'autonomie. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Rechargeable (5-7 days rechargeableh)",
+    "Bluetooth BLE",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes",
+    "Application mySignia"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 7.5,
+  "enAvant": false
 }

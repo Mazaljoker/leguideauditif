@@ -26,5 +26,20 @@
   "niveauRaw": "61",
   "niveauPosition": 2,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-resound-savi-61.jpg"
+  "image": "/images/appareils/aide-auditive-resound-savi-61.jpg",
+  "descriptionCourte": "Le ReSound Savi 61 est un appareil auditif RIC milieu de gamme, lance en 2025 par ReSound (groupe GN). Connectivite BLE LE Audio avec Auracast.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Bluetooth BLE LE Audio",
+    "Compatible Auracast",
+    "Etanche IP68"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 7.2,
+  "enAvant": false
 }

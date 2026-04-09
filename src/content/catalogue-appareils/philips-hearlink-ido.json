@@ -33,5 +33,18 @@
       "max": 3190
     }
   },
-  "image": "/images/appareils/aide-auditive-philips-hearlink-ido.jpg"
+  "image": "/images/appareils/aide-auditive-philips-hearlink-ido.jpg",
+  "descriptionCourte": "Le Philips HearLink IdO est un appareil auditif ITE entree de gamme, lance en 2022 par Philips (groupe Demant).",
+  "pointsForts": [
+    "Sur-mesure, bonne prehension pour les seniors",
+    "Application HearLink 2"
+  ],
+  "pointsFaibles": [
+    "Moins discret qu'un RIC",
+    "Non rechargeable (piles)",
+    "Pas de connectivite Bluetooth",
+    "Pas de bobine T (boucle magnetique)"
+  ],
+  "noteExpert": 6,
+  "enAvant": false
 }

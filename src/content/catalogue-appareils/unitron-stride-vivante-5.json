@@ -29,5 +29,19 @@
   "niveauRaw": "5",
   "niveauPosition": 3,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-unitron-stride-vivante-3.png"
+  "image": "/images/appareils/aide-auditive-unitron-stride-vivante-3.png",
+  "descriptionCourte": "Le Unitron Stride Vivante 5 est un appareil auditif BTE avance, lance en 2023 par Unitron (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "pointsForts": [
+    "Puissant, robuste, adapte aux pertes severes a profondes",
+    "Rechargeable",
+    "Bluetooth BLE",
+    "Generateur de bruit pour acouphenes",
+    "Application Remote Plus",
+    "6 coloris disponibles"
+  ],
+  "pointsFaibles": [
+    "Plus visible derriere l'oreille"
+  ],
+  "noteExpert": 7.4,
+  "enAvant": false
 }

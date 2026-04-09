@@ -34,5 +34,21 @@
       "min": 1199
     }
   },
-  "image": "/images/appareils/aide-auditive-signia-motion-ix.jpg"
+  "image": "/images/appareils/aide-auditive-signia-motion-ix.jpg",
+  "descriptionCourte": "Le Signia Motion Charge&Go IX est un appareil auditif BTE entree de gamme equipe de la puce IX Platform, lance en 2025 par Signia (groupe WS Audiology). Rechargeable avec 73 (SP)h d'autonomie. Connectivite BLE.",
+  "pointsForts": [
+    "Puissant, robuste, adapte aux pertes severes a profondes",
+    "Puce IX Platform",
+    "Rechargeable (73 (SP)h)",
+    "Bluetooth BLE",
+    "Etanche IP68",
+    "Application Signia App"
+  ],
+  "pointsFaibles": [
+    "Plus visible derriere l'oreille",
+    "Pas de support Auracast",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.7,
+  "enAvant": false
 }

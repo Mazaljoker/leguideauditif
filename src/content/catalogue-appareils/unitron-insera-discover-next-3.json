@@ -35,5 +35,19 @@
       "unitaire": 1390
     }
   },
-  "image": "/images/appareils/aide-auditive-unitron-insera-discover-next-3.jpg"
+  "image": "/images/appareils/aide-auditive-unitron-insera-discover-next-3.jpg",
+  "descriptionCourte": "Le Unitron Insera Discover Next 3 est un appareil auditif ITE milieu de gamme, lance en 2020 par Unitron (groupe Sonova). Connectivite BLE (312).",
+  "pointsForts": [
+    "Sur-mesure, bonne prehension pour les seniors",
+    "Bluetooth BLE (312)",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Moins discret qu'un RIC",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 6.7,
+  "enAvant": false
 }

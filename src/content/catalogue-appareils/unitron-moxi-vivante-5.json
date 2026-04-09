@@ -32,5 +32,8 @@
   "niveauRaw": "5",
   "niveauPosition": 3,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-unitron-moxi-vivante.png"
+  "image": "/images/appareils/aide-auditive-unitron-moxi-vivante.png",
+  "descriptionCourte": "Découvrez l'Unitron Moxi Vivante, appareil auditif RIC haut de gamme lancé en 2023. Specs, technologies Integra OS, FLEX:TRIAL, prix, avis expert Franck-Olivier.",
+  "noteExpert": 7.5,
+  "enAvant": false
 }

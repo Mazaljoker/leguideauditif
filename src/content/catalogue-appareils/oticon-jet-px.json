@@ -33,5 +33,19 @@
       "min": 2598
     }
   },
-  "image": "/images/appareils/aide-auditive-oticon-jet-px.jpg"
+  "image": "/images/appareils/aide-auditive-oticon-jet-px.jpg",
+  "descriptionCourte": "Le Oticon Jet PX est un appareil auditif RIC entree de gamme, lance en 2025 par Oticon (groupe Demant). Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Bluetooth BLE",
+    "Application Oticon Companion"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Pas de support Auracast"
+  ],
+  "noteExpert": 6.4,
+  "enAvant": false
 }

@@ -33,5 +33,18 @@
       "max": 2490
     }
   },
-  "image": "/images/appareils/aide-auditive-hansaton-sound-stratos.jpg"
+  "image": "/images/appareils/aide-auditive-hansaton-sound-stratos.jpg",
+  "descriptionCourte": "Le Hansaton Sound Stratos est un appareil auditif RIC entree de gamme, lance en 2021 par Hansaton (groupe Sonova). Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Bluetooth BLE"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 6.2,
+  "enAvant": false
 }

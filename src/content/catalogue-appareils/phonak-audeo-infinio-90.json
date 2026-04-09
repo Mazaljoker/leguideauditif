@@ -45,5 +45,23 @@
       "min": 4598
     }
   },
-  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio.avif"
+  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio.avif",
+  "descriptionCourte": "le Phonak Audéo Infinio Sphere — version avec IA — est actuellement l'appareil auditif le plus performant dans le bruit que j'aie jamais testé. L'autonomie de batterie (jusqu'à 56 heures en mode calme) et la connectivité Bluetooth universelle en font un vrai game-changer pour les patients actifs et les utilisateurs Android.",
+  "pointsForts": [
+    "Spheric Speech Clarity unique sur 2e puce dédiée",
+    "Autonomie exceptionnelle",
+    "Bluetooth universaliste",
+    "11 coloris",
+    "Roger intégré",
+    "IP68"
+  ],
+  "pointsFaibles": [
+    "Spheric Speech Clarity unique sur 2e puce dédiée",
+    "Autonomie exceptionnelle",
+    "Bluetooth universaliste",
+    "11 coloris",
+    "Roger intégré"
+  ],
+  "noteExpert": 9.4,
+  "enAvant": true
 }

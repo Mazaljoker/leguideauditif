@@ -39,5 +39,20 @@
       "unitaire": 1859
     }
   },
-  "image": "/images/appareils/aide-auditive-oticon-more-1.png"
+  "image": "/images/appareils/aide-auditive-oticon-more-1.png",
+  "descriptionCourte": "Le Oticon More 1 est un appareil auditif RIC premium equipe de la puce Polaris, lance en 2021 par Oticon (groupe Demant). Rechargeable. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce Polaris",
+    "Rechargeable",
+    "Bluetooth BLE",
+    "Generateur de bruit pour acouphenes",
+    "Application Oticon Companion"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 8.4,
+  "enAvant": false
 }

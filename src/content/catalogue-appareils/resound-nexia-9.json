@@ -38,5 +38,8 @@
       "min": 2998
     }
   },
-  "image": "/images/appareils/aide-auditive-resound-nexia.png"
+  "image": "/images/appareils/aide-auditive-resound-nexia.png",
+  "descriptionCourte": "Découvrez le ReSound Nexia, le premier appareil auditif avec Bluetooth LE Audio natif et Auracast. Technologie M&RIE, 4 niveaux, évaluation expert.",
+  "noteExpert": 8.7,
+  "enAvant": false
 }

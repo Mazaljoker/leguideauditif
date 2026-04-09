@@ -41,5 +41,21 @@
       "unitaire": 2149
     }
   },
-  "image": "/images/appareils/aide-auditive-phonak-audeo-paradise-30.jpg"
+  "image": "/images/appareils/aide-auditive-phonak-audeo-paradise-30.jpg",
+  "descriptionCourte": "Le Phonak Audéo Paradise 90 est un appareil auditif RIC premium, lance en 2020 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Rechargeable (16h)",
+    "Bluetooth BLE",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes",
+    "Appels mains libres"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 8.5,
+  "enAvant": false
 }

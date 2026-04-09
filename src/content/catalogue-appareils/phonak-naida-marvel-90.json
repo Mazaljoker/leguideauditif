@@ -35,5 +35,20 @@
       "unitaire": 1490
     }
   },
-  "image": "/images/appareils/aide-auditive-phonak-naida-marvel-30.png"
+  "image": "/images/appareils/aide-auditive-phonak-naida-marvel-30.png",
+  "descriptionCourte": "Le Phonak Naida Marvel 90 est un appareil auditif BTE premium equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova).",
+  "pointsForts": [
+    "Puissant, robuste, adapte aux pertes severes a profondes",
+    "Puce AutoSense OS 3.0",
+    "Application myPhonak",
+    "8 coloris disponibles"
+  ],
+  "pointsFaibles": [
+    "Plus visible derriere l'oreille",
+    "Non rechargeable (piles)",
+    "Pas de connectivite Bluetooth",
+    "Pas de bobine T (boucle magnetique)"
+  ],
+  "noteExpert": 8,
+  "enAvant": false
 }

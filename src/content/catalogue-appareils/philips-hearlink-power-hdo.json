@@ -34,5 +34,20 @@
       "max": 2090
     }
   },
-  "image": "/images/appareils/aide-auditive-philips-hearlink-power-hdo.jpg"
+  "image": "/images/appareils/aide-auditive-philips-hearlink-power-hdo.jpg",
+  "descriptionCourte": "Le Philips HearLink Power HdO est un appareil auditif BTE entree de gamme, lance en 2022 par Philips (groupe Demant). Connectivite BLE.",
+  "pointsForts": [
+    "Puissant, robuste, adapte aux pertes severes a profondes",
+    "Bluetooth BLE",
+    "Application HearLink 2",
+    "6 coloris disponibles"
+  ],
+  "pointsFaibles": [
+    "Plus visible derriere l'oreille",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 6.2,
+  "enAvant": false
 }

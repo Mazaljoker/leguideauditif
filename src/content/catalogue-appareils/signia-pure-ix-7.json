@@ -34,5 +34,20 @@
   "niveauRaw": "7IX",
   "niveauPosition": 4,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-signia-pure-ix-3.jpg"
+  "image": "/images/appareils/aide-auditive-signia-pure-ix-3.jpg",
+  "descriptionCourte": "Le Signia Pure Charge&Go IX 7 est un appareil auditif RIC premium equipe de la puce IX Platform, lance en 2023 par Signia (groupe WS Audiology). Rechargeable avec 39h d'autonomie. Connectivite BLE LE Audio.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce IX Platform",
+    "Rechargeable (39h)",
+    "Bluetooth BLE LE Audio",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de bobine T (boucle magnetique)"
+  ],
+  "noteExpert": 8.5,
+  "enAvant": false
 }

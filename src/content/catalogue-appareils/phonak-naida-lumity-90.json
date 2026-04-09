@@ -38,5 +38,20 @@
       "unitaire": 2090
     }
   },
-  "image": "/images/appareils/aide-auditive-phonak-naida-lumity-30.png"
+  "image": "/images/appareils/aide-auditive-phonak-naida-lumity-30.png",
+  "descriptionCourte": "Le Phonak Naida Lumity P-PR 90 est un appareil auditif BTE premium equipe de la puce AutoSense OS 5.0, lance en 2022 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
+  "pointsForts": [
+    "Puissant, robuste, adapte aux pertes severes a profondes",
+    "Puce AutoSense OS 5.0",
+    "Rechargeable (16h)",
+    "Bluetooth BLE",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Plus visible derriere l'oreille",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 8.5,
+  "enAvant": false
 }

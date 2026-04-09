@@ -27,5 +27,21 @@
   "slug": "signia-active-pro-ix",
   "niveauPosition": 1,
   "rac0": false,
-  "image": "/images/appareils/aide-auditive-signia-active-pro-ix.jpg"
+  "image": "/images/appareils/aide-auditive-signia-active-pro-ix.jpg",
+  "descriptionCourte": "Le Signia Active Pro IX est un appareil auditif Earbud entree de gamme equipe de la puce IX Platform, lance en 2023 par Signia (groupe WS Audiology). Connectivite BLE.",
+  "pointsForts": [
+    "Format ecouteur moderne, adoption facilitee",
+    "Puce IX Platform",
+    "Bluetooth BLE",
+    "Generateur de bruit pour acouphenes",
+    "Application Signia App"
+  ],
+  "pointsFaibles": [
+    "Forme qui ne convient pas a toutes les anatomies",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.2,
+  "enAvant": false
 }
