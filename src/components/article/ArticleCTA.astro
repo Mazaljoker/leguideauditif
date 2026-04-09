@@ -55,7 +55,7 @@ const { title, description, buttonText, buttonUrl } = Astro.props;
     margin: 0 0 24px;
   }
 
-  .article-cta__button {
+  .article-cta a.article-cta__button {
     display: inline-block;
     background: var(--article-accent, #C66A32);
     color: #fff;
@@ -72,8 +72,9 @@ const { title, description, buttonText, buttonUrl } = Astro.props;
     min-width: 44px;
   }
 
-  .article-cta__button:hover {
+  .article-cta a.article-cta__button:hover {
     background: var(--article-accent-hover, #A8552A);
+    color: #fff;
     text-decoration: none;
   }
 </style>

@@ -194,7 +194,7 @@ const { name, image, score, category, priceRange, pros, cons, ctaUrl } = Astro.p
     color: var(--article-text, #2D2A26);
   }
 
-  .product-card__cta {
+  .product-card a.product-card__cta {
     display: inline-block;
     padding: 10px 24px;
     background: var(--article-accent, #C66A32);
@@ -209,8 +209,9 @@ const { name, image, score, category, priceRange, pros, cons, ctaUrl } = Astro.p
     transition: background 0.2s ease;
   }
 
-  .product-card__cta:hover {
+  .product-card a.product-card__cta:hover {
     background: var(--article-accent-hover, #A8552A);
+    color: #fff;
     text-decoration: none;
   }
 </style>
