@@ -60,7 +60,7 @@ const schema = productJsonLd(product);
         {product.image ? (
           <img src={product.image} alt={fullName} class="w-full h-full object-contain p-8" />
         ) : (
-          <span class="text-8xl opacity-15" aria-hidden="true">👂</span>
+          <span class="text-8xl opacity-15" aria-hidden="true">?</span>
         )}
       </div>
 
@@ -110,7 +110,7 @@ const schema = productJsonLd(product);
             </div>
             {classe1 && (
               <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full font-sans text-xs font-bold">
-                ✓ 100% Santé — Reste à charge 0€
+                100% Sante — Reste a charge 0 &euro;
               </span>
             )}
           </div>
@@ -129,7 +129,7 @@ const schema = productJsonLd(product);
           </a>
           <a href={`/catalogue/comparer/?ids=${product.slug}`}
             class="px-5 py-3.5 rounded-xl border-2 border-gris-clair font-sans text-sm font-semibold text-marine no-underline hover:border-orange hover:text-orange transition-colors">
-            ⚖️ Comparer
+            Comparer
           </a>
         </div>
       </div>
@@ -197,7 +197,7 @@ const schema = productJsonLd(product);
                   'font-sans text-xs mt-1',
                   isCurrent ? 'text-orange font-semibold' : 'text-gris-texte'
                 ]}>
-                  {isCurrent ? '★ ' : ''}{NIVEAU_LABELS[level.niveauPosition] || ''}
+                  {isCurrent ? '> ' : ''}{NIVEAU_LABELS[level.niveauPosition] || ''}
                 </div>
               </a>
             );
@@ -265,7 +265,7 @@ const schema = productJsonLd(product);
           <div class="flex justify-between py-3 border-b border-gris-clair/50">
             <span class="font-sans text-sm text-gris-texte">Auracast</span>
             <span class:list={['font-sans text-sm font-semibold', product.connectivite.auracast ? 'text-orange' : 'text-marine']}>
-              {product.connectivite.auracast ? 'Oui ✓' : 'Non'}
+              {product.connectivite.auracast ? 'Oui' : 'Non'}
             </span>
           </div>
         )}
@@ -273,7 +273,7 @@ const schema = productJsonLd(product);
           <div class="flex justify-between py-3 border-b border-gris-clair/50">
             <span class="font-sans text-sm text-gris-texte">Rechargeable</span>
             <span class:list={['font-sans text-sm font-semibold', product.fonctionnalites.rechargeable ? 'text-orange' : 'text-marine']}>
-              {product.fonctionnalites.rechargeable ? 'Oui ✓' : 'Non'}
+              {product.fonctionnalites.rechargeable ? 'Oui' : 'Non'}
             </span>
           </div>
         )}
@@ -293,7 +293,7 @@ const schema = productJsonLd(product);
           <div class="flex justify-between py-3 border-b border-gris-clair/50">
             <span class="font-sans text-sm text-gris-texte">Bobine T</span>
             <span class:list={['font-sans text-sm font-semibold', product.fonctionnalites.bobineT ? 'text-orange' : 'text-marine']}>
-              {product.fonctionnalites.bobineT ? 'Oui ✓' : 'Non'}
+              {product.fonctionnalites.bobineT ? 'Oui' : 'Non'}
             </span>
           </div>
         )}
@@ -301,7 +301,7 @@ const schema = productJsonLd(product);
           <div class="flex justify-between py-3 border-b border-gris-clair/50">
             <span class="font-sans text-sm text-gris-texte">Gestion acouphènes</span>
             <span class:list={['font-sans text-sm font-semibold', product.fonctionnalites.acouphenes ? 'text-orange' : 'text-marine']}>
-              {product.fonctionnalites.acouphenes ? 'Oui ✓' : 'Non'}
+              {product.fonctionnalites.acouphenes ? 'Oui' : 'Non'}
             </span>
           </div>
         )}
@@ -333,7 +333,7 @@ const schema = productJsonLd(product);
           <div class="flex justify-between py-3 border-b border-gris-clair/50">
             <span class="font-sans text-sm text-gris-texte">Mains libres</span>
             <span class:list={['font-sans text-sm font-semibold', product.connectivite.mainLibre ? 'text-orange' : 'text-marine']}>
-              {product.connectivite.mainLibre ? 'Oui ✓' : 'Non'}
+              {product.connectivite.mainLibre ? 'Oui' : 'Non'}
             </span>
           </div>
         )}

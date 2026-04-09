@@ -142,12 +142,12 @@ export default function CatalogueGrid({ products }: Props) {
             <label className="flex items-center gap-2 cursor-pointer">
               <input type="checkbox" checked={rechargeable} onChange={e => setRechargeable(e.target.checked)}
                 className="w-4 h-4 accent-[#D97B3D] rounded" />
-              <span className="text-sm font-medium text-[#1B2E4A]">🔋 Rechargeable</span>
+              <span className="text-sm font-medium text-[#1B2E4A]">Rechargeable</span>
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
               <input type="checkbox" checked={acouphenes} onChange={e => setAcouphenes(e.target.checked)}
                 className="w-4 h-4 accent-[#D97B3D] rounded" />
-              <span className="text-sm font-medium text-[#1B2E4A]">🔔 Acouphènes</span>
+              <span className="text-sm font-medium text-[#1B2E4A]">Acouphenes</span>
             </label>
           </div>
           {hasFilters && (
@@ -173,7 +173,7 @@ export default function CatalogueGrid({ products }: Props) {
 
       {filtered.length === 0 && (
         <div className="text-center py-16">
-          <p className="text-5xl mb-4">🔍</p>
+          <p className="text-5xl mb-4 opacity-30" aria-hidden="true">?</p>
           <p className="text-lg font-semibold text-[#1B2E4A] mb-2">Aucun appareil ne correspond à vos critères</p>
           <p className="text-gray-500 mb-4">Essayez d'élargir vos filtres</p>
           <button onClick={resetFilters}
@@ -214,7 +214,7 @@ function ProductCardReact({ product }: { product: Product }) {
         <span className={`absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-bold ${
           classe1 ? 'bg-emerald-100 text-emerald-700' : 'bg-blue-100 text-[#1B2E4A]'
         }`}>
-          {classe1 ? '✓ Classe 1 — RAC 0€' : 'Classe 2'}
+          {classe1 ? 'Classe 1 — RAC 0\u00A0\u20AC' : 'Classe 2'}
         </span>
       )}
       {niveauLabel && (
@@ -227,7 +227,7 @@ function ProductCardReact({ product }: { product: Product }) {
         {product.image ? (
           <img src={product.image} alt={`${product.marqueLabel} ${product.modele}`} className="w-full h-full object-contain p-4" loading="lazy" />
         ) : (
-          <span className="text-5xl opacity-20" aria-hidden="true">👂</span>
+          <span className="text-5xl opacity-20 font-serif" aria-hidden="true">?</span>
         )}
       </a>
 
@@ -247,10 +247,10 @@ function ProductCardReact({ product }: { product: Product }) {
             <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">{product.specs.canaux} canaux</span>
           )}
           {product.fonctionnalites?.rechargeable && (
-            <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">🔋</span>
+            <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">Rech.</span>
           )}
           {product.connectivite?.bluetooth && (
-            <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">📱</span>
+            <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">BT</span>
           )}
         </div>
 

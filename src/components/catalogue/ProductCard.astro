@@ -25,7 +25,7 @@ const href = productUrl(product.slug);
       'absolute top-3 left-3 z-10 px-3 py-1 rounded-full font-sans text-xs font-bold',
       classe1 ? 'bg-emerald-100 text-emerald-700' : 'bg-blue-100 text-marine'
     ]}>
-      {classe1 ? '✓ Classe 1 — RAC 0€' : 'Classe 2'}
+      {classe1 ? 'Classe 1 — RAC 0 €' : 'Classe 2'}
     </span>
   )}
   {niveauLabel && (
@@ -39,7 +39,7 @@ const href = productUrl(product.slug);
     {product.image ? (
       <img src={product.image} alt={`${product.marqueLabel} ${product.modele}`} class="w-full h-full object-contain p-4" loading="lazy" />
     ) : (
-      <span class="text-5xl opacity-20" aria-hidden="true">👂</span>
+      <span class="text-5xl opacity-20 font-serif" aria-hidden="true">?</span>
     )}
   </a>
 
@@ -68,13 +68,13 @@ const href = productUrl(product.slug);
         <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">{product.specs.canaux} canaux</span>
       )}
       {product.fonctionnalites?.rechargeable && (
-        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">🔋 Rechargeable</span>
+        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">Rechargeable</span>
       )}
       {product.connectivite?.bluetooth && (
-        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">📱 Bluetooth</span>
+        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">Bluetooth</span>
       )}
       {product.connectivite?.auracast && (
-        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">📡 Auracast</span>
+        <span class="px-2 py-0.5 rounded bg-gris-clair/70 font-sans text-xs text-marine">Auracast</span>
       )}
     </div>
 
