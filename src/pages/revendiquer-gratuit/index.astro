@@ -1,0 +1,233 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { supabase } from '../../lib/supabase';
+
+const centreSlug = Astro.url.searchParams.get('centre');
+
+let centre = null;
+if (centreSlug) {
+  const { data } = await supabase
+    .from('centres_auditifs')
+    .select('slug, nom, adresse, cp, ville, claimed, is_premium')
+    .eq('slug', centreSlug)
+    .single();
+  centre = data;
+}
+
+if (!centre) {
+  return Astro.redirect('/trouver-audioprothesiste/');
+}
+
+if (centre.claimed || centre.is_premium) {
+  return Astro.redirect(`/centre/${centre.slug}/`);
+}
+
+const displayVille = centre.ville || centre.cp;
+const pageTitle = `Revendiquer gratuitement ${centre.nom} — LeGuideAuditif`;
+const pageDescription = `Vous gerez ${centre.nom} a ${displayVille} ? Revendiquez votre fiche gratuitement pour afficher vos coordonnees et gagner en visibilite.`;
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Trouver un audioprothesiste', href: '/trouver-audioprothesiste/' },
+  { label: centre.nom, href: `/centre/${centre.slug}/` },
+  { label: 'Revendiquer' },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="bg-creme">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine mb-2">
+      Revendiquez votre fiche gratuitement
+    </h1>
+    <p class="text-gris-texte font-sans mb-8">
+      Completez le formulaire ci-dessous pour revendiquer la fiche de
+      <strong class="text-marine">{centre.nom}</strong> ({centre.adresse}, {centre.cp} {centre.ville}).
+    </p>
+
+    {/* Avantages */}
+    <div class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8">
+      <h2 class="font-sans text-lg font-bold text-marine mb-4">
+        Ce que vous debloquez
+      </h2>
+      <ul class="grid gap-3 sm:grid-cols-2 font-sans text-gris-texte">
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Numero de telephone affiche en clair
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Lien direct vers votre site web
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Horaires d'ouverture affiches
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Badge "Centre verifie par un DE"
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Recevez des demandes de patients
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Gratuit, sans engagement
+        </li>
+      </ul>
+    </div>
+
+    {/* Formulaire */}
+    <form
+      id="claim-form"
+      class="rounded-xl border-2 border-orange/20 bg-blanc p-6 sm:p-8"
+    >
+      <input type="hidden" name="centreSlug" value={centre.slug} />
+
+      <h2 class="font-sans text-lg font-bold text-marine mb-6">
+        Vos informations professionnelles
+      </h2>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="claim-nom" class="block text-sm font-medium text-marine font-sans mb-1">
+            Nom
+          </label>
+          <input
+            id="claim-nom"
+            name="nom"
+            type="text"
+            required
+            autocomplete="family-name"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+
+        <div>
+          <label for="claim-prenom" class="block text-sm font-medium text-marine font-sans mb-1">
+            Prenom
+          </label>
+          <input
+            id="claim-prenom"
+            name="prenom"
+            type="text"
+            required
+            autocomplete="given-name"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+
+        <div>
+          <label for="claim-email" class="block text-sm font-medium text-marine font-sans mb-1">
+            Email professionnel
+          </label>
+          <input
+            id="claim-email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+
+        <div>
+          <label for="claim-adeli" class="block text-sm font-medium text-marine font-sans mb-1">
+            N&deg; ADELI ou SIRET
+          </label>
+          <input
+            id="claim-adeli"
+            name="adeli"
+            type="text"
+            required
+            placeholder="Ex : 01 93 12345 6 ou 123 456 789 00012"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <label class="flex items-start gap-2 text-sm text-gris-texte font-sans">
+          <input type="checkbox" name="rgpd" required class="mt-1" />
+          <span>
+            J'atteste etre le gerant ou un representant autorise de cet etablissement.
+            J'accepte les <a href="/mentions-legales/" class="text-orange underline">conditions generales</a> et la
+            <a href="/politique-confidentialite/" class="text-orange underline">politique de confidentialite</a>.
+          </span>
+        </label>
+      </div>
+
+      <div id="claim-error" class="hidden mt-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+
+      <div class="mt-6">
+        <button
+          type="submit"
+          id="claim-submit"
+          class="w-full sm:w-auto rounded-lg bg-orange px-8 py-3 text-lg font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/50 cursor-pointer disabled:opacity-60"
+          style="min-height: 48px;"
+        >
+          Revendiquer gratuitement
+        </button>
+      </div>
+
+      <p class="text-xs text-gris-texte font-sans mt-3">
+        Verification sous 24h. Aucun paiement requis.
+      </p>
+    </form>
+  </section>
+
+  <script>
+    const form = document.getElementById('claim-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('claim-submit') as HTMLButtonElement;
+    const errorDiv = document.getElementById('claim-error') as HTMLDivElement;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi en cours...';
+      errorDiv.classList.add('hidden');
+
+      const formData = new FormData(form);
+      const body = {
+        centreSlug: formData.get('centreSlug'),
+        nom: formData.get('nom'),
+        prenom: formData.get('prenom'),
+        email: formData.get('email'),
+        adeli: formData.get('adeli'),
+      };
+
+      try {
+        const res = await fetch('/api/claim', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Une erreur est survenue.');
+        }
+
+        window.location.href = data.redirectUrl;
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : 'Une erreur est survenue.';
+        errorDiv.textContent = message;
+        errorDiv.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Revendiquer gratuitement';
+      }
+    });
+  </script>
+</BaseLayout>

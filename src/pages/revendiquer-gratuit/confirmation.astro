@@ -1,0 +1,96 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { supabase } from '../../lib/supabase';
+
+const centreSlug = Astro.url.searchParams.get('centre');
+
+let centre = null;
+if (centreSlug) {
+  const { data } = await supabase
+    .from('centres_auditifs')
+    .select('slug, nom')
+    .eq('slug', centreSlug)
+    .single();
+  centre = data;
+}
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Trouver un audioprothesiste', href: '/trouver-audioprothesiste/' },
+  ...(centre ? [{ label: centre.nom, href: `/centre/${centre.slug}/` }] : []),
+  { label: 'Confirmation' },
+];
+---
+
+<BaseLayout
+  title="Revendication confirmee — LeGuideAuditif"
+  description="Votre fiche audioprothesiste a ete revendiquee avec succes."
+>
+  <div class="bg-creme">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6">
+      <Icon name="lucide:check" class="w-8 h-8 text-green-600" />
+    </div>
+
+    <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine mb-4">
+      Votre fiche a ete revendiquee avec succes
+    </h1>
+
+    <p class="text-gris-texte font-sans text-lg mb-6 max-w-xl mx-auto">
+      Votre demande de revendication a bien ete enregistree.
+      Notre equipe verifiera vos informations professionnelles sous <strong class="text-marine">24 heures</strong>.
+    </p>
+
+    <div class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8 text-left max-w-md mx-auto font-sans">
+      <h2 class="font-bold text-marine mb-3">Prochaines etapes</h2>
+      <ul class="space-y-2 text-gris-texte">
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Un email de confirmation a ete envoye a votre adresse
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Verification de votre identite professionnelle sous 24h
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Activation de votre fiche complete une fois verifie
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Pour toute question, contactez-nous via la page <a href="/contact/" class="text-orange underline">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    {centre ? (
+      <a
+        href={`/centre/${centre.slug}/`}
+        class="inline-flex items-center gap-2 rounded-lg bg-marine px-6 py-3 font-semibold text-blanc font-sans transition-colors hover:bg-marine-light focus:outline-none focus:ring-2 focus:ring-marine/50"
+        style="min-height: 48px;"
+      >
+        <Icon name="lucide:arrow-left" class="w-5 h-5" />
+        Retour a ma fiche
+      </a>
+    ) : (
+      <a
+        href="/trouver-audioprothesiste/"
+        class="inline-flex items-center gap-2 rounded-lg bg-marine px-6 py-3 font-semibold text-blanc font-sans transition-colors hover:bg-marine-light focus:outline-none focus:ring-2 focus:ring-marine/50"
+        style="min-height: 48px;"
+      >
+        <Icon name="lucide:arrow-left" class="w-5 h-5" />
+        Retour a l'annuaire
+      </a>
+    )}
+  </section>
+</BaseLayout>

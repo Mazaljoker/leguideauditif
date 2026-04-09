@@ -1,10 +1,14 @@
 ---
 export const prerender = false;
 
+import { Icon } from 'astro-icon/components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
 import LeadForm from '../../components/LeadForm.tsx';
+import GhostSlot from '../../components/centre/GhostSlot.astro';
+import CompletionBar from '../../components/centre/CompletionBar.astro';
+import GhostCTA from '../../components/centre/GhostCTA.astro';
 import { supabase } from '../../lib/supabase';
 
 const { slug } = Astro.params;
@@ -29,6 +33,19 @@ const breadcrumbs = [
   { label: `${centre.nom}, ${displayVille}` },
 ];
 
+// Calcul completion
+const premiumFields = [
+  centre.tel, centre.site_web, centre.email, centre.horaires,
+  centre.photo_url,
+  centre.specialites?.length > 0 ? true : null,
+  centre.marques?.length > 0 ? true : null,
+  centre.reseaux_sociaux && Object.keys(centre.reseaux_sociaux).length > 0 ? true : null,
+];
+const filled = premiumFields.filter(Boolean).length;
+const completion = Math.round(((3 + filled) / 11) * 100);
+
+const isGhost = !centre.claimed && !centre.is_premium;
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -48,9 +65,17 @@ const schema = {
   } : undefined,
   ...(centre.is_premium && centre.tel ? { telephone: centre.tel } : {}),
   ...(centre.is_premium && centre.site_web ? { url: centre.site_web } : {}),
+  ...(centre.is_premium && centre.email ? { email: centre.email } : {}),
   ...(centre.is_premium && centre.horaires ? { openingHours: centre.horaires } : {}),
+  ...(centre.photo_url ? { image: centre.photo_url } : {}),
+  ...(centre.specialites?.length > 0 ? { knowsAbout: centre.specialites } : {}),
+  ...(centre.marques?.length > 0 ? { brand: centre.marques.map((m: string) => ({ '@type': 'Brand', name: m })) } : {}),
   medicalSpecialty: 'Audioprothese',
 };
+
+// Tags fantomes pour les ghost slots specialites/marques
+const ghostSpecialites = ['Acouphenes', 'Enfants', 'Implants', 'Presbyacousie', 'Surdite professionnelle'];
+const ghostMarques = ['Phonak', 'Signia', 'Oticon', 'ReSound', 'Starkey', 'Widex'];
 ---
 
 <BaseLayout
@@ -60,55 +85,47 @@ const schema = {
   schema={schema}
 >
   <div class="bg-creme">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs items={breadcrumbs} />
     </div>
   </div>
 
-  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  {centre.is_premium ? (
+    /* ===================================================================
+       SECTION PREMIUM — layout single column, inchange
+       =================================================================== */
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-    {/* === En-tete === */}
-    <header class="mb-8">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine leading-tight">
-          {centre.nom}
-        </h1>
-        {centre.is_premium && (
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-orange/10 border border-orange/30 px-3 py-1 text-sm font-semibold text-orange font-sans">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-            </svg>
-            Centre verifie
-          </span>
-        )}
-      </div>
+      <header class="mb-8">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine leading-tight">
+            {centre.nom}
+          </h1>
+          {centre.verifie && (
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-orange/10 border border-orange/30 px-3 py-1 text-sm font-semibold text-orange font-sans">
+              <Icon name="lucide:shield-check" class="w-4 h-4" />
+              Centre verifie
+            </span>
+          )}
+        </div>
+        <div class="flex items-start gap-2 text-gris-texte font-sans">
+          <Icon name="lucide:map-pin" class="w-5 h-5 mt-0.5 shrink-0 text-marine" />
+          <p>
+            {centre.adresse}<br />
+            {centre.cp} {centre.ville}
+            {centre.departement && <span class="text-gris-clair"> — Dept. {centre.departement}</span>}
+          </p>
+        </div>
+      </header>
 
-      {/* === Adresse === */}
-      <div class="flex items-start gap-2 text-gris-texte font-sans">
-        <svg class="w-5 h-5 mt-0.5 shrink-0 text-marine" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-          <circle cx="12" cy="10" r="3" />
-        </svg>
-        <p>
-          {centre.adresse}<br />
-          {centre.cp} {centre.ville}
-          {centre.departement && <span class="text-gris-clair"> — Dept. {centre.departement}</span>}
-        </p>
-      </div>
-    </header>
-
-    {/* === Bloc Premium : coordonnees completes === */}
-    {centre.is_premium ? (
+      {/* Coordonnees premium */}
       <section class="rounded-xl border-2 border-orange/20 bg-blanc p-6 sm:p-8 mb-8" aria-label="Coordonnees du centre">
         <h2 class="font-sans text-xl font-bold text-marine mb-6">Coordonnees</h2>
         <div class="grid gap-5 sm:grid-cols-2">
-
           {centre.tel && (
             <div class="flex items-center gap-3">
               <div class="flex items-center justify-center w-11 h-11 rounded-full bg-orange/10">
-                <svg class="w-5 h-5 text-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
+                <Icon name="lucide:phone" class="w-5 h-5 text-orange" />
               </div>
               <div>
                 <p class="text-sm text-gris-texte font-sans">Telephone</p>
@@ -122,11 +139,7 @@ const schema = {
           {centre.site_web && (
             <div class="flex items-center gap-3">
               <div class="flex items-center justify-center w-11 h-11 rounded-full bg-orange/10">
-                <svg class="w-5 h-5 text-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
+                <Icon name="lucide:globe" class="w-5 h-5 text-orange" />
               </div>
               <div>
                 <p class="text-sm text-gris-texte font-sans">Site web</p>
@@ -137,13 +150,24 @@ const schema = {
             </div>
           )}
 
+          {centre.email && (
+            <div class="flex items-center gap-3">
+              <div class="flex items-center justify-center w-11 h-11 rounded-full bg-orange/10">
+                <Icon name="lucide:mail" class="w-5 h-5 text-orange" />
+              </div>
+              <div>
+                <p class="text-sm text-gris-texte font-sans">Email</p>
+                <a href={`mailto:${centre.email}`} class="text-marine font-semibold font-sans hover:text-orange transition-colors">
+                  {centre.email}
+                </a>
+              </div>
+            </div>
+          )}
+
           {centre.horaires && (
             <div class="flex items-center gap-3 sm:col-span-2">
               <div class="flex items-center justify-center w-11 h-11 rounded-full bg-orange/10">
-                <svg class="w-5 h-5 text-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
+                <Icon name="lucide:clock" class="w-5 h-5 text-orange" />
               </div>
               <div>
                 <p class="text-sm text-gris-texte font-sans">Horaires</p>
@@ -153,76 +177,333 @@ const schema = {
           )}
         </div>
       </section>
-    ) : (
-      <>
-        {/* === Bloc Gratuit : CTA Prendre RDV === */}
-        <section class="rounded-xl border-2 border-orange bg-blanc p-6 sm:p-8 mb-8 text-center" aria-label="Prendre rendez-vous">
-          <h2 class="font-sans text-xl font-bold text-marine mb-3">
-            Vous souhaitez consulter ce centre ?
-          </h2>
-          <p class="text-gris-texte font-sans mb-6">
-            Remplissez le formulaire ci-dessous pour etre rappele gratuitement par un audioprothesiste de votre secteur.
-          </p>
-          <LeadForm client:visible centreSlug={centre.slug} />
-        </section>
 
-        {/* === Lien revendication === */}
-        <aside class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8 text-center font-sans" aria-label="Revendication de fiche">
-          <p class="text-gris-texte mb-3">
-            Vous gerez ce centre d'audioprothese ?
-          </p>
-          <a
-            href={`/revendiquer/?centre=${centre.slug}`}
-            class="inline-flex items-center gap-2 rounded-lg border-2 border-marine px-6 py-3 font-semibold text-marine transition-colors hover:bg-marine hover:text-blanc"
-            style="min-height: 44px;"
-          >
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 12l2 2 4-4" />
-              <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" />
-            </svg>
-            Revendiquez cette fiche
-          </a>
-          <p class="text-sm text-gris-texte mt-3">
-            Affichez vos coordonnees, vos horaires et gagnez en visibilite.
-          </p>
-        </aside>
-      </>
-    )}
-
-    {/* === Carte si GPS dispo === */}
-    {centre.lat && centre.lng && (
-      <section class="rounded-xl border border-gris-clair bg-blanc p-4 mb-8" aria-label="Localisation du centre">
-        <h2 class="font-sans text-lg font-bold text-marine mb-3">Localisation</h2>
-        <div class="rounded-lg overflow-hidden" style="height: 300px;">
-          <iframe
-            title={`Carte de ${centre.nom}`}
-            width="100%"
-            height="300"
-            style="border: 0;"
+      {/* Photo premium */}
+      {centre.photo_url && (
+        <section class="mb-8">
+          <img
+            src={centre.photo_url}
+            alt={`Photo du centre ${centre.nom}`}
+            class="w-full rounded-xl object-cover"
+            style="max-height: 400px;"
             loading="lazy"
-            src={`https://www.openstreetmap.org/export/embed.html?bbox=${centre.lng - 0.01},${centre.lat - 0.008},${centre.lng + 0.01},${centre.lat + 0.008}&layer=mapnik&marker=${centre.lat},${centre.lng}`}
-          ></iframe>
-        </div>
-        <p class="text-sm text-gris-texte font-sans mt-2">
-          {centre.adresse}, {centre.cp} {centre.ville}
-        </p>
-      </section>
-    )}
+          />
+        </section>
+      )}
 
-    {/* === Lien retour annuaire === */}
-    <nav class="font-sans text-center py-4">
-      <a
-        href="/trouver-audioprothesiste/"
-        class="inline-flex items-center gap-2 text-orange font-semibold hover:underline"
-      >
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="19" y1="12" x2="5" y2="12" />
-          <polyline points="12 19 5 12 12 5" />
-        </svg>
-        Retour a l'annuaire
-      </a>
-    </nav>
-  </article>
+      {/* Specialites premium */}
+      {centre.specialites?.length > 0 && (
+        <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="Specialites">
+          <h2 class="font-sans text-lg font-bold text-marine mb-4">Specialites</h2>
+          <div class="flex flex-wrap gap-2">
+            {centre.specialites.map((s: string) => (
+              <span class="rounded-full bg-orange/10 border border-orange/20 px-3 py-1 text-sm font-medium text-marine font-sans">
+                {s}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Marques premium */}
+      {centre.marques?.length > 0 && (
+        <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="Marques proposees">
+          <h2 class="font-sans text-lg font-bold text-marine mb-4">Marques proposees</h2>
+          <div class="flex flex-wrap gap-2">
+            {centre.marques.map((m: string) => (
+              <span class="rounded-full bg-marine/5 border border-marine/10 px-3 py-1 text-sm font-medium text-marine font-sans">
+                {m}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Reseaux sociaux premium */}
+      {centre.reseaux_sociaux && Object.keys(centre.reseaux_sociaux).length > 0 && (
+        <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="Reseaux sociaux">
+          <h2 class="font-sans text-lg font-bold text-marine mb-4">Reseaux sociaux</h2>
+          <div class="flex gap-3">
+            {Object.entries(centre.reseaux_sociaux).map(([network, url]) => (
+              <a
+                href={url as string}
+                target="_blank"
+                rel="noopener"
+                class="flex items-center justify-center w-11 h-11 rounded-full bg-marine/5 text-marine hover:bg-orange/10 hover:text-orange transition-colors"
+                aria-label={network}
+              >
+                <Icon name={`lucide:${network === 'google' ? 'search' : network}`} class="w-5 h-5" />
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Carte si GPS dispo */}
+      {centre.lat && centre.lng && (
+        <section class="rounded-xl border border-gris-clair bg-blanc p-4 mb-8" aria-label="Localisation du centre">
+          <h2 class="font-sans text-lg font-bold text-marine mb-3">Localisation</h2>
+          <div class="rounded-lg overflow-hidden" style="height: 300px;">
+            <iframe
+              title={`Carte de ${centre.nom}`}
+              width="100%"
+              height="300"
+              style="border: 0;"
+              loading="lazy"
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=${centre.lng - 0.01},${centre.lat - 0.008},${centre.lng + 0.01},${centre.lat + 0.008}&layer=mapnik&marker=${centre.lat},${centre.lng}`}
+            ></iframe>
+          </div>
+          <p class="text-sm text-gris-texte font-sans mt-2">
+            {centre.adresse}, {centre.cp} {centre.ville}
+          </p>
+        </section>
+      )}
+
+      {/* Lien retour annuaire */}
+      <nav class="font-sans text-center py-4">
+        <a
+          href="/trouver-audioprothesiste/"
+          class="inline-flex items-center gap-2 text-orange font-semibold hover:underline"
+        >
+          <Icon name="lucide:arrow-left" class="w-5 h-5" />
+          Retour a l'annuaire
+        </a>
+      </nav>
+    </article>
+  ) : (
+    /* ===================================================================
+       SECTION GHOST — layout 2 colonnes desktop
+       =================================================================== */
+    <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-28 lg:pb-8">
+      <div class="lg:grid lg:grid-cols-[1fr_320px] lg:gap-8">
+
+        {/* === Colonne principale === */}
+        <div>
+
+          {/* En-tete */}
+          <header class="mb-6">
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+              <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine leading-tight">
+                {centre.nom}
+              </h1>
+              {/* Badge verifie ghost */}
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-gray-100 border border-gray-200 px-3 py-1 text-sm font-semibold text-gray-400 font-sans" aria-hidden="true">
+                <Icon name="lucide:shield-check" class="w-4 h-4" />
+                Centre verifie
+              </span>
+            </div>
+            <div class="flex items-start gap-2 text-gris-texte font-sans">
+              <Icon name="lucide:map-pin" class="w-5 h-5 mt-0.5 shrink-0 text-marine" />
+              <p>
+                {centre.adresse}<br />
+                {centre.cp} {centre.ville}
+                {centre.departement && <span class="text-gris-clair"> — Dept. {centre.departement}</span>}
+              </p>
+            </div>
+          </header>
+
+          {/* Barre de completion */}
+          <CompletionBar percentage={completion} />
+
+          {/* Infos pratiques — donnees reelles + ghost slots */}
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="Informations pratiques">
+            <h2 class="font-sans text-xl font-bold text-marine mb-5">Informations pratiques</h2>
+
+            {/* Donnees RPPS (toujours visibles) */}
+            <div class="grid gap-4 sm:grid-cols-2 mb-5">
+              <div class="flex items-center gap-3">
+                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-marine/10">
+                  <Icon name="lucide:building-2" class="w-5 h-5 text-marine" />
+                </div>
+                <div>
+                  <p class="text-sm text-gris-texte font-sans">Centre</p>
+                  <p class="font-semibold text-marine font-sans">{centre.nom}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-marine/10">
+                  <Icon name="lucide:map-pin" class="w-5 h-5 text-marine" />
+                </div>
+                <div>
+                  <p class="text-sm text-gris-texte font-sans">Adresse</p>
+                  <p class="font-semibold text-marine font-sans">{centre.cp} {centre.ville}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Ghost slots — coordonnees verrouillees */}
+            <div class="grid gap-3 sm:grid-cols-2">
+              <GhostSlot iconName="lucide:phone" label="Telephone" placeholder="06 .. .. .. .." />
+              <GhostSlot iconName="lucide:globe" label="Site web" placeholder="www.exemple-centre.fr" />
+              <GhostSlot iconName="lucide:mail" label="Email" placeholder="contact@centre.fr" />
+              <GhostSlot iconName="lucide:clock" label="Horaires" placeholder="Lun-Ven 9h-18h" />
+            </div>
+          </section>
+
+          {/* Photo du centre — ghost */}
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="Photo du centre">
+            <div class="relative rounded-lg bg-gray-100/60 overflow-hidden" style="height: 200px;" aria-hidden="true">
+              <div class="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                <Icon name="lucide:camera" class="w-10 h-10 text-gray-300" />
+                <span class="text-sm text-gris-texte font-sans">Ajoutez une photo de votre centre</span>
+              </div>
+            </div>
+          </section>
+
+          {/* Specialites & marques — ghost */}
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="Specialites et marques">
+            <h2 class="font-sans text-lg font-bold text-marine mb-4">Specialites et marques</h2>
+
+            {/* Tags specialites ghost */}
+            <div class="mb-4">
+              <p class="text-sm text-gris-texte font-sans mb-2">Specialites</p>
+              <div class="flex flex-wrap gap-2" aria-hidden="true">
+                {ghostSpecialites.map((s) => (
+                  <span class="rounded-full bg-gray-100 border border-gray-200 px-3 py-1 text-sm font-medium text-gray-400 font-sans opacity-50">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Tags marques ghost */}
+            <div class="mb-4">
+              <p class="text-sm text-gris-texte font-sans mb-2">Marques proposees</p>
+              <div class="flex flex-wrap gap-2" aria-hidden="true">
+                {ghostMarques.map((m) => (
+                  <span class="rounded-full bg-gray-100 border border-gray-200 px-3 py-1 text-sm font-medium text-gray-400 font-sans opacity-50">
+                    {m}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <p class="text-sm text-gris-texte font-sans flex items-center gap-2">
+              <Icon name="lucide:lock" class="w-4 h-4" />
+              Indiquez vos specialites et marques pour etre trouve par les patients qui en ont besoin
+            </p>
+          </section>
+
+          {/* Badge centre verifie — ghost */}
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="Verification du centre">
+            <div class="flex items-center gap-4">
+              <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gray-100" aria-hidden="true">
+                <Icon name="lucide:shield-check" class="w-7 h-7 text-gray-300" />
+              </div>
+              <div>
+                <p class="font-semibold text-gray-400 font-sans">Centre verifie par un audioprothesiste DE</p>
+                <p class="text-sm text-gris-texte font-sans">Les centres verifies recoivent 3x plus de demandes</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Avis patients — ghost */}
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="Avis patients">
+            <h2 class="font-sans text-lg font-bold text-marine mb-4">Avis patients</h2>
+
+            {/* Stat fantome */}
+            <div class="flex items-center gap-3 mb-4" aria-hidden="true">
+              <div class="flex gap-0.5">
+                {[1, 2, 3, 4, 5].map(() => (
+                  <Icon name="lucide:star" class="w-5 h-5 text-gray-200" />
+                ))}
+              </div>
+              <span class="text-sm text-gray-400 font-sans">-- avis — Note --/5</span>
+            </div>
+
+            {/* 3 cartes avis fantomes */}
+            <div class="space-y-3" aria-hidden="true">
+              {[1, 2, 3].map(() => (
+                <div class="rounded-lg bg-gray-50 p-4 opacity-40">
+                  <div class="flex items-center gap-2 mb-2">
+                    <div class="w-8 h-8 rounded-full bg-gray-200"></div>
+                    <div class="h-3 w-24 rounded bg-gray-200"></div>
+                  </div>
+                  <div class="space-y-1.5">
+                    <div class="h-2.5 w-full rounded bg-gray-200"></div>
+                    <div class="h-2.5 w-3/4 rounded bg-gray-200"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p class="text-sm text-gris-texte font-sans mt-4 flex items-center gap-2">
+              <Icon name="lucide:message-circle" class="w-4 h-4" />
+              Vos patients pourront laisser un avis ici
+            </p>
+          </section>
+
+          {/* Reseaux sociaux — ghost */}
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="Reseaux sociaux">
+            <h2 class="font-sans text-lg font-bold text-marine mb-4">Reseaux sociaux</h2>
+            <div class="flex gap-3 mb-3" aria-hidden="true">
+              {['facebook', 'instagram', 'linkedin', 'search'].map((icon) => (
+                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-gray-100 text-gray-300">
+                  <Icon name={`lucide:${icon}`} class="w-5 h-5" />
+                </div>
+              ))}
+            </div>
+            <p class="text-sm text-gris-texte font-sans flex items-center gap-2">
+              <Icon name="lucide:lock" class="w-4 h-4" />
+              Connectez vos reseaux pour plus de visibilite
+            </p>
+          </section>
+
+          {/* LeadForm patient */}
+          <section class="rounded-xl border-2 border-orange bg-blanc p-6 sm:p-8 mb-8 text-center" aria-label="Prendre rendez-vous">
+            <h2 class="font-sans text-xl font-bold text-marine mb-3">
+              Vous souhaitez consulter ce centre ?
+            </h2>
+            <p class="text-gris-texte font-sans mb-6">
+              Remplissez le formulaire ci-dessous pour etre rappele gratuitement par un audioprothesiste de votre secteur.
+            </p>
+            <LeadForm client:visible centreSlug={centre.slug} />
+          </section>
+
+          {/* Carte si GPS dispo */}
+          {centre.lat && centre.lng && (
+            <section class="rounded-xl border border-gris-clair bg-blanc p-4 mb-8" aria-label="Localisation du centre">
+              <h2 class="font-sans text-lg font-bold text-marine mb-3">Localisation</h2>
+              <div class="rounded-lg overflow-hidden" style="height: 300px;">
+                <iframe
+                  title={`Carte de ${centre.nom}`}
+                  width="100%"
+                  height="300"
+                  style="border: 0;"
+                  loading="lazy"
+                  src={`https://www.openstreetmap.org/export/embed.html?bbox=${centre.lng - 0.01},${centre.lat - 0.008},${centre.lng + 0.01},${centre.lat + 0.008}&layer=mapnik&marker=${centre.lat},${centre.lng}`}
+                ></iframe>
+              </div>
+              <p class="text-sm text-gris-texte font-sans mt-2">
+                {centre.adresse}, {centre.cp} {centre.ville}
+              </p>
+            </section>
+          )}
+
+          {/* Lien retour annuaire */}
+          <nav class="font-sans text-center py-4">
+            <a
+              href="/trouver-audioprothesiste/"
+              class="inline-flex items-center gap-2 text-orange font-semibold hover:underline"
+            >
+              <Icon name="lucide:arrow-left" class="w-5 h-5" />
+              Retour a l'annuaire
+            </a>
+          </nav>
+        </div>
+
+        {/* === Sidebar desktop === */}
+        <aside class="hidden lg:block">
+          <div class="sticky top-24">
+            <GhostCTA slug={centre.slug} nom={centre.nom} />
+          </div>
+        </aside>
+      </div>
+
+      {/* CTA mobile (barre fixe) */}
+      <GhostCTA slug={centre.slug} nom={centre.nom} />
+    </article>
+  )}
 
   <HealthDisclaimer />
 </BaseLayout>

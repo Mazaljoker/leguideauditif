@@ -1,0 +1,96 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  slug: string;
+  nom: string;
+}
+
+const { slug, nom } = Astro.props;
+const claimUrl = `/revendiquer-gratuit/?centre=${slug}`;
+---
+
+{/* Desktop — sidebar sticky */}
+<div class="hidden lg:block">
+  <div class="rounded-xl border-2 border-orange/30 bg-blanc p-6 shadow-sm">
+    <div class="flex items-center gap-2 mb-3">
+      <Icon name="lucide:building-2" class="w-5 h-5 text-orange" />
+      <h3 class="font-sans text-lg font-bold text-marine">Vous gerez ce centre ?</h3>
+    </div>
+    <p class="text-sm text-gris-texte font-sans mb-4">
+      Revendication gratuite — Verification en 24h — Debloquez votre fiche complete
+    </p>
+    <a
+      href={claimUrl}
+      class="flex items-center justify-center gap-2 w-full rounded-lg bg-orange px-6 py-3 text-base font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/50"
+      style="min-height: 48px;"
+    >
+      Revendiquer cette fiche
+      <Icon name="lucide:arrow-right" class="w-4 h-4" />
+    </a>
+    <ul class="mt-4 space-y-2 text-sm text-gris-texte font-sans">
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        Affichez votre telephone et vos horaires
+      </li>
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        Recevez des demandes de patients
+      </li>
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        Badge "Centre verifie par un DE"
+      </li>
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        Gratuit, sans engagement
+      </li>
+    </ul>
+  </div>
+</div>
+
+{/* Mobile — barre fixe bas de page */}
+<div
+  id="ghost-cta-mobile"
+  class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-blanc border-t border-gris-clair shadow-[0_-4px_12px_rgba(0,0,0,0.08)] p-4"
+>
+  <div class="flex items-center gap-3">
+    <div class="flex-1 min-w-0">
+      <p class="text-sm font-semibold text-marine font-sans truncate">Vous gerez ce centre ?</p>
+      <p class="text-xs text-gris-texte font-sans">Gratuit, sans engagement</p>
+    </div>
+    <a
+      href={claimUrl}
+      class="shrink-0 rounded-lg bg-orange px-5 py-2.5 text-sm font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/50"
+      style="min-height: 44px; display: flex; align-items: center;"
+    >
+      Revendiquer
+    </a>
+    <button
+      id="ghost-cta-close"
+      type="button"
+      class="shrink-0 p-2 text-gris-texte hover:text-marine transition-colors"
+      aria-label="Fermer"
+      style="min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center;"
+    >
+      <Icon name="lucide:x" class="w-5 h-5" />
+    </button>
+  </div>
+</div>
+
+<script define:vars={{ slug }}>
+  const storageKey = `ghost-cta-dismissed-${slug}`;
+  const bar = document.getElementById('ghost-cta-mobile');
+  const closeBtn = document.getElementById('ghost-cta-close');
+
+  if (bar && sessionStorage.getItem(storageKey)) {
+    bar.style.display = 'none';
+  }
+
+  if (closeBtn && bar) {
+    closeBtn.addEventListener('click', () => {
+      bar.style.display = 'none';
+      sessionStorage.setItem(storageKey, '1');
+    });
+  }
+</script>
