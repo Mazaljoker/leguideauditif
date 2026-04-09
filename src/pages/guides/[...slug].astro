@@ -13,10 +13,27 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
-const { title, metaDescription, cluster, author, authorTitle, publishDate, updateDate, readingTime, sources, faq, image, ogImage, useArticleLayout } = entry.data;
+const { title, metaDescription, cluster, author, authorTitle, publishDate, updateDate, readingTime, sources, faq, image, ogImage, useLegacyLayout } = entry.data;
 ---
 
-{useArticleLayout ? (
+{useLegacyLayout ? (
+  <GuideLayout
+    title={title}
+    metaDescription={metaDescription}
+    cluster={cluster}
+    author={author}
+    authorTitle={authorTitle}
+    publishDate={publishDate}
+    updateDate={updateDate}
+    headings={headings}
+    sources={sources}
+    faq={faq}
+    image={image}
+    ogImage={ogImage}
+  >
+    <Content />
+  </GuideLayout>
+) : (
   <ArticleLayout
     title={title}
     metaDescription={metaDescription}
@@ -34,21 +51,4 @@ const { title, metaDescription, cluster, author, authorTitle, publishDate, updat
   >
     <Content />
   </ArticleLayout>
-) : (
-  <GuideLayout
-    title={title}
-    metaDescription={metaDescription}
-    cluster={cluster}
-    author={author}
-    authorTitle={authorTitle}
-    publishDate={publishDate}
-    updateDate={updateDate}
-    headings={headings}
-    sources={sources}
-    faq={faq}
-    image={image}
-    ogImage={ogImage}
-  >
-    <Content />
-  </GuideLayout>
 )}
