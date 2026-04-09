@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+---
+
+<aside class="rounded-xl border border-marine/15 bg-creme p-6 mb-8 font-sans" aria-label="Revendiquer ce centre">
+  <p class="text-marine font-semibold mb-2">Vous gerez ce centre ?</p>
+  <p class="text-gris-texte text-sm mb-4 leading-relaxed">
+    Completez votre fiche gratuitement — les patients qui vous cherchent verront
+    vos horaires, votre telephone et vos specialites.
+  </p>
+  <a
+    href={`/revendiquer-gratuit/?centre=${slug}`}
+    class="inline-flex items-center gap-2 rounded-lg bg-marine px-5 py-3 text-sm font-semibold text-blanc transition-colors hover:bg-marine-light focus:outline-none focus:ring-2 focus:ring-marine/50"
+    style="min-height: 44px;"
+  >
+    Completer ma fiche
+    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+  </a>
+</aside>

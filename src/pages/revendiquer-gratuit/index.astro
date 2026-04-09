@@ -12,7 +12,7 @@ let centre = null;
 if (centreSlug) {
   const { data } = await supabase
     .from('centres_auditifs')
-    .select('slug, nom, adresse, cp, ville, claimed, is_premium')
+    .select('slug, nom, adresse, cp, ville, plan')
     .eq('slug', centreSlug)
     .single();
   centre = data;
@@ -22,7 +22,7 @@ if (!centre) {
   return Astro.redirect('/trouver-audioprothesiste/');
 }
 
-if (centre.claimed || centre.is_premium) {
+if (centre.plan !== 'rpps') {
   return Astro.redirect(`/centre/${centre.slug}/`);
 }
 

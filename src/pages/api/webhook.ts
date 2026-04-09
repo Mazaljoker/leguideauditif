@@ -41,11 +41,11 @@ export const POST: APIRoute = async ({ request }) => {
       // Idempotent : verifier si deja premium avant update
       const { data: centre } = await supabase
         .from('centres_auditifs')
-        .select('is_premium')
+        .select('plan')
         .eq('slug', centreSlug)
         .single();
 
-      if (centre?.is_premium) {
+      if (centre?.plan === 'premium') {
         console.log(`Centre ${centreSlug} deja premium, skip.`);
         break;
       }
@@ -53,6 +53,7 @@ export const POST: APIRoute = async ({ request }) => {
       const { error } = await supabase
         .from('centres_auditifs')
         .update({
+          plan: 'premium',
           is_premium: true,
           stripe_customer_id: session.customer as string,
           stripe_subscription_id: session.subscription as string,
@@ -78,6 +79,7 @@ export const POST: APIRoute = async ({ request }) => {
       const { error } = await supabase
         .from('centres_auditifs')
         .update({
+          plan: 'claimed',
           is_premium: false,
           premium_until: new Date().toISOString(),
         })

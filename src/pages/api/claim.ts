@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
     // Verifier que le centre existe et n'est pas deja revendique
     const { data: centre, error: fetchError } = await supabase
       .from('centres_auditifs')
-      .select('slug, nom, claimed, is_premium')
+      .select('slug, nom, plan')
       .eq('slug', centreSlug)
       .single();
 
@@ -39,7 +39,7 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    if (centre.claimed || centre.is_premium) {
+    if (centre.plan !== 'rpps') {
       return new Response(
         JSON.stringify({ error: 'Ce centre a deja ete revendique.' }),
         { status: 409, headers: { 'Content-Type': 'application/json' } }
@@ -50,6 +50,7 @@ export const POST: APIRoute = async ({ request }) => {
     const { error: updateError } = await supabase
       .from('centres_auditifs')
       .update({
+        plan: 'claimed',
         claimed: true,
         claimed_at: new Date().toISOString(),
         claimed_by_email: email,

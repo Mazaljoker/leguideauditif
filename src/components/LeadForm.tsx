@@ -3,9 +3,10 @@ import { supabase } from '../lib/supabase';
 
 interface LeadFormProps {
   centreSlug?: string;
+  centreName?: string;
 }
 
-const LeadForm: FC<LeadFormProps> = ({ centreSlug }) => {
+const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -44,7 +45,9 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug }) => {
           Votre demande a bien ete envoyee
         </p>
         <p className="mt-2 text-[var(--color-gris)]">
-          Un audioprothesiste de votre secteur vous contactera sous 48h.
+          {centreName
+            ? `${centreName} vous contactera sous 48h.`
+            : 'Un audioprothesiste de votre secteur vous contactera sous 48h.'}
         </p>
       </div>
     );
@@ -53,10 +56,14 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug }) => {
   return (
     <aside className="my-8 rounded-lg border-2 border-[var(--color-orange)] bg-[var(--color-blanc)] p-8" aria-label="Demande de devis">
       <h3 className="font-serif text-xl font-bold text-[var(--color-marine)] mb-2">
-        Demandez votre bilan auditif gratuit
+        {centreName
+          ? `Demandez votre bilan auditif chez ${centreName}`
+          : 'Demandez votre bilan auditif gratuit'}
       </h3>
       <p className="text-sm text-[var(--color-gris)] mb-6">
-        Un audioprothesiste proche de chez vous vous rappelle sous 48h.
+        {centreName
+          ? `${centreName} vous rappelle sous 48h.`
+          : 'Un audioprothesiste proche de chez vous vous rappelle sous 48h.'}
       </p>
 
       <form onSubmit={handleSubmit} className="grid gap-4 md:grid-cols-2">
