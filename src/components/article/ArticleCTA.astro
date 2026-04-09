@@ -1,0 +1,79 @@
+---
+/* ArticleCTA — Bloc CTA lead gen fond navy gradient */
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonUrl: string;
+}
+
+const { title, description, buttonText, buttonUrl } = Astro.props;
+---
+
+<div class="article-cta">
+  <div class="article-cta__icon">
+    <Icon name="lucide:ear" size={32} aria-hidden="true" />
+  </div>
+  <h3 class="article-cta__title">{title}</h3>
+  <p class="article-cta__desc">{description}</p>
+  <a href={buttonUrl} class="article-cta__button">
+    {buttonText} &rarr;
+  </a>
+</div>
+
+<style>
+  .article-cta {
+    background: linear-gradient(135deg, var(--article-navy, #1B3A5C) 0%, #2A5580 100%);
+    border-radius: 20px;
+    padding: 36px 28px;
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .article-cta__icon {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .article-cta__title {
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 10px;
+  }
+
+  .article-cta__desc {
+    font-family: var(--font-body, sans-serif);
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 24px;
+  }
+
+  .article-cta__button {
+    display: inline-block;
+    background: var(--article-accent, #C66A32);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 32px;
+    font-family: var(--font-body, sans-serif);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(198, 106, 50, 0.3);
+    transition: background 0.2s ease;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .article-cta__button:hover {
+    background: var(--article-accent-hover, #A8552A);
+    text-decoration: none;
+  }
+</style>

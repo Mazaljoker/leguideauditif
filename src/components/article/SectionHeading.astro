@@ -1,0 +1,50 @@
+---
+/* SectionHeading — H2 avec icon box a gauche */
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  icon: string;
+  title: string;
+  id: string;
+}
+
+const { icon, title, id } = Astro.props;
+---
+
+<div class="section-heading" id={id}>
+  <div class="section-heading__icon">
+    <Icon name={icon} size={22} aria-hidden="true" />
+  </div>
+  <h2 class="section-heading__title">{title}</h2>
+</div>
+
+<style>
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    scroll-margin-top: 80px;
+  }
+
+  .section-heading__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--article-accent-light, #FDF0E8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--article-accent, #C66A32);
+  }
+
+  .section-heading__title {
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(22px, 5.5vw, 30px);
+    font-weight: 700;
+    color: var(--article-navy, #1B3A5C);
+    margin: 0;
+    line-height: 1.2;
+  }
+</style>

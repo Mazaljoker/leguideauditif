@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -12,22 +13,42 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
-const { title, metaDescription, cluster, author, authorTitle, publishDate, updateDate, sources, faq, image, ogImage } = entry.data;
+const { title, metaDescription, cluster, author, authorTitle, publishDate, updateDate, readingTime, sources, faq, image, ogImage, useArticleLayout } = entry.data;
 ---
 
-<GuideLayout
-  title={title}
-  metaDescription={metaDescription}
-  cluster={cluster}
-  author={author}
-  authorTitle={authorTitle}
-  publishDate={publishDate}
-  updateDate={updateDate}
-  headings={headings}
-  sources={sources}
-  faq={faq}
-  image={image}
-  ogImage={ogImage}
->
-  <Content />
-</GuideLayout>
+{useArticleLayout ? (
+  <ArticleLayout
+    title={title}
+    metaDescription={metaDescription}
+    cluster={cluster}
+    author={author}
+    authorTitle={authorTitle}
+    publishDate={publishDate}
+    updateDate={updateDate}
+    readingTime={readingTime}
+    headings={headings}
+    sources={sources}
+    faq={faq}
+    image={image}
+    ogImage={ogImage}
+  >
+    <Content />
+  </ArticleLayout>
+) : (
+  <GuideLayout
+    title={title}
+    metaDescription={metaDescription}
+    cluster={cluster}
+    author={author}
+    authorTitle={authorTitle}
+    publishDate={publishDate}
+    updateDate={updateDate}
+    headings={headings}
+    sources={sources}
+    faq={faq}
+    image={image}
+    ogImage={ogImage}
+  >
+    <Content />
+  </GuideLayout>
+)}

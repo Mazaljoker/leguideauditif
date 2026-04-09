@@ -3,6 +3,7 @@ title: "Acouphenes : comprendre, soulager et vivre avec en 2026"
 metaDescription: "Guide complet sur les acouphenes : causes, diagnostic, traitements efficaces et conseils au quotidien par un audioprothesiste DE, 28 ans d'experience."
 cluster: acouphenes
 isPillar: true
+useArticleLayout: true
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
@@ -33,13 +34,31 @@ faq:
     answer: "Les acouphenes subjectifs ne sont pas dangereux en eux-memes, mais ils peuvent signaler une atteinte auditive sous-jacente. En revanche, un acouphene pulsatile ou d'apparition brutale necessite une consultation ORL rapide pour ecarter une cause vasculaire ou neurologique."
 ---
 
+import Callout from '../../../components/article/Callout.astro';
+import StatHighlight from '../../../components/article/StatHighlight.astro';
+import SectionHeading from '../../../components/article/SectionHeading.astro';
+import SectionDivider from '../../../components/article/SectionDivider.astro';
+import ArticleCTA from '../../../components/article/ArticleCTA.astro';
+
+<Callout variant="key" title="L'essentiel a retenir">
+4 a 7 millions de Francais vivent avec des acouphenes. On ne peut pas toujours les supprimer, mais des solutions concretes existent pour en reduire considerablement l'impact au quotidien.
+</Callout>
+
+<div style="display: flex; gap: 12px; margin: 32px 0; overflow-x: auto; padding: 4px 0;">
+  <StatHighlight value="4-7M" label="Francais touches" />
+  <StatHighlight value="2eme" label="trouble auditif le plus frequent" />
+  <StatHighlight value="70%" label="amelioration avec traitement" />
+</div>
+
 En France, entre 4 et 7 millions de personnes vivent avec des acouphenes, selon les donnees de l'INSERM. Ce chiffre place les acouphenes parmi les troubles auditifs les plus frequents, juste derriere la presbyacousie. Pourtant, beaucoup de patients attendent des mois, voire des annees, avant de consulter.
 
 En 28 ans de pratique et plus de 3 000 patients appareilles, j'ai constate que la desinformation reste le premier obstacle. On entend encore trop souvent que "rien ne peut etre fait". C'est faux. Si l'on ne peut pas toujours supprimer un acouphene, on dispose aujourd'hui de solutions concretes pour en reduire considerablement l'impact sur votre vie quotidienne.
 
-Ce guide fait le point sur ce que la science sait en 2026 : les causes, le diagnostic, les traitements valides et les strategies pratiques au quotidien.
+> Ce guide fait le point sur ce que la science sait en 2026 : les causes, le diagnostic, les traitements valides et les strategies pratiques au quotidien.
 
-## Qu'est-ce qu'un acouphene ?
+<SectionDivider />
+
+<SectionHeading icon="lucide:volume-2" title="Qu'est-ce qu'un acouphene ?" id="quest-ce-quun-acouphene" />
 
 Un acouphene est la perception d'un son en l'absence de toute source sonore exterieure. Il peut prendre la forme d'un sifflement, d'un bourdonnement, d'un gresilllement ou d'un chuintement. Ce n'est pas une maladie en soi, mais le symptome d'un dysfonctionnement dans la chaine auditive ou dans le traitement cerebral du son.
 
@@ -51,7 +70,13 @@ Les acouphenes subjectifs representent plus de 95 % des cas (INSERM). Seul le pa
 
 Les acouphenes objectifs sont rares (moins de 5 % des cas). Ils correspondent a un son reel, d'origine vasculaire ou musculaire, que le medecin peut parfois entendre avec un stethoscope. Ils necessitent un bilan medical specifique car ils peuvent reveler une anomalie vasculaire traitable.
 
-## Les causes principales des acouphenes
+<Callout variant="warning" title="Quand consulter en urgence">
+Un acouphene brutal et unilateral, accompagne d'une perte auditive soudaine, necessite une consultation ORL dans les 48 heures. C'est une urgence fonctionnelle.
+</Callout>
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:search" title="Les causes principales des acouphenes" id="les-causes-principales-des-acouphenes" />
 
 Les acouphenes ont rarement une cause unique. Ils resultent le plus souvent de la combinaison de plusieurs facteurs.
 
@@ -77,7 +102,13 @@ Cette affection de l'oreille interne associe acouphenes, vertiges rotatoires, se
 
 Pour un panorama detaille de chaque facteur, consultez notre guide dedie aux [causes des acouphenes](/guides/acouphenes/causes/).
 
-## Quand consulter en urgence
+<Callout variant="tip" title="Bon a savoir">
+Dans 90 % des cas, l'acouphene est associe a une perte auditive, meme legere. Un audiogramme complet est toujours recommande.
+</Callout>
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:alert-circle" title="Quand consulter en urgence" id="quand-consulter-en-urgence" />
 
 La plupart des acouphenes ne constituent pas une urgence medicale. Cependant, certaines situations imposent une consultation rapide, dans les 24 a 48 heures :
 
@@ -91,7 +122,9 @@ La plupart des acouphenes ne constituent pas une urgence medicale. Cependant, ce
 
 En cas de doute, consultez. Un acouphene benin sera vite identifie comme tel, et un probleme serieux sera pris en charge a temps.
 
-## Le diagnostic : ORL et bilan auditif
+<SectionDivider />
+
+<SectionHeading icon="lucide:stethoscope" title="Le diagnostic : ORL et bilan auditif" id="le-diagnostic--orl-et-bilan-auditif" />
 
 Le diagnostic des acouphenes repose sur un bilan auditif complet realise par un medecin ORL, generalement en deux temps.
 
@@ -111,7 +144,18 @@ Le medecin utilise des echelles validees (THI - Tinnitus Handicap Inventory, ou 
 
 Selon le contexte, l'ORL peut prescrire une IRM cerebrale (acouphene unilateral, suspicion de neurinome), un angio-scanner (acouphene pulsatile), ou un bilan sanguin (thyroide, glycemie, bilan lipidique).
 
-## Les traitements qui fonctionnent en 2026
+<SectionDivider />
+
+<ArticleCTA
+  title="Vous souffrez d'acouphenes ?"
+  description="Trouvez un audioprothesiste specialise pres de chez vous"
+  buttonText="Trouver mon audioprothesiste"
+  buttonUrl="/trouver-un-audioprothesiste/"
+/>
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:heart-pulse" title="Les traitements qui fonctionnent en 2026" id="les-traitements-qui-fonctionnent-en-2026" />
 
 Il n'existe pas de traitement unique capable de supprimer definitivement les acouphenes. En revanche, plusieurs approches validees scientifiquement permettent d'en reduire considerablement la perception et l'impact.
 
@@ -129,7 +173,9 @@ Pour les patients presentant une perte auditive associee, l'appareillage auditif
 
 Pour approfondir les differentes options therapeutiques, consultez notre guide sur les [traitements des acouphenes](/guides/acouphenes/traitement/).
 
-## L'appareil auditif contre les acouphenes
+<SectionDivider />
+
+<SectionHeading icon="lucide:ear" title="L'appareil auditif contre les acouphenes" id="lappareil-auditif-contre-les-acouphenes" />
 
 En tant qu'audioprothesiste, c'est le domaine ou mon experience de terrain est la plus directe. L'appareillage auditif agit sur les acouphenes par deux mecanismes complementaires.
 
@@ -147,7 +193,9 @@ Selon les donnees compilees par la HAS, 60 a 70 % des patients appareilles rappo
 
 Pour choisir le bon modele, notre [comparatif des meilleurs appareils auditifs 2026](/comparatifs/meilleur-appareil-auditif-2026/) detaille les fonctionnalites anti-acouphenes de chaque marque. Le [remboursement](/guides/remboursement/) Classe 1 ou Classe 2 s'applique egalement aux appareils equipes de masqueurs.
 
-## Vivre au quotidien avec des acouphenes
+<SectionDivider />
+
+<SectionHeading icon="lucide:sun" title="Vivre au quotidien avec des acouphenes" id="vivre-au-quotidien-avec-des-acouphenes" />
 
 Au-dela des traitements, la gestion quotidienne fait une difference considerable. Voici les strategies que je recommande a mes patients, basees sur les donnees de France Acouphenes et sur 28 ans de retours terrain.
 
@@ -178,7 +226,9 @@ Le stress amplifie les acouphenes. Des techniques simples, pratiquees regulierem
 
 L'association France Acouphenes propose des groupes de parole et un service d'ecoute telephonique. Echanger avec d'autres personnes concernees reduit le sentiment d'isolement et permet de decouvrir des strategies qui fonctionnent.
 
-## La recherche en cours
+<SectionDivider />
+
+<SectionHeading icon="lucide:flask-conical" title="La recherche en cours" id="la-recherche-en-cours" />
 
 Si aucun remede definitif n'existe aujourd'hui, plusieurs pistes de recherche sont prometteuses.
 
@@ -200,6 +250,6 @@ Les travaux sur la regeneration des cellules ciliees, notamment via la voie Notc
 
 Des equipes de recherche travaillent sur des algorithmes capables de classer les acouphenes en sous-types plus precis, a partir de donnees audiometriques et d'imagerie cerebrale. L'objectif est de proposer des traitements personnalises en fonction du profil neurophysiologique de chaque patient.
 
----
+<SectionDivider />
 
 Les acouphenes restent un defi pour la medecine, mais les progres des 10 dernieres annees sont reels. L'essentiel est de ne pas rester seul face a ce symptome. Consultez un ORL, faites realiser un bilan auditif complet, et explorez les options therapeutiques avec un professionnel de l'audition. Pour beaucoup de patients, la combinaison d'un appareillage adapte, d'un accompagnement psychologique et de strategies au quotidien transforme veritablement la qualite de vie.

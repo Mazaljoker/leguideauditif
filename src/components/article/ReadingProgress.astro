@@ -1,0 +1,28 @@
+---
+/* ReadingProgress — Barre de progression fixee en haut de page (CSS + script leger) */
+---
+
+<div class="reading-progress" aria-hidden="true">
+  <div class="reading-progress__bar" id="reading-progress-bar"></div>
+</div>
+
+<script>
+  const bar = document.getElementById('reading-progress-bar');
+  if (bar) {
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const el = document.documentElement;
+          const scrollTop = el.scrollTop;
+          const scrollHeight = el.scrollHeight - el.clientHeight;
+          const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+          bar.style.width = `${progress}%`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+</script>

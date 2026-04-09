@@ -1,0 +1,296 @@
+---
+/* ArticleHeader — Breadcrumbs + badge categorie + H1 + MetaBadges + AuthorBadge + Disclaimers */
+import { Icon } from 'astro-icon/components';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import AffiliateDisclosure from '../AffiliateDisclosure.astro';
+
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  breadcrumbs: BreadcrumbItem[];
+  categoryLabel: string;
+  title: string;
+  publishDate: Date;
+  updateDate?: Date;
+  readingTime?: number;
+  author: string;
+  authorTitle: string;
+  showHealthDisclaimer?: boolean;
+  showAffiliateDisclosure?: boolean;
+  image?: string;
+}
+
+const {
+  breadcrumbs,
+  categoryLabel,
+  title,
+  publishDate,
+  updateDate,
+  readingTime,
+  author,
+  authorTitle,
+  showHealthDisclaimer = true,
+  showAffiliateDisclosure = false,
+  image,
+} = Astro.props;
+
+const formattedDate = publishDate.toLocaleDateString('fr-FR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const formattedUpdate = updateDate?.toLocaleDateString('fr-FR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<div class="article-header">
+  <div class="article-header__breadcrumbs">
+    <Breadcrumbs items={breadcrumbs} />
+  </div>
+
+  <div class="article-header__hero">
+    <span class="article-header__badge">{categoryLabel}</span>
+
+    <h1 class="article-header__title">{title}</h1>
+
+    <!-- Meta badges -->
+    <div class="article-header__meta">
+      <span class="article-header__meta-badge">
+        <Icon name="lucide:calendar" size={14} aria-hidden="true" />
+        {formattedDate}
+      </span>
+      {readingTime && (
+        <span class="article-header__meta-badge">
+          <Icon name="lucide:clock" size={14} aria-hidden="true" />
+          {readingTime} min de lecture
+        </span>
+      )}
+      {formattedUpdate && (
+        <span class="article-header__meta-badge">
+          <Icon name="lucide:refresh-cw" size={14} aria-hidden="true" />
+          Mis a jour le {formattedUpdate}
+        </span>
+      )}
+    </div>
+
+    <!-- Author badge compact -->
+    <div class="article-header__author">
+      <div class="article-header__author-avatar">
+        <span>FO</span>
+      </div>
+      <div class="article-header__author-info">
+        <div class="article-header__author-name">{author}</div>
+        <div class="article-header__author-title">{authorTitle}</div>
+      </div>
+      <div class="article-header__author-verified">
+        <Icon name="lucide:badge-check" size={12} aria-hidden="true" />
+        EXPERT
+      </div>
+    </div>
+
+    <!-- Disclaimers -->
+    {showAffiliateDisclosure && (
+      <div class="article-header__disclosure">
+        <AffiliateDisclosure />
+      </div>
+    )}
+
+    {showHealthDisclaimer && (
+      <div class="article-header__disclaimer">
+        <Icon name="lucide:stethoscope" size={18} aria-hidden="true" />
+        <p>
+          <strong>Information sante :</strong> Ce contenu est informatif et ne remplace pas une consultation avec un professionnel de sante.
+        </p>
+      </div>
+    )}
+  </div>
+
+  <!-- Hero image -->
+  {image && (
+    <div class="article-header__image">
+      <img
+        src={image}
+        alt={title}
+        width="680"
+        height="380"
+        loading="eager"
+      />
+    </div>
+  )}
+</div>
+
+<style>
+  .article-header {
+    max-width: var(--article-max-width, 680px);
+    margin: 0 auto;
+    padding: 0 var(--article-padding-x, 20px);
+  }
+
+  .article-header__breadcrumbs {
+    padding-top: 16px;
+  }
+
+  .article-header__hero {
+    margin-top: 28px;
+  }
+
+  .article-header__badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--article-accent-light, #FDF0E8);
+    border-radius: 6px;
+    font-family: var(--font-body, sans-serif);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--article-accent, #C66A32);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .article-header__title {
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(28px, 7vw, 40px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--article-navy, #1B3A5C);
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .article-header__meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .article-header__meta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: var(--article-sommaire-bg, #F5F3EF);
+    border-radius: 8px;
+    font-family: var(--font-body, sans-serif);
+    font-size: 13px;
+    color: var(--article-text-light, #6B6560);
+  }
+
+  .article-header__author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: var(--article-card, #fff);
+    border-radius: 14px;
+    border: 1px solid var(--article-border, #E8E4DF);
+    margin-top: 24px;
+  }
+
+  .article-header__author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--article-navy, #1B3A5C), var(--article-accent, #C66A32));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .article-header__author-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .article-header__author-name {
+    font-family: var(--font-body, sans-serif);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--article-text, #2D2A26);
+  }
+
+  .article-header__author-title {
+    font-family: var(--font-body, sans-serif);
+    font-size: 13px;
+    color: var(--article-text-light, #6B6560);
+    line-height: 1.4;
+  }
+
+  .article-header__author-verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: var(--article-green-bg, #EEFBF3);
+    border-radius: 6px;
+    font-family: var(--font-body, sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--article-green, #2D7A4F);
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+
+  .article-header__disclosure {
+    margin-top: 20px;
+  }
+
+  .article-header__disclaimer {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 18px;
+    background: #FFF9E6;
+    border-radius: 12px;
+    border: 1px solid #F0E4B8;
+    margin-top: 20px;
+    color: #7A6B3A;
+  }
+
+  .article-header__disclaimer p {
+    margin: 0;
+    font-family: var(--font-body, sans-serif);
+    font-size: 13px;
+    line-height: 1.6;
+    color: #7A6B3A;
+  }
+
+  .article-header__disclaimer strong {
+    color: #5A4F2A;
+  }
+
+  .article-header__image {
+    margin: 32px calc(-1 * var(--article-padding-x, 20px)) 0;
+    overflow: hidden;
+  }
+
+  .article-header__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .article-header__image {
+      margin: 32px 0 0;
+      border-radius: 16px;
+    }
+
+    .article-header__image img {
+      border-radius: 16px;
+    }
+  }
+</style>

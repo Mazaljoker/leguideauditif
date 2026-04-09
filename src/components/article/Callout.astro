@@ -1,0 +1,90 @@
+---
+/* Callout — 4 variantes : info, warning, tip, key */
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  variant: 'info' | 'warning' | 'tip' | 'key';
+  title?: string;
+}
+
+const { variant, title } = Astro.props;
+
+const config = {
+  info: {
+    bg: 'var(--article-navy-light, #EDF2F7)',
+    border: 'var(--article-navy, #1B3A5C)',
+    color: 'var(--article-navy, #1B3A5C)',
+    icon: 'lucide:info',
+  },
+  warning: {
+    bg: 'var(--article-urgent-bg, #FEF2F1)',
+    border: 'var(--article-urgent, #B8392E)',
+    color: 'var(--article-urgent, #B8392E)',
+    icon: 'lucide:alert-triangle',
+  },
+  tip: {
+    bg: 'var(--article-green-bg, #EEFBF3)',
+    border: 'var(--article-green, #2D7A4F)',
+    color: 'var(--article-green, #2D7A4F)',
+    icon: 'lucide:lightbulb',
+  },
+  key: {
+    bg: 'var(--article-accent-light, #FDF0E8)',
+    border: 'var(--article-accent, #C66A32)',
+    color: 'var(--article-accent, #C66A32)',
+    icon: 'lucide:key-round',
+  },
+};
+
+const c = config[variant];
+---
+
+<div
+  class="callout"
+  style={`background: ${c.bg}; border-left: 4px solid ${c.border};`}
+  role="note"
+>
+  {title && (
+    <div class="callout__header" style={`color: ${c.color};`}>
+      <Icon name={c.icon} size={20} aria-hidden="true" />
+      <span class="callout__title">{title}</span>
+    </div>
+  )}
+  <div class="callout__content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .callout {
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+
+  .callout__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .callout__title {
+    font-family: var(--font-body, sans-serif);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+  }
+
+  .callout__content {
+    font-family: var(--font-body, sans-serif);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--article-text, #2D2A26);
+    padding-left: 30px;
+  }
+
+  .callout__content :global(p) {
+    margin: 0;
+  }
+</style>

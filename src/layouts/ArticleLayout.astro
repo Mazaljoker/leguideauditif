@@ -1,0 +1,338 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ReadingProgress from '../components/article/ReadingProgress.astro';
+import ArticleHeader from '../components/article/ArticleHeader.astro';
+import TableOfContents from '../components/article/TableOfContents.astro';
+import ArticleCTA from '../components/article/ArticleCTA.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import HealthDisclaimer from '../components/HealthDisclaimer.astro';
+import '../styles/article-tokens.css';
+
+interface Product {
+  brand: string;
+  model: string;
+  type?: string;
+  class?: string;
+  priceRange: string;
+  channels?: number;
+  bluetooth: boolean;
+  rechargeable: boolean;
+  warrantyYears: number;
+  verdict: string;
+  bestFor: string;
+  affiliateUrl?: string;
+}
+
+interface Props {
+  title: string;
+  metaDescription: string;
+  cluster?: string;
+  category?: string;
+  author: string;
+  authorTitle: string;
+  publishDate: Date;
+  updateDate?: Date;
+  readingTime?: number;
+  headings: { depth: number; slug: string; text: string }[];
+  sources?: { name: string; url: string }[];
+  faq?: { question: string; answer: string }[];
+  products?: Product[];
+  image?: string;
+  ogImage?: string;
+  showAffiliateDisclosure?: boolean;
+}
+
+const {
+  title,
+  metaDescription,
+  cluster,
+  category,
+  author,
+  authorTitle,
+  publishDate,
+  updateDate,
+  readingTime,
+  headings,
+  sources,
+  faq,
+  products,
+  image,
+  ogImage,
+  showAffiliateDisclosure = false,
+} = Astro.props;
+
+/* --- Breadcrumbs --- */
+const clusterLabels: Record<string, string> = {
+  'perte-auditive': 'Perte auditive',
+  'appareils-auditifs': 'Appareils auditifs',
+  'acouphenes': 'Acouphenes',
+  'prevention': 'Prevention',
+  'remboursement': 'Remboursement',
+  'vie-quotidienne': 'Vie quotidienne',
+  'audioprothesiste': "L'audioprothesiste",
+};
+
+const breadcrumbs = cluster
+  ? [
+      { label: 'Accueil', href: '/' },
+      { label: 'Guides', href: '/guides/' },
+      { label: clusterLabels[cluster] || cluster, href: `/guides/${cluster}/` },
+      { label: title },
+    ]
+  : [
+      { label: 'Accueil', href: '/' },
+      { label: 'Comparatifs', href: '/comparatifs/' },
+      { label: title },
+    ];
+
+const categoryLabel = cluster
+  ? (clusterLabels[cluster] || cluster).toUpperCase()
+  : (category || 'COMPARATIF').toUpperCase();
+
+/* --- Schema.org --- */
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: metaDescription,
+  ...(ogImage && { image: new URL(ogImage, Astro.site).href }),
+  author: {
+    '@type': 'Person',
+    '@id': 'https://leguideauditif.fr/#author',
+    name: author,
+    jobTitle: authorTitle,
+    description: "Audioprothesiste DE avec 28 ans d'experience clinique, 18 centres diriges, 3 000+ patients appareilles, 5 ans chez Auzen.com.",
+    url: 'https://leguideauditif.fr/a-propos/',
+    sameAs: ['https://www.linkedin.com/in/franck-olivier-chabbat-/'],
+  },
+  datePublished: publishDate.toISOString(),
+  ...(updateDate && { dateModified: updateDate.toISOString() }),
+  publisher: {
+    '@type': 'Organization',
+    name: 'LeGuideAuditif.fr',
+    url: 'https://leguideauditif.fr',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: new URL(item.href, Astro.site).href }),
+  })),
+};
+
+const schemas: Record<string, unknown>[] = [articleSchema, breadcrumbSchema];
+
+if (products && products.length > 0) {
+  for (const product of products) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: `${product.brand} ${product.model}`,
+      brand: { '@type': 'Brand', name: product.brand },
+      description: product.verdict,
+    });
+  }
+}
+
+if (faq && faq.length > 0) {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  });
+}
+---
+
+<BaseLayout
+  title={`${title} — LeGuideAuditif.fr`}
+  description={metaDescription}
+  ogImage={ogImage}
+  ogType="article"
+  publishDate={publishDate}
+  updateDate={updateDate}
+  schema={schemas}
+>
+  <Fragment slot="head">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </Fragment>
+
+  <div class="article-page">
+    <ReadingProgress />
+
+    <ArticleHeader
+      breadcrumbs={breadcrumbs}
+      categoryLabel={categoryLabel}
+      title={title}
+      publishDate={publishDate}
+      updateDate={updateDate}
+      readingTime={readingTime}
+      author={author}
+      authorTitle={authorTitle}
+      showHealthDisclaimer={true}
+      showAffiliateDisclosure={showAffiliateDisclosure}
+      image={image}
+    />
+
+    <div class="article-content">
+      <TableOfContents headings={headings} />
+
+      <slot />
+
+      <!-- FAQ -->
+      {faq && faq.length > 0 && (
+        <section class="article-faq">
+          <h2 class="article-faq__title">Questions frequentes</h2>
+          {faq.map((f) => (
+            <details class="article-faq__item">
+              <summary class="article-faq__question">
+                <span>{f.question}</span>
+                <span class="article-faq__toggle">+</span>
+              </summary>
+              <div class="article-faq__answer">{f.answer}</div>
+            </details>
+          ))}
+        </section>
+      )}
+
+      <!-- Sources -->
+      {sources && sources.length > 0 && (
+        <section class="article-sources">
+          <h2 class="article-sources__title">Sources et references</h2>
+          <ul>
+            {sources.map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  {source.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <!-- CTA -->
+      <ArticleCTA
+        title="Vous avez des questions sur votre audition ?"
+        description="Trouvez un audioprothesiste specialise pres de chez vous"
+        buttonText="Trouver mon audioprothesiste"
+        buttonUrl="/trouver-un-audioprothesiste/"
+      />
+
+      <!-- AuthorBox -->
+      <AuthorBox name={author} title={authorTitle} />
+    </div>
+  </div>
+
+  <HealthDisclaimer />
+</BaseLayout>
+
+<style>
+  .article-content {
+    max-width: var(--article-max-width, 680px);
+    margin: 0 auto;
+    padding: 0 var(--article-padding-x, 20px) 80px;
+  }
+
+  /* FAQ */
+  .article-faq {
+    margin-top: 48px;
+  }
+
+  .article-faq__title {
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--article-navy, #1B3A5C);
+    margin: 0 0 24px;
+  }
+
+  .article-faq__item {
+    background: var(--article-card, #fff);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    border: 1px solid var(--article-border, #E8E4DF);
+    overflow: hidden;
+  }
+
+  .article-faq__question {
+    padding: 20px 24px;
+    font-family: var(--font-body, sans-serif);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--article-navy, #1B3A5C);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .article-faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .article-faq__toggle {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  details[open] .article-faq__toggle {
+    transform: rotate(45deg);
+  }
+
+  .article-faq__answer {
+    padding: 0 24px 20px;
+    font-family: var(--font-body, sans-serif);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--article-text-light, #6B6560);
+  }
+
+  /* Sources */
+  .article-sources {
+    margin-top: 48px;
+  }
+
+  .article-sources__title {
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--article-navy, #1B3A5C);
+    margin: 0 0 16px;
+  }
+
+  .article-sources ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .article-sources li {
+    margin-bottom: 8px;
+    font-family: var(--font-body, sans-serif);
+    font-size: 14px;
+  }
+
+  .article-sources a {
+    color: var(--article-accent, #C66A32);
+    text-decoration: none;
+  }
+
+  .article-sources a:hover {
+    text-decoration: underline;
+  }
+</style>

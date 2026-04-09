@@ -1,0 +1,101 @@
+---
+/* TableOfContents (article version) — Sommaire avec badges numerotes */
+interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { headings } = Astro.props;
+const h2s = headings.filter((h) => h.depth === 2);
+---
+
+{h2s.length > 0 && (
+  <nav class="article-toc" aria-label="Sommaire de l'article">
+    <h3 class="article-toc__title">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <rect x="2" y="3" width="16" height="2" rx="1" fill="var(--article-accent, #C66A32)" />
+        <rect x="2" y="9" width="12" height="2" rx="1" fill="var(--article-accent, #C66A32)" opacity="0.6" />
+        <rect x="2" y="15" width="14" height="2" rx="1" fill="var(--article-accent, #C66A32)" opacity="0.4" />
+      </svg>
+      Sommaire
+    </h3>
+    <ol class="article-toc__list">
+      {h2s.map((heading, i) => (
+        <li>
+          <a href={`#${heading.slug}`} class="article-toc__link">
+            <span class="article-toc__number">{i + 1}</span>
+            <span>{heading.text}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<style>
+  .article-toc {
+    background: var(--article-sommaire-bg, #F5F3EF);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+
+  .article-toc__title {
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--article-navy, #1B3A5C);
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .article-toc__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .article-toc__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: var(--font-body, sans-serif);
+    font-size: 15px;
+    color: var(--article-text, #2D2A26);
+    font-weight: 400;
+    transition: all 0.2s ease;
+  }
+
+  .article-toc__link:hover {
+    background: var(--article-accent-light, #FDF0E8);
+    color: var(--article-accent, #C66A32);
+    text-decoration: none;
+  }
+
+  .article-toc__link:hover .article-toc__number {
+    background: var(--article-accent, #C66A32);
+    color: #fff;
+  }
+
+  .article-toc__number {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--article-text-light, #6B6560);
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+</style>

@@ -1,0 +1,27 @@
+---
+/* SectionDivider — Separateur visuel avec point central accent */
+---
+
+<div class="section-divider" role="separator">
+  <div class="section-divider__line"></div>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+    <circle cx="10" cy="10" r="4" fill="var(--article-accent, #C66A32)" opacity="0.3" />
+    <circle cx="10" cy="10" r="2" fill="var(--article-accent, #C66A32)" />
+  </svg>
+  <div class="section-divider__line"></div>
+</div>
+
+<style>
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: var(--section-gap, 56px) 0 48px;
+  }
+
+  .section-divider__line {
+    flex: 1;
+    height: 1px;
+    background: var(--article-border, #E8E4DF);
+  }
+</style>
