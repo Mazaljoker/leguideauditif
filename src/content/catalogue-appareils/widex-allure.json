@@ -1,0 +1,36 @@
+{
+  "marque": "widex",
+  "marqueLabel": "Widex",
+  "groupe": "ws-audiology",
+  "modele": "Allure",
+  "formeType": "RIC",
+  "puce": "PureSound",
+  "annee": 2025,
+  "specs": {
+    "batterie": "Li-ion",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Widex MOMENT",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-widex-allure.png",
+  "venduEnEurope": true,
+  "slug": "widex-allure",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "metaDescription": "Découvrez la gamme Widex Allure 2025. Technologie PureSound, zéro délai, recharge. Comparatif, niveaux, prix et avis expert d'un audioprothésiste avec 25 ans d'expérience.",
+  "descriptionCourte": "Découvrez la gamme Widex Allure 2025. Technologie PureSound, zéro délai, recharge. Comparatif, niveaux, prix et avis expert d'un audioprothésiste avec 25 ans d'expérience.",
+  "noteExpert": 8.5,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/widex-allure-datasheet.pdf",
+  "descriptionComplete": "Le Widex Allure est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par Widex (groupe WS Audiology), son le plus naturel du marche, prefere des musiciens, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce PureSound, le Allure beneficie de la technologie PureSound avec ZeroDelay. Traitement en zero delai (0.5ms), qualite sonore audiophile. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Widex MOMENT permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Allure est rechargeable (batterie Li-ion). Un chargeur est fourni avec l'appareil. \n\nFonctionnalites complementaires\nLe Allure integre egalement un generateur de bruit pour le soulagement des acouphenes. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.5/10. Découvrez la gamme Widex Allure 2025. Technologie PureSound, zéro délai, recharge. Comparatif, niveaux, prix et avis expert d'un audioprothésiste avec 25 ans d'expérience."
+}

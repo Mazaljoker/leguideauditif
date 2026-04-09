@@ -1,0 +1,39 @@
+{
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "modele": "Genesis AI",
+  "formeType": "RIC",
+  "puce": "Starkey Neuro Processor",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Li-ion",
+    "autonomie": "23",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Starkey My Starkey",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "capteursSante": "Chute, podometre, frequence cardiaque"
+  },
+  "image": "/images/appareils/aide-auditive-starkey-genesis-ai.jpg",
+  "venduEnEurope": true,
+  "slug": "starkey-genesis-ai",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "metaDescription": "Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents.",
+  "descriptionCourte": "Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents.",
+  "noteExpert": 8.8,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/starkey-genesis-ai-fiche-technique.pdf",
+  "descriptionComplete": "Le Starkey Genesis AI est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par Starkey (groupe Starkey), leader en capteurs de sante integres, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce Starkey Neuro Processor, le Genesis AI beneficie de la technologie Neuro Processor avec Edge AI. Detection de chute, podometre, frequence cardiaque, traduction en temps reel. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Starkey My Starkey permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Genesis AI est rechargeable (batterie Li-ion), offrant jusqu'a 23 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Genesis AI integre egalement un generateur de bruit pour le soulagement des acouphenes, des capteurs de sante integres (Chute, podometre, frequence cardiaque). \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.8/10. Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents."
+}

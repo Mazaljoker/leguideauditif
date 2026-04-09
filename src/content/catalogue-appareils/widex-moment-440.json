@@ -45,5 +45,25 @@
     "usd": {
       "min": 3498
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-widex-moment-110.jpg",
+  "descriptionCourte": "Le Widex Moment 440 440 est un appareil auditif RIC milieu de gamme equipe de la puce Moment Platform, lance en 2021 par Widex (groupe WS Audiology). Rechargeable avec 40-44h d'autonomie. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce Moment Platform",
+    "Rechargeable (40-44h)",
+    "Bluetooth BLE",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 7,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/widex-moment-comparison.pdf",
+  "descriptionComplete": "Le Widex Moment 440 440 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Widex (groupe WS Audiology), son le plus naturel du marche, prefere des musiciens, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce Moment Platform, le Moment 440 beneficie de la technologie PureSound avec ZeroDelay. Traitement en zero delai (0.5ms), qualite sonore audiophile. Le traitement du signal s'effectue sur 48 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Widex MOMENT permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Moment 440 est rechargeable (batterie Li-ion|312), offrant jusqu'a 40-44 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Moment 440 integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen Yes, des microphones directionnels Natural focus. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 998 euros par appareil (soit ~3 996 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7/10. Le Widex Moment 440 440 est un appareil auditif RIC milieu de gamme equipe de la puce Moment Platform, lance en 2021 par Widex (groupe WS Audiology). Rechargeable avec 40-44h d'autonomie. Connectivite BLE."
 }

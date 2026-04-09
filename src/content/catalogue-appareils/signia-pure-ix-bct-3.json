@@ -32,5 +32,24 @@
   "niveau": "3",
   "niveauRaw": "3IX",
   "niveauPosition": 2,
-  "rac0": false
+  "rac0": false,
+  "image": "/images/appareils/aide-auditive-signia-pure-ix-bct-3.jpg",
+  "descriptionCourte": "Le Signia Pure Charge&Go IX BCT 3 est un appareil auditif RIC milieu de gamme equipe de la puce IX Platform, lance en 2025 par Signia (groupe WS Audiology). Rechargeable avec 36h d'autonomie. Connectivite BT Classic + BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce IX Platform",
+    "Rechargeable (36h)",
+    "Bluetooth BT Classic + BLE",
+    "Etanche IP68",
+    "Generateur de bruit pour acouphenes"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de support Auracast",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 7.2,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
+  "descriptionComplete": "Le Signia Pure Charge&Go IX BCT 3 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Pure Charge&Go IX BCT beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. Le traitement du signal s'effectue sur 48 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BT Classic + BLE permet le streaming audio direct depuis votre smartphone. L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Pure Charge&Go IX BCT est rechargeable (batterie Li-ion), offrant jusqu'a 36 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Pure Charge&Go IX BCT integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.2/10. Le Signia Pure Charge&Go IX BCT 3 est un appareil auditif RIC milieu de gamme equipe de la puce IX Platform, lance en 2025 par Signia (groupe WS Audiology). Rechargeable avec 36h d'autonomie. Connectivite BT Classic + BLE."
 }

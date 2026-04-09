@@ -32,5 +32,21 @@
       "min": 1290,
       "max": 2490
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-hansaton-sound-stratos.jpg",
+  "descriptionCourte": "Le Hansaton Sound Stratos est un appareil auditif RIC entree de gamme, lance en 2021 par Hansaton (groupe Sonova). Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Bluetooth BLE"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 6.2,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
+  "descriptionComplete": "Le Hansaton Sound Stratos est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Hansaton (groupe Sonova), technologie Phonak a prix accessible, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Sound Stratos beneficie de la technologie plateforme Phonak. Distribution selective en Europe, interface simplifiee. La plage d'adaptation couvre les pertes legeres a moyennes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Li-ion. Disponible en 5 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 290 euros par appareil (soit ~2 580 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.2/10. Le Hansaton Sound Stratos est un appareil auditif RIC entree de gamme, lance en 2021 par Hansaton (groupe Sonova). Connectivite BLE."
 }

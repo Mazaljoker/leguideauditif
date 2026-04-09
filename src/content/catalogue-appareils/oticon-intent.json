@@ -1,0 +1,60 @@
+{
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "modele": "Intent",
+  "formeType": "RIC",
+  "puce": "Sirius",
+  "annee": 2024,
+  "specs": {
+    "canaux": 64,
+    "batterie": "Li-ion",
+    "autonomie": "16-18",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": true,
+    "application": "Oticon Companion",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-oticon-intent.jpg",
+  "venduEnEurope": true,
+  "slug": "oticon-intent",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1600,
+      "max": 2050
+    }
+  },
+  "metaDescription": "Test complet de l'Oticon Intent par un audioprothésiste DE. Specs techniques, 4 niveaux, technologie 4D Sensor, prix indicatifs et avis professionnel.",
+  "descriptionCourte": "l'Oticon Intent est l'aide auditive la plus avancée d'Oticon à ce jour. Sa technologie 4D Sensor en fait un appareil qui s'adapte non seulement à votre environnement sonore, mais aussi à *la façon dont vous interagissez* avec cet environnement. Un vrai changement de paradigme.",
+  "pointsForts": [
+    "Technologie 4D Sensor unique",
+    "Puce Sirius de dernière génération",
+    "Autonomie solide",
+    "IP68",
+    "LE Audio + Auracast",
+    "SoundScore HearAdvisor de 4.9/5"
+  ],
+  "pointsFaibles": [
+    "Technologie 4D Sensor unique",
+    "Puce Sirius de dernière génération",
+    "Autonomie solide",
+    "IP68",
+    "LE Audio + Auracast"
+  ],
+  "noteExpert": 9.2,
+  "enAvant": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-intent-fiche-technique.pdf",
+  "descriptionComplete": "Le Oticon Intent est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce Sirius, le Intent beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. La compatibilite Auracast ouvre l'acces aux flux audio publics (cinemas, conferences, lieux de culte). L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Intent est rechargeable (batterie Li-ion), offrant jusqu'a 16-18 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Intent integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 600 euros par appareil (soit ~3 200 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 9.2/10. l'Oticon Intent est l'aide auditive la plus avancée d'Oticon à ce jour. Sa technologie 4D Sensor en fait un appareil qui s'adapte non seulement à votre environnement sonore, mais aussi à *la façon dont vous interagissez* avec cet environnement. Un vrai changement de paradigme."
+}

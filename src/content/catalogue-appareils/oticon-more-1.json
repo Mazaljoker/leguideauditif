@@ -38,5 +38,23 @@
     "eur": {
       "unitaire": 1859
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-oticon-more-1.png",
+  "descriptionCourte": "Le Oticon More 1 est un appareil auditif RIC premium equipe de la puce Polaris, lance en 2021 par Oticon (groupe Demant). Rechargeable. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce Polaris",
+    "Rechargeable",
+    "Bluetooth BLE",
+    "Generateur de bruit pour acouphenes",
+    "Application Oticon Companion"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Classe 2 — reste a charge variable"
+  ],
+  "noteExpert": 8.4,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-more-brochure.pdf",
+  "descriptionComplete": "Le Oticon More 1 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce Polaris, le More beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe More est rechargeable (batterie Li-ion|312). Un chargeur est fourni avec l'appareil. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe More integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, des microphones directionnels MoreSound Intelligence. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 859 euros par appareil (soit ~3 718 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.4/10. Le Oticon More 1 est un appareil auditif RIC premium equipe de la puce Polaris, lance en 2021 par Oticon (groupe Demant). Rechargeable. Connectivite BLE."
 }

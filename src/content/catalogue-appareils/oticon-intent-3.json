@@ -46,5 +46,26 @@
     "usd": {
       "min": 3565
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-oticon-intent.jpg",
+  "descriptionCourte": "l'Oticon Intent est l'aide auditive la plus avancée d'Oticon à ce jour. Sa technologie 4D Sensor en fait un appareil qui s'adapte non seulement à votre environnement sonore, mais aussi à *la façon dont vous interagissez* avec cet environnement. Un vrai changement de paradigme.",
+  "pointsForts": [
+    "Technologie 4D Sensor unique",
+    "Puce Sirius de dernière génération",
+    "Autonomie solide",
+    "IP68",
+    "LE Audio + Auracast",
+    "SoundScore HearAdvisor de 4.9/5"
+  ],
+  "pointsFaibles": [
+    "Technologie 4D Sensor unique",
+    "Puce Sirius de dernière génération",
+    "Autonomie solide",
+    "IP68",
+    "LE Audio + Auracast"
+  ],
+  "noteExpert": 8.6,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-intent-fiche-technique.pdf",
+  "descriptionComplete": "Le Oticon Intent 3 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce Sirius, le Intent beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Intent est rechargeable (batterie Li-ion), offrant jusqu'a 20 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 9 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Intent integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen Feedback Shield, des microphones directionnels 4D Sensor + Spatial Sound, des capteurs de sante integres (Accelerometer|Gyroscope). \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 749 euros par appareil (soit ~3 498 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.6/10. l'Oticon Intent est l'aide auditive la plus avancée d'Oticon à ce jour. Sa technologie 4D Sensor en fait un appareil qui s'adapte non seulement à votre environnement sonore, mais aussi à *la façon dont vous interagissez* avec cet environnement. Un vrai changement de paradigme."
 }

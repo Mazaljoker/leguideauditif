@@ -1,0 +1,48 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Audéo Lumity",
+  "formeType": "RIC",
+  "puce": "PRISM",
+  "annee": 2022,
+  "specs": {
+    "canaux": 20,
+    "bandes": 20,
+    "batterie": "Li-ion",
+    "autonomie": "24",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE + A2DP",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.png",
+  "venduEnEurope": true,
+  "slug": "phonak-audeo-lumity",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "metaDescription": "Avis expert sur les appareils auditifs Phonak Audéo Lumity (2022-2026). Technologie AutoSense 5.0, 5 formats (rechargeable, piles, waterproof, slim), Bluetooth universel. Comparaison vs Infinio, tarifs, remboursement Sécu.",
+  "descriptionCourte": "Avis expert sur les appareils auditifs Phonak Audéo Lumity (2022-2026). Technologie AutoSense 5.0, 5 formats (rechargeable, piles, waterproof, slim), Bluetooth universel. Comparaison vs Infinio, tarifs, remboursement Sécu.",
+  "pointsForts": [
+    "Travaillez en bruitée",
+    "Voyagez",
+    "Êtes musicien/audiophile",
+    "Avez perte légère à modérée",
+    "Fréquentez l'église",
+    "Craignez l'esthétique"
+  ],
+  "noteExpert": 8.6,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
+  "descriptionComplete": "Le Phonak Audéo Lumity est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2022 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce PRISM, le Audéo Lumity beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. Le traitement du signal s'effectue sur 20 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE + A2DP permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Audéo Lumity est rechargeable (batterie Li-ion), offrant jusqu'a 24 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Audéo Lumity integre egalement un generateur de bruit pour le soulagement des acouphenes. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.6/10. Avis expert sur les appareils auditifs Phonak Audéo Lumity (2022-2026). Technologie AutoSense 5.0, 5 formats (rechargeable, piles, waterproof, slim), Bluetooth universel. Comparaison vs Infinio, tarifs, remboursement Sécu."
+}

@@ -30,5 +30,23 @@
     "usd": {
       "min": 1690
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-widex-magnify.jpg",
+  "descriptionCourte": "Le Widex Magnify est un appareil auditif RIC entree de gamme, lance en 2021 par Widex (groupe WS Audiology).",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Etanche No",
+    "Generateur de bruit pour acouphenes",
+    "11 coloris disponibles"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de connectivite Bluetooth",
+    "Pas de bobine T (boucle magnetique)"
+  ],
+  "noteExpert": 6.1,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/widex-moment-comparison.pdf",
+  "descriptionComplete": "Le Widex Magnify est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Widex (groupe WS Audiology), son le plus naturel du marche, prefere des musiciens, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Magnify beneficie de la technologie PureSound avec ZeroDelay. Traitement en zero delai (0.5ms), qualite sonore audiophile. La plage d'adaptation couvre les pertes legeres a severes. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles . La certification No garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 11 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Magnify integre egalement un generateur de bruit pour le soulagement des acouphenes. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.1/10. Le Widex Magnify est un appareil auditif RIC entree de gamme, lance en 2021 par Widex (groupe WS Audiology)."
 }

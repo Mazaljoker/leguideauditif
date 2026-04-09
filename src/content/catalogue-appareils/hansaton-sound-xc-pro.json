@@ -32,5 +32,23 @@
       "min": 1190,
       "max": 2390
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-hansaton-sound-xc-pro.jpg",
+  "descriptionCourte": "Le Hansaton Sound XC Pro est un appareil auditif RIC entree de gamme, lance en 2021 par Hansaton (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Rechargeable",
+    "Bluetooth BLE",
+    "8 coloris disponibles"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.4,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
+  "descriptionComplete": "Le Hansaton Sound XC Pro est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Hansaton (groupe Sonova), technologie Phonak a prix accessible, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Sound XC Pro beneficie de la technologie plateforme Phonak. Distribution selective en Europe, interface simplifiee. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nLe Sound XC Pro est rechargeable (batterie Li-ion|312). Un chargeur est fourni avec l'appareil. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 190 euros par appareil (soit ~2 380 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.4/10. Le Hansaton Sound XC Pro est un appareil auditif RIC entree de gamme, lance en 2021 par Hansaton (groupe Sonova). Rechargeable. Connectivite BLE."
 }

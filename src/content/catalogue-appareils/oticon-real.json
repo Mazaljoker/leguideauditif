@@ -1,0 +1,60 @@
+{
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "modele": "Real",
+  "formeType": "RIC",
+  "puce": "Polaris",
+  "annee": 2023,
+  "specs": {
+    "canaux": 64,
+    "batterie": "Li-ion",
+    "autonomie": "16",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Oticon Companion",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-oticon-real.png",
+  "venduEnEurope": true,
+  "slug": "oticon-real",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1400,
+      "max": 1700
+    }
+  },
+  "metaDescription": "Test complet de l'Oticon Real par un audioprothésiste DE. 3 niveaux, 4 formats, technologie DNN et MoreSound Intelligence 2.0. Prix indicatifs et avis pro.",
+  "descriptionCourte": "l'Oticon Real est l'aide auditive qui a introduit le Wind & Handling Stabilizer et le SuddenSound Stabilizer chez Oticon — deux technologies qui rendent le son du quotidien plus naturel et moins fatigant. Proposé en 4 formats (dont 2 à piles), il offre une flexibilité que l'Intent ne propose pas, à un prix plus accessible.",
+  "pointsForts": [
+    "4 formats disponibles",
+    "Wind & Handling Stabilizer",
+    "SuddenSound Stabilizer",
+    "64 canaux sur les 3 niveaux",
+    "IP68",
+    "Prix plus accessible"
+  ],
+  "pointsFaibles": [
+    "4 formats disponibles",
+    "Wind & Handling Stabilizer",
+    "SuddenSound Stabilizer",
+    "64 canaux sur les 3 niveaux",
+    "IP68"
+  ],
+  "noteExpert": 8.8,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-real-datasheet.pdf",
+  "descriptionComplete": "Le Oticon Real est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce Polaris, le Real beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Real est rechargeable (batterie Li-ion), offrant jusqu'a 16 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Real integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 400 euros par appareil (soit ~2 800 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.8/10. l'Oticon Real est l'aide auditive qui a introduit le Wind & Handling Stabilizer et le SuddenSound Stabilizer chez Oticon — deux technologies qui rendent le son du quotidien plus naturel et moins fatigant. Proposé en 4 formats (dont 2 à piles), il offre une flexibilité que l'Intent ne propose pas, à un prix plus accessible."
+}

@@ -44,5 +44,26 @@
     "usd": {
       "min": 3198
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio.avif",
+  "descriptionCourte": "le Phonak Audéo Infinio Sphere — version avec IA — est actuellement l'appareil auditif le plus performant dans le bruit que j'aie jamais testé. L'autonomie de batterie (jusqu'à 56 heures en mode calme) et la connectivité Bluetooth universelle en font un vrai game-changer pour les patients actifs et les utilisateurs Android.",
+  "pointsForts": [
+    "Spheric Speech Clarity unique sur 2e puce dédiée",
+    "Autonomie exceptionnelle",
+    "Bluetooth universaliste",
+    "11 coloris",
+    "Roger intégré",
+    "IP68"
+  ],
+  "pointsFaibles": [
+    "Spheric Speech Clarity unique sur 2e puce dédiée",
+    "Autonomie exceptionnelle",
+    "Bluetooth universaliste",
+    "11 coloris",
+    "Roger intégré"
+  ],
+  "noteExpert": 8.8,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
+  "descriptionComplete": "Le Phonak Audéo Infinio Ultra Sphere 50 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce ERA + DEEPSONIC, le Audéo Infinio Ultra Sphere beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. Le traitement du signal s'effectue sur 20 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE + A2DP permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Audéo Infinio Ultra Sphere est rechargeable (batterie Li-ion), offrant jusqu'a 56 (quiet) 10-11 (Spheric) heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 11 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Audéo Infinio Ultra Sphere integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen WhistleBlock, des microphones directionnels StereoZoom 2.0 et UltraZoom. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 699 euros par appareil (soit ~3 398 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.8/10. le Phonak Audéo Infinio Sphere — version avec IA — est actuellement l'appareil auditif le plus performant dans le bruit que j'aie jamais testé. L'autonomie de batterie (jusqu'à 56 heures en mode calme) et la connectivité Bluetooth universelle en font un vrai game-changer pour les patients actifs et les utilisateurs Android."
 }

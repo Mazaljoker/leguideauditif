@@ -8,6 +8,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AuthorBox from '../../../components/AuthorBox.astro';
 import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
 import ProductCard from '../../../components/catalogue/ProductCard.astro';
+import DownloadGate from '../../../components/catalogue/DownloadGate.tsx';
 import { getCollection } from 'astro:content';
 import {
   formatPrice, getProductPrice, isClasse1, productUrl, brandUrl,
@@ -76,12 +77,26 @@ const schema = productJsonLd(product);
         </div>
 
         <h1 class="font-sans text-2xl sm:text-3xl font-extrabold text-marine">{fullName}</h1>
+
+        {product.noteExpert && (
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1.5 bg-orange/10 text-orange px-3 py-1.5 rounded-lg font-sans text-sm font-bold">
+              {product.noteExpert}/10
+            </span>
+            <span class="font-sans text-xs text-gris-texte">Note expert audioprothesiste</span>
+          </div>
+        )}
+
         <p class="font-sans text-gris-texte">
           {FORME_TYPE_LABELS[product.formeType] || product.formeType}
           {product.puce ? ` · Puce ${product.puce}` : ''}
           {product.specs?.canaux ? ` · ${product.specs.canaux} canaux` : ''}
           {product.specs?.ip ? ` · ${product.specs.ip}` : ''}
         </p>
+
+        {product.descriptionCourte && (
+          <p class="font-serif text-base text-marine leading-relaxed">{product.descriptionCourte}</p>
+        )}
 
         {/* Bloc prix */}
         {price ? (
@@ -120,6 +135,42 @@ const schema = productJsonLd(product);
       </div>
     </div>
 
+    {/* Points forts / Points faibles */}
+    {(product.pointsForts?.length > 0 || product.pointsFaibles?.length > 0) && (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        {product.pointsForts?.length > 0 && (
+          <div class="bg-emerald-50 rounded-2xl p-6">
+            <h2 class="font-sans text-lg font-bold text-emerald-700 mb-3 flex items-center gap-2">
+              <span aria-hidden="true">+</span> Points forts
+            </h2>
+            <ul class="space-y-2">
+              {product.pointsForts.map((p: string) => (
+                <li class="flex items-start gap-2 font-sans text-sm text-marine">
+                  <span class="text-emerald-500 mt-0.5 shrink-0" aria-hidden="true">&#10003;</span>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {product.pointsFaibles?.length > 0 && (
+          <div class="bg-red-50 rounded-2xl p-6">
+            <h2 class="font-sans text-lg font-bold text-red-700 mb-3 flex items-center gap-2">
+              <span aria-hidden="true">-</span> Points faibles
+            </h2>
+            <ul class="space-y-2">
+              {product.pointsFaibles.map((p: string) => (
+                <li class="flex items-start gap-2 font-sans text-sm text-marine">
+                  <span class="text-red-400 mt-0.5 shrink-0" aria-hidden="true">&#10007;</span>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    )}
+
     {/* Niveaux du même modèle */}
     {allLevels.length > 1 && (
       <div class="bg-blanc rounded-2xl p-6 mb-6 shadow-sm">
@@ -150,6 +201,29 @@ const schema = productJsonLd(product);
                 </div>
               </a>
             );
+          })}
+        </div>
+      </div>
+    )}
+
+    {/* Description complete */}
+    {product.descriptionComplete && (
+      <div class="bg-blanc rounded-2xl p-6 sm:p-8 mb-6 shadow-sm">
+        <h2 class="font-sans text-xl font-bold mb-4 pb-3 border-b-2 border-gris-clair">
+          Presentation complete du {fullName}
+        </h2>
+        <div class="font-serif text-base text-marine leading-relaxed space-y-4">
+          {product.descriptionComplete.split('\n\n').map((para: string) => {
+            const lines = para.split('\n');
+            if (lines.length > 1 && lines[0].length < 60 && !lines[0].includes('.')) {
+              return (
+                <div>
+                  <h3 class="font-sans text-lg font-bold text-marine mt-4 mb-2">{lines[0]}</h3>
+                  <p>{lines.slice(1).join(' ')}</p>
+                </div>
+              );
+            }
+            return <p>{para}</p>;
           })}
         </div>
       </div>
@@ -295,6 +369,23 @@ const schema = productJsonLd(product);
         )}
       </div>
     </div>
+
+    {/* Fiche technique PDF */}
+    {product.ficheTechniquePdf && (
+      <div class="bg-blanc rounded-2xl p-6 mb-6 shadow-sm">
+        <h2 class="font-sans text-xl font-bold mb-3">Fiche technique</h2>
+        <p class="font-sans text-sm text-gris-texte mb-4">
+          Telechargez la fiche technique complete du {fullName} au format PDF.
+          Specifications detaillees, courbes de gain, plages d'adaptation.
+        </p>
+        <DownloadGate
+          client:load
+          pdfUrl={product.ficheTechniquePdf}
+          productName={fullName}
+          productSlug={product.slug}
+        />
+      </div>
+    )}
 
     {/* Lead CTA */}
     <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 text-center mb-6">

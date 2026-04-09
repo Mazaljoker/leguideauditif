@@ -35,5 +35,25 @@
     "eur": {
       "unitaire": 1190
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-phonak-bolero-marvel-30.png",
+  "descriptionCourte": "Le Phonak Bolero Marvel 50 est un appareil auditif BTE milieu de gamme equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "pointsForts": [
+    "Puissant, robuste, adapte aux pertes severes a profondes",
+    "Puce AutoSense OS 3.0",
+    "Rechargeable",
+    "Bluetooth BLE",
+    "Application myPhonak",
+    "8 coloris disponibles"
+  ],
+  "pointsFaibles": [
+    "Plus visible derriere l'oreille",
+    "Pas de bobine T (boucle magnetique)",
+    "Classe 2 — reste a charge variable",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.9,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-bolero-marvel-datasheet.pdf",
+  "descriptionComplete": "Le Phonak Bolero Marvel 50 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2019 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce AutoSense OS 3.0, le Bolero Marvel beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Bolero Marvel est rechargeable (batterie Li-ion|13|675). Un chargeur est fourni avec l'appareil. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 190 euros par appareil (soit ~2 380 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.9/10. Le Phonak Bolero Marvel 50 est un appareil auditif BTE milieu de gamme equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova). Rechargeable. Connectivite BLE."
 }

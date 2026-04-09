@@ -34,5 +34,24 @@
     "eur": {
       "unitaire": 849
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-resound-key-1.jpg",
+  "descriptionCourte": "Le ReSound Key 1 est un appareil auditif RIC entree de gamme, lance en 2020 par ReSound (groupe GN). Connectivite BLE (3-4 only).",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Bluetooth BLE (3-4 only)",
+    "Etanche IP58",
+    "Application Smart 3D",
+    "Classe 1 — Reste a charge 0 euros"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.3,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/resound-omnia-brochure.pdf",
+  "descriptionComplete": "Le ReSound Key 1 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2020 par ReSound (groupe GN), pionnier du Made for iPhone et du Bluetooth LE Audio, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Key beneficie de la technologie M&RIE (Microphone & Receiver-In-Ear). Micro dans le conduit pour une spatialisation naturelle, Auracast. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE (3-4 only) permet le streaming audio direct depuis votre smartphone. L'application Smart 3D permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Disposable|Li-ion. La certification IP58 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nPrix et remboursement\nLe prix indicatif est d'environ 849 euros par appareil (soit ~1 698 euros la paire). En tant qu'appareil de Classe 1, le Key est integralement pris en charge par la Securite sociale et les complementaires (reste a charge 0 euros dans le cadre du 100% Sante). Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.3/10. Le ReSound Key 1 est un appareil auditif RIC entree de gamme, lance en 2020 par ReSound (groupe GN). Connectivite BLE (3-4 only)."
 }

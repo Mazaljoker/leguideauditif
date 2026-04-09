@@ -32,5 +32,22 @@
     "usd": {
       "min": 2598
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-oticon-jet-px.jpg",
+  "descriptionCourte": "Le Oticon Jet PX est un appareil auditif RIC entree de gamme, lance en 2025 par Oticon (groupe Demant). Connectivite BLE.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Bluetooth BLE",
+    "Application Oticon Companion"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Non rechargeable (piles)",
+    "Pas de bobine T (boucle magnetique)",
+    "Pas de support Auracast"
+  ],
+  "noteExpert": 6.4,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-more-brochure.pdf",
+  "descriptionComplete": "Le Oticon Jet PX est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Jet PX beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Li-ion|disposable. \n\nFonctionnalites complementaires\nLe Jet PX integre egalement des microphones directionnels DNN. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.4/10. Le Oticon Jet PX est un appareil auditif RIC entree de gamme, lance en 2025 par Oticon (groupe Demant). Connectivite BLE."
 }

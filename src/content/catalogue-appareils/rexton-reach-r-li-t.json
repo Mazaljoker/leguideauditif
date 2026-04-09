@@ -33,5 +33,24 @@
     "usd": {
       "min": 1500
     }
-  }
+  },
+  "image": "/images/appareils/aide-auditive-rexton-reach-r-li-t.jpg",
+  "descriptionCourte": "Le Rexton Reach R-Li T est un appareil auditif RIC entree de gamme equipe de la puce IX Platform, lance en 2024 par Rexton (groupe WS Audiology). Rechargeable avec 39h d'autonomie. Connectivite BLE LE Audio.",
+  "pointsForts": [
+    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Puce IX Platform",
+    "Rechargeable (39h)",
+    "Bluetooth BLE LE Audio",
+    "Appels mains libres",
+    "Application Rexton App"
+  ],
+  "pointsFaibles": [
+    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Pas de support Auracast",
+    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+  ],
+  "noteExpert": 6.6,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
+  "descriptionComplete": "Le Rexton Reach R-Li T est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Rexton (groupe WS Audiology), technologie Signia a tarif reduit, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Reach R-Li T beneficie de la technologie plateforme Signia. Distribue principalement via Costco aux USA, bon rapport qualite-prix. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Rexton App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Reach R-Li T est rechargeable (batterie Li-ion), offrant jusqu'a 39 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. Disponible en 4 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Reach R-Li T integre egalement une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.6/10. Le Rexton Reach R-Li T est un appareil auditif RIC entree de gamme equipe de la puce IX Platform, lance en 2024 par Rexton (groupe WS Audiology). Rechargeable avec 39h d'autonomie. Connectivite BLE LE Audio."
 }
