@@ -1,0 +1,35 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Audéo Lumity",
+  "formeType": "RIC",
+  "puce": "PRISM",
+  "annee": 2022,
+  "specs": {
+    "canaux": 20,
+    "bandes": 20,
+    "batterie": "Li-ion",
+    "autonomie": "24",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE + A2DP",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.png",
+  "venduEnEurope": true,
+  "slug": "phonak-audeo-lumity",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "metaDescription": "Avis expert sur les appareils auditifs Phonak Audéo Lumity (2022-2026). Technologie AutoSense 5.0, 5 formats (rechargeable, piles, waterproof, slim), Bluetooth universel. Comparaison vs Infinio, tarifs, remboursement Sécu."
+}

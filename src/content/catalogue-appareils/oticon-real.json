@@ -1,0 +1,40 @@
+{
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "modele": "Real",
+  "formeType": "RIC",
+  "puce": "Polaris",
+  "annee": 2023,
+  "specs": {
+    "canaux": 64,
+    "batterie": "Li-ion",
+    "autonomie": "16",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Oticon Companion",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-oticon-real.png",
+  "venduEnEurope": true,
+  "slug": "oticon-real",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1400,
+      "max": 1700
+    }
+  },
+  "metaDescription": "Test complet de l'Oticon Real par un audioprothésiste DE. 3 niveaux, 4 formats, technologie DNN et MoreSound Intelligence 2.0. Prix indicatifs et avis pro."
+}

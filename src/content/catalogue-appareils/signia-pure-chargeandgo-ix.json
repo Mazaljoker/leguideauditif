@@ -1,0 +1,40 @@
+{
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Pure Charge&Go IX",
+  "formeType": "RIC",
+  "puce": "IX Platform",
+  "annee": 2024,
+  "specs": {
+    "canaux": 48,
+    "batterie": "Li-ion",
+    "autonomie": "39",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": true,
+    "application": "Signia App",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-signia-pure-charge-go-ix.webp",
+  "venduEnEurope": true,
+  "slug": "signia-pure-chargeandgo-ix",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1400,
+      "max": 2100
+    }
+  },
+  "metaDescription": "Découvrez la Signia Pure Charge&Go IX, l'appareillage RIC rechargeable avec technologie Integrated Xperience pour une meilleure compréhension en conversation. Guide complet, prix, niveaux."
+}

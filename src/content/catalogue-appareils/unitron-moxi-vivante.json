@@ -1,0 +1,33 @@
+{
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "modele": "Moxi Vivante",
+  "formeType": "RIC",
+  "puce": "Integra OS",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Li-ion",
+    "autonomie": "24",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Unitron Remote Plus",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-unitron-moxi-vivante.png",
+  "venduEnEurope": true,
+  "slug": "unitron-moxi-vivante",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "metaDescription": "Découvrez l'Unitron Moxi Vivante, appareil auditif RIC haut de gamme lancé en 2023. Specs, technologies Integra OS, FLEX:TRIAL, prix, avis expert Franck-Olivier."
+}

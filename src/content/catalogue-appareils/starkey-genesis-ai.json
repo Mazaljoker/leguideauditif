@@ -1,0 +1,34 @@
+{
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "modele": "Genesis AI",
+  "formeType": "RIC",
+  "puce": "Starkey Neuro Processor",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Li-ion",
+    "autonomie": "23",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Starkey My Starkey",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "capteursSante": "Chute, podometre, frequence cardiaque"
+  },
+  "image": "/images/appareils/aide-auditive-starkey-genesis-ai.jpg",
+  "venduEnEurope": true,
+  "slug": "starkey-genesis-ai",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "metaDescription": "Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents."
+}

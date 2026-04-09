@@ -1,0 +1,33 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Slim Lumity",
+  "formeType": "Slim RIC",
+  "puce": "PRISM",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Li-ion",
+    "autonomie": "24",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to moderate"
+  },
+  "connectivite": {
+    "bluetooth": "BLE + A2DP",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-phonak-slim-lumity.png",
+  "venduEnEurope": true,
+  "slug": "phonak-slim-lumity",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "metaDescription": "Découvrez le Phonak Slim Lumity, l'appareil auditif qui change les codes du design. Avis expert, technologies, prix et comparaison avec le Lumity standard."
+}

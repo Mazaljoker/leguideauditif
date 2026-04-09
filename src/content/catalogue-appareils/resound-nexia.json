@@ -1,0 +1,39 @@
+{
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "Nexia",
+  "formeType": "RIC",
+  "puce": "ReSound Nexia",
+  "annee": 2023,
+  "specs": {
+    "batterie": "Li-ion",
+    "autonomie": "24",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": true,
+    "application": "ReSound Smart 3D",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-resound-nexia.png",
+  "venduEnEurope": true,
+  "slug": "resound-nexia",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1300,
+      "max": 1900
+    }
+  },
+  "metaDescription": "Découvrez le ReSound Nexia, le premier appareil auditif avec Bluetooth LE Audio natif et Auracast. Technologie M&RIE, 4 niveaux, évaluation expert."
+}

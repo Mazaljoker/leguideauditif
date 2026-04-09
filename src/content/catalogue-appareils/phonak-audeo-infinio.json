@@ -1,0 +1,41 @@
+{
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Audéo Infinio",
+  "formeType": "RIC",
+  "puce": "ERA + DEEPSONIC",
+  "annee": 2024,
+  "specs": {
+    "canaux": 20,
+    "bandes": 20,
+    "batterie": "Li-ion",
+    "autonomie": "56",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to profound"
+  },
+  "connectivite": {
+    "bluetooth": "BLE + A2DP",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio.avif",
+  "venduEnEurope": true,
+  "slug": "phonak-audeo-infinio",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1399,
+      "max": 2299
+    }
+  },
+  "metaDescription": "Test complet du Phonak Audéo Infinio par un audioprothésiste DE. Specs techniques, Sphere Infinio, 4 niveaux, technologie IA Spheric Speech Clarity, prix indicatifs et avis professionnel."
+}
