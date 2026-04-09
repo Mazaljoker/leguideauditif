@@ -20,6 +20,7 @@ interface Product {
   specs?: { canaux?: number };
   connectivite?: { bluetooth?: string; auracast?: boolean };
   fonctionnalites?: { rechargeable?: boolean; acouphenes?: boolean };
+  image?: string;
 }
 
 interface Props {
@@ -223,7 +224,11 @@ function ProductCardReact({ product }: { product: Product }) {
       )}
 
       <a href={`/catalogue/appareils/${product.slug}/`} className="block bg-gray-50 h-44 flex items-center justify-center no-underline">
-        <span className="text-5xl opacity-20">👂</span>
+        {product.image ? (
+          <img src={product.image} alt={`${product.marqueLabel} ${product.modele}`} className="w-full h-full object-contain p-4" loading="lazy" />
+        ) : (
+          <span className="text-5xl opacity-20" aria-hidden="true">👂</span>
+        )}
       </a>
 
       <div className="p-4">
