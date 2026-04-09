@@ -65,5 +65,6 @@
     "LE Audio + Auracast"
   ],
   "noteExpert": 9.2,
-  "enAvant": true
+  "enAvant": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-intent-fiche-technique.pdf"
 }

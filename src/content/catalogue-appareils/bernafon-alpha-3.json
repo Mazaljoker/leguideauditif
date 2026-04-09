@@ -38,5 +38,6 @@
   "image": "/images/appareils/aide-auditive-bernafon-alpha.jpg",
   "descriptionCourte": "Découvrez le Bernafon Alpha, appareil auditif RIC lancé en 2021 avec Hybrid Technology. Specs, modèles, prix, avis expert Franck-Olivier.",
   "noteExpert": 6.9,
-  "enAvant": false
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/bernafon-alpha-product-info.pdf"
 }

@@ -52,5 +52,6 @@
     "Craignez l'esthétique"
   ],
   "noteExpert": 8.3,
-  "enAvant": false
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf"
 }

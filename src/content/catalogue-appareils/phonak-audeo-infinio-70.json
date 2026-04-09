@@ -63,5 +63,6 @@
     "Roger intégré"
   ],
   "noteExpert": 9.1,
-  "enAvant": false
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf"
 }

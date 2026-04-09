@@ -44,5 +44,6 @@
   "image": "/images/appareils/aide-auditive-widex-allure.png",
   "descriptionCourte": "Découvrez la gamme Widex Allure 2025. Technologie PureSound, zéro délai, recharge. Comparatif, niveaux, prix et avis expert d'un audioprothésiste avec 25 ans d'expérience.",
   "noteExpert": 7.9,
-  "enAvant": false
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/widex-allure-datasheet.pdf"
 }

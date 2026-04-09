@@ -8,6 +8,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AuthorBox from '../../../components/AuthorBox.astro';
 import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
 import ProductCard from '../../../components/catalogue/ProductCard.astro';
+import DownloadGate from '../../../components/catalogue/DownloadGate.tsx';
 import { getCollection } from 'astro:content';
 import {
   formatPrice, getProductPrice, isClasse1, productUrl, brandUrl,
@@ -345,6 +346,23 @@ const schema = productJsonLd(product);
         )}
       </div>
     </div>
+
+    {/* Fiche technique PDF */}
+    {product.ficheTechniquePdf && (
+      <div class="bg-blanc rounded-2xl p-6 mb-6 shadow-sm">
+        <h2 class="font-sans text-xl font-bold mb-3">Fiche technique</h2>
+        <p class="font-sans text-sm text-gris-texte mb-4">
+          Telechargez la fiche technique complete du {fullName} au format PDF.
+          Specifications detaillees, courbes de gain, plages d'adaptation.
+        </p>
+        <DownloadGate
+          client:load
+          pdfUrl={product.ficheTechniquePdf}
+          productName={fullName}
+          productSlug={product.slug}
+        />
+      </div>
+    )}
 
     {/* Lead CTA */}
     <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 text-center mb-6">

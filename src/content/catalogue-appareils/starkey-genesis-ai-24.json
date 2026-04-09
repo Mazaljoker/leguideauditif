@@ -44,5 +44,6 @@
   "image": "/images/appareils/aide-auditive-starkey-genesis-ai.jpg",
   "descriptionCourte": "Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents.",
   "noteExpert": 8.5,
-  "enAvant": false
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/starkey-genesis-ai-fiche-technique.pdf"
 }

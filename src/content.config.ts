@@ -181,6 +181,9 @@ const catalogueAppareils = defineCollection({
     noteExpert: z.number().min(0).max(10).optional(),
     enAvant: z.boolean().default(false),
 
+    // ── Fiches techniques ──
+    ficheTechniquePdf: z.string().optional(),
+
     // ── SEO ──
     metaTitle: z.string().optional(),
     metaDescription: z.string().optional(),
