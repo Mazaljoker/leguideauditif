@@ -21,6 +21,8 @@ interface Product {
   connectivite?: { bluetooth?: string; auracast?: boolean };
   fonctionnalites?: { rechargeable?: boolean; acouphenes?: boolean };
   image?: string;
+  legacy?: boolean;
+  legacyReason?: string;
 }
 
 interface Props {
@@ -209,21 +211,25 @@ function ProductCardReact({ product }: { product: Product }) {
   const typeShort = TYPE_SHORT[product.formeType] || product.formeType;
 
   return (
-    <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow relative group">
-      {product.classe && (
+    <article className={`rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow relative group ${product.legacy ? 'bg-gray-100 opacity-75' : 'bg-white'}`}>
+      {product.legacy ? (
+        <span className="absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-bold bg-gray-300 text-gray-700">
+          Arrete
+        </span>
+      ) : product.classe ? (
         <span className={`absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-bold ${
           classe1 ? 'bg-emerald-100 text-emerald-700' : 'bg-blue-100 text-[#1B2E4A]'
         }`}>
           {classe1 ? 'Classe 1 — RAC 0\u00A0\u20AC' : 'Classe 2'}
         </span>
-      )}
+      ) : null}
       {niveauLabel && (
         <span className="absolute top-3 right-3 z-10 px-3 py-1 rounded-full text-xs font-semibold bg-orange-100 text-[#D97B3D]">
           {niveauLabel}
         </span>
       )}
 
-      <a href={`/catalogue/appareils/${product.slug}/`} className="block bg-gray-50 h-44 flex items-center justify-center no-underline">
+      <a href={`/catalogue/appareils/${product.slug}/`} className={`block h-44 flex items-center justify-center no-underline ${product.legacy ? 'bg-gray-200/50 grayscale' : 'bg-gray-50'}`}>
         {product.image ? (
           <img src={product.image} alt={`${product.marqueLabel} ${product.modele}`} className="w-full h-full object-contain p-4" loading="lazy" />
         ) : (
@@ -269,10 +275,17 @@ function ProductCardReact({ product }: { product: Product }) {
               <div className="text-sm text-gray-500">Prix sur devis</div>
             )}
           </div>
-          <a href={`/devis/?appareil=${product.slug}`}
-            className="inline-flex items-center gap-1 bg-[#D97B3D] text-white px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#c46a2e] transition-colors">
-            Devis →
-          </a>
+          {product.legacy ? (
+            <a href={`/catalogue/appareils/${product.slug}/`}
+              className="inline-flex items-center gap-1 bg-gray-400 text-white px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-gray-500 transition-colors">
+              Voir la fiche
+            </a>
+          ) : (
+            <a href={`/devis/?appareil=${product.slug}`}
+              className="inline-flex items-center gap-1 bg-[#D97B3D] text-white px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#c46a2e] transition-colors">
+              Devis &rarr;
+            </a>
+          )}
         </div>
       </div>
     </article>
