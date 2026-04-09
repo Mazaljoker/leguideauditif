@@ -182,6 +182,8 @@ const catalogueAppareils = defineCollection({
     pointsFaibles: z.array(z.string()).optional(),
     noteExpert: z.number().min(0).max(10).optional(),
     enAvant: z.boolean().default(false),
+    legacy: z.boolean().default(false),
+    legacyReason: z.string().optional(),
 
     // ── Fiches techniques ──
     ficheTechniquePdf: z.string().optional(),
