@@ -183,6 +183,7 @@ const catalogueAppareils = defineCollection({
 
     // ── Fiches techniques ──
     ficheTechniquePdf: z.string().optional(),
+    descriptionComplete: z.string().optional(),
 
     // ── SEO ──
     metaTitle: z.string().optional(),

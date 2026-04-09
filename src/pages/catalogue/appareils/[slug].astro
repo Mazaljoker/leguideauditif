@@ -206,6 +206,29 @@ const schema = productJsonLd(product);
       </div>
     )}
 
+    {/* Description complete */}
+    {product.descriptionComplete && (
+      <div class="bg-blanc rounded-2xl p-6 sm:p-8 mb-6 shadow-sm">
+        <h2 class="font-sans text-xl font-bold mb-4 pb-3 border-b-2 border-gris-clair">
+          Presentation complete du {fullName}
+        </h2>
+        <div class="font-serif text-base text-marine leading-relaxed space-y-4">
+          {product.descriptionComplete.split('\n\n').map((para: string) => {
+            const lines = para.split('\n');
+            if (lines.length > 1 && lines[0].length < 60 && !lines[0].includes('.')) {
+              return (
+                <div>
+                  <h3 class="font-sans text-lg font-bold text-marine mt-4 mb-2">{lines[0]}</h3>
+                  <p>{lines.slice(1).join(' ')}</p>
+                </div>
+              );
+            }
+            return <p>{para}</p>;
+          })}
+        </div>
+      </div>
+    )}
+
     {/* Specs détaillées */}
     <div class="bg-blanc rounded-2xl p-6 mb-6 shadow-sm">
       <h2 class="font-sans text-xl font-bold mb-4 pb-3 border-b-2 border-gris-clair">Caractéristiques techniques</h2>
