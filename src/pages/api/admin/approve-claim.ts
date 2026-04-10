@@ -5,7 +5,7 @@ import { createServerClient } from '../../../lib/supabase';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const secret = import.meta.env.ADMIN_SECRET;
+    const secret = import.meta.env.ADMIN_SECRET || process.env.ADMIN_SECRET;
     const body = await request.json();
     const { centreSlug, token } = body;
 

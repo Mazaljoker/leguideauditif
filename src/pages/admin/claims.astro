@@ -7,7 +7,7 @@ import { supabase } from '../../lib/supabase';
 
 // Protection par token dans l'URL
 const token = Astro.url.searchParams.get('token');
-const adminSecret = import.meta.env.ADMIN_SECRET;
+const adminSecret = import.meta.env.ADMIN_SECRET || process.env.ADMIN_SECRET;
 
 if (!adminSecret || token !== adminSecret) {
   return Astro.redirect('/');
