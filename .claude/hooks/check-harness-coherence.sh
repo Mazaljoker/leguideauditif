@@ -19,7 +19,7 @@ echo "=== Harness Coherence Check ==="
 
 # Verifier refs Agent dans les commands
 echo "--- Agent references ---"
-for cmd in "$BASEDIR"/commands/*.md 2>/dev/null; do
+for cmd in "$BASEDIR"/commands/*.md; do
   [ -f "$cmd" ] || continue
   agents=$(grep '\*\*Agent:\*\*' "$cmd" 2>/dev/null | sed 's/.*\*\*Agent:\*\*\s*//' | awk '{print $1}' || true)
   for agent in $agents; do
@@ -35,7 +35,7 @@ done
 # Verifier les refs Skill
 echo "--- Skill references ---"
 SKILL_ERRORS=0
-for cmd in "$BASEDIR"/commands/*.md 2>/dev/null; do
+for cmd in "$BASEDIR"/commands/*.md; do
   [ -f "$cmd" ] || continue
   skills=$(grep '\*\*Skill:\*\*' "$cmd" 2>/dev/null | sed 's/.*\*\*Skill:\*\*\s*//' | awk '{print $1}' | grep -E '^(me-|nposts-)' || true)
   for skill in $skills; do
