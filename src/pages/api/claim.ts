@@ -42,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
     // Verifier que le centre existe et n'est pas deja revendique
     const { data: centre, error: fetchError } = await supabase
       .from('centres_auditifs')
-      .select('id, slug, nom, plan')
+      .select('id, slug, nom, plan, claim_status')
       .eq('slug', centreSlug)
       .single();
 
@@ -56,6 +56,13 @@ export const POST: APIRoute = async ({ request }) => {
     if (centre.plan !== 'rpps') {
       return new Response(
         JSON.stringify({ error: 'Ce centre a deja ete revendique.' }),
+        { status: 409, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (centre.claim_status === 'pending') {
+      return new Response(
+        JSON.stringify({ error: 'Une demande de revendication est deja en cours pour ce centre.' }),
         { status: 409, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -102,10 +109,9 @@ export const POST: APIRoute = async ({ request }) => {
     const cleanSpecialites = specialites.slice(0, 3);
     const cleanMarques = marques.slice(0, 3);
 
-    // Revendiquer le centre
+    // Sauvegarder la demande (verification manuelle avant activation)
     const updateData: Record<string, unknown> = {
-      plan: 'claimed',
-      claimed: true,
+      claim_status: 'pending',
       claimed_at: new Date().toISOString(),
       claimed_by_email: email,
       claimed_by_name: `${prenom} ${nom}`,

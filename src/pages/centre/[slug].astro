@@ -35,12 +35,13 @@ if (error || !centre) {
   return Astro.redirect('/trouver-audioprothesiste/');
 }
 
-const typedCentre = centre as unknown as CentreData;
+const typedCentre = centre as unknown as CentreData & { claim_status: string };
 const displayVille = typedCentre.ville || typedCentre.cp;
 
 const isRpps = typedCentre.plan === 'rpps';
 const isClaimed = typedCentre.plan === 'claimed';
 const isPremium = typedCentre.plan === 'premium';
+const isPendingClaim = isRpps && typedCentre.claim_status === 'pending';
 
 // --- Donnees conditionnelles ---
 
@@ -145,7 +146,19 @@ if (typedCentre.marques?.length > 0) {
           </p>
         </div>
 
-        <CentreClaimCTA slug={typedCentre.slug} audioPrenom={typedCentre.audio_prenom} />
+        {isPendingClaim ? (
+          <div class="rounded-xl bg-[#FAEEDA] border border-[#EFD5A0] p-5 mb-6 flex items-start gap-3">
+            <Icon name="lucide:clock" class="w-5 h-5 text-[#854F0B] shrink-0 mt-0.5" />
+            <div>
+              <p class="text-sm font-medium text-[#633806] font-sans">Verification en cours</p>
+              <p class="text-xs text-[#854F0B] font-sans mt-1">
+                Une demande de revendication a ete soumise pour ce centre. La verification est en cours et sera finalisee sous 24h.
+              </p>
+            </div>
+          </div>
+        ) : (
+          <CentreClaimCTA slug={typedCentre.slug} audioPrenom={typedCentre.audio_prenom} />
+        )}
         <CentreCompetitors competitors={competitors} />
         <CentreStats plan="rpps" viewCount={viewCount} leadCount={leadCount} />
         <CentreMap centre={typedCentre} />

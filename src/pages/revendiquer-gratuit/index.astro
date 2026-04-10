@@ -12,7 +12,7 @@ let centre = null;
 if (centreSlug) {
   const { data } = await supabase
     .from('centres_auditifs')
-    .select('slug, nom, adresse, cp, ville, plan')
+    .select('slug, nom, adresse, cp, ville, plan, claim_status')
     .eq('slug', centreSlug)
     .single();
   centre = data;
@@ -22,7 +22,7 @@ if (!centre) {
   return Astro.redirect('/trouver-audioprothesiste/');
 }
 
-if (centre.plan !== 'rpps') {
+if (centre.plan !== 'rpps' || centre.claim_status === 'pending') {
   return Astro.redirect(`/centre/${centre.slug}/`);
 }
 
@@ -299,7 +299,7 @@ const breadcrumbs = [
       </div>
 
       <p class="text-xs text-gris-texte font-sans mt-3">
-        Verification sous 24h. Aucun paiement requis.
+        Aucun paiement requis. Votre demande sera verifiee sous 24h.
       </p>
     </form>
   </section>
