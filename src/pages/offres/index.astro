@@ -1,0 +1,231 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Nos offres' },
+];
+
+const pageTitle = 'Nos offres pour les audioprothesistes — LeGuideAuditif';
+const pageDescription = 'Boostez la visibilite de votre centre auditif. Badge verifie, position prioritaire, leads patients directs. A partir de 29 euros par mois.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="bg-creme">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    {/* En-tete */}
+    <div class="text-center mb-12">
+      <h1 class="font-sans text-3xl sm:text-4xl font-bold text-marine mb-4">
+        Developpez votre patientele en ligne
+      </h1>
+      <p class="text-gris-texte font-sans text-lg max-w-2xl mx-auto">
+        LeGuideAuditif.fr met en relation les patients avec les audioprothesistes de leur secteur.
+        Choisissez la formule adaptee a votre centre.
+      </p>
+    </div>
+
+    {/* Grille des offres */}
+    <div class="grid gap-8 lg:grid-cols-3">
+
+      {/* Offre Gratuit */}
+      <div class="rounded-xl border border-gris-clair bg-blanc p-8 flex flex-col">
+        <div class="mb-6">
+          <h2 class="font-sans text-xl font-bold text-marine mb-1">Fiche gratuite</h2>
+          <p class="text-gris-texte font-sans text-sm">Pour commencer</p>
+        </div>
+        <p class="font-sans text-3xl font-bold text-marine mb-6">
+          0 &euro;<span class="text-base font-normal text-gris-texte">/mois</span>
+        </p>
+        <ul class="space-y-3 mb-8 flex-1 font-sans text-sm text-gris-texte">
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Telephone, email, site web affiches
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Horaires d'ouverture
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Specialites et marques proposees
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Section "A propos" personnalisee
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Formulaire de contact patient
+          </li>
+        </ul>
+        <a
+          href="/trouver-audioprothesiste/"
+          class="block text-center rounded-lg border-2 border-marine px-6 py-3 font-semibold text-marine font-sans transition-colors hover:bg-marine hover:text-blanc"
+          style="min-height: 48px; display: flex; align-items: center; justify-content: center;"
+        >
+          Trouver mon centre
+        </a>
+      </div>
+
+      {/* Offre Premium */}
+      <div class="rounded-xl border-2 border-orange bg-blanc p-8 flex flex-col relative">
+        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-orange px-4 py-1 text-xs font-bold text-blanc font-sans">
+          Recommande
+        </span>
+        <div class="mb-6">
+          <h2 class="font-sans text-xl font-bold text-marine mb-1">Premium</h2>
+          <p class="text-gris-texte font-sans text-sm">Visibilite maximale</p>
+        </div>
+        <p class="font-sans text-3xl font-bold text-marine mb-1">
+          29 &euro;<span class="text-base font-normal text-gris-texte">/mois</span>
+        </p>
+        <p class="text-sm text-gris-texte font-sans mb-6">
+          ou 290 &euro;/an (2 mois offerts)
+        </p>
+        <ul class="space-y-3 mb-8 flex-1 font-sans text-sm text-gris-texte">
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Tout de la fiche gratuite
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            <span><strong class="text-marine">Badge "Centre verifie"</strong> par un DE</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Position prioritaire dans l'annuaire et la carte
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Leads patients routes directement vers votre centre
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Reseaux sociaux affiches sur votre fiche
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Section avis patients (bientot)
+          </li>
+        </ul>
+        <a
+          href="/trouver-audioprothesiste/"
+          class="block text-center rounded-lg bg-orange px-6 py-3 font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover"
+          style="min-height: 48px; display: flex; align-items: center; justify-content: center;"
+        >
+          Passer en Premium
+        </a>
+        <p class="text-xs text-gris-texte font-sans text-center mt-3">
+          Sans engagement, resiliable a tout moment
+        </p>
+      </div>
+
+      {/* Offre Serenite */}
+      <div class="rounded-xl border border-gris-clair bg-blanc p-8 flex flex-col">
+        <div class="mb-6">
+          <h2 class="font-sans text-xl font-bold text-marine mb-1">Serenite</h2>
+          <p class="text-gris-texte font-sans text-sm">Gestion complete</p>
+        </div>
+        <p class="font-sans text-3xl font-bold text-marine mb-1">
+          Sur devis
+        </p>
+        <p class="text-sm text-gris-texte font-sans mb-6">
+          Accompagnement personnalise
+        </p>
+        <ul class="space-y-3 mb-8 flex-1 font-sans text-sm text-gris-texte">
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Tout du Premium
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Gestion de vos reseaux sociaux (nPosts)
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Leads qualifies et routage intelligent
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Analytics et reporting mensuel
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+            Interlocuteur dedie
+          </li>
+        </ul>
+        <a
+          href="/contact/"
+          class="block text-center rounded-lg border-2 border-marine px-6 py-3 font-semibold text-marine font-sans transition-colors hover:bg-marine hover:text-blanc"
+          style="min-height: 48px; display: flex; align-items: center; justify-content: center;"
+        >
+          Nous contacter
+        </a>
+      </div>
+    </div>
+
+    {/* FAQ rapide */}
+    <div class="mt-16 max-w-3xl mx-auto">
+      <h2 class="font-sans text-2xl font-bold text-marine mb-8 text-center">Questions frequentes</h2>
+
+      <div class="space-y-6 font-sans">
+        <details class="rounded-xl border border-gris-clair bg-blanc p-5 group">
+          <summary class="font-semibold text-marine cursor-pointer list-none flex items-center justify-between">
+            La revendication est-elle vraiment gratuite ?
+            <Icon name="lucide:chevron-down" class="w-5 h-5 text-gris-texte group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-gris-texte text-sm mt-3 leading-relaxed">
+            Oui. Revendiquer votre fiche est 100% gratuit et sans engagement.
+            Vous completez vos informations (telephone, horaires, specialites) et votre fiche
+            devient visible par les patients qui cherchent un audioprothesiste dans votre secteur.
+          </p>
+        </details>
+
+        <details class="rounded-xl border border-gris-clair bg-blanc p-5 group">
+          <summary class="font-semibold text-marine cursor-pointer list-none flex items-center justify-between">
+            Quelle est la difference entre gratuit et Premium ?
+            <Icon name="lucide:chevron-down" class="w-5 h-5 text-gris-texte group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-gris-texte text-sm mt-3 leading-relaxed">
+            La fiche gratuite affiche toutes vos coordonnees et informations pratiques.
+            Le Premium ajoute le badge "Centre verifie", une position prioritaire dans les resultats,
+            et les leads patients sont routes directement vers votre centre au lieu d'un audioprothesiste generique du secteur.
+          </p>
+        </details>
+
+        <details class="rounded-xl border border-gris-clair bg-blanc p-5 group">
+          <summary class="font-semibold text-marine cursor-pointer list-none flex items-center justify-between">
+            Puis-je resilier a tout moment ?
+            <Icon name="lucide:chevron-down" class="w-5 h-5 text-gris-texte group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-gris-texte text-sm mt-3 leading-relaxed">
+            Oui. L'abonnement Premium est sans engagement. Vous pouvez resilier a tout moment
+            depuis votre espace ou en nous contactant. Votre fiche repassera en version gratuite
+            a la fin de la periode en cours.
+          </p>
+        </details>
+
+        <details class="rounded-xl border border-gris-clair bg-blanc p-5 group">
+          <summary class="font-semibold text-marine cursor-pointer list-none flex items-center justify-between">
+            Comment fonctionne la verification ?
+            <Icon name="lucide:chevron-down" class="w-5 h-5 text-gris-texte group-open:rotate-180 transition-transform" />
+          </summary>
+          <p class="text-gris-texte text-sm mt-3 leading-relaxed">
+            Lors de la revendication, vous fournissez votre numero ADELI ou SIRET.
+            Notre equipe verifie vos informations professionnelles sous 24 heures.
+            Une fois verifie, votre fiche est activee et visible par les patients.
+          </p>
+        </details>
+      </div>
+    </div>
+
+  </section>
+</BaseLayout>
