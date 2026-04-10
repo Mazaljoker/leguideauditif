@@ -35,7 +35,7 @@ if (error || !centre) {
   return Astro.redirect('/trouver-audioprothesiste/');
 }
 
-const typedCentre = centre as unknown as CentreData & { claim_status: string };
+const typedCentre = centre as unknown as CentreData;
 const displayVille = typedCentre.ville || typedCentre.cp;
 
 const isRpps = typedCentre.plan === 'rpps';

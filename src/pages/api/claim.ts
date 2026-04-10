@@ -83,7 +83,7 @@ export const POST: APIRoute = async ({ request }) => {
         );
       }
 
-      const ext = photo.name.split('.').pop() || 'jpg';
+      const ext = photo.type === 'image/png' ? 'png' : photo.type === 'image/webp' ? 'webp' : 'jpg';
       const filePath = `${centre.id}/photo.${ext}`;
       const arrayBuffer = await photo.arrayBuffer();
 
@@ -105,9 +105,9 @@ export const POST: APIRoute = async ({ request }) => {
       }
     }
 
-    // Valider specialites et marques (3 max chacun)
-    const cleanSpecialites = specialites.slice(0, 3);
-    const cleanMarques = marques.slice(0, 3);
+    // Valider specialites et marques (3 max, strings non-vides)
+    const cleanSpecialites = specialites.filter(s => typeof s === 'string' && s.trim().length > 0).slice(0, 3);
+    const cleanMarques = marques.filter(m => typeof m === 'string' && m.trim().length > 0).slice(0, 3);
 
     // Sauvegarder la demande (verification manuelle avant activation)
     const updateData: Record<string, unknown> = {

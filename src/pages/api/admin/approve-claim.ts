@@ -70,7 +70,6 @@ export const POST: APIRoute = async ({ request, cookies }) => {
       .from('centres_auditifs')
       .update({
         plan: 'claimed',
-        claimed: true,
         claim_status: 'approved',
       })
       .eq('slug', centreSlug);
