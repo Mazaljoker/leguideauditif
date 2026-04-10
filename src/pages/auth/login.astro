@@ -1,0 +1,32 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import LoginForm from '../../components/auth/LoginForm';
+
+const redirect = Astro.url.searchParams.get('redirect') || '/annonces/deposer/';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Connexion' },
+];
+---
+
+<BaseLayout
+  title="Connexion — Espace professionnel | LeGuideAuditif"
+  description="Connectez-vous a votre espace professionnel pour deposer et gerer vos annonces audioprothese."
+>
+  <div class="max-w-[1140px] mx-auto px-5 py-8">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <div class="max-w-md mx-auto py-8">
+      <h1 class="font-sans text-3xl font-extrabold text-marine text-center mb-2">Connexion</h1>
+      <p class="text-center text-gris-texte mb-8 font-sans">
+        Accedez a votre espace pour deposer et gerer vos annonces.
+      </p>
+
+      <LoginForm client:load redirectTo={redirect} />
+    </div>
+  </div>
+</BaseLayout>

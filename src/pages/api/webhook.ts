@@ -28,10 +28,76 @@ export const POST: APIRoute = async ({ request }) => {
   const supabase = createServerClient();
 
   switch (event.type) {
-    // Paiement initial reussi — activer le premium
+    // Paiement initial reussi
     case 'checkout.session.completed': {
       const session = event.data.object as Stripe.Checkout.Session;
-      const { centreSlug, email } = session.metadata || {};
+      const metadata = session.metadata || {};
+
+      // --- ANNONCES ---
+      if (metadata.type === 'annonce') {
+        const { annonce_id, user_id, produit } = metadata;
+
+        if (!annonce_id || !user_id || !produit) {
+          console.error('Webhook annonce: metadata incomplete', metadata);
+          break;
+        }
+
+        // Insert paiement
+        await supabase.from('annonces_paiements').insert({
+          user_id,
+          annonce_id,
+          stripe_session_id: session.id,
+          stripe_payment_intent: session.payment_intent as string,
+          produit,
+          montant: session.amount_total ?? 0,
+          statut: 'paid',
+        });
+
+        // Update annonce selon le produit
+        const now = new Date().toISOString();
+        const boostEnd = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+        const boostEndMonth = new Date(Date.now() + 28 * 24 * 60 * 60 * 1000).toISOString();
+
+        switch (produit) {
+          case 'unlock_contacts':
+            await supabase.from('annonces').update({ contacts_unlocked: true, updated_at: now }).eq('id', annonce_id);
+            break;
+          case 'premium':
+            await supabase.from('annonces').update({ is_premium: true, updated_at: now }).eq('id', annonce_id);
+            break;
+          case 'boost_semaine':
+            await supabase.from('annonces').update({ boost_until: boostEnd, updated_at: now }).eq('id', annonce_id);
+            break;
+          case 'alerte_ciblee':
+            // Alerte ciblee : sera envoyee quand Resend sera installe
+            console.log(`Alerte ciblee achetee pour annonce ${annonce_id}`);
+            break;
+          case 'pack_cession':
+            await supabase.from('annonces').update({
+              is_premium: true,
+              contacts_unlocked: true,
+              boost_until: boostEndMonth,
+              updated_at: now,
+            }).eq('id', annonce_id);
+            break;
+          case 'pack_cession_accomp':
+            await supabase.from('annonces').update({
+              is_premium: true,
+              contacts_unlocked: true,
+              boost_until: boostEndMonth,
+              is_verified: true,
+              updated_at: now,
+            }).eq('id', annonce_id);
+            console.log(`Pack Cession Accompagne pour annonce ${annonce_id} — action manuelle Franck-Olivier requise`);
+            break;
+        }
+
+        console.log(`Webhook annonce: ${produit} applique sur ${annonce_id}`);
+        break;
+      }
+
+      // --- CENTRES (logique existante) ---
+      const { centreSlug, email } = metadata;
 
       if (!centreSlug) {
         console.error('Webhook: centreSlug manquant dans metadata');

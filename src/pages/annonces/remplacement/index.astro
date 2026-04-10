@@ -1,0 +1,36 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AnnonceListing from '../../../components/annonces/AnnonceListing';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Annonces', href: '/annonces/' },
+  { label: 'Remplacement' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Remplacement audioprothesiste',
+};
+---
+
+<BaseLayout
+  title="Remplacement audioprothesiste — Petites annonces | LeGuideAuditif"
+  description="Missions ponctuelles, interim, conges. Trouvez un remplacant ou proposez vos disponibilites."
+  schema={schema}
+>
+  <div class="max-w-[1140px] mx-auto px-5 py-8">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <h1 class="font-sans text-3xl font-extrabold text-marine mb-2">Remplacement</h1>
+    <p class="text-gris-texte text-lg mb-8 font-sans">
+      Vacances, conge maternite, maladie, missions ponctuelles ou longue duree.
+    </p>
+
+    <AnnonceListing client:load categorie="remplacement" />
+  </div>
+</BaseLayout>

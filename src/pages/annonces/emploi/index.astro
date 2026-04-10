@@ -1,0 +1,36 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AnnonceListing from '../../../components/annonces/AnnonceListing';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Annonces', href: '/annonces/' },
+  { label: 'Emploi & Recrutement' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Offres emploi audioprothesiste',
+};
+---
+
+<BaseLayout
+  title="Offres d'emploi audioprothesiste — Petites annonces | LeGuideAuditif"
+  description="CDI, CDD, assistants, stages. Publiez ou consultez les offres d'emploi en audioprothese."
+  schema={schema}
+>
+  <div class="max-w-[1140px] mx-auto px-5 py-8">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <h1 class="font-sans text-3xl font-extrabold text-marine mb-2">Emploi & Recrutement</h1>
+    <p class="text-gris-texte text-lg mb-8 font-sans">
+      CDI, CDD, assistants audio, techniciens, stages. Trouvez votre prochain poste ou recrutez.
+    </p>
+
+    <AnnonceListing client:load categorie="emploi" />
+  </div>
+</BaseLayout>

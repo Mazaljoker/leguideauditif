@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="bg-gradient-to-r from-[#1B2E4A] to-[#2a4470] py-12">
+  <div class="max-w-[1140px] mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="text-white text-center md:text-left">
+      <h2 class="font-sans text-2xl font-extrabold mb-2">
+        Vous etes audioprothesiste ?
+      </h2>
+      <p class="font-sans text-lg opacity-80 max-w-lg">
+        Publiez gratuitement votre annonce : cession de centre, offre d'emploi, remplacement, materiel d'occasion.
+      </p>
+    </div>
+    <a
+      href="/annonces/deposer/"
+      class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#D97B3D] text-white font-sans text-lg font-bold rounded-xl no-underline hover:bg-[#c06a2f] transition-colors hover:no-underline shrink-0"
+    >
+      <Icon name="lucide:plus-circle" class="w-5 h-5" />
+      Deposer une annonce
+    </a>
+  </div>
+</section>

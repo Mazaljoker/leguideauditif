@@ -1,0 +1,39 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthGuard from '../../components/auth/AuthGuard';
+import DashboardAnnonces from '../../components/annonces/DashboardAnnonces';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Annonces', href: '/annonces/' },
+  { label: 'Mes annonces' },
+];
+---
+
+<BaseLayout
+  title="Mes annonces — Espace professionnel | LeGuideAuditif"
+  description="Gerez vos annonces : vues, contacts recus, renouvellement, suppression."
+>
+  <div class="max-w-[1140px] mx-auto px-5 py-8">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+      <h1 class="font-sans text-3xl font-extrabold text-marine">Mes annonces</h1>
+      <div class="flex items-center gap-3">
+        <a
+          href="/auth/profil/"
+          class="px-4 py-2 rounded-lg border border-gris-clair text-sm font-semibold font-sans text-marine no-underline hover:border-orange transition-colors hover:no-underline"
+        >
+          Mon profil
+        </a>
+      </div>
+    </div>
+
+    <AuthGuard client:load>
+      <DashboardAnnonces client:load />
+    </AuthGuard>
+  </div>
+</BaseLayout>

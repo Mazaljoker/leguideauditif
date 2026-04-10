@@ -1,0 +1,112 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AnnonceDetail from '../../components/annonces/AnnonceDetail';
+import { createServerClient } from '../../lib/supabase';
+import { CATEGORIES_META } from '../../types/annonce';
+import type { Annonce, AnnonceContact, AnnonceCategorie } from '../../types/annonce';
+
+const { slug } = Astro.params;
+const supabase = createServerClient();
+
+// Fetch annonce
+const { data: annonce, error } = await supabase
+  .from('annonces')
+  .select('*')
+  .eq('slug', slug)
+  .single();
+
+if (error || !annonce) {
+  return Astro.redirect('/404');
+}
+
+// Incrementer les vues
+await supabase.rpc('increment_annonce_views', { annonce_slug: slug });
+
+// Verifier si proprietaire
+const user = Astro.locals.user;
+const isOwner = user?.id === annonce.user_id;
+
+// Charger les contacts si proprietaire
+let contacts: AnnonceContact[] = [];
+if (isOwner) {
+  const { data: contactsData } = await supabase
+    .from('annonces_contacts')
+    .select('*')
+    .eq('annonce_id', annonce.id)
+    .order('created_at', { ascending: false });
+  contacts = (contactsData as AnnonceContact[]) ?? [];
+}
+
+const catMeta = CATEGORIES_META[annonce.categorie as AnnonceCategorie];
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Annonces', href: '/annonces/' },
+  { label: catMeta.label, href: `/annonces/${annonce.categorie}/` },
+  { label: annonce.titre },
+];
+
+// Schema.org dynamique
+let schema: Record<string, unknown>;
+if (annonce.categorie === 'emploi') {
+  schema = {
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    title: annonce.titre,
+    datePosted: annonce.created_at,
+    validThrough: annonce.expires_at,
+    description: annonce.description,
+    jobLocation: annonce.ville ? {
+      '@type': 'Place',
+      address: { '@type': 'PostalAddress', addressLocality: annonce.ville },
+    } : undefined,
+  };
+} else {
+  schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Offer',
+    name: annonce.titre,
+    description: annonce.meta_description || annonce.description.slice(0, 155),
+    availability: annonce.statut === 'active' ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
+    price: annonce.prix_min ? (annonce.prix_min / 100).toString() : undefined,
+    priceCurrency: annonce.prix_min ? 'EUR' : undefined,
+  };
+}
+
+const metaTitle = annonce.meta_title || `${annonce.titre} | LeGuideAuditif`;
+const metaDesc = annonce.meta_description || annonce.description.slice(0, 155);
+
+// Toast post-publication
+const published = Astro.url.searchParams.get('published');
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={metaDesc}
+  schema={schema}
+>
+  <div class="max-w-[1140px] mx-auto px-5 py-8">
+    <Breadcrumbs items={breadcrumbs} />
+
+    {published === '1' && (
+      <div class="rounded-lg border-2 border-emerald-400 bg-emerald-50 p-4 mb-6 text-center">
+        <p class="text-emerald-800 font-sans font-semibold">Votre annonce est en ligne !</p>
+      </div>
+    )}
+    {published === '0' && (
+      <div class="rounded-lg border-2 border-blue-400 bg-blue-50 p-4 mb-6 text-center">
+        <p class="text-blue-800 font-sans font-semibold">Brouillon enregistre. Publiez-le quand vous serez pret.</p>
+      </div>
+    )}
+
+    <AnnonceDetail
+      client:load
+      annonce={annonce as Annonce}
+      contacts={contacts}
+      isOwner={isOwner}
+    />
+  </div>
+</BaseLayout>

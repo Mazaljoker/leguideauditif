@@ -1,0 +1,39 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ProfileForm from '../../components/auth/ProfileForm';
+
+const isFirst = Astro.url.searchParams.get('first') === '1';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Mon profil' },
+];
+---
+
+<BaseLayout
+  title="Mon profil — Espace professionnel | LeGuideAuditif"
+  description="Completez votre profil professionnel pour deposer vos annonces audioprothese."
+>
+  <div class="max-w-[1140px] mx-auto px-5 py-8">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <div class="py-8">
+      <h1 class="font-sans text-3xl font-extrabold text-marine text-center mb-2">
+        {isFirst ? 'Completez votre profil' : 'Mon profil'}
+      </h1>
+      <p class="text-center text-gris-texte mb-8 font-sans">
+        {isFirst
+          ? 'Quelques informations pour personnaliser votre experience et pre-remplir vos annonces.'
+          : 'Modifiez vos informations professionnelles.'}
+      </p>
+
+      <ProfileForm
+        client:load
+        redirectTo={isFirst ? '/annonces/deposer/' : undefined}
+      />
+    </div>
+  </div>
+</BaseLayout>

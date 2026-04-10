@@ -124,12 +124,30 @@ const schema = {
         Pour exercer vos droits, contactez-nous a <a href="mailto:contact@leguideauditif.fr" class="text-orange font-semibold hover:underline">contact@leguideauditif.fr</a>. Nous repondrons dans un delai de 30 jours.
       </p>
 
-      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">7. Securite</h2>
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">7. Petites annonces professionnelles</h2>
+      <p class="leading-relaxed mb-4">
+        Le module Petites Annonces collecte les donnees suivantes dans le cadre de la mise en relation entre professionnels de l'audioprothese :
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-4">
+        <li><strong>Compte utilisateur :</strong> email, nom, prenom, telephone, profil professionnel, numero RPPS (optionnel). Ces donnees sont stockees dans Supabase Auth et la table profiles.</li>
+        <li><strong>Annonces :</strong> titre, description, localisation, prix, photos. Publiees publiquement sur le site.</li>
+        <li><strong>Demandes de contact :</strong> nom, email, telephone, message, profil. Transmises au vendeur de l'annonce concernee.</li>
+        <li><strong>Alertes :</strong> criteres de recherche (categorie, departement, prix) pour recevoir des notifications.</li>
+        <li><strong>Paiements :</strong> les transactions sont traitees par Stripe. Nous ne stockons pas les donnees bancaires.</li>
+      </ul>
+      <p class="leading-relaxed mb-4">
+        <strong>Consentement :</strong> en deposant une annonce, vous acceptez que vos coordonnees soient partagees avec les personnes interessees. Vous pouvez supprimer votre annonce a tout moment, ce qui supprime egalement les contacts associes et les photos.
+      </p>
+      <p class="leading-relaxed mb-6">
+        <strong>Duree de conservation :</strong> les annonces expirent automatiquement apres 30 jours. Les comptes inactifs depuis plus de 12 mois pourront etre supprimes apres notification.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">8. Securite</h2>
       <p class="leading-relaxed mb-6">
         Nous mettons en place des mesures techniques et organisationnelles pour proteger vos donnees : connexion HTTPS, acces restreint aux bases de donnees, mots de passe chiffres.
       </p>
 
-      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">8. Reclamation</h2>
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">9. Reclamation</h2>
       <p class="leading-relaxed">
         Si vous estimez que vos droits ne sont pas respectes, vous pouvez introduire une reclamation aupres de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertes) : cnil.fr.
       </p>

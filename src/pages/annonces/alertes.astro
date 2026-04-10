@@ -1,0 +1,32 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthGuard from '../../components/auth/AuthGuard';
+import AlerteForm from '../../components/annonces/AlerteForm';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Annonces', href: '/annonces/' },
+  { label: 'Mes alertes' },
+];
+---
+
+<BaseLayout
+  title="Mes alertes — Petites annonces audioprothesistes | LeGuideAuditif"
+  description="Creez des alertes pour etre notifie des nouvelles annonces correspondant a vos criteres."
+>
+  <div class="max-w-[1140px] mx-auto px-5 py-8">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <h1 class="font-sans text-3xl font-extrabold text-marine mb-2">Alertes annonces</h1>
+    <p class="text-gris-texte text-lg mb-8 font-sans">
+      Recevez une notification quand une annonce correspond a vos criteres.
+    </p>
+
+    <AuthGuard client:load>
+      <AlerteForm client:load />
+    </AuthGuard>
+  </div>
+</BaseLayout>

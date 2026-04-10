@@ -1,0 +1,34 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthGuard from '../../components/auth/AuthGuard';
+import AnnonceForm from '../../components/annonces/AnnonceForm';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Annonces', href: '/annonces/' },
+  { label: 'Deposer une annonce' },
+];
+---
+
+<BaseLayout
+  title="Deposer une annonce — Petites annonces audioprothesistes | LeGuideAuditif"
+  description="Publiez gratuitement votre annonce : cession de centre, offre d'emploi, remplacement, materiel d'occasion pour audioprothesistes."
+>
+  <div class="max-w-[1140px] mx-auto px-5 py-8">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <div class="py-8">
+      <h1 class="font-sans text-3xl font-extrabold text-marine text-center mb-2">Deposer une annonce</h1>
+      <p class="text-center text-gris-texte mb-8 font-sans">
+        Publiez gratuitement votre annonce. Elle sera visible pendant 30 jours.
+      </p>
+
+      <AuthGuard client:load>
+        <AnnonceForm client:load />
+      </AuthGuard>
+    </div>
+  </div>
+</BaseLayout>
