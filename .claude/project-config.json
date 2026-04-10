@@ -1,0 +1,76 @@
+{
+  "version": "2.0",
+  "project": "leguideauditif",
+  "description": "Site independant d'information sante auditive + generation leads",
+  "url": "https://leguideauditif.fr",
+  "defaultAgent": "content-pipeline",
+
+  "agents": {
+    "content-pipeline": {
+      "path": ".claude/agents/content-pipeline.md",
+      "triggers": ["article", "contenu", "publier", "pipeline", "rediger", "comparatif", "guide"]
+    },
+    "astro-developer": {
+      "path": ".claude/agents/astro-developer.md",
+      "triggers": ["composant", "page", "Astro", "Tailwind", "layout", "UI"]
+    },
+    "seo-auditor": {
+      "path": ".claude/agents/seo-auditor.md",
+      "triggers": ["SEO", "audit", "indexation", "meta", "schema.org", "sitemap"]
+    }
+  },
+
+  "commands": {
+    "memory": ".claude/commands/memory.md"
+  },
+
+  "skills": {
+    "me-affiliate-writer": ".claude/skills/me-affiliate-writer/SKILL.md",
+    "me-content-pipeline": ".claude/skills/me-content-pipeline/SKILL.md",
+    "me-eeat-compliance": ".claude/skills/me-eeat-compliance/SKILL.md",
+    "me-image-generator": ".claude/skills/me-image-generator/SKILL.md",
+    "me-leadgen-manager": ".claude/skills/me-leadgen-manager/SKILL.md",
+    "me-video-generator": ".claude/skills/me-video-generator/SKILL.md",
+    "nposts-content-evaluator": ".claude/skills/nposts-content-evaluator/SKILL.md",
+    "nposts-seo-fixer": ".claude/skills/nposts-seo-fixer/SKILL.md",
+    "nposts-seo-humanizer": ".claude/skills/nposts-seo-humanizer/SKILL.md",
+    "nposts-seo-post-publish": ".claude/skills/nposts-seo-post-publish/SKILL.md"
+  },
+
+  "rules": {
+    "maxFileLines": 200,
+    "typescript": "strict",
+    "noAny": true,
+    "noEmoji": true,
+    "ymyl": true,
+    "doubleGate": {
+      "evaluatorMinScore": 70,
+      "eeatMinScore": 80
+    },
+    "designSystem": {
+      "marine": "#1B2E4A",
+      "creme": "#F8F5F0",
+      "orange": "#D97B3D"
+    },
+    "accessibility": {
+      "minFontSize": "18px",
+      "minLineHeight": 1.75,
+      "minTouchTarget": "44px",
+      "wcaaLevel": "AA"
+    },
+    "i18n": {
+      "defaultLocale": "fr",
+      "locales": ["fr"],
+      "vouvoiement": true
+    }
+  },
+
+  "ganChain": [
+    "me-affiliate-writer OR nposts-seo-content-writer",
+    "nposts-seo-humanizer",
+    "nposts-content-evaluator (>=70)",
+    "me-eeat-compliance (>=80)",
+    "nposts-seo-fixer",
+    "nposts-seo-post-publish"
+  ]
+}
