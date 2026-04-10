@@ -6,7 +6,7 @@ import { createServerClient } from '../../lib/supabase';
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
-    const { centreSlug, nom, prenom, email, adeli } = body;
+    const { centreSlug, nom, prenom, email, adeli, tel, horaires, specialites, marques } = body;
 
     if (!centreSlug || !nom || !prenom || !email || !adeli) {
       return new Response(
@@ -46,17 +46,28 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    // Valider specialites et marques (3 max chacun)
+    const cleanSpecialites = Array.isArray(specialites) ? specialites.slice(0, 3) : [];
+    const cleanMarques = Array.isArray(marques) ? marques.slice(0, 3) : [];
+
     // Revendiquer le centre
+    const updateData: Record<string, unknown> = {
+      plan: 'claimed',
+      claimed: true,
+      claimed_at: new Date().toISOString(),
+      claimed_by_email: email,
+      claimed_by_name: `${prenom} ${nom}`,
+      claimed_by_adeli: adeli,
+    };
+
+    if (tel) updateData.tel = tel;
+    if (horaires) updateData.horaires = horaires;
+    if (cleanSpecialites.length > 0) updateData.specialites = cleanSpecialites;
+    if (cleanMarques.length > 0) updateData.marques = cleanMarques;
+
     const { error: updateError } = await supabase
       .from('centres_auditifs')
-      .update({
-        plan: 'claimed',
-        claimed: true,
-        claimed_at: new Date().toISOString(),
-        claimed_by_email: email,
-        claimed_by_name: `${prenom} ${nom}`,
-        claimed_by_adeli: adeli,
-      })
+      .update(updateData)
       .eq('slug', centreSlug);
 
     if (updateError) {

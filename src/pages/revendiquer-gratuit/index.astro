@@ -63,11 +63,7 @@ const breadcrumbs = [
       <ul class="grid gap-3 sm:grid-cols-2 font-sans text-gris-texte">
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
-          Numero de telephone affiche en clair
-        </li>
-        <li class="flex items-start gap-2">
-          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
-          Lien direct vers votre site web
+          Telephone affiche en clair
         </li>
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
@@ -75,7 +71,11 @@ const breadcrumbs = [
         </li>
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
-          Badge "Centre verifie par un DE"
+          Specialites affichees (3 max)
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
+          Marques affichees (3 max)
         </li>
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
@@ -157,6 +157,78 @@ const breadcrumbs = [
         </div>
       </div>
 
+      <h2 class="font-sans text-lg font-bold text-marine mt-8 mb-6">
+        Informations de votre centre
+      </h2>
+      <p class="text-sm text-gris-texte font-sans mb-5">
+        Ces informations seront affichees sur votre fiche. Vous pourrez les modifier plus tard.
+      </p>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label for="claim-tel" class="block text-sm font-medium text-marine font-sans mb-1">
+            Telephone du centre
+          </label>
+          <input
+            id="claim-tel"
+            name="tel"
+            type="tel"
+            placeholder="04 78 12 34 56"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+
+        <div>
+          <label for="claim-horaires" class="block text-sm font-medium text-marine font-sans mb-1">
+            Horaires d'ouverture
+          </label>
+          <input
+            id="claim-horaires"
+            name="horaires"
+            type="text"
+            placeholder="Lun-Ven 9h-18h, Sam 9h-12h"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <label class="block text-sm font-medium text-marine font-sans mb-1">
+          Specialites (3 max)
+        </label>
+        <div class="flex flex-wrap gap-2" id="specialites-container">
+          {[
+            'Acouphenes', 'Pediatrie', 'Implants cochleaires',
+            '100% Sante', 'Bilan auditif gratuit', 'Appareillage premiere fois',
+            'Surdite severe/profonde', 'Protection auditive', 'Audiometrie',
+          ].map((s) => (
+            <label class="inline-flex items-center gap-1.5 rounded-full border border-gris-clair bg-blanc px-3 py-1.5 text-sm font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30 has-[:checked]:text-[#0C447C]">
+              <input type="checkbox" name="specialites" value={s} class="sr-only peer" />
+              {s}
+            </label>
+          ))}
+        </div>
+        <p class="text-xs text-gris-texte font-sans mt-1">Selectionnez jusqu'a 3 specialites</p>
+      </div>
+
+      <div class="mt-5">
+        <label class="block text-sm font-medium text-marine font-sans mb-1">
+          Marques proposees (3 max)
+        </label>
+        <div class="flex flex-wrap gap-2" id="marques-container">
+          {[
+            'Phonak', 'Oticon', 'Signia', 'ReSound', 'Starkey',
+            'Widex', 'Bernafon', 'Unitron', 'Audioservice',
+          ].map((m) => (
+            <label class="inline-flex items-center gap-1.5 rounded-full border border-gris-clair bg-blanc px-3 py-1.5 text-sm font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30 has-[:checked]:text-[#0C447C]">
+              <input type="checkbox" name="marques" value={m} class="sr-only peer" />
+              {m}
+            </label>
+          ))}
+        </div>
+        <p class="text-xs text-gris-texte font-sans mt-1">Selectionnez jusqu'a 3 marques</p>
+      </div>
+
       <div class="mt-6">
         <label class="flex items-start gap-2 text-sm text-gris-texte font-sans">
           <input type="checkbox" name="rgpd" required class="mt-1" />
@@ -192,6 +264,23 @@ const breadcrumbs = [
     const submitBtn = document.getElementById('claim-submit') as HTMLButtonElement;
     const errorDiv = document.getElementById('claim-error') as HTMLDivElement;
 
+    // Limiter a 3 selections max pour specialites et marques
+    function limitCheckboxes(containerId: string, max: number) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.addEventListener('change', () => {
+        const checked = container.querySelectorAll('input[type="checkbox"]:checked');
+        const unchecked = container.querySelectorAll('input[type="checkbox"]:not(:checked)');
+        if (checked.length >= max) {
+          unchecked.forEach((cb) => { (cb as HTMLInputElement).disabled = true; });
+        } else {
+          unchecked.forEach((cb) => { (cb as HTMLInputElement).disabled = false; });
+        }
+      });
+    }
+    limitCheckboxes('specialites-container', 3);
+    limitCheckboxes('marques-container', 3);
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.disabled = true;
@@ -205,6 +294,10 @@ const breadcrumbs = [
         prenom: formData.get('prenom'),
         email: formData.get('email'),
         adeli: formData.get('adeli'),
+        tel: formData.get('tel') || null,
+        horaires: formData.get('horaires') || null,
+        specialites: formData.getAll('specialites'),
+        marques: formData.getAll('marques'),
       };
 
       try {
