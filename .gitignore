@@ -8,3 +8,7 @@ dist/
 .DS_Store
 .vercel
 .env*.local
+
+# Google OAuth tokens — NEVER commit
+google_token.json
+.claude/google_token.json
