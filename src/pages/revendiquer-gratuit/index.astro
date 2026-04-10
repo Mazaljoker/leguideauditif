@@ -229,6 +229,51 @@ const breadcrumbs = [
         <p class="text-xs text-gris-texte font-sans mt-1">Selectionnez jusqu'a 3 marques</p>
       </div>
 
+      <div class="mt-5">
+        <label for="claim-apropos" class="block text-sm font-medium text-marine font-sans mb-1">
+          Description de votre centre
+        </label>
+        <textarea
+          id="claim-apropos"
+          name="a_propos"
+          rows="4"
+          maxlength="500"
+          placeholder="Presentez votre centre en quelques lignes : votre experience, votre equipe, vos services..."
+          class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 resize-y"
+        ></textarea>
+        <p class="text-xs text-gris-texte font-sans mt-1">500 caracteres max</p>
+      </div>
+
+      <div class="mt-5">
+        <label for="claim-photo" class="block text-sm font-medium text-marine font-sans mb-1">
+          Photo de votre centre (1 max)
+        </label>
+        <div
+          id="photo-dropzone"
+          class="relative rounded-lg border-2 border-dashed border-gris-clair bg-creme/50 p-6 text-center cursor-pointer hover:border-orange/50 transition-colors"
+        >
+          <input
+            id="claim-photo"
+            name="photo"
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          />
+          <div id="photo-placeholder">
+            <Icon name="lucide:image-plus" class="w-8 h-8 text-gris-texte mx-auto mb-2" />
+            <p class="text-sm text-gris-texte font-sans">Cliquez ou glissez une photo ici</p>
+            <p class="text-xs text-gris-texte font-sans mt-1">JPG, PNG ou WebP — 5 Mo max</p>
+          </div>
+          <div id="photo-preview" class="hidden">
+            <img id="photo-preview-img" alt="Apercu" class="max-h-40 rounded-lg mx-auto mb-2" />
+            <p id="photo-preview-name" class="text-sm text-marine font-sans font-medium"></p>
+            <button type="button" id="photo-remove" class="text-xs text-[#A32D2D] font-sans font-medium mt-1 hover:underline">
+              Supprimer
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div class="mt-6">
         <label class="flex items-start gap-2 text-sm text-gris-texte font-sans">
           <input type="checkbox" name="rgpd" required class="mt-1" />
@@ -264,7 +309,41 @@ const breadcrumbs = [
     const submitBtn = document.getElementById('claim-submit') as HTMLButtonElement;
     const errorDiv = document.getElementById('claim-error') as HTMLDivElement;
 
-    // Limiter a 3 selections max pour specialites et marques
+    // --- Photo preview ---
+    const photoInput = document.getElementById('claim-photo') as HTMLInputElement;
+    const photoPlaceholder = document.getElementById('photo-placeholder') as HTMLDivElement;
+    const photoPreview = document.getElementById('photo-preview') as HTMLDivElement;
+    const photoPreviewImg = document.getElementById('photo-preview-img') as HTMLImageElement;
+    const photoPreviewName = document.getElementById('photo-preview-name') as HTMLParagraphElement;
+    const photoRemove = document.getElementById('photo-remove') as HTMLButtonElement;
+
+    photoInput.addEventListener('change', () => {
+      const file = photoInput.files?.[0];
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) {
+        errorDiv.textContent = 'La photo ne doit pas depasser 5 Mo.';
+        errorDiv.classList.remove('hidden');
+        photoInput.value = '';
+        return;
+      }
+      errorDiv.classList.add('hidden');
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        photoPreviewImg.src = e.target?.result as string;
+        photoPreviewName.textContent = file.name;
+        photoPlaceholder.classList.add('hidden');
+        photoPreview.classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    photoRemove.addEventListener('click', () => {
+      photoInput.value = '';
+      photoPreview.classList.add('hidden');
+      photoPlaceholder.classList.remove('hidden');
+    });
+
+    // --- Limiter a 3 selections max ---
     function limitCheckboxes(containerId: string, max: number) {
       const container = document.getElementById(containerId);
       if (!container) return;
@@ -281,6 +360,7 @@ const breadcrumbs = [
     limitCheckboxes('specialites-container', 3);
     limitCheckboxes('marques-container', 3);
 
+    // --- Submit (FormData pour supporter le fichier photo) ---
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.disabled = true;
@@ -288,23 +368,11 @@ const breadcrumbs = [
       errorDiv.classList.add('hidden');
 
       const formData = new FormData(form);
-      const body = {
-        centreSlug: formData.get('centreSlug'),
-        nom: formData.get('nom'),
-        prenom: formData.get('prenom'),
-        email: formData.get('email'),
-        adeli: formData.get('adeli'),
-        tel: formData.get('tel') || null,
-        horaires: formData.get('horaires') || null,
-        specialites: formData.getAll('specialites'),
-        marques: formData.getAll('marques'),
-      };
 
       try {
         const res = await fetch('/api/claim', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body),
+          body: formData,
         });
 
         const data = await res.json();
