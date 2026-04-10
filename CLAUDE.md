@@ -28,6 +28,20 @@ me-affiliate-writer → nposts-seo-humanizer → nposts-content-evaluator (>=70)
 - Protocole RETRY : evaluateur juge, ne modifie jamais. Max 3 iterations puis escalade humaine.
 - Double gate YMYL : JAMAIS bypasser les 2 gates pour du contenu sante.
 
+## MCPs & SEO Data
+
+| MCP | Usage | Cout |
+|-----|-------|------|
+| **DataForSEO** | SERP, Keywords, OnPage, Labs, Backlinks, AI Optimization (GEO) | ~$0.20/sem |
+| **Google Search Console** | Clicks, impressions, CTR — donnees directes | Gratuit |
+| **PageSpeed API** | Core Web Vitals mobile (audience seniors) | Gratuit |
+| **Notion** | Rapports SEO, tracking articles, pipeline leads | Gratuit |
+| **GitHub** | PRs articles, corrections SEO | Gratuit |
+
+DataForSEO remplace SE Ranking (avril 2026). Skills SEO partages avec nposts_website.
+GEO Tracker : verifie si leguideauditif.fr est cite par ChatGPT/Perplexity/Gemini
+sur les requetes sante auditive (5 prompts trackes hebdo).
+
 ## Design system
 - Palette: marine (#1B2E4A) | creme (#F8F5F0) | orange (#D97B3D)
 - Font: Inter (sans) + Merriweather (serif)
