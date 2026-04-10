@@ -39,13 +39,13 @@ La presbyacousie est la forme la plus courante de perte auditive. Selon l'INSERM
 
 Malgre ces chiffres, la presbyacousie reste largement sous-diagnostiquee. En 28 ans de pratique, j'ai constate que la majorite de mes patients attendent en moyenne 7 ans entre les premiers signes et la premiere consultation. Ce delai a des consequences reelles sur la comprehension, la vie sociale et les capacites cognitives.
 
-Ce guide vous explique ce qui se passe dans votre oreille, comment reconnaitre les symptomes, et surtout pourquoi il est essentiel d'agir sans attendre.
+Voici ce qui se passe concretement dans votre oreille, comment reconnaitre les symptomes, et surtout pourquoi il est essentiel d'agir sans attendre.
 
 ## Ce qui se passe dans votre oreille : le mecanisme de la presbyacousie
 
 Pour comprendre la presbyacousie, il faut d'abord comprendre le role des cellules ciliees. Ces cellules microscopiques, situees dans la cochlee (oreille interne), sont responsables de la transformation des vibrations sonores en signaux electriques transmis au cerveau par le nerf auditif.
 
-A la naissance, vous disposez d'environ 15 000 cellules ciliees par oreille. Ce capital est fixe : contrairement a d'autres cellules du corps humain, les cellules ciliees ne se regenerent pas. Chaque cellule detruite est perdue definitivement.
+A la naissance, vous disposez d'environ 15 000 cellules ciliees par oreille (source : Bredberg, *Acta Oto-Laryngologica*, 1968 — donnee de reference en embryologie ORL). Ce capital est fixe : contrairement a d'autres cellules du corps humain, les cellules ciliees ne se regenerent pas. Chaque cellule detruite est perdue definitivement.
 
 Avec l'age, ces cellules se deteriorent naturellement. La degradation commence par la base de la cochlee, la zone qui traite les sons aigus. C'est la raison pour laquelle la presbyacousie se manifeste d'abord par une difficulte a percevoir les frequences hautes, avant de toucher progressivement les frequences moyennes puis graves.
 
@@ -99,6 +99,8 @@ Pour comprendre en detail comment se deroule un audiogramme et comment lire vos 
 
 Un bilan auditif de depistage est egalement possible gratuitement chez un audioprothesiste, sans ordonnance. C'est souvent le premier pas le plus simple a franchir.
 
+J'ai recu recemment Mme Durand, 72 ans, adressee par sa fille. Elle avait passe un audiogramme de depistage au centre. Resultat : perte legere a moderee sur les aigus, tres classique. "Je n'entends pas mal, c'est juste que les gens articulent moins qu'avant," m'a-t-elle dit. Trois mois apres son appareillage, elle m'a avoue qu'elle avait oublie a quel point les oiseaux chantaient le matin.
+
 ## Les solutions : l'appareillage auditif au coeur de la prise en charge
 
 La presbyacousie est irreversible : il n'existe aujourd'hui ni medicament ni chirurgie capable de regenerer les cellules ciliees detruites. La solution de reference est l'aide auditive, prescrite par un ORL et adaptee par un audioprothesiste. La Haute Autorite de Sante (HAS) recommande l'appareillage binaural des que la perte depasse 30 dB sur les frequences conversationnelles.
@@ -113,7 +115,11 @@ La presbyacousie est irreversible : il n'existe aujourd'hui ni medicament ni chi
 
 C'est probablement le point le plus important a retenir. Plusieurs etudes de grande envergure, dont l'etude ACHIEVE publiee dans The Lancet en 2023, ont demontre un lien significatif entre perte auditive non traitee et declin cognitif accelere.
 
-Le mecanisme est double. D'une part, le cerveau prive de stimulation auditive pendant des annees perd progressivement sa capacite a traiter les sons, meme lorsqu'un appareillage est finalement mis en place. C'est ce que l'on appelle la deprivation auditive. D'autre part, l'isolement social provoque par la perte auditive est lui-meme un facteur de risque reconnu de declin cognitif et de depression.
+Le mecanisme est double.
+
+D'une part, le cerveau prive de stimulation auditive pendant des annees perd progressivement sa capacite a traiter les sons, meme lorsqu'un appareillage est finalement mis en place. C'est ce que l'on appelle la deprivation auditive.
+
+D'autre part, l'isolement social provoque par la perte auditive est lui-meme un facteur de risque reconnu de declin cognitif et de depression.
 
 Selon un rapport de la commission Livingston publie dans The Lancet en 2020 et mis a jour en 2024, la perte auditive non corrigee est le premier facteur de risque modifiable de demence, devant l'hypertension, l'obesite ou le manque d'activite physique. A elle seule, elle representerait environ 8 % des cas de demence evitables.
 
