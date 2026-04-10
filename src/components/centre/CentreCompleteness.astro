@@ -1,0 +1,63 @@
+---
+import type { CentreData } from '../../types/centre';
+
+interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const plan = centre.plan;
+
+// Calcul de la completude
+const fields = [
+  !!centre.tel,
+  !!centre.horaires,
+  !!centre.site_web,
+  !!centre.photo_url,
+  centre.specialites.length > 0,
+  centre.marques.length > 0,
+  !!centre.a_propos,
+  !!centre.email,
+  !!(centre.reseaux_sociaux && Object.keys(centre.reseaux_sociaux).length > 0),
+];
+const filled = fields.filter(Boolean).length;
+const total = fields.length;
+const percent = Math.round((filled / total) * 100);
+
+// Couleur selon plan
+const barColor = plan === 'rpps'
+  ? 'bg-[#E24B4A]'
+  : plan === 'claimed'
+    ? (percent >= 80 ? 'bg-[#639922]' : 'bg-[#EF9F27]')
+    : 'bg-[#639922]';
+
+const textColor = plan === 'rpps'
+  ? 'text-[#A32D2D]'
+  : plan === 'claimed'
+    ? (percent >= 80 ? 'text-[#639922]' : 'text-[#EF9F27]')
+    : 'text-[#639922]';
+
+const displayPercent = plan === 'rpps' ? 15 : percent;
+
+const subText = plan === 'rpps'
+  ? 'Photo + telephone + horaires + specialites + marques = 100%'
+  : plan === 'claimed'
+    ? 'Passez en premium pour site web, reseaux, leads prioritaires et badge DE'
+    : null;
+---
+
+<section class="mb-6" aria-label="Completude de la fiche">
+  <div class="flex items-center justify-between mb-2">
+    <span class="text-sm font-medium text-marine font-sans">Completude</span>
+    <span class={`text-sm font-medium font-sans ${textColor}`}>{displayPercent}%</span>
+  </div>
+  <div class="w-full h-2 rounded-full bg-[#F1EFE8] overflow-hidden">
+    <div
+      class={`h-full rounded-full ${barColor} transition-all`}
+      style={`width: ${displayPercent}%`}
+    ></div>
+  </div>
+  {subText && (
+    <p class="text-[11px] text-gris-texte font-sans mt-1.5">{subText}</p>
+  )}
+</section>

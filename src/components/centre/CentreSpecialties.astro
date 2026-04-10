@@ -1,0 +1,55 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../types/centre';
+
+interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const plan = centre.plan;
+
+const ghostPills = ['Acouphenes ?', 'Pediatrie ?', 'Implants ?', '100% Sante ?', '+ ?'];
+const maxGratuit = 3;
+const displaySpecialites = plan === 'claimed'
+  ? centre.specialites.slice(0, maxGratuit)
+  : centre.specialites;
+---
+
+<section class="mb-6" aria-label="Specialites">
+  <h2 class="font-sans text-sm font-medium text-marine mb-3">Specialites</h2>
+
+  {plan === 'rpps' ? (
+    <div class="flex flex-wrap gap-2">
+      {ghostPills.map((label) => (
+        <span class="rounded-full bg-[#F1EFE8] border border-dashed border-[#D3D1C7] px-3 py-1 text-xs text-[#B4B2A9] font-sans">
+          {label}
+        </span>
+      ))}
+    </div>
+  ) : plan === 'claimed' ? (
+    <div class="flex flex-wrap gap-2">
+      {displaySpecialites.map((s: string) => (
+        <span class="rounded-full bg-[#E6F1FB] px-3 py-1 text-xs font-medium text-[#0C447C] font-sans">
+          {s}
+        </span>
+      ))}
+      <span class="rounded-full bg-[#F1EFE8] border border-dashed border-[#D3D1C7] px-3 py-1 text-xs text-[#B4B2A9] font-sans inline-flex items-center gap-1">
+        <Icon name="lucide:lock" class="w-3 h-3" />
+        + {maxGratuit} max en gratuit
+      </span>
+    </div>
+  ) : (
+    <div class="flex flex-wrap gap-2">
+      {centre.specialites.length > 0 ? (
+        centre.specialites.map((s: string) => (
+          <span class="rounded-full bg-[#E1F5EE] px-3 py-1 text-xs font-medium text-[#085041] font-sans">
+            {s}
+          </span>
+        ))
+      ) : (
+        <span class="text-sm text-gris-texte font-sans">Aucune specialite renseignee</span>
+      )}
+    </div>
+  )}
+</section>

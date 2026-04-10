@@ -1,0 +1,58 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../types/centre';
+
+interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const plan = centre.plan;
+
+const ghostBrands = ['Phonak ?', 'Oticon ?', 'Signia ?', '+ ?'];
+const maxGratuit = 3;
+const displayMarques = plan === 'claimed'
+  ? centre.marques.slice(0, maxGratuit)
+  : centre.marques;
+---
+
+<section class="mb-6" aria-label="Marques proposees">
+  <h2 class="font-sans text-sm font-medium text-marine mb-3">Marques proposees</h2>
+
+  {plan === 'rpps' ? (
+    <div class="flex flex-wrap gap-2">
+      {ghostBrands.map((label) => (
+        <div class="w-14 h-9 rounded bg-[#F1EFE8] border border-dashed border-[#D3D1C7] flex items-center justify-center">
+          <span class="text-[9px] text-[#B4B2A9] font-sans text-center leading-tight">{label}</span>
+        </div>
+      ))}
+    </div>
+  ) : plan === 'claimed' ? (
+    <div class="flex flex-wrap gap-2">
+      {displayMarques.map((m: string) => (
+        <span class="rounded bg-[#F8F5F0] px-3 py-1.5 text-xs font-medium text-marine font-sans">
+          {m}
+        </span>
+      ))}
+      {centre.marques.length > maxGratuit && (
+        <span class="rounded bg-[#F1EFE8] border border-dashed border-[#D3D1C7] px-3 py-1.5 text-xs text-[#B4B2A9] font-sans inline-flex items-center gap-1">
+          <Icon name="lucide:lock" class="w-3 h-3" />
+          + {centre.marques.length - maxGratuit} en premium
+        </span>
+      )}
+      <p class="w-full text-[11px] text-gris-texte font-sans mt-1">{maxGratuit} max en gratuit</p>
+    </div>
+  ) : (
+    <div class="flex flex-wrap gap-2">
+      {centre.marques.length > 0 ? (
+        centre.marques.map((m: string) => (
+          <span class="rounded bg-[#F8F5F0] px-3 py-1.5 text-xs font-medium text-marine font-sans">
+            {m}
+          </span>
+        ))
+      ) : (
+        <span class="text-sm text-gris-texte font-sans">Aucune marque renseignee</span>
+      )}
+    </div>
+  )}
+</section>

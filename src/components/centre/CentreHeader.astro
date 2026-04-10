@@ -1,0 +1,107 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../types/centre';
+
+interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const plan = centre.plan;
+
+// Nom de l'audioprothesiste
+const audioName = plan === 'rpps'
+  ? (centre.audio_prenom && centre.audio_nom
+      ? `${centre.audio_prenom} ${centre.audio_nom}`
+      : null)
+  : centre.claimed_by_name || null;
+---
+
+<header class="mb-8">
+  <div class="flex items-start gap-4 mb-4">
+    {/* Photo / Placeholder */}
+    {plan === 'premium' && centre.photo_url ? (
+      <img
+        src={centre.photo_url}
+        alt={`Photo du centre ${centre.nom}`}
+        class="w-20 h-20 rounded-lg object-cover shrink-0"
+        loading="lazy"
+      />
+    ) : plan === 'claimed' ? (
+      centre.photo_url ? (
+        <img
+          src={centre.photo_url}
+          alt={`Photo du centre ${centre.nom}`}
+          class="w-20 h-20 rounded-lg object-cover shrink-0"
+          loading="lazy"
+        />
+      ) : (
+        <div class="w-20 h-20 rounded-lg bg-[#E6F1FB] border-2 border-[#B3D4F0] flex flex-col items-center justify-center shrink-0">
+          <Icon name="lucide:image" class="w-6 h-6 text-[#6BA3D6]" />
+          <span class="text-[9px] text-[#6BA3D6] mt-1 font-sans">Ajouter</span>
+        </div>
+      )
+    ) : (
+      <div class="w-20 h-20 rounded-lg bg-[#F1EFE8] border-2 border-dashed border-[#D3D1C7] flex flex-col items-center justify-center shrink-0">
+        <Icon name="lucide:image" class="w-6 h-6 text-[#B4B2A9]" />
+        <span class="text-[9px] text-[#B4B2A9] mt-1 font-sans">Pas de photo</span>
+      </div>
+    )}
+
+    <div class="min-w-0">
+      {/* Nom du centre */}
+      <div class="flex flex-wrap items-center gap-2 mb-2">
+        <h1 class="font-sans text-[22px] font-medium text-marine leading-tight">
+          {centre.nom}
+        </h1>
+
+        {/* Badge selon etat */}
+        {plan === 'rpps' && (
+          <span class="inline-flex items-center gap-1 rounded-full bg-[#FCEBEB] px-2.5 py-0.5 text-[11px] font-medium text-[#791F1F] font-sans">
+            <Icon name="lucide:x" class="w-3 h-3" />
+            Non revendiquee
+          </span>
+        )}
+        {plan === 'claimed' && (
+          <span class="inline-flex items-center gap-1 rounded-full bg-[#F1EFE8] px-2.5 py-0.5 text-[11px] font-medium text-[#5F5E5A] font-sans">
+            <Icon name="lucide:check" class="w-3 h-3" />
+            Fiche verifiee
+          </span>
+        )}
+        {plan === 'premium' && (
+          <span class="inline-flex items-center gap-1 rounded-full bg-orange px-2.5 py-0.5 text-[11px] font-medium text-blanc font-sans">
+            <Icon name="lucide:shield-check" class="w-3 h-3" />
+            Recommande par un DE
+          </span>
+        )}
+      </div>
+
+      {/* Adresse */}
+      <div class="flex items-start gap-1.5 text-sm text-gris-texte font-sans mb-2">
+        <Icon name="lucide:map-pin" class="w-4 h-4 mt-0.5 shrink-0 text-marine/50" />
+        <span>{centre.adresse}, {centre.cp} {centre.ville}</span>
+      </div>
+
+      {/* Audioprothesiste */}
+      {audioName && (
+        <div class="flex items-center gap-2">
+          {plan === 'premium' ? (
+            <div class="w-6 h-6 rounded-full bg-marine flex items-center justify-center shrink-0">
+              <Icon name="lucide:user" class="w-3.5 h-3.5 text-blanc" />
+            </div>
+          ) : (
+            <Icon name="lucide:user" class="w-3.5 h-3.5 text-gris-texte shrink-0" />
+          )}
+          <div>
+            <span class="text-[13px] font-medium text-marine font-sans">
+              {audioName}, audioprothesiste DE
+            </span>
+            {plan === 'rpps' && (
+              <span class="text-[11px] text-[#B4B2A9] font-sans ml-2">Source : RPPS</span>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</header>

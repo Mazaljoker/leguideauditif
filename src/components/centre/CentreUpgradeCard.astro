@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+---
+
+<section class="rounded-xl bg-[#FAEEDA] border border-[#EFD5A0] p-5 mb-6" aria-label="Passer en premium">
+  <div class="flex items-start gap-3 mb-4">
+    <Icon name="lucide:star" class="w-5 h-5 text-[#854F0B] shrink-0 mt-0.5" />
+    <h2 class="font-sans text-sm font-medium text-[#633806]">
+      Passez en fiche premium — 29 &euro;/mois
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-2 gap-x-4 gap-y-2 mb-5">
+    {[
+      'Badge "recommande par un DE"',
+      'Lien site web + reseaux sociaux',
+      'Leads patients routes vers vous',
+      'Priorite sur la carte interactive',
+      'Photos illimitees',
+      'Analytics : vues, clics, leads',
+    ].map((item) => (
+      <div class="flex items-center gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-[#854F0B] shrink-0" />
+        <span class="text-xs text-[#854F0B] font-sans">{item}</span>
+      </div>
+    ))}
+  </div>
+
+  <a
+    href={`/offres/?centre=${slug}`}
+    class="flex items-center justify-center gap-2 w-full rounded-lg bg-orange px-5 py-3 text-sm font-medium text-blanc font-sans transition-colors hover:bg-orange/90 focus:outline-none focus:ring-2 focus:ring-orange/50"
+    style="min-height: 44px;"
+  >
+    Passer en premium
+    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+  </a>
+
+  <p class="text-[11px] text-[#854F0B] font-sans text-center mt-3">
+    ou offert avec un abonnement nPosts (29 &euro;/mois)
+  </p>
+</section>

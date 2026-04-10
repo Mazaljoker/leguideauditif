@@ -1,0 +1,50 @@
+---
+import type { CentrePlan } from '../../types/centre';
+
+interface Props {
+  plan: CentrePlan;
+  viewCount: number;
+  leadCount?: number;
+}
+
+const { plan, viewCount, leadCount = 0 } = Astro.props;
+---
+
+{plan === 'rpps' ? (
+  <section class="grid grid-cols-3 gap-3 mb-6" aria-label="Statistiques du centre">
+    <div class="rounded-lg bg-[#F8F5F0] p-4 text-center">
+      <p class="text-xl font-medium text-marine font-sans">{viewCount || '—'}</p>
+      <p class="text-[10px] text-gris-texte font-sans mt-1">recherches "audio" ce mois</p>
+    </div>
+    <div class="rounded-lg bg-[#F8F5F0] p-4 text-center">
+      <p class="text-xl font-medium text-marine font-sans">{leadCount || '—'}</p>
+      <p class="text-[10px] text-gris-texte font-sans mt-1">demandes envoyees a d'autres</p>
+    </div>
+    <div class="rounded-lg bg-[#F8F5F0] p-4 text-center">
+      <p class="text-xl font-medium text-[#A32D2D] font-sans">0</p>
+      <p class="text-[10px] text-gris-texte font-sans mt-1">leads recus par ce centre</p>
+    </div>
+  </section>
+) : plan === 'claimed' ? (
+  <section class="rounded-lg bg-[#F8F5F0] p-4 text-center mb-6" aria-label="Vues du centre">
+    <p class="text-sm font-medium text-marine font-sans">{viewCount} vues ce mois</p>
+    <p class="text-[11px] text-gris-texte font-sans mt-1">
+      Passez en premium pour voir le detail (clics, demandes, sources)
+    </p>
+  </section>
+) : (
+  <section class="grid grid-cols-3 gap-3 mb-6" aria-label="Statistiques du centre">
+    <div class="rounded-lg bg-[#E1F5EE] p-4 text-center">
+      <p class="text-xl font-medium text-[#085041] font-sans">{viewCount}</p>
+      <p class="text-[10px] text-[#085041] font-sans mt-1">vues ce mois</p>
+    </div>
+    <div class="rounded-lg bg-[#E6F1FB] p-4 text-center">
+      <p class="text-xl font-medium text-[#0C447C] font-sans">—</p>
+      <p class="text-[10px] text-[#0C447C] font-sans mt-1">clics telephone + site</p>
+    </div>
+    <div class="rounded-lg bg-[#FAEEDA] p-4 text-center">
+      <p class="text-xl font-medium text-[#633806] font-sans">{leadCount}</p>
+      <p class="text-[10px] text-[#633806] font-sans mt-1">demandes de devis</p>
+    </div>
+  </section>
+)}

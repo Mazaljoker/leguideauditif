@@ -1,0 +1,27 @@
+---
+import type { CentreData } from '../../types/centre';
+
+interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+if (!centre.lat || !centre.lng) return;
+---
+
+<section class="rounded-xl border border-gris-clair bg-blanc p-4 mb-6" aria-label="Localisation du centre">
+  <h2 class="font-sans text-lg font-bold text-marine mb-3">Localisation</h2>
+  <div class="rounded-lg overflow-hidden" style="height: 300px;">
+    <iframe
+      title={`Carte de ${centre.nom}`}
+      width="100%"
+      height="300"
+      style="border: 0;"
+      loading="lazy"
+      src={`https://www.openstreetmap.org/export/embed.html?bbox=${centre.lng - 0.01},${centre.lat - 0.008},${centre.lng + 0.01},${centre.lat + 0.008}&layer=mapnik&marker=${centre.lat},${centre.lng}`}
+    ></iframe>
+  </div>
+  <p class="text-sm text-gris-texte font-sans mt-2">
+    {centre.adresse}, {centre.cp} {centre.ville}
+  </p>
+</section>

@@ -6,10 +6,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
 import LeadForm from '../../components/LeadForm.tsx';
-import ClaimBanner from '../../components/centre/ClaimBanner.astro';
-import VerifiedBadge from '../../components/centre/VerifiedBadge.astro';
-import UpsellBanner from '../../components/centre/UpsellBanner.astro';
+
+// Composants centre
+import CentreAlertBanner from '../../components/centre/CentreAlertBanner.astro';
+import CentreHeader from '../../components/centre/CentreHeader.astro';
+import CentreInfoGrid from '../../components/centre/CentreInfoGrid.astro';
+import CentreSpecialties from '../../components/centre/CentreSpecialties.astro';
+import CentreBrands from '../../components/centre/CentreBrands.astro';
+import CentreCompleteness from '../../components/centre/CentreCompleteness.astro';
+import CentreClaimCTA from '../../components/centre/CentreClaimCTA.astro';
+import CentreUpgradeCard from '../../components/centre/CentreUpgradeCard.astro';
+import CentreCompetitors from '../../components/centre/CentreCompetitors.astro';
+import CentreStats from '../../components/centre/CentreStats.astro';
+import CentreMap from '../../components/centre/CentreMap.astro';
+
 import { supabase } from '../../lib/supabase';
+import type { CentreData } from '../../types/centre';
 
 const { slug } = Astro.params;
 
@@ -23,57 +35,86 @@ if (error || !centre) {
   return Astro.redirect('/trouver-audioprothesiste/');
 }
 
-const displayVille = centre.ville || centre.cp;
+const typedCentre = centre as unknown as CentreData;
+const displayVille = typedCentre.ville || typedCentre.cp;
 
-const isRpps = centre.plan === 'rpps';
-const isClaimed = centre.plan === 'claimed';
-const isPremium = centre.plan === 'premium';
+const isRpps = typedCentre.plan === 'rpps';
+const isClaimed = typedCentre.plan === 'claimed';
+const isPremium = typedCentre.plan === 'premium';
 
-const pageTitle = `${centre.nom} — Audioprothesiste ${displayVille}`;
+// --- Donnees conditionnelles ---
+
+// Centres concurrents (Etat 1 uniquement)
+let competitors: CentreData[] = [];
+if (isRpps && typedCentre.lat && typedCentre.lng) {
+  const { data } = await supabase.rpc('nearby_claimed_centres', {
+    p_lat: typedCentre.lat,
+    p_lng: typedCentre.lng,
+    p_exclude_id: typedCentre.id,
+  });
+  if (data) competitors = data as unknown as CentreData[];
+}
+
+// Stats de vues
+let viewCount = 0;
+const { data: stats } = await supabase.rpc('centre_view_stats', {
+  p_centre_id: typedCentre.id,
+});
+if (stats && stats.length > 0) viewCount = Number(stats[0].views_30d) || 0;
+
+// Nombre de leads (pour les compteurs)
+let leadCount = 0;
+const { count } = await supabase
+  .from('leads')
+  .select('*', { count: 'exact', head: true })
+  .eq('source', `centre/${slug}`);
+if (count) leadCount = count;
+
+// --- SEO ---
+const pageTitle = `${typedCentre.nom} — Audioprothesiste ${displayVille}`;
 const pageDescription = isRpps
-  ? `${centre.nom}, audioprothesiste a ${displayVille}. Demandez un bilan auditif gratuit pres de chez vous.`
-  : `${centre.nom}, audioprothesiste a ${displayVille}. Coordonnees, horaires et prise de rendez-vous.`;
+  ? `${typedCentre.nom}, audioprothesiste a ${displayVille}. Demandez un bilan auditif gratuit pres de chez vous.`
+  : `${typedCentre.nom}, audioprothesiste a ${displayVille}. Coordonnees, horaires et prise de rendez-vous.`;
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
   { label: 'Trouver un audioprothesiste', href: '/trouver-audioprothesiste/' },
-  { label: `${centre.nom}, ${displayVille}` },
+  { label: `${typedCentre.nom}, ${displayVille}` },
 ];
 
-// Schema.org — enrichi selon le niveau
 const schema: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': `https://leguideauditif.fr/centre/${centre.slug}/`,
-  name: centre.nom,
+  '@id': `https://leguideauditif.fr/centre/${typedCentre.slug}/`,
+  name: typedCentre.nom,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: centre.adresse,
-    postalCode: centre.cp,
-    addressLocality: centre.ville || undefined,
+    streetAddress: typedCentre.adresse,
+    postalCode: typedCentre.cp,
+    addressLocality: typedCentre.ville || undefined,
     addressCountry: 'FR',
   },
   medicalSpecialty: 'Audioprothese',
 };
 
-if (centre.lat && centre.lng) {
-  schema.geo = { '@type': 'GeoCoordinates', latitude: centre.lat, longitude: centre.lng };
+if (typedCentre.lat && typedCentre.lng) {
+  schema.geo = { '@type': 'GeoCoordinates', latitude: typedCentre.lat, longitude: typedCentre.lng };
 }
-if (!isRpps && centre.tel) schema.telephone = centre.tel;
-if (!isRpps && centre.site_web) schema.url = centre.site_web;
-if (!isRpps && centre.email) schema.email = centre.email;
-if (!isRpps && centre.horaires) schema.openingHours = centre.horaires;
-if (centre.photo_url) schema.image = centre.photo_url;
-if (centre.specialites?.length > 0) schema.knowsAbout = centre.specialites;
-if (centre.marques?.length > 0) {
-  schema.brand = centre.marques.map((m: string) => ({ '@type': 'Brand', name: m }));
+if (!isRpps && typedCentre.tel) schema.telephone = typedCentre.tel;
+if (!isRpps && typedCentre.site_web) schema.url = typedCentre.site_web;
+if (!isRpps && typedCentre.email) schema.email = typedCentre.email;
+if (!isRpps && typedCentre.horaires) schema.openingHours = typedCentre.horaires;
+if (typedCentre.photo_url) schema.image = typedCentre.photo_url;
+if (typedCentre.specialites?.length > 0) schema.knowsAbout = typedCentre.specialites;
+if (typedCentre.marques?.length > 0) {
+  schema.brand = typedCentre.marques.map((m: string) => ({ '@type': 'Brand', name: m }));
 }
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
-  canonical={`https://leguideauditif.fr/centre/${centre.slug}/`}
+  canonical={`https://leguideauditif.fr/centre/${typedCentre.slug}/`}
   schema={schema}
 >
   <div class="bg-creme">
@@ -85,132 +126,54 @@ if (centre.marques?.length > 0) {
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
     {/* ================================================================
-        EN-TETE — commun aux 3 niveaux
-        ================================================================ */}
-    <header class="mb-8">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine leading-tight">
-          {centre.nom}
-        </h1>
-        {isPremium && <VerifiedBadge />}
-      </div>
-      <div class="flex items-start gap-2 text-gris-texte font-sans">
-        <Icon name="lucide:map-pin" class="w-5 h-5 mt-0.5 shrink-0 text-marine" />
-        <p>
-          {centre.adresse}<br />
-          {centre.cp} {centre.ville}
-          {centre.departement && <span class="text-gris-clair"> — Dept. {centre.departement}</span>}
-        </p>
-      </div>
-    </header>
-
-    {/* ================================================================
-        NIVEAU 1 — Fiche RPPS (non revendiquee)
-        Page courte : bandeau + carte + formulaire generique
+        ETAT 1 — Non revendiquee (RPPS)
         ================================================================ */}
     {isRpps && (
       <>
-        <ClaimBanner slug={centre.slug} />
+        <CentreAlertBanner />
+        <CentreHeader centre={typedCentre} />
+        <CentreInfoGrid centre={typedCentre} />
+        <CentreSpecialties centre={typedCentre} />
+        <CentreBrands centre={typedCentre} />
+        <CentreCompleteness centre={typedCentre} />
 
-        {/* Carte si GPS dispo */}
-        {centre.lat && centre.lng && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-4 mb-8" aria-label="Localisation du centre">
-            <h2 class="font-sans text-lg font-bold text-marine mb-3">Localisation</h2>
-            <div class="rounded-lg overflow-hidden" style="height: 300px;">
-              <iframe
-                title={`Carte de ${centre.nom}`}
-                width="100%"
-                height="300"
-                style="border: 0;"
-                loading="lazy"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=${centre.lng - 0.01},${centre.lat - 0.008},${centre.lng + 0.01},${centre.lat + 0.008}&layer=mapnik&marker=${centre.lat},${centre.lng}`}
-              ></iframe>
-            </div>
-            <p class="text-sm text-gris-texte font-sans mt-2">
-              {centre.adresse}, {centre.cp} {centre.ville}
-            </p>
-          </section>
-        )}
+        {/* Encadre alerte rouge */}
+        <div class="rounded-lg bg-[#FCEBEB] px-4 py-3 mb-6 flex items-start gap-2">
+          <Icon name="lucide:alert-triangle" class="w-4 h-4 text-[#A32D2D] shrink-0 mt-0.5" />
+          <p class="text-xs text-[#791F1F] font-sans">
+            Sans fiche complete, les demandes de devis de cette zone sont envoyees aux centres voisins qui ont complete leur fiche.
+          </p>
+        </div>
 
-        {/* Formulaire patient generique */}
-        <section class="mb-8" aria-label="Demande de bilan auditif">
-          <LeadForm client:visible centreSlug={centre.slug} />
+        <CentreClaimCTA slug={typedCentre.slug} audioPrenom={typedCentre.audio_prenom} />
+        <CentreCompetitors competitors={competitors} />
+        <CentreStats plan="rpps" viewCount={viewCount} leadCount={leadCount} />
+        <CentreMap centre={typedCentre} />
+
+        <section class="mb-6" aria-label="Demande de bilan auditif">
+          <LeadForm client:visible centreSlug={typedCentre.slug} variant="rpps" />
         </section>
+
+        {/* Footer source RPPS */}
+        <p class="text-[11px] text-[#B4B2A9] font-sans text-center mb-4">
+          Source : Annuaire RPPS (data.gouv.fr) — Mise a jour periodique
+        </p>
       </>
     )}
 
     {/* ================================================================
-        NIVEAU 2 — Fiche revendiquee (gratuit)
-        Fiche complete : coordonnees, photo, specialites, marques, a propos
+        ETAT 2 — Revendiquee gratuite
         ================================================================ */}
     {isClaimed && (
       <>
-        {/* Coordonnees */}
-        <section class="rounded-xl border border-gris-clair bg-blanc p-6 sm:p-8 mb-8" aria-label="Coordonnees du centre">
-          <h2 class="font-sans text-xl font-bold text-marine mb-6">Coordonnees</h2>
-          <div class="grid gap-5 sm:grid-cols-2">
-            {centre.tel && (
-              <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-marine/10">
-                  <Icon name="lucide:phone" class="w-5 h-5 text-marine" />
-                </div>
-                <div>
-                  <p class="text-sm text-gris-texte font-sans">Telephone</p>
-                  <a href={`tel:${centre.tel.replace(/\s/g, '')}`} class="text-lg font-semibold text-marine font-sans hover:text-orange transition-colors">
-                    {centre.tel}
-                  </a>
-                </div>
-              </div>
-            )}
+        <CentreHeader centre={typedCentre} />
+        <CentreInfoGrid centre={typedCentre} />
 
-            {centre.site_web && (
-              <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-marine/10">
-                  <Icon name="lucide:globe" class="w-5 h-5 text-marine" />
-                </div>
-                <div>
-                  <p class="text-sm text-gris-texte font-sans">Site web</p>
-                  <a href={centre.site_web} target="_blank" rel="noopener" class="text-marine font-semibold font-sans hover:text-orange transition-colors">
-                    Visiter le site
-                  </a>
-                </div>
-              </div>
-            )}
-
-            {centre.email && (
-              <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-marine/10">
-                  <Icon name="lucide:mail" class="w-5 h-5 text-marine" />
-                </div>
-                <div>
-                  <p class="text-sm text-gris-texte font-sans">Email</p>
-                  <a href={`mailto:${centre.email}`} class="text-marine font-semibold font-sans hover:text-orange transition-colors">
-                    {centre.email}
-                  </a>
-                </div>
-              </div>
-            )}
-
-            {centre.horaires && (
-              <div class="flex items-center gap-3 sm:col-span-2">
-                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-marine/10">
-                  <Icon name="lucide:clock" class="w-5 h-5 text-marine" />
-                </div>
-                <div>
-                  <p class="text-sm text-gris-texte font-sans">Horaires</p>
-                  <p class="font-semibold text-marine font-sans">{centre.horaires}</p>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* Photo */}
-        {centre.photo_url && (
-          <section class="mb-8">
+        {typedCentre.photo_url && (
+          <section class="mb-6">
             <img
-              src={centre.photo_url}
-              alt={`Photo du centre ${centre.nom}`}
+              src={typedCentre.photo_url}
+              alt={`Photo du centre ${typedCentre.nom}`}
               class="w-full rounded-xl object-cover"
               style="max-height: 400px;"
               loading="lazy"
@@ -218,144 +181,40 @@ if (centre.marques?.length > 0) {
           </section>
         )}
 
-        {/* Specialites */}
-        {centre.specialites?.length > 0 && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="Specialites">
-            <h2 class="font-sans text-lg font-bold text-marine mb-4">Specialites</h2>
-            <div class="flex flex-wrap gap-2">
-              {centre.specialites.map((s: string) => (
-                <span class="rounded-full bg-marine/5 border border-marine/10 px-3 py-1 text-sm font-medium text-marine font-sans">
-                  {s}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
+        <CentreSpecialties centre={typedCentre} />
+        <CentreBrands centre={typedCentre} />
+        <CentreCompleteness centre={typedCentre} />
 
-        {/* Marques */}
-        {centre.marques?.length > 0 && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="Marques proposees">
-            <h2 class="font-sans text-lg font-bold text-marine mb-4">Marques proposees</h2>
-            <div class="flex flex-wrap gap-2">
-              {centre.marques.map((m: string) => (
-                <span class="rounded-full bg-marine/5 border border-marine/10 px-3 py-1 text-sm font-medium text-marine font-sans">
-                  {m}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* A propos */}
-        {centre.a_propos && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="A propos du centre">
+        {typedCentre.a_propos && (
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="A propos du centre">
             <h2 class="font-sans text-lg font-bold text-marine mb-4">A propos</h2>
-            <p class="text-gris-texte font-sans leading-relaxed">{centre.a_propos}</p>
+            <p class="text-gris-texte font-sans leading-relaxed">{typedCentre.a_propos}</p>
           </section>
         )}
 
-        {/* Carte */}
-        {centre.lat && centre.lng && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-4 mb-8" aria-label="Localisation du centre">
-            <h2 class="font-sans text-lg font-bold text-marine mb-3">Localisation</h2>
-            <div class="rounded-lg overflow-hidden" style="height: 300px;">
-              <iframe
-                title={`Carte de ${centre.nom}`}
-                width="100%"
-                height="300"
-                style="border: 0;"
-                loading="lazy"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=${centre.lng - 0.01},${centre.lat - 0.008},${centre.lng + 0.01},${centre.lat + 0.008}&layer=mapnik&marker=${centre.lat},${centre.lng}`}
-              ></iframe>
-            </div>
-            <p class="text-sm text-gris-texte font-sans mt-2">
-              {centre.adresse}, {centre.cp} {centre.ville}
-            </p>
-          </section>
-        )}
+        <CentreUpgradeCard slug={typedCentre.slug} />
+        <CentreStats plan="claimed" viewCount={viewCount} />
+        <CentreMap centre={typedCentre} />
 
-        {/* Formulaire patient personnalise */}
-        <section class="mb-8" aria-label="Demande de bilan auditif">
-          <LeadForm client:visible centreSlug={centre.slug} centreName={centre.nom} />
+        <section class="mb-6" aria-label="Demande de bilan auditif">
+          <LeadForm client:visible centreSlug={typedCentre.slug} centreName={typedCentre.nom} variant="claimed" />
         </section>
-
-        {/* Upsell discret en bas */}
-        <UpsellBanner />
       </>
     )}
 
     {/* ================================================================
-        NIVEAU 3 — Fiche premium
-        Tout du niveau 2 + badge verifie, reseaux sociaux, avis
+        ETAT 3 — Premium
         ================================================================ */}
     {isPremium && (
       <>
-        {/* Coordonnees */}
-        <section class="rounded-xl border-2 border-orange/20 bg-blanc p-6 sm:p-8 mb-8" aria-label="Coordonnees du centre">
-          <h2 class="font-sans text-xl font-bold text-marine mb-6">Coordonnees</h2>
-          <div class="grid gap-5 sm:grid-cols-2">
-            {centre.tel && (
-              <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-orange/10">
-                  <Icon name="lucide:phone" class="w-5 h-5 text-orange" />
-                </div>
-                <div>
-                  <p class="text-sm text-gris-texte font-sans">Telephone</p>
-                  <a href={`tel:${centre.tel.replace(/\s/g, '')}`} class="text-lg font-semibold text-marine font-sans hover:text-orange transition-colors">
-                    {centre.tel}
-                  </a>
-                </div>
-              </div>
-            )}
+        <CentreHeader centre={typedCentre} />
+        <CentreInfoGrid centre={typedCentre} />
 
-            {centre.site_web && (
-              <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-orange/10">
-                  <Icon name="lucide:globe" class="w-5 h-5 text-orange" />
-                </div>
-                <div>
-                  <p class="text-sm text-gris-texte font-sans">Site web</p>
-                  <a href={centre.site_web} target="_blank" rel="noopener" class="text-marine font-semibold font-sans hover:text-orange transition-colors">
-                    Visiter le site
-                  </a>
-                </div>
-              </div>
-            )}
-
-            {centre.email && (
-              <div class="flex items-center gap-3">
-                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-orange/10">
-                  <Icon name="lucide:mail" class="w-5 h-5 text-orange" />
-                </div>
-                <div>
-                  <p class="text-sm text-gris-texte font-sans">Email</p>
-                  <a href={`mailto:${centre.email}`} class="text-marine font-semibold font-sans hover:text-orange transition-colors">
-                    {centre.email}
-                  </a>
-                </div>
-              </div>
-            )}
-
-            {centre.horaires && (
-              <div class="flex items-center gap-3 sm:col-span-2">
-                <div class="flex items-center justify-center w-11 h-11 rounded-full bg-orange/10">
-                  <Icon name="lucide:clock" class="w-5 h-5 text-orange" />
-                </div>
-                <div>
-                  <p class="text-sm text-gris-texte font-sans">Horaires</p>
-                  <p class="font-semibold text-marine font-sans">{centre.horaires}</p>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* Photo */}
-        {centre.photo_url && (
-          <section class="mb-8">
+        {typedCentre.photo_url && (
+          <section class="mb-6">
             <img
-              src={centre.photo_url}
-              alt={`Photo du centre ${centre.nom}`}
+              src={typedCentre.photo_url}
+              alt={`Photo du centre ${typedCentre.nom}`}
               class="w-full rounded-xl object-cover"
               style="max-height: 400px;"
               loading="lazy"
@@ -363,98 +222,27 @@ if (centre.marques?.length > 0) {
           </section>
         )}
 
-        {/* Specialites */}
-        {centre.specialites?.length > 0 && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="Specialites">
-            <h2 class="font-sans text-lg font-bold text-marine mb-4">Specialites</h2>
-            <div class="flex flex-wrap gap-2">
-              {centre.specialites.map((s: string) => (
-                <span class="rounded-full bg-orange/10 border border-orange/20 px-3 py-1 text-sm font-medium text-marine font-sans">
-                  {s}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
+        <CentreSpecialties centre={typedCentre} />
+        <CentreBrands centre={typedCentre} />
+        <CentreCompleteness centre={typedCentre} />
 
-        {/* Marques */}
-        {centre.marques?.length > 0 && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="Marques proposees">
-            <h2 class="font-sans text-lg font-bold text-marine mb-4">Marques proposees</h2>
-            <div class="flex flex-wrap gap-2">
-              {centre.marques.map((m: string) => (
-                <span class="rounded-full bg-marine/5 border border-marine/10 px-3 py-1 text-sm font-medium text-marine font-sans">
-                  {m}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* A propos */}
-        {centre.a_propos && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="A propos du centre">
+        {typedCentre.a_propos && (
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="A propos du centre">
             <h2 class="font-sans text-lg font-bold text-marine mb-4">A propos</h2>
-            <p class="text-gris-texte font-sans leading-relaxed">{centre.a_propos}</p>
+            <p class="text-gris-texte font-sans leading-relaxed">{typedCentre.a_propos}</p>
           </section>
         )}
 
-        {/* Reseaux sociaux */}
-        {centre.reseaux_sociaux && Object.keys(centre.reseaux_sociaux).length > 0 && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="Reseaux sociaux">
-            <h2 class="font-sans text-lg font-bold text-marine mb-4">Retrouvez-nous</h2>
-            <div class="flex gap-3">
-              {Object.entries(centre.reseaux_sociaux).map(([network, url]) => (
-                <a
-                  href={url as string}
-                  target="_blank"
-                  rel="noopener"
-                  class="flex items-center justify-center w-11 h-11 rounded-full bg-marine/5 text-marine hover:bg-orange/10 hover:text-orange transition-colors"
-                  aria-label={network}
-                >
-                  <Icon name={`lucide:${network === 'google' ? 'search' : network}`} class="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-          </section>
-        )}
+        <CentreStats plan="premium" viewCount={viewCount} leadCount={leadCount} />
+        <CentreMap centre={typedCentre} />
 
-        {/* Avis patients (placeholder pour l'instant) */}
-        <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8" aria-label="Avis patients">
-          <h2 class="font-sans text-lg font-bold text-marine mb-3">Avis patients</h2>
-          <p class="text-gris-texte font-sans text-sm">
-            La section avis sera bientot disponible. Les patients pourront partager leur experience.
-          </p>
-        </section>
-
-        {/* Carte */}
-        {centre.lat && centre.lng && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-4 mb-8" aria-label="Localisation du centre">
-            <h2 class="font-sans text-lg font-bold text-marine mb-3">Localisation</h2>
-            <div class="rounded-lg overflow-hidden" style="height: 300px;">
-              <iframe
-                title={`Carte de ${centre.nom}`}
-                width="100%"
-                height="300"
-                style="border: 0;"
-                loading="lazy"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=${centre.lng - 0.01},${centre.lat - 0.008},${centre.lng + 0.01},${centre.lat + 0.008}&layer=mapnik&marker=${centre.lat},${centre.lng}`}
-              ></iframe>
-            </div>
-            <p class="text-sm text-gris-texte font-sans mt-2">
-              {centre.adresse}, {centre.cp} {centre.ville}
-            </p>
-          </section>
-        )}
-
-        {/* Formulaire patient personnalise */}
-        <section class="mb-8" aria-label="Demande de bilan auditif">
-          <LeadForm client:visible centreSlug={centre.slug} centreName={centre.nom} />
+        <section class="mb-6" aria-label="Demande de bilan auditif">
+          <LeadForm client:visible centreSlug={typedCentre.slug} centreName={typedCentre.nom} variant="premium" />
         </section>
       </>
     )}
 
-    {/* Lien retour annuaire — commun */}
+    {/* Lien retour annuaire */}
     <nav class="font-sans text-center py-4">
       <a
         href="/trouver-audioprothesiste/"
@@ -467,4 +255,13 @@ if (centre.marques?.length > 0) {
   </article>
 
   <HealthDisclaimer />
+
+  {/* Tracking page view */}
+  <script define:vars={{ centreId: typedCentre.id }}>
+    fetch('/api/page-view', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ centreId }),
+    }).catch(() => {});
+  </script>
 </BaseLayout>

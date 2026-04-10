@@ -1,0 +1,191 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../types/centre';
+
+interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const plan = centre.plan;
+
+// Masquer le telephone pour rpps : afficher les 4 premiers chiffres + dots
+function maskPhone(tel: string | null): string {
+  if (!tel) return '';
+  const digits = tel.replace(/\s/g, '');
+  if (digits.length >= 4) {
+    const prefix = digits.substring(0, 4);
+    // Formater en paires avec dots
+    return `${prefix.substring(0, 2)} ${prefix.substring(2, 4)} ** ** **`;
+  }
+  return '** ** ** ** **';
+}
+
+const maskedPhone = plan === 'rpps' && centre.tel ? maskPhone(centre.tel) : null;
+---
+
+<section class="rounded-xl bg-[#F8F5F0] p-5 mb-6" aria-label="Informations du centre">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+    {/* --- Telephone --- */}
+    {plan === 'rpps' ? (
+      centre.tel ? (
+        <div class="rounded-lg bg-blanc p-4">
+          <div class="flex items-center gap-2 mb-1">
+            <Icon name="lucide:phone" class="w-4 h-4 text-marine/50" />
+            <span class="text-xs text-gris-texte font-sans">Telephone</span>
+          </div>
+          <p class="text-sm font-medium font-sans tracking-wide">
+            <span class="text-marine">{maskedPhone!.split('**')[0]}</span><span class="text-[#B4B2A9]">** ** **</span>
+          </p>
+          <p class="text-[11px] font-medium text-orange font-sans mt-1">Completez pour afficher</p>
+        </div>
+      ) : (
+        <div class="rounded-lg bg-blanc p-4 opacity-45">
+          <div class="flex items-center gap-2 mb-1">
+            <Icon name="lucide:phone" class="w-4 h-4 text-gris-texte" />
+            <span class="text-xs text-gris-texte font-sans">Telephone</span>
+          </div>
+          <p class="text-sm text-gris-texte font-sans">Telephone non renseigne</p>
+        </div>
+      )
+    ) : plan === 'premium' ? (
+      <div class="rounded-lg bg-blanc p-4">
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:phone" class="w-4 h-4 text-orange" />
+          <span class="text-xs text-gris-texte font-sans">Telephone</span>
+        </div>
+        {centre.tel ? (
+          <>
+            <a href={`tel:${centre.tel.replace(/\s/g, '')}`} class="text-sm font-medium text-[#185FA5] font-sans hover:underline">
+              {centre.tel}
+            </a>
+            <p class="text-[11px] text-gris-texte font-sans mt-1">Appeler le centre</p>
+          </>
+        ) : (
+          <p class="text-sm text-gris-texte font-sans">Non renseigne</p>
+        )}
+      </div>
+    ) : (
+      <div class="rounded-lg bg-blanc p-4">
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:phone" class="w-4 h-4 text-marine/50" />
+          <span class="text-xs text-gris-texte font-sans">Telephone</span>
+        </div>
+        {centre.tel ? (
+          <a href={`tel:${centre.tel.replace(/\s/g, '')}`} class="text-sm font-medium text-marine font-sans hover:text-orange transition-colors">
+            {centre.tel}
+          </a>
+        ) : (
+          <p class="text-sm text-gris-texte font-sans">Non renseigne</p>
+        )}
+      </div>
+    )}
+
+    {/* --- Horaires --- */}
+    {plan === 'rpps' ? (
+      <div class="rounded-lg bg-blanc p-4 opacity-45">
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:clock" class="w-4 h-4 text-gris-texte" />
+          <span class="text-xs text-gris-texte font-sans">Horaires ?</span>
+        </div>
+        <p class="text-sm text-gris-texte font-sans">Lun-Ven ** — ** | Sam **</p>
+      </div>
+    ) : (
+      <div class="rounded-lg bg-blanc p-4">
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:clock" class="w-4 h-4 text-marine/50" />
+          <span class="text-xs text-gris-texte font-sans">Horaires</span>
+        </div>
+        {centre.horaires ? (
+          <p class="text-sm font-medium text-marine font-sans">{centre.horaires}</p>
+        ) : (
+          <p class="text-sm text-gris-texte font-sans">Non renseignes</p>
+        )}
+      </div>
+    )}
+
+    {/* --- Site web --- */}
+    {plan === 'rpps' ? (
+      <div class="rounded-lg bg-blanc p-4 opacity-45">
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:globe" class="w-4 h-4 text-gris-texte" />
+          <span class="text-xs text-gris-texte font-sans">Site web ?</span>
+        </div>
+        <p class="text-sm text-gris-texte font-sans">www.centre-auditif.fr/***</p>
+      </div>
+    ) : plan === 'claimed' ? (
+      <div class="rounded-lg bg-blanc p-4 opacity-45 relative">
+        <div class="absolute top-3 right-3">
+          <Icon name="lucide:lock" class="w-3.5 h-3.5 text-[#B4B2A9]" />
+        </div>
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:globe" class="w-4 h-4 text-gris-texte" />
+          <span class="text-xs text-gris-texte font-sans">Site web</span>
+        </div>
+        <p class="text-[10px] font-medium text-orange font-sans">Fiche premium</p>
+      </div>
+    ) : (
+      <div class="rounded-lg bg-blanc p-4">
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:globe" class="w-4 h-4 text-orange" />
+          <span class="text-xs text-gris-texte font-sans">Site web</span>
+        </div>
+        {centre.site_web ? (
+          <a href={centre.site_web} target="_blank" rel="noopener" class="text-sm font-medium text-[#185FA5] font-sans hover:underline">
+            Voir le site
+          </a>
+        ) : (
+          <p class="text-sm text-gris-texte font-sans">Non renseigne</p>
+        )}
+      </div>
+    )}
+
+    {/* --- Reseaux sociaux --- */}
+    {plan === 'rpps' ? (
+      <div class="rounded-lg bg-blanc p-4 opacity-45">
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:share-2" class="w-4 h-4 text-gris-texte" />
+          <span class="text-xs text-gris-texte font-sans">Reseaux sociaux ?</span>
+        </div>
+        <p class="text-sm text-gris-texte font-sans">Facebook &middot; Instagram &middot; **</p>
+      </div>
+    ) : plan === 'claimed' ? (
+      <div class="rounded-lg bg-blanc p-4 opacity-45 relative">
+        <div class="absolute top-3 right-3">
+          <Icon name="lucide:lock" class="w-3.5 h-3.5 text-[#B4B2A9]" />
+        </div>
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:share-2" class="w-4 h-4 text-gris-texte" />
+          <span class="text-xs text-gris-texte font-sans">Reseaux sociaux</span>
+        </div>
+        <p class="text-[10px] font-medium text-orange font-sans">Fiche premium</p>
+      </div>
+    ) : (
+      <div class="rounded-lg bg-blanc p-4">
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:share-2" class="w-4 h-4 text-orange" />
+          <span class="text-xs text-gris-texte font-sans">Reseaux sociaux</span>
+        </div>
+        {centre.reseaux_sociaux && Object.keys(centre.reseaux_sociaux).length > 0 ? (
+          <div class="flex gap-2 mt-1">
+            {Object.entries(centre.reseaux_sociaux).map(([network, url]) => (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener"
+                class="flex items-center justify-center w-9 h-9 rounded-full bg-marine/5 text-marine hover:bg-orange/10 hover:text-orange transition-colors"
+                aria-label={network}
+              >
+                <Icon name={`lucide:${network === 'google' ? 'search' : network}`} class="w-4 h-4" />
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p class="text-sm text-gris-texte font-sans">Non renseignes</p>
+        )}
+      </div>
+    )}
+
+  </div>
+</section>

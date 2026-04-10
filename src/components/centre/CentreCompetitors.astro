@@ -1,0 +1,41 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../types/centre';
+
+interface Props {
+  competitors: CentreData[];
+}
+
+const { competitors } = Astro.props;
+if (!competitors || competitors.length === 0) return;
+---
+
+<section class="mb-6" aria-label="Centres verifies a proximite">
+  <h2 class="font-sans text-sm font-medium text-marine mb-3">
+    Centres a proximite qui ont complete leur fiche
+  </h2>
+
+  <div class="space-y-2 mb-3">
+    {competitors.map((c) => (
+      <a
+        href={`/centre/${c.slug}/`}
+        class="flex items-center gap-3 rounded-lg bg-[#E1F5EE] p-3 hover:bg-[#D0EFE3] transition-colors"
+      >
+        <div class="w-8 h-8 rounded-full bg-[#0F6E56] flex items-center justify-center shrink-0">
+          <Icon name="lucide:check" class="w-4 h-4 text-blanc" />
+        </div>
+        <div class="min-w-0 flex-1">
+          <p class="text-[13px] font-medium text-[#04342C] font-sans truncate">{c.nom}</p>
+          <p class="text-[11px] text-[#0F6E56] font-sans">Fiche complete</p>
+        </div>
+        <span class="text-[11px] text-[#0F6E56] font-sans shrink-0">
+          {c.ville || c.cp}
+        </span>
+      </a>
+    ))}
+  </div>
+
+  <p class="text-[11px] font-medium text-[#A32D2D] font-sans">
+    Ces centres recoivent les demandes de devis de votre zone.
+  </p>
+</section>
