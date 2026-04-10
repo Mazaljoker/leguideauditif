@@ -1,20 +1,41 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
+import { createClient } from '@supabase/supabase-js';
 import { createServerClient } from '../../../lib/supabase';
 
-export const POST: APIRoute = async ({ request }) => {
-  try {
-    const secret = import.meta.env.ADMIN_SECRET || process.env.ADMIN_SECRET;
-    const body = await request.json();
-    const { centreSlug, token } = body;
+const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
 
-    if (!secret || token !== secret) {
+export const POST: APIRoute = async ({ request, cookies }) => {
+  try {
+    // Verifier la session admin
+    const accessToken = cookies.get('sb-access-token')?.value;
+    const refreshToken = cookies.get('sb-refresh-token')?.value;
+
+    if (!accessToken || !refreshToken) {
       return new Response(
         JSON.stringify({ error: 'Non autorise.' }),
         { status: 401, headers: { 'Content-Type': 'application/json' } }
       );
     }
+
+    const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
+    const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
+    const authClient = createClient(supabaseUrl, supabaseAnonKey);
+    const { data: { user } } = await authClient.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    });
+
+    if (!user || user.email !== ADMIN_EMAIL) {
+      return new Response(
+        JSON.stringify({ error: 'Non autorise.' }),
+        { status: 401, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const body = await request.json();
+    const { centreSlug } = body;
 
     if (!centreSlug) {
       return new Response(

@@ -5,12 +5,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 import { supabase } from '../../lib/supabase';
 
-// Protection par token dans l'URL
-const token = Astro.url.searchParams.get('token');
-const adminSecret = import.meta.env.ADMIN_SECRET || process.env.ADMIN_SECRET;
+// Protection par session admin
+const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
+const user = Astro.locals.user;
 
-if (!adminSecret || token !== adminSecret) {
-  return Astro.redirect('/');
+if (!user || user.email !== ADMIN_EMAIL) {
+  return Astro.redirect('/auth/login/');
 }
 
 // Recuperer les claims en attente
@@ -179,7 +179,7 @@ const { data: recentClaims } = await supabase
     )}
   </section>
 
-  <script define:vars={{ adminSecret }}>
+  <script>
     document.querySelectorAll('.admin-action').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const action = btn.getAttribute('data-action');
@@ -193,7 +193,7 @@ const { data: recentClaims } = await supabase
           const res = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ centreSlug: slug, token: adminSecret }),
+            body: JSON.stringify({ centreSlug: slug }),
           });
 
           const data = await res.json();
