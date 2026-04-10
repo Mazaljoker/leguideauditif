@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const navCards = [
+  {
+    href: '/',
+    icon: 'lucide:home',
+    title: "Retour a l'accueil",
+    desc: 'Retrouvez tous nos guides et conseils pour mieux entendre.',
+  },
+  {
+    href: '/guides/',
+    icon: 'lucide:book-open',
+    title: 'Nos guides',
+    desc: 'Appareils auditifs, remboursement, perte auditive, acouphenes...',
+  },
+  {
+    href: '/contact/',
+    icon: 'lucide:mail',
+    title: 'Nous contacter',
+    desc: 'Une question ? Notre equipe vous repond sous 48 h.',
+  },
+];
+
+const popularPages = [
+  { href: '/catalogue/', label: 'Catalogue des aides auditives' },
+  { href: '/trouver-audioprothesiste/', label: 'Trouver un audioprothesiste' },
+  { href: '/faq/', label: 'Foire aux questions' },
+  { href: '/comparatifs/', label: 'Nos comparatifs' },
+];
+---
+
+<BaseLayout
+  title="Page introuvable — LeGuideAuditif.fr"
+  description="La page que vous recherchez n'existe pas ou a ete deplacee. Retrouvez nos guides sur les appareils auditifs, le remboursement et la perte auditive."
+>
+  <meta slot="head" name="robots" content="noindex" />
+
+  <section class="bg-[var(--color-creme)] pt-12 pb-20">
+    <div class="max-w-[780px] mx-auto px-5 text-center">
+
+      <div class="mb-6" data-animate>
+        <Icon name="lucide:search-x" class="w-16 h-16 mx-auto" style="color: var(--color-orange);" aria-hidden="true" />
+      </div>
+
+      <h1 class="font-[var(--font-sans)] text-[32px] lg:text-[38px] font-extrabold leading-tight mb-4" style="color: var(--color-marine);" data-animate>
+        Cette page n'existe pas
+      </h1>
+
+      <p class="text-lg leading-relaxed max-w-[560px] mx-auto mb-10" style="color: var(--color-gris-texte);" data-animate>
+        La page que vous recherchez a peut-etre ete deplacee ou n'existe plus.
+        Pas d'inquietude, nous allons vous aider a retrouver votre chemin.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12" data-animate>
+        {navCards.map((card) => (
+          <a
+            href={card.href}
+            class="block rounded-2xl p-6 no-underline hover:no-underline hover:shadow-md transition-shadow group"
+            style="background: var(--color-blanc); border: 1px solid var(--color-gris-clair);"
+          >
+            <Icon name={card.icon} class="w-8 h-8 mx-auto mb-3" style="color: var(--color-orange);" aria-hidden="true" />
+            <div class="font-[var(--font-sans)] text-base font-bold mb-1 transition-colors" style="color: var(--color-marine);">
+              {card.title}
+            </div>
+            <div class="font-[var(--font-sans)] text-sm" style="color: var(--color-gris-texte);">
+              {card.desc}
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-left max-w-[480px] mx-auto mb-10" data-animate>
+        <h2 class="font-[var(--font-sans)] text-lg font-bold mb-4" style="color: var(--color-marine);">
+          Pages les plus consultees
+        </h2>
+        <ul class="space-y-3 list-none p-0 m-0">
+          {popularPages.map((page) => (
+            <li>
+              <a
+                href={page.href}
+                class="inline-flex items-center gap-2 text-base font-[var(--font-sans)] font-semibold no-underline hover:underline"
+                style="color: var(--color-orange);"
+              >
+                <Icon name="lucide:chevron-right" class="w-5 h-5 shrink-0" style="color: var(--color-orange);" aria-hidden="true" />
+                {page.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="text-center" data-animate>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-8 py-3.5 text-lg font-[var(--font-sans)] font-bold rounded-xl no-underline hover:no-underline transition-colors"
+          style="background: var(--color-orange); color: var(--color-blanc);"
+          onmouseover="this.style.background='var(--color-orange-hover)'"
+          onmouseout="this.style.background='var(--color-orange)'"
+        >
+          <Icon name="lucide:arrow-left" class="w-5 h-5" aria-hidden="true" />
+          Retour a l'accueil
+        </a>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
