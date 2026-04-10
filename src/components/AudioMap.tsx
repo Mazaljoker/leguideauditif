@@ -148,6 +148,7 @@ function MapController({
 
   useMapEvents({
     zoomend: () => onZoomChange(map.getZoom()),
+    moveend: () => onZoomChange(map.getZoom()),
   });
 
   useEffect(() => {

@@ -7,13 +7,30 @@ import '../../styles/audiomap.css';
 import { supabase } from '../../lib/supabase';
 
 // Fetch depuis Supabase — uniquement les centres avec GPS pour la carte
-const { data: audioprothesistes } = await supabase
-  .from('centres_auditifs')
-  .select('id, slug, nom, adresse, cp, ville, departement, lat, lng, tel, horaires, site_web, finess, source, is_premium')
-  .not('lat', 'is', null)
-  .not('lng', 'is', null);
+// Supabase limite a 1000 lignes par defaut, on pagine pour tout recuperer
+const PAGE_SIZE = 1000;
+let allCentres: Awaited<ReturnType<typeof supabase.from<'centres_auditifs'>>>['data'] = [];
+let offset = 0;
+let hasMore = true;
 
-const centres = audioprothesistes ?? [];
+while (hasMore) {
+  const { data: batch } = await supabase
+    .from('centres_auditifs')
+    .select('id, slug, nom, adresse, cp, ville, departement, lat, lng, tel, horaires, site_web, finess, source, is_premium')
+    .not('lat', 'is', null)
+    .not('lng', 'is', null)
+    .range(offset, offset + PAGE_SIZE - 1);
+
+  if (batch && batch.length > 0) {
+    allCentres = [...(allCentres ?? []), ...batch];
+    offset += PAGE_SIZE;
+    hasMore = batch.length === PAGE_SIZE;
+  } else {
+    hasMore = false;
+  }
+}
+
+const centres = allCentres ?? [];
 
 const title = 'Trouver un audioprothesiste pres de chez vous | LeGuideAuditif';
 const description =
