@@ -68,6 +68,8 @@ sources:
     url: "https://www.ameli.fr/assure/remboursements/reste-charge-0/audiologie"
   - name: "UNSAF - Appareils Classe 1"
     url: "https://www.unsaf.org/"
+  - name: "HAS - Evaluation des aides auditives"
+    url: "https://www.has-sante.fr/jcms/p_3357883/fr/evaluation-des-aides-auditives"
 ---
 
 Gratuit ne veut pas dire mauvais. C'est probablement l'idee recue la plus tenace en audiologie, et elle freine encore trop de personnes qui auraient tout a gagner a s'equiper. Apres 28 ans de pratique et plus de 3 000 patients appareilles, je peux vous affirmer que les appareils de Classe 1 (100 % Sante) ont enormement progresse. Pour une grande partie des malentendants, ils repondent parfaitement aux besoins du quotidien -- et votre reste a charge est de zero euro.
@@ -104,7 +106,7 @@ Le Phonak Audeo Life L30 est notre premiere recommandation en Classe 1. Recharge
 
 **A noter :** Pas de Bluetooth integre. Si vous souhaitez recevoir le son de votre telephone directement dans vos appareils, il faudra envisager un modele de Classe 2. Pour une utilisation quotidienne classique -- conversations, television, sorties moderement bruyantes -- le L30 fait largement le travail.
 
-**Mon avis de terrain :** C'est l'appareil que je recommande le plus souvent en premier appareillage. Mes patients apprecient particulierement la recharge, qui leur evite de manipuler de petites piles. En cabinet, les mesures in situ (RECD) confirment un gain reel conforme aux cibles NAL-NL2 sur les pertes legeres a moyennes.
+**Mon avis de terrain :** C'est l'appareil que je recommande le plus souvent en premier appareillage. Mes patients apprecient particulierement la recharge, qui leur evite de manipuler de petites piles. En cabinet, les mesures in situ (RECD -- mesure reelle au tympan) confirment un gain reel conforme aux cibles NAL-NL2 (methode de calcul du gain prescrit) sur les pertes legeres a moyennes.
 
 **Fourchette de prix :** 0 euros de reste a charge (Classe 1 -- 100 % Sante)
 
@@ -150,7 +152,7 @@ L'Oticon Jet se distingue des trois autres modeles par son format contour d'orei
 - 12 canaux de reglage
 - Puissance elevee adaptee aux pertes severes (jusqu'a 105 dB HL)
 - Construction robuste, resistant aux chocs et a l'humidite
-- Embout sur mesure pour un maintien securise et un couplage acoustique optimal
+- Embout sur mesure pour un maintien securise et un couplage acoustique optimal (transmission du son vers le tympan)
 - Boucle magnetique integree
 
 **A noter :** Son format contour d'oreille est plus visible qu'un RIC. Il fonctionne a piles (format 13, duree de vie d'environ 10 jours) et ne dispose pas de Bluetooth. Pour les pertes severes a profondes, ces compromis esthetiques sont largement compenses par la puissance et la fiabilite du systeme.
@@ -183,7 +185,7 @@ Le Classe 1 n'est pas un choix par defaut : c'est un choix pertinent dans de nom
 
 **Le budget est une contrainte** -- C'est une realite pour beaucoup de retraites. Le dispositif 100 % Sante a ete concu precisement pour que le prix ne soit plus un obstacle a l'appareillage. Selon l'UNSAF, plus de 45 % des appareils delivres en France en 2025 etaient des appareils de Classe 1 (source : UNSAF).
 
-**Vous avez une perte auditive legere a moyenne** -- Les 12 canaux et le traitement du signal des appareils de Classe 1 suffisent largement pour corriger les pertes jusqu'a 60-65 dB. Au-dela, selon le profil de la courbe audiometrique, un appareil plus puissant (comme l'Oticon Jet) ou un modele de Classe 2 peut s'averer necessaire.
+**Vous avez une perte auditive legere a moyenne** -- Les 12 canaux et le traitement du signal des appareils de Classe 1 suffisent largement pour corriger les pertes jusqu'a 60-65 dB. Au-dela, selon le profil de la courbe audiometrique (profil de votre perte par frequence), un appareil plus puissant (comme l'Oticon Jet) ou un modele de Classe 2 peut s'averer necessaire.
 
 ## Les limites du Classe 1 par rapport au Classe 2
 
@@ -212,6 +214,8 @@ La demarche est simple et encadree par la loi. Voici les etapes :
 4. **Validez ou changez** -- Si les appareils vous conviennent, l'achat est finalise. Votre reste a charge est de zero euro. Si vous n'etes pas satisfait, vous les rendez sans frais et pouvez essayer un autre modele.
 
 5. **Beneficiez du suivi inclus** -- Votre forfait comprend 30 seances de suivi reparties sur 4 ans. Ces rendez-vous sont essentiels pour optimiser vos reglages et verifier le bon fonctionnement de vos appareils.
+
+Important : le renouvellement de vos appareils est possible au bout de 4 ans minimum, toujours en Classe 1 si vous le souhaitez (source : Ameli.fr).
 
 Pour le detail complet des modalites de remboursement, consultez notre [guide 100 % Sante audition](/guides/remboursement/100-sante-audition/).
 
