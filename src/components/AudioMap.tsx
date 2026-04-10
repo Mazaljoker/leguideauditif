@@ -82,6 +82,14 @@ function createClusterIcon(count: number): L.DivIcon {
   });
 }
 
+/* ===== Premium sort (shared) ===== */
+function sortPremiumFirst<T extends { is_premium: boolean }>(items: T[]): T[] {
+  return [...items].sort((a, b) => {
+    if (a.is_premium !== b.is_premium) return b.is_premium ? 1 : -1;
+    return 0;
+  });
+}
+
 /* ===== Simple clustering logic ===== */
 interface Cluster {
   lat: number;
@@ -113,7 +121,6 @@ function clusterMarkers(
 
     if (clusters.has(key)) {
       const cluster = clusters.get(key)!;
-      // Update centroid
       const n = cluster.items.length;
       cluster.lat = (cluster.lat * n + item.lat) / (n + 1);
       cluster.lng = (cluster.lng * n + item.lng) / (n + 1);
@@ -127,11 +134,10 @@ function clusterMarkers(
     }
   }
 
-  // Sort: premium clusters first
   return Array.from(clusters.values()).sort((a, b) => {
-    const aPremium = a.items.some((i) => i.is_premium);
-    const bPremium = b.items.some((i) => i.is_premium);
-    if (aPremium !== bPremium) return bPremium ? 1 : -1;
+    const aPrem = a.items.some((i) => i.is_premium);
+    const bPrem = b.items.some((i) => i.is_premium);
+    if (aPrem !== bPrem) return bPrem ? 1 : -1;
     return 0;
   });
 }
@@ -164,11 +170,11 @@ function MapController({
 function SearchBar({
   onSelect,
 }: {
-  onSelect: (lat: number, lng: number, label: string) => void;
+  onSelect: (lat: number, lng: number, label: string, postcode: string) => void;
 }) {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<
-    { label: string; lat: number; lng: number }[]
+    { label: string; lat: number; lng: number; postcode: string }[]
   >([]);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -211,12 +217,13 @@ function SearchBar({
           const data = await res.json();
           const results = data.features.map(
             (f: {
-              properties: { label: string };
+              properties: { label: string; postcode: string };
               geometry: { coordinates: [number, number] };
             }) => ({
               label: f.properties.label,
               lng: f.geometry.coordinates[0],
               lat: f.geometry.coordinates[1],
+              postcode: f.properties.postcode || '',
             }),
           );
           setSuggestions(results);
@@ -282,13 +289,13 @@ function SearchBar({
               aria-selected={false}
               tabIndex={0}
               onClick={() => {
-                onSelect(s.lat, s.lng, s.label);
+                onSelect(s.lat, s.lng, s.label, s.postcode);
                 setQuery(s.label);
                 setIsOpen(false);
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  onSelect(s.lat, s.lng, s.label);
+                  onSelect(s.lat, s.lng, s.label, s.postcode);
                   setQuery(s.label);
                   setIsOpen(false);
                 }
@@ -345,11 +352,7 @@ function ResultsList({
     );
   }
 
-  // Sort premium first
-  const sorted = [...items].sort((a, b) => {
-    if (a.is_premium !== b.is_premium) return b.is_premium ? 1 : -1;
-    return 0;
-  });
+  const sorted = sortPremiumFirst(items);
 
   return (
     <ul ref={listRef} className="results-list" role="list">
@@ -450,6 +453,41 @@ function CentrePopup({ centre }: { centre: Audioprothesiste }) {
   );
 }
 
+/* ===== Filter hook: CP search or map bounds ===== */
+function useMapFilter(data: Audioprothesiste[], mapRef: React.RefObject<L.Map | null>) {
+  const [visibleItems, setVisibleItems] = useState<Audioprothesiste[]>(data);
+  const [postcode, setPostcode] = useState('');
+  const postcodeRef = useRef('');
+
+  const filterByPostcode = useCallback((cp: string) => {
+    postcodeRef.current = cp;
+    setPostcode(cp);
+    if (cp) {
+      setVisibleItems(data.filter((item) => item.cp === cp));
+    }
+  }, [data]);
+
+  const clearPostcodeFilter = useCallback(() => {
+    postcodeRef.current = '';
+    setPostcode('');
+  }, []);
+
+  const updateFromBounds = useCallback(() => {
+    if (postcodeRef.current) {
+      setVisibleItems(data.filter((item) => item.cp === postcodeRef.current));
+      return;
+    }
+    if (!mapRef.current) {
+      setVisibleItems(data);
+      return;
+    }
+    const bounds = mapRef.current.getBounds();
+    setVisibleItems(data.filter((item) => bounds.contains([item.lat, item.lng])));
+  }, [data, mapRef]);
+
+  return { visibleItems, postcode, filterByPostcode, clearPostcodeFilter, updateFromBounds };
+}
+
 /* ===== Main AudioMap component ===== */
 export default function AudioMap({ data }: AudioMapProps) {
   const [zoom, setZoom] = useState(6);
@@ -459,43 +497,27 @@ export default function AudioMap({ data }: AudioMapProps) {
     zoom: number;
   } | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [visibleItems, setVisibleItems] = useState<Audioprothesiste[]>(data);
-  const [searchLocation, setSearchLocation] = useState<string>('');
+  const [searchLocation, setSearchLocation] = useState('');
   const mapRef = useRef<L.Map | null>(null);
 
-  // Filter visible markers based on map bounds
-  const updateVisibleItems = useCallback(() => {
-    if (!mapRef.current) {
-      setVisibleItems(data);
-      return;
-    }
-    const bounds = mapRef.current.getBounds();
-    const visible = data.filter((item) =>
-      bounds.contains([item.lat, item.lng]),
-    );
-    setVisibleItems(visible);
-  }, [data]);
+  const { visibleItems, postcode, filterByPostcode, clearPostcodeFilter, updateFromBounds } =
+    useMapFilter(data, mapRef);
 
-  // Clusters based on current zoom
   const clusters = useMemo(
     () => clusterMarkers(visibleItems, zoom),
     [visibleItems, zoom],
   );
 
   const handleSearchSelect = useCallback(
-    (lat: number, lng: number, label: string) => {
-      setFlyTo({ lat, lng, zoom: 13 });
+    (lat: number, lng: number, label: string, cp: string) => {
+      filterByPostcode(cp);
+      setFlyTo({ lat, lng, zoom: 14 });
       setSearchLocation(label);
     },
-    [],
+    [filterByPostcode],
   );
 
-  const handleMarkerClick = useCallback((item: Audioprothesiste) => {
-    setSelectedId(item.id);
-    setFlyTo({ lat: item.lat, lng: item.lng, zoom: 15 });
-  }, []);
-
-  const handleResultClick = useCallback((item: Audioprothesiste) => {
+  const handleCentreSelect = useCallback((item: Audioprothesiste) => {
     setSelectedId(item.id);
     setFlyTo({ lat: item.lat, lng: item.lng, zoom: 15 });
   }, []);
@@ -508,7 +530,7 @@ export default function AudioMap({ data }: AudioMapProps) {
         {searchLocation && (
           <p className="audiomap-location-label">
             {visibleItems.length} centre{visibleItems.length > 1 ? 's' : ''}{' '}
-            {searchLocation ? `pres de ${searchLocation}` : ''}
+            {postcode ? `a ${searchLocation} (${postcode})` : `pres de ${searchLocation}`}
           </p>
         )}
       </div>
@@ -522,7 +544,7 @@ export default function AudioMap({ data }: AudioMapProps) {
           <ResultsList
             items={visibleItems.slice(0, 50)}
             selectedId={selectedId}
-            onSelect={handleResultClick}
+            onSelect={handleCentreSelect}
           />
         </aside>
 
@@ -535,8 +557,7 @@ export default function AudioMap({ data }: AudioMapProps) {
             style={{ height: '100%', width: '100%' }}
             ref={mapRef}
             whenReady={() => {
-              // Initial visibility update after a short delay
-              setTimeout(updateVisibleItems, 100);
+              setTimeout(updateFromBounds, 100);
             }}
           >
             <TileLayer
@@ -546,7 +567,10 @@ export default function AudioMap({ data }: AudioMapProps) {
             <MapController
               onZoomChange={(z) => {
                 setZoom(z);
-                updateVisibleItems();
+                if (!flyTo) {
+                  clearPostcodeFilter();
+                }
+                updateFromBounds();
               }}
               flyTo={flyTo}
             />
@@ -565,7 +589,7 @@ export default function AudioMap({ data }: AudioMapProps) {
                   }
                   zIndexOffset={cluster.items[0].is_premium ? 1000 : 0}
                   eventHandlers={{
-                    click: () => handleMarkerClick(cluster.items[0]),
+                    click: () => handleCentreSelect(cluster.items[0]),
                   }}
                 >
                   <Popup maxWidth={300} minWidth={220}>
