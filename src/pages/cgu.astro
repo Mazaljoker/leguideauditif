@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: "Conditions generales d'utilisation" },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+  })),
+};
+---
+
+<BaseLayout
+  title="CGU — LeGuideAuditif.fr"
+  description="Conditions generales d'utilisation du site LeGuideAuditif.fr — acces, responsabilite, propriete intellectuelle."
+  schema={schema}
+>
+  <div class="bg-creme">
+    <div class="max-w-[780px] mx-auto px-5">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+  <section class="bg-creme py-16">
+    <div class="max-w-[780px] mx-auto px-5 prose-legal">
+      <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-4">Conditions generales d'utilisation</h1>
+      <p class="text-sm text-gris-texte mb-8">Derniere mise a jour : 10 avril 2026</p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">1. Objet</h2>
+      <p class="leading-relaxed mb-6">
+        Les presentes conditions generales d'utilisation (ci-apres "CGU") regissent l'acces et l'utilisation du site <strong>LeGuideAuditif.fr</strong>, edite par Franck-Olivier Chabbat. En accedant au site, vous acceptez sans reserve les presentes CGU.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">2. Acces au site</h2>
+      <p class="leading-relaxed mb-4">
+        Le site est accessible gratuitement a tout utilisateur disposant d'un acces internet. L'editeur se reserve le droit de suspendre, modifier ou interrompre l'acces au site sans preavis, notamment pour des raisons de maintenance.
+      </p>
+      <p class="leading-relaxed mb-6">
+        Certaines fonctionnalites (depot d'annonces, revendication de centre, demande de devis) necessitent la creation d'un compte. L'utilisateur est responsable de la confidentialite de ses identifiants.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">3. Propriete intellectuelle</h2>
+      <p class="leading-relaxed mb-6">
+        L'ensemble des contenus du site (textes, guides, comparatifs, images, code source, design) sont proteges par le droit d'auteur. Toute reproduction, distribution ou utilisation a des fins commerciales, meme partielle, sans autorisation ecrite prealable de l'editeur est interdite.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">4. Responsabilite</h2>
+      <p class="leading-relaxed mb-4">
+        Les informations publiees sur LeGuideAuditif.fr sont fournies a titre informatif et ne constituent pas un avis medical. Elles ne sauraient se substituer a une consultation avec un professionnel de sante (medecin ORL, audioprothesiste).
+      </p>
+      <p class="leading-relaxed mb-6">
+        L'editeur s'efforce de fournir des informations exactes et a jour, mais ne garantit pas l'absence d'erreurs. L'utilisation des informations du site se fait sous la responsabilite exclusive de l'utilisateur.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">5. Liens hypertextes</h2>
+      <p class="leading-relaxed mb-4">
+        Le site peut contenir des liens vers des sites tiers. L'editeur n'exerce aucun controle sur ces sites et decline toute responsabilite quant a leur contenu.
+      </p>
+      <p class="leading-relaxed mb-6">
+        Certains liens sont des liens affilies. Cette affiliation est signalee sur les pages concernees et ne modifie pas le verdict editorial. Pour plus de details, consultez notre <a href="/politique-editoriale/" class="text-orange font-semibold hover:underline">politique editoriale</a>.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">6. Donnees personnelles</h2>
+      <p class="leading-relaxed mb-6">
+        La collecte et le traitement des donnees personnelles sont regis par notre <a href="/politique-confidentialite/" class="text-orange font-semibold hover:underline">politique de confidentialite</a>, conformement au Reglement General sur la Protection des Donnees (RGPD).
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">7. Droit applicable</h2>
+      <p class="leading-relaxed mb-6">
+        Les presentes CGU sont soumises au droit francais pour ce qui concerne la protection des consommateurs et les obligations d'information. Tout litige relatif a l'utilisation du site sera soumis aux tribunaux competents.
+      </p>
+
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">8. Modification des CGU</h2>
+      <p class="leading-relaxed">
+        L'editeur se reserve le droit de modifier les presentes CGU a tout moment. Les modifications prennent effet des leur publication sur cette page. La date de derniere mise a jour est indiquee en haut de cette page.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

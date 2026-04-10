@@ -4,6 +4,7 @@ metaDescription: "La presbyacousie expliquee : symptomes, evolution, diagnostic 
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
+updateDate: 2026-04-10
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
 readingTime: 7
@@ -17,6 +18,10 @@ sources:
     url: "https://www.inserm.fr/dossier/surdites/"
   - name: "OMS - Surdite et deficience auditive"
     url: "https://www.who.int/fr/news-room/fact-sheets/detail/deafness-and-hearing-loss"
+  - name: "HAS - Evaluation des aides auditives"
+    url: "https://www.has-sante.fr/"
+  - name: "Livingston et al. — Lancet Commission on Dementia (2024)"
+    url: "https://www.thelancet.com/commissions/dementia2024"
 faq:
   - question: "A quel age commence la presbyacousie ?"
     answer: "Elle debute generalement vers 50-55 ans avec une perte sur les aigus. Elle devient perceptible au quotidien vers 60-65 ans."
@@ -44,11 +49,11 @@ A la naissance, vous disposez d'environ 15 000 cellules ciliees par oreille. Ce 
 
 Avec l'age, ces cellules se deteriorent naturellement. La degradation commence par la base de la cochlee, la zone qui traite les sons aigus. C'est la raison pour laquelle la presbyacousie se manifeste d'abord par une difficulte a percevoir les frequences hautes, avant de toucher progressivement les frequences moyennes puis graves.
 
-Ce vieillissement est un processus biologique normal. Il ne s'agit pas d'une maladie a proprement parler, mais d'une usure progressive et irreversible, comparable au vieillissement de la vue (presbytie) ou des articulations.
+Sur le plan biologique, il s'agit d'un processus normal. Pas d'une maladie a proprement parler, mais d'une usure progressive et irreversible, comparable au vieillissement de la vue (presbytie) ou des articulations.
 
 ## Les symptomes : une progression insidieuse
 
-La presbyacousie ne s'installe pas du jour au lendemain. C'est precisement ce qui la rend difficile a detecter par la personne concernee. L'evolution se fait en plusieurs phases.
+Cette perte auditive ne s'installe pas du jour au lendemain. C'est precisement ce qui la rend difficile a detecter par la personne concernee. L'evolution se fait en plusieurs phases.
 
 **Phase 1 : la perte des aigus (50-60 ans)**
 
@@ -58,7 +63,9 @@ Les premiers sons a disparaitre sont les frequences aigues, au-dela de 4 000 Hz.
 
 La perte s'etend aux frequences conversationnelles (2 000 a 4 000 Hz). Les consonnes "s", "f", "ch", "t" deviennent difficiles a distinguer. Vous entendez que votre interlocuteur parle, mais certains mots vous echappent. Le symptome le plus revelateur : vous faites repeter, surtout dans le bruit, au restaurant, en reunion de famille ou dans la rue.
 
-Ce que je constate en cabinet : a ce stade, la plupart de mes patients pensent que les autres "marmonnent" ou que la television est "mal reglee". L'entourage repere souvent le probleme avant la personne concernee.
+Mon experience en cabinet le confirme : a ce stade, la plupart de mes patients pensent que les autres "marmonnent" ou que la television est "mal reglee". L'entourage repere souvent le probleme avant la personne concernee.
+
+Exemple concret : Michel, 68 ans, retraite, est venu me consulter apres trois ans de difficultes. Il pensait que sa femme parlait trop bas. Son audiogramme revelait une perte typique a 40 dB sur les aigus. Apres appareillage, il a retrouve le plaisir des conversations en famille des les premieres semaines.
 
 **Phase 3 : le retrait social (70 ans et plus)**
 
@@ -74,11 +81,11 @@ Si le vieillissement est la cause principale, plusieurs facteurs peuvent aggrave
 
 **Les antecedents familiaux** : la vitesse de vieillissement des cellules ciliees varie d'une personne a l'autre, en partie pour des raisons genetiques. Si vos parents ou grands-parents ont eu besoin d'aides auditives relativement tot, un depistage regulier des 50 ans est recommande.
 
-**Les maladies cardiovasculaires** : l'hypertension, le diabete et l'atherosclerose alterent la microcirculation sanguine dans la cochlee. Les cellules ciliees, deja fragiles, souffrent davantage lorsqu'elles sont moins bien irriguees. Selon l'INSERM, le controle des facteurs de risque cardiovasculaire contribue a preserver l'audition.
+**Les maladies cardiovasculaires** : l'hypertension, le diabete et l'atherosclerose (durcissement des arteres) alterent la microcirculation sanguine dans la cochlee. Les cellules ciliees, deja fragiles, souffrent davantage lorsqu'elles sont moins bien irriguees. Selon l'INSERM, le controle des facteurs de risque cardiovasculaire contribue a preserver l'audition.
 
 **Le tabac** : la nicotine reduit l'apport sanguin dans l'oreille interne. Les fumeurs presentent un risque accru de perte auditive precoce par rapport aux non-fumeurs.
 
-**Certains medicaments ototoxiques** : des traitements comme les aminosides, le cisplatine ou les diuretiques de l'anse peuvent aggraver une presbyacousie existante. Signalez toujours votre perte auditive a votre medecin prescripteur.
+**Certains medicaments ototoxiques (toxiques pour l'oreille)** : des traitements comme les aminosides (famille d'antibiotiques), le cisplatine (medicament de chimiotherapie) ou les diuretiques de l'anse (medicaments contre la retention d'eau) peuvent aggraver une presbyacousie existante. Signalez toujours votre perte auditive a votre medecin prescripteur.
 
 ## Le diagnostic : l'audiogramme, examen de reference
 
@@ -94,7 +101,7 @@ Un bilan auditif de depistage est egalement possible gratuitement chez un audiop
 
 ## Les solutions : l'appareillage auditif au coeur de la prise en charge
 
-La presbyacousie est irreversible : il n'existe aujourd'hui ni medicament ni chirurgie capable de regenerer les cellules ciliees detruites. La solution de reference est l'aide auditive, prescrite par un ORL et adaptee par un audioprothesiste.
+La presbyacousie est irreversible : il n'existe aujourd'hui ni medicament ni chirurgie capable de regenerer les cellules ciliees detruites. La solution de reference est l'aide auditive, prescrite par un ORL et adaptee par un audioprothesiste. La Haute Autorite de Sante (HAS) recommande l'appareillage binaural des que la perte depasse 30 dB sur les frequences conversationnelles.
 
 **Les aides auditives modernes** n'ont plus rien a voir avec les appareils d'il y a 20 ans. Les modeles actuels sont miniaturises, souvent rechargeables, connectes en Bluetooth et dotes de traitements numeriques qui isolent la parole dans le bruit. Il existe plusieurs types d'aides auditives adaptes a differents degres de perte et a differents modes de vie : contours d'oreille, intra-auriculaires, ecouteur delocalise. Pour comparer les differents types d'appareils, consultez notre [guide des types d'aides auditives](/guides/appareils-auditifs/types/).
 
@@ -104,17 +111,17 @@ La presbyacousie est irreversible : il n'existe aujourd'hui ni medicament ni chi
 
 ## Pourquoi agir tot : le lien entre audition et cognition
 
-C'est probablement l'information la plus importante de ce guide. Plusieurs etudes de grande envergure, dont l'etude ACHIEVE publiee dans The Lancet en 2023, ont demontre un lien significatif entre perte auditive non traitee et declin cognitif accelere.
+C'est probablement le point le plus important a retenir. Plusieurs etudes de grande envergure, dont l'etude ACHIEVE publiee dans The Lancet en 2023, ont demontre un lien significatif entre perte auditive non traitee et declin cognitif accelere.
 
 Le mecanisme est double. D'une part, le cerveau prive de stimulation auditive pendant des annees perd progressivement sa capacite a traiter les sons, meme lorsqu'un appareillage est finalement mis en place. C'est ce que l'on appelle la deprivation auditive. D'autre part, l'isolement social provoque par la perte auditive est lui-meme un facteur de risque reconnu de declin cognitif et de depression.
 
-Selon un rapport de la commission Livingston publie dans The Lancet en 2020, la perte auditive non corrigee est le premier facteur de risque modifiable de demence, devant l'hypertension, l'obesite ou le manque d'activite physique. A elle seule, elle representerait environ 8 % des cas de demence evitables.
+Selon un rapport de la commission Livingston publie dans The Lancet en 2020 et mis a jour en 2024, la perte auditive non corrigee est le premier facteur de risque modifiable de demence, devant l'hypertension, l'obesite ou le manque d'activite physique. A elle seule, elle representerait environ 8 % des cas de demence evitables.
 
 Ce que je dis a mes patients : chaque annee sans appareillage est une annee ou votre cerveau desapprend a traiter les sons. Plus vous attendez, plus l'adaptation sera longue et difficile. A l'inverse, un appareillage precoce maintient la stimulation cerebrale et preserve vos capacites de comprehension.
 
 ## Que faire maintenant ?
 
-Si vous vous reconnaissez dans les symptomes decrits dans ce guide, voici les etapes concretes a suivre :
+Si vous vous reconnaissez dans ces symptomes, voici les etapes concretes a suivre :
 
 1. **Faites un bilan auditif de depistage** : rendez-vous chez un audioprothesiste pour un test gratuit, sans ordonnance. Cela prend 30 minutes et vous donne une premiere indication.
 

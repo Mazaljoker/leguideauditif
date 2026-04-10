@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { Icon } from 'astro-icon/components';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'A propos', href: '/a-propos/' },
+  { label: 'Franck-Olivier Chabbat' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    name: 'Franck-Olivier Chabbat — Audioprothesiste DE',
+    url: 'https://leguideauditif.fr/auteur/franck-olivier/',
+    mainEntity: {
+      '@type': 'Person',
+      '@id': 'https://leguideauditif.fr/#author',
+      name: 'Franck-Olivier Chabbat',
+      givenName: 'Franck-Olivier',
+      familyName: 'Chabbat',
+      jobTitle: "Audioprothesiste diplome d'Etat",
+      description: "28 ans d'experience en audioprothese, 18 centres diriges, 3 000+ patients appareilles, 5 ans chez Auzen.com.",
+      url: 'https://leguideauditif.fr/auteur/franck-olivier/',
+      image: 'https://leguideauditif.fr/images/franck-olivier-chabbat.jpg',
+      sameAs: [
+        'https://www.linkedin.com/in/franck-olivier-chabbat-/'
+      ],
+      alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: 'ISTR Lyon — Institut des Sciences et Techniques de Readaptation',
+        url: 'https://istr.univ-lyon1.fr/'
+      },
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          credentialCategory: 'degree',
+          name: "Diplome d'Etat d'audioprothesiste",
+          recognizedBy: {
+            '@type': 'Organization',
+            name: 'Ministere de la Sante'
+          }
+        }
+      ],
+      identifier: {
+        '@type': 'PropertyValue',
+        propertyID: 'ADELI',
+        value: '692606494',
+        description: 'Numero ADELI — Repertoire national des professionnels de sante'
+      },
+      worksFor: {
+        '@type': 'Organization',
+        name: 'LeGuideAuditif.fr',
+        url: 'https://leguideauditif.fr'
+      },
+      knowsAbout: [
+        'audioprothese',
+        'appareils auditifs',
+        'perte auditive',
+        'acouphenes',
+        'presbyacousie',
+        'commerce en ligne d\'aides auditives',
+        'comparaison de puces auditives'
+      ]
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Franck-Olivier Chabbat, Audioprothesiste DE"
+  description="Audioprothesiste DE (ISTR Lyon), 28 ans de clinique, 18 centres diriges, 3 000+ patients, 5 ans chez Auzen.com. Auteur de LeGuideAuditif.fr."
+  schema={schema}
+>
+  <div class="bg-creme">
+    <div class="max-w-[780px] mx-auto px-5">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+
+  <!-- Profil auteur -->
+  <section class="bg-creme pt-8 pb-12">
+    <div class="max-w-[780px] mx-auto px-5">
+      <div class="bg-blanc border border-gris-clair rounded-2xl p-8">
+        <div class="flex flex-col sm:flex-row items-start gap-6">
+          <img
+            src="/images/franck-olivier-chabbat.jpg"
+            alt="Franck-Olivier Chabbat, audioprothesiste diplome d'Etat"
+            width="120"
+            height="120"
+            class="w-[120px] h-[120px] rounded-full object-cover shrink-0"
+            loading="eager"
+          />
+          <div>
+            <h1 class="font-sans text-[28px] lg:text-[32px] font-extrabold text-marine leading-tight mb-1">Franck-Olivier Chabbat</h1>
+            <div class="font-sans text-lg text-orange font-medium mb-4">Audioprothesiste diplome d'Etat &mdash; 28 ans de clinique, 5 ans chez Auzen.com</div>
+
+            <div class="inline-flex items-center gap-2 bg-creme border border-gris-clair px-4 py-2 rounded-lg text-sm font-sans mb-4">
+              <Icon name="lucide:shield-check" class="w-4 h-4 text-orange" aria-hidden="true" />
+              <span>N. ADELI : <strong class="text-marine">692606494</strong></span>
+            </div>
+
+            <a href="https://www.linkedin.com/in/franck-olivier-chabbat-/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-orange hover:underline text-sm font-sans font-medium ml-3 no-underline hover:no-underline">
+              <Icon name="lucide:linkedin" class="w-4 h-4" aria-hidden="true" />
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="bg-blanc py-12">
+    <div class="max-w-[780px] mx-auto px-5">
+      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Qualifications et parcours</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <div class="bg-creme rounded-xl p-5 border border-gris-clair">
+          <Icon name="lucide:graduation-cap" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
+          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Formation</div>
+          <p class="text-base text-marine">Diplome d'Etat d'audioprothesiste &mdash; ISTR Lyon (Universite Claude Bernard Lyon 1)</p>
+        </div>
+        <div class="bg-creme rounded-xl p-5 border border-gris-clair">
+          <Icon name="lucide:calendar-clock" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
+          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Experience clinique</div>
+          <p class="text-base text-marine">28 ans de pratique en audioprothese</p>
+        </div>
+        <div class="bg-creme rounded-xl p-5 border border-gris-clair">
+          <Icon name="lucide:building-2" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
+          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Management</div>
+          <p class="text-base text-marine">18 centres Alain Afflelou Acousticien diriges</p>
+        </div>
+        <div class="bg-creme rounded-xl p-5 border border-gris-clair">
+          <Icon name="lucide:users" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
+          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Patients</div>
+          <p class="text-base text-marine">3 000+ patients appareilles et suivis</p>
+        </div>
+        <div class="bg-creme rounded-xl p-5 border border-gris-clair">
+          <Icon name="lucide:globe" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
+          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Industrie</div>
+          <p class="text-base text-marine">5 ans chez Auzen.com &mdash; leader europeen de la vente en ligne d'aides auditives</p>
+        </div>
+        <div class="bg-creme rounded-xl p-5 border border-gris-clair">
+          <Icon name="lucide:shield-check" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
+          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Enregistrement</div>
+          <p class="text-base text-marine">N. ADELI 692606494 &mdash; Repertoire national des professionnels de sante</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="bg-creme py-12">
+    <div class="max-w-[780px] mx-auto px-5">
+      <h2 class="font-sans text-2xl font-bold text-marine mb-6">Mon parcours</h2>
+      <p class="text-lg leading-relaxed mb-4">
+        Diplome de l'ISTR Lyon, j'ai exerce l'audioprothese pendant 28 ans. J'ai dirige 18 centres Alain Afflelou Acousticien et accompagne plus de 3 000 patients dans leur parcours d'appareillage auditif, du premier bilan au renouvellement.
+      </p>
+      <p class="text-lg leading-relaxed mb-4">
+        J'ai ensuite passe 5 ans chez <strong class="text-marine">Auzen.com</strong>, leader europeen de la vente en ligne d'aides auditives. J'y ai redige une grande partie du catalogue technique et decouvert les coulisses de l'industrie : marges reelles, differences entre les puces, strategies de positionnement des fabricants.
+      </p>
+      <p class="text-lg leading-relaxed mb-8">
+        Aujourd'hui, je ne vends plus d'appareils. J'ai cree <strong class="text-marine">LeGuideAuditif.fr</strong> pour partager cette double expertise &mdash; clinique et industrielle &mdash; sans filtre ni conflit d'interet. Mon seul engagement est envers vous.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/a-propos/" class="inline-flex items-center gap-2 px-5 py-3 bg-orange text-white font-sans font-semibold rounded-lg hover:bg-orange-hover transition-colors no-underline hover:no-underline text-sm">
+          En savoir plus sur le projet
+          <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+        </a>
+        <a href="/politique-editoriale/" class="inline-flex items-center gap-2 px-5 py-3 bg-transparent border-2 border-marine text-marine font-sans font-semibold rounded-lg hover:bg-marine/5 transition-colors no-underline hover:no-underline text-sm">
+          Politique editoriale
+          <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
