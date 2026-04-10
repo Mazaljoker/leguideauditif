@@ -18,13 +18,18 @@ const LoginForm: FC<LoginFormProps> = ({ redirectTo = '/annonces/deposer/' }) =>
     setLoading(true);
     setError('');
 
-    const { error: authError } = await signIn(email, password);
+    const { data, error: authError } = await signIn(email, password);
     setLoading(false);
 
-    if (authError) {
+    if (authError || !data.session) {
       setError('Email ou mot de passe incorrect.');
       return;
     }
+
+    // Ecrire les cookies pour le middleware SSR
+    const maxAge = 60 * 60 * 24 * 7; // 7 jours
+    document.cookie = `sb-access-token=${data.session.access_token}; path=/; max-age=${maxAge}; SameSite=Lax; Secure`;
+    document.cookie = `sb-refresh-token=${data.session.refresh_token}; path=/; max-age=${maxAge}; SameSite=Lax; Secure`;
 
     window.location.href = redirectTo;
   };
