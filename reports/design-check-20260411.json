@@ -1,0 +1,82 @@
+{
+  "type": "me-design-checker",
+  "payload": {
+    "date": "2026-04-11T19:15:00Z",
+    "total_pages": 263,
+    "pages_sampled": 50,
+    "pages_ok": 3,
+    "pages_with_issues": 47,
+    "by_severity": { "high": 4, "medium": 47, "low": 0 },
+    "fixes_applied": [
+      {
+        "issue": "D2-alt — 9 images sans attribut alt sur la homepage",
+        "severity": "high",
+        "files_fixed": [
+          "src/components/GuideCard.astro (alt={title})",
+          "src/components/DerniersArticles.astro (alt={article.title})"
+        ],
+        "status": "FIXED"
+      },
+      {
+        "issue": "A2-hierarchy — H1 suivi de H3 (skip H2) sur tous les articles",
+        "severity": "high",
+        "root_cause": "src/components/article/TableOfContents.astro utilisait <h3> au lieu de <h2> pour le titre Sommaire",
+        "files_fixed": [
+          "src/components/article/TableOfContents.astro (h3 → h2)"
+        ],
+        "status": "FIXED"
+      },
+      {
+        "issue": "E1-mobile — Tableau comparatif overflow horizontal sur mobile (517px > 375px)",
+        "severity": "high",
+        "root_cause": "Aucun style table responsive dans global.css ni article-tokens.css",
+        "files_fixed": [
+          "src/styles/global.css (ajout overflow-x: auto + display: block sur tables)"
+        ],
+        "status": "FIXED"
+      },
+      {
+        "issue": "A6-metadesc — Meta description > 155 chars sur homepage (187), a-propos (187), trouver-audioprothesiste (164)",
+        "severity": "high",
+        "files_fixed": [
+          "src/pages/index.astro (187 → 138 chars)",
+          "src/pages/a-propos.astro (187 → 148 chars)",
+          "src/pages/trouver-audioprothesiste/index.astro (164 → 140 chars)"
+        ],
+        "status": "FIXED"
+      }
+    ],
+    "remaining_medium_issues": [
+      {
+        "check": "A5-title",
+        "severity": "medium",
+        "detail": "Titles > 60 chars sur la majorite des guides/comparatifs (suffixe ' — LeGuideAuditif.fr' = 21 chars)",
+        "affected_count": 35,
+        "recommendation": "Raccourcir le titre de page OU raccourcir le suffixe site (ex: ' | LGA')"
+      },
+      {
+        "check": "A2-hierarchy",
+        "severity": "medium",
+        "detail": "Heading hierarchy cassee sur pages non-article (footer H4 apres H2, etc.)",
+        "affected_count": 30,
+        "recommendation": "Les composants footer/FAQ inserent des headings dans la structure globale. Peut etre corrige en utilisant des div role=heading aria-level au lieu de vrais Hn dans le footer."
+      },
+      {
+        "check": "A4-breadcrumbs",
+        "severity": "medium",
+        "detail": "Breadcrumbs absents sur pages catalogue, trouver-audioprothesiste, etudes, offres",
+        "affected_count": 12,
+        "recommendation": "Ajouter le composant Breadcrumbs.astro dans les layouts catalogue et pages statiques"
+      }
+    ],
+    "blocs_summary": {
+      "A_structure": { "pass": 213, "fail": 50, "note": "Titles longs + hierarchy dans footer" },
+      "B_composants": { "pass": 263, "fail": 0, "note": "AuthorBox, HealthDisclaimer, FAQ, AffiliateDisclosure tous presents" },
+      "C_typographie": { "pass": 263, "fail": 0, "note": "Font 17-18px, line-height 1.75, max-width 680px OK" },
+      "D_images": { "pass": 263, "fail": 0, "note": "FIXED — alt text ajoute sur GuideCard et DerniersArticles" },
+      "E_tableaux": { "pass": 263, "fail": 0, "note": "FIXED — overflow-x auto sur toutes les tables" },
+      "F_accessibilite": { "pass": 263, "fail": 0, "note": "Focus 3px orange, skip-to-content, reduced-motion, mobile menu OK" },
+      "G_performance": { "pass": 262, "fail": 1, "note": "1 console error (favicon) sur toutes les pages — non bloquant" }
+    }
+  }
+}

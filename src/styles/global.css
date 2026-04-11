@@ -94,3 +94,12 @@ a:where(:not([class*="text-"])):hover {
     transition: none;
   }
 }
+
+/* ===== Responsive tables ===== */
+.article-content table,
+.article-page table,
+article table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
