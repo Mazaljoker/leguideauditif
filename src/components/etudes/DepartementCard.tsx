@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface DepartementData {
   code: string;
   nom: string;
@@ -14,6 +16,70 @@ interface DepartementCardProps {
   moyenneNationale: number;
   totalDepts: number;
   onClose: () => void;
+}
+
+/* ===== Alert signup sub-component ===== */
+function AlertSignup({ deptName, deptCode }: { deptName: string; deptCode: string }) {
+  const [email, setEmail] = useState('');
+  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const { supabase } = await import('../../lib/supabase');
+      await supabase.from('leads').insert({
+        first_name: email.split('@')[0],
+        phone: '',
+        zip_code: deptCode,
+        hearing_loss_type: 'alerte-dispo',
+        source: `etude-deserts-alerte-${deptCode}`,
+      });
+      setSent(true);
+    } catch (_err) {
+      setSent(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (sent) {
+    return (
+      <div className="px-6 py-4 bg-[#E8F5E9] text-center">
+        <p className="font-sans text-sm font-semibold text-[#2E7D32]">
+          Vous serez alerte des qu'un nouveau centre ouvre en {deptName}.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="px-6 py-4 bg-[#FFF8E1] border-t border-[#F57F17]/10">
+      <p className="font-sans text-sm font-semibold text-[#1B2E4A] mb-2">
+        Recevez une alerte quand un audioprothesiste s'installe pres de chez vous
+      </p>
+      <form onSubmit={handleSubmit} className="flex gap-2">
+        <label htmlFor={`alert-${deptCode}`} className="sr-only">Votre email</label>
+        <input
+          id={`alert-${deptCode}`}
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="votre@email.fr"
+          className="flex-1 px-3 py-2 rounded-lg border border-[#1B2E4A]/15 font-sans text-sm text-[#1B2E4A] placeholder:text-[#1B2E4A]/30 focus:outline-none focus:ring-2 focus:ring-[#D97B3D]"
+        />
+        <button
+          type="submit"
+          disabled={loading}
+          className="px-4 py-2 bg-[#B55E28] text-white font-sans text-sm font-semibold rounded-lg hover:bg-[#9A4D1C] transition-colors disabled:opacity-50 whitespace-nowrap"
+        >
+          {loading ? '...' : 'M\'alerter'}
+        </button>
+      </form>
+    </div>
+  );
 }
 
 const NIVEAU_STYLES: Record<string, { bg: string; text: string; label: string }> = {
@@ -129,6 +195,11 @@ export default function DepartementCard({ dept, moyenneNationale, totalDepts, on
           <p className="font-sans text-xs text-[#1B2E4A]/50 mt-1">Population 60+</p>
         </div>
       </div>
+
+      {/* Alert signup for underserved departments */}
+      {(dept.niveau === 'rouge' || dept.niveau === 'orange') && (
+        <AlertSignup deptName={dept.nom} deptCode={dept.code} />
+      )}
 
       {/* CTA */}
       <div className="px-6 py-4 bg-[#F8F5F0]">

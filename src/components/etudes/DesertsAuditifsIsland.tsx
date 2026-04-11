@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import DesertAuditifsMap from './DesertAuditifsMap';
 import DepartementRanking from './DepartementRanking';
 import DepartementCard from './DepartementCard';
+import RegionExport from './RegionExport';
 
 interface DepartementData {
   code: string;
@@ -56,6 +57,23 @@ export default function DesertsAuditifsIsland({ data, metadata }: Props) {
       return;
     }
     const q = searchQuery.trim().toLowerCase();
+
+    // Code postal → departement mapping
+    const isPostalCode = /^\d{2,5}$/.test(q);
+    if (isPostalCode) {
+      let deptCode: string;
+      if (q.startsWith('97') || q.startsWith('98')) {
+        deptCode = q.slice(0, 3);
+      } else if (q.startsWith('20')) {
+        deptCode = parseInt(q, 10) < 20200 ? '2A' : '2B';
+      } else {
+        deptCode = q.slice(0, 2);
+      }
+      const match = data.filter((d) => d.code === deptCode);
+      setSuggestions(match);
+      return;
+    }
+
     const matches = data.filter(
       (d) => d.nom.toLowerCase().includes(q) || d.code.startsWith(q)
     ).slice(0, 6);
@@ -95,7 +113,7 @@ export default function DesertsAuditifsIsland({ data, metadata }: Props) {
         <input
           id="dept-search"
           type="search"
-          placeholder="Tapez un nom de departement ou un code postal..."
+          placeholder="Votre code postal ou nom de departement..."
           value={searchQuery}
           onChange={(e) => {
             setSearchQuery(e.target.value);
@@ -140,7 +158,7 @@ export default function DesertsAuditifsIsland({ data, metadata }: Props) {
       )}
 
       {/* Rankings */}
-      <div>
+      <div className="mb-12">
         <h2 className="font-sans text-2xl font-bold text-[#1B2E4A] mb-6" id="classement">
           Classement par departement
         </h2>
@@ -149,6 +167,14 @@ export default function DesertsAuditifsIsland({ data, metadata }: Props) {
           selectedDept={selectedDept}
           onSelectDept={handleSelectDept}
         />
+      </div>
+
+      {/* Region export for journalists */}
+      <div>
+        <h2 className="font-sans text-2xl font-bold text-[#1B2E4A] mb-6" id="donnees-region">
+          Donnees par region
+        </h2>
+        <RegionExport data={data} />
       </div>
     </div>
   );
