@@ -6,13 +6,13 @@ interface Props {
   title?: string;
 }
 
-const { name = 'Franck-Olivier', title = "Audioprothesiste DE, 28 ans d'experience" } = Astro.props;
+const { name = 'Franck-Olivier', title = "Audioproth\u00e9siste DE, 28 ans d'exp\u00e9rience" } = Astro.props;
 ---
 
 <aside class="bg-blanc border border-gris-clair rounded-2xl p-6 my-8 flex flex-col sm:flex-row items-start gap-5" aria-label="A propos de l'auteur">
   <img
     src="/images/franck-olivier-chabbat.jpg"
-    alt="Franck-Olivier Chabbat, audioprothesiste diplome d'Etat"
+    alt="Franck-Olivier Chabbat, audioproth&eacute;siste dipl&ocirc;m&eacute; d'&Eacute;tat"
     width="64"
     height="64"
     class="w-16 h-16 rounded-full object-cover shrink-0"
@@ -22,10 +22,10 @@ const { name = 'Franck-Olivier', title = "Audioprothesiste DE, 28 ans d'experien
     <a href="/auteur/franck-olivier/" class="font-sans text-lg font-bold text-marine hover:text-orange mb-1 no-underline block">{name}</a>
     <div class="font-sans text-sm text-gris-texte mb-3">{title}</div>
     <div class="font-sans text-xs text-gris-texte mb-3">
-      Diplome d'Etat &middot; Amplifon &middot; Audika &middot; 18 centres Afflelou &middot; Auzen.com &middot; 3000+ patients &middot; ADELI 692606494
+      Dipl&ocirc;me d'&Eacute;tat &middot; Amplifon &middot; Audika &middot; 18 centres Afflelou &middot; Auzen.com &middot; 3000+ patients &middot; ADELI 692606494
     </div>
     <p class="text-sm text-gris-texte leading-relaxed">
-      Apres avoir forge son expertise chez les leaders historiques (Amplifon, Audika) et dirige 18 centres Alain Afflelou Acousticien, Franck-Olivier a passe 5 ans chez Auzen.com entre teleaudiologie et vente en ligne. Il met ce parcours unique au service de votre audition, sans langue de bois.
+      Apr&egrave;s avoir forg&eacute; son expertise chez les leaders historiques (Amplifon, Audika) et dirig&eacute; 18 centres Alain Afflelou Acousticien, Franck-Olivier a pass&eacute; 5 ans chez Auzen.com entre t&eacute;l&eacute;audiologie et vente en ligne. Il met ce parcours unique au service de votre audition, sans langue de bois.
     </p>
   </div>
 </aside>
