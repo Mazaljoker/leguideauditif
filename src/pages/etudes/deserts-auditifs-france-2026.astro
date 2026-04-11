@@ -206,81 +206,155 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
 
     {/* Editorial analysis */}
     <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
-      <h2 id="analyse" class="font-sans text-2xl font-bold text-marine mb-6">
+      <h2 id="analyse" class="font-sans text-2xl font-bold text-marine mb-8">
         Analyse : la fracture auditive territoriale
       </h2>
-      <div class="prose prose-lg max-w-none
-        prose-headings:font-sans prose-headings:text-marine prose-headings:font-bold
-        prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-        prose-p:text-marine prose-p:leading-relaxed
-        prose-strong:text-marine
-        prose-li:text-marine
-      ">
-        <p>
-          J'ai dirige 18 centres dans des regions tres differentes — de la banlieue parisienne a des villes moyennes. Je savais que l'acces aux soins auditifs n'etait pas le meme partout. Mais en croisant les donnees officielles du RPPS et de l'INSEE, l'ampleur du desequilibre m'a frappe.
-        </p>
 
-        <h3>Un ecart de 1 a 4 entre departements</h3>
-        <p>
-          En Haute-Marne, on compte 4,19 audioprothesistes pour 100 000 habitants. A Paris : 17,13. Quatre fois plus.
+      {/* Intro — accroche en gras */}
+      <p class="font-sans text-lg text-marine leading-relaxed mb-8">
+        <strong class="text-xl">J'ai dirige 18 centres dans des regions tres differentes</strong> — de la banlieue parisienne a des villes moyennes. Je savais que l'acces aux soins auditifs n'etait pas le meme partout. Mais en croisant les donnees officielles du RPPS et de l'INSEE, l'ampleur du desequilibre m'a frappe.
+      </p>
+
+      {/* Section 1 — Ecart 1 a 4 */}
+      <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">Un ecart de 1 a 4 entre departements</h3>
+
+        {/* Stat callout */}
+        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+          <div class="flex-1 bg-[#FFEBEE] border-l-4 border-[#C62828] rounded-r-xl px-5 py-4">
+            <p class="font-serif text-3xl font-bold text-[#C62828]">4,19</p>
+            <p class="font-sans text-sm text-[#C62828]/70">Haute-Marne — pour 100k hab.</p>
+          </div>
+          <div class="flex-1 bg-[#E8F5E9] border-l-4 border-[#2E7D32] rounded-r-xl px-5 py-4">
+            <p class="font-serif text-3xl font-bold text-[#2E7D32]">17,13</p>
+            <p class="font-sans text-sm text-[#2E7D32]/70">Paris — pour 100k hab.</p>
+          </div>
+        </div>
+
+        <p class="font-sans text-base text-marine leading-relaxed mb-3">
+          Quatre fois plus. Ce n'est pas un leger desequilibre. <strong>C'est un gouffre.</strong>
         </p>
-        <p>
-          Ce n'est pas un leger desequilibre. C'est un gouffre.
-        </p>
-        <p>
+        <p class="font-sans text-base text-marine leading-relaxed">
           La moyenne nationale se situe a 8,37 pour 100 000 habitants. Mais cette moyenne ne veut pas dire grand-chose. Tout depend de l'endroit ou vous vivez.
         </p>
+      </div>
 
-        <h3>La diagonale du vide auditif</h3>
-        <p>
+      {/* Section 2 — Diagonale */}
+      <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">La diagonale du vide auditif</h3>
+        <p class="font-sans text-base text-marine leading-relaxed mb-4">
           Regardez la carte. Un couloir se dessine, du nord-est vers le centre de la France. La Haute-Marne (4,19), l'Eure-et-Loir (5,08), l'Orne (5,15), la Haute-Saone (5,17). Population vieillissante, bassins d'emploi fragiles, peu de jeunes diplomes qui s'y installent. Le resultat est la.
         </p>
-        <p>
-          Prenez la Creuse : 5 audioprothesistes pour 114 000 habitants. Cinq. Pour couvrir un territoire plus grand que certains departements d'Ile-de-France.
-        </p>
 
-        <h3>Le paradoxe Seine-Saint-Denis</h3>
-        <p>
+        {/* Stat callout Creuse */}
+        <div class="bg-[#FFF3E0] border-l-4 border-[#E65100] rounded-r-xl px-5 py-4">
+          <p class="font-sans text-base text-[#E65100]">
+            <strong class="font-serif text-2xl">5</strong> audioprothesistes pour <strong>114 000</strong> habitants en Creuse.
+            <span class="block text-sm mt-1 text-[#E65100]/70">Pour couvrir un territoire plus grand que certains departements d'Ile-de-France.</span>
+          </p>
+        </div>
+      </div>
+
+      {/* Section 3 — SSD */}
+      <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">Le paradoxe Seine-Saint-Denis</h3>
+        <p class="font-sans text-base text-marine leading-relaxed mb-4">
           On pourrait penser que la proximite de Paris protege ses voisins. Pas du tout. La Seine-Saint-Denis compte 91 audioprothesistes pour 1,7 million d'habitants — un ratio de 5,32 pour 100 000. Presque la moitie de la moyenne nationale.
         </p>
-        <p>
-          L'explication tient en un mot : concentration. Les cabinets s'installent la ou le pouvoir d'achat est eleve. A Paris intra-muros, vous avez l'embarras du choix. De l'autre cote du peripherique, vous attendez des semaines. Selon la DREES, les inegalites de repartition des professionnels de sante suivent les inegalites economiques des territoires.
-        </p>
-        <p>
-          Je me souviens d'une patiente de 74 ans qui venait de Montreuil. Elle mettait 1 h 15 en transports pour venir a mon cabinet parisien, parce qu'aucun audioprothesiste pres de chez elle ne pouvait la recevoir avant deux mois. Ca ne devrait pas exister en Ile-de-France.
+        <p class="font-sans text-base text-marine leading-relaxed mb-6">
+          L'explication tient en un mot : <strong>concentration</strong>. Les cabinets s'installent la ou le pouvoir d'achat est eleve. A Paris intra-muros, vous avez l'embarras du choix. De l'autre cote du peripherique, vous attendez des semaines. Selon la DREES, les inegalites de repartition des professionnels de sante suivent les inegalites economiques des territoires.
         </p>
 
-        <h3>Le sud, terre d'accueil des audioprothesistes</h3>
-        <p>
+        {/* Anecdote blockquote */}
+        <blockquote class="bg-[#F8F5F0] border-l-4 border-[#D97B3D] rounded-r-xl px-6 py-5 italic">
+          <p class="font-sans text-base text-marine leading-relaxed">
+            "Je me souviens d'une patiente de 74 ans qui venait de Montreuil. Elle mettait 1 h 15 en transports pour venir a mon cabinet parisien, parce qu'aucun audioprothesiste pres de chez elle ne pouvait la recevoir avant deux mois."
+          </p>
+          <p class="font-sans text-sm text-[#D97B3D] mt-2 not-italic font-medium">
+            Ca ne devrait pas exister en Ile-de-France.
+          </p>
+        </blockquote>
+      </div>
+
+      {/* Section 4 — Le sud */}
+      <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">Le sud, terre d'accueil des audioprothesistes</h3>
+        <p class="font-sans text-base text-marine leading-relaxed mb-4">
           De l'autre cote du classement, certains departements du sud font bien mieux que la moyenne. L'Ariege (12,76) et le Lot (13,60) depassent la plupart des grandes metropoles. La raison ? Le cadre de vie. Les jeunes diplomes choisissent de plus en plus leur lieu d'installation en fonction de la qualite de vie, pas seulement du volume de patients. C'est un phenomene documente par les etudes de la DREES sur la demographie des professions de sante.
         </p>
-        <p>
+        <p class="font-sans text-base text-marine leading-relaxed">
           Bonne nouvelle pour les retraites du sud-ouest. Moins bonne pour ceux du Grand Est.
         </p>
+      </div>
 
-        <h3>L'angle qui change tout : la population agee</h3>
-        <p>
+      {/* Section 5 — Population agee */}
+      <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">L'angle qui change tout : la population agee</h3>
+        <p class="font-sans text-base text-marine leading-relaxed mb-4">
           Notre etude utilise la population totale comme denominateur — pour rester comparable aux donnees publiees. Mais regardons les choses autrement.
         </p>
-        <p>
-          90 % des personnes appareillees ont plus de 60 ans, selon les donnees de l'Assurance maladie. En Creuse, 40 % de la population depasse cet age. En Seine-Saint-Denis, 19 %. Un meme ratio d'audioprothesistes ne signifie donc pas du tout la meme chose en termes d'acces reel aux soins.
-        </p>
-        <p>
-          Les departements ruraux cumulent les handicaps : moins de professionnels et une population plus agee.
+        <p class="font-sans text-base text-marine leading-relaxed mb-6">
+          90 % des personnes appareillees ont plus de 60 ans, selon les donnees de l'Assurance maladie. Un meme ratio d'audioprothesistes ne signifie donc pas du tout la meme chose selon la structure d'age du departement.
         </p>
 
-        <h3>Ce que ca change pour vous, concretement</h3>
-        <p>
+        {/* Comparaison visuelle */}
+        <div class="flex flex-col sm:flex-row gap-4">
+          <div class="flex-1 bg-[#FFF3E0] border-l-4 border-[#E65100] rounded-r-xl px-5 py-4">
+            <p class="font-sans text-sm text-[#E65100]/70 mb-1">Creuse</p>
+            <p class="font-serif text-2xl font-bold text-[#E65100]">40 %</p>
+            <p class="font-sans text-xs text-[#E65100]/60">de la population a plus de 60 ans</p>
+          </div>
+          <div class="flex-1 bg-[#E3F2FD] border-l-4 border-[#1565C0] rounded-r-xl px-5 py-4">
+            <p class="font-sans text-sm text-[#1565C0]/70 mb-1">Seine-Saint-Denis</p>
+            <p class="font-serif text-2xl font-bold text-[#1565C0]">19 %</p>
+            <p class="font-sans text-xs text-[#1565C0]/60">de la population a plus de 60 ans</p>
+          </div>
+        </div>
+        <p class="font-sans text-base text-marine leading-relaxed mt-5">
+          Les departements ruraux cumulent les handicaps : moins de professionnels <strong>et</strong> une population plus agee.
+        </p>
+      </div>
+
+      {/* Section 6 — Consequences : cards grid */}
+      <div class="mb-8">
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">Ce que ca change pour vous, concretement</h3>
+        <p class="font-sans text-base text-marine leading-relaxed mb-6">
           Si vous habitez dans un departement sous-dote, les consequences sont directes.
         </p>
-        <ul>
-          <li><strong>Des delais allonges.</strong> Plusieurs semaines d'attente, parfois deux mois pour un premier bilan. Dans les zones les plus tendues, c'est la norme.</li>
-          <li><strong>Des trajets penibles.</strong> Le cabinet le plus proche peut se trouver a 45 minutes de route. Pour une personne agee qui ne conduit plus, c'est un obstacle reel.</li>
-          <li><strong>Un suivi difficile a tenir.</strong> L'adaptation d'un appareil auditif demande 4 a 6 rendez-vous la premiere annee, selon les recommandations de la HAS. Quand chaque visite est une expedition, certains patients espacent — ou abandonnent.</li>
-          <li><strong>Un risque d'abandon.</strong> La DREES estime qu'un tiers des personnes appareillees n'utilisent pas regulierement leurs aides auditives. La distance au professionnel est l'un des facteurs identifies.</li>
-        </ul>
-        <p>
-          Ces donnees ne sont pas une fatalite. Elles dessinent une carte des priorites. Si vous etes concerne, la premiere etape reste de localiser les professionnels disponibles pres de chez vous.
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <div class="bg-white rounded-xl border border-[#1B2E4A]/10 p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+            <div class="flex items-center gap-2 mb-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <h4 class="font-sans text-base font-bold text-marine">Des delais allonges</h4>
+            </div>
+            <p class="font-sans text-sm text-gris-texte leading-relaxed">Plusieurs semaines d'attente, parfois deux mois pour un premier bilan. Dans les zones les plus tendues, c'est la norme.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-[#1B2E4A]/10 p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+            <div class="flex items-center gap-2 mb-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <h4 class="font-sans text-base font-bold text-marine">Des trajets penibles</h4>
+            </div>
+            <p class="font-sans text-sm text-gris-texte leading-relaxed">Le cabinet le plus proche peut se trouver a 45 minutes de route. Pour une personne agee qui ne conduit plus, c'est un obstacle reel.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-[#1B2E4A]/10 p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+            <div class="flex items-center gap-2 mb-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <h4 class="font-sans text-base font-bold text-marine">Un suivi difficile</h4>
+            </div>
+            <p class="font-sans text-sm text-gris-texte leading-relaxed">L'adaptation demande 4 a 6 rendez-vous la premiere annee (HAS). Quand chaque visite est une expedition, certains patients espacent — ou abandonnent.</p>
+          </div>
+          <div class="bg-white rounded-xl border border-[#1B2E4A]/10 p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+            <div class="flex items-center gap-2 mb-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <h4 class="font-sans text-base font-bold text-marine">Risque d'abandon</h4>
+            </div>
+            <p class="font-sans text-sm text-gris-texte leading-relaxed">La DREES estime qu'un tiers des personnes appareillees n'utilisent pas regulierement leurs aides auditives. La distance est l'un des facteurs identifies.</p>
+          </div>
+        </div>
+
+        <p class="font-sans text-base text-marine leading-relaxed">
+          Ces donnees ne sont pas une fatalite. Elles dessinent une carte des priorites. Si vous etes concerne, la premiere etape reste de <a href="/trouver-audioprothesiste" class="text-[#9A5515] underline hover:no-underline font-semibold">localiser les professionnels disponibles pres de chez vous</a>.
         </p>
       </div>
     </div>
