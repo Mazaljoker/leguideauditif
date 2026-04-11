@@ -29,9 +29,38 @@ const NIVEAU_COLORS: Record<string, { bg: string; text: string; label: string }>
   rouge: { bg: '#FFEBEE', text: '#C62828', label: 'Desert' },
 };
 
-/* ===== Component ===== */
-export default function DepartementRanking({ data, selectedDept, onSelectDept }: DepartementRankingProps) {
-  const [search, setSearch] = useState('');
+/* ===== Mini ranking row ===== */
+function MiniRow({ dept, onSelect }: { dept: DepartementData; onSelect: () => void }) {
+  const niv = NIVEAU_COLORS[dept.niveau];
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      className="flex items-center gap-3 w-full px-4 py-3 text-left hover:bg-[#F8F5F0] transition-colors rounded-lg"
+    >
+      <span className="font-sans text-sm font-bold text-[#1B2E4A]/40 w-6 text-right">{dept.rang}</span>
+      <span
+        className="w-3 h-3 rounded-full shrink-0"
+        style={{ backgroundColor: niv.text }}
+      />
+      <span className="font-sans text-sm font-medium text-[#1B2E4A] flex-1 truncate">
+        {dept.nom}
+      </span>
+      <span className="font-sans text-sm font-bold tabular-nums" style={{ color: niv.text }}>
+        {dept.ratio_100k}
+      </span>
+    </button>
+  );
+}
+
+/* ===== Full table ===== */
+function FullTable({ data, selectedDept, onSelectDept, search, setSearch }: {
+  data: DepartementData[];
+  selectedDept: string | null;
+  onSelectDept: (code: string | null) => void;
+  search: string;
+  setSearch: (s: string) => void;
+}) {
   const [sortKey, setSortKey] = useState<SortKey>('rang');
   const [sortDir, setSortDir] = useState<SortDir>('asc');
 
@@ -40,22 +69,18 @@ export default function DepartementRanking({ data, selectedDept, onSelectDept }:
       setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'));
     } else {
       setSortKey(key);
-      setSortDir(key === 'nom' ? 'asc' : 'asc');
+      setSortDir('asc');
     }
   };
 
   const filtered = useMemo(() => {
     let result = [...data];
-
-    // Search filter
     if (search.trim()) {
       const q = search.trim().toLowerCase();
       result = result.filter(
         (d) => d.nom.toLowerCase().includes(q) || d.code.includes(q)
       );
     }
-
-    // Sort
     result.sort((a, b) => {
       const aVal = a[sortKey];
       const bVal = b[sortKey];
@@ -64,7 +89,6 @@ export default function DepartementRanking({ data, selectedDept, onSelectDept }:
       }
       return sortDir === 'asc' ? (aVal as number) - (bVal as number) : (bVal as number) - (aVal as number);
     });
-
     return result;
   }, [data, search, sortKey, sortDir]);
 
@@ -87,13 +111,10 @@ export default function DepartementRanking({ data, selectedDept, onSelectDept }:
 
   return (
     <div>
-      {/* Search bar */}
       <div className="mb-4">
-        <label htmlFor="dept-search" className="sr-only">
-          Rechercher un departement
-        </label>
+        <label htmlFor="dept-search-full" className="sr-only">Rechercher un departement</label>
         <input
-          id="dept-search"
+          id="dept-search-full"
           type="search"
           placeholder="Rechercher un departement (nom ou code)..."
           value={search}
@@ -101,8 +122,6 @@ export default function DepartementRanking({ data, selectedDept, onSelectDept }:
           className="w-full max-w-md px-4 py-3 rounded-lg border border-[#1B2E4A]/20 font-sans text-base text-marine bg-white placeholder:text-[#1B2E4A]/40 focus:outline-none focus:ring-2 focus:ring-[#D97B3D] focus:border-transparent"
         />
       </div>
-
-      {/* Table wrapper for horizontal scroll on mobile */}
       <div className="overflow-x-auto rounded-xl border border-[#1B2E4A]/10 shadow-sm">
         <table className="w-full text-left" role="table">
           <thead className="bg-[#1B2E4A] text-white">
@@ -113,9 +132,7 @@ export default function DepartementRanking({ data, selectedDept, onSelectDept }:
               <SortHeader label="Population" field="population_totale" />
               <SortHeader label="Pop. 60+" field="population_60plus" />
               <SortHeader label="Ratio / 100k" field="ratio_100k" />
-              <th scope="col" className="px-3 py-3 text-left font-sans text-sm font-semibold">
-                Niveau
-              </th>
+              <th scope="col" className="px-3 py-3 text-left font-sans text-sm font-semibold">Niveau</th>
             </tr>
           </thead>
           <tbody>
@@ -146,22 +163,14 @@ export default function DepartementRanking({ data, selectedDept, onSelectDept }:
                     {dept.nom} <span className="text-[#1B2E4A]/40">({dept.code})</span>
                   </td>
                   <td className="px-3 py-3 font-sans text-sm text-marine tabular-nums">{dept.audios}</td>
-                  <td className="px-3 py-3 font-sans text-sm text-marine tabular-nums">
-                    {dept.population_totale.toLocaleString('fr-FR')}
-                  </td>
-                  <td className="px-3 py-3 font-sans text-sm text-marine tabular-nums">
-                    {dept.population_60plus.toLocaleString('fr-FR')}
-                  </td>
-                  <td className="px-3 py-3 font-sans text-sm text-marine font-semibold tabular-nums">
-                    {dept.ratio_100k}
-                  </td>
+                  <td className="px-3 py-3 font-sans text-sm text-marine tabular-nums">{dept.population_totale.toLocaleString('fr-FR')}</td>
+                  <td className="px-3 py-3 font-sans text-sm text-marine tabular-nums">{dept.population_60plus.toLocaleString('fr-FR')}</td>
+                  <td className="px-3 py-3 font-sans text-sm text-marine font-semibold tabular-nums">{dept.ratio_100k}</td>
                   <td className="px-3 py-3">
                     <span
                       className="inline-block px-2 py-0.5 rounded-full font-sans text-xs font-semibold"
                       style={{ backgroundColor: niv.bg, color: niv.text }}
-                    >
-                      {niv.label}
-                    </span>
+                    >{niv.label}</span>
                   </td>
                 </tr>
               );
@@ -176,11 +185,97 @@ export default function DepartementRanking({ data, selectedDept, onSelectDept }:
           </tbody>
         </table>
       </div>
-
       <p className="mt-3 font-sans text-xs text-[#1B2E4A]/40">
         {filtered.length} departement{filtered.length > 1 ? 's' : ''} affiche{filtered.length > 1 ? 's' : ''}
         {search.trim() ? ` sur ${data.length}` : ''}
       </p>
+    </div>
+  );
+}
+
+/* ===== Main component ===== */
+export default function DepartementRanking({ data, selectedDept, onSelectDept }: DepartementRankingProps) {
+  const [showFullTable, setShowFullTable] = useState(false);
+  const [search, setSearch] = useState('');
+
+  const sorted = useMemo(() => [...data].sort((a, b) => a.ratio_100k - b.ratio_100k), [data]);
+
+  // Exclude DOM-TOM for metro rankings
+  const metroSorted = useMemo(
+    () => sorted.filter((d) => !['971', '972', '973', '974', '976'].includes(d.code)),
+    [sorted]
+  );
+
+  const worst5 = metroSorted.slice(0, 5);
+  const best5 = [...metroSorted].reverse().slice(0, 5);
+
+  if (showFullTable) {
+    return (
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-sans text-lg font-bold text-[#1B2E4A]">
+            Classement complet des 101 departements
+          </h3>
+          <button
+            type="button"
+            onClick={() => setShowFullTable(false)}
+            className="font-sans text-sm font-medium text-[#9A5515] underline hover:no-underline"
+          >
+            Revenir aux mini-classements
+          </button>
+        </div>
+        <FullTable
+          data={data}
+          selectedDept={selectedDept}
+          onSelectDept={onSelectDept}
+          search={search}
+          setSearch={setSearch}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      {/* Mini rankings side by side */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+        {/* Worst 5 */}
+        <div className="bg-white rounded-xl border border-[#1B2E4A]/10 shadow-sm overflow-hidden">
+          <div className="px-4 py-3 bg-[#FFEBEE] border-b border-[#C62828]/10">
+            <h3 className="font-sans text-sm font-bold text-[#C62828]">
+              Les 5 departements les plus sous-dotes
+            </h3>
+          </div>
+          <div className="py-1">
+            {worst5.map((dept) => (
+              <MiniRow key={dept.code} dept={dept} onSelect={() => onSelectDept(dept.code)} />
+            ))}
+          </div>
+        </div>
+
+        {/* Best 5 */}
+        <div className="bg-white rounded-xl border border-[#1B2E4A]/10 shadow-sm overflow-hidden">
+          <div className="px-4 py-3 bg-[#E8F5E9] border-b border-[#2E7D32]/10">
+            <h3 className="font-sans text-sm font-bold text-[#2E7D32]">
+              Les 5 departements les mieux dotes
+            </h3>
+          </div>
+          <div className="py-1">
+            {best5.map((dept) => (
+              <MiniRow key={dept.code} dept={dept} onSelect={() => onSelectDept(dept.code)} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Show full table button */}
+      <button
+        type="button"
+        onClick={() => setShowFullTable(true)}
+        className="w-full py-3 px-4 bg-white border border-[#1B2E4A]/15 rounded-xl font-sans text-sm font-medium text-[#1B2E4A] hover:bg-[#F8F5F0] transition-colors"
+      >
+        Voir le classement complet des 101 departements
+      </button>
     </div>
   );
 }
