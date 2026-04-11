@@ -1,9 +1,10 @@
 /**
- * AudiogramSimulator v5 — 2 grilles cote a cote (OD + OG)
- * Chaque oreille a sa propre grille, 7 points draggables, courbe, perte BIAP
+ * AudiogramSimulator v6 — 2 grilles OD/OG + lead capture contextuel
+ * Formulaire lead gen quand perte > 20 dB — pre-remplit le type de perte
  * PAS de diagnostic, PAS de recommandation produit
  */
 import { useState, useCallback, useMemo, useRef } from 'react';
+import { supabase } from '../lib/supabase';
 
 // ─── Constantes ─────────────────────────────────────────────
 const BIAP_LEVELS = [
@@ -262,6 +263,37 @@ export default function AudiogramSimulator() {
   const avgR = useMemo(() => calcBiapAvg(right), [right]);
   const avgL = useMemo(() => calcBiapAvg(left), [left]);
   const asymmetry = Math.abs(avgR - avgL);
+  const worstAvg = Math.max(avgR, avgL);
+  const worstLevel = getBiapLevel(worstAvg);
+
+  // Lead form state
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [leadLoading, setLeadLoading] = useState(false);
+  const [leadError, setLeadError] = useState('');
+  const [showLeadForm, setShowLeadForm] = useState(false);
+
+  const handleLeadSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLeadLoading(true);
+    setLeadError('');
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const { error: dbError } = await supabase.from('leads').insert({
+      first_name: formData.get('prenom') as string,
+      phone: formData.get('tel') as string,
+      zip_code: formData.get('cp') as string,
+      hearing_loss_type: worstAvg <= 20 ? 'normal' : worstAvg <= 40 ? 'legere' : worstAvg <= 70 ? 'moyenne' : worstAvg <= 90 ? 'severe' : 'profonde',
+      source: 'audiogramme-simulator',
+    });
+
+    setLeadLoading(false);
+    if (dbError) {
+      setLeadError('Une erreur est survenue. Veuillez reessayer.');
+    } else {
+      setLeadSubmitted(true);
+    }
+  }, [worstAvg]);
 
   const updatePoint = useCallback((ear: Ear, idx: number, db: number) => {
     (ear === 'right' ? setRight : setLeft)(prev => { const n = [...prev]; n[idx] = db; return n; });
@@ -359,6 +391,96 @@ export default function AudiogramSimulator() {
           <p className="text-xs text-[#991b1b]">
             Une difference superieure a 15 dB justifie une consultation ORL pour ecarter une cause
             retrocochelaire (tumeur du nerf auditif). Cet outil est educatif — consultez un professionnel.
+          </p>
+        </div>
+      )}
+
+      {/* ─── Lead capture contextuel (perte > 20 dB) ──── */}
+      {worstAvg > 20 && !leadSubmitted && (
+        <div className="mt-5 rounded-2xl border-2 border-[#D97B3D] bg-white p-5 sm:p-6 font-sans">
+          <div className="flex items-start gap-3 mb-4">
+            <span className="shrink-0 w-10 h-10 rounded-full bg-[#D97B3D] flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </span>
+            <div>
+              <h4 className="text-base font-bold text-[#1B2E4A]">
+                Vos resultats suggerent une {worstLevel.label.toLowerCase()}
+              </h4>
+              <p className="text-sm text-[#6B6560] mt-0.5">
+                Demandez un bilan auditif gratuit pres de chez vous — un audioprothesiste vous rappelle sous 48h.
+              </p>
+            </div>
+          </div>
+
+          {!showLeadForm ? (
+            <button
+              type="button"
+              onClick={() => setShowLeadForm(true)}
+              className="w-full py-3.5 rounded-xl bg-[#D97B3D] text-white font-sans text-base font-bold transition-all hover:bg-[#c46a2e]"
+              style={{ minHeight: 52 }}
+            >
+              Demander un bilan gratuit
+            </button>
+          ) : (
+            <form onSubmit={handleLeadSubmit} className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="flex flex-col gap-1">
+                <label htmlFor="lead-prenom" className="text-xs font-semibold text-[#1B2E4A]">Prenom</label>
+                <input id="lead-prenom" name="prenom" type="text" required minLength={2}
+                  className="px-3 py-2.5 border border-[#CBD5E1] rounded-lg text-sm focus:ring-2 focus:ring-[#D97B3D]/30 focus:border-[#D97B3D] outline-none" />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="lead-tel" className="text-xs font-semibold text-[#1B2E4A]">Telephone</label>
+                <input id="lead-tel" name="tel" type="tel" required pattern="^(\+33|0)[1-9]\d{8}$"
+                  placeholder="06 12 34 56 78"
+                  className="px-3 py-2.5 border border-[#CBD5E1] rounded-lg text-sm focus:ring-2 focus:ring-[#D97B3D]/30 focus:border-[#D97B3D] outline-none" />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="lead-cp" className="text-xs font-semibold text-[#1B2E4A]">Code postal</label>
+                <input id="lead-cp" name="cp" type="text" required pattern="^\d{5}$"
+                  placeholder="75011"
+                  className="px-3 py-2.5 border border-[#CBD5E1] rounded-lg text-sm focus:ring-2 focus:ring-[#D97B3D]/30 focus:border-[#D97B3D] outline-none" />
+              </div>
+
+              <div className="sm:col-span-3">
+                <label className="flex items-start gap-2 text-[11px] text-[#94A3B8] mt-1">
+                  <input type="checkbox" required className="mt-0.5 accent-[#D97B3D]" />
+                  <span>
+                    J'accepte d'etre contacte par un audioprothesiste partenaire.{' '}
+                    <a href="/politique-confidentialite/" className="text-[#D97B3D] underline">Confidentialite</a>
+                  </span>
+                </label>
+              </div>
+
+              {leadError && (
+                <p className="sm:col-span-3 text-xs text-red-500">{leadError}</p>
+              )}
+
+              <div className="sm:col-span-3 flex gap-3 items-center">
+                <button type="submit" disabled={leadLoading}
+                  className="flex-1 py-3 rounded-xl bg-[#D97B3D] text-white font-sans text-base font-bold transition-all hover:bg-[#c46a2e] disabled:opacity-50"
+                  style={{ minHeight: 48 }}>
+                  {leadLoading ? 'Envoi...' : 'Etre rappele gratuitement'}
+                </button>
+                <button type="button" onClick={() => setShowLeadForm(false)}
+                  className="text-sm text-[#94A3B8] hover:text-[#64748B]">
+                  Annuler
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      )}
+
+      {/* Confirmation lead */}
+      {leadSubmitted && (
+        <div className="mt-5 rounded-2xl border-2 border-[#16a34a] bg-[#dcfce7] p-5 text-center font-sans">
+          <p className="text-base font-bold text-[#16a34a] mb-1">
+            Votre demande a bien ete envoyee
+          </p>
+          <p className="text-sm text-[#166534]">
+            Un audioprothesiste proche de chez vous vous contactera sous 48h pour un bilan gratuit.
           </p>
         </div>
       )}
