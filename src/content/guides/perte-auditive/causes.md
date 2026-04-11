@@ -1,6 +1,6 @@
 ---
 title: "Causes de la perte auditive : âge, bruit, maladie"
-metaDescription: "Les causes principales de la perte auditive expliquées par un audioprothésiste DE 28 ans d'expérience : presbyacousie, bruit, médicaments, maladies. Guide sourcé."
+metaDescription: "Causes de la perte auditive : presbyacousie, bruit, medicaments, maladies. Guide source par un audioprothesiste DE."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07

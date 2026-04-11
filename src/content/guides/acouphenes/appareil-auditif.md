@@ -1,6 +1,6 @@
 ---
 title: "Appareil auditif et acouphènes : ce que 28 ans de terrain m'ont appris"
-metaDescription: "Appareil auditif contre les acouphènes : mécanismes, efficacité réelle, erreurs courantes et protocole d'appareillage. Par un audioprothésiste DE, 3 000+ patients."
+metaDescription: "Appareil auditif et acouphenes : efficacite reelle, erreurs courantes et protocole. Par un audioprothesiste DE, 3 000+ patients."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07

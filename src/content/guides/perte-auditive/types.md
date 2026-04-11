@@ -1,6 +1,6 @@
 ---
 title: "Transmission, perception, mixte : les différences"
-metaDescription: "Les 3 types de perte auditive expliqués par un audioprothésiste DE : transmission, perception, mixte. Diagnostic audiogramme, erreurs fréquentes et cas réels."
+metaDescription: "Les 3 types de perte auditive : transmission, perception, mixte. Diagnostic, erreurs frequentes et cas reels."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
@@ -98,11 +98,11 @@ Comme son nom l'indique, la surdité mixte associe une composante de transmissio
 
 ### Un cas réel que j'ai suivi
 
-Mme D., 76 ans, se plaint d'une audition qui baisse "depuis toujours mais c'est pire depuis deux ans". Son médecin traitant a diagnostiqué une presbyacousie et l'a envoyée directement chez l'audioprothésiste. À l'audiogramme, je constate effectivement une perte bilatérale, mais quelque chose ne colle pas : l'écart entre conduction aérienne et conduction osseuse est trop important pour une simple presbyacousie. Sur les fréquences 500 Hz et 1000 Hz, j'observe un Rinne de 25 dB à droite.
+Francoise, 73 ans, ancienne commercante, se plaint d'une audition qui baisse "depuis toujours mais c'est pire depuis deux ans". Son médecin traitant a diagnostiqué une presbyacousie et l'a envoyée directement chez l'audioprothésiste. À l'audiogramme, je constate effectivement une perte bilatérale, mais quelque chose ne colle pas : l'écart entre conduction aérienne et conduction osseuse est trop important pour une simple presbyacousie. Sur les fréquences 500 Hz et 1000 Hz, j'observe un Rinne de 25 dB à droite.
 
 Je l'ai renvoyée chez l'ORL avec une demande d'examen complémentaire. Résultat : otospongiose bilatérale, jamais diagnostiquée. L'ORL a opéré l'oreille droite en premier (stapédotomie). Après l'intervention, la composante de transmission a été récupérée sur cette oreille -- gain de 20 dB sur les graves. La presbyacousie sous-jacente persistait, mais l'appareillage est devenu beaucoup plus simple et plus confortable.
 
-Sans cet audiogramme attentif, Mme D. aurait été appareillée sur une surdité mixte non diagnostiquée, avec des réglages inadaptés et un résultat médiocre. Ce genre de situation me conforte dans une conviction : l'audiogramme complet, avec conduction osseuse, n'est pas optionnel.
+Sans cet audiogramme attentif, Francoise aurait été appareillée sur une surdité mixte non diagnostiquée, avec des réglages inadaptés et un résultat médiocre. Ce genre de situation me conforte dans une conviction : l'audiogramme complet, avec conduction osseuse, n'est pas optionnel.
 
 ### La prise en charge
 

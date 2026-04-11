@@ -94,7 +94,9 @@ Le délai de sept ans entre les premiers signes et le premier appareillage n'est
 
 Si vous constatez que votre proche [présente des signes de perte auditive](/guides/perte-auditive/symptomes/), abordez le sujet avec bienveillance. Évitez les reproches ("Tu n'écoutes jamais", "Tu es sourd") et privilégiez le constat factuel : "J'ai remarqué que tu montes le son de la télévision ces derniers temps." "Tu fais répéter plus souvent au téléphone."
 
-Proposez un bilan auditif gratuit, sans engagement, dans un centre d'audioprothèse. Ce premier pas est souvent le plus difficile. J'ai des patients qui ont poussé la porte de mon cabinet après des mois d'hésitation -- et qui me disent tous la même chose : "J'aurais dû venir plus tôt."
+Proposez un bilan auditif gratuit, sans engagement, dans un centre d'audioprothese. Ce premier pas est souvent le plus difficile.
+
+Catherine, 66 ans, professeure de lettres a la retraite, est arrivee a mon cabinet accompagnee de son mari. Lui etait excede : "Ca fait deux ans que je repete tout. Elle croit que je marmonne." Catherine, elle, avait les bras croises. Elle ne voulait pas etre la. L'audiogramme a revele une perte de 40 dB bilaterale, moderee mais reelle. J'ai fait ecouter a son mari une simulation de ce que Catherine entendait. Il est devenu blanc. "C'est comme ca que tu m'entends ?" Quatre mois apres l'appareillage, Catherine m'a dit : "Mon mari ne crie plus." L'appareil n'avait pas seulement ameliore son audition — il avait apaise le couple.
 
 Partagez des témoignages positifs. La qualité de vie retrouvée après l'appareillage est documentée : l'UNSAF rapporte que plus de 85 % des utilisateurs se déclarent satisfaits après six mois. Et l'entourage est souvent le mieux placé pour en témoigner -- parce que c'est lui qui voit la transformation au quotidien.
 

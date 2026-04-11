@@ -156,11 +156,11 @@ L'invisible séduit par sa discrétion mais impose des compromis réels sur la p
 
 ## Cas de cabinet : quand le patient change d'avis
 
-Monsieur R., 72 ans, est arrivé à mon cabinet avec une demande ferme : "Je veux l'invisible, comme mon voisin." Son audiogramme révélait une perte moyenne de 55 dB sur l'oreille droite, 60 dB sur la gauche, avec une chute marquée sur les aigus. Anatomiquement, son conduit gauche présentait une courbure prononcée à 15 mm de l'entrée.
+Alain, 68 ans, chef d'entreprise a la veille de la retraite, est arrive a mon cabinet avec une demande ferme : "Je veux l'invisible, comme mon associe." Son audiogramme revelait une perte moyenne de 55 dB sur l'oreille droite, 60 dB sur la gauche, avec une chute marquee sur les aigus. Anatomiquement, son conduit gauche presentait une courbure prononcee a 15 mm de l'entree.
 
-J'ai pris le temps de lui montrer un CIC posé sur un modèle anatomique, puis de lui faire essayer un RIC avec dôme fermé. Le CIC ne tenait pas correctement dans le conduit gauche -- la courbure l'empêchait de se loger assez profondément. Résultat : larsen dès qu'il ouvrait la bouche.
+J'ai pris le temps de lui montrer un CIC pose sur un modele anatomique, puis de lui faire essayer un RIC avec dome ferme. Le CIC ne tenait pas correctement dans le conduit gauche — la courbure l'empechait de se loger assez profondement. Resultat : larsen des qu'il ouvrait la bouche.
 
-Nous sommes partis sur deux RIC avec écouteurs power. Trois semaines plus tard, Monsieur R. m'a dit : "Je ne comprends pas pourquoi je voulais l'invisible. Celui-là, personne ne le voit non plus, et j'entends ma petite-fille au téléphone." Le fil du RIC, couleur peau, disparaît derrière l'oreille. La discrétion était quasiment identique, la performance incomparable.
+Nous sommes partis sur deux RIC avec ecouteurs power. Trois semaines plus tard, Alain m'a dit : "Je ne comprends pas pourquoi je voulais l'invisible. Celui-la, personne ne le voit non plus, et j'entends mes clients au telephone." Le fil du RIC, couleur peau, disparait derriere l'oreille. La discretion etait quasiment identique, la performance incomparable.
 
 Ce cas est banal. Il se produit dans mon cabinet au moins deux fois par semaine.
 

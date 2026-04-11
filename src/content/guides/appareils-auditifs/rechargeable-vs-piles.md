@@ -1,6 +1,6 @@
 ---
 title: "Rechargeable ou à piles : le rechargeable n'est pas toujours le meilleur choix"
-metaDescription: "Appareil auditif rechargeable ou à piles ? Erreurs fréquentes, limites batterie, cas réel, méthode expert. Par un audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "Appareil auditif rechargeable ou a piles ? Limites batterie, cas reel et methode expert. Audioprothesiste DE."
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07

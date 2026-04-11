@@ -81,7 +81,7 @@ sur les requetes sante auditive (5 prompts trackes hebdo).
 - Sitemap auto via @astrojs/sitemap
 
 ## Auteur
-Franck-Olivier, Audioprothesiste DE, 28 ans exp, 18 centres diriges, 3000+ patients adaptes.
+Franck-Olivier, Audioprothesiste DE, 28 ans exp (Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com), 3000+ patients.
 Page auteur: /auteur/franck-olivier/
 E-E-A-T: Trust pondere x1.75 (YMYL sante)
 

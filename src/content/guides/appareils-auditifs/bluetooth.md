@@ -1,6 +1,6 @@
 ---
 title: "Bluetooth et appareils auditifs : ce que 28 ans de terrain m'ont appris"
-metaDescription: "Appareil auditif Bluetooth : un audioprothésiste DE démonte le marketing, partage sa méthode d'appariement et ses cas réels après 28 ans et 3 000+ patients."
+metaDescription: "Appareil auditif Bluetooth : methode d'appariement, cas reels et limites. Par un audioprothesiste DE, 3 000+ patients."
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07

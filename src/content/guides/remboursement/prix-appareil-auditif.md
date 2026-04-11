@@ -1,6 +1,6 @@
 ---
 title: "Prix d'un appareil auditif en 2026 : tous les tarifs"
-metaDescription: "Prix des appareils auditifs en 2026 : Classe 1 dès 0 euro, Classe 2 de 1 000 à 2 200 euros. Tarifs par marque, type et gamme. Décryptage d'un audioprothésiste."
+metaDescription: "Prix appareils auditifs 2026 : Classe 1 des 0 euro, Classe 2 de 1 000 a 2 200 euros. Decryptage audioprothesiste DE."
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07
@@ -152,20 +152,20 @@ Depuis l'arrêté du 14 novembre 2018, le prix d'un appareil auditif en France e
 
 Quand vous comparez les prix entre deux centres, vous comparez le même périmètre de prestations. Mais -- et c'est un point que je martèle -- le périmètre légal est un minimum. Certains audioprothésistes vont au-delà : réglages illimités, prêt d'appareil en cas de panne, télé-réglage. D'autres s'en tiennent au strict minimum. Le prix ne vous dit pas lequel des deux vous avez en face de vous.
 
-## Un cas réel : Mme Dupont face au choix budgétaire
+## Un cas reel : Denise, 69 ans, face au choix budgetaire
 
-Mme Dupont, 72 ans, retraitée, est venue me consulter en janvier 2026. Perte auditive bilatérale moyenne, audiogramme typique de la presbyacousie. Elle vivait seule, regardait beaucoup la télévision, voyait ses petits-enfants le week-end. Son budget était serré.
+Denise, 69 ans, ancienne aide-soignante, est venue me consulter en janvier 2026. Perte auditive bilaterale moyenne, audiogramme typique de la presbyacousie. Elle vivait seule, regardait beaucoup la television, voyait ses petits-enfants le week-end. Son budget etait serre — elle me l'a dit clairement des la premiere minute.
 
-Son premier réflexe a été de demander "le moins cher possible". Je lui ai présenté deux devis normalisés :
+Son premier reflexe a ete de demander "le moins cher possible". Je lui ai presente deux devis normalises :
 
-- **Option A** : Classe 1, micro-contour RIC, 950 euros par oreille. Reste à charge : 0 euro.
-- **Option B** : Classe 2, micro-contour RIC milieu de gamme, 1 350 euros par oreille. Reste à charge estimé : 870 euros (après remboursement Sécurité sociale et mutuelle).
+- **Option A** : Classe 1, micro-contour RIC, 950 euros par oreille. Reste a charge : 0 euro.
+- **Option B** : Classe 2, micro-contour RIC milieu de gamme, 1 350 euros par oreille. Reste a charge estime : 870 euros (apres remboursement Securite sociale et mutuelle).
 
-L'option B offrait le Bluetooth pour la télévision et une meilleure gestion du bruit en groupe. Mais Mme Dupont regardait la télévision seule, et les repas de famille n'étaient pas un environnement extrêmement bruyant.
+L'option B offrait le Bluetooth pour la television et une meilleure gestion du bruit en groupe. Mais Denise regardait la television seule, et les repas de famille n'etaient pas un environnement extremement bruyant.
 
-Je lui ai recommandé l'option A. Elle est repartie avec deux appareils Classe 1 sans débourser un centime. Quatre mois plus tard, lors de son contrôle, elle m'a dit : "J'entends la télévision sans monter le son, et mes petits-enfants ne me font plus répéter." Objectif atteint. À 0 euro.
+Je lui ai recommande l'option A. Elle est repartie avec deux appareils Classe 1 sans debourser un centime. Quatre mois plus tard, lors de son controle, elle m'a dit : "J'entends la television sans monter le son, et mes petits-enfants ne me font plus repeter." Objectif atteint. A 0 euro.
 
-Si j'avais orienté Mme Dupont vers l'option B, elle aurait été satisfaite aussi. Mais elle aurait payé 870 euros pour des fonctionnalités dont elle n'avait pas besoin au quotidien. C'est exactement ce que je refuse de faire.
+Apres avoir vu les modeles economiques de l'interieur — Amplifon, Audika, Afflelou, Auzen — je peux vous dire que la Classe 1 est un levier formidable pour les patients dont le besoin est simple. Orienter Denise vers l'option B l'aurait satisfaite aussi. Mais elle aurait paye 870 euros pour des fonctionnalites dont elle n'avait pas besoin au quotidien. C'est exactement ce que je refuse de faire.
 
 ## Le vrai coût : reste à charge après remboursement
 

@@ -83,17 +83,17 @@ Le gain est à son niveau optimal. Vous avez testé la quasi-totalité des situa
 
 **Ce que vous décidez :** trois options s'offrent à vous. Vous conservez l'appareil et finalisez l'achat. Vous demandez à essayer un autre modèle ou une autre marque. Ou vous restituez l'appareil sans frais. Cette décision vous appartient entièrement. L'essai de 30 jours est un droit inscrit dans la réglementation, pas une faveur commerciale.
 
-## Un cas qui illustre tout : Mme Dufresne, 74 ans
+## Un cas qui illustre tout : Sylvie, 67 ans, cadre dans l'agroalimentaire
 
-Mme Dufresne est arrivée au cabinet avec une perte auditive bilatérale moyenne de 45 dB, non appareillée depuis huit ans. Son ORL lui avait prescrit des appareils trois ans plus tôt, elle n'avait jamais donné suite. Sa fille l'avait finalement convaincue.
+Sylvie est arrivee au cabinet avec une perte auditive bilaterale moyenne de 45 dB, non appareillee depuis huit ans. Son ORL lui avait prescrit des appareils trois ans plus tot, elle n'avait jamais donne suite. Elle m'a dit : "Les reunions, c'est devenu impossible. Je hoche la tete sans comprendre." Sa fille l'avait finalement convaincue.
 
-Première semaine : catastrophe. Elle trouvait tout trop fort, sa voix « résonnait comme dans un tonneau », elle avait mal à la tête le soir. Elle voulait rendre les appareils dès le quatrième jour. J'ai pris le temps de lui expliquer que huit ans sans stimulation auditive, c'est comme huit ans sans marcher : on ne court pas un marathon la première semaine.
+Premiere semaine : catastrophe. Elle trouvait tout trop fort, sa voix "resonnait comme dans un tonneau", elle avait mal a la tete le soir. Elle voulait rendre les appareils des le quatrieme jour. Je lui ai explique que huit ans sans stimulation auditive, c'est comme huit ans sans marcher : on ne court pas un marathon la premiere semaine.
 
-J'ai baissé le gain de 10 %, ajusté la compression sur les fréquences aiguës qui la gênaient le plus, et lui ai demandé de ne porter les appareils que deux heures le matin, exclusivement chez elle, pendant quatre jours supplémentaires.
+J'ai baisse le gain de 10 %, ajuste la compression sur les frequences aigues qui la genaient le plus, et lui ai demande de ne porter les appareils que deux heures le matin, exclusivement chez elle, pendant quatre jours supplementaires.
 
-Deuxième semaine : elle a commencé à entendre le chant des oiseaux dans son jardin. Elle ne les entendait plus depuis des années. Elle a pleuré au téléphone en me le racontant. À partir de là, la motivation a changé. Elle portait ses appareils six heures par jour sans que je le lui demande.
+Deuxieme semaine : elle a commence a entendre le chant des oiseaux dans son jardin. Elle ne les entendait plus depuis des annees. Elle m'a appele en pleurant pour me le raconter. A partir de la, la motivation a change. Elle portait ses appareils six heures par jour sans que je le lui demande.
 
-Quatrième semaine : elle a suivi un repas de famille à douze personnes sans décrocher une seule fois de la conversation. Pas parfaitement, il y avait encore du bruit de fond gênant, mais elle participait. Elle a gardé ses appareils. Trois ans plus tard, elle les porte 14 heures par jour.
+Quatrieme semaine : elle a suivi une reunion de 8 collegues sans decrocher une seule fois de la conversation. Pas parfaitement, il y avait encore du bruit de fond genant, mais elle participait. Elle a garde ses appareils. Trois ans plus tard, elle les porte 14 heures par jour et n'a pas pris de retraite anticipee.
 
 Ce cas n'est pas exceptionnel. C'est le parcours type d'un patient bien accompagné. La clé n'était pas l'appareil, c'était le réglage progressif et la patience.
 

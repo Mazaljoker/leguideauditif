@@ -1,6 +1,6 @@
 ---
 title: "Les 7 symptômes d'une perte auditive à ne pas ignorer"
-metaDescription: "Découvrez les 7 signes qui indiquent une perte auditive : difficulté à entendre, TV trop forte, fatigue auditive. Guide par un audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "7 signes de perte auditive : difficulte a entendre, TV trop forte, fatigue auditive. Guide par un audioprothesiste DE."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
@@ -155,15 +155,15 @@ Cette question surprend toujours. Mais quand je l'associe aux deux premières et
 
 **Attention** : ces trois questions ne remplacent en aucun cas un bilan audiométrique réalisé par un ORL ou un audioprothésiste. Elles constituent un indicateur, pas un diagnostic.
 
-## Un cas qui m'a marqué : Pierre, 72 ans
+## Un cas qui m'a marque : Philippe, 63 ans, preretraite
 
-Pierre est venu me voir il y a trois ans, poussé par sa fille. Il était convaincu de bien entendre. "J'entends la télé, j'entends quand on sonne, je n'ai aucun problème."
+Philippe est venu me voir il y a trois ans, pousse par sa femme. Il etait convaincu de bien entendre. "J'entends la tele, j'entends quand on sonne, je n'ai aucun probleme." Sa femme a leve les yeux au ciel.
 
-L'audiogramme a révélé une perte bilatérale de 45 dB sur les fréquences conversationnelles. En clair, Pierre perdait près de la moitié des informations dans une conversation normale.
+L'audiogramme a revele une perte bilaterale de 45 dB sur les frequences conversationnelles. En clair, Philippe perdait pres de la moitie des informations dans une conversation normale.
 
-Quand je lui ai fait écouter un enregistrement de parole à son niveau de perte simulé, il a eu un choc. "Mais c'est comme ça que j'entends les gens ?" Oui. Sauf que lui ne s'en rendait pas compte, parce que son cerveau avait compensé pendant des années en s'appuyant sur la lecture labiale, le contexte et les habitudes.
+Quand je lui ai fait ecouter un enregistrement de parole a son niveau de perte simule, il a eu un choc. "Mais c'est comme ca que j'entends les gens ?" Oui. Sauf que lui ne s'en rendait pas compte, parce que son cerveau avait compense pendant des annees en s'appuyant sur la lecture labiale, le contexte et les habitudes. Quand je travaillais chez Audika, je voyais ce profil chaque semaine : le patient convaincu d'entendre, la famille exasperee.
 
-Trois mois après l'appareillage, Pierre m'a dit une phrase que j'entends souvent : "Je ne savais pas que les oiseaux chantaient encore dans mon jardin." Ce n'est pas une anecdote isolée. C'est le quotidien de mes consultations.
+Trois mois apres l'appareillage, Philippe m'a dit une phrase que j'entends souvent : "Je ne savais pas que les oiseaux chantaient encore dans mon jardin." Ce n'est pas une anecdote isolee. C'est le quotidien de mes consultations.
 
 ## Ce que les symptômes seuls ne vous disent pas
 

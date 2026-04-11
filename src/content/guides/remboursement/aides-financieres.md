@@ -1,6 +1,6 @@
 ---
 title: "Aides financières appareils auditifs : PCH, AGEFIPH, CSS, CCAS"
-metaDescription: "Aides financières pour appareils auditifs : PCH, MDPH, AGEFIPH, CSS, CCAS, caisses de retraite. Guide complet par un audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "Aides financieres appareils auditifs : PCH, MDPH, AGEFIPH, CSS, CCAS, caisses de retraite. Guide audioprothesiste DE."
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07

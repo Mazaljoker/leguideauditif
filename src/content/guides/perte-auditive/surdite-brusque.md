@@ -1,6 +1,6 @@
 ---
 title: "Surdité brusque : urgence médicale, chaque heure compte"
-metaDescription: "Surdité brusque : pourquoi consulter un ORL dans les 48h. Symptômes, erreurs à éviter, traitement corticoïdes. Guide audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "Surdite brusque : consulter un ORL dans les 48h. Symptomes, erreurs a eviter, traitement corticoides. Audioprothesiste DE."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
@@ -101,15 +101,15 @@ Voici exactement ce que je fais :
 
 En tant qu'audioprothésiste, je ne suis pas habilité à traiter une surdité brusque -- c'est un acte médical. Mais mon rôle est d'être un aiguilleur efficace. Si un patient se présente à mon cabinet avec ces symptômes, je l'adresse le jour même. Pas de "revenez dans une semaine pour voir comment ça évolue". Jamais.
 
-## Madame R., 58 ans : le cas qui illustre tout
+## Nathalie, 55 ans, enseignante : le cas qui illustre tout
 
-Madame R. m'a téléphoné un jeudi matin à 8h30. Elle s'était réveillée avec l'oreille gauche complètement sourde. Elle portait des aides auditives chez moi depuis 2 ans pour une presbyacousie légère. Elle pensait que son appareil était en panne.
+Nathalie m'a telephone un jeudi matin a 8h30. Elle s'etait reveillee avec l'oreille gauche completement sourde. Elle portait des aides auditives chez moi depuis 2 ans pour une presbyacousie legere. Elle pensait que son appareil etait en panne.
 
-Je lui ai demandé de retirer l'appareil et de mettre son téléphone sur l'oreille gauche. Rien. Pas un son. Son oreille droite, elle, entendait normalement.
+Je lui ai demande de retirer l'appareil et de mettre son telephone sur l'oreille gauche. Rien. Pas un son. Son oreille droite, elle, entendait normalement.
 
-J'ai appelé son ORL à 8h45. Rendez-vous à 10h. Audiogramme : perte de 75 dB sur l'oreille gauche, de type neurosensoriel. Corticothérapie débutée à midi.
+J'ai appele son ORL a 8h45. Rendez-vous a 10h. Audiogramme : perte de 75 dB sur l'oreille gauche, de type neurosensoriel. Corticotherapie debutee a midi.
 
-À J+7, la perte était remontée à 40 dB. À J+30, elle était à 25 dB -- quasi identique à son audiogramme de base. Madame R. a récupéré la quasi-totalité de son audition. Parce qu'elle a appelé à 8h30, pas une semaine plus tard.
+A J+7, la perte etait remontee a 40 dB. A J+30, elle etait a 25 dB — quasi identique a son audiogramme de base. Nathalie a recupere la quasi-totalite de son audition et a repris ses cours. Parce qu'elle a appele a 8h30, pas une semaine plus tard.
 
 Ce n'est pas toujours aussi bien. D'autres patients, avec un profil similaire mais un délai de consultation plus long, ont gardé des séquelles définitives. C'est cette différence de timing qui me rend intransigeant sur l'urgence.
 

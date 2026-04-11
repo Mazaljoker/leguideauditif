@@ -6,7 +6,7 @@ interface Props {
   title?: string;
 }
 
-const { name = 'Franck-Olivier', title = "Audioprothesiste DE — 28 ans de clinique, 5 ans chez Auzen.com" } = Astro.props;
+const { name = 'Franck-Olivier', title = "Audioprothesiste DE, 28 ans d'experience" } = Astro.props;
 ---
 
 <aside class="bg-blanc border border-gris-clair rounded-2xl p-6 my-8 flex flex-col sm:flex-row items-start gap-5" aria-label="A propos de l'auteur">
@@ -21,25 +21,11 @@ const { name = 'Franck-Olivier', title = "Audioprothesiste DE — 28 ans de clin
   <div>
     <a href="/auteur/franck-olivier/" class="font-sans text-lg font-bold text-marine hover:text-orange mb-1 no-underline block">{name}</a>
     <div class="font-sans text-sm text-gris-texte mb-3">{title}</div>
-    <div class="flex flex-wrap gap-2">
-      <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
-        <Icon name="lucide:graduation-cap" class="w-3.5 h-3.5" aria-hidden="true" /> Diplome d'Etat
-      </span>
-      <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
-        <Icon name="lucide:building-2" class="w-3.5 h-3.5" aria-hidden="true" /> 18 centres diriges
-      </span>
-      <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
-        <Icon name="lucide:users" class="w-3.5 h-3.5" aria-hidden="true" /> 3000+ patients
-      </span>
-      <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
-        <Icon name="lucide:globe" class="w-3.5 h-3.5" aria-hidden="true" /> 5 ans Auzen.com
-      </span>
-      <span class="inline-flex items-center gap-1 bg-creme px-3 py-1 rounded-full font-sans text-xs font-medium text-marine">
-        <Icon name="lucide:shield-check" class="w-3.5 h-3.5" aria-hidden="true" /> ADELI 692606494
-      </span>
+    <div class="font-sans text-xs text-gris-texte mb-3">
+      Diplome d'Etat &middot; Amplifon &middot; Audika &middot; 18 centres Afflelou &middot; Auzen.com &middot; 3000+ patients &middot; ADELI 692606494
     </div>
-    <p class="text-sm text-gris-texte mt-3 leading-relaxed">
-      Apres 28 ans en cabinet (18 centres Alain Afflelou Acousticien, 3 000+ patients) et 5 ans chez Auzen.com, Franck-Olivier partage sa double expertise clinique et industrielle pour vous aider a faire les bons choix.
+    <p class="text-sm text-gris-texte leading-relaxed">
+      Apres avoir forge son expertise chez les leaders historiques (Amplifon, Audika) et dirige 18 centres Alain Afflelou Acousticien, Franck-Olivier a passe 5 ans chez Auzen.com entre teleaudiologie et vente en ligne. Il met ce parcours unique au service de votre audition, sans langue de bois.
     </p>
   </div>
 </aside>

@@ -1,6 +1,6 @@
 ---
 title: "Entretien de vos appareils auditifs : le guide terrain"
-metaDescription: "Entretien appareil auditif : 80% des pannes sont évitables. Routine quotidienne, filtres, déshumidificateur — par un audioprothésiste DE, 28 ans de pratique."
+metaDescription: "Entretien appareil auditif : 80% des pannes sont evitables. Routine quotidienne, filtres, deshumidificateur. Audioprothesiste DE."
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07
@@ -97,9 +97,9 @@ Ces cinq gestes deviennent un réflexe en une semaine. Les patients qui les adop
 
 ## Cas réel : la panne à 180 euros qui aurait coûté 2 euros
 
-Mme R., 74 ans, patiente depuis six ans. Elle vient me voir un lundi matin, inquiète : son appareil droit ne donne plus aucun son depuis le week-end. Elle pense qu'il est "mort". Je regarde l'appareil. Le filtre anti-cérumen est noir, complètement obstrué. Je le remplace — le son revient immédiatement.
+Martine, 71 ans, patiente depuis six ans. Elle vient me voir un lundi matin, inquiete : son appareil droit ne donne plus aucun son depuis le week-end. Elle pense qu'il est "mort". Je regarde l'appareil. Le filtre anti-cerumen est noir, completement obstrue. Je le remplace — le son revient immediatement.
 
-Mais le problème, c'est qu'elle n'avait pas changé ce filtre depuis au moins trois mois. Du cérumen avait traversé et atteint l'écouteur. Résultat : l'appareil gauche, qu'elle n'avait pas apporté ce jour-là, avait le même problème, mais plus avancé. L'écouteur gauche a dû partir en réparation constructeur. Facture : 180 euros. Un filtre à 2 euros, changé une fois par mois, aurait évité la totalité de cette dépense.
+Mais le probleme, c'est qu'elle n'avait pas change ce filtre depuis au moins trois mois. Du cerumen avait traverse et atteint l'ecouteur. Resultat : l'appareil gauche, qu'elle n'avait pas apporte ce jour-la, avait le meme probleme, mais plus avance. L'ecouteur gauche a du partir en reparation constructeur. Facture : 180 euros. Un filtre a 2 euros, change une fois par mois, aurait evite la totalite de cette depense.
 
 Ce n'est pas un cas exceptionnel. C'est un cas typique. Je vois cette situation plusieurs fois par mois. Les filtres anti-cérumen ne sont pas un accessoire optionnel — c'est la pièce d'usure la plus importante de votre appareil.
 

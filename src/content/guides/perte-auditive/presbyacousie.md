@@ -1,6 +1,6 @@
 ---
 title: "Presbyacousie : comprendre et agir face à la perte auditive liée à l'âge"
-metaDescription: "Presbyacousie expliquée par un audioprothésiste DE 28 ans d'expérience : mécanisme, erreurs fréquentes, diagnostic, appareillage et lien avec le déclin cognitif."
+metaDescription: "Presbyacousie : mecanisme, erreurs frequentes, diagnostic et appareillage. Guide par un audioprothesiste DE, 28 ans."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
@@ -58,7 +58,9 @@ Avant d'expliquer ce qui se passe dans votre oreille, je dois déconstruire ce q
 
 **Erreur n°3 : "Les appareils, c'est pour les sourds."** La grande majorité de mes patients ont une perte légère à moyenne. Ils ne sont pas sourds. Ils comprennent mal dans le bruit, fatiguent en fin de journée, évitent les situations de groupe. C'est exactement le profil qui bénéficie le plus de l'appareillage — et qui attend le plus longtemps avant de consulter.
 
-**Erreur n°4 : "Je vais attendre que ça empire."** C'est la stratégie la plus contre-productive qui existe. Le cerveau privé de stimulation auditive se réorganise. Les zones corticales dédiées à l'audition sont progressivement réaffectées à d'autres fonctions. C'est ce que les neurosciences appellent la déprivation auditive. Plus vous attendez, plus la réadaptation sera longue et difficile. J'ai des patients appareillés à 60 ans qui s'adaptent en trois semaines. Et des patients appareillés à 80 ans qui luttent pendant six mois, non pas parce que l'appareil est moins bon, mais parce que leur cerveau a perdu l'habitude de traiter les sons aigus depuis vingt ans.
+**Erreur n°4 : "Je vais attendre que ça empire."** C'est la strategie la plus contre-productive qui existe. Le cerveau prive de stimulation auditive se reorganise. Les zones corticales dediees a l'audition sont progressivement reaffectees a d'autres fonctions. C'est ce que les neurosciences appellent la deprivation auditive. Plus vous attendez, plus la readaptation sera longue et difficile.
+
+Jean-Pierre, 61 ans, chef d'une PME dans le batiment, est venu me voir en catastrophe : il n'arrivait plus a suivre les reunions de chantier. Sa perte datait d'au moins 5 ans, mais il avait attendu. "Je me disais que j'etais trop jeune pour des appareils." Resultat : adaptation en trois semaines, parce que la privation n'avait pas encore fait trop de degats. A l'inverse, j'ai des patients appareilles a 80 ans qui luttent pendant six mois, non pas parce que l'appareil est moins bon, mais parce que leur cerveau a perdu l'habitude de traiter les sons aigus depuis vingt ans. La difference entre Amplifon et Audika sur le terrain ? Meme constat partout : plus on attend, plus c'est dur.
 
 ## Ce qui se passe dans votre oreille : le mécanisme que je montre à mes patients
 

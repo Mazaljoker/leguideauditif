@@ -1,6 +1,6 @@
 ---
 title: "Premier appareil auditif : ce qu'il faut savoir avant de vous lancer"
-metaDescription: "Premier appareil auditif : erreurs fréquentes, méthode d'adaptation progressive, cas réel. Conseils terrain d'un audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "Premier appareil auditif : erreurs frequentes, adaptation progressive, conseils terrain. Par un audioprothesiste DE."
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07

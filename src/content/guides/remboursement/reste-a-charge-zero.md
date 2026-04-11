@@ -51,9 +51,9 @@ Pour une vue d'ensemble de la réforme, consultez notre [guide 100% Santé audit
 
 Les appareils Classe 1 sont fabriqués par Phonak, Oticon, Signia, Starkey, Widex, ReSound -- les mêmes fabricants que la Classe 2. Ils sortent des mêmes usines. Le cahier des charges technique est exigeant : 12 canaux minimum, réduction du bruit, système anti-Larsen, connectivité sans fil. Ce ne sont pas des appareils au rabais. Ce sont des appareils dont le prix est plafonné.
 
-**Idée reçue n&deg;2 : « Ce n'est pas pour moi, je ne suis pas à la CMU »**
+**Idee recue n&deg;2 : « Ce n'est pas pour moi, je ne suis pas a la CMU »**
 
-Le reste à charge zéro s'adresse à **tous les assurés sociaux** disposant d'une mutuelle responsable. Plus de 95 % des contrats en France le sont (source : DREES, 2024). Pas de condition de revenus, pas de condition d'âge. Si vous avez une carte Vitale et une mutuelle, vous y avez droit.
+Le reste a charge zero s'adresse a **tous les assures sociaux** disposant d'une mutuelle responsable. Plus de 95 % des contrats en France le sont (source : DREES, 2024). Pas de condition de revenus, pas de condition d'age. Si vous avez une carte Vitale et une mutuelle, vous y avez droit. Patrick, 58 ans, artisan plombier, etait persuade que la Classe 1 "n'etait pas pour les gens comme lui". Il est reparti avec deux appareils a 0 euro de reste a charge et m'a dit au controle de trois mois : "Au telephone avec mes clients, je ne fais plus repeter. Ca change tout pour mon boulot."
 
 **Idée reçue n&deg;3 : « Mon audioprothésiste ne m'en a pas parlé »**
 

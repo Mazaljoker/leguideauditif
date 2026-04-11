@@ -1,6 +1,6 @@
 ---
 title: "TV Connector, micro distant, chargeur : les essentiels"
-metaDescription: "Accessoires pour appareils auditifs : TV Connector, micro distant, chargeur, déshumidificateur. Guide terrain par un audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "Accessoires appareils auditifs : TV Connector, micro distant, chargeur, deshumidificateur. Guide audioprothesiste DE."
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07

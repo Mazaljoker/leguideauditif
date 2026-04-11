@@ -1,6 +1,6 @@
 ---
 title: "Acouphènes pulsatiles : une urgence à ne pas ignorer"
-metaDescription: "Acouphènes pulsatiles : causes vasculaires, erreurs fréquentes, quand consulter en urgence. Guide terrain par un audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "Acouphenes pulsatiles : causes vasculaires, erreurs frequentes, quand consulter en urgence. Guide audioprothesiste DE."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07

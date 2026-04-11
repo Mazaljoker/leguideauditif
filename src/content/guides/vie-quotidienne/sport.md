@@ -40,7 +40,7 @@ Les retirer systématiquement pour le sport, c'est vous priver d'informations so
 
 Plusieurs activités sportives se pratiquent sans aucune restriction avec des appareils auditifs. C'est la grande majorité de ce que pratiquent mes patients seniors.
 
-**La marche et la randonnée** sont les activités les plus naturelles avec un appareillage. Les mouvements sont doux, le risque de chute de l'appareil est quasi nul et l'environnement sonore extérieur est agréable à percevoir. J'ai un patient, M. Garnier, 69 ans, randonneur assidu, qui m'a dit au suivi de six mois : "J'ai retrouvé le chant des oiseaux. Ça faisait trois ans que je n'entendais plus les mésanges sur le sentier." Ce genre de retour, c'est pour ça qu'on fait ce métier.
+**La marche et la randonnée** sont les activités les plus naturelles avec un appareillage. Les mouvements sont doux, le risque de chute de l'appareil est quasi nul et l'environnement sonore extérieur est agréable à percevoir. J'ai un patient, Bernard, 64 ans, retraite anticipe de la SNCF, randonneur assidu, qui m'a dit au suivi de six mois : "J'ai retrouve le chant des oiseaux. Ca faisait trois ans que je n'entendais plus les mesanges sur le sentier." Ce genre de retour, c'est pour ca qu'on fait ce metier.
 
 **La course à pied** est également compatible. Les contours d'oreille modernes tiennent bien en place, surtout avec un clip de rétention. Si vous portez des intra-auriculaires, la tenue est encore meilleure. Prévoyez simplement un bandeau absorbant si vous transpirez abondamment du front et des tempes -- la sueur qui coule dans l'appareil, c'est le seul vrai risque.
 

@@ -1,6 +1,6 @@
 ---
 title: "Thérapie sonore (TRT, masquage, sons fractals) : ce qui fonctionne vraiment"
-metaDescription: "Thérapie sonore contre les acouphènes : TRT, masquage, sons fractals. Protocole concret, erreurs courantes et résultats réels — par un audioprothésiste DE, 28 ans."
+metaDescription: "Therapie sonore contre les acouphenes : TRT, masquage, sons fractals. Protocole, erreurs courantes et resultats reels."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07

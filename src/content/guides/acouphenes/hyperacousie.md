@@ -81,7 +81,9 @@ L'hyperacousie résulte rarement d'une seule cause. Voici ce que la littérature
 
 **Les médicaments ototoxiques** (aminosides, anti-inflammatoires à fortes doses, diurétiques de l'anse, cisplatine) peuvent déclencher ou aggraver une hyperacousie. Signalez systématiquement votre sensibilité auditive à votre médecin avant toute prescription.
 
-**Le stress et l'anxiété** ne créent pas l'hyperacousie. Mais ils abaissent les seuils de tolérance de façon spectaculaire. Un patient dont l'hyperacousie était stabilisée peut décompenser brutalement lors d'un épisode de stress professionnel ou personnel. C'est le facteur de rechute numéro un dans ma pratique.
+**Le stress et l'anxiete** ne creent pas l'hyperacousie. Mais ils abaissent les seuils de tolerance de facon spectaculaire. Un patient dont l'hyperacousie etait stabilisee peut decompenser brutalement lors d'un episode de stress professionnel ou personnel. C'est le facteur de rechute numero un dans ma pratique.
+
+Hugo, 29 ans, DJ amateur le week-end et developpeur en semaine, est arrive un lundi matin avec des bouchons d'oreilles qu'il ne quittait plus depuis trois semaines. Un set de 4 heures sans protections dans un club lyonnais avait tout declenche. Ses LDL etaient a 55 dB sur les aigus — le bruit d'un open space lui etait devenu insupportable. Il avait pose un arret maladie. En six mois de desensibilisation progressive avec generateur de bruit blanc, ses seuils sont remontes a 75 dB. Il a repris le travail au bout de deux mois. Le DJing, il le fait desormais avec des protections moulees a -25 dB. Ce profil jeune est de plus en plus frequent dans ma pratique.
 
 **Un traumatisme crânien**, une chirurgie de l'oreille, une paralysie faciale (dysfonction du muscle stapédien) ou certaines pathologies neurologiques (migraine chronique, maladie de Lyme, sclérose en plaques) figurent parmi les causes moins fréquentes mais bien documentées.
 

@@ -1,6 +1,6 @@
 ---
 title: "Renouveler ses appareils auditifs : quand, comment, combien"
-metaDescription: "Renouvellement appareils auditifs : délai 4 ans, démarches, remboursement 2026, technologies. Guide pratique par un audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "Renouvellement appareils auditifs : delai 4 ans, demarches, remboursement 2026. Guide par un audioprothesiste DE."
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07

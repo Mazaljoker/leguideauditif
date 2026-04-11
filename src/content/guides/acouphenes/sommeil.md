@@ -1,6 +1,6 @@
 ---
 title: "Acouphènes et sommeil : retrouver des nuits calmes"
-metaDescription: "Acouphènes et insomnie : stratégies terrain pour retrouver le sommeil. Enrichissement sonore, TCC-I, hygiène du sommeil — par un audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "Acouphenes et insomnie : strategies pour retrouver le sommeil. Enrichissement sonore, TCC-I, hygiene du sommeil."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07

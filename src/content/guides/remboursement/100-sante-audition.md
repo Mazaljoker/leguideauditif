@@ -1,6 +1,6 @@
 ---
 title: "100% Santé audition : tout comprendre en 5 minutes"
-metaDescription: "Le 100% Santé audition expliqué par un audioprothésiste DE : conditions, appareils éligibles, reste à charge zéro, démarches. Ce que 28 ans de terrain m'ont appris."
+metaDescription: "100% Sante audition : conditions, appareils eligibles, reste a charge zero, demarches. Guide par un audioprothesiste DE."
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07

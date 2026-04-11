@@ -75,15 +75,15 @@ En 28 ans de pratique, j'ai développé des réflexes cliniques qui ne figurent 
 
 **Otorrhée (écoulement d'oreille).** Si un patient me montre un conduit qui coule, je ne touche à rien. C'est une pathologie médicale, pas audioprothétique.
 
-## Le cas de Mme Durand : ce que 9 ans de retard coûtent vraiment
+## Le cas de Jacqueline, 77 ans : ce que 9 ans de retard coutent vraiment
 
-Mme Durand (prénom modifié) est arrivée à mon cabinet en 2024. Elle avait 74 ans. Sa fille l'accompagnait et c'est elle qui parlait, parce que Mme Durand ne comprenait pratiquement plus rien sans lecture labiale.
+Jacqueline est arrivee a mon cabinet en 2024. Son fils l'accompagnait et c'est lui qui parlait, parce que Jacqueline ne comprenait pratiquement plus rien sans lecture labiale.
 
-Son audiogramme : perte moyenne de 65 dB bilatérale, prédominante sur les aigus. Discrimination vocale : 48 % à droite, 40 % à gauche. Pour vous donner une échelle, un patient "classique" avec la même perte en décibels mais consulté plus tôt aurait une discrimination autour de 70-80 %.
+Son audiogramme : perte moyenne de 65 dB bilaterale, predominante sur les aigus. Discrimination vocale : 48 % a droite, 40 % a gauche. Pour vous donner une echelle, un patient "classique" avec la meme perte en decibels mais consulte plus tot aurait une discrimination autour de 70-80 %.
 
-Mme Durand avait commencé à mal entendre vers 65 ans. Son médecin traitant lui avait dit : "C'est normal à votre âge." Elle avait attendu. Neuf ans.
+Jacqueline avait commence a mal entendre vers 68 ans. Son medecin traitant lui avait dit : "C'est normal a votre age." Elle avait attendu. Neuf ans. Chez Amplifon, j'ai appris que cette phrase du generaliste est le premier facteur de retard d'appareillage en France.
 
-L'appareillage a été difficile. Les premiers mois, elle trouvait que "tout est métallique" parce que son cerveau avait oublié les fréquences aiguës depuis des années. Il a fallu 4 mois de réglages progressifs et un programme de rééducation auditive avec des exercices quotidiens. Aujourd'hui, sa discrimination est remontée à 62 % --- un progrès réel, mais elle ne retrouvera jamais les 80 % qu'elle aurait probablement conservés si elle avait consulté un ORL à 65 ans.
+L'appareillage a ete difficile. Les premiers mois, elle trouvait que "tout est metallique" parce que son cerveau avait oublie les frequences aigues depuis des annees. Il a fallu 4 mois de reglages progressifs et un programme de reeducation auditive avec des exercices quotidiens. Aujourd'hui, sa discrimination est remontee a 62 % — un progres reel, mais elle ne retrouvera jamais les 80 % qu'elle aurait probablement conserves si elle avait consulte un ORL a 68 ans.
 
 Ce cas n'est pas exceptionnel. C'est mon quotidien.
 

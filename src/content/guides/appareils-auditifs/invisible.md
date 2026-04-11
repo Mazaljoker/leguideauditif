@@ -1,6 +1,6 @@
 ---
 title: "Appareils auditifs invisibles : ce que 28 ans de terrain m'ont appris"
-metaDescription: "Appareils auditifs invisibles CIC et IIC : erreurs fréquentes, limites morphologiques, cas réel, méthode de sélection. Par un audioprothésiste DE, 28 ans d'expérience."
+metaDescription: "Appareils auditifs invisibles CIC et IIC : limites, methode de selection et cas reel. Par un audioprothesiste DE."
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07

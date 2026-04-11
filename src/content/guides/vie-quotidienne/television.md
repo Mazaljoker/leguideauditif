@@ -49,7 +49,7 @@ La solution la plus efficace consiste à court-circuiter ce trajet : envoyer le 
 
 Le TV Connector est un petit boîtier que vous branchez sur la sortie audio de votre téléviseur. Il transmet le son sans fil directement dans vos appareils auditifs, comme si vous portiez des écouteurs dédiés. Votre entourage garde le volume des haut-parleurs à un niveau normal -- ou les coupe complètement si vous regardez seul -- et vous recevez un son clair, ajusté à votre correction auditive.
 
-C'est l'accessoire que je recommande le plus souvent après l'appareillage. Et celui qui génère le plus de retours positifs. Un de mes patients, M. Bertrand, 72 ans, m'a dit au suivi de trois mois : "J'ai redécouvert les dialogues de films que je ne faisais que deviner depuis quatre ans. Ma femme m'a remercié."
+C'est l'accessoire que je recommande le plus souvent après l'appareillage. Et celui qui génère le plus de retours positifs. Un de mes patients, Gerard, 73 ans, ancien chauffeur routier, m'a dit au suivi de trois mois : "J'ai redecouvert les dialogues de films que je ne faisais que deviner depuis quatre ans. Ma femme m'a remercie." Comme Thierry, 57 ans, encore en activite, qui m'a envoye un texto un dimanche soir : "Premiere fois que je suis un film en VO sans sous-titres."
 
 ### Installation en trois étapes
 
