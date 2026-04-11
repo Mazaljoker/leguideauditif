@@ -1,107 +1,159 @@
 ---
-const guideLinks = [
-  { href: '/guides/perte-auditive/', label: 'Perte auditive' },
-  { href: '/guides/audiogramme/', label: 'Audiogramme' },
-  { href: '/guides/appareils-auditifs/', label: 'Appareils auditifs' },
-  { href: '/guides/acouphenes/', label: 'Acouphenes' },
-  { href: '/guides/prevention/', label: 'Prevention' },
-  { href: '/guides/remboursement/', label: 'Remboursement' },
-  { href: '/guides/vie-quotidienne/', label: 'Vie quotidienne' },
-  { href: '/guides/audioprothesiste/', label: "L'audioprothesiste" },
-];
+import { Icon } from 'astro-icon/components';
 
-const catalogueLinks = [
-  { href: '/catalogue/', label: 'Tous les appareils' },
-  { href: '/catalogue/classe-1/', label: 'Classe 1 — 100% Sante' },
-  { href: '/catalogue/marques/phonak/', label: 'Phonak' },
-  { href: '/catalogue/marques/signia/', label: 'Signia' },
-  { href: '/catalogue/marques/oticon/', label: 'Oticon' },
-  { href: '/catalogue/marques/resound/', label: 'ReSound' },
-  { href: '/catalogue/comparer/', label: 'Comparer des appareils' },
-];
-
-const comparatifLinks = [
-  { href: '/comparatifs/meilleur-appareil-auditif-2026/', label: 'Meilleur appareil 2026' },
-  { href: '/comparatifs/meilleur-appareil-classe-1/', label: 'Meilleur Classe 1' },
-  { href: '/comparatifs/phonak-vs-signia-vs-resound/', label: 'Phonak vs Signia vs ReSound' },
-  { href: '/comparatifs/meilleur-intra-auriculaire/', label: 'Meilleur invisible' },
-];
-
-const siteLinks = [
-  { href: '/a-propos/', label: 'A propos' },
-  { href: '/contact/', label: 'Contact' },
-  { href: '/trouver-audioprothesiste/', label: 'Trouver un audio' },
-  { href: '/glossaire/', label: 'Glossaire' },
-  { href: '/faq/', label: 'FAQ' },
-  { href: '/annonces/', label: 'Petites annonces pro' },
-  { href: '/politique-editoriale/', label: 'Politique editoriale' },
-  { href: '/mentions-legales/', label: 'Mentions legales' },
-  { href: '/cgu/', label: 'CGU' },
-  { href: '/politique-confidentialite/', label: 'Confidentialite' },
+const sections = [
+  {
+    id: 'comprendre',
+    title: 'Comprendre',
+    links: [
+      { href: '/guides/perte-auditive/', label: 'Perte auditive' },
+      { href: '/guides/acouphenes/', label: 'Acouphènes' },
+      { href: '/guides/perte-auditive/presbyacousie/', label: 'Presbyacousie' },
+      { href: '/guides/audiogramme/', label: 'Audiogramme' },
+      { href: '/guides/prevention/', label: 'Prévention' },
+    ],
+  },
+  {
+    id: 'sequiper',
+    title: "S'équiper",
+    links: [
+      { href: '/guides/appareils-auditifs/', label: 'Appareils auditifs' },
+      { href: '/comparatifs/meilleur-appareil-auditif-2026/', label: 'Comparatifs 2026' },
+      { href: '/catalogue/', label: 'Catalogue' },
+      { href: '/guides/remboursement/', label: 'Prix & remboursement' },
+      { href: '/guides/remboursement/100-sante-audition/', label: '100% Santé' },
+    ],
+  },
+  {
+    id: 'lesite',
+    title: 'Le site',
+    links: [
+      { href: '/a-propos/', label: 'À propos' },
+      { href: '/contact/', label: 'Contact' },
+      { href: '/faq/', label: 'FAQ' },
+      { href: '/glossaire/', label: 'Glossaire' },
+      { href: '/annonces/', label: 'Espace pro' },
+    ],
+  },
 ];
 
 const year = new Date().getFullYear();
 ---
 
+<!-- Zone CTA -->
+<section class="bg-orange/10 py-10">
+  <div class="max-w-[1140px] mx-auto px-5 text-center">
+    <p class="font-sans text-xl font-bold text-marine mb-2">
+      Vous cherchez un audioprothésiste ?
+    </p>
+    <p class="font-sans text-gris-texte mb-6">
+      7 146 professionnels référencés sur notre carte interactive
+    </p>
+    <a
+      href="/trouver-audioprothesiste/"
+      class="inline-flex items-center gap-2 px-8 py-4 bg-orange text-white font-sans text-[16px] font-semibold rounded-md hover:bg-orange-hover transition-colors no-underline hover:no-underline min-h-[48px]"
+    >
+      Consulter la carte
+    </a>
+  </div>
+</section>
+
+<!-- Footer principal -->
 <footer class="bg-marine text-white pt-14 pb-8">
   <div class="max-w-[1140px] mx-auto px-5">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
-      <!-- Brand -->
-      <div class="lg:col-span-1">
-        <div class="font-sans font-extrabold text-xl leading-tight">
+
+    <!-- Bloc identité + 3 colonnes -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-10">
+
+      <!-- Bloc identité -->
+      <div>
+        <div class="font-sans font-extrabold text-xl leading-tight mb-3">
           LeGuideAuditif
-          <small class="block font-normal text-xs text-white/50">Le guide independant pour mieux entendre</small>
+          <small class="block font-normal text-xs text-white/50 mt-1">Le guide indépendant pour mieux entendre</small>
         </div>
-        <p class="text-[15px] opacity-70 mt-3 leading-relaxed">
-          Redige par Franck-Olivier, audioprothesiste DE — 28 ans de clinique, 5 ans chez Auzen.com. Contenu independant, sources medicales verifiees.
+        <p class="text-[15px] opacity-80 leading-relaxed">
+          Rédigé par
+          <a href="/auteur/franck-olivier/" class="text-white underline hover:text-orange hover:no-underline">Franck-Olivier Chabbat</a>,
+          audioprothésiste diplômé d'État.
         </p>
       </div>
 
-      <!-- Guides -->
-      <div>
-        <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Guides</h4>
-        {guideLinks.map((link) => (
-          <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
-            {link.label}
-          </a>
-        ))}
-      </div>
+      <!-- 3 colonnes de liens -->
+      {sections.map((section) => (
+        <div class="footer-accordion">
+          {/* Titre desktop (toujours visible) */}
+          <h4 class="hidden lg:block font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">
+            {section.title}
+          </h4>
 
-      <!-- Catalogue -->
-      <div>
-        <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Catalogue</h4>
-        {catalogueLinks.map((link) => (
-          <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
-            {link.label}
-          </a>
-        ))}
-      </div>
+          {/* Bouton accordéon mobile */}
+          <button
+            class="lg:hidden w-full flex items-center justify-between py-3 min-h-[48px] border-b border-white/10"
+            aria-expanded="false"
+            aria-controls={`footer-${section.id}`}
+          >
+            <span class="font-sans text-sm font-bold uppercase tracking-widest opacity-60">
+              {section.title}
+            </span>
+            <Icon
+              name="lucide:chevron-down"
+              class="w-5 h-5 opacity-60 transition-transform duration-200 motion-reduce:transition-none accordion-icon"
+            />
+          </button>
 
-      <!-- Comparatifs -->
-      <div>
-        <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Comparatifs</h4>
-        {comparatifLinks.map((link) => (
-          <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
-            {link.label}
-          </a>
-        ))}
-      </div>
-
-      <!-- Le site -->
-      <div>
-        <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Le site</h4>
-        {siteLinks.map((link) => (
-          <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
-            {link.label}
-          </a>
-        ))}
-      </div>
+          {/* Liens (accordéon mobile, toujours visible desktop) */}
+          <div
+            id={`footer-${section.id}`}
+            class="grid grid-rows-[0fr] lg:grid-rows-[1fr] transition-[grid-template-rows] duration-200 motion-reduce:transition-none"
+          >
+            <div class="overflow-hidden">
+              {section.links.map((link) => (
+                <a
+                  href={link.href}
+                  class="flex items-center min-h-[48px] text-white opacity-80 text-[16px] py-2 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
 
-    <!-- Bottom -->
-    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center font-sans text-[13px] opacity-50 gap-2">
-      <span>&copy; {year} LeGuideAuditif.fr — Tous droits reserves</span>
-      <span>Contenu verifie par un audioprothesiste DE</span>
+    <!-- Barre légale -->
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center font-sans text-[13px] opacity-50 gap-4">
+      <span>&copy; {year} LeGuideAuditif.fr — Tous droits réservés</span>
+      <nav aria-label="Liens légaux" class="flex flex-wrap justify-center gap-2 sm:gap-4">
+        <a href="/mentions-legales/" class="text-white hover:text-orange no-underline hover:no-underline">Mentions légales</a>
+        <span aria-hidden="true">|</span>
+        <a href="/cgu/" class="text-white hover:text-orange no-underline hover:no-underline">CGU</a>
+        <span aria-hidden="true">|</span>
+        <a href="/politique-confidentialite/" class="text-white hover:text-orange no-underline hover:no-underline">Confidentialité</a>
+      </nav>
+      <span class="hidden sm:inline">Contenu vérifié par un audioprothésiste DE</span>
     </div>
   </div>
 </footer>
+
+<script>
+  // --- Accordéon footer mobile ---
+  document.querySelectorAll('.footer-accordion button').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+
+      const controlsId = btn.getAttribute('aria-controls');
+      if (!controlsId) return;
+      const target = document.getElementById(controlsId);
+      if (!target) return;
+
+      target.classList.toggle('grid-rows-[0fr]', expanded);
+      target.classList.toggle('grid-rows-[1fr]', !expanded);
+
+      // Rotation du chevron
+      const icon = btn.querySelector('.accordion-icon');
+      icon?.classList.toggle('rotate-180', !expanded);
+    });
+  });
+</script>
