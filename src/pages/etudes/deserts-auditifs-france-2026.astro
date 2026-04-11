@@ -151,10 +151,15 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
         Apres 25 ans de terrain, je constate chaque jour les consequences de ces inegalites sur mes patients.
         — <strong class="text-marine">Franck-Olivier Chabbat</strong>, audioprothesiste DE.
       </p>
-      <div class="flex flex-wrap gap-2 mt-3 font-sans text-sm text-gris-texte">
-        <time datetime="2026-04-20">Publie le 20 avril 2026</time>
-        <span>|</span>
-        <time datetime="2026-04-20">Mis a jour le 20 avril 2026</time>
+      <div class="flex flex-wrap items-center gap-3 mt-3">
+        <span class="inline-block px-3 py-1 bg-[#1B2E4A] text-white font-sans text-xs font-bold rounded-full uppercase tracking-wide">
+          Edition 2026
+        </span>
+        <div class="font-sans text-sm text-gris-texte">
+          <time datetime="2026-04-20">Publie le 20 avril 2026</time>
+          <span class="mx-1">|</span>
+          <time datetime="2026-04-20">Mis a jour le 20 avril 2026</time>
+        </div>
       </div>
     </header>
 
@@ -474,6 +479,29 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
           </a>
         </li>
       </ul>
+    </div>
+
+    {/* Teaser prochaine etude */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
+      <div class="bg-[#E3F2FD] border border-[#1565C0]/20 rounded-2xl px-6 py-6">
+        <div class="flex items-start gap-4">
+          <div class="shrink-0 mt-0.5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <div>
+            <p class="font-sans text-sm font-bold text-[#1565C0] uppercase tracking-wide mb-1">Prochaine etude</p>
+            <p class="font-sans text-base font-bold text-[#1B2E4A] mb-1">
+              L'etude sur les delais de RDV ORL arrive le mois prochain.
+            </p>
+            <p class="font-sans text-sm text-[#1B2E4A]/60">
+              Combien de temps faut-il attendre pour un premier bilan auditif selon votre departement ? Donnees exclusives.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     {/* AuthorBox */}
