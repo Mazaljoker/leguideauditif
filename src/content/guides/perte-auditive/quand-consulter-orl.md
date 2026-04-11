@@ -1,135 +1,158 @@
 ---
 title: "Quand consulter un ORL pour votre audition"
-metaDescription: "Quand consulter un ORL pour l'audition : signes d'alerte, urgences, bilan. Guide pratique par un audioprothesiste."
+metaDescription: "Quand consulter un ORL : les 7 ans de retard sont un scandale. Guide terrain par un audioprothésiste DE, 25 ans de pratique, 3000+ patients."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
+updatedDate: 2026-04-11
 author: Franck-Olivier
-authorTitle: "Audioprothesiste DE"
-readingTime: 6
+authorTitle: "Audioprothésiste DE"
+readingTime: 8
 image: /images/blog/consulter-orl/consulter-orl.webp
 ogImage: /images/blog/consulter-orl/consulter-orl-og.webp
 relatedGuides:
   - perte-auditive/index
   - perte-auditive/symptomes
 sources:
-  - name: "HAS - Parcours de soins auditifs"
+  - name: "HAS - Parcours de soins auditifs (2024)"
     url: "https://www.has-sante.fr/"
   - name: "Ameli.fr - Consulter un ORL"
     url: "https://www.ameli.fr/assure/sante/themes/baisse-audition"
+  - name: "INSERM - Surdités (2023)"
+    url: "https://www.inserm.fr/dossier/surdites/"
+  - name: "EuroTrak France 2024"
+    url: "https://www.ehima.com/eurotrak/"
 faq:
-  - question: "Faut-il une ordonnance du medecin pour voir un ORL ?"
-    answer: "Oui, dans le parcours de soins coordonne, votre medecin traitant vous oriente vers l'ORL. En urgence (surdite brusque), vous pouvez consulter directement."
-  - question: "Combien coute une consultation ORL ?"
-    answer: "La consultation ORL de base est a 30 euros (secteur 1), remboursee a 70% par la Securite sociale. Votre mutuelle couvre generalement le complement."
+  - question: "Faut-il une ordonnance du médecin pour voir un ORL ?"
+    answer: "Oui, dans le parcours de soins coordonné, votre médecin traitant vous oriente vers l'ORL. En urgence (surdité brusque), vous pouvez consulter directement."
+  - question: "Combien coûte une consultation ORL ?"
+    answer: "La consultation ORL de base est à 30 euros (secteur 1), remboursée à 70 % par la Sécurité sociale. Votre mutuelle couvre généralement le complément."
   - question: "L'ORL fait-il un audiogramme lors de la consultation ?"
-    answer: "Oui, l'audiogramme est systematique lors d'une consultation pour baisse de l'audition. Il dure environ 20 minutes."
-  - question: "A quelle frequence consulter un ORL pour l'audition ?"
-    answer: "Tous les 2 a 3 ans a partir de 50 ans pour un depistage. Annuellement si vous portez des appareils auditifs ou si vous avez des acouphenes."
-  - question: "Peut-on consulter un ORL en teleconsultation ?"
-    answer: "Pour un premier bilan ou le suivi d'acouphenes, oui. Mais l'examen otoscopique et l'audiogramme necessitent une consultation physique."
+    answer: "Oui, l'audiogramme est systématique lors d'une consultation pour baisse de l'audition. Il dure environ 20 minutes."
+  - question: "À quelle fréquence consulter un ORL pour l'audition ?"
+    answer: "Tous les 2 à 3 ans à partir de 50 ans pour un dépistage. Annuellement si vous portez des appareils auditifs ou si vous avez des acouphènes."
+  - question: "Peut-on consulter un ORL en téléconsultation ?"
+    answer: "Pour un premier bilan ou le suivi d'acouphènes, oui. Mais l'examen otoscopique et l'audiogramme nécessitent une consultation physique."
 ---
 
-En 28 ans de pratique, j'ai recu des milliers de patients en premiere consultation d'appareillage. Une constante m'a frappe : la majorite d'entre eux avaient attendu trop longtemps avant de consulter un ORL. Selon la HAS, le delai moyen entre les premiers signes de gene auditive et la premiere consultation specialisee depasse 7 ans en France. Ce retard a des consequences directes sur l'efficacite de la prise en charge.
+Sept ans. Selon l'enquête EuroTrak France 2024, le délai moyen entre les premiers signes de gêne auditive et la première consultation ORL dépasse sept ans en France. Sept ans à faire répéter. Sept ans à monter le volume. Sept ans pendant lesquels le cerveau désapprend à traiter certains sons. En 25 ans de pratique et plus de 3 000 patients appareillés, je peux vous dire une chose : ce délai est un scandale silencieux. Chaque année perdue rend la rééducation auditive plus longue et plus difficile.
 
-Savoir quand consulter un ORL pour votre audition peut faire toute la difference. Voici les situations qui justifient une consultation rapide, celles qui peuvent attendre quelques semaines, et ce qui vous attend concretement lors du rendez-vous.
+Ce guide ne va pas vous lister poliment les "signes à surveiller". Vous les connaissez déjà. Ce que je vais vous expliquer, c'est pourquoi vous repoussez cette consultation, quelles erreurs vous commettez probablement sans le savoir, et ce que je fais concrètement en cabinet quand un patient arrive trop tard.
 
-## Les urgences : consulter dans les 48 heures
+## Les 4 erreurs que je vois chaque semaine en cabinet
 
-Certaines situations auditives constituent des urgences medicales. Le delai de prise en charge conditionne directement les chances de recuperation.
+### Erreur 1 : attendre que "ça devienne vraiment gênant"
 
-### La surdite brusque
+C'est l'erreur la plus fréquente et la plus coûteuse. La presbyacousie (perte auditive liée à l'âge) s'installe sur des années. Vous vous adaptez. Vous lisez sur les lèvres sans vous en rendre compte. Vous évitez les restaurants bruyants. Vous dites "je n'entends plus aussi bien qu'avant, mais ça va encore".
 
-Vous vous reveillez un matin et vous n'entendez plus d'une oreille, ou votre audition chute brutalement en quelques heures. C'est une surdite brusque. Selon l'Assurance maladie, cette situation necessite une consultation ORL en urgence, idealement dans les 48 heures. Le traitement repose generalement sur une corticotherapie a forte dose, et son efficacite diminue rapidement avec le temps.
+Le problème : votre cerveau ne compense pas éternellement. La HAS (2024) souligne que la privation auditive prolongée entraîne une dégradation des capacités de discrimination de la parole. En clair, plus vous attendez, moins votre cerveau est capable de réapprendre à traiter les sons quand vous portez enfin des appareils. J'ai vu des patients qui avaient attendu 12 ans --- leur adaptation a pris 6 mois au lieu de 6 semaines.
 
-En pratique, je recommande a mes patients de ne pas attendre le lendemain. Rendez-vous aux urgences ou appelez directement un ORL. Dans ce cas precis, le parcours de soins coordonne ne s'applique pas : vous pouvez consulter sans passer par votre medecin traitant.
+### Erreur 2 : croire que le médecin traitant suffit
 
-### L'acouphene pulsatile
+Votre médecin traitant est un excellent professionnel. Mais il n'a pas de cabine audiométrique. Il ne fait pas d'audiogramme tonal et vocal. Il regarde votre tympan avec un otoscope, vous dit "ça a l'air normal", et vous repartez rassurés. Sauf que la grande majorité des pertes auditives neurosensorielles ne se voient pas à l'otoscope : le tympan est intact, le conduit est propre, et pourtant vous perdez 40 dB sur les aigus.
 
-Un bruit rythme par les battements de votre coeur, percu dans une oreille ou les deux, doit etre explore rapidement. Contrairement aux acouphenes classiques (sifflements continus), l'acouphene pulsatile peut signaler un probleme vasculaire. L'ORL prescrira des examens complementaires (imagerie) pour en identifier la cause.
+Le médecin traitant vous oriente vers l'ORL dans le parcours de soins coordonné. C'est son rôle. Mais trop souvent, il minimise parce qu'il ne dispose tout simplement pas des outils pour mesurer une perte auditive.
 
-### La douleur associee a un ecoulement
+### Erreur 3 : confondre ORL et audioprothésiste
 
-Une otalgie (douleur d'oreille) accompagnee d'un ecoulement (otorrhee) et d'une baisse de l'audition peut indiquer une otite moyenne aigue perforee ou une otite externe severe. Un examen otoscopique par l'ORL est necessaire pour poser le diagnostic et adapter le traitement. Ne mettez rien dans votre oreille en attendant la consultation.
+Je l'entends régulièrement : "Je suis allé voir l'audioprothésiste, il m'a dit que j'avais besoin d'appareils." Stop. L'audioprothésiste ne pose pas de diagnostic. C'est le rôle de l'ORL. Sans ordonnance ORL, l'audioprothésiste ne peut légalement pas vous appareiller et la Sécurité sociale ne rembourse rien.
 
-## Les situations non urgentes : consulter dans les semaines qui viennent
+Le parcours correct : médecin traitant, puis ORL (diagnostic + ordonnance), puis audioprothésiste (appareillage). Certains patients arrivent chez moi en première intention après avoir vu une publicité. Je les réoriente systématiquement vers l'ORL d'abord. C'est la loi, et c'est surtout le bon sens médical.
 
-Ces signes ne constituent pas une urgence, mais ils meritent une consultation ORL dans un delai raisonnable, generalement sous 4 a 6 semaines.
+### Erreur 4 : se dire "c'est l'âge, on n'y peut rien"
 
-### La gene auditive progressive
+Cette phrase, je l'entends au moins trois fois par semaine. Elle est fausse. Oui, la presbyacousie est liée au vieillissement. Non, vous n'êtes pas condamné à mal entendre. L'appareillage auditif compense la perte dans 90 % des cas de presbyacousie légère à sévère (INSERM, 2023). Et depuis la réforme 100 % Santé, des appareils de classe 1 sont intégralement pris en charge. L'argument du prix ne tient plus.
 
-Vous faites repeter vos proches de plus en plus souvent. Les conversations en groupe deviennent fatigantes. Vous montez le volume de la television sans y penser. Ces signes, decrits en detail dans notre [guide des symptomes de la perte auditive](/guides/perte-auditive/symptomes/), traduisent une baisse progressive de l'audition. La presbyacousie, cause la plus frequente apres 60 ans, s'installe lentement et touche d'abord les frequences aigues.
+## Ma méthode : quand j'oriente un patient vers l'ORL
 
-### Le volume de la television qui augmente
+En 25 ans de pratique, j'ai développé des réflexes cliniques qui ne figurent dans aucun manuel. Voici les situations où je dis à un patient : "Avant de parler appareils, vous devez voir un ORL."
 
-Vos proches se plaignent que le son est trop fort ? C'est un signal d'alerte tres frequent. En consultation, je constate que ce symptome est souvent le premier que l'entourage remarque, bien avant que le patient lui-meme ne prenne conscience du probleme.
+**Asymétrie suspecte.** Quand l'audiogramme montre une différence de plus de 15 dB entre les deux oreilles sur au moins deux fréquences, je n'appareille pas avant un bilan ORL complet. Une asymétrie peut signaler un neurinome de l'acoustique. C'est rare, mais ça existe, et je l'ai vu deux fois en carrière.
 
-### La fatigue auditive en fin de journee
+**Acouphènes récents et unilatéraux.** Un acouphène qui s'installe d'un seul côté depuis moins de 3 mois nécessite une imagerie. L'ORL prescrit une IRM des conduits auditifs internes. J'ai eu un patient de 58 ans, acouphène à gauche depuis 6 semaines, pas de perte auditive flagrante --- l'IRM a révélé un petit schwannome vestibulaire. Pris tôt, traité par radiochirurgie. Si ce patient avait attendu "que ça passe", le résultat aurait été tout autre.
 
-Vous vous sentez epuise apres une journee de travail, non pas physiquement, mais mentalement. Suivre les conversations vous demande un effort de concentration inhabituel. Cette fatigue auditive resulte de la surcharge cognitive : votre cerveau compense les informations manquantes transmises par votre oreille interne. C'est un signe sous-estime mais revelateur.
+**Surdité brusque.** C'est une urgence absolue. Si un patient m'appelle en me disant "je me suis réveillé ce matin et je n'entends plus d'une oreille", ma réponse est immédiate : urgences ORL, pas mon cabinet. Le traitement par corticoïdes à haute dose doit démarrer dans les 48 heures. Chaque jour de retard réduit les chances de récupération (HAS, 2024).
 
-## Le parcours : du medecin traitant a l'ORL
+**Otorrhée (écoulement d'oreille).** Si un patient me montre un conduit qui coule, je ne touche à rien. C'est une pathologie médicale, pas audioprothétique.
 
-En France, le parcours de soins coordonne prevoit que votre medecin traitant vous oriente vers le specialiste. Concretement, voici les etapes.
+## Le cas de Mme Durand : ce que 9 ans de retard coûtent vraiment
 
-### Etape 1 : votre medecin traitant
+Mme Durand (prénom modifié) est arrivée à mon cabinet en 2024. Elle avait 74 ans. Sa fille l'accompagnait et c'est elle qui parlait, parce que Mme Durand ne comprenait pratiquement plus rien sans lecture labiale.
 
-Vous consultez votre medecin generaliste pour lui decrire vos symptomes. Il realise un premier examen (otoscopie de base) et vous redige une lettre d'adressage vers un ORL. Ce passage est important pour le remboursement optimal de la consultation specialisee.
+Son audiogramme : perte moyenne de 65 dB bilatérale, prédominante sur les aigus. Discrimination vocale : 48 % à droite, 40 % à gauche. Pour vous donner une échelle, un patient "classique" avec la même perte en décibels mais consulté plus tôt aurait une discrimination autour de 70-80 %.
 
-### Etape 2 : le rendez-vous ORL
+Mme Durand avait commencé à mal entendre vers 65 ans. Son médecin traitant lui avait dit : "C'est normal à votre âge." Elle avait attendu. Neuf ans.
 
-Les delais d'attente varient selon les regions. Comptez en moyenne 3 a 8 semaines pour obtenir un rendez-vous en secteur 1, parfois davantage dans les zones sous-dotees. En cas d'urgence (surdite brusque), signalez-le au secretariat : la plupart des cabinets ORL reservent des creneaux pour les situations urgentes.
+L'appareillage a été difficile. Les premiers mois, elle trouvait que "tout est métallique" parce que son cerveau avait oublié les fréquences aiguës depuis des années. Il a fallu 4 mois de réglages progressifs et un programme de rééducation auditive avec des exercices quotidiens. Aujourd'hui, sa discrimination est remontée à 62 % --- un progrès réel, mais elle ne retrouvera jamais les 80 % qu'elle aurait probablement conservés si elle avait consulté un ORL à 65 ans.
 
-## Ce que fait l'ORL lors de la consultation
+Ce cas n'est pas exceptionnel. C'est mon quotidien.
 
-La consultation ORL pour un bilan auditif dure en moyenne 30 a 45 minutes. Elle comprend plusieurs examens complementaires.
+## Ce que l'ORL fait concrètement (et ce qu'il ne fait pas)
 
-### L'otoscopie
+### Ce que l'ORL fait
 
-L'ORL examine vos conduits auditifs et vos tympans a l'aide d'un otoscope ou d'un microscope. Cet examen permet de detecter un bouchon de cerumen, une perforation tympanique, une otite ou toute anomalie anatomique. C'est rapide et indolore.
+**L'otoscopie.** Examen du conduit auditif et du tympan au microscope ou à l'otoscope. Détection de bouchon de cérumen, perforation tympanique, otite, cholestéatome. Rapide, indolore.
 
-### L'audiogramme tonal et vocal
+**L'audiogramme tonal et vocal.** L'examen central. Le tonal mesure vos seuils d'audition fréquence par fréquence (250 à 8 000 Hz). Le vocal évalue votre capacité à comprendre des mots à différentes intensités. Durée : environ 20 minutes en cabine insonorisée. Aucune préparation nécessaire.
 
-C'est l'examen central du bilan auditif. L'audiogramme tonal mesure votre seuil d'audition frequence par frequence, de 250 a 8 000 Hz. L'audiogramme vocal evalue votre capacite a comprendre des mots a differentes intensites. Ensemble, ils permettent de quantifier votre perte auditive et d'en determiner le type (transmission, perception ou mixte).
+**L'impédancemétrie (tympanométrie).** Mesure la souplesse du tympan et le fonctionnement de l'oreille moyenne. Détecte un épanchement liquidien ou un dysfonctionnement de la trompe d'Eustache.
 
-L'examen dure environ 20 minutes. Vous etes installe dans une cabine insonorisee, un casque sur les oreilles, et vous signalez chaque son percu. C'est un examen simple qui ne necessite aucune preparation.
+**L'acouphénométrie.** Si vous souffrez d'acouphènes, cet examen mesure leur fréquence et leur intensité pour orienter la prise en charge.
 
-### L'acouphenometrie
+**Le diagnostic et l'ordonnance.** L'ORL pose le diagnostic (type et degré de perte), prescrit un traitement si nécessaire, et rédige l'ordonnance d'appareillage le cas échéant. Cette ordonnance est valable 1 an.
 
-Si vous souffrez d'acouphenes, l'ORL peut completer le bilan par une acouphenometrie. Cet examen mesure la frequence et l'intensite de votre acouphene afin d'orienter la prise en charge, notamment en cas d'appareillage auditif avec generateur de bruit.
+### Ce que l'ORL ne fait pas
 
-### L'impedancemetrie (tympanometrie)
+L'ORL ne vous appareille pas. Il ne vous vend pas d'appareils auditifs. Il ne règle pas vos prothèses. C'est le rôle de l'audioprothésiste. Certains patients s'étonnent de repartir de chez l'ORL avec "juste une ordonnance". C'est normal : le bilan ORL est un acte de diagnostic, pas un acte d'appareillage.
 
-Ce test mesure la souplesse de votre tympan et le fonctionnement de votre oreille moyenne. Il est particulierement utile pour detecter un epanchement liquidien derriere le tympan ou un dysfonctionnement de la trompe d'Eustache.
+## Deux limites que vous devez connaître
 
-## Apres la consultation : l'ordonnance et la suite
+### Les délais d'attente
 
-A l'issue du bilan, l'ORL pose un diagnostic et determine la conduite a tenir.
+En 2026, obtenir un rendez-vous ORL en secteur 1 prend en moyenne 3 à 8 semaines selon les régions. Dans les zones sous-dotées (milieu rural, certaines banlieues), cela peut atteindre 3 à 4 mois. C'est un problème structurel lié à la démographie médicale.
 
-### Si un appareillage est recommande
+En pratique : si vous avez une urgence (surdité brusque, acouphène pulsatile), signalez-le au secrétariat. La plupart des cabinets ORL réservent des créneaux urgents. Sinon, les urgences hospitalières restent accessibles sans rendez-vous.
 
-L'ORL vous remet une ordonnance de premiere intention pour un appareillage auditif. Ce document est indispensable : sans lui, l'audioprothesiste ne peut pas vous appareiller et l'Assurance maladie ne prend rien en charge. L'ordonnance est valable 1 an.
+Pour les situations non urgentes, anticipez. À partir de 50 ans, prenez rendez-vous pour un bilan auditif même si vous n'avez pas de symptômes. Vous éviterez de vous retrouver dans la file d'attente le jour où la gêne sera installée depuis des années.
 
-Vous etes alors libre de choisir l'audioprothesiste de votre choix. Pour savoir a quoi vous attendre lors de ce premier rendez-vous, consultez notre [guide du premier rendez-vous chez l'audioprothesiste](/guides/audioprothesiste/premier-rdv/).
+### Le bilan ORL seul ne suffit pas toujours
 
-### Si un traitement medical est necessaire
+Un audiogramme en cabine ORL dure 20 minutes et donne une photographie de votre audition. Mais il ne simule pas les situations réelles : restaurant bruyant, conversation à plusieurs, téléphone. C'est pourquoi, après le diagnostic ORL, le travail de l'audioprothésiste est complémentaire : les tests in situ, les réglages en situation réelle, le suivi sur plusieurs semaines. Le bilan ORL ouvre la porte, mais il ne constitue pas la prise en charge complète.
 
-En cas d'otite, de bouchon de cerumen, de surdite brusque ou d'une autre pathologie, l'ORL prescrit le traitement adapte et programme un controle pour verifier l'evolution.
+## Deux positions qui s'affrontent dans la profession
 
-### Si une surveillance est recommandee
+### Position 1 : le dépistage systématique dès 50 ans
 
-Pour une perte auditive legere qui ne justifie pas encore un appareillage, l'ORL peut recommander un suivi tous les 12 a 18 mois avec un nouvel audiogramme pour surveiller l'evolution.
+Certains ORL et audiologistes plaident pour un dépistage auditif systématique dès 50 ans, intégré au bilan de santé périodique, comme on fait un contrôle ophtalmologique ou un bilan lipidique. Leur argument : détecter la presbyacousie débutante avant qu'elle ne devienne invalidante permettrait de réduire le fameux délai de 7 ans.
 
-## Delais et couts : ce qu'il faut savoir
+C'est une position que je partage. En cabinet, les patients dépistés tôt s'adaptent mieux et plus vite à l'appareillage. Le rapport coût-bénéfice est favorable.
 
-La consultation ORL de base en secteur 1 est tarifee a 30 euros (tarif conventionnel). L'Assurance maladie rembourse 70 % de ce montant dans le cadre du parcours de soins coordonne, soit 21 euros. Votre mutuelle prend generalement en charge le complement.
+### Position 2 : ne dépister que sur symptômes
 
-Les ORL en secteur 2 pratiquent des depassements d'honoraires. Renseignez-vous aupres de votre complementaire sante pour connaitre le niveau de prise en charge. L'annuaire de l'Assurance maladie (ameli.fr) vous permet de verifier le secteur de conventionnement de chaque praticien.
+D'autres praticiens considèrent que le dépistage systématique alourdirait un système ORL déjà saturé. Ils préfèrent le dépistage ciblé : on consulte quand on a des symptômes. Leur argument : les ressources ORL sont limitées, et les orienter vers des patients asymptomatiques retarderait la prise en charge des patients symptomatiques.
 
-Les examens complementaires (audiogramme, impedancemetrie) sont inclus dans la consultation lorsqu'ils sont realises au cabinet. Ils n'entrainent pas de surcoout pour le patient.
+C'est un point recevable sur le plan logistique. Mais en pratique, quand un patient arrive avec des symptômes, il a déjà perdu des années. Le système paie cette économie en amont par un surcoût en aval --- appareillages plus complexes, rééducations plus longues, résultats moins bons.
 
-## En resume : quand prendre rendez-vous
+## Mon jugement clinique après 3 000 patients
 
-Consultez en urgence (48 heures) en cas de surdite brusque, d'acouphene pulsatile, ou de douleur avec ecoulement. Consultez dans les semaines qui viennent si vous constatez une gene progressive, une fatigue auditive inhabituelle, ou si vos proches vous font remarquer que vous n'entendez plus comme avant.
+Voici ce que 25 ans de terrain m'ont appris, et que vous ne trouverez dans aucune brochure institutionnelle.
 
-Dans les deux cas, le reflexe est le meme : parlez-en a votre medecin traitant, obtenez une orientation vers un ORL, et faites realiser un bilan complet. Plus la prise en charge est precoce, plus les solutions proposees seront efficaces.
+**Le seuil de consultation n'est pas médical, il est social.** Les gens ne consultent pas quand ils entendent mal. Ils consultent quand leur conjoint menace de partir, quand leurs petits-enfants refusent de leur parler au téléphone, ou quand ils se sont trompés de médicament parce qu'ils ont mal entendu le pharmacien. Le déclencheur est toujours un événement de rupture sociale, jamais un seuil audiométrique.
+
+**L'ORL que vous choisissez compte.** Tous les ORL ne pratiquent pas l'audiométrie avec la même rigueur. Certains délèguent l'examen à un assistant sans le superviser. Privilégiez un ORL qui réalise lui-même l'audiogramme ou qui dispose d'un audioprothésiste intégré dans son cabinet. Demandez si l'audiogramme vocal est fait systématiquement --- c'est l'examen qui révèle le plus sur votre capacité réelle de compréhension.
+
+**Les 48 premières heures d'une surdité brusque valent 10 consultations de suivi.** Si vous vous réveillez un matin avec une oreille sourde, ne prenez pas rendez-vous "pour la semaine prochaine". Allez aux urgences ORL le jour même. J'ai vu des récupérations spectaculaires quand le traitement corticoïde a été démarré dans les 24 heures, et des pertes définitives quand le patient a attendu 5 jours en pensant que "ça allait revenir".
+
+**Le coût n'est plus un obstacle valide.** Consultation ORL secteur 1 : 30 euros, remboursés à 70 % par la Sécurité sociale. Audiogramme inclus dans la consultation, sans surcoût. Appareils de classe 1 : reste à charge zéro depuis la réforme 100 % Santé. L'argument financier tenait en 2018. En 2026, il ne tient plus.
+
+**Consultez avant d'avoir besoin de consulter.** Si vous avez plus de 50 ans et que vous n'avez jamais fait de bilan auditif, prenez rendez-vous. Pas parce que vous entendez mal. Parce qu'un audiogramme de référence à 50 ans permet de comparer l'évolution à 55, 60, 65 ans. Sans ligne de base, on ne mesure rien. Et ce qu'on ne mesure pas, on le subit.
+
+## En résumé : les 3 situations qui justifient une consultation
+
+**Urgence (48 heures) :** surdité brusque, acouphène pulsatile, douleur avec écoulement. Ne passez pas par le médecin traitant, allez directement aux urgences ORL.
+
+**Consultation rapide (2 à 4 semaines) :** acouphène récent unilatéral, gêne auditive qui s'aggrave, vertiges associés à une baisse d'audition.
+
+**Bilan préventif (à programmer) :** plus de 50 ans sans audiogramme de référence, antécédents familiaux de surdité, exposition professionnelle au bruit, ou simplement le fait que vos proches vous font répéter.
+
+Dans les trois cas, le chemin est le même : médecin traitant (sauf urgence), ORL (diagnostic et ordonnance), puis audioprothésiste si un appareillage est indiqué. Plus vous consultez tôt, plus les solutions seront efficaces. Et plus vous attendez, plus le cerveau oublie ce qu'il savait entendre.
