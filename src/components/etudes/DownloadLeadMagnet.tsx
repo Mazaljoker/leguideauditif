@@ -1,4 +1,6 @@
-import { useState, type FormEvent } from 'react';
+import { useState } from 'react';
+import type { FormEvent } from 'react';
+import { supabase } from '../../lib/supabase';
 
 const DOWNLOAD_URL = '/data/deserts-auditifs-2026.json';
 
@@ -15,9 +17,6 @@ export default function DownloadLeadMagnet() {
     setError('');
 
     try {
-      // Store lead in Supabase
-      const { supabase } = await import('../../lib/supabase');
-
       await supabase.from('leads').insert({
         first_name: email.split('@')[0],
         phone: '',
@@ -27,9 +26,8 @@ export default function DownloadLeadMagnet() {
       });
 
       setDone(true);
-      // Auto-trigger download
       window.open(DOWNLOAD_URL, '_blank');
-    } catch {
+    } catch (_err) {
       setError('Une erreur est survenue. Le fichier reste accessible ci-dessous.');
       setDone(true);
     } finally {
