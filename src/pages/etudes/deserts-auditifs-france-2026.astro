@@ -75,23 +75,23 @@ const datasetSchema = {
 const faqEntries = [
   {
     question: 'Qu\'est-ce qu\'un desert auditif ?',
-    answer: 'Un desert auditif est une zone geographique ou la densite d\'audioprothesistes est nettement inferieure a la moyenne nationale (8,4 pour 100 000 habitants en 2026). Ces territoires souffrent d\'un acces reduit aux soins auditifs.',
+    answer: 'On parle de desert auditif quand un departement manque cruellement d\'audioprothesistes par rapport a la moyenne nationale (8,4 pour 100 000 habitants en 2026). En clair : si vous vivez dans l\'un de ces territoires, trouver un rendez-vous peut prendre des semaines. Voire des mois.',
   },
   {
     question: 'Quel departement est le plus sous-dote en audioprothesistes ?',
-    answer: `En metropole, la Haute-Marne (52) est le departement le plus sous-dote avec seulement ${pireMet?.ratio_100k} audioprothesistes pour 100 000 habitants, soit deux fois moins que la moyenne nationale.`,
+    answer: `La Haute-Marne (52), et de loin. Avec seulement ${pireMet?.ratio_100k} audioprothesistes pour 100 000 habitants, c'est deux fois moins que la moyenne nationale. Pour un patient qui y vit, ca veut dire des trajets longs et des delais d'attente importants.`,
   },
   {
     question: 'Combien y a-t-il d\'audioprothesistes en France en 2026 ?',
-    answer: `Le RPPS recense ${metadata.total_audios_rpps.toLocaleString('fr-FR')} audioprothesistes en France en avril 2026, dont ${metadata.total_audios.toLocaleString('fr-FR')} avec une adresse permettant la geolocalisation par departement.`,
+    answer: `Le RPPS (le registre officiel des professionnels de sante) en recense ${metadata.total_audios_rpps.toLocaleString('fr-FR')} en avril 2026. Parmi eux, ${metadata.total_audios.toLocaleString('fr-FR')} ont une adresse qui permet de les localiser par departement. Les autres sont souvent des salaries rattaches a plusieurs sites.`,
   },
   {
     question: 'Comment sont calculees les donnees de cette etude ?',
-    answer: 'Le ratio est calcule en divisant le nombre d\'audioprothesistes geolocalises par departement par la population totale du departement (INSEE 2025), multiplie par 100 000. Les seuils sont : desert (< 5), sous-dote (5-7), correct (7-10), bien dote (> 10).',
+    answer: 'On divise le nombre d\'audioprothesistes geolocalises dans chaque departement par la population totale (INSEE 2025), puis on multiplie par 100 000. Ca donne un ratio comparable d\'un departement a l\'autre, quelle que soit sa taille. Les seuils que j\'ai retenus : desert (moins de 5), sous-dote (5 a 7), correct (7 a 10) et bien dote (plus de 10).',
   },
   {
     question: 'Pourquoi la Seine-Saint-Denis est-elle sous-dotee malgre sa proximite avec Paris ?',
-    answer: `Avec ${sorted.find(d => d.code === '93')?.ratio_100k} audioprothesistes pour 100 000 habitants, le 93 est quasiment a la moitie de la moyenne nationale. Ce paradoxe s'explique par la tres forte population du departement (1,7 million) et la concentration des cabinets dans Paris intra-muros.`,
+    answer: `Le 93 compte ${sorted.find(d => d.code === '93')?.ratio_100k} audioprothesistes pour 100 000 habitants — presque la moitie de la moyenne nationale. Et pourtant, c'est en Ile-de-France. L'explication ? Avec 1,7 million d'habitants, la demande est enorme, mais les cabinets se concentrent dans Paris intra-muros. Les patients du 93 doivent souvent traverser le peripherique pour se faire appareiller.`,
   },
 ];
 
@@ -144,12 +144,15 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
         En Haute-Marne, il y a <span class="text-[#F44336]">2 fois moins</span> d'audioprothesistes par habitant que la moyenne francaise.
       </h1>
       <p class="font-sans text-lg text-gris-texte leading-relaxed">
-        Etude independante realisee par <strong class="text-marine">Franck-Olivier Chabbat</strong>, audioprothesiste DE,
-        a partir des donnees officielles RPPS et INSEE.
+        J'ai croise les donnees officielles du RPPS (repertoire des professionnels de sante) et de l'INSEE pour dresser cet etat des lieux.
+        Apres 25 ans de terrain, je constate chaque jour les consequences de ces inegalites sur mes patients.
+        — <strong class="text-marine">Franck-Olivier Chabbat</strong>, audioprothesiste DE.
       </p>
-      <time datetime="2026-04-20" class="block mt-3 font-sans text-sm text-gris-texte">
-        Publie le 20 avril 2026
-      </time>
+      <div class="flex flex-wrap gap-2 mt-3 font-sans text-sm text-gris-texte">
+        <time datetime="2026-04-20">Publie le 20 avril 2026</time>
+        <span>|</span>
+        <time datetime="2026-04-20">Mis a jour le 20 avril 2026</time>
+      </div>
     </header>
 
     {/* Health disclaimer inline */}
@@ -212,11 +215,11 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
       </h2>
       <div class="prose prose-lg max-w-none prose-headings:font-sans prose-headings:text-marine prose-p:text-marine prose-p:leading-relaxed prose-li:text-marine prose-strong:text-marine">
         <ul>
-          <li><strong>Source RPPS :</strong> data.gouv.fr, extraction avril 2026. {metadata.total_audios_rpps.toLocaleString('fr-FR')} audioprothesistes recenses.</li>
-          <li><strong>Source INSEE :</strong> estimation de population au 1er janvier 2025, par departement.</li>
-          <li><strong>Calcul :</strong> nombre d'audioprothesistes geolocalises par departement / population totale x 100 000.</li>
-          <li><strong>Limites :</strong> {metadata.audios_sans_adresse.toLocaleString('fr-FR')} audioprothesistes (20 %) n'ont pas d'adresse dans le RPPS, probablement des salaries multi-sites non declares individuellement.</li>
-          <li><strong>Ratio :</strong> utilise la population totale (pas 60+) pour comparabilite avec les donnees DREES publiees.</li>
+          <li><strong>Source RPPS :</strong> donnees extraites du repertoire officiel des professionnels de sante (data.gouv.fr), en avril 2026. Total : {metadata.total_audios_rpps.toLocaleString('fr-FR')} audioprothesistes recenses en France.</li>
+          <li><strong>Source INSEE :</strong> estimation de population au 1er janvier 2025, ventilee par departement.</li>
+          <li><strong>Calcul :</strong> pour chaque departement, on divise le nombre d'audioprothesistes geolocalises par la population totale, puis on multiplie par 100 000. On obtient ainsi un ratio comparable d'un territoire a l'autre.</li>
+          <li><strong>Limites :</strong> {metadata.audios_sans_adresse.toLocaleString('fr-FR')} audioprothesistes (20 %) n'ont pas d'adresse dans le RPPS. Ce sont probablement des salaries multi-sites. Leur absence peut sous-estimer la couverture reelle de certains departements.</li>
+          <li><strong>Choix du denominateur :</strong> j'ai utilise la population totale (et non la population de 60 ans et plus) pour permettre la comparaison avec les donnees publiees par la DREES.</li>
         </ul>
         <p>
           Les donnees brutes sont accessibles en <a href="/data/deserts-auditifs-2026.json" class="text-[#9A5515] underline hover:no-underline" rel="noopener">telechargement JSON</a> sous licence ouverte.
@@ -267,7 +270,7 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
     {/* CTA */}
     <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
       <div class="bg-white rounded-2xl p-8 shadow-[0_2px_8px_rgba(27,46,74,0.08)] border border-[#1B2E4A]/5 text-center">
-        <h2 class="font-sans text-xl font-bold text-marine mb-4">Besoin d'un audioprothesiste ?</h2>
+        <h2 class="font-sans text-xl font-bold text-marine mb-4">Vous cherchez un audioprothesiste pres de chez vous ?</h2>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/trouver-audioprothesiste"
