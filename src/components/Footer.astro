@@ -26,10 +26,14 @@ const comparatifLinks = [
   { href: '/comparatifs/meilleur-intra-auriculaire/', label: 'Meilleur invisible' },
 ];
 
+const outilsLinks = [
+  { href: '/outils/analyse-audiogramme/', label: 'Analyser mon audiogramme' },
+  { href: '/trouver-audioprothesiste/', label: 'Trouver un audioprothesiste' },
+];
+
 const siteLinks = [
   { href: '/a-propos/', label: 'A propos' },
   { href: '/contact/', label: 'Contact' },
-  { href: '/trouver-audioprothesiste/', label: 'Trouver un audio' },
   { href: '/glossaire/', label: 'Glossaire' },
   { href: '/faq/', label: 'FAQ' },
   { href: '/annonces/', label: 'Petites annonces pro' },
@@ -44,7 +48,7 @@ const year = new Date().getFullYear();
 
 <footer class="bg-marine text-white pt-14 pb-8">
   <div class="max-w-[1140px] mx-auto px-5">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 mb-10">
       <!-- Brand -->
       <div class="lg:col-span-1">
         <div class="font-sans font-extrabold text-xl leading-tight">
@@ -80,6 +84,16 @@ const year = new Date().getFullYear();
       <div>
         <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Comparatifs</h4>
         {comparatifLinks.map((link) => (
+          <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Outils -->
+      <div>
+        <h4 class="font-sans text-sm font-bold uppercase tracking-widest mb-4 opacity-60">Outils</h4>
+        {outilsLinks.map((link) => (
           <a href={link.href} class="block text-white opacity-80 text-[15px] py-1 font-sans no-underline hover:opacity-100 hover:text-orange hover:no-underline">
             {link.label}
           </a>
