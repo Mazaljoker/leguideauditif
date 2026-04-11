@@ -63,7 +63,12 @@ Parentheses, incises, questions rhetoriques, aveux d'incertitude.
 
 ### Etape 6 — Lisibilite Flesch FR 60-80
 
-### Etape 7 — YMYL preserve
+### Etape 7 — Accents UTF-8 OBLIGATOIRES
+Verifier que TOUS les mots francais portent leurs accents complets
+(é, è, ê, à, â, ù, û, î, ï, ô, ç). Un contenu sans accents est un DEFAUT
+BLOQUANT au meme titre qu'un pattern IA P0. Les URLs et slugs restent sans accents.
+
+### Etape 8 — YMYL preserve
 Ne JAMAIS modifier le sens d'un claim medical. Marquer [YMYL-VERIFIED].
 
 ## ERROR HANDLING

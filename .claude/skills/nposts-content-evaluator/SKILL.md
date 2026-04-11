@@ -64,6 +64,9 @@ score = completude×0.15 + seo×0.20 + lisibilite×0.15 + ia×0.15 + accuracy×0
 - Promesse therapeutique
 - Terrain < 40
 - 0 elements non-interchangeables
+- **Accents francais manquants** : si le contenu contient des mots francais sans
+  leurs accents UTF-8 (ex: "frequence" au lieu de "fréquence", "ca" au lieu de "ça"),
+  c'est un REJECT automatique. Les URLs et slugs sont exclus de cette verification.
 
 ## PROTOCOLE RETRY
 Max 3 iterations. Si terrain < 40 apres iter 2 → renvoyer au WRITER (pas humanizer).

@@ -13,6 +13,13 @@ Site independant d'information sante auditive + generation de leads pour audiopr
 - Build: `npm run build`
 - Preview: `npx astro preview`
 
+## Accents UTF-8 (HARD BLOCK)
+- TOUT contenu francais DOIT porter ses accents complets (é, è, ê, à, â, ù, û, î, ï, ô, ç)
+- Un article sans accents = REJECT automatique par content-evaluator et eeat-compliance
+- URLs, slugs et paths de fichiers restent SANS accents
+- Le frontmatter YAML des articles DOIT avoir les accents (sauf champs url:)
+- Les fichiers de config (.md rules, skills) peuvent rester sans accents
+
 ## Regles YMYL (IMPORTANT)
 - Contenu sante : double gate obligatoire (content-evaluator >= 70 + eeat-compliance >= 80)
 - Toute affirmation medicale DOIT etre sourcee (HAS, INSERM, OMS, PubMed)

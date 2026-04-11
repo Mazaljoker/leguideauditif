@@ -33,6 +33,11 @@ Disclaimer sante, mention affiliation, confidentialite, CGU, RGPD.
 ### Check 4 : Signaux confiance
 HTTPS, pas de pub intrusive, coherence, pas de superlatifs, dates visibles.
 
+### Check 4b : Accents UTF-8 (HARD BLOCK)
+TOUT le contenu francais DOIT porter ses accents complets (é, è, ê, à, â, ù, û, î, ï, ô, ç).
+Un contenu sans accents est un signal de contenu genere par IA non relu.
+Si des mots francais manquent leurs accents → REJECT immediat (sauf URLs et slugs).
+
 ## ⚡ CHECK 5 : EXPERIENCE SIGNAL SCORE (contenu)
 
 ### 5a. Presence de vecu (0-30)
