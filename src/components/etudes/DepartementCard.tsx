@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { supabase } from '../../lib/supabase';
 
 interface DepartementData {
   code: string;
@@ -28,7 +29,6 @@ function AlertSignup({ deptName, deptCode }: { deptName: string; deptCode: strin
     e.preventDefault();
     setLoading(true);
     try {
-      const { supabase } = await import('../../lib/supabase');
       await supabase.from('leads').insert({
         first_name: email.split('@')[0],
         phone: '',
@@ -36,10 +36,10 @@ function AlertSignup({ deptName, deptCode }: { deptName: string; deptCode: strin
         hearing_loss_type: 'alerte-dispo',
         source: `etude-deserts-alerte-${deptCode}`,
       });
-      setSent(true);
-    } catch (_err) {
-      setSent(true);
+    } catch (err) {
+      console.error('Alert signup error:', err);
     } finally {
+      setSent(true);
       setLoading(false);
     }
   };
