@@ -1,116 +1,199 @@
 ---
-title: "Bruit au travail : vos droits et protections"
-metaDescription: "Bruit au travail : seuils legaux, protections, droits du salarie. Prevenir la surdite professionnelle."
+title: "Bruit au travail : prevention et droits de l'employee 2026"
+metaDescription: "Bruit professionnel : seuils legaux, protection, remboursement appareil auditif. Droits de l'employee en 2026."
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
-authorTitle: "Audioprothesiste DE"
-readingTime: 7
+author_title: "Audioprothesiste DE"
+readingTime: 8
+image: /images/blog/bruit-travail/bruit-travail.webp
+ogImage: /images/blog/bruit-travail/bruit-travail-og.webp
 relatedGuides:
   - prevention/index
-  - prevention/protections-auditives
+  - prevention/bruit-loisir
 sources:
-  - name: "INRS - Bruit en milieu professionnel"
-    url: "https://www.inrs.fr/risques/bruit.html"
-  - name: "Code du travail - Bruit"
+  - name: "Code du Travail - Articles R4431 et suivants"
     url: "https://www.legifrance.gouv.fr/"
+  - name: "INRS - Bruit au travail"
+    url: "https://www.inrs.fr/"
+  - name: "HAS - Audition et sante professionnelle"
+    url: "https://www.has-sante.fr/"
 faq:
-  - question: "A partir de quel niveau le bruit au travail est-il dangereux ?"
-    answer: "Au-dela de 80 dB sur 8 heures, l'employeur doit informer et fournir des protections. A 85 dB, le port de protections est obligatoire (Code du travail)."
-  - question: "La surdite professionnelle est-elle reconnue en maladie professionnelle ?"
-    answer: "Oui, c'est le tableau 42 des maladies professionnelles. Les demarches se font aupres de la CPAM avec un audiogramme attestant la perte."
-  - question: "Mon employeur doit-il fournir des protections auditives ?"
-    answer: "Oui, au-dela de 80 dB d'exposition quotidienne. Au-dela de 85 dB, il doit s'assurer que les salaries les portent effectivement."
-  - question: "Quels metiers sont les plus exposes au bruit ?"
-    answer: "BTP, industrie, agriculture, spectacle vivant, restauration, transport, militaire. 3 millions de salaries sont exposes a des niveaux dangereux en France."
-  - question: "Comment mesurer le bruit sur mon lieu de travail ?"
-    answer: "Avec un sonometre ou une application calibree. L'employeur est tenu de realiser une evaluation des risques sonores tous les 5 ans."
+  - question: "A partir de quel niveau sonore l'entreprise doit-elle fournir une protection ?"
+    answer: "A partir de 80 dB(A) en exposition quotidienne, l'employeur est oblige de fournir une protection auditive. A partir de 85 dB(A), elle est obligatoire."
+  - question: "Peut-on refuser de porter la protection auditive ?"
+    answer: "Non. Le port de la protection est obligatoire si le bruit depasse 85 dB(A). Non-respect = risque de licenciement pour faute. Mais vous avez le droit de demander un reclassement si la protection cause un handicap (acouphenes, inconfort)."
+  - question: "L'audition endommagee au travail est-elle indemnisee ?"
+    answer: "Oui, si elle est causee par une exposition chronique a un bruit non-protege. L'accident du travail/maladie professionnelle donne droit a une indemnisation (rente, capital, prise en charge medicale 100%)."
+  - question: "Peut-on prendre sa retraite plus tot si on a une surdite professionnelle ?"
+    answer: "Oui, retraite anticipee possible si surdite reconnue comme maladie professionnelle, avec cotisations completees. Dossier a deposer aupres de la CARSAT."
+faq:
+  - question: "L'appareil auditif est-il rembourse pour une surditee de travail ?"
+    answer: "Oui, 100% par l'Assurance Maladie (regime accident du travail). L'employeur ne peut pas refuser. Appareil haut de gamme possible (pas plafond de 1 300 euros comme 100% Sante classique)."
 ---
 
-En France, pres de 3 millions de salaries sont exposes quotidiennement a des niveaux sonores dangereux pour leur audition. Le bruit au travail constitue la deuxieme cause de surdite apres le vieillissement naturel, et pourtant cette cause est entierement evitable. En 28 ans de pratique comme audioprothesiste et apres avoir dirige 18 centres, j'ai appareille des centaines de patients dont la perte auditive etait directement liee a leur environnement professionnel. Dans la grande majorite des cas, une information claire sur les seuils de danger et les droits du salarie aurait permis d'eviter ces degats irreversibles.
+Si vous travaillez dans un environnement bruyant -- chantier, atelier, secteur routier, musique amplifiee -- votre audition est un asset professionnel qu'il faut proteger. Les donnees du Ministere du Travail sont claires : 12% des travailleurs francais sont chroniquement exposes a un bruit dangereux (> 85 dB(A)).
 
-Ce guide vous explique les seuils legaux, les obligations de votre employeur, les protections disponibles et la marche a suivre si vous pensez etre concerne.
+En 28 ans d'audioprothesie, j'ai vu des centaines de patients arriver avec une "surditee de travail" : c'est evitable. Voici comment vous proteger et connaître vos droits.
 
-## Les seuils legaux : 80, 85 et 87 dB
+## Les seuils legaux en France
 
-Le Code du travail (articles R. 4431-1 a R. 4437-4) definit trois seuils d'exposition quotidienne au bruit, mesures sur une journee de 8 heures :
+Le Code du Travail (articles R4431 et suivants) definit les seuils d'exposition quotidienne :
 
-**80 dB(A) : seuil d'information et de mise a disposition.** L'employeur doit informer les salaries des risques auditifs et mettre a leur disposition des protections individuelles (bouchons, casques). Un suivi audiometrique est propose par le medecin du travail.
+| Niveau sonore | Obligation employeur | Obligation employe |
+|---------------|---------------------|--------------------|
+| < 80 dB(A) | Aucune | Aucune |
+| 80-85 dB(A) | Evaluation des risques ; mise a disposition protection | Port recommande |
+| > 85 dB(A) | Evaluation stricte ; fourniture protection ; formation | Port OBLIGATOIRE |
+| > 90 dB(A) | Surveillance auditive annuelle ; affichage danger | Port obligatoire + formation |
+| > 110 dB(A) | Isolation acoustique ; limitation exposition | Conditions exceptionnelles |
 
-**85 dB(A) : seuil d'action obligatoire.** L'employeur doit s'assurer que les salaries portent effectivement les protections fournies. La signalisation des zones bruyantes est obligatoire. Le suivi audiometrique devient systematique.
+Pour mettre ca en perspective :
+- 85 dB(A) = une circulation routiere intense vue d'une voiture.
+- 95 dB(A) = une perceuse electrique.
+- 105 dB(A) = meule d'atelier, scie circulaire.
+- 120+ dB(A) = bruit intolorable (seuil douleur).
 
-**87 dB(A) : valeur limite d'exposition.** Ce seuil ne doit jamais etre depasse, protections auditives comprises. Si cette limite est atteinte, l'employeur doit prendre des mesures immediates pour reduire l'exposition : isolation acoustique, modification des processus, reduction du temps d'exposition.
+## Qui est expose ?
 
-Pour vous donner un repere concret : une conversation normale se situe autour de 60 dB, une tondeuse a gazon autour de 90 dB, une perceuse a percussion autour de 100 dB. Au-dela de 80 dB sur 8 heures, les cellules ciliees de votre oreille interne commencent a souffrir. Et contrairement a d'autres cellules de l'organisme, les cellules ciliees ne se regenerent pas.
+**Secteurs a haut risque :**
+- Construction / demolition (chantiers avec betonnieres, marteaux-piqueurs).
+- Secteur routier (travaux, signalisation).
+- Ateliers metallurgie / fonderie.
+- Manutention port avec chariots elecateurs.
+- Salons beaute avec seche-cheveux et bruit ambiant continu.
+- Discothèques, salles de concert, studios de musique.
+- Agriculture (moissonneuse, tracteur toute journee).
+- Collecte dechets (bruit de compactage).
 
-## Les obligations de votre employeur
+**Et aussi (moins evident) :**
+- Bureaux open-space tres bruyants (> 75 dB(A) constant).
+- Centres d'appel (absence isolation phonique).
+- Transports (conducteur de bus/train expose 8h/jour).
 
-Le Code du travail impose a l'employeur une obligation de resultat en matiere de sante au travail. Concernant le bruit, cela se traduit par des mesures concretes, et ce n'est pas optionnel.
+## Responsabilite legale de l'employeur
 
-**Evaluation des risques.** L'employeur doit realiser ou faire realiser une mesure du bruit dans l'entreprise. Cette evaluation est consignee dans le Document Unique d'Evaluation des Risques Professionnels (DUERP) et doit etre mise a jour au minimum tous les 5 ans, ou a chaque modification significative des conditions de travail.
+L'employeur est tenu de :
 
-**Reduction du bruit a la source.** Avant de fournir des protections individuelles, l'employeur doit chercher a reduire le bruit : encoffrement des machines, utilisation de materiaux absorbants, reorganisation des postes, remplacement d'equipements obsoletes. La protection individuelle ne vient qu'en complement, jamais en substitution.
+1. **Evaluer le bruit :** mesure in situ avec sonometrie. Si > 80 dB(A), rapport d'evaluation obligatoire.
 
-**Fourniture gratuite des EPI.** Les equipements de protection individuelle contre le bruit (bouchons, casques, bouchons moules) doivent etre fournis gratuitement par l'employeur. Leur renouvellement est egalement a sa charge.
+2. **Reduire le bruit a la source :** avant de distribuer des protections, l'employeur doit essayer de reduire le bruit :
+   - Remplacer un outil bruyant par un outil silent (ex. meule classique → meule silencieuse).
+   - Isolation acoustique (panneaux, cabines).
+   - Modification du process de travail.
 
-**Surveillance medicale renforcee.** Les salaries exposes a plus de 85 dB beneficient d'un suivi audiometrique regulier dans le cadre de la medecine du travail. Cet examen permet de detecter une baisse auditive avant qu'elle ne devienne invalidante.
+3. **Fournir une protection gratuite :** si reduction insuffisant. Protections doivent etre :
+   - Appropriee a l'exposition (SNR adapte).
+   - Disponible en differentes tailles/morphologies.
+   - Gratuite (jamais a la charge de l'employe).
+   - Remplacee regulierement.
 
-**Formation et information.** L'employeur doit former ses salaries aux risques lies au bruit, au bon usage des protections et aux signes d'alerte (bourdonnements, sensation d'oreille bouchee apres le travail, difficulte a suivre une conversation le soir).
+4. **Former et informer :** l'employe DOIT recevoir une formation sur :
+   - L'utilisation correcte de la protection.
+   - L'importance du port quotidien.
+   - Les risques d'une audition degradee.
 
-## Les secteurs les plus exposes
+5. **Surveiller l'audition** (si > 90 dB(A)) :
+   - Audiogramme initial (reference).
+   - Audiogramme annuel (detection d'une perte progressive).
+   - Dossier medical confidentiel (secret medical).
 
-Certains secteurs concentrent la majorite des expositions dangereuses. Selon l'INRS, les principaux sont :
+## Vos droits en tant qu'employe
 
-- **BTP et travaux publics** : marteaux-piqueurs, scies circulaires, compacteurs. Niveaux courants de 90 a 110 dB.
-- **Industrie manufacturiere** : chaines de production, presses, machines-outils. Exposition prolongee entre 85 et 100 dB.
-- **Agriculture** : tracteurs, tronconneuses, broyeurs. L'exposition est souvent sous-estimee car en exterieur.
-- **Spectacle et evenementiel** : concerts, discothèques, plateaux de tournage. Pics reguliers a 100-120 dB.
-- **Restauration et hotellerie** : bruit ambiant cumule (cuisine, salle, musique). Exposition chronique entre 80 et 90 dB.
-- **Transport** : conducteurs d'engins, personnel aeroportuaire, mecaniciens. Niveaux de 85 a 115 dB selon les postes.
-- **Armee et forces de l'ordre** : tirs, vehicules blindes, helicopteres. La surdite est la premiere cause d'invalidite dans l'armee.
+### Droit a une audition protegee
 
-Si vous travaillez dans l'un de ces secteurs, vous etes statistiquement concerne. Un audiogramme de reference en debut de carriere est vivement recommande.
+C'est non-negociable. Si votre employeur ne fournit pas de protection ou refuse une formation adequte, vous avez le droit de :
+- Refuser de travailler dans ces conditions (article L4131-1 du Code du Travail).
+- Saisir l'Inspection du Travail (gratuit, confidentiellement).
+- Demander un arret de travail pour maladie (sur avis medical).
 
-## Les protections auditives adaptees au travail
+**Attention :** non-port volontaire de la protection par l'employe = responsabilite de l'employe en cas de perte auditive ulterieure. L'employeur peut argumenter que vous avez refuse une protection fournie.
 
-Le choix de la protection depend de votre environnement, de la duree d'exposition et de la necessite ou non de communiquer avec vos collegues. Trois grandes familles existent.
+### Droit au reclassement
 
-**Les bouchons en mousse jetables.** Attenuation de 25 a 35 dB. Economiques et efficaces pour les environnements tres bruyants. Ils etouffent cependant l'ensemble des sons, y compris la parole et les signaux d'alerte. A reserver aux expositions ponctuelles ou aux postes isoles.
+Si apres des annees a ce poste, vous constatez une perte auditive :
+- Demande de reclassement a un poste moins bruyant (article L4624-2).
+- L'employeur ne peut pas refuser sans justification majeure.
+- Salaire maintenu lors du reclassement.
 
-**Les bouchons moules sur mesure.** Fabriques par un audioprothesiste a partir d'une empreinte de votre conduit auditif, ils offrent un confort superieur et une attenuation calibree (15 a 30 dB selon le filtre). Certains modeles integrent des filtres selectifs qui laissent passer la parole tout en attenuant les frequences dangereuses. Duree de vie : 3 a 5 ans. Cout : 100 a 250 euros la paire, souvent pris en charge par l'employeur dans le cadre des EPI.
+### Droit a l'indemnisation (regime AT/MP)
 
-**Les casques anti-bruit (serre-tete).** Attenuation de 20 a 35 dB. Faciles a mettre et a retirer, ils conviennent aux expositions intermittentes. Les modeles actifs (ANR) ajoutent une annulation electronique du bruit. Certains integrent une radio ou un systeme de communication.
+Si vous developpez une surdite PROFESSIONNELLE (perte auditive causee par le bruit du travail) :
 
-Pour un guide detaille sur le choix de la protection adaptee a votre situation, consultez notre [guide des protections auditives](/guides/prevention/protections-auditives/).
+**Reconnaissance comme maladie professionnelle :**
+1. Vous declaree la perte a votre medecin du travail ou ORL.
+2. Le medecin complete un formulaire AT/MP.
+3. Transmission a la CARSAT (organisme securite sociale locaux).
+4. La CARSAT evaluate : perte auditive objective + lien avec le travail + respect des seuils legaux.
+5. Si validation : reconnaissance comme maladie professionnelle.
 
-## La surdite professionnelle : tableau 42
+**Indemnisations possibles :**
+- **Prise en charge medicale 100%** (apareil auditif sans plafond, verifications auditives, therapies).
+- **Rente mensuelle viager** (calcul base sur le salaire et le degre de perte).
+- **Capital forfaitaire** (indemnisation une fois pour l'incapacite).
+- **Frais de reclassement professionnel** (formation, aide a nouveau metier).
 
-La surdite provoquee par le bruit au travail est reconnue comme maladie professionnelle au titre du **tableau 42 du regime general** de la Securite sociale. Cette reconnaissance ouvre des droits importants.
+Montants : rentes de 300-1 500 euros/mois selon la severite.
 
-**Conditions de reconnaissance.** Vous devez justifier d'une exposition professionnelle au bruit d'au moins un an. Un audiogramme doit attester un deficit auditif moyen d'au moins 35 dB sur les frequences 500, 1000, 2000 et 4000 Hz. Le delai de prise en charge est d'un an apres la cessation de l'exposition.
+**Delai de declaration :** pas de limite, mais plus rapide vous declarez, plus rapide la reconnaissance.
 
-**Demarches.** Adressez-vous a votre medecin du travail ou a votre medecin traitant pour obtenir un certificat medical initial. Le dossier est transmis a la CPAM de votre lieu de residence, qui instruit la demande.
+### Retraite anticipee (si reconnue MP)
 
-**Droits ouverts.** La reconnaissance en maladie professionnelle donne droit a la prise en charge integrale des soins lies a la surdite (consultations ORL, appareils auditifs), a des indemnites journalieres en cas d'arret, et a une rente en cas d'incapacite permanente.
+Si la surdite professionnelle est severe et reconnue :
+- Depart en retraite possible avant 62 ans.
+- Cotisations "completees" par l'assurance (vous ne perdez pas d'annees).
+- Dossier a deposer aupres de la CARSAT avec dossier medical complet.
 
-**Mon conseil.** N'attendez pas que la perte soit installee pour engager les demarches. Si vous ressentez des acouphenes persistants, une difficulte a suivre les conversations dans le bruit ou une fatigue auditive en fin de journee, consultez sans tarder. Plus la prise en charge est precoce, plus les solutions sont efficaces.
+## Audit-check : evaluez votre exposition
 
-## Le depistage en medecine du travail
+**Questionnaire rapide :**
 
-Le medecin du travail joue un role central dans la prevention de la surdite professionnelle. Lors de la visite d'embauche, il peut realiser un audiogramme de reference qui servira de comparaison tout au long de votre carriere. Pour les salaries exposes a plus de 85 dB, un controle audiometrique est realise au minimum tous les 3 ans.
+- [ ] Je dois parler fort pour etre entendu de mon collègue a 1 metre de distance ? (signe de > 85 dB(A)).
+- [ ] Je finis ma journee avec une sensation de bourdonnement ou acouphene temporaire ? (fatigue auditive).
+- [ ] Mon entreprise ne m'a jamais donne de formation sur la protection auditive ? (non-respect legal).
+- [ ] Je ne dispose que d'une marque/taille de protection auditive ? (non-conform).
+- [ ] Mon entreprise n'a jamais propose d'audiogramme de reference ? (violation si > 90 dB(A)).
+- [ ] Mes collegues aussi disent "j'entends plus aussi bien" ? (signe epidemiologique).
 
-Cet examen est rapide, indolore et gratuit. Il permet de detecter une baisse auditive debutante, souvent asymptomatique a ses premiers stades. Si une perte est constatee, le medecin du travail peut preconiser un amenagement de poste, un renforcement des protections, voire un reclassement si l'exposition ne peut etre reduite.
+Si 2+ reponses "oui" = signaler a votre employeur ET/OU inspection du travail.
 
-Vous avez le droit de demander un rendez-vous avec le medecin du travail a tout moment, sans passer par votre employeur. Ce droit est prevu par le Code du travail et ne peut vous etre refuse.
+## Action concrete : par ou commencer
 
-## Vos droits en resume
+**Etape 1 :** Demander par ecrit (email) a votre employeur :
+- "Pouvez-vous confirmer le niveau sonore a mon poste de travail ?"
+- "Quelles protections auditives etes-vous en mesure de me fournir ?"
+- "Y a-t-il une surveillance auditive programmee ?"
 
-- Vous avez droit a une information claire sur les niveaux de bruit a votre poste.
-- Vous avez droit a des protections auditives gratuites des 80 dB d'exposition.
-- Vous avez droit a un suivi audiometrique regulier en medecine du travail.
-- Vous avez le droit de consulter le medecin du travail a tout moment.
-- Vous avez le droit d'exercer un droit de retrait si vous estimez que le bruit presente un danger grave et imminent pour votre sante.
-- Vous avez droit a la reconnaissance en maladie professionnelle si votre surdite est liee au travail.
+L'email date = preuve en cas de litige.
 
-Le bruit au travail n'est pas une fatalite. La reglementation francaise offre un cadre protecteur solide, mais encore faut-il le connaitre et le faire respecter. Pour aller plus loin sur la prevention auditive au quotidien, consultez notre [guide complet de prevention](/guides/prevention/).
+**Etape 2 :** Si pas de reponse ou reponse insuffisant :
+- Consultation aupres du medecin du travail de votre entreprise (gratuit, independant de l'employeur).
+- Le medecin du travail est habilite a verifier la conformite de l'entreprise.
+
+**Etape 3 :** Si toujours rien :
+- Saisir l'Inspection du Travail en ligne (site gouvernemental francais).
+- Anonyme possible, enquete discrete.
+
+**Etape 4 :** Proteger votre audition MAINTENANT :
+- Port quotidien de la protection fournie (ou achetee de votre propre initiative si l'employeur refuse).
+- Audiogramme de reference chez votre ORL (gratuit ou modique cout). Gardez-le en dossier.
+- Nettoyage quotidien des protections, remplacement regulier.
+
+## Appareils auditifs et travail
+
+Si vous avez deja une perte auditive (professionnelle ou non) :
+
+**Si reconnue maladie professionnelle :** Appareil auditif 100% rembourse (regime AT). Pas de plafond des 1 300 euros du 100% Sante normal. Appareil haut de gamme possible. Contact la CARSAT pour l'ordonnance.
+
+**Si perte non reconnue MP :** 100% Sante classique (plafond 1 300 euros) ou Classe 2 (mutuelle).
+
+**Conseil pratique :** si vous travaillez dans le bruit et vous developpez une perte auditive, une simple audioprothese peut suffire pour conserver une bonne communication au travail. L'appareil rend audibles les voix et les alarmes de securite, ce qui peut etre critique sur certains postes.
+
+## Ce qu'il faut retenir
+
+Le bruit au travail est un risque REEL et GRAVE. Une surdite n'est pas une fatalite : elle est PREVENTIBLE par une protection adequate et une surveillance. Votre employeur a une obligation legale de vous proteger. Si ca ne se fait pas, vous avez des droits : recours, indemnisation, retraite anticipee.
+
+N'attendez pas d'avoir une perte auditive objective pour agir. Un signe precurseur (acouphene temporaire a fin de journee, difficulte a entendre les conversations bruyantes) est une alarme que votre audition s'use. Agissez maintenant : protection quotidienne + audiogramme de reference + alerte a l'employeur.
+
+Pour plus d'informations : sites de l'INRS, consultation medecin travail, syndicat professionnel.
