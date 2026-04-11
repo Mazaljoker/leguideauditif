@@ -1,0 +1,1024 @@
+{
+  "metadata": {
+    "source_rpps": "data.gouv.fr, avril 2026",
+    "source_insee": "INSEE, estimation population 1er janvier 2025",
+    "total_audios": 5742,
+    "total_audios_rpps": 7146,
+    "audios_sans_adresse": 1404,
+    "moyenne_nationale": 8.37,
+    "date_generation": "2026-04-11",
+    "date_publication": "2026-04-20"
+  },
+  "departements": [
+    {
+      "code": "976",
+      "nom": "Mayotte",
+      "audios": 1,
+      "population_totale": 329282,
+      "population_60plus": 14186,
+      "ratio_100k": 0.3,
+      "niveau": "rouge",
+      "rang": 1
+    },
+    {
+      "code": "973",
+      "nom": "Guyane",
+      "audios": 1,
+      "population_totale": 292354,
+      "population_60plus": 33159,
+      "ratio_100k": 0.34,
+      "niveau": "rouge",
+      "rang": 2
+    },
+    {
+      "code": "971",
+      "nom": "Guadeloupe",
+      "audios": 13,
+      "population_totale": 380387,
+      "population_60plus": 123975,
+      "ratio_100k": 3.42,
+      "niveau": "rouge",
+      "rang": 3
+    },
+    {
+      "code": "52",
+      "nom": "Haute-Marne",
+      "audios": 7,
+      "population_totale": 167047,
+      "population_60plus": 58341,
+      "ratio_100k": 4.19,
+      "niveau": "rouge",
+      "rang": 4
+    },
+    {
+      "code": "972",
+      "nom": "Martinique",
+      "audios": 15,
+      "population_totale": 355459,
+      "population_60plus": 123095,
+      "ratio_100k": 4.22,
+      "niveau": "rouge",
+      "rang": 5
+    },
+    {
+      "code": "23",
+      "nom": "Creuse",
+      "audios": 5,
+      "population_totale": 114103,
+      "population_60plus": 46387,
+      "ratio_100k": 4.38,
+      "niveau": "rouge",
+      "rang": 6
+    },
+    {
+      "code": "974",
+      "nom": "La Réunion",
+      "audios": 40,
+      "population_totale": 896175,
+      "population_60plus": 202034,
+      "ratio_100k": 4.46,
+      "niveau": "rouge",
+      "rang": 7
+    },
+    {
+      "code": "28",
+      "nom": "Eure-et-Loir",
+      "audios": 22,
+      "population_totale": 433148,
+      "population_60plus": 123892,
+      "ratio_100k": 5.08,
+      "niveau": "orange",
+      "rang": 8
+    },
+    {
+      "code": "61",
+      "nom": "Orne",
+      "audios": 14,
+      "population_totale": 271896,
+      "population_60plus": 97184,
+      "ratio_100k": 5.15,
+      "niveau": "orange",
+      "rang": 9
+    },
+    {
+      "code": "70",
+      "nom": "Haute-Saône",
+      "audios": 12,
+      "population_totale": 231932,
+      "population_60plus": 76189,
+      "ratio_100k": 5.17,
+      "niveau": "orange",
+      "rang": 10
+    },
+    {
+      "code": "93",
+      "nom": "Seine-Saint-Denis",
+      "audios": 91,
+      "population_totale": 1711876,
+      "population_60plus": 319296,
+      "ratio_100k": 5.32,
+      "niveau": "orange",
+      "rang": 11
+    },
+    {
+      "code": "36",
+      "nom": "Indre",
+      "audios": 12,
+      "population_totale": 213358,
+      "population_60plus": 80025,
+      "ratio_100k": 5.62,
+      "niveau": "orange",
+      "rang": 12
+    },
+    {
+      "code": "25",
+      "nom": "Doubs",
+      "audios": 32,
+      "population_totale": 550846,
+      "population_60plus": 148763,
+      "ratio_100k": 5.81,
+      "niveau": "orange",
+      "rang": 13
+    },
+    {
+      "code": "27",
+      "nom": "Eure",
+      "audios": 35,
+      "population_totale": 601942,
+      "population_60plus": 169241,
+      "ratio_100k": 5.81,
+      "niveau": "orange",
+      "rang": 14
+    },
+    {
+      "code": "60",
+      "nom": "Oise",
+      "audios": 50,
+      "population_totale": 829583,
+      "population_60plus": 207464,
+      "ratio_100k": 6.03,
+      "niveau": "orange",
+      "rang": 15
+    },
+    {
+      "code": "08",
+      "nom": "Ardennes",
+      "audios": 16,
+      "population_totale": 263194,
+      "population_60plus": 81974,
+      "ratio_100k": 6.08,
+      "niveau": "orange",
+      "rang": 16
+    },
+    {
+      "code": "77",
+      "nom": "Seine-et-Marne",
+      "audios": 91,
+      "population_totale": 1479615,
+      "population_60plus": 325389,
+      "ratio_100k": 6.15,
+      "niveau": "orange",
+      "rang": 17
+    },
+    {
+      "code": "55",
+      "nom": "Meuse",
+      "audios": 11,
+      "population_totale": 177024,
+      "population_60plus": 59027,
+      "ratio_100k": 6.21,
+      "niveau": "orange",
+      "rang": 18
+    },
+    {
+      "code": "68",
+      "nom": "Haut-Rhin",
+      "audios": 48,
+      "population_totale": 765827,
+      "population_60plus": 224367,
+      "ratio_100k": 6.27,
+      "niveau": "orange",
+      "rang": 19
+    },
+    {
+      "code": "57",
+      "nom": "Moselle",
+      "audios": 66,
+      "population_totale": 1050955,
+      "population_60plus": 302862,
+      "ratio_100k": 6.28,
+      "niveau": "orange",
+      "rang": 20
+    },
+    {
+      "code": "2A",
+      "nom": "Corse-du-Sud",
+      "audios": 11,
+      "population_totale": 172719,
+      "population_60plus": 54637,
+      "ratio_100k": 6.37,
+      "niveau": "orange",
+      "rang": 21
+    },
+    {
+      "code": "86",
+      "nom": "Vienne",
+      "audios": 28,
+      "population_totale": 437151,
+      "population_60plus": 130843,
+      "ratio_100k": 6.41,
+      "niveau": "orange",
+      "rang": 22
+    },
+    {
+      "code": "80",
+      "nom": "Somme",
+      "audios": 37,
+      "population_totale": 559722,
+      "population_60plus": 159296,
+      "ratio_100k": 6.61,
+      "niveau": "orange",
+      "rang": 23
+    },
+    {
+      "code": "47",
+      "nom": "Lot-et-Garonne",
+      "audios": 22,
+      "population_totale": 332372,
+      "population_60plus": 117330,
+      "ratio_100k": 6.62,
+      "niveau": "orange",
+      "rang": 24
+    },
+    {
+      "code": "51",
+      "nom": "Marne",
+      "audios": 37,
+      "population_totale": 558743,
+      "population_60plus": 156549,
+      "ratio_100k": 6.62,
+      "niveau": "orange",
+      "rang": 25
+    },
+    {
+      "code": "45",
+      "nom": "Loiret",
+      "audios": 46,
+      "population_totale": 691006,
+      "population_60plus": 192050,
+      "ratio_100k": 6.66,
+      "niveau": "orange",
+      "rang": 26
+    },
+    {
+      "code": "62",
+      "nom": "Pas-de-Calais",
+      "audios": 97,
+      "population_totale": 1450306,
+      "population_60plus": 402097,
+      "ratio_100k": 6.69,
+      "niveau": "orange",
+      "rang": 27
+    },
+    {
+      "code": "72",
+      "nom": "Sarthe",
+      "audios": 38,
+      "population_totale": 564160,
+      "population_60plus": 170938,
+      "ratio_100k": 6.74,
+      "niveau": "orange",
+      "rang": 28
+    },
+    {
+      "code": "63",
+      "nom": "Puy-de-Dôme",
+      "audios": 45,
+      "population_totale": 664068,
+      "population_60plus": 197150,
+      "ratio_100k": 6.78,
+      "niveau": "orange",
+      "rang": 29
+    },
+    {
+      "code": "03",
+      "nom": "Allier",
+      "audios": 23,
+      "population_totale": 332599,
+      "population_60plus": 121671,
+      "ratio_100k": 6.92,
+      "niveau": "orange",
+      "rang": 30
+    },
+    {
+      "code": "02",
+      "nom": "Aisne",
+      "audios": 36,
+      "population_totale": 518817,
+      "population_60plus": 152417,
+      "ratio_100k": 6.94,
+      "niveau": "orange",
+      "rang": 31
+    },
+    {
+      "code": "79",
+      "nom": "Deux-Sèvres",
+      "audios": 26,
+      "population_totale": 374315,
+      "population_60plus": 120457,
+      "ratio_100k": 6.95,
+      "niveau": "orange",
+      "rang": 32
+    },
+    {
+      "code": "91",
+      "nom": "Essonne",
+      "audios": 94,
+      "population_totale": 1343527,
+      "population_60plus": 294857,
+      "ratio_100k": 7,
+      "niveau": "jaune",
+      "rang": 33
+    },
+    {
+      "code": "58",
+      "nom": "Nièvre",
+      "audios": 14,
+      "population_totale": 199666,
+      "population_60plus": 77759,
+      "ratio_100k": 7.01,
+      "niveau": "jaune",
+      "rang": 34
+    },
+    {
+      "code": "43",
+      "nom": "Haute-Loire",
+      "audios": 16,
+      "population_totale": 227959,
+      "population_60plus": 76793,
+      "ratio_100k": 7.02,
+      "niveau": "jaune",
+      "rang": 35
+    },
+    {
+      "code": "04",
+      "nom": "Alpes-de-Haute-Provence",
+      "audios": 12,
+      "population_totale": 169806,
+      "population_60plus": 61021,
+      "ratio_100k": 7.07,
+      "niveau": "jaune",
+      "rang": 36
+    },
+    {
+      "code": "24",
+      "nom": "Dordogne",
+      "audios": 30,
+      "population_totale": 417714,
+      "population_60plus": 163665,
+      "ratio_100k": 7.18,
+      "niveau": "jaune",
+      "rang": 37
+    },
+    {
+      "code": "01",
+      "nom": "Ain",
+      "audios": 50,
+      "population_totale": 688626,
+      "population_60plus": 175431,
+      "ratio_100k": 7.26,
+      "niveau": "jaune",
+      "rang": 38
+    },
+    {
+      "code": "41",
+      "nom": "Loir-et-Cher",
+      "audios": 24,
+      "population_totale": 327451,
+      "population_60plus": 110611,
+      "ratio_100k": 7.33,
+      "niveau": "jaune",
+      "rang": 39
+    },
+    {
+      "code": "76",
+      "nom": "Seine-Maritime",
+      "audios": 93,
+      "population_totale": 1260246,
+      "population_60plus": 356486,
+      "ratio_100k": 7.38,
+      "niveau": "jaune",
+      "rang": 40
+    },
+    {
+      "code": "59",
+      "nom": "Nord",
+      "audios": 196,
+      "population_totale": 2615505,
+      "population_60plus": 649406,
+      "ratio_100k": 7.49,
+      "niveau": "jaune",
+      "rang": 41
+    },
+    {
+      "code": "44",
+      "nom": "Loire-Atlantique",
+      "audios": 116,
+      "population_totale": 1510913,
+      "population_60plus": 384250,
+      "ratio_100k": 7.68,
+      "niveau": "jaune",
+      "rang": 42
+    },
+    {
+      "code": "16",
+      "nom": "Charente",
+      "audios": 27,
+      "population_totale": 350209,
+      "population_60plus": 121223,
+      "ratio_100k": 7.71,
+      "niveau": "jaune",
+      "rang": 43
+    },
+    {
+      "code": "22",
+      "nom": "Côtes-d'Armor",
+      "audios": 48,
+      "population_totale": 615301,
+      "population_60plus": 216481,
+      "ratio_100k": 7.8,
+      "niveau": "jaune",
+      "rang": 44
+    },
+    {
+      "code": "87",
+      "nom": "Haute-Vienne",
+      "audios": 29,
+      "population_totale": 371297,
+      "population_60plus": 123529,
+      "ratio_100k": 7.81,
+      "niveau": "jaune",
+      "rang": 45
+    },
+    {
+      "code": "82",
+      "nom": "Tarn-et-Garonne",
+      "audios": 21,
+      "population_totale": 267793,
+      "population_60plus": 81285,
+      "ratio_100k": 7.84,
+      "niveau": "jaune",
+      "rang": 46
+    },
+    {
+      "code": "95",
+      "nom": "Val-d'Oise",
+      "audios": 101,
+      "population_totale": 1287589,
+      "population_60plus": 265773,
+      "ratio_100k": 7.84,
+      "niveau": "jaune",
+      "rang": 47
+    },
+    {
+      "code": "11",
+      "nom": "Aude",
+      "audios": 30,
+      "population_totale": 379729,
+      "population_60plus": 135112,
+      "ratio_100k": 7.9,
+      "niveau": "jaune",
+      "rang": 48
+    },
+    {
+      "code": "74",
+      "nom": "Haute-Savoie",
+      "audios": 69,
+      "population_totale": 870588,
+      "population_60plus": 208982,
+      "ratio_100k": 7.93,
+      "niveau": "jaune",
+      "rang": 49
+    },
+    {
+      "code": "37",
+      "nom": "Indre-et-Loire",
+      "audios": 50,
+      "population_totale": 620686,
+      "population_60plus": 183920,
+      "ratio_100k": 8.06,
+      "niveau": "jaune",
+      "rang": 50
+    },
+    {
+      "code": "50",
+      "nom": "Manche",
+      "audios": 40,
+      "population_totale": 496199,
+      "population_60plus": 171125,
+      "ratio_100k": 8.06,
+      "niveau": "jaune",
+      "rang": 51
+    },
+    {
+      "code": "18",
+      "nom": "Cher",
+      "audios": 24,
+      "population_totale": 295830,
+      "population_60plus": 102111,
+      "ratio_100k": 8.11,
+      "niveau": "jaune",
+      "rang": 52
+    },
+    {
+      "code": "67",
+      "nom": "Bas-Rhin",
+      "audios": 95,
+      "population_totale": 1168669,
+      "population_60plus": 313655,
+      "ratio_100k": 8.13,
+      "niveau": "jaune",
+      "rang": 53
+    },
+    {
+      "code": "89",
+      "nom": "Yonne",
+      "audios": 27,
+      "population_totale": 331131,
+      "population_60plus": 110207,
+      "ratio_100k": 8.15,
+      "niveau": "jaune",
+      "rang": 54
+    },
+    {
+      "code": "88",
+      "nom": "Vosges",
+      "audios": 29,
+      "population_totale": 352304,
+      "population_60plus": 120560,
+      "ratio_100k": 8.23,
+      "niveau": "jaune",
+      "rang": 55
+    },
+    {
+      "code": "21",
+      "nom": "Côte-d'Or",
+      "audios": 45,
+      "population_totale": 538799,
+      "population_60plus": 156127,
+      "ratio_100k": 8.35,
+      "niveau": "jaune",
+      "rang": 56
+    },
+    {
+      "code": "54",
+      "nom": "Meurthe-et-Moselle",
+      "audios": 61,
+      "population_totale": 729358,
+      "population_60plus": 198876,
+      "ratio_100k": 8.36,
+      "niveau": "jaune",
+      "rang": 57
+    },
+    {
+      "code": "73",
+      "nom": "Savoie",
+      "audios": 38,
+      "population_totale": 453159,
+      "population_60plus": 131881,
+      "ratio_100k": 8.39,
+      "niveau": "jaune",
+      "rang": 58
+    },
+    {
+      "code": "05",
+      "nom": "Hautes-Alpes",
+      "audios": 12,
+      "population_totale": 142006,
+      "population_60plus": 50890,
+      "ratio_100k": 8.45,
+      "niveau": "jaune",
+      "rang": 59
+    },
+    {
+      "code": "38",
+      "nom": "Isère",
+      "audios": 111,
+      "population_totale": 1308807,
+      "population_60plus": 343216,
+      "ratio_100k": 8.48,
+      "niveau": "jaune",
+      "rang": 60
+    },
+    {
+      "code": "29",
+      "nom": "Finistère",
+      "audios": 80,
+      "population_totale": 936238,
+      "population_60plus": 304982,
+      "ratio_100k": 8.54,
+      "niveau": "jaune",
+      "rang": 61
+    },
+    {
+      "code": "53",
+      "nom": "Mayenne",
+      "audios": 26,
+      "population_totale": 303245,
+      "population_60plus": 92667,
+      "ratio_100k": 8.57,
+      "niveau": "jaune",
+      "rang": 62
+    },
+    {
+      "code": "49",
+      "nom": "Maine-et-Loire",
+      "audios": 72,
+      "population_totale": 835364,
+      "population_60plus": 229764,
+      "ratio_100k": 8.62,
+      "niveau": "jaune",
+      "rang": 63
+    },
+    {
+      "code": "78",
+      "nom": "Yvelines",
+      "audios": 129,
+      "population_totale": 1489363,
+      "population_60plus": 344084,
+      "ratio_100k": 8.66,
+      "niveau": "jaune",
+      "rang": 64
+    },
+    {
+      "code": "14",
+      "nom": "Calvados",
+      "audios": 62,
+      "population_totale": 711029,
+      "population_60plus": 216186,
+      "ratio_100k": 8.72,
+      "niveau": "jaune",
+      "rang": 65
+    },
+    {
+      "code": "31",
+      "nom": "Haute-Garonne",
+      "audios": 132,
+      "population_totale": 1506391,
+      "population_60plus": 350640,
+      "ratio_100k": 8.76,
+      "niveau": "jaune",
+      "rang": 66
+    },
+    {
+      "code": "42",
+      "nom": "Loire",
+      "audios": 68,
+      "population_totale": 776590,
+      "population_60plus": 230834,
+      "ratio_100k": 8.76,
+      "niveau": "jaune",
+      "rang": 67
+    },
+    {
+      "code": "19",
+      "nom": "Corrèze",
+      "audios": 21,
+      "population_totale": 239483,
+      "population_60plus": 88116,
+      "ratio_100k": 8.77,
+      "niveau": "jaune",
+      "rang": 68
+    },
+    {
+      "code": "85",
+      "nom": "Vendée",
+      "audios": 64,
+      "population_totale": 723037,
+      "population_60plus": 247574,
+      "ratio_100k": 8.85,
+      "niveau": "jaune",
+      "rang": 69
+    },
+    {
+      "code": "81",
+      "nom": "Tarn",
+      "audios": 36,
+      "population_totale": 401283,
+      "population_60plus": 137776,
+      "ratio_100k": 8.97,
+      "niveau": "jaune",
+      "rang": 70
+    },
+    {
+      "code": "71",
+      "nom": "Saône-et-Loire",
+      "audios": 49,
+      "population_totale": 545310,
+      "population_60plus": 191831,
+      "ratio_100k": 8.99,
+      "niveau": "jaune",
+      "rang": 71
+    },
+    {
+      "code": "2B",
+      "nom": "Haute-Corse",
+      "audios": 17,
+      "population_totale": 187443,
+      "population_60plus": 60818,
+      "ratio_100k": 9.07,
+      "niveau": "jaune",
+      "rang": 72
+    },
+    {
+      "code": "17",
+      "nom": "Charente-Maritime",
+      "audios": 62,
+      "population_totale": 681666,
+      "population_60plus": 254663,
+      "ratio_100k": 9.1,
+      "niveau": "jaune",
+      "rang": 73
+    },
+    {
+      "code": "48",
+      "nom": "Lozère",
+      "audios": 7,
+      "population_totale": 76452,
+      "population_60plus": 26905,
+      "ratio_100k": 9.16,
+      "niveau": "jaune",
+      "rang": 74
+    },
+    {
+      "code": "92",
+      "nom": "Hauts-de-Seine",
+      "audios": 153,
+      "population_totale": 1663974,
+      "population_60plus": 359390,
+      "ratio_100k": 9.19,
+      "niveau": "jaune",
+      "rang": 75
+    },
+    {
+      "code": "94",
+      "nom": "Val-de-Marne",
+      "audios": 132,
+      "population_totale": 1426433,
+      "population_60plus": 312881,
+      "ratio_100k": 9.25,
+      "niveau": "jaune",
+      "rang": 76
+    },
+    {
+      "code": "30",
+      "nom": "Gard",
+      "audios": 72,
+      "population_totale": 775994,
+      "population_60plus": 250514,
+      "ratio_100k": 9.28,
+      "niveau": "jaune",
+      "rang": 77
+    },
+    {
+      "code": "39",
+      "nom": "Jura",
+      "audios": 24,
+      "population_totale": 256977,
+      "population_60plus": 83371,
+      "ratio_100k": 9.34,
+      "niveau": "jaune",
+      "rang": 78
+    },
+    {
+      "code": "90",
+      "nom": "Territoire de Belfort",
+      "audios": 13,
+      "population_totale": 138419,
+      "population_60plus": 38364,
+      "ratio_100k": 9.39,
+      "niveau": "jaune",
+      "rang": 79
+    },
+    {
+      "code": "65",
+      "nom": "Hautes-Pyrénées",
+      "audios": 22,
+      "population_totale": 232548,
+      "population_60plus": 82840,
+      "ratio_100k": 9.46,
+      "niveau": "jaune",
+      "rang": 80
+    },
+    {
+      "code": "07",
+      "nom": "Ardèche",
+      "audios": 32,
+      "population_totale": 336947,
+      "population_60plus": 115560,
+      "ratio_100k": 9.5,
+      "niveau": "jaune",
+      "rang": 81
+    },
+    {
+      "code": "10",
+      "nom": "Aube",
+      "audios": 30,
+      "population_totale": 310930,
+      "population_60plus": 91895,
+      "ratio_100k": 9.65,
+      "niveau": "jaune",
+      "rang": 82
+    },
+    {
+      "code": "15",
+      "nom": "Cantal",
+      "audios": 14,
+      "population_totale": 143746,
+      "population_60plus": 54923,
+      "ratio_100k": 9.74,
+      "niveau": "jaune",
+      "rang": 83
+    },
+    {
+      "code": "34",
+      "nom": "Hérault",
+      "audios": 122,
+      "population_totale": 1252904,
+      "population_60plus": 367466,
+      "ratio_100k": 9.74,
+      "niveau": "jaune",
+      "rang": 84
+    },
+    {
+      "code": "32",
+      "nom": "Gers",
+      "audios": 19,
+      "population_totale": 193053,
+      "population_60plus": 72112,
+      "ratio_100k": 9.84,
+      "niveau": "jaune",
+      "rang": 85
+    },
+    {
+      "code": "06",
+      "nom": "Alpes-Maritimes",
+      "audios": 112,
+      "population_totale": 1129950,
+      "population_60plus": 364049,
+      "ratio_100k": 9.91,
+      "niveau": "jaune",
+      "rang": 86
+    },
+    {
+      "code": "35",
+      "nom": "Ille-et-Vilaine",
+      "audios": 113,
+      "population_totale": 1134891,
+      "population_60plus": 283080,
+      "ratio_100k": 9.96,
+      "niveau": "jaune",
+      "rang": 87
+    },
+    {
+      "code": "26",
+      "nom": "Drôme",
+      "audios": 53,
+      "population_totale": 524409,
+      "population_60plus": 159153,
+      "ratio_100k": 10.11,
+      "niveau": "vert",
+      "rang": 88
+    },
+    {
+      "code": "33",
+      "nom": "Gironde",
+      "audios": 176,
+      "population_totale": 1718654,
+      "population_60plus": 451566,
+      "ratio_100k": 10.24,
+      "niveau": "vert",
+      "rang": 89
+    },
+    {
+      "code": "13",
+      "nom": "Bouches-du-Rhône",
+      "audios": 218,
+      "population_totale": 2090225,
+      "population_60plus": 589427,
+      "ratio_100k": 10.43,
+      "niveau": "vert",
+      "rang": 90
+    },
+    {
+      "code": "40",
+      "nom": "Landes",
+      "audios": 46,
+      "population_totale": 440763,
+      "population_60plus": 153341,
+      "ratio_100k": 10.44,
+      "niveau": "vert",
+      "rang": 91
+    },
+    {
+      "code": "69",
+      "nom": "Rhône",
+      "audios": 204,
+      "population_totale": 1932598,
+      "population_60plus": 448788,
+      "ratio_100k": 10.56,
+      "niveau": "vert",
+      "rang": 92
+    },
+    {
+      "code": "64",
+      "nom": "Pyrénées-Atlantiques",
+      "audios": 76,
+      "population_totale": 713482,
+      "population_60plus": 236589,
+      "ratio_100k": 10.65,
+      "niveau": "vert",
+      "rang": 93
+    },
+    {
+      "code": "12",
+      "nom": "Aveyron",
+      "audios": 30,
+      "population_totale": 278355,
+      "population_60plus": 100425,
+      "ratio_100k": 10.78,
+      "niveau": "vert",
+      "rang": 94
+    },
+    {
+      "code": "83",
+      "nom": "Var",
+      "audios": 123,
+      "population_totale": 1135917,
+      "population_60plus": 398688,
+      "ratio_100k": 10.83,
+      "niveau": "vert",
+      "rang": 95
+    },
+    {
+      "code": "66",
+      "nom": "Pyrénées-Orientales",
+      "audios": 55,
+      "population_totale": 503866,
+      "population_60plus": 174749,
+      "ratio_100k": 10.92,
+      "niveau": "vert",
+      "rang": 96
+    },
+    {
+      "code": "84",
+      "nom": "Vaucluse",
+      "audios": 64,
+      "population_totale": 573683,
+      "population_60plus": 180449,
+      "ratio_100k": 11.16,
+      "niveau": "vert",
+      "rang": 97
+    },
+    {
+      "code": "56",
+      "nom": "Morbihan",
+      "audios": 89,
+      "population_totale": 789465,
+      "population_60plus": 274220,
+      "ratio_100k": 11.27,
+      "niveau": "vert",
+      "rang": 98
+    },
+    {
+      "code": "09",
+      "nom": "Ariège",
+      "audios": 20,
+      "population_totale": 156787,
+      "population_60plus": 55475,
+      "ratio_100k": 12.76,
+      "niveau": "vert",
+      "rang": 99
+    },
+    {
+      "code": "46",
+      "nom": "Lot",
+      "audios": 24,
+      "population_totale": 176432,
+      "population_60plus": 72057,
+      "ratio_100k": 13.6,
+      "niveau": "vert",
+      "rang": 100
+    },
+    {
+      "code": "75",
+      "nom": "Paris",
+      "audios": 351,
+      "population_totale": 2048472,
+      "population_60plus": 493805,
+      "ratio_100k": 17.13,
+      "niveau": "vert",
+      "rang": 101
+    }
+  ]
+}

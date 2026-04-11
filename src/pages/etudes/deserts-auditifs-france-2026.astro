@@ -1,0 +1,320 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
+import DesertsAuditifsIsland from '../../components/etudes/DesertsAuditifsIsland.tsx';
+import desertsData from '../../data/deserts-auditifs-2026.json';
+
+const title = 'Carte des deserts auditifs en France (2026)';
+const fullTitle = `${title} — LeGuideAuditif.fr`;
+const description = 'Premiere carte interactive des audioprothesistes par departement. Ou manque-t-il des professionnels de l\'audition ? Donnees RPPS 2026 x INSEE 2025.';
+
+const publishDate = new Date('2026-04-20');
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Etudes', href: '/etudes/' },
+  { label: 'Deserts auditifs France 2026' },
+];
+
+// --- Computed stats ---
+const { metadata, departements } = desertsData;
+const sorted = [...departements].sort((a, b) => a.ratio_100k - b.ratio_100k);
+const pire = sorted[0];
+const meilleur = sorted[sorted.length - 1];
+const pireMet = sorted.find((d) => !['971', '972', '973', '974', '976'].includes(d.code));
+
+// --- Schema.org ---
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: {
+    '@type': 'Person',
+    '@id': 'https://leguideauditif.fr/#author',
+    name: 'Franck-Olivier Chabbat',
+    jobTitle: 'Audioprothesiste DE',
+    url: 'https://leguideauditif.fr/auteur/franck-olivier/',
+  },
+  datePublished: publishDate.toISOString(),
+  publisher: {
+    '@type': 'Organization',
+    name: 'LeGuideAuditif.fr',
+    url: 'https://leguideauditif.fr',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: new URL(item.href, Astro.site).href }),
+  })),
+};
+
+const datasetSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'Densite d\'audioprothesistes par departement en France (2026)',
+  description: 'Nombre d\'audioprothesistes pour 100 000 habitants, par departement. Donnees RPPS avril 2026 x INSEE 2025.',
+  creator: { '@type': 'Person', name: 'Franck-Olivier Chabbat' },
+  datePublished: '2026-04-20',
+  license: 'https://www.etalab.gouv.fr/licence-ouverte-open-licence/',
+  distribution: {
+    '@type': 'DataDownload',
+    encodingFormat: 'application/json',
+    contentUrl: 'https://leguideauditif.fr/data/deserts-auditifs-2026.json',
+  },
+};
+
+const faqEntries = [
+  {
+    question: 'Qu\'est-ce qu\'un desert auditif ?',
+    answer: 'Un desert auditif est une zone geographique ou la densite d\'audioprothesistes est nettement inferieure a la moyenne nationale (8,4 pour 100 000 habitants en 2026). Ces territoires souffrent d\'un acces reduit aux soins auditifs.',
+  },
+  {
+    question: 'Quel departement est le plus sous-dote en audioprothesistes ?',
+    answer: `En metropole, la Haute-Marne (52) est le departement le plus sous-dote avec seulement ${pireMet?.ratio_100k} audioprothesistes pour 100 000 habitants, soit deux fois moins que la moyenne nationale.`,
+  },
+  {
+    question: 'Combien y a-t-il d\'audioprothesistes en France en 2026 ?',
+    answer: `Le RPPS recense ${metadata.total_audios_rpps.toLocaleString('fr-FR')} audioprothesistes en France en avril 2026, dont ${metadata.total_audios.toLocaleString('fr-FR')} avec une adresse permettant la geolocalisation par departement.`,
+  },
+  {
+    question: 'Comment sont calculees les donnees de cette etude ?',
+    answer: 'Le ratio est calcule en divisant le nombre d\'audioprothesistes geolocalises par departement par la population totale du departement (INSEE 2025), multiplie par 100 000. Les seuils sont : desert (< 5), sous-dote (5-7), correct (7-10), bien dote (> 10).',
+  },
+  {
+    question: 'Pourquoi la Seine-Saint-Denis est-elle sous-dotee malgre sa proximite avec Paris ?',
+    answer: `Avec ${sorted.find(d => d.code === '93')?.ratio_100k} audioprothesistes pour 100 000 habitants, le 93 est quasiment a la moitie de la moyenne nationale. Ce paradoxe s'explique par la tres forte population du departement (1,7 million) et la concentration des cabinets dans Paris intra-muros.`,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqEntries.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+
+const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
+---
+
+<BaseLayout
+  title={fullTitle}
+  description={description}
+  canonical="https://leguideauditif.fr/etudes/deserts-auditifs-france-2026/"
+  ogType="article"
+  publishDate={publishDate}
+  schema={allSchemas}
+>
+  {/* Leaflet CSS */}
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+    slot="head"
+  />
+  <link
+    rel="preload"
+    as="fetch"
+    href="/data/departements-france.geojson"
+    crossorigin=""
+    slot="head"
+  />
+
+  <section class="bg-creme pt-4 pb-16">
+    {/* Breadcrumbs */}
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+
+    {/* Hero */}
+    <header class="max-w-[780px] mx-auto px-4 sm:px-6 mb-10">
+      <h1 class="font-serif text-[32px] lg:text-[48px] font-bold text-marine leading-tight mb-4">
+        En Haute-Marne, il y a <span class="text-[#F44336]">2 fois moins</span> d'audioprothesistes par habitant que la moyenne francaise.
+      </h1>
+      <p class="font-sans text-lg text-gris-texte leading-relaxed">
+        Etude independante realisee par <strong class="text-marine">Franck-Olivier Chabbat</strong>, audioprothesiste DE,
+        a partir des donnees officielles RPPS et INSEE.
+      </p>
+      <time datetime="2026-04-20" class="block mt-3 font-sans text-sm text-gris-texte">
+        Publie le 20 avril 2026
+      </time>
+    </header>
+
+    {/* Health disclaimer inline */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-10">
+      <div class="bg-[#fef9f0] border border-[#f0dcc4] rounded-xl px-5 py-4 text-sm text-gris-texte font-sans">
+        <strong class="text-marine">Information sante :</strong> Ce contenu est informatif et ne remplace pas une consultation avec un professionnel de sante. Derniere revue : avril 2026.
+      </div>
+    </div>
+
+    {/* Key stats bar */}
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 mb-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white rounded-xl p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
+          <p class="font-sans text-sm text-gris-texte mb-1">Audioprothesistes geolocalises</p>
+          <p class="font-serif text-3xl font-bold text-marine">{metadata.total_audios.toLocaleString('fr-FR')}</p>
+          <p class="font-sans text-xs text-gris-texte">sur {metadata.total_audios_rpps.toLocaleString('fr-FR')} au RPPS</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
+          <p class="font-sans text-sm text-gris-texte mb-1">Moyenne nationale</p>
+          <p class="font-serif text-3xl font-bold text-marine">{metadata.moyenne_nationale}</p>
+          <p class="font-sans text-xs text-gris-texte">pour 100 000 habitants</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
+          <p class="font-sans text-sm text-gris-texte mb-1">Departement le plus sous-dote</p>
+          <p class="font-serif text-3xl font-bold text-[#F44336]">{pireMet?.nom}</p>
+          <p class="font-sans text-xs text-gris-texte">{pireMet?.ratio_100k} / 100k hab.</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
+          <p class="font-sans text-sm text-gris-texte mb-1">Departement le mieux dote</p>
+          <p class="font-serif text-3xl font-bold text-[#4CAF50]">{meilleur.nom}</p>
+          <p class="font-sans text-xs text-gris-texte">{meilleur.ratio_100k} / 100k hab.</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Interactive map + table (shared state via React island) */}
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 mb-12">
+      <DesertsAuditifsIsland
+        client:only="react"
+        data={departements}
+      />
+    </div>
+
+    {/* Editorial placeholder */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
+      <h2 id="analyse" class="font-sans text-2xl font-bold text-marine mb-6">
+        Analyse : la fracture auditive territoriale
+      </h2>
+      <div class="bg-[#fef9f0] border border-[#f0dcc4] rounded-xl px-6 py-8 text-center">
+        <p class="font-sans text-lg text-marine">
+          Analyse detaillee par Franck-Olivier Chabbat — a paraitre prochainement.
+        </p>
+      </div>
+    </div>
+
+    {/* Methodology */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
+      <h2 id="methodologie" class="font-sans text-2xl font-bold text-marine mb-6">
+        Methodologie
+      </h2>
+      <div class="prose prose-lg max-w-none prose-headings:font-sans prose-headings:text-marine prose-p:text-marine prose-p:leading-relaxed prose-li:text-marine prose-strong:text-marine">
+        <ul>
+          <li><strong>Source RPPS :</strong> data.gouv.fr, extraction avril 2026. {metadata.total_audios_rpps.toLocaleString('fr-FR')} audioprothesistes recenses.</li>
+          <li><strong>Source INSEE :</strong> estimation de population au 1er janvier 2025, par departement.</li>
+          <li><strong>Calcul :</strong> nombre d'audioprothesistes geolocalises par departement / population totale x 100 000.</li>
+          <li><strong>Limites :</strong> {metadata.audios_sans_adresse.toLocaleString('fr-FR')} audioprothesistes (20 %) n'ont pas d'adresse dans le RPPS, probablement des salaries multi-sites non declares individuellement.</li>
+          <li><strong>Ratio :</strong> utilise la population totale (pas 60+) pour comparabilite avec les donnees DREES publiees.</li>
+        </ul>
+        <p>
+          Les donnees brutes sont accessibles en <a href="/data/deserts-auditifs-2026.json" class="text-orange hover:underline" rel="noopener">telechargement JSON</a> sous licence ouverte.
+        </p>
+      </div>
+    </div>
+
+    {/* FAQ */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
+      <h2 id="faq" class="font-sans text-2xl font-bold text-marine mb-6">
+        Questions frequentes
+      </h2>
+      {faqEntries.map((f) => (
+        <details class="bg-white rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
+          <summary class="px-6 py-5 font-sans text-[17px] font-semibold text-marine cursor-pointer list-none flex justify-between items-center">
+            <span>{f.question}</span>
+            <span class="text-xl transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-6 pb-5 text-gris-texte text-base leading-relaxed">{f.answer}</div>
+        </details>
+      ))}
+    </div>
+
+    {/* Sources & internal links */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
+      <h2 id="sources" class="font-sans text-2xl font-bold text-marine mb-4">
+        Sources et references
+      </h2>
+      <ul class="space-y-2">
+        <li class="font-sans text-sm">
+          <a href="https://annuaire.sante.fr/" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+            Annuaire Sante (RPPS) — data.gouv.fr
+          </a>
+        </li>
+        <li class="font-sans text-sm">
+          <a href="https://www.insee.fr/fr/statistiques/8331297" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+            INSEE — Estimation de population par departement (2025)
+          </a>
+        </li>
+        <li class="font-sans text-sm">
+          <a href="https://drees.solidarites-sante.gouv.fr" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+            DREES — Demographie des professions de sante
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    {/* CTA */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
+      <div class="bg-white rounded-2xl p-8 shadow-[0_2px_8px_rgba(27,46,74,0.08)] border border-[#1B2E4A]/5 text-center">
+        <h2 class="font-sans text-xl font-bold text-marine mb-4">Besoin d'un audioprothesiste ?</h2>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/trouver-audioprothesiste"
+            class="inline-block px-6 py-3 bg-[#D97B3D] text-white font-sans font-semibold rounded-lg hover:bg-[#c16a30] transition-colors"
+          >
+            Trouver un audioprothesiste pres de chez vous
+          </a>
+          <a
+            href="/revendiquer"
+            class="inline-block px-6 py-3 bg-white text-marine border-2 border-marine font-sans font-semibold rounded-lg hover:bg-marine hover:text-white transition-colors"
+          >
+            Vous etes audioprothesiste ? Revendiquez votre fiche
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Internal links */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
+      <h3 class="font-sans text-lg font-bold text-marine mb-3">Articles en rapport</h3>
+      <ul class="space-y-2">
+        <li class="font-sans text-base">
+          <a href="/trouver-audioprothesiste" class="text-orange hover:underline">
+            Carte de tous les audioprothesistes en France
+          </a>
+        </li>
+        <li class="font-sans text-base">
+          <a href="/guides/audioprothesiste/choisir" class="text-orange hover:underline">
+            Comment choisir son audioprothesiste ?
+          </a>
+        </li>
+        <li class="font-sans text-base">
+          <a href="/guides/remboursement/100-sante" class="text-orange hover:underline">
+            Le 100 % Sante auditif : tout comprendre sur le remboursement
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    {/* AuthorBox */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-8">
+      <AuthorBox
+        name="Franck-Olivier Chabbat"
+        title="Audioprothesiste DE — 25 ans d'experience, 3 000+ patients appareilles"
+      />
+    </div>
+  </section>
+
+  <HealthDisclaimer />
+</BaseLayout>
