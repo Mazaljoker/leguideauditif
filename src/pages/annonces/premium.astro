@@ -13,19 +13,19 @@ const breadcrumbs = [
 
 const options = [
   {
-    name: 'Debloquer les contacts',
+    name: 'Débloquer les contacts',
     price: '9',
-    description: 'Accedez aux coordonnees completes de toutes les personnes interessees par votre annonce.',
-    features: ['Nom, email, telephone', 'Message complet', 'Profil professionnel'],
+    description: 'Accédez aux coordonnées complètes de toutes les personnes intéressées par votre annonce.',
+    features: ['Nom, email, téléphone', 'Message complet', 'Profil professionnel'],
     icon: 'lucide:unlock',
     color: 'border-emerald-400 bg-emerald-50',
-    cta: 'Debloquer',
+    cta: 'Débloquer',
   },
   {
     name: 'Annonce Premium',
     price: '29',
-    description: 'Votre annonce se demarque dans les listings avec le badge Premium et une description etendue.',
-    features: ['Badge Premium visible', 'Description 5 000 caracteres', 'Photos illimitees', 'Priorite dans les listings'],
+    description: 'Votre annonce se démarque dans les listings avec le badge Premium et une description étendue.',
+    features: ['Badge Premium visible', 'Description 5 000 caractères', 'Photos illimitées', 'Priorité dans les listings'],
     icon: 'lucide:star',
     color: 'border-orange bg-orange/5',
     cta: 'Passer Premium',
@@ -35,8 +35,8 @@ const options = [
     name: 'Boost 1 semaine',
     price: '9',
     suffix: '/sem.',
-    description: 'Votre annonce apparait en premiere position dans sa categorie pendant 7 jours.',
-    features: ['Position #1 dans les listings', 'Duree : 7 jours', 'Renouvelable'],
+    description: 'Votre annonce apparaît en première position dans sa catégorie pendant 7 jours.',
+    features: ['Position #1 dans les listings', 'Durée : 7 jours', 'Renouvelable'],
     icon: 'lucide:zap',
     color: 'border-purple-400 bg-purple-50',
     cta: 'Booster',
@@ -44,8 +44,8 @@ const options = [
   {
     name: 'Alerte ciblee',
     price: '19',
-    description: 'Envoyez votre annonce directement par email aux audioprothesistes inscrits dans votre zone.',
-    features: ['Email direct aux pros de la zone', 'Ciblage par departement', 'Envoi unique'],
+    description: 'Envoyez votre annonce directement par email aux audioprothésistes inscrits dans votre zone.',
+    features: ['Email direct aux pros de la zone', 'Ciblage par département', 'Envoi unique'],
     icon: 'lucide:bell-ring',
     color: 'border-blue-400 bg-blue-50',
     cta: 'Envoyer une alerte',
@@ -57,7 +57,7 @@ const packs = [
     name: 'Pack Cession Standard',
     price: '99',
     description: 'Tout ce qu\'il faut pour vendre votre centre rapidement.',
-    features: ['Annonce Premium', 'Contacts debloques', 'Boost 4 semaines', 'Economie de 47 EUR'],
+    features: ['Annonce Premium', 'Contacts débloqués', 'Boost 4 semaines', 'Économie de 47 EUR'],
     icon: 'lucide:package',
     color: 'border-marine bg-marine/5',
   },
@@ -65,7 +65,7 @@ const packs = [
     name: 'Pack Cession Accompagne',
     price: '349',
     description: 'Accompagnement personnalise par Franck-Olivier pour votre cession.',
-    features: ['Tout le Pack Standard', 'Badge "Verifie par LeGuideAuditif"', 'Relecture et optimisation de l\'annonce', 'Conseil personnalise par Franck-Olivier'],
+    features: ['Tout le Pack Standard', 'Badge "Vérifié par LeGuideAuditif"', 'Relecture et optimisation de l\'annonce', 'Conseil personnalisé par Franck-Olivier'],
     icon: 'lucide:shield-check',
     color: 'border-orange bg-orange/5',
     popular: true,
@@ -74,8 +74,8 @@ const packs = [
 ---
 
 <BaseLayout
-  title="Options premium annonces — Boostez votre visibilite | LeGuideAuditif"
-  description="Debloquez les contacts, passez en premium, boostez votre annonce. Options payantes pour maximiser la visibilite de vos annonces audioprothese."
+  title="Options premium annonces — Boostez votre visibilité | LeGuideAuditif"
+  description="Débloquez les contacts, passez en premium, boostez votre annonce. Options payantes pour maximiser la visibilité de vos annonces audioprothèse."
 >
   <div class="max-w-[1140px] mx-auto px-5 py-8">
     <Breadcrumbs items={breadcrumbs} />
@@ -85,12 +85,12 @@ const packs = [
         Boostez votre annonce
       </h1>
       <p class="text-gris-texte text-lg max-w-2xl mx-auto font-sans">
-        Votre annonce est gratuite. Ces options vous permettent de maximiser votre visibilite et d'acceder aux coordonnees des professionnels interesses.
+        Votre annonce est gratuite. Ces options vous permettent de maximiser votre visibilité et d'accéder aux coordonnées des professionnels intéressés.
       </p>
     </div>
 
     <!-- Options individuelles -->
-    <h2 class="font-sans text-2xl font-extrabold text-marine mb-6">Options a la carte</h2>
+    <h2 class="font-sans text-2xl font-extrabold text-marine mb-6">Options à la carte</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
       {options.map((opt) => (
         <div class={`rounded-xl border-2 p-6 relative ${opt.color}`}>
@@ -151,16 +151,16 @@ const packs = [
 
     <!-- CTA -->
     <div class="text-center bg-creme rounded-2xl p-10">
-      <h2 class="font-sans text-2xl font-extrabold text-marine mb-3">Pret a publier ?</h2>
+      <h2 class="font-sans text-2xl font-extrabold text-marine mb-3">Prêt à publier ?</h2>
       <p class="text-gris-texte font-sans mb-6">
-        Deposez votre annonce gratuitement, puis choisissez vos options depuis votre espace.
+        Déposez votre annonce gratuitement, puis choisissez vos options depuis votre espace.
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a
           href="/annonces/deposer/"
           class="inline-flex items-center gap-2 px-8 py-3.5 bg-orange text-white font-sans text-lg font-bold rounded-xl no-underline hover:bg-orange-hover transition-colors hover:no-underline"
         >
-          Deposer une annonce
+          Déposer une annonce
         </a>
         <a
           href="/annonces/mes-annonces/"

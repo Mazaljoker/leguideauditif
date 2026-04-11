@@ -8,16 +8,16 @@ import DownloadLeadMagnet from '../../components/etudes/DownloadLeadMagnet.tsx';
 import CiterEtude from '../../components/etudes/CiterEtude.tsx';
 import desertsData from '../../data/deserts-auditifs-2026.json';
 
-const title = 'Carte des deserts auditifs en France (2026)';
+const title = 'Carte des déserts auditifs en France (2026)';
 const fullTitle = `${title} — LeGuideAuditif.fr`;
-const description = 'Premiere carte interactive des audioprothesistes par departement. Ou manque-t-il des professionnels de l\'audition ? Donnees RPPS 2026 x INSEE 2025.';
+const description = 'Première carte interactive des audioprothésistes par département. Où manque-t-il des professionnels de l\'audition ? Données RPPS 2026 x INSEE 2025.';
 
 const publishDate = new Date('2026-04-20');
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'Etudes', href: '/etudes/' },
-  { label: 'Deserts auditifs France 2026' },
+  { label: 'Études', href: '/etudes/' },
+  { label: 'Déserts auditifs France 2026' },
 ];
 
 // --- Computed stats ---
@@ -37,7 +37,7 @@ const articleSchema = {
     '@type': 'Person',
     '@id': 'https://leguideauditif.fr/#author',
     name: 'Franck-Olivier Chabbat',
-    jobTitle: 'Audioprothesiste DE',
+    jobTitle: 'Audioprothésiste DE',
     url: 'https://leguideauditif.fr/auteur/franck-olivier/',
   },
   datePublished: publishDate.toISOString(),
@@ -62,8 +62,8 @@ const breadcrumbSchema = {
 const datasetSchema = {
   '@context': 'https://schema.org',
   '@type': 'Dataset',
-  name: 'Densite d\'audioprothesistes par departement en France (2026)',
-  description: 'Nombre d\'audioprothesistes pour 100 000 habitants, par departement. Donnees RPPS avril 2026 x INSEE 2025.',
+  name: 'Densité d\'audioprothésistes par département en France (2026)',
+  description: 'Nombre d\'audioprothésistes pour 100 000 habitants, par département. Données RPPS avril 2026 x INSEE 2025.',
   creator: { '@type': 'Person', name: 'Franck-Olivier Chabbat' },
   datePublished: '2026-04-20',
   license: 'https://www.etalab.gouv.fr/licence-ouverte-open-licence/',
@@ -76,24 +76,24 @@ const datasetSchema = {
 
 const faqEntries = [
   {
-    question: 'Qu\'est-ce qu\'un desert auditif ?',
-    answer: 'On parle de desert auditif quand un departement manque cruellement d\'audioprothesistes par rapport a la moyenne nationale (8,4 pour 100 000 habitants en 2026). En clair : si vous vivez dans l\'un de ces territoires, trouver un rendez-vous peut prendre des semaines. Voire des mois.',
+    question: 'Qu\'est-ce qu\'un désert auditif ?',
+    answer: 'On parle de désert auditif quand un département manque cruellement d\'audioprothésistes par rapport à la moyenne nationale (8,4 pour 100 000 habitants en 2026). En clair : si vous vivez dans l\'un de ces territoires, trouver un rendez-vous peut prendre des semaines. Voire des mois.',
   },
   {
-    question: 'Quel departement est le plus sous-dote en audioprothesistes ?',
-    answer: `La Haute-Marne (52), et de loin. Avec seulement ${pireMet?.ratio_100k} audioprothesistes pour 100 000 habitants, c'est deux fois moins que la moyenne nationale. Pour un patient qui y vit, ca veut dire des trajets longs et des delais d'attente importants.`,
+    question: 'Quel département est le plus sous-doté en audioprothésistes ?',
+    answer: `La Haute-Marne (52), et de loin. Avec seulement ${pireMet?.ratio_100k} audioprothésistes pour 100 000 habitants, c'est deux fois moins que la moyenne nationale. Pour un patient qui y vit, ça veut dire des trajets longs et des délais d'attente importants.`,
   },
   {
-    question: 'Combien y a-t-il d\'audioprothesistes en France en 2026 ?',
-    answer: `Le RPPS (le registre officiel des professionnels de sante) en recense ${metadata.total_audios_rpps.toLocaleString('fr-FR')} en avril 2026. Parmi eux, ${metadata.total_audios.toLocaleString('fr-FR')} ont une adresse qui permet de les localiser par departement. Les autres sont souvent des salaries rattaches a plusieurs sites.`,
+    question: 'Combien y a-t-il d\'audioprothésistes en France en 2026 ?',
+    answer: `Le RPPS (le registre officiel des professionnels de santé) en recense ${metadata.total_audios_rpps.toLocaleString('fr-FR')} en avril 2026. Parmi eux, ${metadata.total_audios.toLocaleString('fr-FR')} ont une adresse qui permet de les localiser par département. Les autres sont souvent des salariés rattachés à plusieurs sites.`,
   },
   {
-    question: 'Comment sont calculees les donnees de cette etude ?',
-    answer: 'On divise le nombre d\'audioprothesistes geolocalises dans chaque departement par la population totale (INSEE 2025), puis on multiplie par 100 000. Ca donne un ratio comparable d\'un departement a l\'autre, quelle que soit sa taille. Les seuils que j\'ai retenus : desert (moins de 5), sous-dote (5 a 7), correct (7 a 10) et bien dote (plus de 10).',
+    question: 'Comment sont calculées les données de cette étude ?',
+    answer: 'On divise le nombre d\'audioprothésistes géolocalisés dans chaque département par la population totale (INSEE 2025), puis on multiplie par 100 000. Ça donne un ratio comparable d\'un département à l\'autre, quelle que soit sa taille. Les seuils que j\'ai retenus : désert (moins de 5), sous-doté (5 à 7), correct (7 à 10) et bien doté (plus de 10).',
   },
   {
-    question: 'Pourquoi la Seine-Saint-Denis est-elle sous-dotee malgre sa proximite avec Paris ?',
-    answer: `Le 93 compte ${sorted.find(d => d.code === '93')?.ratio_100k} audioprothesistes pour 100 000 habitants — presque la moitie de la moyenne nationale. Et pourtant, c'est en Ile-de-France. L'explication ? Avec 1,7 million d'habitants, la demande est enorme, mais les cabinets se concentrent dans Paris intra-muros. Les patients du 93 doivent souvent traverser le peripherique pour se faire appareiller.`,
+    question: 'Pourquoi la Seine-Saint-Denis est-elle sous-dotée malgré sa proximité avec Paris ?',
+    answer: `Le 93 compte ${sorted.find(d => d.code === '93')?.ratio_100k} audioprothésistes pour 100 000 habitants — presque la moitié de la moyenne nationale. Et pourtant, c'est en Île-de-France. L'explication ? Avec 1,7 million d'habitants, la demande est énorme, mais les cabinets se concentrent dans Paris intra-muros. Les patients du 93 doivent souvent traverser le périphérique pour se faire appareiller.`,
   },
 ];
 
@@ -144,21 +144,21 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
     {/* Hero */}
     <header class="max-w-[780px] mx-auto px-4 sm:px-6 mb-10">
       <h1 class="font-serif text-[32px] lg:text-[48px] font-bold text-marine leading-tight mb-4">
-        En Haute-Marne, il y a <span class="text-[#F44336]">2 fois moins</span> d'audioprothesistes par habitant que la moyenne francaise.
+        En Haute-Marne, il y a <span class="text-[#F44336]">2 fois moins</span> d'audioprothésistes par habitant que la moyenne française.
       </h1>
       <p class="font-sans text-lg text-gris-texte leading-relaxed">
-        J'ai croise les donnees officielles du RPPS (repertoire des professionnels de sante) et de l'INSEE pour dresser cet etat des lieux.
-        Apres 28 ans de terrain, je constate chaque jour les consequences de ces inegalites sur mes patients.
-        — <strong class="text-marine">Franck-Olivier Chabbat</strong>, audioprothesiste DE.
+        J'ai croisé les données officielles du RPPS (répertoire des professionnels de santé) et de l'INSEE pour dresser cet état des lieux.
+        Après 28 ans de terrain, je constate chaque jour les conséquences de ces inégalités sur mes patients.
+        — <strong class="text-marine">Franck-Olivier Chabbat</strong>, audioprothésiste DE.
       </p>
       <div class="flex flex-wrap items-center gap-3 mt-3">
         <span class="inline-block px-3 py-1 bg-[#1B2E4A] text-white font-sans text-xs font-bold rounded-full uppercase tracking-wide">
           Edition 2026
         </span>
         <div class="font-sans text-sm text-gris-texte">
-          <time datetime="2026-04-20">Publie le 20 avril 2026</time>
+          <time datetime="2026-04-20">Publié le 20 avril 2026</time>
           <span class="mx-1">|</span>
-          <time datetime="2026-04-20">Mis a jour le 20 avril 2026</time>
+          <time datetime="2026-04-20">Mis à jour le 20 avril 2026</time>
         </div>
       </div>
     </header>
@@ -166,7 +166,7 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
     {/* Health disclaimer inline */}
     <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-10">
       <div class="bg-[#fef9f0] border border-[#f0dcc4] rounded-xl px-5 py-4 text-sm text-gris-texte font-sans">
-        <strong class="text-marine">Information sante :</strong> Ce contenu est informatif et ne remplace pas une consultation avec un professionnel de sante. Derniere revue : avril 2026.
+        <strong class="text-marine">Information santé :</strong> Ce contenu est informatif et ne remplace pas une consultation avec un professionnel de santé. Dernière revue : avril 2026.
       </div>
     </div>
 
@@ -174,7 +174,7 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
     <div class="max-w-[1200px] mx-auto px-4 sm:px-6 mb-10">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="bg-white rounded-xl p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
-          <p class="font-sans text-sm text-gris-texte mb-1">Audioprothesistes geolocalises</p>
+          <p class="font-sans text-sm text-gris-texte mb-1">Audioprothésistes géolocalisés</p>
           <p class="font-serif text-3xl font-bold text-marine">{metadata.total_audios.toLocaleString('fr-FR')}</p>
           <p class="font-sans text-xs text-gris-texte">sur {metadata.total_audios_rpps.toLocaleString('fr-FR')} au RPPS</p>
         </div>
@@ -184,12 +184,12 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
           <p class="font-sans text-xs text-gris-texte">pour 100 000 habitants</p>
         </div>
         <div class="bg-white rounded-xl p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
-          <p class="font-sans text-sm text-gris-texte mb-1">Departement le plus sous-dote</p>
+          <p class="font-sans text-sm text-gris-texte mb-1">Département le plus sous-doté</p>
           <p class="font-serif text-3xl font-bold text-[#C62828]">{pireMet?.nom}</p>
           <p class="font-sans text-xs text-gris-texte">{pireMet?.ratio_100k} / 100k hab.</p>
         </div>
         <div class="bg-white rounded-xl p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
-          <p class="font-sans text-sm text-gris-texte mb-1">Departement le mieux dote</p>
+          <p class="font-sans text-sm text-gris-texte mb-1">Département le mieux doté</p>
           <p class="font-serif text-3xl font-bold text-[#2E7D32]">{meilleur.nom}</p>
           <p class="font-sans text-xs text-gris-texte">{meilleur.ratio_100k} / 100k hab.</p>
         </div>
@@ -218,12 +218,12 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
 
       {/* Intro — accroche en gras */}
       <p class="font-sans text-lg text-marine leading-relaxed mb-8">
-        <strong class="text-xl">J'ai dirige 18 centres dans des regions tres differentes</strong> — de la banlieue parisienne a des villes moyennes. Je savais que l'acces aux soins auditifs n'etait pas le meme partout. Mais en croisant les donnees officielles du RPPS et de l'INSEE, l'ampleur du desequilibre m'a frappe.
+        <strong class="text-xl">J'ai dirigé 18 centres dans des régions très différentes</strong> — de la banlieue parisienne à des villes moyennes. Je savais que l'accès aux soins auditifs n'était pas le même partout. Mais en croisant les données officielles du RPPS et de l'INSEE, l'ampleur du déséquilibre m'a frappé.
       </p>
 
       {/* Section 1 — Ecart 1 a 4 */}
       <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
-        <h3 class="font-sans text-xl font-bold text-marine mb-5">Un ecart de 1 a 4 entre departements</h3>
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">Un écart de 1 à 4 entre départements</h3>
 
         {/* Stat callout */}
         <div class="flex flex-col sm:flex-row gap-4 mb-6">
@@ -238,10 +238,10 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
         </div>
 
         <p class="font-sans text-base text-marine leading-relaxed mb-3">
-          Quatre fois plus. Ce n'est pas un leger desequilibre. <strong>C'est un gouffre.</strong>
+          Quatre fois plus. Ce n'est pas un léger déséquilibre. <strong>C'est un gouffre.</strong>
         </p>
         <p class="font-sans text-base text-marine leading-relaxed">
-          La moyenne nationale se situe a 8,37 pour 100 000 habitants. Mais cette moyenne ne veut pas dire grand-chose. Tout depend de l'endroit ou vous vivez.
+          La moyenne nationale se situe à 8,37 pour 100 000 habitants. Mais cette moyenne ne veut pas dire grand-chose. Tout dépend de l'endroit où vous vivez.
         </p>
       </div>
 
@@ -249,14 +249,14 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
       <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
         <h3 class="font-sans text-xl font-bold text-marine mb-5">La diagonale du vide auditif</h3>
         <p class="font-sans text-base text-marine leading-relaxed mb-4">
-          Regardez la carte. Un couloir se dessine, du nord-est vers le centre de la France. La Haute-Marne (4,19), l'Eure-et-Loir (5,08), l'Orne (5,15), la Haute-Saone (5,17). Population vieillissante, bassins d'emploi fragiles, peu de jeunes diplomes qui s'y installent. Le resultat est la.
+          Regardez la carte. Un couloir se dessine, du nord-est vers le centre de la France. La Haute-Marne (4,19), l'Eure-et-Loir (5,08), l'Orne (5,15), la Haute-Saône (5,17). Population vieillissante, bassins d'emploi fragiles, peu de jeunes diplômés qui s'y installent. Le résultat est là.
         </p>
 
         {/* Stat callout Creuse */}
         <div class="bg-[#FFF3E0] border-l-4 border-[#E65100] rounded-r-xl px-5 py-4">
           <p class="font-sans text-base text-[#E65100]">
-            <strong class="font-serif text-2xl">5</strong> audioprothesistes pour <strong>114 000</strong> habitants en Creuse.
-            <span class="block text-sm mt-1 text-[#E65100]/70">Pour couvrir un territoire plus grand que certains departements d'Ile-de-France.</span>
+            <strong class="font-serif text-2xl">5</strong> audioprothésistes pour <strong>114 000</strong> habitants en Creuse.
+            <span class="block text-sm mt-1 text-[#E65100]/70">Pour couvrir un territoire plus grand que certains départements d'Île-de-France.</span>
           </p>
         </div>
       </div>
@@ -265,16 +265,16 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
       <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
         <h3 class="font-sans text-xl font-bold text-marine mb-5">Le paradoxe Seine-Saint-Denis</h3>
         <p class="font-sans text-base text-marine leading-relaxed mb-4">
-          On pourrait penser que la proximite de Paris protege ses voisins. Pas du tout. La Seine-Saint-Denis compte 91 audioprothesistes pour 1,7 million d'habitants — un ratio de 5,32 pour 100 000. Presque la moitie de la moyenne nationale.
+          On pourrait penser que la proximité de Paris protège ses voisins. Pas du tout. La Seine-Saint-Denis compte 91 audioprothésistes pour 1,7 million d'habitants — un ratio de 5,32 pour 100 000. Presque la moitié de la moyenne nationale.
         </p>
         <p class="font-sans text-base text-marine leading-relaxed mb-6">
-          L'explication tient en un mot : <strong>concentration</strong>. Les cabinets s'installent la ou le pouvoir d'achat est eleve. A Paris intra-muros, vous avez l'embarras du choix. De l'autre cote du peripherique, vous attendez des semaines. Selon la DREES, les inegalites de repartition des professionnels de sante suivent les inegalites economiques des territoires.
+          L'explication tient en un mot : <strong>concentration</strong>. Les cabinets s'installent là où le pouvoir d'achat est élevé. À Paris intra-muros, vous avez l'embarras du choix. De l'autre côté du périphérique, vous attendez des semaines. Selon la DREES, les inégalités de répartition des professionnels de santé suivent les inégalités économiques des territoires.
         </p>
 
         {/* Anecdote blockquote */}
         <blockquote class="bg-[#F8F5F0] border-l-4 border-[#D97B3D] rounded-r-xl px-6 py-5 italic">
           <p class="font-sans text-base text-marine leading-relaxed">
-            "Je me souviens d'une patiente de 74 ans qui venait de Montreuil. Elle mettait 1 h 15 en transports pour venir a mon cabinet parisien, parce qu'aucun audioprothesiste pres de chez elle ne pouvait la recevoir avant deux mois."
+            "Je me souviens d'une patiente de 74 ans qui venait de Montreuil. Elle mettait 1 h 15 en transports pour venir à mon cabinet parisien, parce qu'aucun audioprothésiste près de chez elle ne pouvait la recevoir avant deux mois."
           </p>
           <p class="font-sans text-sm text-[#D97B3D] mt-2 not-italic font-medium">
             Ca ne devrait pas exister en Ile-de-France.
@@ -284,23 +284,23 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
 
       {/* Section 4 — Le sud */}
       <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
-        <h3 class="font-sans text-xl font-bold text-marine mb-5">Le sud, terre d'accueil des audioprothesistes</h3>
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">Le sud, terre d'accueil des audioprothésistes</h3>
         <p class="font-sans text-base text-marine leading-relaxed mb-4">
-          De l'autre cote du classement, certains departements du sud font bien mieux que la moyenne. L'Ariege (12,76) et le Lot (13,60) depassent la plupart des grandes metropoles. La raison ? Le cadre de vie. Les jeunes diplomes choisissent de plus en plus leur lieu d'installation en fonction de la qualite de vie, pas seulement du volume de patients. C'est un phenomene documente par les etudes de la DREES sur la demographie des professions de sante.
+          De l'autre côté du classement, certains départements du sud font bien mieux que la moyenne. L'Ariège (12,76) et le Lot (13,60) dépassent la plupart des grandes métropoles. La raison ? Le cadre de vie. Les jeunes diplômés choisissent de plus en plus leur lieu d'installation en fonction de la qualité de vie, pas seulement du volume de patients. C'est un phénomène documenté par les études de la DREES sur la démographie des professions de santé.
         </p>
         <p class="font-sans text-base text-marine leading-relaxed">
-          Bonne nouvelle pour les retraites du sud-ouest. Moins bonne pour ceux du Grand Est.
+          Bonne nouvelle pour les retraités du sud-ouest. Moins bonne pour ceux du Grand Est.
         </p>
       </div>
 
       {/* Section 5 — Population agee */}
       <div class="mb-10 pb-10 border-b border-[#1B2E4A]/10">
-        <h3 class="font-sans text-xl font-bold text-marine mb-5">L'angle qui change tout : la population agee</h3>
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">L'angle qui change tout : la population âgée</h3>
         <p class="font-sans text-base text-marine leading-relaxed mb-4">
-          Notre etude utilise la population totale comme denominateur — pour rester comparable aux donnees publiees. Mais regardons les choses autrement.
+          Notre étude utilise la population totale comme dénominateur — pour rester comparable aux données publiées. Mais regardons les choses autrement.
         </p>
         <p class="font-sans text-base text-marine leading-relaxed mb-6">
-          90 % des personnes appareillees ont plus de 60 ans, selon les donnees de l'Assurance maladie. Un meme ratio d'audioprothesistes ne signifie donc pas du tout la meme chose selon la structure d'age du departement.
+          90 % des personnes appareillées ont plus de 60 ans, selon les données de l'Assurance maladie. Un même ratio d'audioprothésistes ne signifie donc pas du tout la même chose selon la structure d'âge du département.
         </p>
 
         {/* Comparaison visuelle */}
@@ -317,50 +317,50 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
           </div>
         </div>
         <p class="font-sans text-base text-marine leading-relaxed mt-5">
-          Les departements ruraux cumulent les handicaps : moins de professionnels <strong>et</strong> une population plus agee.
+          Les départements ruraux cumulent les handicaps : moins de professionnels <strong>et</strong> une population plus âgée.
         </p>
       </div>
 
       {/* Section 6 — Consequences : cards grid */}
       <div class="mb-8">
-        <h3 class="font-sans text-xl font-bold text-marine mb-5">Ce que ca change pour vous, concretement</h3>
+        <h3 class="font-sans text-xl font-bold text-marine mb-5">Ce que ça change pour vous, concrètement</h3>
         <p class="font-sans text-base text-marine leading-relaxed mb-6">
-          Si vous habitez dans un departement sous-dote, les consequences sont directes.
+          Si vous habitez dans un département sous-doté, les conséquences sont directes.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           <div class="bg-white rounded-xl border border-[#1B2E4A]/10 p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
             <div class="flex items-center gap-2 mb-2">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <h4 class="font-sans text-base font-bold text-marine">Des delais allonges</h4>
+              <h4 class="font-sans text-base font-bold text-marine">Des délais allongés</h4>
             </div>
             <p class="font-sans text-sm text-gris-texte leading-relaxed">Plusieurs semaines d'attente, parfois deux mois pour un premier bilan. Dans les zones les plus tendues, c'est la norme.</p>
           </div>
           <div class="bg-white rounded-xl border border-[#1B2E4A]/10 p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
             <div class="flex items-center gap-2 mb-2">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              <h4 class="font-sans text-base font-bold text-marine">Des trajets penibles</h4>
+              <h4 class="font-sans text-base font-bold text-marine">Des trajets pénibles</h4>
             </div>
-            <p class="font-sans text-sm text-gris-texte leading-relaxed">Le cabinet le plus proche peut se trouver a 45 minutes de route. Pour une personne agee qui ne conduit plus, c'est un obstacle reel.</p>
+            <p class="font-sans text-sm text-gris-texte leading-relaxed">Le cabinet le plus proche peut se trouver à 45 minutes de route. Pour une personne âgée qui ne conduit plus, c'est un obstacle réel.</p>
           </div>
           <div class="bg-white rounded-xl border border-[#1B2E4A]/10 p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
             <div class="flex items-center gap-2 mb-2">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               <h4 class="font-sans text-base font-bold text-marine">Un suivi difficile</h4>
             </div>
-            <p class="font-sans text-sm text-gris-texte leading-relaxed">L'adaptation demande 4 a 6 rendez-vous la premiere annee (HAS). Quand chaque visite est une expedition, certains patients espacent — ou abandonnent.</p>
+            <p class="font-sans text-sm text-gris-texte leading-relaxed">L'adaptation demande 4 à 6 rendez-vous la première année (HAS). Quand chaque visite est une expédition, certains patients espacent — ou abandonnent.</p>
           </div>
           <div class="bg-white rounded-xl border border-[#1B2E4A]/10 p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
             <div class="flex items-center gap-2 mb-2">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
               <h4 class="font-sans text-base font-bold text-marine">Risque d'abandon</h4>
             </div>
-            <p class="font-sans text-sm text-gris-texte leading-relaxed">La DREES estime qu'un tiers des personnes appareillees n'utilisent pas regulierement leurs aides auditives. La distance est l'un des facteurs identifies.</p>
+            <p class="font-sans text-sm text-gris-texte leading-relaxed">La DREES estime qu'un tiers des personnes appareillées n'utilisent pas régulièrement leurs aides auditives. La distance est l'un des facteurs identifiés.</p>
           </div>
         </div>
 
         <p class="font-sans text-base text-marine leading-relaxed">
-          Ces donnees ne sont pas une fatalite. Elles dessinent une carte des priorites. Si vous etes concerne, la premiere etape reste de <a href="/trouver-audioprothesiste" class="text-[#9A5515] underline hover:no-underline font-semibold">localiser les professionnels disponibles pres de chez vous</a>.
+          Ces données ne sont pas une fatalité. Elles dessinent une carte des priorités. Si vous êtes concerné, la première étape reste de <a href="/trouver-audioprothesiste" class="text-[#9A5515] underline hover:no-underline font-semibold">localiser les professionnels disponibles près de chez vous</a>.
         </p>
       </div>
     </div>
@@ -368,18 +368,18 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
     {/* Methodology */}
     <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
       <h2 id="methodologie" class="font-sans text-2xl font-bold text-marine mb-6">
-        Methodologie
+        Méthodologie
       </h2>
       <div class="prose prose-lg max-w-none prose-headings:font-sans prose-headings:text-marine prose-p:text-marine prose-p:leading-relaxed prose-li:text-marine prose-strong:text-marine">
         <ul>
-          <li><strong>Source RPPS :</strong> donnees extraites du repertoire officiel des professionnels de sante (data.gouv.fr), en avril 2026. Total : {metadata.total_audios_rpps.toLocaleString('fr-FR')} audioprothesistes recenses en France.</li>
-          <li><strong>Source INSEE :</strong> estimation de population au 1er janvier 2025, ventilee par departement.</li>
-          <li><strong>Calcul :</strong> pour chaque departement, on divise le nombre d'audioprothesistes geolocalises par la population totale, puis on multiplie par 100 000. On obtient ainsi un ratio comparable d'un territoire a l'autre.</li>
-          <li><strong>Limites :</strong> {metadata.audios_sans_adresse.toLocaleString('fr-FR')} audioprothesistes (20 %) n'ont pas d'adresse dans le RPPS. Ce sont probablement des salaries multi-sites. Leur absence peut sous-estimer la couverture reelle de certains departements.</li>
-          <li><strong>Choix du denominateur :</strong> j'ai utilise la population totale (et non la population de 60 ans et plus) pour permettre la comparaison avec les donnees publiees par la DREES.</li>
+          <li><strong>Source RPPS :</strong> données extraites du répertoire officiel des professionnels de santé (data.gouv.fr), en avril 2026. Total : {metadata.total_audios_rpps.toLocaleString('fr-FR')} audioprothésistes recensés en France.</li>
+          <li><strong>Source INSEE :</strong> estimation de population au 1er janvier 2025, ventilée par département.</li>
+          <li><strong>Calcul :</strong> pour chaque département, on divise le nombre d'audioprothésistes géolocalisés par la population totale, puis on multiplie par 100 000. On obtient ainsi un ratio comparable d'un territoire à l'autre.</li>
+          <li><strong>Limites :</strong> {metadata.audios_sans_adresse.toLocaleString('fr-FR')} audioprothésistes (20 %) n'ont pas d'adresse dans le RPPS. Ce sont probablement des salariés multi-sites. Leur absence peut sous-estimer la couverture réelle de certains départements.</li>
+          <li><strong>Choix du dénominateur :</strong> j'ai utilisé la population totale (et non la population de 60 ans et plus) pour permettre la comparaison avec les données publiées par la DREES.</li>
         </ul>
         <p>
-          Les donnees brutes sont accessibles en <a href="/data/deserts-auditifs-2026.json" class="text-[#9A5515] underline hover:no-underline" rel="noopener">telechargement JSON</a> sous licence ouverte.
+          Les données brutes sont accessibles en <a href="/data/deserts-auditifs-2026.json" class="text-[#9A5515] underline hover:no-underline" rel="noopener">téléchargement JSON</a> sous licence ouverte.
         </p>
       </div>
     </div>
@@ -408,7 +408,7 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
     {/* Sources & internal links */}
     <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
       <h2 id="sources" class="font-sans text-2xl font-bold text-marine mb-4">
-        Sources et references
+        Sources et références
       </h2>
       <ul class="space-y-2">
         <li class="font-sans text-sm">
@@ -418,12 +418,12 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
         </li>
         <li class="font-sans text-sm">
           <a href="https://www.insee.fr/fr/statistiques/8331297" target="_blank" rel="noopener noreferrer" class="text-[#9A5515] underline hover:no-underline">
-            INSEE — Estimation de population par departement (2025)
+            INSEE — Estimation de population par département (2025)
           </a>
         </li>
         <li class="font-sans text-sm">
           <a href="https://drees.solidarites-sante.gouv.fr" target="_blank" rel="noopener noreferrer" class="text-[#9A5515] underline hover:no-underline">
-            DREES — Demographie des professions de sante
+            DREES — Démographie des professions de santé
           </a>
         </li>
       </ul>
@@ -436,7 +436,7 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
           Vous etes dans une zone sous-dotee ?
         </h2>
         <p class="font-sans text-base text-white/70 mb-6 max-w-lg mx-auto">
-          Comparez les disponibilites pres de chez vous. Certains audioprothesistes acceptent encore de nouveaux patients cette semaine.
+          Comparez les disponibilités près de chez vous. Certains audioprothésistes acceptent encore de nouveaux patients cette semaine.
         </p>
         <a
           href="/trouver-audioprothesiste"
@@ -446,14 +446,14 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.3-4.3" />
           </svg>
-          Voir les audioprothesistes disponibles
+          Voir les audioprothésistes disponibles
         </a>
         <div class="mt-6 pt-6 border-t border-white/10">
           <a
             href="/revendiquer"
             class="font-sans text-sm text-white/50 hover:text-white underline transition-colors"
           >
-            Vous etes audioprothesiste ? Revendiquez votre fiche
+            Vous êtes audioprothésiste ? Revendiquez votre fiche
           </a>
         </div>
       </div>
@@ -465,12 +465,12 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
       <ul class="space-y-2">
         <li class="font-sans text-base">
           <a href="/trouver-audioprothesiste" class="text-[#9A5515] underline hover:no-underline">
-            Carte de tous les audioprothesistes en France
+            Carte de tous les audioprothésistes en France
           </a>
         </li>
         <li class="font-sans text-base">
           <a href="/guides/audioprothesiste/choisir" class="text-[#9A5515] underline hover:no-underline">
-            Comment choisir son audioprothesiste ?
+            Comment choisir son audioprothésiste ?
           </a>
         </li>
         <li class="font-sans text-base">
@@ -492,12 +492,12 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
             </svg>
           </div>
           <div>
-            <p class="font-sans text-sm font-bold text-[#1565C0] uppercase tracking-wide mb-1">Prochaine etude</p>
+            <p class="font-sans text-sm font-bold text-[#1565C0] uppercase tracking-wide mb-1">Prochaine étude</p>
             <p class="font-sans text-base font-bold text-[#1B2E4A] mb-1">
-              L'etude sur les delais de RDV ORL arrive le mois prochain.
+              L'étude sur les délais de RDV ORL arrive le mois prochain.
             </p>
             <p class="font-sans text-sm text-[#1B2E4A]/60">
-              Combien de temps faut-il attendre pour un premier bilan auditif selon votre departement ? Donnees exclusives.
+              Combien de temps faut-il attendre pour un premier bilan auditif selon votre département ? Données exclusives.
             </p>
           </div>
         </div>
@@ -508,7 +508,7 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
     <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-8">
       <AuthorBox
         name="Franck-Olivier Chabbat"
-        title="Audioprothesiste DE, 28 ans d'experience"
+        title="Audioprothésiste DE, 28 ans d'expérience"
       />
     </div>
   </section>

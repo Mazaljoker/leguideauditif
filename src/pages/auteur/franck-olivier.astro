@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon/components';
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'A propos', href: '/a-propos/' },
+  { label: 'À propos', href: '/a-propos/' },
   { label: 'Franck-Olivier Chabbat' },
 ];
 
@@ -13,7 +13,7 @@ const schema = [
   {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
-    name: 'Franck-Olivier Chabbat — Audioprothesiste DE',
+    name: 'Franck-Olivier Chabbat — Audioprothésiste DE',
     url: 'https://leguideauditif.fr/auteur/franck-olivier/',
     mainEntity: {
       '@type': 'Person',
@@ -21,8 +21,8 @@ const schema = [
       name: 'Franck-Olivier Chabbat',
       givenName: 'Franck-Olivier',
       familyName: 'Chabbat',
-      jobTitle: "Audioprothesiste diplome d'Etat",
-      description: "28 ans d'experience en audioprothese — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients appareilles.",
+      jobTitle: "Audioprothésiste diplômé d'État",
+      description: "28 ans d'expérience en audioprothèse — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients appareillés.",
       url: 'https://leguideauditif.fr/auteur/franck-olivier/',
       image: 'https://leguideauditif.fr/images/franck-olivier-chabbat.jpg',
       sameAs: [
@@ -31,17 +31,17 @@ const schema = [
       ],
       alumniOf: {
         '@type': 'EducationalOrganization',
-        name: 'ISTR Lyon — Institut des Sciences et Techniques de Readaptation',
+        name: 'ISTR Lyon — Institut des Sciences et Techniques de Réadaptation',
         url: 'https://istr.univ-lyon1.fr/'
       },
       hasCredential: [
         {
           '@type': 'EducationalOccupationalCredential',
           credentialCategory: 'degree',
-          name: "Diplome d'Etat d'audioprothesiste",
+          name: "Diplôme d'État d'audioprothésiste",
           recognizedBy: {
             '@type': 'Organization',
-            name: 'Ministere de la Sante'
+            name: 'Ministère de la Santé'
           }
         }
       ],
@@ -49,7 +49,7 @@ const schema = [
         '@type': 'PropertyValue',
         propertyID: 'ADELI',
         value: '692606494',
-        description: 'Numero ADELI — Repertoire national des professionnels de sante'
+        description: 'Numéro ADELI — Répertoire national des professionnels de santé'
       },
       worksFor: {
         '@type': 'Organization',
@@ -81,8 +81,8 @@ const schema = [
 ---
 
 <BaseLayout
-  title="Franck-Olivier Chabbat, Audioprothesiste DE"
-  description="Audioprothesiste DE (ISTR Lyon), 28 ans — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients. Auteur de LeGuideAuditif.fr."
+  title="Franck-Olivier Chabbat, Audioprothésiste DE"
+  description="Audioprothésiste DE (ISTR Lyon), 28 ans — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients. Auteur de LeGuideAuditif.fr."
   schema={schema}
 >
   <div class="bg-creme">
@@ -98,7 +98,7 @@ const schema = [
         <div class="flex flex-col sm:flex-row items-start gap-6">
           <img
             src="/images/franck-olivier-chabbat.jpg"
-            alt="Franck-Olivier Chabbat, audioprothesiste diplome d'Etat"
+            alt="Franck-Olivier Chabbat, audioprothésiste diplômé d'État"
             width="120"
             height="120"
             class="w-[120px] h-[120px] rounded-full object-cover shrink-0"
@@ -106,7 +106,7 @@ const schema = [
           />
           <div>
             <h1 class="font-sans text-[28px] lg:text-[32px] font-extrabold text-marine leading-tight mb-1">Franck-Olivier Chabbat</h1>
-            <div class="font-sans text-lg text-orange font-medium mb-4">Audioprothesiste diplome d'Etat &mdash; 28 ans d'experience</div>
+            <div class="font-sans text-lg text-orange font-medium mb-4">Audioprothésiste diplômé d'État &mdash; 28 ans d'expérience</div>
 
             <div class="inline-flex items-center gap-2 bg-creme border border-gris-clair px-4 py-2 rounded-lg text-sm font-sans mb-4">
               <Icon name="lucide:shield-check" class="w-4 h-4 text-orange" aria-hidden="true" />
@@ -132,32 +132,32 @@ const schema = [
         <div class="bg-creme rounded-xl p-5 border border-gris-clair">
           <Icon name="lucide:graduation-cap" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
           <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Formation</div>
-          <p class="text-base text-marine">Diplome d'Etat d'audioprothesiste &mdash; ISTR Lyon (Universite Claude Bernard Lyon 1)</p>
+          <p class="text-base text-marine">Diplôme d'État d'audioprothésiste &mdash; ISTR Lyon (Université Claude Bernard Lyon 1)</p>
         </div>
         <div class="bg-creme rounded-xl p-5 border border-gris-clair">
           <Icon name="lucide:calendar-clock" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
-          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Experience</div>
+          <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Expérience</div>
           <p class="text-base text-marine">28 ans de pratique &mdash; Amplifon, Audika, Afflelou, Auzen</p>
         </div>
         <div class="bg-creme rounded-xl p-5 border border-gris-clair">
           <Icon name="lucide:building-2" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
           <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Management</div>
-          <p class="text-base text-marine">18 centres Alain Afflelou Acousticien diriges</p>
+          <p class="text-base text-marine">18 centres Alain Afflelou Acousticien dirigés</p>
         </div>
         <div class="bg-creme rounded-xl p-5 border border-gris-clair">
           <Icon name="lucide:users" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
           <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Patients</div>
-          <p class="text-base text-marine">3 000+ patients appareilles et suivis</p>
+          <p class="text-base text-marine">3 000+ patients appareillés et suivis</p>
         </div>
         <div class="bg-creme rounded-xl p-5 border border-gris-clair">
           <Icon name="lucide:globe" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
           <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Industrie</div>
-          <p class="text-base text-marine">5 ans chez Auzen.com &mdash; teleaudiologie et vente en ligne</p>
+          <p class="text-base text-marine">5 ans chez Auzen.com &mdash; téléaudiologie et vente en ligne</p>
         </div>
         <div class="bg-creme rounded-xl p-5 border border-gris-clair">
           <Icon name="lucide:shield-check" class="w-5 h-5 text-orange mb-2" aria-hidden="true" />
           <div class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-2">Enregistrement</div>
-          <p class="text-base text-marine">N. ADELI 692606494 &mdash; Repertoire national des professionnels de sante</p>
+          <p class="text-base text-marine">N. ADELI 692606494 &mdash; Répertoire national des professionnels de santé</p>
         </div>
       </div>
     </div>
@@ -168,13 +168,13 @@ const schema = [
     <div class="max-w-[780px] mx-auto px-5">
       <h2 class="font-sans text-2xl font-bold text-marine mb-6">Mon parcours</h2>
       <p class="text-lg leading-relaxed mb-4">
-        Diplome de l'ISTR Lyon en 1998, j'ai un parcours atypique dans la profession. Mes debuts chez <strong class="text-marine">Amplifon</strong> (1998-2000), leader mondial, m'ont donne les fondamentaux cliniques et une vision internationale du metier. Chez <strong class="text-marine">Audika</strong> (2007-2013), j'ai vecu de l'interieur le fonctionnement d'un reseau francais de 500+ centres &mdash; avec ses forces et ses limites.
+        Diplômé de l'ISTR Lyon en 1998, j'ai un parcours atypique dans la profession. Mes débuts chez <strong class="text-marine">Amplifon</strong> (1998-2000), leader mondial, m'ont donné les fondamentaux cliniques et une vision internationale du métier. Chez <strong class="text-marine">Audika</strong> (2007-2013), j'ai vécu de l'intérieur le fonctionnement d'un réseau français de 500+ centres &mdash; avec ses forces et ses limites.
       </p>
       <p class="text-lg leading-relaxed mb-4">
-        A la tete de <strong class="text-marine">18 centres Alain Afflelou Acousticien</strong>, j'ai dirige des equipes, gere des milliers de patients et developpe une approche pragmatique de l'appareillage. Puis j'ai passe 5 ans chez <strong class="text-marine">Auzen.com</strong>, ou j'ai decouvert l'envers du decor de la teleaudiologie et de la vente en ligne : marges reelles, differences entre les puces, strategies de positionnement des fabricants.
+        À la tête de <strong class="text-marine">18 centres Alain Afflelou Acousticien</strong>, j'ai dirigé des équipes, géré des milliers de patients et développé une approche pragmatique de l'appareillage. Puis j'ai passé 5 ans chez <strong class="text-marine">Auzen.com</strong>, où j'ai découvert l'envers du décor de la téléaudiologie et de la vente en ligne : marges réelles, différences entre les puces, stratégies de positionnement des fabricants.
       </p>
       <p class="text-lg leading-relaxed mb-8">
-        Ce parcours 360&deg; &mdash; du cabinet traditionnel aux geants du secteur, de l'enseigne physique au pure player web &mdash; me donne un regard que peu d'audioprothesistes ont. Aujourd'hui, je ne vends plus d'appareils. J'ai cree <strong class="text-marine">LeGuideAuditif.fr</strong> pour partager ce que j'ai appris en 28 ans et 3 000+ patients, sans filtre commercial.
+        Ce parcours 360&deg; &mdash; du cabinet traditionnel aux géants du secteur, de l'enseigne physique au pure player web &mdash; me donne un regard que peu d'audioprothésistes ont. Aujourd'hui, je ne vends plus d'appareils. J'ai créé <strong class="text-marine">LeGuideAuditif.fr</strong> pour partager ce que j'ai appris en 28 ans et 3 000+ patients, sans filtre commercial.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4">
@@ -183,7 +183,7 @@ const schema = [
           <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
         </a>
         <a href="/politique-editoriale/" class="inline-flex items-center gap-2 px-5 py-3 bg-transparent border-2 border-marine text-marine font-sans font-semibold rounded-lg hover:bg-marine/5 transition-colors no-underline hover:no-underline text-sm">
-          Politique editoriale
+          Politique éditoriale
           <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
         </a>
       </div>

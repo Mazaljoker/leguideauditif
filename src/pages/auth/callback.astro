@@ -6,7 +6,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Connexion en cours... | LeGuideAuditif"
-  description="Redirection apres connexion."
+  description="Redirection après connexion."
 >
   <div class="max-w-[1140px] mx-auto px-5 py-16 text-center">
     <p class="text-lg text-gris-texte font-sans">Connexion en cours...</p>
@@ -17,7 +17,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   import { supabase } from '../../lib/supabase';
 
   // Supabase Auth traite automatiquement le hash fragment (#access_token=...)
-  // apres un magic link ou une confirmation email.
+  // après un magic link ou une confirmation email.
   const { data: { session } } = await supabase.auth.getSession();
 
   if (session) {
@@ -25,7 +25,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     document.cookie = `sb-access-token=${session.access_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
     document.cookie = `sb-refresh-token=${session.refresh_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
 
-    // Verifier si le profil existe
+    // Vérifier si le profil existe
     const { data: profile } = await supabase
       .from('profiles')
       .select('id')
@@ -35,7 +35,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     if (profile) {
       window.location.href = '/annonces/deposer/';
     } else {
-      // Premier login — completer le profil
+      // Premier login — compléter le profil
       window.location.href = '/auth/profil/?first=1';
     }
   } else {

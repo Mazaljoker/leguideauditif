@@ -68,7 +68,7 @@ const articleSchema: Record<string, unknown> = {
     '@id': 'https://leguideauditif.fr/#author',
     name: author,
     jobTitle: authorTitle,
-    description: "Audioprothesiste DE, 28 ans d'experience — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients.",
+    description: "Audioprothésiste DE, 28 ans d'expérience — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients.",
     url: 'https://leguideauditif.fr/a-propos/',
     sameAs: ['https://www.linkedin.com/in/franck-olivier-chabbat-/'],
   },
@@ -159,14 +159,14 @@ const formattedDate = publishDate.toLocaleDateString('fr-FR', {
         <div class="flex flex-wrap items-center gap-4 text-sm font-sans text-gris-texte">
           <span>Par <strong class="text-marine">{author}</strong>, {authorTitle}</span>
           <span>|</span>
-          <time datetime={publishDate.toISOString()}>Publie le {formattedDate}</time>
+          <time datetime={publishDate.toISOString()}>Publié le {formattedDate}</time>
         </div>
       </header>
 
       <AffiliateDisclosure />
 
       <div class="bg-[#fef9f0] border border-[#f0dcc4] rounded-xl px-5 py-4 mb-8 text-sm text-gris-texte font-sans">
-        <strong class="text-marine">Information sante :</strong> Ce contenu est informatif et ne remplace pas une consultation avec un professionnel de sante.
+        <strong class="text-marine">Information santé :</strong> Ce contenu est informatif et ne remplace pas une consultation avec un professionnel de santé.
       </div>
 
       <TableOfContents headings={headings} />
@@ -185,7 +185,7 @@ const formattedDate = publishDate.toLocaleDateString('fr-FR', {
 
       {faq && faq.length > 0 && (
         <section class="mt-12">
-          <h2 class="font-sans text-2xl font-bold text-marine mb-6">Questions frequentes</h2>
+          <h2 class="font-sans text-2xl font-bold text-marine mb-6">Questions fréquentes</h2>
           {faq.map((f) => (
             <details class="bg-blanc rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
               <summary class="px-6 py-5 font-sans text-[17px] font-semibold text-marine cursor-pointer list-none flex justify-between items-center">

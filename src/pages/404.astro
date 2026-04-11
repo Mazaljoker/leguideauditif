@@ -6,26 +6,26 @@ const navCards = [
   {
     href: '/',
     icon: 'lucide:home',
-    title: "Retour a l'accueil",
+    title: "Retour à l'accueil",
     desc: 'Retrouvez tous nos guides et conseils pour mieux entendre.',
   },
   {
     href: '/guides/',
     icon: 'lucide:book-open',
     title: 'Nos guides',
-    desc: 'Appareils auditifs, remboursement, perte auditive, acouphenes...',
+    desc: 'Appareils auditifs, remboursement, perte auditive, acouphènes...',
   },
   {
     href: '/contact/',
     icon: 'lucide:mail',
     title: 'Nous contacter',
-    desc: 'Une question ? Notre equipe vous repond sous 48 h.',
+    desc: 'Une question ? Notre équipe vous répond sous 48 h.',
   },
 ];
 
 const popularPages = [
   { href: '/catalogue/', label: 'Catalogue des aides auditives' },
-  { href: '/trouver-audioprothesiste/', label: 'Trouver un audioprothesiste' },
+  { href: '/trouver-audioprothesiste/', label: 'Trouver un audioprothésiste' },
   { href: '/faq/', label: 'Foire aux questions' },
   { href: '/comparatifs/', label: 'Nos comparatifs' },
 ];
@@ -33,7 +33,7 @@ const popularPages = [
 
 <BaseLayout
   title="Page introuvable — LeGuideAuditif.fr"
-  description="La page que vous recherchez n'existe pas ou a ete deplacee. Retrouvez nos guides sur les appareils auditifs, le remboursement et la perte auditive."
+  description="La page que vous recherchez n'existe pas ou a été déplacée. Retrouvez nos guides sur les appareils auditifs, le remboursement et la perte auditive."
 >
   <meta slot="head" name="robots" content="noindex" />
 
@@ -49,8 +49,8 @@ const popularPages = [
       </h1>
 
       <p class="text-lg leading-relaxed max-w-[560px] mx-auto mb-10" style="color: var(--color-gris-texte);" data-animate>
-        La page que vous recherchez a peut-etre ete deplacee ou n'existe plus.
-        Pas d'inquietude, nous allons vous aider a retrouver votre chemin.
+        La page que vous recherchez a peut-être été déplacée ou n'existe plus.
+        Pas d'inquiétude, nous allons vous aider à retrouver votre chemin.
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12" data-animate>
@@ -73,7 +73,7 @@ const popularPages = [
 
       <div class="text-left max-w-[480px] mx-auto mb-10" data-animate>
         <h2 class="font-[var(--font-sans)] text-lg font-bold mb-4" style="color: var(--color-marine);">
-          Pages les plus consultees
+          Pages les plus consultées
         </h2>
         <ul class="space-y-3 list-none p-0 m-0">
           {popularPages.map((page) => (
@@ -100,7 +100,7 @@ const popularPages = [
           onmouseout="this.style.background='var(--color-orange)'"
         >
           <Icon name="lucide:arrow-left" class="w-5 h-5" aria-hidden="true" />
-          Retour a l'accueil
+          Retour à l'accueil
         </a>
       </div>
 

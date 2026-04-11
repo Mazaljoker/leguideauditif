@@ -28,11 +28,11 @@ if (centre.is_premium) {
 
 const displayVille = centre.ville || centre.cp;
 const pageTitle = `Revendiquer la fiche de ${centre.nom} — LeGuideAuditif`;
-const pageDescription = `Vous gerez ${centre.nom} a ${displayVille} ? Revendiquez votre fiche pour afficher vos coordonnees et gagner en visibilite.`;
+const pageDescription = `Vous gérez ${centre.nom} à ${displayVille} ? Revendiquez votre fiche pour afficher vos coordonnées et gagner en visibilité.`;
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'Trouver un audioprothesiste', href: '/trouver-audioprothesiste/' },
+  { label: 'Trouver un audioprothésiste', href: '/trouver-audioprothesiste/' },
   { label: centre.nom, href: `/centre/${centre.slug}/` },
   { label: 'Revendiquer' },
 ];
@@ -51,13 +51,13 @@ const breadcrumbs = [
       Revendiquez votre fiche
     </h1>
     <p class="text-gris-texte font-sans mb-8">
-      Completez le formulaire ci-dessous pour revendiquer la fiche de
+      Complétez le formulaire ci-dessous pour revendiquer la fiche de
       <strong class="text-marine">{centre.nom}</strong> ({centre.adresse}, {centre.cp} {centre.ville}).
     </p>
 
     {cancelled && (
       <div class="rounded-lg border border-orange/30 bg-orange/5 p-4 mb-6 font-sans text-gris-texte">
-        Le paiement a ete annule. Vous pouvez reessayer quand vous le souhaitez.
+        Le paiement a été annulé. Vous pouvez réessayer quand vous le souhaitez.
       </div>
     )}
 
@@ -81,7 +81,7 @@ const breadcrumbs = [
         </li>
         <li class="flex items-start gap-2">
           <svg class="w-5 h-5 text-orange mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
-          Badge "Centre verifie"
+          Badge "Centre vérifié"
         </li>
         <li class="flex items-start gap-2">
           <svg class="w-5 h-5 text-orange mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
@@ -89,7 +89,7 @@ const breadcrumbs = [
         </li>
         <li class="flex items-start gap-2">
           <svg class="w-5 h-5 text-orange mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
-          Sans engagement, resiliable a tout moment
+          Sans engagement, résiliable à tout moment
         </li>
       </ul>
     </div>
@@ -107,7 +107,7 @@ const breadcrumbs = [
           <input type="radio" name="plan" value="monthly" checked class="sr-only" />
           <span class="font-sans text-sm font-semibold text-orange uppercase tracking-wide mb-1">Mensuel</span>
           <span class="font-sans text-2xl font-bold text-marine">39 &euro;<span class="text-base font-normal text-gris-texte">/mois</span></span>
-          <span class="font-sans text-sm text-gris-texte mt-2">Sans engagement, resiliable a tout moment</span>
+          <span class="font-sans text-sm text-gris-texte mt-2">Sans engagement, résiliable à tout moment</span>
         </label>
         <label
           class="plan-card flex flex-col rounded-xl border-2 border-gris-clair p-5 cursor-pointer transition-all relative"
@@ -151,7 +151,7 @@ const breadcrumbs = [
 
         <div>
           <label for="claim-prenom" class="block text-sm font-medium text-marine font-sans mb-1">
-            Prenom
+            Prénom
           </label>
           <input
             id="claim-prenom"
@@ -196,9 +196,9 @@ const breadcrumbs = [
         <label class="flex items-start gap-2 text-sm text-gris-texte font-sans">
           <input type="checkbox" name="rgpd" required class="mt-1" />
           <span>
-            J'atteste etre le gerant ou un representant autorise de cet etablissement.
-            J'accepte les <a href="/mentions-legales/" class="text-orange underline">conditions generales</a> et la
-            <a href="/politique-confidentialite/" class="text-orange underline">politique de confidentialite</a>.
+            J'atteste être le gérant ou un représentant autorisé de cet établissement.
+            J'accepte les <a href="/mentions-legales/" class="text-orange underline">conditions générales</a> et la
+            <a href="/politique-confidentialite/" class="text-orange underline">politique de confidentialité</a>.
           </span>
         </label>
       </div>

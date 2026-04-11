@@ -7,7 +7,7 @@ import '../../styles/audiomap.css';
 import { supabase } from '../../lib/supabase';
 
 // Fetch depuis Supabase — uniquement les centres avec GPS pour la carte
-// Supabase limite a 1000 lignes par defaut, on pagine pour tout recuperer
+// Supabase limite à 1000 lignes par défaut, on pagine pour tout récupérer
 const PAGE_SIZE = 1000;
 let allCentres: Awaited<ReturnType<typeof supabase.from<'centres_auditifs'>>>['data'] = [];
 let offset = 0;
@@ -32,13 +32,13 @@ while (hasMore) {
 
 const centres = allCentres ?? [];
 
-const title = 'Trouver un audioprothesiste pres de chez vous | LeGuideAuditif';
+const title = 'Trouver un audioprothésiste près de chez vous | LeGuideAuditif';
 const description =
-  'Carte interactive de tous les audioprothesistes en France. Recherchez par ville ou code postal et trouvez un professionnel de l\'audition qualifie pres de chez vous.';
+  'Carte interactive de tous les audioprothésistes en France. Recherchez par ville ou code postal et trouvez un professionnel de l\'audition qualifié près de chez vous.';
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'Trouver un audioprothesiste' },
+  { label: 'Trouver un audioprothésiste' },
 ];
 
 // Schema.org -- WebPage + SearchAction
@@ -98,7 +98,7 @@ const schemaLocalBusinesses = centres.slice(0, 50).map((centre: {
     longitude: centre.lng,
   },
   additionalType: 'https://schema.org/MedicalBusiness',
-  medicalSpecialty: 'Audioprothese',
+  medicalSpecialty: 'Audioprothèse',
 }));
 
 const allSchemas = [schemaWebPage, ...schemaLocalBusinesses];
@@ -126,11 +126,11 @@ const allSchemas = [schemaWebPage, ...schemaLocalBusinesses];
 
       <header class="mb-8">
         <h1 class="font-sans text-[32px] sm:text-[38px] font-extrabold text-marine leading-tight mb-4">
-          Trouver un audioprothesiste pres de chez vous
+          Trouver un audioprothésiste près de chez vous
         </h1>
         <p class="text-lg leading-relaxed max-w-[680px]">
-          Utilisez notre carte interactive pour localiser un audioprothesiste
-          diplome d'Etat dans votre ville. Entrez votre ville ou code postal
+          Utilisez notre carte interactive pour localiser un audioprothésiste
+          diplômé d'État dans votre ville. Entrez votre ville ou code postal
           pour afficher les centres les plus proches.
         </p>
       </header>
@@ -141,41 +141,41 @@ const allSchemas = [schemaWebPage, ...schemaLocalBusinesses];
       {/* Section informative sous la carte */}
       <div class="mt-12 max-w-[780px]">
         <h2 class="font-sans text-[26px] font-bold text-marine mb-4">
-          Comment choisir votre audioprothesiste ?
+          Comment choisir votre audioprothésiste ?
         </h2>
         <p class="mb-4">
-          Le choix de votre audioprothesiste est une etape cruciale dans votre
-          parcours de soin auditif. Ce professionnel de sante, titulaire du
-          Diplome d'Etat d'audioprothesiste (DE), vous accompagnera pendant
-          toute la duree de vie de vos appareils auditifs -- en moyenne 4 a 5 ans.
+          Le choix de votre audioprothésiste est une étape cruciale dans votre
+          parcours de soin auditif. Ce professionnel de santé, titulaire du
+          Diplôme d'État d'audioprothésiste (DE), vous accompagnera pendant
+          toute la durée de vie de vos appareils auditifs -- en moyenne 4 à 5 ans.
         </p>
         <p class="mb-4">
-          Lors de votre premier rendez-vous, l'audioprothesiste realise un
-          bilan auditif complet et gratuit. Ce bilan permet de determiner
-          votre degre de perte auditive et de vous orienter vers la solution
-          la plus adaptee a vos besoins et a votre mode de vie.
+          Lors de votre premier rendez-vous, l'audioprothésiste réalise un
+          bilan auditif complet et gratuit. Ce bilan permet de déterminer
+          votre degré de perte auditive et de vous orienter vers la solution
+          la plus adaptée à vos besoins et à votre mode de vie.
         </p>
 
         <h3 class="font-sans text-[20px] font-bold text-marine mb-3 mt-8">
-          Les criteres essentiels
+          Les critères essentiels
         </h3>
         <p class="mb-4">
-          Privilegiez un centre offrant un suivi personnalise sur la duree.
-          Le nombre de rendez-vous de reglage apres l'appareillage est un
-          indicateur important de la qualite du suivi. Verifiez egalement
-          que le centre propose des appareils de classe 1 (100% Sante, reste
-          a charge zero) et de classe 2 pour avoir le choix.
+          Privilégiez un centre offrant un suivi personnalisé sur la durée.
+          Le nombre de rendez-vous de réglage après l'appareillage est un
+          indicateur important de la qualité du suivi. Vérifiez également
+          que le centre propose des appareils de classe 1 (100% Santé, reste
+          à charge zéro) et de classe 2 pour avoir le choix.
         </p>
 
         <h3 class="font-sans text-[20px] font-bold text-marine mb-3 mt-8">
           Vos droits en tant que patient
         </h3>
         <p class="mb-6">
-          Depuis la reforme 100% Sante, vous avez droit a un devis normalise
-          detaillant le prix des appareils, le cout du suivi et les
-          remboursements. L'audioprothesiste est tenu de vous proposer au
-          moins une offre de classe 1 entierement prise en charge par
-          l'Assurance Maladie et votre complementaire sante.
+          Depuis la réforme 100% Santé, vous avez droit à un devis normalisé
+          détaillant le prix des appareils, le coût du suivi et les
+          remboursements. L'audioprothésiste est tenu de vous proposer au
+          moins une offre de classe 1 entièrement prise en charge par
+          l'Assurance Maladie et votre complémentaire santé.
         </p>
 
         {/* Liens internes vers les guides */}
@@ -186,7 +186,7 @@ const allSchemas = [schemaWebPage, ...schemaLocalBusinesses];
           <ul class="space-y-2">
             <li>
               <a href="/guides/audioprothesiste/choisir/" class="text-orange hover:underline font-medium">
-                Comment choisir son audioprothesiste
+                Comment choisir son audioprothésiste
               </a>
             </li>
             <li>
@@ -201,17 +201,17 @@ const allSchemas = [schemaWebPage, ...schemaLocalBusinesses];
             </li>
             <li>
               <a href="/guides/remboursement/100-sante-audition/" class="text-orange hover:underline font-medium">
-                100% Sante audition : ce que vous devez savoir
+                100% Santé audition : ce que vous devez savoir
               </a>
             </li>
             <li>
               <a href="/guides/appareils-auditifs/classe-1-vs-classe-2/" class="text-orange hover:underline font-medium">
-                Classe 1 vs Classe 2 : comparaison detaillee
+                Classe 1 vs Classe 2 : comparaison détaillée
               </a>
             </li>
             <li>
               <a href="/guides/perte-auditive/symptomes/" class="text-orange hover:underline font-medium">
-                Les symptomes d'une perte auditive
+                Les symptômes d'une perte auditive
               </a>
             </li>
           </ul>
