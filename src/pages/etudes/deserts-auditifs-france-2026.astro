@@ -4,6 +4,8 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
 import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
 import DesertsAuditifsIsland from '../../components/etudes/DesertsAuditifsIsland.tsx';
+import DownloadLeadMagnet from '../../components/etudes/DownloadLeadMagnet.tsx';
+import CiterEtude from '../../components/etudes/CiterEtude.tsx';
 import desertsData from '../../data/deserts-auditifs-2026.json';
 
 const title = 'Carte des deserts auditifs en France (2026)';
@@ -188,6 +190,11 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
       </div>
     </div>
 
+    {/* Lead magnet — download data */}
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 mb-10">
+      <DownloadLeadMagnet client:only="react" />
+    </div>
+
     {/* Interactive map + table (shared state via React island) */}
     <div class="max-w-[1200px] mx-auto px-4 sm:px-6 mb-12">
       <DesertsAuditifsIsland
@@ -226,6 +233,11 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
           Les donnees brutes sont accessibles en <a href="/data/deserts-auditifs-2026.json" class="text-[#9A5515] underline hover:no-underline" rel="noopener">telechargement JSON</a> sous licence ouverte.
         </p>
       </div>
+    </div>
+
+    {/* Citer cette etude — link building */}
+    <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
+      <CiterEtude client:only="react" />
     </div>
 
     {/* FAQ */}
@@ -268,20 +280,29 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
       </ul>
     </div>
 
-    {/* CTA */}
+    {/* CTA — conversion */}
     <div class="max-w-[780px] mx-auto px-4 sm:px-6 mb-12">
-      <div class="bg-white rounded-2xl p-8 shadow-[0_2px_8px_rgba(27,46,74,0.08)] border border-[#1B2E4A]/5 text-center">
-        <h2 class="font-sans text-xl font-bold text-marine mb-4">Vous cherchez un audioprothesiste pres de chez vous ?</h2>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/trouver-audioprothesiste"
-            class="inline-block px-6 py-3 bg-[#B55E28] text-white font-sans font-semibold rounded-lg hover:bg-[#9A4D1C] transition-colors"
-          >
-            Trouver un audioprothesiste pres de chez vous
-          </a>
+      <div class="bg-[#1B2E4A] rounded-2xl p-8 text-center">
+        <h2 class="font-sans text-2xl font-bold text-white mb-3">
+          Vous etes dans une zone sous-dotee ?
+        </h2>
+        <p class="font-sans text-base text-white/70 mb-6 max-w-lg mx-auto">
+          Comparez les disponibilites pres de chez vous. Certains audioprothesistes acceptent encore de nouveaux patients cette semaine.
+        </p>
+        <a
+          href="/trouver-audioprothesiste"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-[#D97B3D] text-white font-sans text-lg font-bold rounded-xl hover:bg-[#c16a30] transition-colors shadow-lg"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          Voir les audioprothesistes disponibles
+        </a>
+        <div class="mt-6 pt-6 border-t border-white/10">
           <a
             href="/revendiquer"
-            class="inline-block px-6 py-3 bg-white text-marine border-2 border-marine font-sans font-semibold rounded-lg hover:bg-marine hover:text-white transition-colors"
+            class="font-sans text-sm text-white/50 hover:text-white underline transition-colors"
           >
             Vous etes audioprothesiste ? Revendiquez votre fiche
           </a>
