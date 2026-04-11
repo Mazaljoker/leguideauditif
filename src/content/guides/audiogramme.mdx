@@ -1,0 +1,263 @@
+---
+title: "Audiogramme : lire et comprendre vos resultats"
+metaDescription: "Comment lire un audiogramme tonal et vocal ? Guide par un audioprothesiste DE (28 ans). Exemples, classification BIAP, quand consulter."
+cluster: perte-auditive
+isPillar: true
+publishDate: 2026-04-12
+author: Franck-Olivier
+authorTitle: "Audioprothesiste DE"
+readingTime: 12
+image: /images/blog/audiogramme/audiogramme.webp
+ogImage: /images/blog/audiogramme/audiogramme-og.webp
+sources:
+  - name: "BIAP - Classification audiometrique des deficiences auditives"
+    url: "https://www.biap.org/"
+  - name: "HAS - Evaluation et suivi audiometrique"
+    url: "https://www.has-sante.fr/"
+  - name: "ISO 7029 - Seuils auditifs statistiques en fonction de l'age"
+    url: "https://www.iso.org/standard/42916.html"
+  - name: "INSERM - Surdites"
+    url: "https://www.inserm.fr/dossier/surdites/"
+faq:
+  - question: "Qu'est-ce qu'un audiogramme ?"
+    answer: "Un audiogramme est un graphique qui represente votre capacite auditive frequence par frequence. Il est realise lors d'un bilan auditif en cabine insonorisee par un ORL ou un audioprothesiste. L'examen dure environ 20 minutes et est totalement indolore."
+  - question: "Comment lire les courbes d'un audiogramme ?"
+    answer: "L'axe horizontal montre les frequences (125 a 8000 Hz, des graves aux aigus). L'axe vertical montre l'intensite en decibels (dB HL). Le rouge (symbole O) represente l'oreille droite, le bleu (symbole X) l'oreille gauche. Plus les points sont bas sur le graphique, plus la perte auditive est importante."
+  - question: "A partir de combien de dB parle-t-on de perte auditive ?"
+    answer: "Selon la classification BIAP, on parle de perte auditive a partir de 20 dB de perte moyenne calculee sur les frequences 500, 1000, 2000 et 4000 Hz. Une perte entre 21 et 40 dB est consideree comme legere, entre 41 et 70 dB comme moyenne."
+  - question: "Quelle est la difference entre audiogramme tonal et vocal ?"
+    answer: "L'audiogramme tonal mesure les seuils de perception des sons purs frequence par frequence (en dB HL). L'audiogramme vocal mesure la comprehension de la parole en pourcentage, a l'aide de listes de mots dissyllabiques prononces a differentes intensites."
+  - question: "Combien coute un audiogramme ?"
+    answer: "Le bilan auditif de depistage chez l'audioprothesiste est gratuit et sans engagement. Chez l'ORL, la consultation coute entre 30 et 55 euros et est remboursee par l'Assurance maladie sur prescription du medecin traitant."
+  - question: "Peut-on faire un audiogramme en ligne ?"
+    answer: "Les tests auditifs en ligne peuvent servir de depistage indicatif, mais ils ne remplacent pas un audiogramme professionnel. Ils ne testent pas la conduction osseuse, ne sont pas realises en cabine insonorisee et ne permettent pas de distinguer le type de perte auditive."
+  - question: "A quelle frequence faut-il refaire un audiogramme ?"
+    answer: "Tous les 2 a 3 ans a partir de 50 ans. Annuellement si vous portez des appareils auditifs, pour ajuster les reglages. Plus tot en cas de symptomes nouveaux (acouphenes, vertiges, baisse soudaine)."
+relatedGuides:
+  - perte-auditive/index
+  - perte-auditive/types
+  - perte-auditive/symptomes
+  - perte-auditive/quand-consulter-orl
+  - prevention/bilan-auditif-gratuit
+---
+
+import Callout from '../../components/article/Callout.astro';
+import StatHighlight from '../../components/article/StatHighlight.astro';
+import SectionHeading from '../../components/article/SectionHeading.astro';
+import SectionDivider from '../../components/article/SectionDivider.astro';
+import ArticleCTA from '../../components/article/ArticleCTA.astro';
+import AudiogramSimulator from '../../components/AudiogramSimulator.tsx';
+
+<Callout variant="key" title="L'essentiel a retenir">
+L'audiogramme est le document central de votre parcours auditif. Comprendre ses courbes vous permet de poser les bonnes questions a votre audioprothesiste et de suivre l'evolution de votre audition dans le temps.
+</Callout>
+
+<div style="display: flex; gap: 12px; margin: 32px 0; overflow-x: auto; padding: 4px 0;">
+  <StatHighlight value="20 min" label="duree de l'examen" />
+  <StatHighlight value="Gratuit" label="chez l'audioprothesiste" />
+  <StatHighlight value="6M+" label="Francais concernes" />
+</div>
+
+Apres un bilan auditif, on vous remet un document rempli de courbes, de chiffres et de symboles : l'audiogramme. Ce graphique, c'est le point de depart de tout votre parcours auditif. C'est lui qui dit si vous avez une perte, a quel degre, et quel appareillage vous conviendra.
+
+Pourtant, presque personne ne le comprend. En 28 ans de pratique, j'ai vu plus de 3 000 patients s'asseoir dans mon cabinet avec leur audiogramme a la main — et le regarder comme un document en langue etrangere. Ca se comprend. Personne ne vous explique vraiment comment le lire.
+
+Ce guide est la pour ca. Vous allez apprendre a dechiffrer votre audiogramme, comprendre ce qu'il dit sur votre audition, et poser les bonnes questions a votre prochain rendez-vous.
+
+> Ce guide est informatif. Il ne remplace pas l'interpretation de votre audiogramme par un professionnel de sante qualifie.
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:file-text" title="Qu'est-ce qu'un audiogramme ?" id="quest-ce-quun-audiogramme" />
+
+Un audiogramme, c'est un graphique qui represente votre capacite auditive. Ni plus, ni moins. Il est realise lors d'un examen appele audiometrie tonale liminaire — c'est le terme technique. En pratique, ca se passe dans une cabine insonorisee, chez un ORL ou un audioprothesiste. Selon la Haute Autorite de sante (HAS), c'est l'examen de reference pour evaluer le seuil auditif d'un patient.
+L'examen dure 20 minutes environ. Indolore. Vous portez un casque, et vous levez la main (ou appuyez sur un bouton) chaque fois que vous percevez un son, meme tres faiblement. Le specialiste teste differentes frequences a differentes intensites, oreille par oreille. Le resultat est reporte sur le graphique.
+
+Mes patients me demandent souvent : "C'est tout ?" Oui, c'est tout.
+
+L'audiometrie se deroule en deux etapes :
+
+1. **La conduction aerienne** : le son passe par le casque, traverse le conduit auditif, le tympan, les osselets et arrive a l'oreille interne. C'est le chemin naturel du son.
+2. **La conduction osseuse** : un vibrateur place derriere l'oreille envoie le son directement a l'oreille interne, sans passer par le conduit et le tympan.
+
+L'ecart entre ces deux mesures, c'est la cle. Il permet de distinguer une [surdite de transmission d'une surdite de perception](/guides/perte-auditive/types/). Quand je lis un audiogramme, c'est la premiere chose que je regarde.
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:git-compare" title="Audiogramme tonal et vocal : quelle difference ?" id="audiogramme-tonal-et-vocal" />
+
+On parle d'"audiogramme" comme s'il n'y en avait qu'un. En realite, votre bilan auditif comprend deux examens distincts. Et les deux comptent.
+
+| | Audiogramme tonal | Audiogramme vocal |
+|---|---|---|
+| **Ce qu'il mesure** | Seuil de perception des sons purs | Comprehension de la parole |
+| **Unite** | Decibels (dB HL) | Pourcentage (%) |
+| **Stimuli** | Sons purs (bips) | Listes de mots dissyllabiques |
+| **Resultat** | Courbe frequence par frequence | Courbe d'intelligibilite |
+| **Utilite principale** | Determiner le degre de perte | Evaluer le handicap reel au quotidien |
+
+**L'audiogramme tonal** mesure le seuil minimal auquel vous percevez un son pur — un "bip" — a chaque frequence. On teste de 125 Hz (sons graves) a 8 000 Hz (sons aigus). Ca couvre tout le spectre de la parole humaine.
+
+**L'audiogramme vocal**, lui, mesure votre comprehension reelle. Le specialiste vous fait repeter des listes de mots a differentes intensites. Le resultat est en pourcentage : combien de mots avez-vous compris correctement ?
+
+C'est souvent la que ca surprend. Deux personnes avec exactement le meme audiogramme tonal peuvent avoir des scores vocaux tres differents. L'une comprend 90 % des mots, l'autre seulement 60 %. C'est pour ca que je dis toujours a mes patients : le tonal dit ce que vous entendez, le vocal dit ce que vous comprenez. Les deux sont indispensables.
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:book-open" title="Comment lire un audiogramme ?" id="comment-lire-un-audiogramme" />
+
+Pas de panique. La lecture d'un audiogramme se fait en cinq etapes :
+
+1. **Reperer les axes.** L'axe horizontal montre les frequences en Hertz — graves a gauche, aigus a droite. L'axe vertical montre l'intensite en decibels (dB HL) — 0 en haut, 120 en bas. Attention : plus c'est bas, plus c'est grave.
+2. **Identifier les oreilles.** Rouge = oreille droite. Bleu = oreille gauche. Les symboles changent aussi : "O" pour la droite, "X" pour la gauche. Simple a retenir.
+3. **Lire la conduction aerienne.** Les points relies par une ligne continue, c'est la conduction aerienne (le son passe par le casque). C'est la courbe principale.
+4. **Lire la conduction osseuse.** Les crochets "&lt;" (droite) et "&gt;" (gauche), c'est la conduction osseuse (le son passe par le vibrateur). Si ces points sont proches de la conduction aerienne, la perte est de perception. S'ils sont nettement meilleurs, il y a une composante de transmission.
+5. **Evaluer le degre.** Comparez la position des points avec les zones BIAP (voir section suivante). Plus c'est bas sur le graphique, plus la perte est importante.
+
+<div style="background: #EDF2F7; border-radius: 12px; padding: 40px; text-align: center; margin: 28px 0; color: #1B2E4A;">
+  <p style="font-weight: 600; margin: 0;">Image a venir : Audiogramme annote avec axes frequences et intensite</p>
+  <p style="font-size: 14px; margin-top: 8px; opacity: 0.7;">1200 x 800 px — WebP</p>
+</div>
+
+<Callout variant="info" title="Astuce de lecture">
+Pensez a un clavier de piano : les graves sont a gauche, les aigus a droite. Sur l'audiogramme, le son "s" se situe autour de 4 000-6 000 Hz (aigu), tandis que le son "ou" est autour de 250-500 Hz (grave). C'est pourquoi une perte sur les aigus rend les conversations difficiles a suivre, meme si vous "entendez" qu'on vous parle.
+</Callout>
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:check-circle" title="Audiogramme normal : quels resultats attendre ?" id="audiogramme-normal" />
+
+On considere qu'une audition est normale lorsque les seuils se situent entre 0 et 20 dB HL sur toutes les frequences. Mais attention : "normal" ne veut pas dire "comme a 20 ans". C'est une nuance que mes patients oublient souvent.
+
+La norme ISO 7029 definit les seuils auditifs moyens en fonction de l'age. Voici ce qu'on attend a 4 000 Hz, la frequence la plus sensible au vieillissement :
+
+| Age | Seuil median a 4 000 Hz (hommes) | Seuil median a 4 000 Hz (femmes) |
+|-----|----------------------------------|----------------------------------|
+| 30 ans | 5 dB | 3 dB |
+| 50 ans | 15 dB | 10 dB |
+| 60 ans | 25 dB | 15 dB |
+| 70 ans | 35 dB | 25 dB |
+
+**Un point que je repete a chaque consultation** : un audiogramme "dans les normes pour votre age" ne veut pas dire zero gene. Si vous avez du mal a suivre les conversations au restaurant ou en famille, parlez-en. Meme si votre audiogramme semble normal. La comprehension dans le bruit fait appel a des mecanismes bien plus complexes que le simple seuil tonal.
+
+J'ai une patiente de 66 ans dont l'audiogramme etait presque parfait. Pourtant, elle ne comprenait plus rien en reunion avec ses collegues. Son audiogramme vocal a revele un score de 65 % seulement dans le bruit. Sans cet examen complementaire, on serait passe a cote.
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:bar-chart-3" title="Les degres de perte auditive sur l'audiogramme" id="degres-de-perte-auditive" />
+
+La [classification BIAP](https://www.biap.org/) (Bureau International d'AudioPhonologie) est la reference en France. On calcule la perte moyenne sur quatre frequences : 500, 1 000, 2 000 et 4 000 Hz. C'est ce chiffre qui determine votre degre de perte.
+
+| Degre | Perte moyenne | Impact au quotidien |
+|-------|---------------|---------------------|
+| **Audition normale** | 0-20 dB | Aucune gene dans la vie courante |
+| **Perte legere** | 21-40 dB | Difficulte a entendre les voix faibles ou lointaines |
+| **Perte moyenne** | 41-70 dB | Difficulte a suivre une conversation sans appareil |
+| **Perte severe** | 71-90 dB | Seuls les sons forts sont percus, appareillage indispensable |
+| **Perte profonde** | 91-120 dB | Quasi-absence de perception, implant cochleaire possible |
+
+### Audiogramme et presbyacousie
+
+La [presbyacousie](/guides/perte-auditive/presbyacousie/), c'est la cause numero un de perte auditive apres 50 ans. Je la vois tous les jours au cabinet. Sur l'audiogramme, on la reconnait tout de suite : la courbe plonge sur les aigus. L'audition reste correcte sur les graves (250-500 Hz) et chute au-dela de 1 000 Hz. Souvent, on observe un creux marque autour de 4 000 Hz.
+
+Et ca explique LA plainte que j'entends le plus : "J'entends, mais je ne comprends pas." Les voyelles (sons graves) passent encore. Mais les consonnes — le "s", le "f", le "ch" — sont perdues. Resultat : les mots deviennent flous, surtout dans le bruit.
+
+<div style="background: #EDF2F7; border-radius: 12px; padding: 40px; text-align: center; margin: 28px 0; color: #1B2E4A;">
+  <p style="font-weight: 600; margin: 0;">Image a venir : Audiogramme typique de presbyacousie</p>
+  <p style="font-size: 14px; margin-top: 8px; opacity: 0.7;">800 x 600 px — WebP</p>
+</div>
+
+### Audiogramme et surdite de transmission
+
+Dans une surdite de transmission, l'oreille interne fonctionne bien. Le probleme est en amont : le son ne lui arrive pas correctement. Les causes ? Bouchon de cerumen, otite sereuse, perforation du tympan, otospongiose.
+
+Sur l'audiogramme, ca se voit clairement. La conduction osseuse est normale ou quasi-normale, mais la conduction aerienne est abaissee. On appelle ca l'ecart aerien-osseux (ou "Rinne audiometrique"). Il depasse souvent 15 dB.
+
+Bonne nouvelle : beaucoup de surdites de transmission sont traitables. Medicalement ou chirurgicalement.
+
+<div style="background: #EDF2F7; border-radius: 12px; padding: 40px; text-align: center; margin: 28px 0; color: #1B2E4A;">
+  <p style="font-weight: 600; margin: 0;">Image a venir : Audiogramme de surdite de transmission</p>
+  <p style="font-size: 14px; margin-top: 8px; opacity: 0.7;">800 x 600 px — WebP</p>
+</div>
+
+### Surdite mixte
+
+La surdite mixte, c'est un peu des deux. Une composante de transmission et une composante de perception. Sur l'audiogramme, la conduction osseuse est abaissee (l'oreille interne est touchee) ET il y a un ecart aerien-osseux en plus (l'oreille moyenne aussi).
+
+On voit ca regulierement chez les patients de 70-80 ans qui cumulent presbyacousie et problemes d'oreille moyenne. C'est plus complexe a appareiller, mais tout a fait possible.
+
+<div style="background: #EDF2F7; border-radius: 12px; padding: 40px; text-align: center; margin: 28px 0; color: #1B2E4A;">
+  <p style="font-weight: 600; margin: 0;">Image a venir : Audiogramme de surdite mixte</p>
+  <p style="font-size: 14px; margin-top: 8px; opacity: 0.7;">800 x 600 px — WebP</p>
+</div>
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:baby" title="Audiogramme de l'enfant : particularites" id="audiogramme-enfant" />
+
+Chez l'enfant, impossible de faire une audiometrie classique a tous les ages. Les techniques s'adaptent :
+
+- **Nouveau-ne** : otoEmissions acoustiques (OEA) et potentiels evoques auditifs (PEA). Le depistage neonatal est obligatoire en France depuis 2012.
+- **6 mois a 2 ans** : audiometrie comportementale — on observe si le bebe tourne la tete vers le son.
+- **2 a 4 ans** : audiometrie par le jeu. L'enfant empile un cube a chaque son entendu, par exemple.
+- **A partir de 4-5 ans** : audiometrie tonale classique, comme chez l'adulte.
+
+Si votre pediatre suspecte un trouble auditif, n'attendez pas. Plus le diagnostic arrive tot, meilleures sont les chances pour le developpement du langage. C'est un domaine ou chaque mois compte.
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:euro" title="Combien coute un audiogramme ?" id="combien-coute-un-audiogramme" />
+
+On me pose la question chaque semaine. Voici la reponse claire :
+
+- **Chez l'audioprothesiste** : le bilan auditif de depistage est **gratuit et sans engagement**. Il comprend une audiometrie tonale et un entretien sur vos besoins. Pas besoin d'ordonnance.
+- **Chez l'ORL** : la consultation coute entre 30 et 55 euros selon le secteur. Elle est **remboursee par l'Assurance maladie** sur prescription de votre medecin traitant. L'ORL fait un examen plus complet : audiometrie tonale, vocale et examen clinique.
+
+Rien a preparer. Evitez juste de vous exposer a des bruits forts dans les 24 heures avant l'examen — pas de concert la veille.
+
+<ArticleCTA
+  title="Bilan auditif gratuit pres de chez vous"
+  description="Trouvez un audioprothesiste qualifie pour un depistage gratuit et sans engagement"
+  buttonText="Trouver un audioprothesiste"
+  buttonUrl="/trouver-audioprothesiste/"
+/>
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:monitor" title="Peut-on faire un audiogramme en ligne ?" id="audiogramme-en-ligne" />
+
+De nombreux sites et applications proposent des "tests auditifs en ligne". Ca peut servir de premiere alerte. Mais soyons clair : ca ne remplace pas un vrai bilan. Voici pourquoi :
+
+- **Pas de cabine insonorisee** : le bruit de votre salon fausse les resultats.
+- **Pas de conduction osseuse** : impossible de savoir si c'est une surdite de transmission ou de perception.
+- **Calibration approximative** : le volume de votre casque ou de vos ecouteurs n'est pas calibre medicalement.
+- **Pas de diagnostic** : seul un professionnel peut remettre les chiffres dans leur contexte.
+
+Un test en ligne peut vous donner l'impulsion de consulter. C'est deja bien. Mais il ne remplacera jamais un [bilan auditif professionnel](/guides/prevention/bilan-auditif-gratuit/).
+
+L'outil ci-dessous vous permet d'explorer visuellement les differents degres de perte sur un audiogramme. C'est un outil educatif, pas un test.
+
+<AudiogramSimulator client:visible />
+
+<SectionDivider />
+
+<SectionHeading icon="lucide:stethoscope" title="Quand consulter apres un audiogramme ?" id="quand-consulter" />
+
+Certains resultats justifient une action rapide. Voici les trois situations a connaitre :
+
+- **Perte superieure a 25 dB sur les frequences conversationnelles** (500 a 4 000 Hz) : un bilan ORL et un essai d'appareils auditifs sont recommandes.
+- **Asymetrie superieure a 15 dB entre les deux oreilles** : il faut consulter un ORL pour ecarter une cause retrocochelaire (tumeur du nerf auditif, entre autres).
+- **Surdite brusque** : perte soudaine sur une oreille. C'est une **urgence medicale**. ORL dans les 48 heures, pas plus.
+
+Ce que je dis a chaque patient : n'attendez pas que la gene devienne un handicap. Le cerveau s'adapte d'autant mieux que la privation auditive a ete courte. J'ai vu des patients attendre 5 ans, 8 ans. Plus ils attendent, plus la rehabilitation est longue et difficile.
+
+<Callout variant="warning" title="Urgence : surdite brusque">
+Une perte auditive soudaine sur une oreille, avec ou sans acouphenes, necessite une consultation ORL dans les 48 heures. Un traitement par corticoides administre rapidement ameliore significativement le pronostic de recuperation (HAS).
+</Callout>
+
+<ArticleCTA
+  title="Vous avez des questions sur votre audiogramme ?"
+  description="Un audioprothesiste qualifie peut vous accompagner dans la lecture et l'interpretation de vos resultats"
+  buttonText="Trouver mon audioprothesiste"
+  buttonUrl="/trouver-audioprothesiste/"
+/>

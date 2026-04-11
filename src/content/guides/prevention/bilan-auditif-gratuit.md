@@ -90,7 +90,7 @@ Plusieurs scenarios sont possibles a l'issue de votre bilan gratuit.
 
 **Votre audition est normale.** Vous repartez rassure. L'audioprothesiste vous recommandera de refaire un bilan tous les 2 a 3 ans a partir de 50 ans, ou plus tot si vous etes expose au bruit.
 
-**Une perte legere est detectee (20 a 40 dB).** L'audioprothesiste vous conseillera de consulter un ORL pour confirmer le diagnostic. Un appareillage n'est pas toujours necessaire a ce stade, mais la surveillance est importante. Pour comprendre en detail ce que signifient ces chiffres, consultez notre [guide de lecture de l'audiogramme](/guides/perte-auditive/audiogramme/).
+**Une perte legere est detectee (20 a 40 dB).** L'audioprothesiste vous conseillera de consulter un ORL pour confirmer le diagnostic. Un appareillage n'est pas toujours necessaire a ce stade, mais la surveillance est importante. Pour comprendre en detail ce que signifient ces chiffres, consultez notre [guide de lecture de l'audiogramme](/guides/audiogramme/).
 
 **Une perte moyenne a severe est constatee (au-dela de 40 dB).** La consultation ORL devient indispensable. L'ordonnance ORL en poche, vous pourrez revenir chez l'audioprothesiste pour un essai d'appareils auditifs, lui aussi gratuit et sans engagement pendant 30 jours (obligation legale).
 

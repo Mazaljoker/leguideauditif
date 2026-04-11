@@ -95,7 +95,7 @@ Dans le cas d'une presbyacousie typique, l'audiogramme montre une courbe descend
 
 L'ORL complete l'audiogramme par un examen clinique pour ecarter d'autres causes (bouchon de cerumen, otite, tumeur). Si la perte est nettement asymetrique, des examens complementaires (IRM) peuvent etre necessaires.
 
-Pour comprendre en detail comment se deroule un audiogramme et comment lire vos resultats, consultez notre [guide de l'audiogramme](/guides/perte-auditive/audiogramme/).
+Pour comprendre en detail comment se deroule un audiogramme et comment lire vos resultats, consultez notre [guide de l'audiogramme](/guides/audiogramme/).
 
 Un bilan auditif de depistage est egalement possible gratuitement chez un audioprothesiste, sans ordonnance. C'est souvent le premier pas le plus simple a franchir.
 

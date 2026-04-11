@@ -40,6 +40,7 @@ interface Props {
   image?: string;
   ogImage?: string;
   showAffiliateDisclosure?: boolean;
+  extraSchemas?: Record<string, unknown>[];
 }
 
 const {
@@ -59,6 +60,7 @@ const {
   image,
   ogImage,
   showAffiliateDisclosure = false,
+  extraSchemas,
 } = Astro.props;
 
 /* --- Breadcrumbs --- */
@@ -149,6 +151,10 @@ if (faq && faq.length > 0) {
       acceptedAnswer: { '@type': 'Answer', text: f.answer },
     })),
   });
+}
+
+if (extraSchemas) {
+  schemas.push(...extraSchemas);
 }
 ---
 

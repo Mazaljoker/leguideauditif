@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/guides/perte-auditive/audiogramme/",
+      "destination": "/guides/audiogramme/",
+      "permanent": true
+    }
+  ]
+}

@@ -11,7 +11,7 @@ image: /images/blog/test-auditif/test-auditif.webp
 ogImage: /images/blog/test-auditif/test-auditif-og.webp
 relatedGuides:
   - perte-auditive/index
-  - perte-auditive/audiogramme
+  - audiogramme
 sources:
   - name: "HAS - Evaluation des tests de depistage auditif"
     url: "https://www.has-sante.fr/"
@@ -40,7 +40,7 @@ Le principe est simple. Le test vous fait ecouter des sons a differentes frequen
 
 La plupart de ces tests reprennent le principe de l'audiometrie tonale, l'examen de reference pratique en cabine insonorisee par les ORL et les audioprothesistes. Certains ajoutent un test de comprehension dans le bruit, ou vous devez reconnaitre des mots sur un fond sonore.
 
-En pratique, vous avez besoin d'un casque audio (idealement un casque supra-auriculaire, pas des ecouteurs bon marche), d'un endroit calme et de 3 a 5 minutes devant vous. Le test genere ensuite un graphique qui ressemble a un [audiogramme](/guides/perte-auditive/audiogramme/) simplifie.
+En pratique, vous avez besoin d'un casque audio (idealement un casque supra-auriculaire, pas des ecouteurs bon marche), d'un endroit calme et de 3 a 5 minutes devant vous. Le test genere ensuite un graphique qui ressemble a un [audiogramme](/guides/audiogramme/) simplifie.
 
 ## Les limites serieuses de ces tests
 
@@ -80,7 +80,7 @@ Un test en ligne ne doit jamais retarder une consultation. Voici les situations 
 
 Si le test en ligne confirme l'un de ces signaux, c'est une raison supplementaire de consulter. Mais meme si le test affiche "audition normale", les symptomes que vous ressentez au quotidien sont plus fiables que n'importe quel algorithme.
 
-Pour bien comprendre ce que mesure un vrai bilan, consultez notre guide sur [l'audiogramme et son interpretation](/guides/perte-auditive/audiogramme/).
+Pour bien comprendre ce que mesure un vrai bilan, consultez notre guide sur [l'audiogramme et son interpretation](/guides/audiogramme/).
 
 ## Les bons tests vs les mauvais
 

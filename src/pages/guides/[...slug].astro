@@ -14,6 +14,24 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
 const { title, metaDescription, cluster, author, authorTitle, publishDate, updateDate, readingTime, sources, faq, image, ogImage, useLegacyLayout } = entry.data;
+
+/* MedicalWebPage schema pour les guides sante YMYL */
+const healthClusters = ['perte-auditive', 'acouphenes', 'prevention'];
+const extraSchemas = healthClusters.includes(cluster)
+  ? [{
+      '@context': 'https://schema.org',
+      '@type': 'MedicalWebPage',
+      name: title,
+      about: { '@type': 'MedicalCondition', name: 'Perte auditive' },
+      lastReviewed: (updateDate || publishDate).toISOString(),
+      reviewedBy: {
+        '@type': 'Person',
+        name: 'Franck-Olivier Chabbat',
+        jobTitle: "Audioprothesiste diplome d'Etat",
+        url: 'https://leguideauditif.fr/auteur/franck-olivier/',
+      },
+    }]
+  : undefined;
 ---
 
 {useLegacyLayout ? (
@@ -48,6 +66,7 @@ const { title, metaDescription, cluster, author, authorTitle, publishDate, updat
     faq={faq}
     image={image}
     ogImage={ogImage}
+    extraSchemas={extraSchemas}
   >
     <Content />
   </ArticleLayout>
