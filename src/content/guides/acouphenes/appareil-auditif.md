@@ -5,10 +5,10 @@ cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
-authorTitle: "Audioprothesiste DE"
+author_title: "Audioprothesiste DE"
 readingTime: 7
-image: /images/blog/appareil-acouphenes/appareil-acouphenes.webp
-ogImage: /images/blog/appareil-acouphenes/appareil-acouphenes-og.webp
+image: /images/blog/appareil-auditif/appareil-auditif.webp
+ogImage: /images/blog/appareil-auditif/appareil-auditif-og.webp
 relatedGuides:
   - acouphenes/index
   - acouphenes/traitement
