@@ -4,15 +4,12 @@ description: >
   Layer stylistique du pipeline LeGuideAuditif. Casse les patterns IA residuels,
   ameliore le rythme et la voix Franck-Olivier. NE MODIFIE PAS le fond ni la structure.
   Utiliser immediatement apres me-affiliate-writer.
-  Trigger: 'humaniser', 'humanize', 'anti-IA', 'rendre humain', 'passer au humanizer',
-  'desroboter'.
-  Ne PAS utiliser pour : generer du contenu terrain (me-affiliate-writer fait ca),
-  audit E-E-A-T (me-eeat-compliance), publication (nposts-seo-fixer).
+  Trigger: 'humaniser', 'humanize', 'anti-IA', 'rendre humain', 'passer au humanizer', 'desroboter'.
+  Ne PAS utiliser pour : contenu terrain (me-affiliate-writer), E-E-A-T (me-eeat-compliance).
 metadata:
   author: Franck-Olivier Chabbat
   version: "2.0.0"
   chain-position: 2
-  changelog: "v2.0 — Role redefini : finition stylistique uniquement, plus d'injection de contenu"
 ---
 
 # nposts-seo-humanizer v2.0
@@ -20,59 +17,94 @@ metadata:
 Layer de FINITION STYLISTIQUE. Ne cree pas de contenu terrain — c'est le job du writer.
 
 > REGLE D'OR : Ne JAMAIS ajouter de contenu metier, d'exemples ou d'anecdotes.
-> Le humanizer est un EDITEUR, pas un auteur.
+> Lire `references/contracts.md` pour les schemas JSON.
+> Lire `references/ai-patterns-french.md` pour la table des patterns.
+> Lire `references/voice-profile-franck-olivier.md` pour le profil voix.
 
-## CE QUE LE HUMANIZER FAIT
+## INPUT
 
-1. Casse les patterns IA residuels (lexicaux, syntaxiques)
-2. Varie la burstiness (longueur de phrases)
-3. Ajuste le registre voix Franck-Olivier
-4. De-symmetrization pass (casse structures repetees)
-5. Micro-variations humaines (hesitations, parentheses, relances)
-6. Verifie lisibilite Flesch FR 60-80
-7. Preserve les claims YMYL sans modification de sens
+```json
+{
+  "type": "me-affiliate-writer",
+  "payload": {
+    "slug": "string",
+    "content_md": "string",
+    "frontmatter": {},
+    "word_count": "number",
+    "terrain_checklist": {}
+  }
+}
+```
 
-## CE QUE LE HUMANIZER NE FAIT PAS
+## OUTPUT
 
-❌ Ajouter des anecdotes ou cas reels
-❌ Creer des sections erreurs frequentes
-❌ Inventer des insights terrain
-❌ Modifier la structure H2/H3
-❌ Changer le sens d'une affirmation medicale
+```json
+{
+  "type": "nposts-seo-humanizer",
+  "payload": {
+    "slug": "string",
+    "content_md": "string (humanise)",
+    "frontmatter": {},
+    "word_count": "number",
+    "terrain_checklist": "(passe du writer, NON modifie)",
+    "metrics": {
+      "burstiness": "number (0-1, objectif >= 0.7)",
+      "flesch_fr": "number (0-100, objectif 60-80)",
+      "ai_patterns_replaced": "number",
+      "ai_patterns_detail": { "P0": "number", "P1": "number", "P2": "number" },
+      "micro_variations_added": "number",
+      "ymyl_claims_preserved": "number",
+      "terrain_content_modified": false
+    }
+  }
+}
+```
+
+Consomme par : `nposts-content-evaluator`
 
 ## WORKFLOW
 
-### Etape 1 — Patterns IA francais
-P0 TOUJOURS remplacer : "Il convient de", "Force est de", "Par ailleurs", "En effet", "Il est essentiel", "Dans le cadre de", "Afin de", "Susceptible de"
-P1 si > 2 occurrences : "Notamment", "Par consequent", "Toutefois"
-P2 optionnel : phrases uniformes, enumerations a 3, meta-references
+1. **Patterns IA francais** : P0 TOUJOURS remplacer ("Il convient de", "Force est de", "Par ailleurs", "En effet", "Il est essentiel", "Dans le cadre de", "Afin de", "Susceptible de"). P1 si > 2 occ. P2 optionnel. Voir `references/ai-patterns-french.md`.
+2. **Burstiness >= 0.7** : inserer phrases courtes (3-6 mots) entre les longues. NE PAS inventer de contenu.
+3. **Voix Franck-Olivier** : ajustements LEGERS (pronoms, registre cabinet, tabous). Voir `references/voice-profile-franck-olivier.md`.
+4. **De-symmetrization** : casser listes trop parfaites, phrases miroir, sections symetriques, rule of three, ouvertures repetitives.
+5. **Micro-variations** : parentheses, incises, questions rhetoriques, aveux d'incertitude. 1 pour 200-300 mots.
+6. **Flesch FR 60-80** : couper phrases longues si < 60, enrichir si > 80.
+7. **YMYL** : ne JAMAIS modifier le sens d'un claim medical. Marquer [YMYL-VERIFIED].
 
-### Etape 2 — Burstiness >= 0.7
-Inserer phrases courtes (3-6 mots) entre les longues. NE PAS inventer de contenu.
+## CE QUE LE HUMANIZER NE FAIT PAS
 
-### Etape 3 — Voix Franck-Olivier
-Ajustements LEGERS : pronoms, registre cabinet, tabous.
+- Ajouter des anecdotes ou cas reels
+- Creer des sections erreurs frequentes
+- Inventer des insights terrain
+- Modifier la structure H2/H3
+- Ajouter ou supprimer des paragraphes entiers
 
-### Etape 4 — De-symmetrization pass
-Casser : listes trop parfaites, phrases miroir, sections symetriques,
-rule of three, ouvertures repetitives.
+Si le contenu manque de terrain -> renvoyer au writer, pas compenser.
 
-### Etape 5 — Micro-variations humaines
-Parentheses, incises, questions rhetoriques, aveux d'incertitude.
-1 pour 200-300 mots.
+## CHECKPOINT
 
-### Etape 6 — Lisibilite Flesch FR 60-80
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✨ HUMANISATION — {slug}
 
-### Etape 7 — Accents UTF-8 OBLIGATOIRES
-Verifier que TOUS les mots francais portent leurs accents complets
-(é, è, ê, à, â, ù, û, î, ï, ô, ç). Un contenu sans accents est un DEFAUT
-BLOQUANT au meme titre qu'un pattern IA P0. Les URLs et slugs restent sans accents.
+Burstiness : {score}/1.0 (>= 0.7)
+Flesch FR  : {score} (60-80)
+Patterns IA : {N} (P0:{n} P1:{n} P2:{n})
+Micro-var.  : {N}
+YMYL preserves : {N}
+Contenu terrain modifie : NON
 
-### Etape 8 — YMYL preserve
-Ne JAMAIS modifier le sens d'un claim medical. Marquer [YMYL-VERIFIED].
+→ Pret pour content-evaluator ? (oui/corriger)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
 ## ERROR HANDLING
 
-Contenu sans blocs terrain → NE PAS compenser → renvoyer au writer.
-Burstiness impossible apres 2 passes → signaler au writer.
-Claims ambigus → flagger pour le content-evaluator.
+- Contenu sans blocs terrain -> NE PAS compenser -> renvoyer au writer.
+- Burstiness < 0.5 apres 2 passes -> signaler, reecriture profonde au writer.
+- Claims ambigus -> flagger pour le content-evaluator.
+
+## NOTION
+
+Logger les metriques humanisation par article dans la base editoriale LGA.

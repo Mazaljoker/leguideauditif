@@ -1,35 +1,30 @@
-# Contrats JSON — nposts-content-evaluator
+# Contrats JSON — nposts-content-evaluator v2.0
 
-## Input (depuis nposts-seo-humanizer)
+## Input Contract (from nposts-seo-humanizer)
 
 ```json
 {
   "type": "nposts-seo-humanizer",
   "payload": {
     "slug": "string",
-    "content_md": "string (contenu humanise)",
-    "frontmatter": {
-      "title": "string (max 60 chars)",
-      "description": "string (max 155 chars)",
-      "author": "string",
-      "pubDate": "date ISO",
-      "category": "string",
-      "affiliateDisclosure": "boolean"
-    },
+    "content_md": "string",
+    "frontmatter": {},
     "word_count": "number",
+    "terrain_checklist": {},
     "metrics": {
-      "burstiness": "number (0-1)",
-      "flesch_fr": "number (0-100)",
+      "burstiness": "number",
+      "flesch_fr": "number",
       "ai_patterns_replaced": "number",
       "ai_patterns_detail": { "P0": "number", "P1": "number", "P2": "number" },
-      "anecdotes_injected": "number",
-      "ymyl_claims_preserved": "number"
+      "micro_variations_added": "number",
+      "ymyl_claims_preserved": "number",
+      "terrain_content_modified": false
     }
   }
 }
 ```
 
-## Output (vers me-eeat-compliance si PASS, vers humanizer si REVISE)
+## Output Contract
 
 ```json
 {
@@ -38,32 +33,39 @@
     "slug": "string",
     "score_total": "number (0-100)",
     "scores": {
-      "completude": "number (0-100)",
-      "seo": "number (0-100)",
-      "lisibilite": "number (0-100)",
-      "ia_detection": "number (0-100)",
-      "accuracy": "number (0-100)"
+      "completude": "number",
+      "seo": "number",
+      "lisibilite": "number",
+      "ia_detection": "number",
+      "accuracy": "number",
+      "terrain": "number"
     },
     "verdict": "PASS|REVISE|REJECT",
     "iteration": "number (1-3)",
+    "non_interchangeable_elements": ["string"],
     "issues": [
       {
-        "axe": "completude|seo|lisibilite|ia_detection|accuracy",
+        "axe": "string",
         "description": "string",
-        "severity": "high|medium|low"
+        "severity": "high|medium|low",
+        "target": "writer|humanizer"
       }
     ],
-    "generator_instructions": "string|null"
+    "generator_instructions": "string|null (si REVISE)"
   }
 }
 ```
 
-## Consomme par
+## Consumed by
 
-- `me-eeat-compliance` (Gate 2 — si verdict PASS)
-- `nposts-seo-humanizer` (retour REVISE avec generator_instructions)
-- `nposts-seo-fixer` (issues a corriger)
+- `me-eeat-compliance` : gate 2 (si verdict PASS)
 
-## Recu de
+## Verdicts
 
-- `nposts-seo-humanizer` (contenu humanise avec metriques)
+| Score global | Terrain | Verdict |
+|---|---|---|
+| >= 75 | >= 80 | PASS |
+| >= 75 | < 80 | REVISE (terrain insuffisant) |
+| 55-74 | any | REVISE |
+| < 55 | any | REJECT |
+| any | < 40 | REJECT (auto) |

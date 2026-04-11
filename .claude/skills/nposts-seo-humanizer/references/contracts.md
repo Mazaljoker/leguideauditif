@@ -1,59 +1,54 @@
-# Contrats JSON — nposts-seo-humanizer
+# Contrats JSON — nposts-seo-humanizer v2.0
 
-## Input (depuis me-affiliate-writer ou tout generateur)
+## Input Contract (from me-affiliate-writer)
 
 ```json
 {
   "type": "me-affiliate-writer",
   "payload": {
-    "slug": "string — identifiant unique de l'article",
-    "content_md": "string — contenu markdown brut genere par IA",
-    "frontmatter": {
-      "title": "string (max 60 chars)",
-      "description": "string (max 155 chars)",
-      "author": "string (defaut: Franck-Olivier, Audioprothesiste DE)",
-      "pubDate": "date ISO",
-      "category": "string",
-      "affiliateDisclosure": "boolean"
-    },
+    "slug": "string",
+    "content_md": "string (markdown avec blocs terrain integres)",
+    "frontmatter": {},
     "word_count": "number",
-    "products": "array (si comparatif)"
+    "terrain_checklist": {
+      "hook_dissonant": "boolean",
+      "erreurs_frequentes": "number",
+      "cas_reel": "number",
+      "methode_expert": "boolean",
+      "limites_mentionnees": "number",
+      "prises_position": "number",
+      "expert_judgment": {},
+      "elements_non_interchangeables": "number",
+      "variation_structurelle": "boolean"
+    }
   }
 }
 ```
 
-## Output (vers nposts-content-evaluator)
+## Output Contract
 
 ```json
 {
   "type": "nposts-seo-humanizer",
   "payload": {
     "slug": "string",
-    "content_md": "string — contenu humanise",
+    "content_md": "string (humanise)",
     "frontmatter": {},
     "word_count": "number",
+    "terrain_checklist": "(passe-through du writer, NON modifie)",
     "metrics": {
-      "burstiness": "number (0-1, objectif >= 0.7)",
-      "flesch_fr": "number (0-100, objectif 60-80)",
-      "ai_patterns_replaced": "number total",
-      "ai_patterns_detail": {
-        "P0": "number (objectif: 0 restants)",
-        "P1": "number",
-        "P2": "number"
-      },
-      "anecdotes_injected": "number (1 pour 800-1000 mots)",
-      "ymyl_claims_preserved": "number"
+      "burstiness": "number (0-1)",
+      "flesch_fr": "number (0-100)",
+      "ai_patterns_replaced": "number",
+      "ai_patterns_detail": { "P0": "number", "P1": "number", "P2": "number" },
+      "micro_variations_added": "number",
+      "ymyl_claims_preserved": "number",
+      "terrain_content_modified": false
     }
   }
 }
 ```
 
-## Consomme par
+## Consumed by
 
-- `nposts-content-evaluator` (Gate 1 — evaluation qualite)
-- `me-eeat-compliance` (Gate 2 — si bypass content-evaluator en mode urgence)
-
-## Recu de
-
-- `me-affiliate-writer` (comparatifs, fiches produits)
-- Tout futur generateur (me-guide-writer, etc.)
+- `nposts-content-evaluator` : gate 1 (6 axes)
