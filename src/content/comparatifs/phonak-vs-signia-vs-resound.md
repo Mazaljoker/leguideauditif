@@ -64,9 +64,9 @@ sources:
 
 ## La meilleure marque d'appareil auditif n'existe pas
 
-Je le dis à chaque premier rendez-vous depuis 25 ans, et je vais vous le dire aussi : si quelqu'un vous affirme que Phonak est "la meilleure marque", ou que Signia "surpasse tout le monde", cette personne ne connaît pas son métier. Ou bien elle a un accord commercial qu'elle ne vous révèle pas.
+Je le dis à chaque premier rendez-vous depuis 28 ans, et je vais vous le dire aussi : si quelqu'un vous affirme que Phonak est "la meilleure marque", ou que Signia "surpasse tout le monde", cette personne ne connaît pas son métier. Ou bien elle a un accord commercial qu'elle ne vous révèle pas.
 
-En 25 ans de pratique et plus de 3 000 patients appareillés, j'ai vu des patients pleurer de soulagement avec un Phonak à 1 600 euros -- et d'autres le rapporter au bout de trois jours en disant "je n'entends rien". Le même appareil. Des audiogrammes comparables. La différence ? Le cerveau de chaque patient traite le signal différemment. La morphologie du conduit auditif change tout. Le mode de vie aussi.
+En 28 ans de pratique et plus de 3 000 patients appareillés, j'ai vu des patients pleurer de soulagement avec un Phonak à 1 600 euros -- et d'autres le rapporter au bout de trois jours en disant "je n'entends rien". Le même appareil. Des audiogrammes comparables. La différence ? Le cerveau de chaque patient traite le signal différemment. La morphologie du conduit auditif change tout. Le mode de vie aussi.
 
 Ce comparatif ne vous donnera pas "le gagnant". Il vous donnera les éléments pour poser les bonnes questions à votre audioprothésiste -- et éviter les erreurs que je vois chaque semaine en cabinet.
 

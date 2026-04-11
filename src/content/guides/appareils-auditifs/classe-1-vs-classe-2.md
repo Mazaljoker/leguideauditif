@@ -1,12 +1,12 @@
 ---
 title: "Classe 1 vs Classe 2 : la vraie question n'est pas celle que vous croyez"
-metaDescription: "Appareils auditifs Classe 1 vs Classe 2 : prix, technologies, remboursement. Guide terrain par un audioprothésiste DE, 25 ans d'expérience."
+metaDescription: "Appareils auditifs Classe 1 vs Classe 2 : prix, technologies, remboursement. Guide terrain par un audioprothésiste DE, 28 ans d'expérience."
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-11
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE — 25 ans d'expérience"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 image: /images/blog/classe-1-vs-classe-2/classe-1-vs-classe-2.webp
 ogImage: /images/blog/classe-1-vs-classe-2/classe-1-vs-classe-2-og.webp
 readingTime: 8
@@ -36,7 +36,7 @@ faq:
     answer: "Le choix dépend de votre mode de vie, de votre degré de perte auditive et de vos besoins en connectivité. Un audioprothésiste DE pourra vous orienter après un bilan complet. La règle d'or : testez les deux classes pendant la période d'essai avant de décider."
 ---
 
-Je vais vous dire quelque chose que peu d'audioprothésistes osent formuler aussi directement : **la question "Classe 1 ou Classe 2 ?" est la mauvaise question.** Elle met le patient dans une logique de gamme — comme s'il choisissait entre une voiture d'entrée de gamme et une berline premium. Or un appareil auditif n'est pas un produit de consommation. C'est un dispositif médical qui doit correspondre à votre perte auditive, à vos environnements de vie et à votre capacité d'adaptation. Après 25 ans de pratique et plus de 3 000 patients appareillés, je peux vous affirmer que la bonne question est : **"De quoi ai-je réellement besoin pour entendre mieux au quotidien ?"**
+Je vais vous dire quelque chose que peu d'audioprothésistes osent formuler aussi directement : **la question "Classe 1 ou Classe 2 ?" est la mauvaise question.** Elle met le patient dans une logique de gamme — comme s'il choisissait entre une voiture d'entrée de gamme et une berline premium. Or un appareil auditif n'est pas un produit de consommation. C'est un dispositif médical qui doit correspondre à votre perte auditive, à vos environnements de vie et à votre capacité d'adaptation. Après 28 ans de pratique et plus de 3 000 patients appareillés, je peux vous affirmer que la bonne question est : **"De quoi ai-je réellement besoin pour entendre mieux au quotidien ?"**
 
 ## Ce que la réforme 100% Santé a changé concrètement
 
@@ -131,7 +131,7 @@ Je refuse de vous vendre un choix idéal. Chaque classe a ses faiblesses, et vou
 
 ## Mes prises de position
 
-Après 25 ans et plus de 3 000 patients, je me permets deux avis tranchés.
+Après 28 ans et plus de 3 000 patients, je me permets deux avis tranchés.
 
 **Premier avis : la Classe 1 est la meilleure innovation de la dernière décennie en audioprothèse.** Avant la réforme 100% Santé, le reste à charge moyen dépassait 800 euros par oreille. Des milliers de Français renonçaient à s'appareiller pour des raisons financières. La Classe 1 a supprimé cette barrière. J'ai vu des patients entendre à nouveau après des années de renoncement — non pas parce que la technologie n'existait pas, mais parce qu'ils n'avaient pas les moyens. Quiconque dénigre la Classe 1 comme "du bas de gamme" n'a jamais vu le visage d'un patient qui retrouve une conversation normale après dix ans de silence progressif.
 

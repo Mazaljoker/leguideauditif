@@ -1,6 +1,6 @@
 ---
 title: "Perte auditive chez l'enfant : dépistage, signes et prise en charge"
-metaDescription: "Perte auditive chez l'enfant : signes d'alerte par âge, dépistage néonatal, erreurs fréquentes des parents, solutions. Guide terrain par un audioprothésiste DE, 25 ans d'expérience."
+metaDescription: "Perte auditive chez l'enfant : signes d'alerte par âge, dépistage néonatal, erreurs fréquentes des parents, solutions. Guide terrain par un audioprothésiste DE, 28 ans d'expérience."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07

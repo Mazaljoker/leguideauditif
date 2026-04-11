@@ -1,6 +1,6 @@
 ---
 title: "Thérapie sonore (TRT, masquage, sons fractals) : ce qui fonctionne vraiment"
-metaDescription: "Thérapie sonore contre les acouphènes : TRT, masquage, sons fractals. Protocole concret, erreurs courantes et résultats réels — par un audioprothésiste DE, 25 ans."
+metaDescription: "Thérapie sonore contre les acouphènes : TRT, masquage, sons fractals. Protocole concret, erreurs courantes et résultats réels — par un audioprothésiste DE, 28 ans."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
@@ -38,9 +38,9 @@ faq:
     answer: "La TRT pour le long terme, le masquage total en dépannage ponctuel. Le masquage total soulage immédiatement mais n'entraîne aucune habituation. Dès que vous retirez le masqueur, l'acouphène revient identique. La TRT demande de la patience mais modifie durablement la réponse de votre cerveau."
 ---
 
-La thérapie sonore ne masque pas les acouphènes -- elle réapprend au cerveau à les ignorer. Cette distinction, en apparence subtile, change tout. C'est la différence entre un pansement que vous devez porter à vie et un processus qui modifie durablement la façon dont votre cerveau traite le signal. En vingt-cinq ans de pratique et plus de trois mille patients accompagnés, c'est l'approche qui m'a donné les résultats les plus constants. Pas les plus rapides -- les plus constants.
+La thérapie sonore ne masque pas les acouphènes -- elle réapprend au cerveau à les ignorer. Cette distinction, en apparence subtile, change tout. C'est la différence entre un pansement que vous devez porter à vie et un processus qui modifie durablement la façon dont votre cerveau traite le signal. En vingt-huit ans de pratique et plus de trois mille patients accompagnés, c'est l'approche qui m'a donné les résultats les plus constants. Pas les plus rapides -- les plus constants.
 
-Ce que je vais vous détailler ici, ce n'est pas la théorie du manuel. C'est le protocole que j'ai affiné consultation après consultation, avec les erreurs que j'ai vues mes patients commettre, les ajustements que les études cliniques ne mentionnent pas, et les réalités du terrain que vingt-cinq ans de cabinet m'ont enseignées.
+Ce que je vais vous détailler ici, ce n'est pas la théorie du manuel. C'est le protocole que j'ai affiné consultation après consultation, avec les erreurs que j'ai vues mes patients commettre, les ajustements que les études cliniques ne mentionnent pas, et les réalités du terrain que vingt-huit ans de cabinet m'ont enseignées.
 
 ## Trois erreurs que je corrige chaque semaine en consultation
 
@@ -158,4 +158,4 @@ Si vos acouphènes sont chroniques (présents depuis plus de trois mois) et qu'i
 
 Pour comprendre l'ensemble des options de traitement disponibles, consultez notre [guide complet des traitements des acouphenes](/guides/acouphenes/traitement/). Pour la relation entre stress et acouphènes, lisez notre [dossier acouphenes et stress](/guides/acouphenes/stress/). Et pour une vue d'ensemble de la problématique, retrouvez notre [dossier acouphenes](/guides/acouphenes/).
 
-*Ce contenu a été rédigé par Franck-Olivier, audioprothésiste DE avec 25 ans d'expérience et plus de 3 000 patients accompagnés. Il ne remplace pas une consultation médicale. Consultez un ORL ou un audioprothésiste pour un diagnostic et une prise en charge adaptés à votre situation.*
+*Ce contenu a été rédigé par Franck-Olivier, audioprothésiste DE avec 28 ans d'expérience et plus de 3 000 patients accompagnés. Il ne remplace pas une consultation médicale. Consultez un ORL ou un audioprothésiste pour un diagnostic et une prise en charge adaptés à votre situation.*

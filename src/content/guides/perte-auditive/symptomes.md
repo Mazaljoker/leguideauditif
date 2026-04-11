@@ -1,6 +1,6 @@
 ---
 title: "Les 7 symptômes d'une perte auditive à ne pas ignorer"
-metaDescription: "Découvrez les 7 signes qui indiquent une perte auditive : difficulté à entendre, TV trop forte, fatigue auditive. Guide par un audioprothésiste DE, 25 ans d'expérience."
+metaDescription: "Découvrez les 7 signes qui indiquent une perte auditive : difficulté à entendre, TV trop forte, fatigue auditive. Guide par un audioprothésiste DE, 28 ans d'expérience."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
@@ -36,7 +36,7 @@ faq:
     answer: "Oui, une ordonnance médicale (médecin généraliste ou ORL) est obligatoire pour un premier appareillage auditif. Cependant, un bilan auditif gratuit de dépistage peut être réalisé sans ordonnance dans la plupart des centres d'audioprothèse."
 ---
 
-Ce qui me frappe après 25 ans de pratique, c'est que la plupart de mes patients ne viennent pas me voir parce qu'ils pensent mal entendre. Ils viennent parce que leur conjoint en a assez de répéter, parce que leur fille a menacé de ne plus les appeler, ou parce que le médecin traitant a insisté. La perte auditive est la seule pathologie où c'est l'entourage qui fait le diagnostic avant le patient.
+Ce qui me frappe après 28 ans de pratique, c'est que la plupart de mes patients ne viennent pas me voir parce qu'ils pensent mal entendre. Ils viennent parce que leur conjoint en a assez de répéter, parce que leur fille a menacé de ne plus les appeler, ou parce que le médecin traitant a insisté. La perte auditive est la seule pathologie où c'est l'entourage qui fait le diagnostic avant le patient.
 
 Près de 6 millions de Français vivent avec une perte auditive selon l'Organisation mondiale de la santé (OMS). Le délai moyen avant consultation : 7 ans. Sept années pendant lesquelles le cerveau se déshabitue progressivement des sons qu'il ne reçoit plus. Et chaque année de retard rend la réadaptation plus difficile.
 
@@ -142,7 +142,7 @@ Beaucoup de mes patients arrivent en me disant qu'ils sont "fatigués le soir, c
 
 ## Ma méthode : 3 questions pour détecter une perte auditive
 
-En 25 ans, j'ai affiné un mini-test que je pose dès les premières minutes de consultation. Ce n'est pas un audiogramme, ce n'est pas un diagnostic. C'est un filtre rapide qui me dit si je dois creuser.
+En 28 ans, j'ai affiné un mini-test que je pose dès les premières minutes de consultation. Ce n'est pas un audiogramme, ce n'est pas un diagnostic. C'est un filtre rapide qui me dit si je dois creuser.
 
 **Question 1 : "Est-ce que vos proches vous reprochent de ne pas entendre ?"**
 Si la réponse est oui, c'est presque toujours confirmé par l'audiogramme. L'entourage détecte la perte avant le patient dans 9 cas sur 10 dans ma pratique.
@@ -183,7 +183,7 @@ Une perte auditive peut être liée à l'âge (presbyacousie), à un traumatisme
 
 ### Le déni est le vrai problème, pas la perte elle-même
 
-En 25 ans, je n'ai jamais vu un patient regretter de s'être appareillé. Jamais. En revanche, j'en ai vu des centaines regretter d'avoir attendu. Le déni est le premier obstacle à la prise en charge, et il est entretenu par une société qui considère encore les aides auditives comme un signe de vieillesse. C'est faux. C'est un outil de santé, comme les lunettes.
+En 28 ans, je n'ai jamais vu un patient regretter de s'être appareillé. Jamais. En revanche, j'en ai vu des centaines regretter d'avoir attendu. Le déni est le premier obstacle à la prise en charge, et il est entretenu par une société qui considère encore les aides auditives comme un signe de vieillesse. C'est faux. C'est un outil de santé, comme les lunettes.
 
 La HAS recommande un appareillage dès que la perte atteint 30 dB sur les fréquences conversationnelles. À ce stade, les aides auditives sont efficaces et l'adaptation est rapide. À 50 dB et 10 ans de retard, le cerveau a "oublié" certains sons et la rééducation auditive prend des mois.
 

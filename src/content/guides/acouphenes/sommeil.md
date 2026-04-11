@@ -1,6 +1,6 @@
 ---
 title: "Acouphènes et sommeil : retrouver des nuits calmes"
-metaDescription: "Acouphènes et insomnie : stratégies terrain pour retrouver le sommeil. Enrichissement sonore, TCC-I, hygiène du sommeil — par un audioprothésiste DE, 25 ans d'expérience."
+metaDescription: "Acouphènes et insomnie : stratégies terrain pour retrouver le sommeil. Enrichissement sonore, TCC-I, hygiène du sommeil — par un audioprothésiste DE, 28 ans d'expérience."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
@@ -33,7 +33,7 @@ faq:
     answer: "Non. Retirez-les la nuit pour l'hygiène du conduit et la longévité des appareils. Utilisez plutôt un générateur de bruit de chevet ou un oreiller à haut-parleur intégré."
 ---
 
-Le silence de la nuit est l'ennemi numéro un des acouphéniques. Je le dis à chaque patient qui s'assoit dans mon cabinet avec des cernes et ce regard que je reconnais immédiatement — celui de quelqu'un qui n'a pas dormi correctement depuis des semaines. En vingt-cinq ans d'exercice et plus de trois mille patients appareillés, j'ai constaté une constante : le sommeil est le premier motif de plainte chez les acouphéniques, avant même la gêne en journée. Le sifflement qui était supportable à midi devient un supplice à minuit.
+Le silence de la nuit est l'ennemi numéro un des acouphéniques. Je le dis à chaque patient qui s'assoit dans mon cabinet avec des cernes et ce regard que je reconnais immédiatement — celui de quelqu'un qui n'a pas dormi correctement depuis des semaines. En vingt-huit ans d'exercice et plus de trois mille patients appareillés, j'ai constaté une constante : le sommeil est le premier motif de plainte chez les acouphéniques, avant même la gêne en journée. Le sifflement qui était supportable à midi devient un supplice à minuit.
 
 Ce que je vais vous expliquer ici, ce ne sont pas des conseils génériques recopiés d'une brochure. C'est le protocole que j'ai construit au fil de vingt-cinq années de consultations, ajusté patient après patient, erreur après erreur. Certains points vont à contre-courant de ce que vous lirez ailleurs. C'est normal : le terrain enseigne des choses que la théorie ne prévoit pas.
 
@@ -131,17 +131,17 @@ Je refuse de vous vendre une promesse que je ne peux pas tenir. Voici ce que l'e
 
 **Ils ne suppriment pas l'acouphène.** Aucun traitement validé à ce jour ne supprime un acouphène chronique. Quiconque vous promet le contraire — thérapeute, site internet ou fabricant de complément alimentaire — vous ment ou se trompe. L'objectif réaliste, c'est l'habituation : l'acouphène est toujours là, mais votre cerveau cesse de le traiter comme une menace. Et quand il cesse d'être une menace, il cesse de vous empêcher de dormir.
 
-**Le protocole ne fonctionne pas pour tout le monde.** En vingt-cinq ans, j'ai vu des patients pour lesquels ni l'enrichissement sonore, ni la TCC-I, ni l'appareillage n'ont suffi. Des acouphènes sévères avec hyperacousie associée. Des syndromes anxio-dépressifs profonds qui nécessitent une prise en charge psychiatrique avant toute intervention audiologique. Des patients qui ne tolèrent aucun son de fond — le générateur les agace autant que l'acouphène. Ces cas existent. Ils représentent environ 10 à 15 % de ma patientèle acouphénique. Je les oriente vers des centres pluridisciplinaires spécialisés (ORL + psychiatre + psychologue + audioprothésiste) qui disposent de moyens que le cabinet libéral n'a pas.
+**Le protocole ne fonctionne pas pour tout le monde.** En vingt-huit ans, j'ai vu des patients pour lesquels ni l'enrichissement sonore, ni la TCC-I, ni l'appareillage n'ont suffi. Des acouphènes sévères avec hyperacousie associée. Des syndromes anxio-dépressifs profonds qui nécessitent une prise en charge psychiatrique avant toute intervention audiologique. Des patients qui ne tolèrent aucun son de fond — le générateur les agace autant que l'acouphène. Ces cas existent. Ils représentent environ 10 à 15 % de ma patientèle acouphénique. Je les oriente vers des centres pluridisciplinaires spécialisés (ORL + psychiatre + psychologue + audioprothésiste) qui disposent de moyens que le cabinet libéral n'a pas.
 
 **Le ginkgo biloba, le magnésium, la mélatonine ?** Aucun complément alimentaire n'a démontré d'efficacité spécifique sur les acouphènes dans des essais contrôlés randomisés rigoureux. La mélatonine peut aider l'endormissement en cas de décalage horaire, mais elle n'agit pas sur le mécanisme acouphénique. Je ne les interdis pas — je dis simplement : ne comptez pas dessus et ne dépensez pas votre argent sur des promesses non validées.
 
 ## Mes positions tranchées
 
-Ces positions s'appuient sur vingt-cinq ans de pratique et sur la littérature. Elles ne plairont pas à tout le monde. Tant pis.
+Ces positions s'appuient sur vingt-huit ans de pratique et sur la littérature. Elles ne plairont pas à tout le monde. Tant pis.
 
 **L'enrichissement sonore partiel est supérieur au masquage total.** Le masquage complet (ne plus entendre du tout l'acouphène) soulage immédiatement mais empêche l'habituation à long terme. Le cerveau ne peut pas apprendre à ignorer un signal qu'il ne perçoit plus. Le *mixing point* — acouphène encore légèrement perceptible — est inconfortable les premiers jours mais nettement plus efficace sur la durée. C'est le principe de la TRT validé depuis les travaux de Jastreboff.
 
-**Les somnifères n'ont rien à faire dans la prise en charge des acouphènes.** Jamais en première intention. Jamais en traitement de fond. Éventuellement en prescription courte (7 jours maximum) dans une crise aiguë avec risque suicidaire, sous supervision stricte. En dehors de ce cas extrême, la TCC-I fait mieux, sans les effets secondaires. En vingt-cinq ans, je n'ai pas vu un seul patient dont les somnifères aient durablement résolu le problème de sommeil lié aux acouphènes.
+**Les somnifères n'ont rien à faire dans la prise en charge des acouphènes.** Jamais en première intention. Jamais en traitement de fond. Éventuellement en prescription courte (7 jours maximum) dans une crise aiguë avec risque suicidaire, sous supervision stricte. En dehors de ce cas extrême, la TCC-I fait mieux, sans les effets secondaires. En vingt-huit ans, je n'ai pas vu un seul patient dont les somnifères aient durablement résolu le problème de sommeil lié aux acouphènes.
 
 **L'appareillage auditif est sous-estimé comme outil anti-acouphènes nocturnes.** Non, vous ne portez pas vos appareils la nuit. Mais un patient correctement appareillé en journée arrive le soir avec un cerveau qui a reçu des stimulations auditives normales pendant 14 heures. Sa sensibilité centrale est recalibrée. Le gain interne est moins excessif. L'acouphène perçu au coucher est moins intense que celui d'un patient non appareillé. Je le constate systématiquement chez les acouphéniques presbyacousiques : l'appareillage diurne améliore les nuits, même sans aucun dispositif nocturne.
 

@@ -1,6 +1,6 @@
 ---
 title: "Surdité brusque : urgence médicale, chaque heure compte"
-metaDescription: "Surdité brusque : pourquoi consulter un ORL dans les 48h. Symptômes, erreurs à éviter, traitement corticoïdes. Guide audioprothésiste DE, 25 ans d'expérience."
+metaDescription: "Surdité brusque : pourquoi consulter un ORL dans les 48h. Symptômes, erreurs à éviter, traitement corticoïdes. Guide audioprothésiste DE, 28 ans d'expérience."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
@@ -37,7 +37,7 @@ Vous vous réveillez un matin et votre oreille droite est muette. Pas un son. Pa
 
 Non. Ça ne va pas passer. Vous êtes peut-être en train de vivre une surdité brusque. Et c'est une urgence médicale. Pas une urgence "dans la semaine". Une urgence dans les 48 heures. Chaque heure qui passe sans traitement réduit vos chances de récupérer votre audition.
 
-En 25 ans de pratique et 3 000 patients appareillés, j'ai vu ce scénario se répéter des dizaines de fois. Et à chaque fois, la même question me hante : si ce patient était venu plus tôt, aurait-on pu sauver son oreille ?
+En 28 ans de pratique et 3 000 patients appareillés, j'ai vu ce scénario se répéter des dizaines de fois. Et à chaque fois, la même question me hante : si ce patient était venu plus tôt, aurait-on pu sauver son oreille ?
 
 ## Ce que c'est vraiment : définition médicale stricte
 
@@ -53,7 +53,7 @@ L'incidence est estimée entre 5 et 20 cas pour 100 000 personnes par an, avec u
 
 ## Les 3 erreurs qui coûtent des oreilles
 
-En 25 ans, j'ai identifié trois réactions qui reviennent systématiquement chez les patients qui consultent trop tard. Trois erreurs que je veux vous aider à éviter.
+En 28 ans, j'ai identifié trois réactions qui reviennent systématiquement chez les patients qui consultent trop tard. Trois erreurs que je veux vous aider à éviter.
 
 ### Erreur n°1 : "Ça va passer tout seul"
 
@@ -197,7 +197,7 @@ L'appareillage auditif peut être proposé lorsque la perte stabilisée le justi
 
 ## Mon jugement d'expert
 
-Après 25 ans et des dizaines de patients concernés par la surdité brusque, voici ce que je retiens.
+Après 28 ans et des dizaines de patients concernés par la surdité brusque, voici ce que je retiens.
 
 La surdité brusque est l'une des rares situations en audiologie où le facteur temps fait une différence mesurable et documentée sur le pronostic. Ce n'est pas comme la presbyacousie, qui évolue lentement et laisse le temps de la réflexion. Ici, chaque jour compte.
 

@@ -1,6 +1,6 @@
 ---
 title: "Hyperacousie : quand le bruit devient douleur"
-metaDescription: "Hyperacousie : causes, diagnostic et prise en charge par un audioprothésiste DE 25 ans. Ce que le terrain m'a appris sur cette intolérance au son."
+metaDescription: "Hyperacousie : causes, diagnostic et prise en charge par un audioprothésiste DE 28 ans. Ce que le terrain m'a appris sur cette intolérance au son."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
@@ -33,7 +33,7 @@ faq:
     answer: "Oui, la phonophobie migraineuse et l'hyperacousie partagent des voies neurologiques communes. Les deux peuvent coexister chez le même patient, ce qui complique le diagnostic différentiel."
 ---
 
-L'hyperacousie est souvent confondue avec une simple sensibilité au bruit. C'est un malentendu que je corrige presque chaque semaine en consultation. La personne qui grimace quand on pose une cuillère dans une assiette, qui évite les restaurants, qui hésite à sortir de chez elle par crainte du bruit ambiant, ne fait pas "du cinéma". Elle vit avec un dysfonctionnement du traitement central du son qui transforme des bruits ordinaires en agression, parfois en douleur physique. En 25 ans de pratique et plus de 3 000 patients appareillés, j'ai accompagné des dizaines de personnes dans cette situation. Ce que j'ai appris sur le terrain diffère souvent de ce qu'on lit dans les manuels.
+L'hyperacousie est souvent confondue avec une simple sensibilité au bruit. C'est un malentendu que je corrige presque chaque semaine en consultation. La personne qui grimace quand on pose une cuillère dans une assiette, qui évite les restaurants, qui hésite à sortir de chez elle par crainte du bruit ambiant, ne fait pas "du cinéma". Elle vit avec un dysfonctionnement du traitement central du son qui transforme des bruits ordinaires en agression, parfois en douleur physique. En 28 ans de pratique et plus de 3 000 patients appareillés, j'ai accompagné des dizaines de personnes dans cette situation. Ce que j'ai appris sur le terrain diffère souvent de ce qu'on lit dans les manuels.
 
 ## Trois erreurs que je corrige chaque semaine
 
@@ -59,7 +59,7 @@ La recherche actuelle (Pienkowski et al., Frontiers in Neurology, 2024) distingu
 
 ## Ma méthode de bilan en 4 étapes
 
-Le diagnostic d'hyperacousie ne se résume pas à une seule mesure. Voici le protocole que j'ai affiné sur 25 ans de pratique.
+Le diagnostic d'hyperacousie ne se résume pas à une seule mesure. Voici le protocole que j'ai affiné sur 28 ans de pratique.
 
 **Étape 1 : le questionnaire d'impact.** Avant même de toucher un appareil de mesure, je prends vingt minutes pour comprendre le quotidien du patient. Quelles situations sont évitées ? Depuis quand ? Y a-t-il eu un élément déclencheur identifiable ? Le retentissement social est-il mesuré (isolement, arrêt de travail, tensions familiales) ? Ce n'est pas du bavardage : c'est la cartographie sans laquelle tout le reste est aveugle.
 
@@ -121,7 +121,7 @@ Le parcours de soins est souvent mal structuré en France. Beaucoup de patients 
 
 Si vous utilisez des [protections auditives](/guides/prevention/protections-auditives/), privilégiez des modèles filtrants qui atténuent le son sans le couper complètement. Votre audioprothésiste peut vous conseiller le modèle adapté à votre situation.
 
-## Mon jugement d'expert après 25 ans
+## Mon jugement d'expert après 28 ans
 
 L'hyperacousie reste un angle mort de l'audiologie française. Beaucoup de confrères ne mesurent pas systématiquement les LDL. Beaucoup d'ORL considèrent encore qu'un audiogramme normal exclut un problème auditif. La formation initiale sur ce sujet est insuffisante, et la formation continue reste optionnelle.
 

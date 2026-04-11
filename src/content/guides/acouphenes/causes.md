@@ -1,6 +1,6 @@
 ---
 title: "Acouphènes : les causes principales"
-metaDescription: "Les causes des acouphènes : bruit, âge, stress, médicaments. Comprendre pour mieux agir. Guide audioprothésiste DE 25 ans."
+metaDescription: "Les causes des acouphènes : bruit, âge, stress, médicaments. Comprendre pour mieux agir. Guide audioprothésiste DE 28 ans."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
@@ -34,7 +34,7 @@ faq:
     answer: "Oui. Un bouchon comprime le tympan et peut provoquer des acouphènes temporaires. Ils disparaissent après extraction. C'est la première cause à éliminer avant toute investigation."
 ---
 
-Les acouphènes ont rarement une cause unique. C'est la première chose que je dis aux patients qui s'assoient en face de moi avec cette question : "Pourquoi moi ?" En 25 ans de pratique et plus de 3 000 patients appareillés, j'ai appris que chercher LA cause est souvent une impasse. La réalité clinique est presque toujours multifactorielle : une fragilité cochléaire ancienne, un déclencheur ponctuel, un terrain anxieux qui fait basculer la perception. Selon l'INSERM, 4 à 7 millions de Français vivent avec des acouphènes. Comprendre ce qui nourrit les vôtres est la première étape vers une prise en charge qui tient la route.
+Les acouphènes ont rarement une cause unique. C'est la première chose que je dis aux patients qui s'assoient en face de moi avec cette question : "Pourquoi moi ?" En 28 ans de pratique et plus de 3 000 patients appareillés, j'ai appris que chercher LA cause est souvent une impasse. La réalité clinique est presque toujours multifactorielle : une fragilité cochléaire ancienne, un déclencheur ponctuel, un terrain anxieux qui fait basculer la perception. Selon l'INSERM, 4 à 7 millions de Français vivent avec des acouphènes. Comprendre ce qui nourrit les vôtres est la première étape vers une prise en charge qui tient la route.
 
 ## Trois erreurs que je corrige chaque semaine en consultation
 
@@ -155,7 +155,7 @@ La recherche sur les acouphènes a considérablement progressé, mais il faut ê
 
 ## Ma position professionnelle
 
-Après 25 ans de pratique et des milliers de patients acouphéniques suivis, voici ce que je défends.
+Après 28 ans de pratique et des milliers de patients acouphéniques suivis, voici ce que je défends.
 
 **L'acouphène n'est pas une maladie, c'est un symptôme.** Le traiter sans chercher ce qui le nourrit est une erreur de méthode. Le bilan étiologique complet n'est pas optionnel, il est la base.
 
@@ -165,7 +165,7 @@ Après 25 ans de pratique et des milliers de patients acouphéniques suivis, voi
 
 **Le "il faudra vivre avec" est une phrase à bannir.** Ce n'est pas faux sur le plan strictement médical, dans le sens où l'acouphène persiste souvent. Mais c'est cliniquement irresponsable parce que cela ferme la porte à toute démarche d'adaptation. La grande majorité des patients peuvent voir leur gêne diminuer significativement avec une prise en charge structurée.
 
-## Jugement clinique : ce que 25 ans m'ont appris
+## Jugement clinique : ce que 28 ans m'ont appris
 
 Si je devais résumer ce que l'expérience terrain m'a enseigné sur les causes des acouphènes, ce serait ceci.
 

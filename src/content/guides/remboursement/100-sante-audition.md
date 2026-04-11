@@ -1,6 +1,6 @@
 ---
 title: "100% Santé audition : tout comprendre en 5 minutes"
-metaDescription: "Le 100% Santé audition expliqué par un audioprothésiste DE : conditions, appareils éligibles, reste à charge zéro, démarches. Ce que 25 ans de terrain m'ont appris."
+metaDescription: "Le 100% Santé audition expliqué par un audioprothésiste DE : conditions, appareils éligibles, reste à charge zéro, démarches. Ce que 28 ans de terrain m'ont appris."
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07
@@ -39,7 +39,7 @@ faq:
 
 ## Non, les appareils 100% Santé ne sont pas du « premier prix au rabais »
 
-Je vais être direct : en 25 ans d'exercice, je n'ai jamais vu une réforme aussi mal comprise par le grand public. Quand je dis à un patient que ses appareils auditifs peuvent être intégralement pris en charge, la réaction la plus fréquente est un regard méfiant. « Gratuit ? Alors c'est de la camelote. »
+Je vais être direct : en 28 ans d'exercice, je n'ai jamais vu une réforme aussi mal comprise par le grand public. Quand je dis à un patient que ses appareils auditifs peuvent être intégralement pris en charge, la réaction la plus fréquente est un regard méfiant. « Gratuit ? Alors c'est de la camelote. »
 
 C'est faux. Et cette idée reçue empêche des milliers de personnes de s'équiper.
 

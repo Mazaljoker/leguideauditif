@@ -24,7 +24,7 @@ sources:
     url: "https://pubmed.ncbi.nlm.nih.gov/37648890/"
 faq:
   - question: "Le stress peut-il provoquer des acouphènes ?"
-    answer: "Le stress ne crée pas la lésion cochléaire qui génère l'acouphène. Mais il amplifie massivement la perception du signal via le système limbique. En 25 ans de pratique, je n'ai jamais vu un stress seul provoquer un acouphène chez une cochlée saine."
+    answer: "Le stress ne crée pas la lésion cochléaire qui génère l'acouphène. Mais il amplifie massivement la perception du signal via le système limbique. En 28 ans de pratique, je n'ai jamais vu un stress seul provoquer un acouphène chez une cochlée saine."
   - question: "Comment briser le cercle vicieux stress-acouphènes ?"
     answer: "Par un protocole combiné : enrichissement sonore calibré, TCC avec un psychologue formé aux acouphènes, et activité physique régulière. L'objectif n'est pas de supprimer le son mais de désactiver la réponse émotionnelle."
   - question: "La méditation aide-t-elle contre les acouphènes liés au stress ?"
@@ -35,7 +35,7 @@ faq:
     answer: "L'activité physique régulière réduit le cortisol et améliore le sommeil, deux facteurs qui atténuent la perception des acouphènes. Ce n'est pas un traitement, c'est un levier complémentaire que je recommande systématiquement."
 ---
 
-Le stress ne cause pas les acouphènes -- mais il les rend insupportables. Cette phrase, je la répète en consultation depuis vingt-cinq ans. Et pourtant, la confusion persiste. Des patients arrivent persuadés que leur stress a "créé" l'acouphène. D'autres pensent que tant qu'ils seront stressés, rien ne pourra s'améliorer. Les deux se trompent, et ces croyances aggravent leur situation.
+Le stress ne cause pas les acouphènes -- mais il les rend insupportables. Cette phrase, je la répète en consultation depuis vingt-huit ans. Et pourtant, la confusion persiste. Des patients arrivent persuadés que leur stress a "créé" l'acouphène. D'autres pensent que tant qu'ils seront stressés, rien ne pourra s'améliorer. Les deux se trompent, et ces croyances aggravent leur situation.
 
 Ce que le stress fait réellement, c'est transformer un signal auditif gérable en obsession permanente. Il active un cercle vicieux neurologique documenté par l'INSERM : l'acouphène génère du stress, le stress amplifie la perception de l'acouphène, la perception amplifiée génère plus de stress. Cette boucle peut tourner pendant des mois. J'ai vu des patients perdre leur emploi, leur couple, leur sommeil -- non pas à cause de l'acouphène lui-même, mais à cause de ce cercle que personne ne leur avait expliqué.
 
@@ -129,13 +129,13 @@ Sur ces points, je suis en accord total avec le consensus.
 
 Là où je me permets une position plus tranchée que les recommandations officielles :
 
-- **Le silence est un ennemi actif, pas une simple absence de bruit.** Les recommandations HAS mentionnent l'enrichissement sonore. En cabinet, je vais plus loin : j'interdis formellement le silence prolongé à mes patients acouphéniques, y compris la nuit. En vingt-cinq ans, je n'ai jamais vu un patient s'améliorer dans le silence.
+- **Le silence est un ennemi actif, pas une simple absence de bruit.** Les recommandations HAS mentionnent l'enrichissement sonore. En cabinet, je vais plus loin : j'interdis formellement le silence prolongé à mes patients acouphéniques, y compris la nuit. En vingt-huit ans, je n'ai jamais vu un patient s'améliorer dans le silence.
 - **Le psychologue non formé aux acouphènes peut faire plus de mal que de bien.** Les recommandations disent "TCC". Moi je dis : TCC avec un professionnel qui connaît le modèle de Jastreboff. La nuance est fondamentale. J'ai reçu des patients dont la thérapie avait involontairement renforcé l'hypervigilance au symptôme.
 - **L'appareillage auditif est sous-utilisé dans la gestion du stress acouphénique.** Beaucoup d'ORL ne pensent pas à l'appareillage quand la perte auditive est légère. Or, même une aide auditive sur une presbyacousie débutante réintroduit des stimulations qui facilitent l'habituation et réduisent le besoin de gain central. C'est un levier anti-stress direct que je prescris bien plus souvent que ce que les recommandations générales suggèrent.
 
 ## Mon avis d'expert
 
-Après vingt-cinq ans de pratique et plus de 3 000 patients adaptés, voici ce que je retiens sur le lien stress-acouphènes :
+Après vingt-huit ans de pratique et plus de 3 000 patients adaptés, voici ce que je retiens sur le lien stress-acouphènes :
 
 Le stress ne crée pas l'acouphène, mais il détermine si vous allez vivre avec ou souffrir avec. J'ai vu des patients avec des acouphènes objectivement forts mener une vie parfaitement normale parce que leur système limbique avait appris à ignorer le signal. Et j'ai vu des patients avec des acouphènes légers sombrer dans la dépression parce que personne ne leur avait expliqué le cercle vicieux ni donné les outils pour le briser.
 

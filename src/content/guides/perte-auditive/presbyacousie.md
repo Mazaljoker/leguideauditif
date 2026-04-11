@@ -1,6 +1,6 @@
 ---
 title: "Presbyacousie : comprendre et agir face à la perte auditive liée à l'âge"
-metaDescription: "Presbyacousie expliquée par un audioprothésiste DE 25 ans d'expérience : mécanisme, erreurs fréquentes, diagnostic, appareillage et lien avec le déclin cognitif."
+metaDescription: "Presbyacousie expliquée par un audioprothésiste DE 28 ans d'expérience : mécanisme, erreurs fréquentes, diagnostic, appareillage et lien avec le déclin cognitif."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
@@ -33,14 +33,14 @@ faq:
   - question: "La presbyacousie touche-t-elle les deux oreilles ?"
     answer: "Oui, elle est bilatérale et symétrique. C'est un critère diagnostique important. Si la perte est nettement plus marquée d'un côté, je suspecte autre chose — traumatisme sonore unilatéral, neurinome, otospongiose — et j'oriente vers l'ORL pour des examens complémentaires."
   - question: "Peut-on porter un seul appareil avec la presbyacousie ?"
-    answer: "L'appareillage binaural est la règle, pas l'exception. La HAS le recommande pour la localisation des sons et la compréhension dans le bruit. Un seul appareil prive le cerveau de la stéréophonie. En 25 ans, mes résultats en appareillage binaural surpassent systématiquement le monaural, sauf contre-indication médicale."
+    answer: "L'appareillage binaural est la règle, pas l'exception. La HAS le recommande pour la localisation des sons et la compréhension dans le bruit. Un seul appareil prive le cerveau de la stéréophonie. En 28 ans, mes résultats en appareillage binaural surpassent systématiquement le monaural, sauf contre-indication médicale."
   - question: "La presbyacousie s'aggrave-t-elle avec le temps ?"
     answer: "Oui, inexorablement. En moyenne, la perte progresse de 1 à 2 dB par an sur les aigus après 65 ans. C'est pourquoi l'appareillage précoce change tout : il maintient la stimulation cérébrale et retarde la déprivation auditive. Plus vous attendez, plus l'adaptation sera longue et le bénéfice réduit."
   - question: "Combien coûte un appareillage pour la presbyacousie ?"
     answer: "Les aides auditives de classe 1, intégralement remboursées par la réforme 100 % Santé, traitent la majorité des presbyacousies légères à moyennes. Le reste à charge est de zéro euro. Les appareils de classe 2 offrent des fonctionnalités supplémentaires avec un reste à charge variable. Notre guide remboursement détaille les montants."
 ---
 
-"C'est normal à votre âge." Six mots. En 25 ans et plus de 3 000 patients appareillés, c'est la phrase que j'ai le plus souvent entendue en consultation. Et c'est la plus dangereuse que le monde médical puisse prononcer face à une perte auditive.
+"C'est normal à votre âge." Six mots. En 28 ans et plus de 3 000 patients appareillés, c'est la phrase que j'ai le plus souvent entendue en consultation. Et c'est la plus dangereuse que le monde médical puisse prononcer face à une perte auditive.
 
 Parce qu'elle dit vrai sur un point — oui, la presbyacousie est liée au vieillissement. Et elle ment sur tout le reste. Elle sous-entend qu'il n'y a rien à faire. Que vous devez accepter de ne plus comprendre vos petits-enfants au téléphone, de hocher la tête en réunion de famille sans avoir saisi un mot, de monter le volume de la télévision jusqu'à ce que votre conjoint quitte la pièce.
 
@@ -118,7 +118,7 @@ Je ne suis pas là pour vendre des appareils. Je suis là pour restaurer de la c
 
 **Sur les "solutions miracles" :** il n'existe pas de complément alimentaire, de thérapie sonore ou de médecine alternative qui restaure les cellules ciliées. Toute publicité qui promet de "guérir la surdité naturellement" est frauduleuse. Les cellules ciliées humaines ne se régénèrent pas — c'est un fait biologique établi depuis plus de 50 ans. La recherche sur les thérapies géniques progresse (notamment chez la souris), mais aucune application clinique humaine n'est disponible à ce jour (état des connaissances : avril 2026).
 
-## Ce que 25 ans et 3 000 patients m'ont appris sur la presbyacousie
+## Ce que 28 ans et 3 000 patients m'ont appris sur la presbyacousie
 
 La presbyacousie n'est pas un diagnostic. C'est un processus. Un processus lent, silencieux, qui s'installe sur des décennies et qui se traite d'autant mieux qu'on le prend en charge tôt.
 

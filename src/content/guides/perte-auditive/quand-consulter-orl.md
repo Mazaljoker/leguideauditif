@@ -1,6 +1,6 @@
 ---
 title: "Quand consulter un ORL pour votre audition"
-metaDescription: "Quand consulter un ORL : les 7 ans de retard sont un scandale. Guide terrain par un audioprothésiste DE, 25 ans de pratique, 3000+ patients."
+metaDescription: "Quand consulter un ORL : les 7 ans de retard sont un scandale. Guide terrain par un audioprothésiste DE, 28 ans de pratique, 3000+ patients."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
@@ -35,7 +35,7 @@ faq:
     answer: "Pour un premier bilan ou le suivi d'acouphènes, oui. Mais l'examen otoscopique et l'audiogramme nécessitent une consultation physique."
 ---
 
-Sept ans. Selon l'enquête EuroTrak France 2024, le délai moyen entre les premiers signes de gêne auditive et la première consultation ORL dépasse sept ans en France. Sept ans à faire répéter. Sept ans à monter le volume. Sept ans pendant lesquels le cerveau désapprend à traiter certains sons. En 25 ans de pratique et plus de 3 000 patients appareillés, je peux vous dire une chose : ce délai est un scandale silencieux. Chaque année perdue rend la rééducation auditive plus longue et plus difficile.
+Sept ans. Selon l'enquête EuroTrak France 2024, le délai moyen entre les premiers signes de gêne auditive et la première consultation ORL dépasse sept ans en France. Sept ans à faire répéter. Sept ans à monter le volume. Sept ans pendant lesquels le cerveau désapprend à traiter certains sons. En 28 ans de pratique et plus de 3 000 patients appareillés, je peux vous dire une chose : ce délai est un scandale silencieux. Chaque année perdue rend la rééducation auditive plus longue et plus difficile.
 
 Ce guide ne va pas vous lister poliment les "signes à surveiller". Vous les connaissez déjà. Ce que je vais vous expliquer, c'est pourquoi vous repoussez cette consultation, quelles erreurs vous commettez probablement sans le savoir, et ce que je fais concrètement en cabinet quand un patient arrive trop tard.
 
@@ -65,7 +65,7 @@ Cette phrase, je l'entends au moins trois fois par semaine. Elle est fausse. Oui
 
 ## Ma méthode : quand j'oriente un patient vers l'ORL
 
-En 25 ans de pratique, j'ai développé des réflexes cliniques qui ne figurent dans aucun manuel. Voici les situations où je dis à un patient : "Avant de parler appareils, vous devez voir un ORL."
+En 28 ans de pratique, j'ai développé des réflexes cliniques qui ne figurent dans aucun manuel. Voici les situations où je dis à un patient : "Avant de parler appareils, vous devez voir un ORL."
 
 **Asymétrie suspecte.** Quand l'audiogramme montre une différence de plus de 15 dB entre les deux oreilles sur au moins deux fréquences, je n'appareille pas avant un bilan ORL complet. Une asymétrie peut signaler un neurinome de l'acoustique. C'est rare, mais ça existe, et je l'ai vu deux fois en carrière.
 
@@ -135,7 +135,7 @@ C'est un point recevable sur le plan logistique. Mais en pratique, quand un pati
 
 ## Mon jugement clinique après 3 000 patients
 
-Voici ce que 25 ans de terrain m'ont appris, et que vous ne trouverez dans aucune brochure institutionnelle.
+Voici ce que 28 ans de terrain m'ont appris, et que vous ne trouverez dans aucune brochure institutionnelle.
 
 **Le seuil de consultation n'est pas médical, il est social.** Les gens ne consultent pas quand ils entendent mal. Ils consultent quand leur conjoint menace de partir, quand leurs petits-enfants refusent de leur parler au téléphone, ou quand ils se sont trompés de médicament parce qu'ils ont mal entendu le pharmacien. Le déclencheur est toujours un événement de rupture sociale, jamais un seuil audiométrique.
 

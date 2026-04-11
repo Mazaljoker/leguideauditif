@@ -39,7 +39,7 @@ faq:
 
 Je vais vous dire quelque chose que vous n'entendrez pas souvent : le prix d'un appareil auditif est probablement la dernière chose que vous devriez regarder en premier.
 
-En 25 ans et plus de 3 000 patients appareillés, j'ai vu des dizaines de personnes arriver en consultation avec un tableau comparatif de prix imprimé depuis Internet. Elles avaient passé des heures à comparer des chiffres. Le problème ? Aucun de ces chiffres ne leur disait si l'appareil à 1 800 euros leur conviendrait mieux que celui à 950 euros. Car le prix d'un appareil auditif ne reflète pas sa capacité à améliorer **votre** audition. Il reflète un niveau de technologie, un positionnement commercial, une marge. Rien de plus.
+En 28 ans et plus de 3 000 patients appareillés, j'ai vu des dizaines de personnes arriver en consultation avec un tableau comparatif de prix imprimé depuis Internet. Elles avaient passé des heures à comparer des chiffres. Le problème ? Aucun de ces chiffres ne leur disait si l'appareil à 1 800 euros leur conviendrait mieux que celui à 950 euros. Car le prix d'un appareil auditif ne reflète pas sa capacité à améliorer **votre** audition. Il reflète un niveau de technologie, un positionnement commercial, une marge. Rien de plus.
 
 Cet article vous donne tous les tarifs en vigueur au premier trimestre 2026 (source : [Ameli.fr](https://www.ameli.fr/assure/remboursements/remboursement-dispositif-medical/protheses-auditives)). Mais il vous explique surtout comment lire ces prix avec le bon filtre : celui d'un professionnel qui voit, chaque semaine, la différence entre un choix éclairé et un choix dicté par le budget.
 
@@ -87,7 +87,7 @@ Quand un patient me demande "combien ça coûte ?", je ne commence jamais par un
 
 Ensuite, je présente systématiquement **deux options** : une en Classe 1 et une en Classe 2 adaptée au profil. Le devis normalisé est obligatoire et détaille tout : prix de l'appareil, remboursement Sécurité sociale, estimation du complément mutuelle, reste à charge prévisible. Je prends le temps de l'expliquer ligne par ligne.
 
-Ce que je refuse de faire : orienter vers le haut de gamme quand le milieu de gamme suffit. En 25 ans, j'ai constaté que la satisfaction du patient dépend davantage de la qualité de l'adaptation que du prix de l'appareil. Un appareil à 1 200 euros parfaitement réglé bat un appareil à 2 000 euros réglé à la va-vite.
+Ce que je refuse de faire : orienter vers le haut de gamme quand le milieu de gamme suffit. En 28 ans, j'ai constaté que la satisfaction du patient dépend davantage de la qualité de l'adaptation que du prix de l'appareil. Un appareil à 1 200 euros parfaitement réglé bat un appareil à 2 000 euros réglé à la va-vite.
 
 ## Prix par marque et gamme
 
@@ -104,7 +104,7 @@ Les six principaux fabricants mondiaux sont présents en France. Voici les fourc
 
 **Remarque importante** : l'entrée de gamme de chaque fabricant inclut au moins un modèle Classe 1 à 950 euros. Les prix indiqués sont des fourchettes moyennes constatées ; ils peuvent varier selon le centre et la région.
 
-En 25 ans de pratique, j'ai appareillé des patients avec chacune de ces marques. Aucune n'est "la meilleure" dans l'absolu. Phonak excelle sur la connectivité, Oticon sur le traitement du son ouvert, Starkey sur l'intelligence artificielle embarquée. Le choix doit se faire en fonction de votre audiogramme, de vos habitudes de vie et de vos attentes, pas uniquement du tarif.
+En 28 ans de pratique, j'ai appareillé des patients avec chacune de ces marques. Aucune n'est "la meilleure" dans l'absolu. Phonak excelle sur la connectivité, Oticon sur le traitement du son ouvert, Starkey sur l'intelligence artificielle embarquée. Le choix doit se faire en fonction de votre audiogramme, de vos habitudes de vie et de vos attentes, pas uniquement du tarif.
 
 ## Prix par type d'appareil
 

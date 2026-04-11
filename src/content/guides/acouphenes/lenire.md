@@ -37,7 +37,7 @@ faq:
 
 Lenire suscite beaucoup d'espoir -- et autant de confusion. En cabinet, le sujet revient de plus en plus souvent. Un patient arrive avec un article trouvé sur internet, un autre a vu une vidéo YouTube, un troisième a lu un témoignage sur un forum. Tous posent la même question : est-ce que ce dispositif va enfin faire taire mes acouphènes ?
 
-En vingt-cinq ans de pratique et plus de 3 000 patients accompagnés, j'ai appris une chose sur les innovations en santé auditive : le temps entre l'annonce d'une avancée et la réalité clinique du cabinet est toujours plus long que ce que les patients espèrent. Lenire ne fait pas exception. Les données publiées sont sérieuses -- plus sérieuses que 90 % de ce qui circule dans le champ des acouphènes. Mais ce que les patients en comprennent, et ce que certains sites en font, dépasse largement ce que la science dit réellement.
+En vingt-huit ans de pratique et plus de 3 000 patients accompagnés, j'ai appris une chose sur les innovations en santé auditive : le temps entre l'annonce d'une avancée et la réalité clinique du cabinet est toujours plus long que ce que les patients espèrent. Lenire ne fait pas exception. Les données publiées sont sérieuses -- plus sérieuses que 90 % de ce qui circule dans le champ des acouphènes. Mais ce que les patients en comprennent, et ce que certains sites en font, dépasse largement ce que la science dit réellement.
 
 Voici mon analyse de terrain, sans enthousiasme déplacé ni scepticisme de principe.
 
@@ -65,7 +65,7 @@ Lenire cible l'activité neuronale responsable de la perception acouphénique. C
 
 ## Comment j'évalue une innovation en cabinet
 
-Quand un nouveau dispositif arrive sur le marché, je passe par une grille de lecture systématique avant d'en parler à mes patients. Cette méthode, je l'ai construite après vingt-cinq ans de pratique et quelques désillusions sur des dispositifs qui promettaient beaucoup.
+Quand un nouveau dispositif arrive sur le marché, je passe par une grille de lecture systématique avant d'en parler à mes patients. Cette méthode, je l'ai construite après vingt-huit ans de pratique et quelques désillusions sur des dispositifs qui promettaient beaucoup.
 
 **Premier critère : les essais cliniques sont-ils publiés dans des revues à comité de lecture ?** Pour Lenire, oui. Le programme TENT (Treatment Evaluation of Neuromodulation for Tinnitus) comprend trois essais (TENT-A1, A2, A3) publiés dans des revues référencées, dont Science Translational Medicine. C'est un niveau de preuve nettement supérieur à ce dont disposent la plupart des dispositifs anti-acouphènes sur le marché. La majorité de ce qu'on voit en pharmacie ou sur internet n'a strictement aucune donnée clinique publiée.
 
@@ -119,7 +119,7 @@ L'INSERM, dans son dossier sur les acouphènes, classe la neuromodulation parmi 
 
 Quand un patient me demande mon avis sur Lenire, voici ce que je réponds, mot pour mot ou presque :
 
-"C'est le dispositif le plus sérieux que j'ai vu émerger dans le domaine des acouphènes depuis vingt-cinq ans. Les données cliniques sont d'un niveau qu'on ne voit quasiment jamais pour ce type de prise en charge. Mais sérieux ne veut pas dire miraculeux. On parle d'une réduction de la gêne, pas d'une disparition. On parle de résultats chez la majorité des patients, pas chez tous. Et on manque encore de recul pour savoir si ces résultats tiennent sur cinq ou dix ans."
+"C'est le dispositif le plus sérieux que j'ai vu émerger dans le domaine des acouphènes depuis vingt-huit ans. Les données cliniques sont d'un niveau qu'on ne voit quasiment jamais pour ce type de prise en charge. Mais sérieux ne veut pas dire miraculeux. On parle d'une réduction de la gêne, pas d'une disparition. On parle de résultats chez la majorité des patients, pas chez tous. Et on manque encore de recul pour savoir si ces résultats tiennent sur cinq ou dix ans."
 
 Mes recommandations concrètes :
 

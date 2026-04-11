@@ -1,6 +1,6 @@
 ---
 title: "Premier appareil auditif : ce qu'il faut savoir avant de vous lancer"
-metaDescription: "Premier appareil auditif : erreurs fréquentes, méthode d'adaptation progressive, cas réel. Conseils terrain d'un audioprothésiste DE, 25 ans d'expérience."
+metaDescription: "Premier appareil auditif : erreurs fréquentes, méthode d'adaptation progressive, cas réel. Conseils terrain d'un audioprothésiste DE, 28 ans d'expérience."
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07
@@ -37,7 +37,7 @@ faq:
 
 Selon l'UNSAF, le délai moyen entre le premier signe de gêne auditive et le premier appareillage est de 7 ans en France (enquête EuroTrak 2024). Sept années pendant lesquelles le cortex auditif perd progressivement sa capacité à décoder la parole. L'INSERM parle de « désafférentation auditive » : les neurones, privés de signal, se réorganisent pour d'autres fonctions. Plus vous attendez, plus la rééducation sera longue.
 
-En 25 ans de pratique et plus de 3 000 patients appareillés, j'ai vu cette réalité des centaines de fois. Un patient qui consulte 2 ans après la première gêne s'adapte en 2 semaines. Celui qui attend 10 ans met parfois 3 mois — et certains abandonnent en route, non pas parce que l'appareil est mauvais, mais parce que leur cerveau a « oublié » comment traiter certains sons.
+En 28 ans de pratique et plus de 3 000 patients appareillés, j'ai vu cette réalité des centaines de fois. Un patient qui consulte 2 ans après la première gêne s'adapte en 2 semaines. Celui qui attend 10 ans met parfois 3 mois — et certains abandonnent en route, non pas parce que l'appareil est mauvais, mais parce que leur cerveau a « oublié » comment traiter certains sons.
 
 Ce guide vous accompagne étape par étape, sans fausse promesse. L'appareillage ne restaure pas une audition parfaite. Mais bien conduit, il change profondément le quotidien.
 
@@ -131,7 +131,7 @@ Attention : cette recommandation ne s'applique pas à toutes les pertes auditive
 
 ### Le port progressif est non négociable
 
-Je sais que certains protocoles recommandent un port immédiat et intensif. Je les ai testés. Sur mes patients de 65 ans et plus, le port progressif sur 4 semaines donne de meilleurs résultats en termes de taux de conservation à 6 mois. Je n'ai pas de données publiées pour étayer ce chiffre — c'est une observation clinique sur 25 ans. Le jour où une étude randomisée prouvera le contraire, je changerai de méthode. En attendant, je fais confiance à ce que j'observe en cabinet.
+Je sais que certains protocoles recommandent un port immédiat et intensif. Je les ai testés. Sur mes patients de 65 ans et plus, le port progressif sur 4 semaines donne de meilleurs résultats en termes de taux de conservation à 6 mois. Je n'ai pas de données publiées pour étayer ce chiffre — c'est une observation clinique sur 28 ans. Le jour où une étude randomisée prouvera le contraire, je changerai de méthode. En attendant, je fais confiance à ce que j'observe en cabinet.
 
 ## L'essai de 30 jours : vos droits
 

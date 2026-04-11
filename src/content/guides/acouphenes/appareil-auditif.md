@@ -1,5 +1,5 @@
 ---
-title: "Appareil auditif et acouphènes : ce que 25 ans de terrain m'ont appris"
+title: "Appareil auditif et acouphènes : ce que 28 ans de terrain m'ont appris"
 metaDescription: "Appareil auditif contre les acouphènes : mécanismes, efficacité réelle, erreurs courantes et protocole d'appareillage. Par un audioprothésiste DE, 3 000+ patients."
 cluster: acouphenes
 isPillar: false
@@ -37,7 +37,7 @@ faq:
 
 Chaque semaine, un patient s'assoit en face de moi et pose la même question : "Mon ORL m'a parlé d'appareils auditifs pour mes acouphènes. Est-ce que ça marche vraiment, ou c'est juste pour vendre ?" La question est légitime. Elle mérite une réponse honnête, pas une brochure commerciale.
 
-En vingt-cinq ans de pratique et plus de 3 000 patients appareillés, j'ai vu des appareils auditifs transformer la vie de patients acouphéniques. J'ai aussi vu des appareillages échouer lamentablement parce que le protocole était bâclé, le diagnostic incomplet, ou les attentes mal posées. L'appareil auditif est un outil puissant contre les acouphènes -- à condition de savoir quand, comment, et pour qui le prescrire.
+En vingt-huit ans de pratique et plus de 3 000 patients appareillés, j'ai vu des appareils auditifs transformer la vie de patients acouphéniques. J'ai aussi vu des appareillages échouer lamentablement parce que le protocole était bâclé, le diagnostic incomplet, ou les attentes mal posées. L'appareil auditif est un outil puissant contre les acouphènes -- à condition de savoir quand, comment, et pour qui le prescrire.
 
 ## Les 3 erreurs qui sabotent l'appareillage acouphènes
 
@@ -127,13 +127,13 @@ Sur ces points, je suis en accord complet avec les recommandations.
 
 Là où je me permets des positions plus tranchées :
 
-- **L'acouphénométrie devrait être obligatoire avant tout appareillage pour indication acouphènes.** Ce n'est pas le cas aujourd'hui. Trop d'appareillages sont réalisés sur la seule base de l'audiogramme, avec un programme acouphènes activé "par défaut" sans calibration spécifique. C'est comme prescrire des lunettes sans mesurer la vue. En vingt-cinq ans, je n'ai jamais vu un appareillage acouphènes réussir sans diagnostic précis de la fréquence et de l'intensité du signal.
+- **L'acouphénométrie devrait être obligatoire avant tout appareillage pour indication acouphènes.** Ce n'est pas le cas aujourd'hui. Trop d'appareillages sont réalisés sur la seule base de l'audiogramme, avec un programme acouphènes activé "par défaut" sans calibration spécifique. C'est comme prescrire des lunettes sans mesurer la vue. En vingt-huit ans, je n'ai jamais vu un appareillage acouphènes réussir sans diagnostic précis de la fréquence et de l'intensité du signal.
 - **La Classe 1 (100 % Santé) suffit pour beaucoup de patients acouphéniques.** L'industrie pousse vers le haut de gamme. Or, pour un acouphène associé à une presbyacousie modérée, un appareil Classe 1 bien réglé avec un programme acouphènes correctement calibré donne des résultats comparables au premium dans la majorité des cas. La différence se joue sur le confort en milieu bruyant, pas sur l'efficacité anti-acouphène. Je le dis alors que recommander la Classe 2 me rapporterait davantage.
 - **L'appareillage seul ne suffit pas pour les acouphènes sévères.** Les recommandations HAS mentionnent l'approche multimodale. En pratique, je constate que les patients dont le score THI dépasse 56/100 (gêne sévère) bénéficient systématiquement d'un accompagnement complémentaire : TCC avec un psychologue formé aux acouphènes, enrichissement sonore nocturne, activité physique régulière. L'appareil est le pilier central, mais il ne peut pas tout porter seul. Pour approfondir ces options, consultez notre [guide sur les acouphènes et le stress](/guides/acouphenes/stress/).
 
 ## Mon avis d'expert
 
-Après vingt-cinq ans de pratique et plus de 3 000 patients appareillés, voici ce que je retiens sur l'appareil auditif comme solution aux acouphènes :
+Après vingt-huit ans de pratique et plus de 3 000 patients appareillés, voici ce que je retiens sur l'appareil auditif comme solution aux acouphènes :
 
 C'est l'outil le plus puissant dont nous disposons quand une perte auditive est associée -- et elle l'est dans environ 80 % des cas selon l'INSERM. Trois mécanismes convergent : la restauration de la stimulation auditive réduit le gain central du cerveau, l'enrichissement sonore diminue le contraste perceptif, et le port quotidien favorise la plasticité cérébrale qui mène à l'habituation. Chez 60 à 70 % des patients, cette combinaison transforme un acouphène envahissant en bruit de fond oublié la majeure partie du temps.
 

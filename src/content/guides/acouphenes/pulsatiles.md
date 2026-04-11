@@ -1,6 +1,6 @@
 ---
 title: "Acouphènes pulsatiles : une urgence à ne pas ignorer"
-metaDescription: "Acouphènes pulsatiles : causes vasculaires, erreurs fréquentes, quand consulter en urgence. Guide terrain par un audioprothésiste DE, 25 ans d'expérience."
+metaDescription: "Acouphènes pulsatiles : causes vasculaires, erreurs fréquentes, quand consulter en urgence. Guide terrain par un audioprothésiste DE, 28 ans d'expérience."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
@@ -37,7 +37,7 @@ faq:
 
 Vous entendez un battement sourd dans votre oreille, synchrone avec votre coeur. Pas un sifflement continu comme les acouphènes classiques. Un woush-woush rythmé, un pouls que personne d'autre n'entend. Et vous vous demandez si c'est grave.
 
-Je vais être direct : un acouphène pulsatile n'est pas un acouphène comme les autres. En vingt-cinq ans de pratique et plus de 3 000 patients adaptés, c'est le seul type d'acouphène devant lequel je ne dis jamais "on va surveiller". Je dis "on va investiguer". Parce que derrière ce battement, il y a presque toujours une cause identifiable. Et dans certains cas, une urgence vasculaire qu'il ne faut pas rater.
+Je vais être direct : un acouphène pulsatile n'est pas un acouphène comme les autres. En vingt-huit ans de pratique et plus de 3 000 patients adaptés, c'est le seul type d'acouphène devant lequel je ne dis jamais "on va surveiller". Je dis "on va investiguer". Parce que derrière ce battement, il y a presque toujours une cause identifiable. Et dans certains cas, une urgence vasculaire qu'il ne faut pas rater.
 
 Moins de 5 % des acouphènes sont pulsatiles selon la SFORL. Mais ces 5 % sont les plus importants à prendre au sérieux. Voici pourquoi, et surtout comment réagir.
 
@@ -83,7 +83,7 @@ La grande majorité des acouphènes pulsatiles ont une origine vasculaire. Le sa
 
 ## Ma méthode d'orientation : le protocole que j'applique en cabinet
 
-Quand un patient me décrit un acouphène pulsatile, j'applique un protocole d'orientation systématique en trois temps. Ce n'est pas dans les recommandations officielles telles quelles -- c'est mon adaptation terrain de vingt-cinq ans de pratique.
+Quand un patient me décrit un acouphène pulsatile, j'applique un protocole d'orientation systématique en trois temps. Ce n'est pas dans les recommandations officielles telles quelles -- c'est mon adaptation terrain de vingt-huit ans de pratique.
 
 **Temps 1 : le tri en cabinet (jour de la consultation).** Je fais prendre la tension artérielle au patient, assis depuis cinq minutes. Je lui demande de prendre son pouls pendant qu'il perçoit l'acouphène pour confirmer la synchronisation. J'ausculte le crâne et le cou au stéthoscope pour rechercher un souffle. Et je pose quatre questions de tri :
 - L'acouphène est-il unilatéral ou bilatéral ?
@@ -146,7 +146,7 @@ Là où je me permets des positions plus tranchées :
 
 ## Mon avis d'expert
 
-Après vingt-cinq ans de pratique, voici ce que je retiens sur les acouphènes pulsatiles :
+Après vingt-huit ans de pratique, voici ce que je retiens sur les acouphènes pulsatiles :
 
 C'est le seul acouphène qui me rend impatient. Pas parce qu'il est dangereux dans la majorité des cas -- l'hypertension artérielle, la cause la plus fréquente, se traite très bien. Mais parce que les cas graves, quand ils existent, sont ceux où le temps compte. Une sténose carotidienne serrée, c'est un risque d'AVC. Une dissection carotidienne, c'est une urgence absolue. Et ces diagnostics ne se font pas en attendant que "ça passe".
 

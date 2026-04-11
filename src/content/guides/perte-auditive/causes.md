@@ -1,6 +1,6 @@
 ---
 title: "Causes de la perte auditive : âge, bruit, maladie"
-metaDescription: "Les causes principales de la perte auditive expliquées par un audioprothésiste DE 25 ans d'expérience : presbyacousie, bruit, médicaments, maladies. Guide sourcé."
+metaDescription: "Les causes principales de la perte auditive expliquées par un audioprothésiste DE 28 ans d'expérience : presbyacousie, bruit, médicaments, maladies. Guide sourcé."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
@@ -37,7 +37,7 @@ faq:
 
 Vous entendez qu'on vous parle, mais vous ne comprenez pas les mots. Vous montez le volume de la télévision sans même vous en rendre compte. Votre entourage vous dit que vous faites répéter. Et pourtant, quand je vous demande si vous avez un problème d'audition, la réponse est presque toujours la même : "Non, ce sont les autres qui marmonnent."
 
-En 25 ans de pratique et plus de 3 000 patients appareillés, c'est le schéma que je retrouve dans la majorité des premières consultations. Et c'est justement là que commence le problème : on ne peut pas traiter ce qu'on ne comprend pas. Identifier la cause de votre perte auditive, c'est la première étape vers une solution adaptée.
+En 28 ans de pratique et plus de 3 000 patients appareillés, c'est le schéma que je retrouve dans la majorité des premières consultations. Et c'est justement là que commence le problème : on ne peut pas traiter ce qu'on ne comprend pas. Identifier la cause de votre perte auditive, c'est la première étape vers une solution adaptée.
 
 ## Les erreurs que je corrige chaque semaine en cabinet
 
@@ -147,7 +147,7 @@ Il existe également des surdités mixtes, combinant les deux mécanismes. C'est
 
 ## Ce que je recommande, ce que je rejette, et ce qui dépend du cas
 
-Après 25 ans et plus de 3 000 patients, voici mon jugement d'expert sur les conduites à tenir.
+Après 28 ans et plus de 3 000 patients, voici mon jugement d'expert sur les conduites à tenir.
 
 **Ce que je recommande systématiquement :**
 
@@ -178,4 +178,4 @@ Après 25 ans et plus de 3 000 patients, voici mon jugement d'expert sur les con
 
 4. **Renseignez-vous sur la prise en charge financière** : depuis la réforme 100 % Santé, des aides auditives de classe 1 sont intégralement remboursées (base Sécurité sociale : 240 €, plafond BRSS : 400 €). Consultez notre [guide remboursement](/guides/remboursement/) pour connaître vos droits.
 
-N'attendez pas que la situation s'aggrave. En 25 ans de pratique, j'ai constaté que les patients qui consultent tôt s'adaptent mieux à leurs aides auditives et retrouvent plus rapidement une vie sociale épanouie. Chaque année de retard rend l'adaptation un peu plus difficile. C'est un fait clinique, pas une technique de vente.
+N'attendez pas que la situation s'aggrave. En 28 ans de pratique, j'ai constaté que les patients qui consultent tôt s'adaptent mieux à leurs aides auditives et retrouvent plus rapidement une vie sociale épanouie. Chaque année de retard rend l'adaptation un peu plus difficile. C'est un fait clinique, pas une technique de vente.

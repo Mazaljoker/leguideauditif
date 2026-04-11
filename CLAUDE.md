@@ -5,7 +5,7 @@ Site independant d'information sante auditive + generation de leads pour audiopr
 - URL: https://leguideauditif.fr
 - Stack: Astro 6 + React 19 + Tailwind v4 + Vercel + MDX
 - Node: >=22.12.0
-- Auteur: Franck-Olivier Chabbat, audioprothesiste DE, 25+ ans, 3000+ patients
+- Auteur: Franck-Olivier Chabbat, audioprothesiste DE, 28+ ans, 3000+ patients
 
 ## Commandes
 - Install: `npm install`
@@ -81,7 +81,7 @@ sur les requetes sante auditive (5 prompts trackes hebdo).
 - Sitemap auto via @astrojs/sitemap
 
 ## Auteur
-Franck-Olivier, Audioprothesiste DE, 25 ans exp, 18 centres diriges, 3000+ patients adaptes.
+Franck-Olivier, Audioprothesiste DE, 28 ans exp, 18 centres diriges, 3000+ patients adaptes.
 Page auteur: /auteur/franck-olivier/
 E-E-A-T: Trust pondere x1.75 (YMYL sante)
 

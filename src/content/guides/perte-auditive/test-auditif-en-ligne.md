@@ -1,6 +1,6 @@
 ---
 title: "Test auditif en ligne : fiable ou pas ?"
-metaDescription: "Un test auditif en ligne ne remplace pas un audiogramme. Erreurs frequentes, methode expert, cas reel et limites. Avis d'un audioprothesiste DE, 25 ans de pratique."
+metaDescription: "Un test auditif en ligne ne remplace pas un audiogramme. Erreurs frequentes, methode expert, cas reel et limites. Avis d'un audioprothesiste DE, 28 ans de pratique."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
