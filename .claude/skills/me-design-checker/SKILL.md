@@ -1,281 +1,201 @@
 ---
 name: me-design-checker
 description: >
-  Verifie le rendu visuel des pages LeGuideAuditif apres generation de contenu.
-  Detecte les problemes de mise en page, tableaux casses, paragraphes trop longs,
-  images manquantes, composants mal rendus, spacing, accessibilite visuelle.
+  Verifie le rendu visuel des pages LeGuideAuditif contre le design system reel du site.
+  Basé sur global.css, article-tokens.css et les composants Astro existants.
   Trigger: 'verifie le rendu', 'check design', 'qa visuel', 'le site est ok',
   'verifie les pages', 'rendu', 'affichage', 'mise en page', 'design check'.
-  NE PAS utiliser pour le contenu (me-affiliate-writer) ni le SEO (seo-auditor).
 metadata:
   author: Franck-Olivier Chabbat
-  version: "1.0.0"
+  version: "2.0.0"
+  changelog: "v2.0 — Criteres bases sur le vrai design system du repo (global.css + article-tokens.css)"
 ---
 
-# LeGuideAuditif Design Checker v1.0
+# LeGuideAuditif Design Checker v2.0
 
-Verifie le rendu visuel de chaque page du site apres modification de contenu.
-Detecte les casses visuelles AVANT deploiement.
+Verifie le rendu visuel contre le design system REEL du site.
+Tous les criteres ci-dessous sont extraits de `src/styles/global.css`,
+`src/styles/article-tokens.css` et des composants dans `src/components/`.
 
-## QUAND UTILISER
+## DESIGN SYSTEM — REFERENCE
 
-- Apres un batch d'upgrade de contenu (post upgrade-all-content, post polish-credibilite)
-- Avant de merger une PR contenu
-- Quand l'utilisateur dit "verifie le rendu" ou "le site est ok ?"
+### Couleurs (global.css @theme)
 
-## PREREQUIS
+| Token | Hex | Usage |
+|-------|-----|-------|
+| --color-marine | #1B2E4A | Titres, header, texte principal body |
+| --color-creme | #F8F5F0 | Background body |
+| --color-orange | #D97B3D | CTA, liens, accents |
+| --color-orange-hover | #c46a2e | Hover CTA |
+| --color-gris-texte | #4a5568 | Texte secondaire |
+| --color-gris-clair | #e8e4df | Bordures, separateurs |
 
-```bash
-# Build le site Astro localement
-npm install
-npm run build
+### Couleurs article (article-tokens.css)
 
-# Installer playwright si pas present
-npx playwright install chromium
-```
+| Token | Hex | Usage |
+|-------|-----|-------|
+| --article-bg | #FAFAF7 | Background page article |
+| --article-text | #2D2A26 | Texte corps article |
+| --article-text-light | #6B6560 | Blockquotes, secondaire |
+| --article-accent | #C66A32 | Liens dans articles |
+| --article-navy | #1B3A5C | H2, strong |
+| --article-border | #E8E4DF | HR, separateurs |
+| --article-sommaire-bg | #F5F3EF | Background sommaire |
+
+### Typographie
+
+| Contexte | Font | Taille | Line-height |
+|----------|------|--------|-------------|
+| Body global | Merriweather (serif) | 18px (112.5%) | 1.75 |
+| Titres global | Inter (sans-serif) | variable | 1.2 |
+| Body article | Source Sans 3 / Inter | 17px | 1.75 |
+| H2 article | Playfair Display | clamp(22px, 5.5vw, 30px) | 1.2 |
+| H3 article | Playfair Display | 19px | 1.3 |
+
+### Spacing article
+
+| Token | Valeur |
+|-------|--------|
+| --section-gap | 56px |
+| --paragraph-gap | 24px |
+| --heading-margin-top | 48px |
+| --heading-margin-bottom | 20px |
+| --article-max-width | 680px |
+| --article-padding-x | 20px |
+
+### Composants obligatoires (articles)
+
+| Composant | Fichier | Obligatoire |
+|-----------|---------|-------------|
+| AuthorBox | AuthorBox.astro | Oui (tous articles) |
+| HealthDisclaimer | HealthDisclaimer.astro | Oui (tous articles) |
+| AffiliateDisclosure | AffiliateDisclosure.astro | Comparatifs seulement |
+| FAQ | FAQ.astro | Oui (tous articles) |
+| TableOfContents | TableOfContents.astro | Oui (articles > 1000 mots) |
+| CtaBanner | CtaBanner.astro | Oui (tous articles) |
+| Breadcrumbs | Breadcrumbs.astro | Oui (toutes pages) |
+| ComparisonTable | ComparisonTable.tsx | Comparatifs seulement |
+| MotExpert | MotExpert.astro | Recommande (1 par article) |
+
+## CHECKS — 20 CRITERES
+
+### Bloc A : Structure HTML (high priority)
+
+| # | Check | Attendu | Severity |
+|---|-------|---------|----------|
+| A1 | HTTP 200 | Toutes pages | high |
+| A2 | 1 seul H1 | Pas 0, pas 2+ | high |
+| A3 | Hierarchie Hn | Pas de saut (H1→H3 sans H2) | medium |
+| A4 | Breadcrumbs present | `.breadcrumbs` ou `nav[aria-label]` | medium |
+| A5 | Meta title < 60 chars | Via balise <title> | medium |
+| A6 | Meta description < 155 chars | Via <meta name="description"> | medium |
+
+### Bloc B : Composants articles (high priority)
+
+| # | Check | Attendu | Severity |
+|---|-------|---------|----------|
+| B1 | AuthorBox present | Sur /guides/* et /comparatifs/* | high |
+| B2 | HealthDisclaimer present | Texte "ne remplace pas" | high |
+| B3 | AffiliateDisclosure | Sur /comparatifs/* uniquement | high (si absent) |
+| B4 | FAQ section | Au moins 3 questions | medium |
+| B5 | CtaBanner / CTA fin article | Lien vers trouver-audioprothesiste | medium |
+| B6 | TableOfContents | Sur articles > 1000 mots | low |
+
+### Bloc C : Typographie et lisibilite (medium priority)
+
+| # | Check | Attendu | Severity |
+|---|-------|---------|----------|
+| C1 | Font-size body | >= 16px (article = 17px) | medium |
+| C2 | Line-height | >= 1.6 (article = 1.75) | medium |
+| C3 | Article max-width | <= 720px (cible 680px) | low |
+| C4 | Paragraphes | <= 5 phrases par paragraphe | low |
+| C5 | Contraste texte/fond | Ratio >= 4.5:1 (WCAG AA) | medium |
+
+### Bloc D : Images et medias (high priority)
+
+| # | Check | Attendu | Severity |
+|---|-------|---------|----------|
+| D1 | Images cassees | 0 image broken (naturalWidth=0) | high |
+| D2 | Alt text | Toutes images ont un alt non-vide | medium |
+| D3 | Images .webp | Format webp prefere | low |
+
+### Bloc E : Tableaux et overflow (medium priority)
+
+| # | Check | Attendu | Severity |
+|---|-------|---------|----------|
+| E1 | Tableau overflow desktop | scrollWidth <= parentWidth | medium |
+| E2 | Tableau overflow mobile (375px) | Idem en viewport 375px | high |
+| E3 | ComparisonTable present | Sur /comparatifs/* | medium |
+
+### Bloc F : Accessibilite seniors (medium priority)
+
+| # | Check | Attendu | Severity |
+|---|-------|---------|----------|
+| F1 | Focus visible | outline sur :focus-visible (3px orange) | medium |
+| F2 | Skip to content | .skip-to-content present | low |
+| F3 | Reduced motion | @media prefers-reduced-motion respecte | low |
+| F4 | Touch target | Boutons/liens >= 44x44px | medium |
+
+### Bloc G : Performance et erreurs
+
+| # | Check | Attendu | Severity |
+|---|-------|---------|----------|
+| G1 | Console JS errors | 0 erreurs | medium |
+| G2 | Reading progress bar | Present sur articles | low |
+| G3 | Temps de chargement | < 3s (preview local) | low |
 
 ## WORKFLOW
 
-### Etape 1 — Build et servir le site
-
+### 1. Build
 ```bash
-npm run build
+npm install && npm run build
 npm run preview &
-PREVIEW_PID=$!
 sleep 3
 ```
 
-Si le build ECHOUE → lister les erreurs, ne pas continuer.
-
-### Etape 2 — Lister les pages a verifier
-
+### 2. Lister les pages
 ```bash
-# Toutes les pages generees
-find dist -name "index.html" | sed 's|dist||;s|/index.html||' | sort
+find dist -name "index.html" | sed 's|dist||;s|/index.html||' | sort > /tmp/pages.txt
 ```
 
-### Etape 3 — Pour chaque page, executer les checks
+### 3. Creer et executer le script Playwright
+Creer `scripts/design-check.mjs` qui implemente les 20+ checks ci-dessus.
+Lancer en desktop (1280x900) puis mobile (375x812).
 
-Utiliser un script Node.js avec Playwright :
-
-```javascript
-// scripts/design-check.mjs
-import { chromium } from 'playwright';
-import fs from 'fs';
-
-const BASE = 'http://localhost:4321';
-const pages = JSON.parse(fs.readFileSync('/tmp/pages.json', 'utf8'));
-const results = [];
-
-const browser = await chromium.launch();
-const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
-
-for (const path of pages) {
-  const page = await context.newPage();
-  const url = `${BASE}${path}`;
-  const issues = [];
-
-  try {
-    const response = await page.goto(url, { waitUntil: 'networkidle', timeout: 15000 });
-
-    // Check 1 : HTTP status
-    if (response.status() !== 200) {
-      issues.push({ type: 'http', severity: 'high', detail: `Status ${response.status()}` });
-    }
-
-    // Check 2 : Console errors
-    const consoleErrors = [];
-    page.on('console', msg => { if (msg.type() === 'error') consoleErrors.push(msg.text()); });
-
-    // Check 3 : Images cassees
-    const brokenImages = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('img')).filter(img => !img.complete || img.naturalWidth === 0).map(img => img.src);
-    });
-    if (brokenImages.length > 0) {
-      issues.push({ type: 'image', severity: 'high', detail: `${brokenImages.length} images cassees: ${brokenImages.join(', ')}` });
-    }
-
-    // Check 4 : Tableaux qui debordent (overflow horizontal)
-    const overflowTables = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('table')).filter(t => t.scrollWidth > t.parentElement.clientWidth).length;
-    });
-    if (overflowTables > 0) {
-      issues.push({ type: 'table-overflow', severity: 'medium', detail: `${overflowTables} tableaux debordent en mobile/desktop` });
-    }
-
-    // Check 5 : Paragraphes trop longs (> 6 phrases estimees)
-    const longParagraphs = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('article p, main p')).filter(p => {
-        const sentences = p.textContent.split(/[.!?]+/).filter(s => s.trim().length > 0);
-        return sentences.length > 6;
-      }).length;
-    });
-    if (longParagraphs > 0) {
-      issues.push({ type: 'long-paragraph', severity: 'low', detail: `${longParagraphs} paragraphes > 6 phrases` });
-    }
-
-    // Check 6 : H1 manquant ou multiple
-    const h1Count = await page.evaluate(() => document.querySelectorAll('h1').length);
-    if (h1Count === 0) issues.push({ type: 'h1-missing', severity: 'high', detail: 'Pas de H1' });
-    if (h1Count > 1) issues.push({ type: 'h1-multiple', severity: 'medium', detail: `${h1Count} H1 detectes` });
-
-    // Check 7 : Hierarchie Hn cassee (H3 sans H2 parent)
-    const brokenHierarchy = await page.evaluate(() => {
-      const headings = Array.from(document.querySelectorAll('h1,h2,h3,h4'));
-      let lastLevel = 0;
-      let broken = 0;
-      for (const h of headings) {
-        const level = parseInt(h.tagName[1]);
-        if (level > lastLevel + 1) broken++;
-        lastLevel = level;
-      }
-      return broken;
-    });
-    if (brokenHierarchy > 0) {
-      issues.push({ type: 'heading-hierarchy', severity: 'medium', detail: `${brokenHierarchy} sauts de niveau Hn` });
-    }
-
-    // Check 8 : Liens internes casses (404)
-    const internalLinks = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('a[href^="/"]')).map(a => a.href);
-    });
-    // On ne teste pas chaque lien ici (trop lent) — le build Astro les verifie
-
-    // Check 9 : AuthorBox present
-    const hasAuthorBox = await page.evaluate(() => {
-      return document.querySelector('[class*="author"], [data-author], .author-box') !== null;
-    });
-    // Seulement pour les articles (pas home, contact, etc.)
-    const isArticle = path.includes('/guides/') || path.includes('/comparatifs/');
-    if (isArticle && !hasAuthorBox) {
-      issues.push({ type: 'author-missing', severity: 'high', detail: 'Pas d\'AuthorBox detecte' });
-    }
-
-    // Check 10 : Disclaimer sante present
-    const hasDisclaimer = await page.evaluate(() => {
-      const text = document.body.textContent;
-      return text.includes('ne remplace pas') || text.includes('professionnel de sant');
-    });
-    if (isArticle && !hasDisclaimer) {
-      issues.push({ type: 'disclaimer-missing', severity: 'high', detail: 'Pas de disclaimer sante' });
-    }
-
-    // Check 11 : Taille texte < 16px (accessibilite seniors)
-    const smallText = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('article p, main p')).filter(p => {
-        const size = parseFloat(window.getComputedStyle(p).fontSize);
-        return size < 16;
-      }).length;
-    });
-    if (smallText > 0) {
-      issues.push({ type: 'small-text', severity: 'medium', detail: `${smallText} paragraphes < 16px (accessibilite seniors)` });
-    }
-
-    // Check 12 : Contraste (simplifie — texte gris clair sur fond clair)
-    const lowContrast = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('article p, main p')).filter(p => {
-        const color = window.getComputedStyle(p).color;
-        const match = color.match(/\d+/g);
-        if (!match) return false;
-        const brightness = (parseInt(match[0]) * 299 + parseInt(match[1]) * 587 + parseInt(match[2]) * 114) / 1000;
-        return brightness > 180; // texte trop clair
-      }).length;
-    });
-    if (lowContrast > 0) {
-      issues.push({ type: 'low-contrast', severity: 'medium', detail: `${lowContrast} paragraphes avec contraste faible` });
-    }
-
-    // Screenshot si issues
-    if (issues.length > 0) {
-      const screenshotPath = `/tmp/screenshots${path.replace(/\//g, '_') || '_home'}.png`;
-      await page.screenshot({ path: screenshotPath, fullPage: true });
-      issues.forEach(i => i.screenshot = screenshotPath);
-    }
-
-  } catch (error) {
-    issues.push({ type: 'crash', severity: 'high', detail: error.message });
-  }
-
-  results.push({ path, issues, issueCount: issues.length });
-  await page.close();
-}
-
-await browser.close();
-
-// Rapport
-const report = {
-  date: new Date().toISOString(),
-  total_pages: results.length,
-  pages_with_issues: results.filter(r => r.issueCount > 0).length,
-  total_issues: results.reduce((sum, r) => sum + r.issueCount, 0),
-  by_severity: {
-    high: results.reduce((sum, r) => sum + r.issues.filter(i => i.severity === 'high').length, 0),
-    medium: results.reduce((sum, r) => sum + r.issues.filter(i => i.severity === 'medium').length, 0),
-    low: results.reduce((sum, r) => sum + r.issues.filter(i => i.severity === 'low').length, 0),
-  },
-  results
-};
-
-fs.writeFileSync('/tmp/design-check-report.json', JSON.stringify(report, null, 2));
-console.log(JSON.stringify(report.by_severity));
-console.log(`\n${report.pages_with_issues}/${report.total_pages} pages avec issues`);
-
-for (const r of results.filter(r => r.issueCount > 0)) {
-  console.log(`\n${r.path} — ${r.issueCount} issues`);
-  for (const i of r.issues) {
-    console.log(`  [${i.severity}] ${i.type}: ${i.detail}`);
-  }
-}
-```
-
-### Etape 4 — Check mobile (viewport 375px)
-
-Relancer le meme script avec viewport 375x812 (iPhone).
-Les tableaux qui debordent et le texte trop petit sont les problemes les plus frequents.
-
-### Etape 5 — Rapport
+### 4. Rapport
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🎨 DESIGN CHECK — LeGuideAuditif
 
 Pages verifiees : {N}
-Pages OK : {N}
-Pages avec issues : {N}
+Desktop OK : {N} | Mobile OK : {N}
 
 High : {N} | Medium : {N} | Low : {N}
 
-Top issues :
-{liste des issues high}
+BLOC A (Structure)  : {pass}/{total}
+BLOC B (Composants) : {pass}/{total}
+BLOC C (Typo)       : {pass}/{total}
+BLOC D (Images)     : {pass}/{total}
+BLOC E (Tableaux)   : {pass}/{total}
+BLOC F (A11y)       : {pass}/{total}
+BLOC G (Perf)       : {pass}/{total}
 
-Screenshots : /tmp/screenshots/
-→ Corriger les issues high ? (oui/ignorer)
+Top issues HIGH :
+{liste}
+
+→ Corriger ? (oui/ignorer)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-## CHECKS COMPLETS (12)
+## AUTO-FIX POSSIBLES
 
-| # | Check | Severity | Cible |
-|---|-------|----------|-------|
-| 1 | HTTP status != 200 | high | toutes pages |
-| 2 | Console JS errors | medium | toutes pages |
-| 3 | Images cassees (404, 0px) | high | toutes pages |
-| 4 | Tableaux overflow horizontal | medium | articles |
-| 5 | Paragraphes > 6 phrases | low | articles |
-| 6 | H1 manquant ou multiple | high | toutes pages |
-| 7 | Hierarchie Hn cassee (saut niveaux) | medium | articles |
-| 8 | AuthorBox absent | high | articles |
-| 9 | Disclaimer sante absent | high | articles |
-| 10 | Texte < 16px | medium | articles |
-| 11 | Contraste faible | medium | articles |
-| 12 | Crash/timeout page | high | toutes pages |
+| Issue | Fix auto |
+|-------|----------|
+| Tableau overflow | Ajouter `overflow-x: auto` sur parent |
+| Alt manquant | Generer alt descriptif depuis le contexte |
+| Paragraphe trop long | Suggerer un point de coupe |
+| HealthDisclaimer absent | Injecter le composant |
+| AuthorBox absent | Injecter le composant |
 
-## AUTO-FIX
-
-Le design checker ne corrige PAS lui-meme. Il produit un rapport
-avec les issues et les screenshots. Le fixer humain ou le seo-fixer
-applique les corrections.
-
-Exceptions auto-fixables :
-- Paragraphe > 6 phrases → suggestion de coupe
-- Tableau overflow → suggestion `overflow-x: auto` sur le parent
+Pour les autres issues → rapport + screenshots, correction manuelle.
