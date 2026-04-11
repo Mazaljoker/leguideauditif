@@ -1,21 +1,34 @@
 ---
 name: me-affiliate-writer
-description: "Rédige les contenus comparatifs et fiches produits monétisés pour LeGuideAuditif : tableaux specs, comparatifs appareils auditifs, guides d'achat, liens affiliés. Utiliser dès que l'utilisateur dit 'comparatif', 'fiche produit', 'guide d'achat', 'tableau comparatif', 'affiliate', 'test appareil', 'avis appareil', 'meilleur appareil auditif', 'classe 1 vs classe 2', 'lien affilié'. Produit un article comparatif prêt pour PR GitHub. NE PAS utiliser pour les articles informationnels purs (seo-content-writer) ni les pages de vente (sales-pitch)."
+description: >
+  Redige les contenus experts pour LeGuideAuditif : guides informationnels, comparatifs,
+  fiches produits. Produit du contenu TERRAIN impossible a confondre avec de l'IA.
+  Utiliser des que l'utilisateur dit 'comparatif', 'fiche produit', 'guide', 'article',
+  'redige', 'ecris', 'contenu LGA', 'guide d'achat', 'meilleur appareil auditif',
+  'classe 1 vs classe 2'.
+  Produit un article pret pour le humanizer puis double gate.
+  NE PAS utiliser pour les pages de vente nPosts (sales-pitch).
 metadata:
   author: Franck-Olivier Chabbat
-  version: "1.0.0"
+  version: "2.0.0"
   chain-position: 1
+  changelog: "v2.0 — Framework expert terrain obligatoire, blocs differenciants, score non-genericite"
 ---
 
-# LeGuideAuditif Affiliate Writer v1.0
+# LeGuideAuditif Expert Writer v2.0
 
-Rédige des contenus comparatifs monétisés : fiches produits, tableaux specs, guides d'achat avec liens affiliés et formulaires lead gen intégrés.
+Redige du contenu expert terrain pour LeGuideAuditif. Chaque article doit etre
+IMPOSSIBLE a confondre avec du contenu IA et IMPOSSIBLE a retrouver ailleurs.
 
-> Lire `references/contracts.md` pour les schémas JSON.
+> Ce skill est le CERVEAU du pipeline. 80% de la differenciation se joue ici.
+> Le humanizer en aval ne fait que polir — il n'invente pas de contenu terrain.
+
+> Lire `references/contracts.md` pour les schemas JSON.
+> Lire `references/terrain-framework.md` pour les patterns obligatoires.
 
 ## INPUT
 
-Brief JSON du `seo-brief-writer` OU demande directe ("comparatif des meilleurs appareils auditifs classe 1 2026").
+Brief JSON du `seo-brief-writer` OU demande directe.
 
 ## OUTPUT
 
@@ -23,59 +36,140 @@ Brief JSON du `seo-brief-writer` OU demande directe ("comparatif des meilleurs a
 {
   "type": "me-affiliate-writer",
   "payload": {
-    "slug": "meilleur-appareil-auditif-classe-1",
-    "title": "string",
+    "slug": "string",
+    "content_type": "guide | comparatif | fiche_produit",
+    "title": "string (< 60 chars)",
     "meta_description": "string (< 155 chars)",
     "word_count": "number",
-    "products_compared": 5,
-    "affiliate_links": 3,
-    "lead_forms": 1,
     "content_md": "string (Astro-ready markdown)",
-    "frontmatter": { "title": "", "description": "", "author": "", "date": "", "category": "" }
+    "frontmatter": {},
+    "terrain_checklist": {
+      "hook_dissonant": true,
+      "erreurs_frequentes": 3,
+      "cas_reel": 1,
+      "methode_expert": true,
+      "limites_mentionnees": 2,
+      "prises_position": 2,
+      "expert_judgment": { "recommandation": true, "rejet": true, "nuance": true },
+      "elements_non_interchangeables": 3,
+      "variation_structurelle": true
+    }
   }
 }
 ```
 
-## CHAÎNE GAN (obligatoire, dans cet ordre)
+## CHAINE GAN (obligatoire, dans cet ordre)
 
 ```
-me-affiliate-writer → nposts-seo-humanizer → nposts-content-evaluator (PASS ≥70) → me-eeat-compliance (PASS ≥80) → nposts-seo-fixer → nposts-seo-post-publish
+me-affiliate-writer → nposts-seo-humanizer → nposts-content-evaluator (PASS ≥75) → me-eeat-compliance (PASS ≥80) → nposts-seo-fixer → nposts-seo-post-publish
 ```
 
-⚠️ **HARD BLOCK** : ne JAMAIS envoyer au fixer sans PASS des 2 évaluateurs. YMYL santé = double gate NON-NÉGOCIABLE.
+HARD BLOCK : ne JAMAIS envoyer au fixer sans PASS des 2 evaluateurs.
 
 ## WORKFLOW
 
-1. **Research produits** : Web search 5-8 appareils. Collecter : marque, modèle, type, classe, prix, canaux, Bluetooth, rechargeable, garantie.
-2. **Structurer** : H1 + intro E-E-A-T + `<ComparisonTable />` + fiches produits + "Comment choisir" + FAQ schema.org + CTA devis.
-3. **Monétiser** : Liens affiliés (`rel="sponsored noopener"`) + 1 lead form post-tableau + 1 CTA fin + mention légale affiliés.
-4. **SEO** : Title < 60c + alt images + Schema Product JSON-LD + FAQPage + internal links cluster.
-5. **Checkpoint** → envoi au `nposts-seo-humanizer`.
-6. **Gate 1** : `nposts-content-evaluator` → PASS ≥70 requis.
-7. **Gate 2** : `me-eeat-compliance` → PASS ≥80 requis (YMYL santé).
+### Etape 1 — Research
 
-## RÈGLES ÉDITORIALES
+- Web search 5-8 sources pertinentes (produits, donnees, concurrence)
+- Identifier les angles que les concurrents NE couvrent PAS
+- Collecter donnees factuelles + sources (HAS, INSERM, ameli.fr)
 
-- **Ton** : expert mais accessible, vouvoiement systématique (audience seniors). Pas de jargon sans explication.
-- **Honnêteté** : ne jamais recommander un produit uniquement pour l'affiliation. Le verdict reflète l'expertise terrain.
-- **E-E-A-T** : chaque comparatif commence par une phrase d'autorité ("J'ai adapté plus de 3000 patients..."). Mentionner des cas patients anonymisés.
-- **Pas de prix exact** : donner des fourchettes + orienter vers le formulaire devis.
+### Etape 2 — Structurer avec les BLOCS TERRAIN OBLIGATOIRES
 
-## CHECKPOINT
+Chaque article DOIT contenir ces 7 types de blocs, integres naturellement
+dans la structure H2/H3 — pas plaques en annexe.
+
+#### BLOC 1 : Hook dissonant (intro)
+
+L'intro DOIT commencer par une dissonance — un ecart entre ce que le lecteur
+croit et la realite terrain. Patterns :
+
+- "Dans la majorite des cas, [croyance commune] est faux."
+- "Apres 25 ans de pratique, la question qui revient le plus souvent est..."
+- "Ce que personne ne vous explique sur [sujet]..."
+- "Contrairement a ce qu'on lit partout..."
+
+❌ INTERDIT : intro qui commence par une definition ou un chiffre general.
+❌ INTERDIT : "Dans cet article, nous allons voir..."
+
+#### BLOC 2 : Erreurs frequentes (minimum 3)
+
+Section dediee ou dispersee dans l'article. Chaque erreur :
+- Enonce la croyance fausse (guillemets)
+- Explique pourquoi c'est faux (terrain)
+- Donne la realite avec un exemple concret
+
+#### BLOC 3 : Methode expert ("comment je fais en pratique")
+
+AU MOINS 1 section qui revele le processus interne de l'expert :
+- "Quand un patient me [situation], je ne regarde pas tout. Je commence par..."
+- "Ma methode en 4 etapes : 1) [element inattendu], 2)..."
+
+#### BLOC 4 : Cas reel credible (minimum 1)
+
+PAS un cas parfait. Un cas REALISTE avec age, plainte, resultat nuance, enseignement.
+
+#### BLOC 5 : Limites et frictions (minimum 2)
+
+Chaque article doit mentionner les limites d'un test, produit ou methode.
+❌ INTERDIT : article 100% positif sans aucune nuance.
+
+#### BLOC 6 : Prises de position (minimum 2)
+
+Opinions d'expert argumentees, pas juste des faits.
+❌ INTERDIT : article purement encyclopedique sans aucun avis.
+
+#### BLOC 7 : Expert Judgment Layer (minimum 3)
+
+- 1 recommandation claire : "Je recommande [X] dans 80% des cas."
+- 1 rejet : "A mon sens, [Y] est souvent inutile."
+- 1 nuance : "Ca depend de [facteurs] — voici comment trancher."
+
+### Etape 3 — Rediger avec VARIATION STRUCTURELLE
+
+⚠️ REGLE CRITIQUE : les blocs terrain sont obligatoires, MAIS leur forme,
+position et intensite DOIVENT varier d'un article a l'autre.
+
+❌ INTERDIT : section dediee "3 erreurs frequentes" dans CHAQUE article
+✅ AUTORISE : erreurs integrees dans les paragraphes, en intro, en anecdote, en FAQ
+
+Le but est l'ILLUSION D'ECRITURE NATURELLE, pas un template repete.
+
+### Etape 4 — Monetisation (comparatifs uniquement)
+
+Liens affilies + 1 lead form + 1 CTA fin + mention legale.
+
+### Etape 5 — SEO technique
+
+Title < 60c, Meta < 155c, Schema JSON-LD, Internal links >= 3, FAQ schema.org.
+
+### Etape 6 — Auto-verification terrain
+
+AVANT envoi au humanizer, verifier :
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🛒 COMPARATIF RÉDIGÉ — {slug}
-
-{N} produits comparés | {N} mots | {N} liens affiliés
-Schema : Product ✅ | FAQPage ✅
-Lead form intégré : ✅
-Mention légale affiliés : ✅
-
-→ Envoyer au humanizer puis double gate ? (oui/modifier)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+□ Hook dissonant en intro
+□ >= 3 erreurs frequentes
+□ >= 1 cas reel credible
+□ >= 1 section methode expert
+□ >= 2 limites/frictions
+□ >= 2 prises de position
+□ Expert Judgment : 1 recommandation + 1 rejet + 1 nuance
+□ >= 3 elements non-interchangeables
+□ Variation structurelle vs dernier article
 ```
 
-## NOTION
+Si un element manque → COMPLETER avant envoi.
 
-Tracker les articles affiliés dans la base éditoriale ME (colonnes : Nb produits, Liens affiliés, Score content-evaluator, Score E-E-A-T).
+## REGLES EDITORIALES
+
+- **Ton** : Expert de cabinet — direct, chaleureux, concret.
+- **Vouvoiement** : TOUJOURS
+- **YMYL** : chaque claim medical source. Pas de promesse therapeutique.
+- **Non-genericite** : si un paragraphe pourrait etre sur Wikipedia → le reecrire.
+
+## TEST DE REALITE (regle ultime)
+
+> "Est-ce qu'un vrai audioprothesiste dirait ca comme ca a un patient ?"
+
+Si non → reecrire.
