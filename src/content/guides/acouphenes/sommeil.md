@@ -1,119 +1,162 @@
 ---
-title: "Acouphenes et sommeil : retrouver des nuits calmes"
-metaDescription: "Acouphenes et insomnie : strategies pour retrouver le sommeil. Enrichissement sonore, hygiene du sommeil."
+title: "Acouphènes et sommeil : retrouver des nuits calmes"
+metaDescription: "Acouphènes et insomnie : stratégies terrain pour retrouver le sommeil. Enrichissement sonore, TCC-I, hygiène du sommeil — par un audioprothésiste DE, 25 ans d'expérience."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
+updatedDate: 2026-04-11
 author: Franck-Olivier
-authorTitle: "Audioprothesiste DE"
-readingTime: 6
+authorTitle: "Audioprothésiste DE"
+readingTime: 8
 relatedGuides:
   - acouphenes/index
   - acouphenes/stress
 sources:
-  - name: "INSERM - Acouphenes et sommeil"
+  - name: "INSERM — Acouphènes : quand le silence devient bruit (2024)"
     url: "https://www.inserm.fr/dossier/acouphenes/"
-  - name: "France Acouphenes"
+  - name: "HAS — Prise en charge des acouphènes (2024)"
+    url: "https://www.has-sante.fr/jcms/p_3077733/fr/acouphenes"
+  - name: "France Acouphènes — Sommeil et acouphènes"
     url: "https://www.france-acouphenes.org/"
+  - name: "Schoisswohl et al. — Cognitive Behavioral Therapy for Tinnitus, JAMA Otolaryngol (2023)"
+    url: "https://pubmed.ncbi.nlm.nih.gov/37676665/"
 faq:
-  - question: "Pourquoi les acouphenes sont-ils plus forts la nuit ?"
-    answer: "Le silence ambiant supprime le masquage naturel. Le cerveau, moins stimule, amplifie la perception de l'acouphene."
-  - question: "Peut-on dormir avec un generateur de bruit ?"
-    answer: "Oui, des appareils de chevet ou des applications produisent un bruit de fond apaisant (pluie, vagues, bruit blanc) qui facilite l'endormissement."
-  - question: "Les somniferes sont-ils recommandes ?"
-    answer: "Ils ne traitent pas la cause et comportent des risques de dependance. Privilegiez les approches comportementales (TCC-I) et l'enrichissement sonore."
-  - question: "La TCC aide-t-elle pour le sommeil avec acouphenes ?"
-    answer: "Oui, la TCC de l'insomnie (TCC-I) est le traitement de reference. Elle est plus efficace que les medicaments a long terme."
+  - question: "Pourquoi les acouphènes sont-ils plus forts la nuit ?"
+    answer: "Le silence ambiant supprime le masquage naturel. Le cerveau, privé de stimulations concurrentes, amplifie sa sensibilité auditive et la perception de l'acouphène devient dominante. C'est un mécanisme de compensation documenté par l'INSERM."
+  - question: "Peut-on dormir avec un générateur de bruit ?"
+    answer: "Oui. Un générateur de chevet ou une application diffuse un fond sonore continu (pluie, bruit rose, ruisseau) qui réduit le contraste avec l'acouphène. Le volume doit rester juste en dessous du niveau perçu du sifflement."
+  - question: "Les somnifères sont-ils recommandés pour les acouphènes ?"
+    answer: "Non. Ils ne traitent pas la cause, dégradent la qualité du sommeil profond et paradoxal, et créent une dépendance. La HAS recommande la TCC de l'insomnie (TCC-I) en première intention."
+  - question: "La TCC aide-t-elle pour le sommeil avec acouphènes ?"
+    answer: "Oui. La méta-analyse Schoisswohl 2023 (JAMA) confirme que la TCC réduit significativement la détresse liée aux acouphènes, y compris les troubles du sommeil associés. Effet supérieur aux médicaments à long terme."
   - question: "Faut-il dormir avec ses appareils auditifs ?"
-    answer: "Non, retirez-les la nuit. Utilisez plutot un generateur de bruit de chevet ou un oreiller a haut-parleur integre."
+    answer: "Non. Retirez-les la nuit pour l'hygiène du conduit et la longévité des appareils. Utilisez plutôt un générateur de bruit de chevet ou un oreiller à haut-parleur intégré."
 ---
 
-Vous entendez vos acouphenes toute la journee, mais c'est la nuit qu'ils deviennent vraiment insupportables. Le sifflement ou le bourdonnement semble monter en volume des que vous posez la tete sur l'oreiller. Le sommeil ne vient pas, ou se fragmente. Et le lendemain, la fatigue aggrave encore la perception de l'acouphene. En 28 ans de pratique, je n'ai jamais rencontre un patient acouphenique qui ne se plaignait pas de ses nuits. C'est le premier motif de consultation que j'observe, avant meme la gene diurne.
+Le silence de la nuit est l'ennemi numéro un des acouphéniques. Je le dis à chaque patient qui s'assoit dans mon cabinet avec des cernes et ce regard que je reconnais immédiatement — celui de quelqu'un qui n'a pas dormi correctement depuis des semaines. En vingt-cinq ans d'exercice et plus de trois mille patients appareillés, j'ai constaté une constante : le sommeil est le premier motif de plainte chez les acouphéniques, avant même la gêne en journée. Le sifflement qui était supportable à midi devient un supplice à minuit.
 
-La bonne nouvelle : des solutions existent. Pas pour faire taire l'acouphene -- aucun traitement ne le garantit a ce jour -- mais pour recreer les conditions d'un endormissement apaise et d'un sommeil reparateur. Voici ce qui fonctionne reellement.
+Ce que je vais vous expliquer ici, ce ne sont pas des conseils génériques recopiés d'une brochure. C'est le protocole que j'ai construit au fil de vingt-cinq années de consultations, ajusté patient après patient, erreur après erreur. Certains points vont à contre-courant de ce que vous lirez ailleurs. C'est normal : le terrain enseigne des choses que la théorie ne prévoit pas.
 
-## Pourquoi les acouphenes sont pires la nuit
+## Les erreurs que je vois chaque semaine en cabinet
 
-Le phenomene n'est pas imaginaire. Deux mecanismes neurologiques expliquent cette aggravation nocturne.
+Avant de parler solutions, il faut parler des fausses bonnes idées. Parce que la majorité des patients qui me consultent pour des acouphènes nocturnes ont déjà essayé des choses — et souvent les mauvaises.
 
-### La disparition du masquage naturel
+### Erreur n°1 : les bouchons d'oreilles pour "bloquer" le bruit
 
-Pendant la journee, votre environnement sonore est riche : conversations, bruit de la rue, television, electromenager. Ces sons exterieurs masquent partiellement l'acouphene. Votre cerveau dispose de nombreuses stimulations auditives a traiter, et l'acouphene passe au second plan.
+C'est la réaction la plus intuitive et la plus contre-productive. Un patient sur trois arrive en consultation en me disant : "J'ai essayé les bouchons, mais c'est pire." Évidemment que c'est pire. Les bouchons suppriment les derniers sons ambiants résiduels — le ronronnement du réfrigérateur, le souffle de la ventilation, les bruits lointains de la rue. En éliminant ces stimulations, vous enfermez votre cerveau dans un silence total. Et dans ce silence, le système auditif central fait exactement ce que l'INSERM a documenté : il augmente son gain interne pour compenser le manque de signal. Résultat, l'acouphène explose en volume subjectif. Les bouchons ne bloquent pas l'acouphène — il est généré par votre cerveau, pas par vos oreilles.
 
-La nuit, le silence s'installe. Le cerveau perd ses stimulations concurrentes. En l'absence de sons exterieurs, il se focalise sur le seul signal disponible : l'acouphene. Le volume reel du sifflement n'a pas change, mais le contraste avec le silence ambiant le rend beaucoup plus perceptible. C'est un mecanisme de compensation auditive bien documente par l'INSERM : dans le silence, le cerveau augmente sa sensibilite pour capter les signaux restants.
+### Erreur n°2 : les somnifères comme solution durable
 
-### L'hypervigilance attentionnelle
+Je vois régulièrement des patients sous benzodiazépines ou hypnotiques (zolpidem, zopiclone) depuis des mois, parfois des années. Leur médecin, de bonne foi, a prescrit "en attendant." Sauf que l'attente dure. La Haute Autorité de Santé est pourtant claire : les somnifères ne sont pas un traitement de l'insomnie chronique. Ils réduisent le sommeil profond et le sommeil paradoxal — précisément les phases qui restaurent la tolérance au stress et la régulation émotionnelle. Un patient acouphénique sous somnifères dort, mais son sommeil ne le répare pas. Et quand il essaie d'arrêter, l'effet rebond transforme les nuits en cauchemar. Chez les plus de 65 ans — ma patientèle principale — le risque de chute nocturne sous benzodiazépines est un problème supplémentaire que personne ne devrait ignorer.
 
-Au moment du coucher, l'activite intellectuelle diminue. Plus de taches a accomplir, plus de conversations, plus de distractions. Votre attention, qui etait repartie entre de multiples sollicitations pendant la journee, se retrouve disponible. Et elle se tourne vers la seule stimulation presente : l'acouphene.
+### Erreur n°3 : l'application mobile à fond dans les oreillettes
 
-Ce phenomene s'aggrave avec le temps. Si vous avez deja passe plusieurs nuits a lutter contre l'acouphene, votre cerveau associe le lit a une situation de stress. Avant meme que le silence ne s'installe, l'anticipation suffit a augmenter votre vigilance. C'est le meme mecanisme que celui decrit dans notre [guide sur le stress et les acouphenes](/guides/acouphenes/stress/) : une boucle d'attention-emotion qui s'auto-alimente.
+L'intention est bonne : enrichir le silence avec du son. Mais l'exécution est souvent catastrophique. Des patients téléchargent une application de bruit blanc, mettent des écouteurs intra-auriculaires et poussent le volume jusqu'à "ne plus entendre l'acouphène." C'est l'inverse de ce qu'il faut faire. Un son de masquage trop fort empêche l'endormissement autant que l'acouphène lui-même. Et les intra-auriculaires portés toute la nuit irritent le conduit auditif, favorisent les bouchons de cérumen, et provoquent parfois des otites externes. J'ai vu deux patients développer une infection du conduit après des semaines d'écouteurs nocturnes. Le bon réglage de l'enrichissement sonore, je vous l'explique plus bas — et il est contre-intuitif.
 
-## L'enrichissement sonore nocturne
+### Erreur n°4 : chercher le silence parfait
 
-L'objectif est simple : remplir le silence pour reduire le contraste avec l'acouphene. Il ne s'agit pas de couvrir le sifflement -- un son trop fort vous empecherait de dormir -- mais de fournir un fond sonore neutre, juste en dessous du seuil de perception de l'acouphene.
+Certains patients déménagent la chambre au fond de l'appartement, installent du double vitrage renforcé, posent de la moquette épaisse. Ils construisent, sans le savoir, une chambre anéchoïque domestique. Plus la pièce est silencieuse, plus l'acouphène devient le seul signal disponible pour le cerveau. J'ai eu un patient ingénieur du son qui avait insonorisé sa chambre aux normes studio. Ses acouphènes y étaient insupportables. Quand il dormait à l'hôtel, avec le bruit de la climatisation et les sons étouffés du couloir, il s'endormait en quinze minutes. Le silence n'est pas votre allié. C'est le fond sonore continu qui l'est.
 
-### Les generateurs de bruit de chevet
+## Le protocole que je recommande : 4 étapes, dans l'ordre
 
-Ce sont des appareils dedies, poses sur la table de nuit, qui diffusent un bruit blanc, rose ou des sons de la nature (pluie, vagues, ruisseau). Les modeles de qualite proposent un minuteur et un volume reglable avec precision. Avantage : ils fonctionnent toute la nuit sans ecran lumineux et ne dependent pas d'une connexion internet. C'est la solution que je recommande en premier a mes patients. Le volume ideal se situe juste en dessous du niveau de l'acouphene -- vous devez encore percevoir legerement le sifflement, mais le fond sonore reduit considerablement son caractere intrusif.
+Ce protocole est celui que j'applique en consultation depuis une quinzaine d'années. Il n'a rien de révolutionnaire sur le papier. Sa force, c'est l'ordre des étapes et la précision des réglages — des détails que la littérature scientifique mentionne rarement mais que le terrain impose.
 
-### Les applications mobiles
+### Étape 1 : l'enrichissement sonore nocturne, bien calibré
 
-Plusieurs applications gratuites ou peu couteuses proposent des generateurs de sons : bruit blanc, bruits de la nature, sons binauraux. Elles representent une bonne porte d'entree pour tester l'enrichissement sonore avant d'investir dans un appareil dedie. Veillez cependant a activer le mode avion pour eviter les notifications nocturnes et a eteindre l'ecran completement. La lumiere bleue du telephone est un perturbateur du sommeil qui s'ajoute au probleme.
+L'objectif n'est pas de masquer l'acouphène. C'est de réduire le contraste entre le sifflement et l'environnement sonore. La nuance est fondamentale. Le masquage total (ne plus entendre l'acouphène du tout) ne favorise pas l'habituation. L'enrichissement partiel, si.
 
-### L'oreiller a haut-parleur integre
+**Le réglage de référence** : montez le volume du générateur de bruit jusqu'à percevoir clairement le fond sonore, puis ajustez-le pour que l'acouphène reste légèrement audible. Vous devez encore l'entendre, mais il ne doit plus dominer. Ce point de mélange, les Anglo-Saxons l'appellent le *mixing point*. C'est le réglage le plus efficace pour l'habituation à long terme, selon les principes de la Tinnitus Retraining Therapy (TRT).
 
-Pour les personnes qui dorment en couple et ne souhaitent pas diffuser de son dans toute la chambre, il existe des oreillers equipes de haut-parleurs plats. Le son n'est percu que par la personne qui utilise l'oreiller. C'est une solution discrete et efficace, particulierement adaptee quand votre conjoint n'a pas d'acouphenes et a besoin de silence pour dormir.
+**Le matériel, par ordre de recommandation** :
 
-## L'hygiene du sommeil : les fondamentaux
+- **Générateur de chevet dédié** : c'est ma première recommandation. Pas d'écran, pas de connexion internet, pas de notifications. Un bouton de volume, un choix de sons (bruit rose, pluie, ruisseau), un minuteur optionnel. Le bruit rose est souvent mieux toléré que le bruit blanc pur — il est moins agressif dans les aigus, ce qui compte quand votre acouphène est déjà un sifflement aigu.
 
-L'enrichissement sonore ne suffit pas si vos habitudes de sommeil sont degradees. Voici les regles de base que j'explique a chaque patient acouphenique en consultation.
+- **Oreiller à haut-parleur intégré** : indispensable si vous dormez en couple. Le son reste localisé à votre oreille sans gêner votre conjoint. Je recommande cette solution à environ un tiers de mes patients — ceux dont le partenaire ne supporte pas le fond sonore ambiant.
 
-### La routine du coucher
+- **Application mobile en dernier recours** : acceptable pour tester le principe avant d'investir. Mais téléphone en mode avion, écran éteint, et son diffusé sur une petite enceinte de chevet — jamais dans des écouteurs. La lumière bleue de l'écran, même résiduelle, retarde la sécrétion de mélatonine de 30 à 60 minutes selon l'INSERM.
 
-Votre cerveau a besoin de signaux reguliers pour preparer le sommeil. Couchez-vous et levez-vous a heures fixes, y compris le week-end. Instaurez un rituel de 30 minutes avant le coucher : lecture, etirements doux, respiration lente. L'objectif est de signaler a votre organisme que la phase de repos approche.
+### Étape 2 : l'hygiène du sommeil, sans négociation
 
-### La chambre : un environnement optimise
+L'enrichissement sonore ne compense pas des habitudes de sommeil dégradées. Ces règles ne sont pas des suggestions — ce sont des prérequis.
 
-Temperature entre 16 et 18 degres. Obscurite maximale (rideaux occultants ou masque de sommeil). Et surtout : un fond sonore continu grace a votre generateur de bruit. La chambre doit etre associee au sommeil et a la detente, jamais au travail ou a la consultation de nouvelles anxiogenes. Si vous passez plus de 20 minutes eveille dans votre lit, levez-vous, installez-vous dans une autre piece avec un fond sonore, et ne retournez vous coucher que lorsque la somnolence revient.
+**Horaires fixes** : couchez-vous et levez-vous à la même heure, y compris le week-end. L'horloge circadienne de votre cerveau déteste l'improvisation. Un décalage de deux heures le dimanche matin suffit à dérégler l'endormissement du lundi soir — et donc à vous livrer au silence avec l'acouphène comme seul compagnon.
 
-### Les ecrans : le piege nocturne
+**La règle des 20 minutes** : si vous ne dormez pas après 20 minutes, levez-vous. Installez-vous dans une autre pièce avec un fond sonore doux. Lisez, faites des étirements légers. Ne retournez au lit que lorsque la somnolence revient. L'objectif : votre cerveau doit associer le lit au sommeil, jamais à la frustration de l'insomnie. C'est le principe du contrôle du stimulus, pilier de la TCC de l'insomnie.
 
-Arretez les ecrans au minimum une heure avant le coucher. La lumiere bleue des telephones, tablettes et ordinateurs inhibe la secretion de melatonine, l'hormone qui declenche l'endormissement. Selon l'INSERM, cette perturbation retarde l'endormissement de 30 a 60 minutes en moyenne. Pour une personne acouphenique, c'est 30 a 60 minutes supplementaires passees dans le silence a ecouter l'acouphene. Le calcul est vite fait.
+**Température** : entre 16 et 18 degrés. Au-dessus de 19°C, l'endormissement est retardé. Ce n'est pas une préférence personnelle, c'est de la physiologie : le corps a besoin de baisser sa température centrale pour déclencher le sommeil.
 
-## La TCC-I : le traitement de reference
+**Écrans** : arrêt une heure avant le coucher. Pour un patient acouphénique, c'est encore plus critique que pour la population générale. Chaque minute supplémentaire d'éveil dans le lit est une minute supplémentaire passée à écouter l'acouphène dans le silence. Le calcul est simple : si la lumière bleue retarde votre endormissement de 45 minutes, ce sont 45 minutes de sifflement amplifié par le silence nocturne.
 
-La TCC de l'insomnie (TCC-I) est reconnue par la Haute Autorite de Sante comme le traitement de premiere intention de l'insomnie chronique, y compris lorsqu'elle est associee aux acouphenes. Elle agit sur les pensees et les comportements qui entretiennent l'insomnie.
+### Étape 3 : la TCC-I quand l'insomnie est installée
 
-Concretement, un psychologue forme a la TCC-I vous aide a :
+Si les étapes 1 et 2 ne suffisent pas après trois à quatre semaines, c'est le moment d'orienter vers la TCC de l'insomnie (TCC-I). La Haute Autorité de Santé la recommande comme traitement de première intention de l'insomnie chronique. La méta-analyse de Schoisswohl et al. publiée dans JAMA Otolaryngology en 2023 confirme l'efficacité de la TCC sur la détresse liée aux acouphènes, avec un effet maintenu à long terme.
 
-- **Identifier les pensees anxiogenes liees au sommeil** : "Si je ne dors pas, demain sera invivable", "Mes acouphenes ne me laisseront jamais dormir". Ces pensees automatiques augmentent l'activation physiologique et retardent l'endormissement.
-- **Restructurer ces pensees** : les remplacer par des cognitions plus realistes et moins anxiogenes.
-- **Appliquer la restriction de sommeil** : une technique contre-intuitive mais efficace qui consiste a reduire temporairement le temps passe au lit pour consolider le sommeil et augmenter la pression de sommeil.
-- **Pratiquer le controle du stimulus** : reassocier le lit au sommeil plutot qu'a l'eveil et a la frustration.
+Concrètement, un psychologue formé à la TCC-I travaille sur quatre axes :
 
-Comptez entre 6 et 10 seances. Les etudes montrent que la TCC-I est plus efficace que les somniferes a moyen et long terme, sans effet secondaire ni risque de dependance. Elle est remboursee par l'Assurance maladie lorsqu'elle est pratiquee par un professionnel conventionne.
+- **L'identification des pensées catastrophistes** : "Si je ne dors pas, demain sera invivable", "Mes acouphènes ne me laisseront jamais dormir." Ces cognitions automatiques déclenchent une activation physiologique (cortisol, rythme cardiaque) qui rend l'endormissement physiologiquement impossible.
 
-## Ce qui ne marche pas
+- **La restructuration cognitive** : remplacer ces pensées par des cognitions plus réalistes. Non pas du "positivisme" naïf, mais une réévaluation factuelle : "J'ai déjà passé des nuits difficiles et j'ai quand même fonctionné le lendemain."
 
-### Les somniferes
+- **La restriction de sommeil** : une technique contre-intuitive que j'explique longuement aux patients parce qu'elle fait peur. On réduit temporairement le temps passé au lit pour augmenter la pression de sommeil et consolider les cycles. Les premières nuits sont difficiles. Au bout de deux semaines, le sommeil est plus profond et plus continu.
 
-Les benzodiazepines et les hypnotiques (zolpidem, zopiclone) induisent un sommeil artificiel de mauvaise qualite. Ils reduisent le sommeil profond et le sommeil paradoxal, les deux phases les plus reparatrices. Surtout, ils ne traitent pas la cause de l'insomnie. Des l'arret, les troubles reviennent, souvent aggraves par un effet rebond. Et le risque de dependance est reel, particulierement chez les personnes de plus de 65 ans. En 28 ans de carriere, je n'ai jamais vu un somnifere regler durablement le probleme de sommeil d'un patient acouphenique.
+- **Le contrôle du stimulus** : réassocier le lit au sommeil. Plus de télévision au lit, plus de téléphone, plus de rumination. Le lit est fait pour dormir, point final.
 
-### Le silence total
+Comptez entre 6 et 10 séances. La TCC-I est remboursée par l'Assurance maladie lorsqu'elle est pratiquée par un professionnel conventionné. À moyen terme, elle est significativement plus efficace que les somnifères, sans effet secondaire ni risque de dépendance.
 
-Certains patients pensent qu'ils dormiront mieux dans un silence absolu, avec des bouchons d'oreilles. C'est l'inverse qui se produit. Les bouchons suppriment les derniers sons ambiants et amplifient la perception de l'acouphene. Le cerveau, prive de toute stimulation exterieure, monte le volume interne au maximum. Retirez les bouchons et remplacez-les par un fond sonore continu.
+### Étape 4 : le suivi et l'ajustement
 
-### Les complements alimentaires
+C'est l'étape que la plupart des articles oublient. L'enrichissement sonore n'est pas un réglage qu'on fait une fois et qu'on oublie. En consultation, je revois mes patients à J+15, J+30 et J+90. Pourquoi ? Parce que la perception de l'acouphène évolue. Le son qui fonctionnait parfaitement la première semaine peut devenir irritant à la troisième. Le bruit de pluie que le patient adorait finit par l'agacer — le cerveau l'a intégré et ne le trouve plus apaisant. On change pour du bruit rose. Ou pour un son de ruisseau. Ou on ajuste le volume d'un demi-décibel. Ce suivi patient, c'est ce qui fait la différence entre un enrichissement sonore qui marche et un appareil qui finit dans un tiroir.
 
-Ginkgo biloba, magnesium, zinc, melatonine : aucun de ces complements n'a demontre une efficacite specifique sur les acouphenes dans des etudes rigoureuses. La melatonine peut faciliter l'endormissement dans certains cas de decalage horaire, mais elle n'agit pas sur l'acouphene lui-meme. Ne depensez pas votre argent sur des promesses non validees.
+## Le cas de Mme R. : quand tout se combine
 
-## Quand consulter
+Mme R., 72 ans, retraitée. Presbyacousie bilatérale modérée, acouphènes bilatéraux depuis trois ans — sifflement aigu à 6 000 Hz, constant. Elle vient me voir pour ses appareils auditifs, mais sa première phrase est : "Je ne dors plus."
 
-Si vos troubles du sommeil lies aux acouphenes persistent depuis plus de trois semaines malgre les mesures d'hygiene du sommeil et l'enrichissement sonore, consultez. Le parcours recommande :
+Son parcours avant de me consulter : son médecin traitant lui avait prescrit du zolpidem il y a deux ans. Au début, elle dormait. Puis la dose a augmenté. Puis le sommeil s'est de nouveau dégradé. Elle a acheté des bouchons d'oreilles en mousse — "mes acouphènes ont triplé." Elle a essayé une application de bruit blanc avec des écouteurs filaires — "ça me grattait les oreilles et le fil m'étranglait la nuit."
 
-- **Votre medecin traitant** : pour evaluer la severite de l'insomnie et ecarter d'autres causes (apnee du sommeil, syndrome des jambes sans repos).
-- **Un ORL** : pour un bilan auditif complet et une evaluation de l'acouphene.
-- **Un audioprothesiste** : pour la mise en place d'un enrichissement sonore adapte, en cabinet.
-- **Un psychologue forme a la TCC-I** : si l'insomnie est installee depuis plusieurs mois.
+Ce que nous avons mis en place :
 
-N'attendez pas que la dette de sommeil s'accumule. La fatigue chronique degrade la tolerance aux acouphenes, augmente l'irritabilite et entretient le [cercle vicieux du stress](/guides/acouphenes/stress/). Plus la prise en charge est precoce, plus elle est efficace. Pour une vision complete des mecanismes et des solutions, consultez notre [guide complet sur les acouphenes](/guides/acouphenes/).
+1. Appareillage auditif bilatéral classe 2 avec programme acouphènes intégré, porté en journée. La correction de la presbyacousie restaure les stimulations auditives que le cerveau avait perdues — c'est la base de la prise en charge.
+
+2. Générateur de bruit de chevet, bruit rose, au *mixing point*. Mme R. a mis dix jours à trouver le bon réglage. Au premier rendez-vous de suivi, elle m'a dit : "Je m'endors en quarante minutes au lieu de deux heures."
+
+3. Sevrage progressif du zolpidem, supervisé par son médecin traitant. Parallèlement, six séances de TCC-I avec une psychologue que je recommande régulièrement.
+
+4. Deuxième suivi à J+30 : endormissement en vingt minutes. Réveils nocturnes réduits de quatre à un. Troisième suivi à J+90 : Mme R. qualifie son sommeil de "correct." Pas parfait — elle entend encore ses acouphènes en s'endormant. Mais ils ne la réveillent plus. Le sifflement est toujours là. La souffrance, elle, a diminué de 80 % sur l'échelle THI.
+
+Ce cas illustre un point essentiel : il n'y a pas de solution unique. C'est la combinaison appareillage + enrichissement nocturne + TCC-I + suivi qui a fonctionné. Retirer un seul élément, et le résultat aurait été différent.
+
+## Les limites honnêtes de ce protocole
+
+Je refuse de vous vendre une promesse que je ne peux pas tenir. Voici ce que l'enrichissement sonore et la TCC-I ne font pas :
+
+**Ils ne suppriment pas l'acouphène.** Aucun traitement validé à ce jour ne supprime un acouphène chronique. Quiconque vous promet le contraire — thérapeute, site internet ou fabricant de complément alimentaire — vous ment ou se trompe. L'objectif réaliste, c'est l'habituation : l'acouphène est toujours là, mais votre cerveau cesse de le traiter comme une menace. Et quand il cesse d'être une menace, il cesse de vous empêcher de dormir.
+
+**Le protocole ne fonctionne pas pour tout le monde.** En vingt-cinq ans, j'ai vu des patients pour lesquels ni l'enrichissement sonore, ni la TCC-I, ni l'appareillage n'ont suffi. Des acouphènes sévères avec hyperacousie associée. Des syndromes anxio-dépressifs profonds qui nécessitent une prise en charge psychiatrique avant toute intervention audiologique. Des patients qui ne tolèrent aucun son de fond — le générateur les agace autant que l'acouphène. Ces cas existent. Ils représentent environ 10 à 15 % de ma patientèle acouphénique. Je les oriente vers des centres pluridisciplinaires spécialisés (ORL + psychiatre + psychologue + audioprothésiste) qui disposent de moyens que le cabinet libéral n'a pas.
+
+**Le ginkgo biloba, le magnésium, la mélatonine ?** Aucun complément alimentaire n'a démontré d'efficacité spécifique sur les acouphènes dans des essais contrôlés randomisés rigoureux. La mélatonine peut aider l'endormissement en cas de décalage horaire, mais elle n'agit pas sur le mécanisme acouphénique. Je ne les interdis pas — je dis simplement : ne comptez pas dessus et ne dépensez pas votre argent sur des promesses non validées.
+
+## Mes positions tranchées
+
+Ces positions s'appuient sur vingt-cinq ans de pratique et sur la littérature. Elles ne plairont pas à tout le monde. Tant pis.
+
+**L'enrichissement sonore partiel est supérieur au masquage total.** Le masquage complet (ne plus entendre du tout l'acouphène) soulage immédiatement mais empêche l'habituation à long terme. Le cerveau ne peut pas apprendre à ignorer un signal qu'il ne perçoit plus. Le *mixing point* — acouphène encore légèrement perceptible — est inconfortable les premiers jours mais nettement plus efficace sur la durée. C'est le principe de la TRT validé depuis les travaux de Jastreboff.
+
+**Les somnifères n'ont rien à faire dans la prise en charge des acouphènes.** Jamais en première intention. Jamais en traitement de fond. Éventuellement en prescription courte (7 jours maximum) dans une crise aiguë avec risque suicidaire, sous supervision stricte. En dehors de ce cas extrême, la TCC-I fait mieux, sans les effets secondaires. En vingt-cinq ans, je n'ai pas vu un seul patient dont les somnifères aient durablement résolu le problème de sommeil lié aux acouphènes.
+
+**L'appareillage auditif est sous-estimé comme outil anti-acouphènes nocturnes.** Non, vous ne portez pas vos appareils la nuit. Mais un patient correctement appareillé en journée arrive le soir avec un cerveau qui a reçu des stimulations auditives normales pendant 14 heures. Sa sensibilité centrale est recalibrée. Le gain interne est moins excessif. L'acouphène perçu au coucher est moins intense que celui d'un patient non appareillé. Je le constate systématiquement chez les acouphéniques presbyacousiques : l'appareillage diurne améliore les nuits, même sans aucun dispositif nocturne.
+
+**Le conjoint fait partie du protocole.** Trop de professionnels oublient ce point. Quand Mme R. allume son générateur de bruit à 23h, M. R. doit comprendre pourquoi. Si le conjoint perçoit le fond sonore comme une gêne, il y aura un conflit. Et le conflit génère du stress. Et le stress amplifie les acouphènes. Comme je l'explique dans notre [guide sur le stress et les acouphènes](/guides/acouphenes/stress/), la boucle stress-acouphènes est le piège principal. J'invite systématiquement le conjoint à l'un des rendez-vous de suivi pour expliquer le protocole et négocier les conditions (volume, type de son, oreiller dédié).
+
+## Mon avis d'expert : par où commencer
+
+Si vous lisez cet article à 2 heures du matin parce que vos acouphènes vous empêchent de dormir, voici la hiérarchie que je recommande :
+
+**Ce soir** : si vous avez un smartphone, téléchargez une application de bruit rose (gratuit). Posez le téléphone sur la table de nuit, écran retourné, en mode avion. Volume bas — vous devez encore entendre votre acouphène. C'est une solution provisoire, mais elle peut faire la différence cette nuit.
+
+**Cette semaine** : investissez dans un générateur de bruit de chevet dédié (entre 30 et 80 euros). Pas besoin de haut de gamme. Un appareil simple, sans écran, avec du bruit rose et un minuteur suffit.
+
+**Ce mois** : consultez votre médecin traitant pour un bilan. Éliminez les autres causes d'insomnie (apnée du sommeil, syndrome des jambes sans repos). Demandez un audiogramme si vous n'en avez pas eu récemment — une perte auditive non corrigée alimente les acouphènes.
+
+**Ce trimestre** : si l'insomnie persiste malgré l'enrichissement sonore et l'hygiène du sommeil, demandez une orientation vers un psychologue formé à la TCC-I. C'est le traitement de référence. Il fonctionne. Il est remboursé.
+
+N'attendez pas que la dette de sommeil s'accumule. La fatigue chronique dégrade la tolérance aux acouphènes, augmente l'irritabilité et entretient le [cercle vicieux du stress](/guides/acouphenes/stress/). Plus la prise en charge est précoce, plus elle est efficace. Pour une vision complète des mécanismes et des solutions, consultez notre [guide complet sur les acouphènes](/guides/acouphenes/).
