@@ -67,11 +67,11 @@ const {
 const clusterLabels: Record<string, string> = {
   'perte-auditive': 'Perte auditive',
   'appareils-auditifs': 'Appareils auditifs',
-  'acouphenes': 'Acouphenes',
-  'prevention': 'Prevention',
+  'acouphenes': 'Acouphènes',
+  'prevention': 'Prévention',
   'remboursement': 'Remboursement',
   'vie-quotidienne': 'Vie quotidienne',
-  'audioprothesiste': "L'audioprothesiste",
+  'audioprothesiste': "L'audioprothésiste",
 };
 
 const breadcrumbs = cluster
@@ -103,7 +103,7 @@ const articleSchema = {
     '@id': 'https://leguideauditif.fr/#author',
     name: author,
     jobTitle: authorTitle,
-    description: "Audioprothesiste DE, 28 ans d'experience — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients.",
+    description: "Audioprothésiste DE, 28 ans d'expérience — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients.",
     url: 'https://leguideauditif.fr/a-propos/',
     sameAs: ['https://www.linkedin.com/in/franck-olivier-chabbat-/'],
   },
@@ -199,7 +199,7 @@ if (extraSchemas) {
       <!-- FAQ -->
       {faq && faq.length > 0 && (
         <section class="article-faq">
-          <h2 class="article-faq__title">Questions frequentes</h2>
+          <h2 class="article-faq__title">Questions fréquentes</h2>
           {faq.map((f) => (
             <details class="article-faq__item">
               <summary class="article-faq__question">
@@ -215,7 +215,7 @@ if (extraSchemas) {
       <!-- Sources -->
       {sources && sources.length > 0 && (
         <section class="article-sources">
-          <h2 class="article-sources__title">Sources et references</h2>
+          <h2 class="article-sources__title">Sources et références</h2>
           <ul>
             {sources.map((source) => (
               <li>
@@ -231,8 +231,8 @@ if (extraSchemas) {
       <!-- CTA -->
       <ArticleCTA
         title="Vous avez des questions sur votre audition ?"
-        description="Trouvez un audioprothesiste specialise pres de chez vous"
-        buttonText="Trouver mon audioprothesiste"
+        description="Trouvez un audioprothésiste spécialisé près de chez vous"
+        buttonText="Trouver mon audioprothésiste"
         buttonUrl="/trouver-un-audioprothesiste/"
       />
 

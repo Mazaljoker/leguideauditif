@@ -2,12 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
-const title = 'Etudes et donnees — LeGuideAuditif.fr';
-const description = 'Etudes independantes sur la sante auditive en France : donnees RPPS, cartographies, analyses departementales.';
+const title = 'Études et données — LeGuideAuditif.fr';
+const description = 'Études indépendantes sur la santé auditive en France : données RPPS, cartographies, analyses départementales.';
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'Etudes' },
+  { label: 'Études' },
 ];
 ---
 
@@ -17,18 +17,18 @@ const breadcrumbs = [
       <Breadcrumbs items={breadcrumbs} />
 
       <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-8">
-        Etudes et donnees
+        Études et données
       </h1>
 
       <div class="bg-white rounded-2xl p-6 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
         <h2 class="font-sans text-xl font-bold text-marine mb-2">
           <a href="/etudes/deserts-auditifs-france-2026" class="text-orange hover:underline">
-            Carte des deserts auditifs en France (2026)
+            Carte des déserts auditifs en France (2026)
           </a>
         </h2>
         <p class="font-sans text-base text-gris-texte leading-relaxed mb-3">
-          Premiere carte interactive des audioprothesistes par departement.
-          Ou manque-t-il des professionnels de l'audition ? Donnees RPPS 2026 x INSEE 2025.
+          Première carte interactive des audioprothésistes par département.
+          Où manque-t-il des professionnels de l'audition ? Données RPPS 2026 x INSEE 2025.
         </p>
         <time datetime="2026-04-20" class="font-sans text-sm text-gris-texte">
           20 avril 2026

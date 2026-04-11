@@ -28,11 +28,11 @@ if (centre.plan !== 'rpps' || centre.claim_status === 'pending') {
 
 const displayVille = centre.ville || centre.cp;
 const pageTitle = `Revendiquer gratuitement ${centre.nom} — LeGuideAuditif`;
-const pageDescription = `Vous gerez ${centre.nom} a ${displayVille} ? Revendiquez votre fiche gratuitement pour afficher vos coordonnees et gagner en visibilite.`;
+const pageDescription = `Vous gérez ${centre.nom} à ${displayVille} ? Revendiquez votre fiche gratuitement pour afficher vos coordonnées et gagner en visibilité.`;
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'Trouver un audioprothesiste', href: '/trouver-audioprothesiste/' },
+  { label: 'Trouver un audioprothésiste', href: '/trouver-audioprothesiste/' },
   { label: centre.nom, href: `/centre/${centre.slug}/` },
   { label: 'Revendiquer' },
 ];
@@ -51,7 +51,7 @@ const breadcrumbs = [
       Revendiquez votre fiche gratuitement
     </h1>
     <p class="text-gris-texte font-sans mb-8">
-      Completez le formulaire ci-dessous pour revendiquer la fiche de
+      Complétez le formulaire ci-dessous pour revendiquer la fiche de
       <strong class="text-marine">{centre.nom}</strong> ({centre.adresse}, {centre.cp} {centre.ville}).
     </p>
 
@@ -71,11 +71,11 @@ const breadcrumbs = [
         </li>
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
-          Specialites affichees (3 max)
+          Spécialités affichées (3 max)
         </li>
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
-          Marques affichees (3 max)
+          Marques affichées (3 max)
         </li>
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
@@ -116,7 +116,7 @@ const breadcrumbs = [
 
         <div>
           <label for="claim-prenom" class="block text-sm font-medium text-marine font-sans mb-1">
-            Prenom
+            Prénom
           </label>
           <input
             id="claim-prenom"
@@ -194,13 +194,13 @@ const breadcrumbs = [
 
       <div class="mt-5">
         <label class="block text-sm font-medium text-marine font-sans mb-1">
-          Specialites (3 max)
+          Spécialités (3 max)
         </label>
         <div class="flex flex-wrap gap-2" id="specialites-container">
           {[
-            'Acouphenes', 'Pediatrie', 'Implants cochleaires',
-            '100% Sante', 'Bilan auditif gratuit', 'Appareillage premiere fois',
-            'Surdite severe/profonde', 'Protection auditive', 'Audiometrie',
+            'Acouphènes', 'Pédiatrie', 'Implants cochléaires',
+            '100% Santé', 'Bilan auditif gratuit', 'Appareillage première fois',
+            'Surdité sévère/profonde', 'Protection auditive', 'Audiométrie',
           ].map((s) => (
             <label class="inline-flex items-center gap-1.5 rounded-full border border-gris-clair bg-blanc px-3 py-1.5 text-sm font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30 has-[:checked]:text-[#0C447C]">
               <input type="checkbox" name="specialites" value={s} class="sr-only peer" />
@@ -208,12 +208,12 @@ const breadcrumbs = [
             </label>
           ))}
         </div>
-        <p class="text-xs text-gris-texte font-sans mt-1">Selectionnez jusqu'a 3 specialites</p>
+        <p class="text-xs text-gris-texte font-sans mt-1">Sélectionnez jusqu'à 3 spécialités</p>
       </div>
 
       <div class="mt-5">
         <label class="block text-sm font-medium text-marine font-sans mb-1">
-          Marques proposees (3 max)
+          Marques proposées (3 max)
         </label>
         <div class="flex flex-wrap gap-2" id="marques-container">
           {[
@@ -226,7 +226,7 @@ const breadcrumbs = [
             </label>
           ))}
         </div>
-        <p class="text-xs text-gris-texte font-sans mt-1">Selectionnez jusqu'a 3 marques</p>
+        <p class="text-xs text-gris-texte font-sans mt-1">Sélectionnez jusqu'à 3 marques</p>
       </div>
 
       <div class="mt-5">
@@ -238,7 +238,7 @@ const breadcrumbs = [
           name="a_propos"
           rows="4"
           maxlength="500"
-          placeholder="Presentez votre centre en quelques lignes : votre experience, votre equipe, vos services..."
+          placeholder="Présentez votre centre en quelques lignes : votre expérience, votre équipe, vos services..."
           class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 resize-y"
         ></textarea>
         <p class="text-xs text-gris-texte font-sans mt-1">500 caracteres max</p>
@@ -278,9 +278,9 @@ const breadcrumbs = [
         <label class="flex items-start gap-2 text-sm text-gris-texte font-sans">
           <input type="checkbox" name="rgpd" required class="mt-1" />
           <span>
-            J'atteste etre le gerant ou un representant autorise de cet etablissement.
-            J'accepte les <a href="/mentions-legales/" class="text-orange underline">conditions generales</a> et la
-            <a href="/politique-confidentialite/" class="text-orange underline">politique de confidentialite</a>.
+            J'atteste être le gérant ou un représentant autorisé de cet établissement.
+            J'accepte les <a href="/mentions-legales/" class="text-orange underline">conditions générales</a> et la
+            <a href="/politique-confidentialite/" class="text-orange underline">politique de confidentialité</a>.
           </span>
         </label>
       </div>
@@ -299,7 +299,7 @@ const breadcrumbs = [
       </div>
 
       <p class="text-xs text-gris-texte font-sans mt-3">
-        Aucun paiement requis. Votre demande sera verifiee sous 24h.
+        Aucun paiement requis. Votre demande sera vérifiée sous 24h.
       </p>
     </form>
   </section>
@@ -321,7 +321,7 @@ const breadcrumbs = [
       const file = photoInput.files?.[0];
       if (!file) return;
       if (file.size > 5 * 1024 * 1024) {
-        errorDiv.textContent = 'La photo ne doit pas depasser 5 Mo.';
+        errorDiv.textContent = 'La photo ne doit pas dépasser 5 Mo.';
         errorDiv.classList.remove('hidden');
         photoInput.value = '';
         return;

@@ -20,15 +20,15 @@ if (centreSlug) {
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'Trouver un audioprothesiste', href: '/trouver-audioprothesiste/' },
+  { label: 'Trouver un audioprothésiste', href: '/trouver-audioprothesiste/' },
   ...(centre ? [{ label: centre.nom, href: `/centre/${centre.slug}/` }] : []),
   { label: 'Confirmation' },
 ];
 ---
 
 <BaseLayout
-  title="Revendication confirmee — LeGuideAuditif"
-  description="Votre fiche audioprothesiste a ete revendiquee avec succes."
+  title="Revendication confirmée — LeGuideAuditif"
+  description="Votre fiche audioprothésiste a été revendiquée avec succès."
 >
   <div class="bg-creme">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,28 +43,28 @@ const breadcrumbs = [
     </div>
 
     <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine mb-4">
-      Votre fiche a ete revendiquee avec succes
+      Votre fiche a été revendiquée avec succès
     </h1>
 
     <p class="text-gris-texte font-sans text-lg mb-6 max-w-xl mx-auto">
-      Votre demande de revendication a bien ete enregistree.
-      Notre equipe verifiera vos informations professionnelles sous <strong class="text-marine">24 heures</strong>.
+      Votre demande de revendication a bien été enregistrée.
+      Notre équipe vérifiera vos informations professionnelles sous <strong class="text-marine">24 heures</strong>.
     </p>
 
     <div class="rounded-xl border border-gris-clair bg-blanc p-6 mb-8 text-left max-w-md mx-auto font-sans">
-      <h2 class="font-bold text-marine mb-3">Prochaines etapes</h2>
+      <h2 class="font-bold text-marine mb-3">Prochaines étapes</h2>
       <ul class="space-y-2 text-gris-texte">
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
-          Un email de confirmation a ete envoye a votre adresse
+          Un email de confirmation a été envoyé à votre adresse
         </li>
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
-          Verification de votre identite professionnelle sous 24h
+          Vérification de votre identité professionnelle sous 24h
         </li>
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
-          Activation de votre fiche complete une fois verifie
+          Activation de votre fiche complète une fois vérifié
         </li>
         <li class="flex items-start gap-2">
           <Icon name="lucide:check" class="w-5 h-5 text-orange mt-0.5 shrink-0" />
@@ -80,7 +80,7 @@ const breadcrumbs = [
         style="min-height: 48px;"
       >
         <Icon name="lucide:arrow-left" class="w-5 h-5" />
-        Retour a ma fiche
+        Retour à ma fiche
       </a>
     ) : (
       <a
@@ -89,7 +89,7 @@ const breadcrumbs = [
         style="min-height: 48px;"
       >
         <Icon name="lucide:arrow-left" class="w-5 h-5" />
-        Retour a l'annuaire
+        Retour à l'annuaire
       </a>
     )}
   </section>

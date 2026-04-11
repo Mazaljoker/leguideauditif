@@ -38,11 +38,11 @@ const {
 const clusterLabels: Record<string, string> = {
   'perte-auditive': 'Perte auditive',
   'appareils-auditifs': 'Appareils auditifs',
-  'acouphenes': 'Acouphenes',
-  'prevention': 'Prevention',
+  'acouphenes': 'Acouphènes',
+  'prevention': 'Prévention',
   'remboursement': 'Remboursement',
   'vie-quotidienne': 'Vie quotidienne',
-  'audioprothesiste': "L'audioprothesiste",
+  'audioprothesiste': "L'audioprothésiste",
 };
 
 const breadcrumbs = [
@@ -63,7 +63,7 @@ const articleSchema = {
     '@id': 'https://leguideauditif.fr/#author',
     name: author,
     jobTitle: authorTitle,
-    description: "Audioprothesiste DE, 28 ans d'experience — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients.",
+    description: "Audioprothésiste DE, 28 ans d'expérience — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients.",
     url: 'https://leguideauditif.fr/auteur/franck-olivier/',
     sameAs: ['https://www.linkedin.com/in/franck-olivier-chabbat-/'],
   },
@@ -149,11 +149,11 @@ const formattedUpdate = updateDate?.toLocaleDateString('fr-FR', {
         <div class="flex flex-wrap items-center gap-4 text-sm font-sans text-gris-texte">
           <span>Par <strong class="text-marine">{author}</strong>, {authorTitle}</span>
           <span>|</span>
-          <time datetime={publishDate.toISOString()}>Publie le {formattedDate}</time>
+          <time datetime={publishDate.toISOString()}>Publié le {formattedDate}</time>
           {formattedUpdate && (
             <>
               <span>|</span>
-              <time datetime={updateDate!.toISOString()}>Mis a jour le {formattedUpdate}</time>
+              <time datetime={updateDate!.toISOString()}>Mis à jour le {formattedUpdate}</time>
             </>
           )}
         </div>
@@ -161,7 +161,7 @@ const formattedUpdate = updateDate?.toLocaleDateString('fr-FR', {
 
       <!-- Health Disclaimer inline -->
       <div class="bg-[#fef9f0] border border-[#f0dcc4] rounded-xl px-5 py-4 mb-8 text-sm text-gris-texte font-sans">
-        <strong class="text-marine">Information sante :</strong> Ce contenu est informatif et ne remplace pas une consultation avec un professionnel de sante. Derniere revue : avril 2026.
+        <strong class="text-marine">Information santé :</strong> Ce contenu est informatif et ne remplace pas une consultation avec un professionnel de santé. Dernière revue : avril 2026.
       </div>
 
       <TableOfContents headings={headings} />
@@ -182,7 +182,7 @@ const formattedUpdate = updateDate?.toLocaleDateString('fr-FR', {
       <!-- FAQ section -->
       {faq && faq.length > 0 && (
         <section class="mt-12">
-          <h2 class="font-sans text-2xl font-bold text-marine mb-6">Questions frequentes</h2>
+          <h2 class="font-sans text-2xl font-bold text-marine mb-6">Questions fréquentes</h2>
           {faq.map((f) => (
             <details class="bg-blanc rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
               <summary class="px-6 py-5 font-sans text-[17px] font-semibold text-marine cursor-pointer list-none flex justify-between items-center">
@@ -198,7 +198,7 @@ const formattedUpdate = updateDate?.toLocaleDateString('fr-FR', {
       <!-- Sources -->
       {sources && sources.length > 0 && (
         <section class="mt-12">
-          <h2 class="font-sans text-2xl font-bold text-marine mb-4">Sources et references</h2>
+          <h2 class="font-sans text-2xl font-bold text-marine mb-4">Sources et références</h2>
           <ul class="space-y-2">
             {sources.map((source) => (
               <li class="font-sans text-sm">

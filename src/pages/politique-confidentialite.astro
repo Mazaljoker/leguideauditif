@@ -4,7 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'Politique de confidentialite' },
+  { label: 'Politique de confidentialité' },
 ];
 
 const schema = {
@@ -20,8 +20,8 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Politique de confidentialite — LeGuideAuditif.fr"
-  description="Politique de confidentialite de LeGuideAuditif.fr — collecte de donnees, cookies, droits RGPD."
+  title="Politique de confidentialité — LeGuideAuditif.fr"
+  description="Politique de confidentialité de LeGuideAuditif.fr — collecte de données, cookies, droits RGPD."
   schema={schema}
 >
   <div class="bg-creme">
@@ -31,11 +31,11 @@ const schema = {
   </div>
   <section class="bg-creme py-16">
     <div class="max-w-[780px] mx-auto px-5">
-      <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-4">Politique de confidentialite</h1>
-      <p class="text-sm text-gris-texte mb-8">Derniere mise a jour : 7 avril 2026</p>
+      <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-4">Politique de confidentialité</h1>
+      <p class="text-sm text-gris-texte mb-8">Dernière mise à jour : 7 avril 2026</p>
 
       <p class="text-lg leading-relaxed mb-8">
-        La protection de vos donnees personnelles est une priorite pour LeGuideAuditif.fr. Cette politique explique quelles donnees nous collectons, pourquoi et comment nous les utilisons, conformement au Reglement General sur la Protection des Donnees (RGPD).
+        La protection de vos données personnelles est une priorité pour LeGuideAuditif.fr. Cette politique explique quelles données nous collectons, pourquoi et comment nous les utilisons, conformément au Règlement Général sur la Protection des Données (RGPD).
       </p>
 
       <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">1. Responsable du traitement</h2>
@@ -45,45 +45,45 @@ const schema = {
         Email : <a href="mailto:contact@leguideauditif.fr" class="text-orange">contact@leguideauditif.fr</a>
       </p>
 
-      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">2. Donnees collectees</h2>
-      <p class="leading-relaxed mb-3">Nous pouvons collecter les categories de donnees suivantes :</p>
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">2. Données collectées</h2>
+      <p class="leading-relaxed mb-3">Nous pouvons collecter les catégories de données suivantes :</p>
       <ul class="list-disc list-inside space-y-2 mb-6 text-base">
         <li><strong>Formulaire de contact :</strong> nom, adresse email, sujet, message.</li>
-        <li><strong>Formulaire de demande de devis :</strong> nom, telephone, ville, type de perte auditive, situation d'appareillage.</li>
+        <li><strong>Formulaire de demande de devis :</strong> nom, téléphone, ville, type de perte auditive, situation d'appareillage.</li>
         <li><strong>Newsletter :</strong> adresse email.</li>
-        <li><strong>Donnees de navigation :</strong> adresse IP anonymisee, pages visitees, duree de visite (via Vercel Analytics, sans cookies tiers).</li>
+        <li><strong>Données de navigation :</strong> adresse IP anonymisée, pages visitées, durée de visite (via Vercel Analytics, sans cookies tiers).</li>
       </ul>
 
-      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">3. Finalites et bases legales</h2>
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">3. Finalités et bases légales</h2>
       <div class="overflow-x-auto mb-6">
         <table class="w-full text-sm border border-gris-clair rounded-lg overflow-hidden">
           <thead>
             <tr class="bg-marine text-white">
-              <th class="px-4 py-3 text-left font-sans font-semibold">Finalite</th>
-              <th class="px-4 py-3 text-left font-sans font-semibold">Base legale</th>
-              <th class="px-4 py-3 text-left font-sans font-semibold">Duree de conservation</th>
+              <th class="px-4 py-3 text-left font-sans font-semibold">Finalité</th>
+              <th class="px-4 py-3 text-left font-sans font-semibold">Base légale</th>
+              <th class="px-4 py-3 text-left font-sans font-semibold">Durée de conservation</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-t border-gris-clair">
-              <td class="px-4 py-3">Repondre a vos messages</td>
-              <td class="px-4 py-3">Interet legitime</td>
+              <td class="px-4 py-3">Répondre à vos messages</td>
+              <td class="px-4 py-3">Intérêt légitime</td>
               <td class="px-4 py-3">12 mois</td>
             </tr>
             <tr class="border-t border-gris-clair bg-blanc">
-              <td class="px-4 py-3">Transmission de demande de devis a un audioprothesiste partenaire</td>
+              <td class="px-4 py-3">Transmission de demande de devis à un audioprothésiste partenaire</td>
               <td class="px-4 py-3">Consentement</td>
               <td class="px-4 py-3">12 mois</td>
             </tr>
             <tr class="border-t border-gris-clair">
               <td class="px-4 py-3">Envoi de la newsletter</td>
               <td class="px-4 py-3">Consentement</td>
-              <td class="px-4 py-3">Jusqu'a desinscription</td>
+              <td class="px-4 py-3">Jusqu'à désinscription</td>
             </tr>
             <tr class="border-t border-gris-clair bg-blanc">
               <td class="px-4 py-3">Statistiques de navigation</td>
-              <td class="px-4 py-3">Interet legitime</td>
-              <td class="px-4 py-3">26 mois (anonymise)</td>
+              <td class="px-4 py-3">Intérêt légitime</td>
+              <td class="px-4 py-3">26 mois (anonymisé)</td>
             </tr>
           </tbody>
         </table>
@@ -92,64 +92,64 @@ const schema = {
       <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">4. Cookies</h2>
       <p class="leading-relaxed mb-3">LeGuideAuditif.fr utilise les cookies suivants :</p>
       <ul class="list-disc list-inside space-y-2 mb-4 text-base">
-        <li><strong>Cookies strictement necessaires :</strong> fonctionnement du site (session, preferences). Pas de consentement requis.</li>
-        <li><strong>Cookies analytiques :</strong> Vercel Web Analytics (donnees anonymisees, sans cookies tiers par defaut). Base : interet legitime.</li>
+        <li><strong>Cookies strictement nécessaires :</strong> fonctionnement du site (session, préférences). Pas de consentement requis.</li>
+        <li><strong>Cookies analytiques :</strong> Vercel Web Analytics (données anonymisées, sans cookies tiers par défaut). Base : intérêt légitime.</li>
       </ul>
       <p class="leading-relaxed mb-6">
-        Aucun cookie publicitaire ou de profilage n'est utilise sur ce site. Vous pouvez desactiver les cookies via les parametres de votre navigateur.
+        Aucun cookie publicitaire ou de profilage n'est utilisé sur ce site. Vous pouvez désactiver les cookies via les paramètres de votre navigateur.
       </p>
 
-      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">5. Partage des donnees</h2>
-      <p class="leading-relaxed mb-3">Vos donnees personnelles peuvent etre partagees avec :</p>
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">5. Partage des données</h2>
+      <p class="leading-relaxed mb-3">Vos données personnelles peuvent être partagées avec :</p>
       <ul class="list-disc list-inside space-y-2 mb-4 text-base">
         <li><strong>Supabase Inc.</strong> (stockage des formulaires) — serveurs UE.</li>
-        <li><strong>Vercel Inc.</strong> (hebergement, analytics) — donnees anonymisees.</li>
-        <li><strong>Audioprothesistes partenaires</strong> (uniquement pour les demandes de devis, avec votre consentement explicite).</li>
+        <li><strong>Vercel Inc.</strong> (hébergement, analytics) — données anonymisées.</li>
+        <li><strong>Audioprothésistes partenaires</strong> (uniquement pour les demandes de devis, avec votre consentement explicite).</li>
       </ul>
       <p class="leading-relaxed mb-6">
-        Aucune donnee n'est vendue a des tiers a des fins commerciales ou publicitaires.
+        Aucune donnée n'est vendue à des tiers à des fins commerciales ou publicitaires.
       </p>
 
       <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">6. Vos droits</h2>
-      <p class="leading-relaxed mb-3">Conformement au RGPD, vous disposez des droits suivants :</p>
+      <p class="leading-relaxed mb-3">Conformément au RGPD, vous disposez des droits suivants :</p>
       <ul class="list-disc list-inside space-y-2 mb-4 text-base">
-        <li><strong>Droit d'acces :</strong> obtenir une copie de vos donnees.</li>
-        <li><strong>Droit de rectification :</strong> corriger des donnees inexactes.</li>
-        <li><strong>Droit de suppression :</strong> demander l'effacement de vos donnees.</li>
-        <li><strong>Droit d'opposition :</strong> vous opposer au traitement fonde sur l'interet legitime.</li>
-        <li><strong>Droit a la portabilite :</strong> recevoir vos donnees dans un format structure.</li>
-        <li><strong>Droit au retrait du consentement :</strong> a tout moment, sans affecter la licite du traitement effectue avant.</li>
+        <li><strong>Droit d'accès :</strong> obtenir une copie de vos données.</li>
+        <li><strong>Droit de rectification :</strong> corriger des données inexactes.</li>
+        <li><strong>Droit de suppression :</strong> demander l'effacement de vos données.</li>
+        <li><strong>Droit d'opposition :</strong> vous opposer au traitement fondé sur l'intérêt légitime.</li>
+        <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré.</li>
+        <li><strong>Droit au retrait du consentement :</strong> à tout moment, sans affecter la licéité du traitement effectué avant.</li>
       </ul>
       <p class="leading-relaxed mb-6">
-        Pour exercer vos droits, contactez-nous a <a href="mailto:contact@leguideauditif.fr" class="text-orange font-semibold hover:underline">contact@leguideauditif.fr</a>. Nous repondrons dans un delai de 30 jours.
+        Pour exercer vos droits, contactez-nous à <a href="mailto:contact@leguideauditif.fr" class="text-orange font-semibold hover:underline">contact@leguideauditif.fr</a>. Nous répondrons dans un délai de 30 jours.
       </p>
 
       <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">7. Petites annonces professionnelles</h2>
       <p class="leading-relaxed mb-4">
-        Le module Petites Annonces collecte les donnees suivantes dans le cadre de la mise en relation entre professionnels de l'audioprothese :
+        Le module Petites Annonces collecte les données suivantes dans le cadre de la mise en relation entre professionnels de l'audioprothèse :
       </p>
       <ul class="list-disc pl-6 space-y-2 mb-4">
-        <li><strong>Compte utilisateur :</strong> email, nom, prenom, telephone, profil professionnel, numero RPPS (optionnel). Ces donnees sont stockees dans Supabase Auth et la table profiles.</li>
-        <li><strong>Annonces :</strong> titre, description, localisation, prix, photos. Publiees publiquement sur le site.</li>
-        <li><strong>Demandes de contact :</strong> nom, email, telephone, message, profil. Transmises au vendeur de l'annonce concernee.</li>
-        <li><strong>Alertes :</strong> criteres de recherche (categorie, departement, prix) pour recevoir des notifications.</li>
-        <li><strong>Paiements :</strong> les transactions sont traitees par Stripe. Nous ne stockons pas les donnees bancaires.</li>
+        <li><strong>Compte utilisateur :</strong> email, nom, prénom, téléphone, profil professionnel, numéro RPPS (optionnel). Ces données sont stockées dans Supabase Auth et la table profiles.</li>
+        <li><strong>Annonces :</strong> titre, description, localisation, prix, photos. Publiées publiquement sur le site.</li>
+        <li><strong>Demandes de contact :</strong> nom, email, téléphone, message, profil. Transmises au vendeur de l'annonce concernée.</li>
+        <li><strong>Alertes :</strong> critères de recherche (catégorie, département, prix) pour recevoir des notifications.</li>
+        <li><strong>Paiements :</strong> les transactions sont traitées par Stripe. Nous ne stockons pas les données bancaires.</li>
       </ul>
       <p class="leading-relaxed mb-4">
-        <strong>Consentement :</strong> en deposant une annonce, vous acceptez que vos coordonnees soient partagees avec les personnes interessees. Vous pouvez supprimer votre annonce a tout moment, ce qui supprime egalement les contacts associes et les photos.
+        <strong>Consentement :</strong> en déposant une annonce, vous acceptez que vos coordonnées soient partagées avec les personnes intéressées. Vous pouvez supprimer votre annonce à tout moment, ce qui supprime également les contacts associés et les photos.
       </p>
       <p class="leading-relaxed mb-6">
-        <strong>Duree de conservation :</strong> les annonces expirent automatiquement apres 30 jours. Les comptes inactifs depuis plus de 12 mois pourront etre supprimes apres notification.
+        <strong>Durée de conservation :</strong> les annonces expirent automatiquement après 30 jours. Les comptes inactifs depuis plus de 12 mois pourront être supprimés après notification.
       </p>
 
-      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">8. Securite</h2>
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">8. Sécurité</h2>
       <p class="leading-relaxed mb-6">
-        Nous mettons en place des mesures techniques et organisationnelles pour proteger vos donnees : connexion HTTPS, acces restreint aux bases de donnees, mots de passe chiffres.
+        Nous mettons en place des mesures techniques et organisationnelles pour protéger vos données : connexion HTTPS, accès restreint aux bases de données, mots de passe chiffrés.
       </p>
 
-      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">9. Reclamation</h2>
+      <h2 class="font-sans text-2xl font-bold text-marine mt-10 mb-4">9. Réclamation</h2>
       <p class="leading-relaxed">
-        Si vous estimez que vos droits ne sont pas respectes, vous pouvez introduire une reclamation aupres de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertes) : cnil.fr.
+        Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) : cnil.fr.
       </p>
     </div>
   </section>

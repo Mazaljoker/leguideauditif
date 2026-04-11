@@ -43,9 +43,9 @@ const isClaimed = typedCentre.plan === 'claimed';
 const isPremium = typedCentre.plan === 'premium';
 const isPendingClaim = isRpps && typedCentre.claim_status === 'pending';
 
-// --- Donnees conditionnelles ---
+// --- Données conditionnelles ---
 
-// Centres concurrents (Etat 1 uniquement)
+// Centres concurrents (État 1 uniquement)
 let competitors: CentreData[] = [];
 if (isRpps && typedCentre.lat && typedCentre.lng) {
   const { data } = await supabase.rpc('nearby_claimed_centres', {
@@ -72,14 +72,14 @@ const { count } = await supabase
 if (count) leadCount = count;
 
 // --- SEO ---
-const pageTitle = `${typedCentre.nom} — Audioprothesiste ${displayVille}`;
+const pageTitle = `${typedCentre.nom} — Audioprothésiste ${displayVille}`;
 const pageDescription = isRpps
-  ? `${typedCentre.nom}, audioprothesiste a ${displayVille}. Demandez un bilan auditif gratuit pres de chez vous.`
-  : `${typedCentre.nom}, audioprothesiste a ${displayVille}. Coordonnees, horaires et prise de rendez-vous.`;
+  ? `${typedCentre.nom}, audioprothésiste à ${displayVille}. Demandez un bilan auditif gratuit près de chez vous.`
+  : `${typedCentre.nom}, audioprothésiste à ${displayVille}. Coordonnées, horaires et prise de rendez-vous.`;
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'Trouver un audioprothesiste', href: '/trouver-audioprothesiste/' },
+  { label: 'Trouver un audioprothésiste', href: '/trouver-audioprothesiste/' },
   { label: `${typedCentre.nom}, ${displayVille}` },
 ];
 
@@ -95,7 +95,7 @@ const schema: Record<string, unknown> = {
     addressLocality: typedCentre.ville || undefined,
     addressCountry: 'FR',
   },
-  medicalSpecialty: 'Audioprothese',
+  medicalSpecialty: 'Audioprothèse',
 };
 
 if (typedCentre.lat && typedCentre.lng) {
@@ -127,7 +127,7 @@ if (typedCentre.marques?.length > 0) {
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
     {/* ================================================================
-        ETAT 1 — Non revendiquee (RPPS)
+        ÉTAT 1 — Non revendiquée (RPPS)
         ================================================================ */}
     {isRpps && (
       <>
@@ -142,7 +142,7 @@ if (typedCentre.marques?.length > 0) {
         <div class="rounded-lg bg-[#FCEBEB] px-4 py-3 mb-6 flex items-start gap-2">
           <Icon name="lucide:alert-triangle" class="w-4 h-4 text-[#A32D2D] shrink-0 mt-0.5" />
           <p class="text-xs text-[#791F1F] font-sans">
-            Sans fiche complete, les demandes de devis de cette zone sont envoyees aux centres voisins qui ont complete leur fiche.
+            Sans fiche complète, les demandes de devis de cette zone sont envoyées aux centres voisins qui ont complété leur fiche.
           </p>
         </div>
 
@@ -150,9 +150,9 @@ if (typedCentre.marques?.length > 0) {
           <div class="rounded-xl bg-[#FAEEDA] border border-[#EFD5A0] p-5 mb-6 flex items-start gap-3">
             <Icon name="lucide:clock" class="w-5 h-5 text-[#854F0B] shrink-0 mt-0.5" />
             <div>
-              <p class="text-sm font-medium text-[#633806] font-sans">Verification en cours</p>
+              <p class="text-sm font-medium text-[#633806] font-sans">Vérification en cours</p>
               <p class="text-xs text-[#854F0B] font-sans mt-1">
-                Une demande de revendication a ete soumise pour ce centre. La verification est en cours et sera finalisee sous 24h.
+                Une demande de revendication a été soumise pour ce centre. La vérification est en cours et sera finalisée sous 24h.
               </p>
             </div>
           </div>
@@ -169,13 +169,13 @@ if (typedCentre.marques?.length > 0) {
 
         {/* Footer source RPPS */}
         <p class="text-[11px] text-[#B4B2A9] font-sans text-center mb-4">
-          Source : Annuaire RPPS (data.gouv.fr) — Mise a jour periodique
+          Source : Annuaire RPPS (data.gouv.fr) — Mise à jour périodique
         </p>
       </>
     )}
 
     {/* ================================================================
-        ETAT 2 — Revendiquee gratuite
+        ÉTAT 2 — Revendiquée gratuite
         ================================================================ */}
     {isClaimed && (
       <>
@@ -199,8 +199,8 @@ if (typedCentre.marques?.length > 0) {
         <CentreCompleteness centre={typedCentre} />
 
         {typedCentre.a_propos && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="A propos du centre">
-            <h2 class="font-sans text-lg font-bold text-marine mb-4">A propos</h2>
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="À propos du centre">
+            <h2 class="font-sans text-lg font-bold text-marine mb-4">À propos</h2>
             <p class="text-gris-texte font-sans leading-relaxed">{typedCentre.a_propos}</p>
           </section>
         )}
@@ -216,7 +216,7 @@ if (typedCentre.marques?.length > 0) {
     )}
 
     {/* ================================================================
-        ETAT 3 — Premium
+        ÉTAT 3 — Premium
         ================================================================ */}
     {isPremium && (
       <>
@@ -240,8 +240,8 @@ if (typedCentre.marques?.length > 0) {
         <CentreCompleteness centre={typedCentre} />
 
         {typedCentre.a_propos && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="A propos du centre">
-            <h2 class="font-sans text-lg font-bold text-marine mb-4">A propos</h2>
+          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="À propos du centre">
+            <h2 class="font-sans text-lg font-bold text-marine mb-4">À propos</h2>
             <p class="text-gris-texte font-sans leading-relaxed">{typedCentre.a_propos}</p>
           </section>
         )}
@@ -262,7 +262,7 @@ if (typedCentre.marques?.length > 0) {
         class="inline-flex items-center gap-2 text-orange font-semibold hover:underline"
       >
         <Icon name="lucide:arrow-left" class="w-5 h-5" />
-        Retour a l'annuaire
+        Retour à l'annuaire
       </a>
     </nav>
   </article>
