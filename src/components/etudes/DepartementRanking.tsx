@@ -206,7 +206,7 @@ export default function DepartementRanking({ data, selectedDept, onSelectDept }:
     [sorted]
   );
 
-  const worst5 = metroSorted.slice(0, 5);
+  const worst10 = metroSorted.slice(0, 10);
   const best5 = [...metroSorted].reverse().slice(0, 5);
 
   if (showFullTable) {
@@ -237,34 +237,73 @@ export default function DepartementRanking({ data, selectedDept, onSelectDept }:
 
   return (
     <div>
-      {/* Mini rankings side by side */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-        {/* Worst 5 */}
-        <div className="bg-white rounded-xl border border-[#1B2E4A]/10 shadow-sm overflow-hidden">
-          <div className="px-4 py-3 bg-[#FFEBEE] border-b border-[#C62828]/10">
-            <h3 className="font-sans text-sm font-bold text-[#C62828]">
-              Les 5 departements les plus sous-dotes
-            </h3>
-          </div>
-          <div className="py-1">
-            {worst5.map((dept) => (
-              <MiniRow key={dept.code} dept={dept} onSelect={() => onSelectDept(dept.code)} />
-            ))}
-          </div>
+      {/* Top 10 worst — full width table */}
+      <div className="bg-white rounded-xl border border-[#1B2E4A]/10 shadow-sm overflow-hidden mb-6">
+        <div className="px-5 py-3 bg-[#FFEBEE] border-b border-[#C62828]/10">
+          <h3 className="font-sans text-sm font-bold text-[#C62828]">
+            Les 10 departements les plus sous-dotes (metropole)
+          </h3>
         </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left">
+            <thead>
+              <tr className="border-b border-[#1B2E4A]/10">
+                <th className="px-4 py-2.5 font-sans text-xs font-semibold text-[#1B2E4A]/50">Rang</th>
+                <th className="px-4 py-2.5 font-sans text-xs font-semibold text-[#1B2E4A]/50">Departement</th>
+                <th className="px-4 py-2.5 font-sans text-xs font-semibold text-[#1B2E4A]/50 text-right">Ratio / 100k</th>
+                <th className="px-4 py-2.5 font-sans text-xs font-semibold text-[#1B2E4A]/50 text-center">Statut</th>
+                <th className="px-4 py-2.5 font-sans text-xs font-semibold text-[#1B2E4A]/50">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {worst10.map((dept) => {
+                const niv = NIVEAU_COLORS[dept.niveau];
+                return (
+                  <tr
+                    key={dept.code}
+                    className="border-b border-[#1B2E4A]/5 last:border-0 hover:bg-[#F8F5F0] cursor-pointer transition-colors"
+                    onClick={() => onSelectDept(dept.code)}
+                  >
+                    <td className="px-4 py-3 font-sans text-sm font-bold text-[#1B2E4A]/40">{dept.rang}</td>
+                    <td className="px-4 py-3 font-sans text-sm font-medium text-[#1B2E4A] whitespace-nowrap">
+                      {dept.nom} <span className="text-[#1B2E4A]/30">({dept.code})</span>
+                    </td>
+                    <td className="px-4 py-3 font-sans text-sm font-bold tabular-nums text-right" style={{ color: niv.text }}>
+                      {dept.ratio_100k}
+                    </td>
+                    <td className="px-4 py-3 text-center">
+                      <span className="inline-block px-2 py-0.5 rounded-full font-sans text-xs font-semibold" style={{ backgroundColor: niv.bg, color: niv.text }}>
+                        {niv.label}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">
+                      <a
+                        href="/trouver-audioprothesiste"
+                        className="font-sans text-xs font-semibold text-[#9A5515] underline hover:no-underline whitespace-nowrap"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Trouver un centre
+                      </a>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-        {/* Best 5 */}
-        <div className="bg-white rounded-xl border border-[#1B2E4A]/10 shadow-sm overflow-hidden">
-          <div className="px-4 py-3 bg-[#E8F5E9] border-b border-[#2E7D32]/10">
-            <h3 className="font-sans text-sm font-bold text-[#2E7D32]">
-              Les 5 departements les mieux dotes
-            </h3>
-          </div>
-          <div className="py-1">
-            {best5.map((dept) => (
-              <MiniRow key={dept.code} dept={dept} onSelect={() => onSelectDept(dept.code)} />
-            ))}
-          </div>
+      {/* Best 5 — compact */}
+      <div className="bg-white rounded-xl border border-[#1B2E4A]/10 shadow-sm overflow-hidden mb-6">
+        <div className="px-5 py-3 bg-[#E8F5E9] border-b border-[#2E7D32]/10">
+          <h3 className="font-sans text-sm font-bold text-[#2E7D32]">
+            Les 5 departements les mieux dotes
+          </h3>
+        </div>
+        <div className="py-1">
+          {best5.map((dept) => (
+            <MiniRow key={dept.code} dept={dept} onSelect={() => onSelectDept(dept.code)} />
+          ))}
         </div>
       </div>
 
