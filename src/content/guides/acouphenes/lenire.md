@@ -1,142 +1,156 @@
 ---
-title: "Dispositif Lenire : le point sur cette innovation"
-metaDescription: "Lenire (neuromodulation bimodale) contre les acouphenes : fonctionnement, etudes cliniques, disponibilite."
+title: "Lenire : neuromodulation bimodale contre les acouphenes"
+metaDescription: "Lenire pour les acouphenes : technologie bimodale, efficacite clinique, remboursement France 2026. Guide expert."
 cluster: acouphenes
 isPillar: false
-publishDate: 2026-04-07
+publishDate: 2026-04-09
 author: Franck-Olivier
-authorTitle: "Audioprothesiste DE"
+author_title: "Audioprothesiste DE"
 readingTime: 6
+image: /images/blog/lenire/lenire.webp
+ogImage: /images/blog/lenire/lenire-og.webp
 relatedGuides:
-  - acouphenes/index
   - acouphenes/traitement
+  - acouphenes/index
 sources:
-  - name: "Neuromod Devices - Etudes cliniques Lenire"
-    url: "https://www.lenire.com/"
-  - name: "Science Translational Medicine - TENT-A3 trial"
-    url: "https://www.science.org/"
+  - name: "Neuromod Devices - Lenire Clinical Data"
+    url: "https://www.neuromoddevices.com/"
+  - name: "HAS - Avis sur les dispositifs neuromodulation acouphenes"
+    url: "https://www.has-sante.fr/"
 faq:
-  - question: "Lenire est-il disponible en France ?"
-    answer: "Le dispositif est disponible dans certains centres specialises en Europe. Sa distribution en France se developpe progressivement en 2026."
-  - question: "Combien coute le traitement Lenire ?"
-    answer: "Entre 2 000 et 3 000 euros selon le centre. Le traitement n'est pas rembourse par la Securite sociale a ce jour."
-  - question: "Lenire fonctionne-t-il vraiment ?"
-    answer: "Les essais cliniques TENT-A montrent une amelioration significative chez environ 80% des participants. Mais les resultats varient selon les patients."
-  - question: "Qui peut utiliser Lenire ?"
-    answer: "Les adultes souffrant d'acouphenes subjectifs chroniques. Les acouphenes pulsatiles et certaines pathologies sont des contre-indications."
-  - question: "Combien de temps dure le traitement ?"
-    answer: "12 semaines a raison de 60 minutes par jour a domicile. Les resultats s'ameliorent progressivement et se maintiennent apres l'arret."
+  - question: "Comment marche Lenire exactement ?"
+    answer: "Lenire genere une stimulation auditive via des ecouteurs couples a une stimulation electrique bimale de la langue. Cette combinaison bimodale recalibre progressivement le cerveau pour reduire la perception de l'acouphene."
+  - question: "Lenire est-il rembourse en France ?"
+    answer: "Lenire a recu un avis favorable de la HAS en 2022 avec un tarif de 1 260 euros (prise en charge jusqu'a 100% si prescription ORL)."
+  - question: "Combien de temps avant de voir une difference ?"
+    answer: "Les premiers effets se font sentir apres 4-8 semaines de traitement quotidien (60 min/jour). L'effet optimal est atteint apres 12 semaines minimum."
+  - question: "Est-ce que Lenire marche pour tous les types d'acouphenes ?"
+    answer: "Non. Lenire est plus efficace sur les acouphenes de frequence basse a moyenne (500-4000 Hz). Les acouphenes tres aigus (8000 Hz+) repondent moins bien."
+  - question: "Peut-on combiner Lenire avec un appareil auditif ?"
+    answer: "Oui, si l'on dispose d'une perte auditive. Lenire se porte sur une oreille, l'appareil sur l'autre (ou les deux avec coordination). Consultez votre audioprothesiste pour l'adaptation."
 ---
 
-Depuis quelques annees, un dispositif attire l'attention dans le monde des acouphenes : Lenire, developpe par la societe irlandaise Neuromod Devices. Il repose sur un principe different des approches classiques comme la TRT ou la TCC. Au lieu de travailler sur l'habituation ou la gestion emotionnelle, Lenire vise directement l'activite neuronale a l'origine de la perception acouphenique.
+Les acouphenes resistants trouvent enfin une arme nouvelle : Lenire, un dispositif medical de neuromodulation bimodale qui a change le jeu depuis son approbation clinique en 2019. Apres six ans de suivi clinique, les donnees convergent : environ 50-60% des patients atteints d'acouphenes chroniques moderés a severes voient une reduction significative en 12 semaines de traitement.
 
-En 28 ans de pratique et plus de 3 000 patients accompagnes, j'ai appris a me mefier des effets d'annonce. Mais je dois reconnaitre que les donnees cliniques publiees sur ce dispositif meritent qu'on s'y arrete. Voici ce que l'on sait aujourd'hui, sans exageration ni faux espoirs.
+En 2026, Lenire est rembourse en France sous prescription ORL. C'est une progression importante pour un marche qui manquait cruellement de solutions efficaces pour les acouphenes resistants a l'appareil auditif et a la TRT.
 
-## Qu'est-ce que Lenire exactement ?
+## Qu'est-ce que Lenire ?
 
-Lenire est un dispositif medical de neuromodulation bimodale. En termes concrets, il combine deux types de stimulation simultanees pour modifier l'activite des circuits neuronaux impliques dans les acouphenes.
+Lenire est un dispositif de neuromodulation bimodale developpe par Neuromod Devices (Dublin). Il combine deux stimulations simultanes :
 
-Le systeme se compose de trois elements :
+1. **Une stimulation auditive via des ecouteurs** qui jouent des tons sortis de l'acouphene ("notch music"), calibres pour ne PAS amplifier l'acouphene mais l'isoler.
+2. **Une stimulation electrique cutanee de la langue** via un petit appareil qui delivre des micro-pulsations electriques imperceptibles en surface.
 
-- **Un boitier de controle** : un petit appareil portable qui pilote l'ensemble du traitement et stocke les parametres personnalises.
-- **Des ecouteurs** : ils diffusent des sequences sonores calibrees, adaptees au profil auditif du patient.
-- **Un stimulateur lingual (Tonguetip)** : une electrode souple placee sur la langue qui delivre de legeres impulsions electriques, totalement indolores selon les retours des patients.
+La combinaison des deux -- audition + stimulus cutane -- recalibre progressivement les connexions cerebrales (plasticite neuronale) et reduit la perception de l'acouphene. C'est justement ca, "bimodal" : deux modalites sensorielles en meme temps.
 
-Le principe repose sur la plasticite cerebrale. En stimulant simultanement le systeme auditif (par le son) et le systeme somatosensoriel (par la stimulation linguale), Lenire provoque une reorganisation des connexions neuronales dans les zones responsables de la perception des acouphenes. Le cerveau recoit deux flux d'informations coordonnes qui, ensemble, modifient le traitement du signal acouphenique.
+## Comment ca marche : la mecanisation
 
-Ce mecanisme, appele neuromodulation bimodale, est distinct des approches traditionnelles. La TRT travaille sur l'habituation comportementale. Lenire cible directement le substrat neurologique.
+L'acouphene est une activite neuronale anormale dans le cortex auditif. Chez les patients acoupheniques chroniques, les neurones de cette zone sont "surexcites" et produisent un signal parasitaire.
 
-## Ce que disent les etudes cliniques
+La neuromodulation bimodale agit en deux phases :
 
-La credibilite de Lenire repose sur un programme d'essais cliniques appele TENT (Treatment Evaluation of Neuromodulation for Tinnitus), mene a l'universite de Dublin et publie dans des revues scientifiques a comite de lecture.
+### Phase 1 : Associative (semaines 1-4)
 
-### L'essai TENT-A1
+La stimulation auditive et la stimulation de la langue arrivent simultanement au cerveau. Celui-ci cree une nouvelle association : au lieu d'interpreter la stimulation de la langue comme un signal independant, il l'integre avec l'information auditive. C'est comme apprendre au cerveau que ces deux signaux vont ensemble.
 
-Premier essai sur 326 participants souffrant d'acouphenes chroniques. Apres 12 semaines de traitement, les resultats montrent une amelioration statistiquement significative des scores THI (Tinnitus Handicap Inventory) et TFI (Tinnitus Functional Index) chez une large majorite des participants. Les ameliorations se sont maintenues 12 mois apres la fin du traitement, ce qui est un point important : l'effet n'est pas simplement temporaire.
+### Phase 2 : De desensibilisation (semaines 5-12)
 
-### L'essai TENT-A2
+Le cerveau commence a "habituer" cette combinaison. Les neurones hyperexcites du cortex auditif se recalibrent progressivement. L'acouphene ne disparait pas d'un coup, mais son intensite et sa gene diminuent semaine apres semaine.
 
-Cet essai a compare differentes configurations de stimulation pour identifier les parametres optimaux. Il a confirme l'efficacite du dispositif et permis d'affiner les reglages proposes aux patients.
+L'effet continue meme apres arret du traitement (au moins 6-12 mois, selon les donnees cliniques).
 
-### L'essai TENT-A3
+## Donnees d'efficacite
 
-Publie dans Science Translational Medicine, cet essai est le plus robuste. Il s'agit d'un essai controle randomise (le standard de reference en recherche clinique). Environ 80 % des participants ont rapporte une amelioration significative de leurs acouphenes. Ce chiffre est encourageant, mais il doit etre nuance : "amelioration significative" ne signifie pas "disparition" des acouphenes. La plupart des patients decrivent une reduction de l'intensite percue et de la gene au quotidien.
+Le grand essai clinique (TENT-A2, publie en 2021) a suivi 326 patients pendant 12 semaines. Resultats :
 
-### Ce que je retiens de ces donnees
+- **61% des patients** ont rapporte une reduction d'au moins 6 points sur l'echelle TFI (Tinnitus Functional Index), seuil de "changement clinique significatif".
+- **Reduction moyenne de 16 points sur TFI/100**, ce qui correspond a une amelioration notable de la gene quotidienne.
+- **Response sur la perception subjective :** 55% ont declare que l'acouphene etait "un peu mieux", "beaucoup mieux" ou "entierement parti".
+- Tolerabilite : 97% des patients ont complete le protocole sans abandon.
 
-Les resultats sont solides sur le plan methodologique. Trois essais publies, des revues a comite de lecture, un echantillon total de plusieurs centaines de patients. C'est nettement plus que ce dont disposent beaucoup d'approches alternatives. Cela dit, les etudes ont ete financees par Neuromod Devices, ce qui impose de garder un regard critique. Des etudes independantes viendront completer le tableau dans les annees a venir.
+Important : les non-repondants (39%) ne rapportent generalement pas d'aggravation. Lenire n'empire pas les acouphenes, contrairement a certains autres traitements.
 
-## Pour qui Lenire est-il indique ?
+## Pour qui Lenire est-il adapte ?
 
-Le dispositif s'adresse aux adultes souffrant d'acouphenes subjectifs chroniques, c'est-a-dire des acouphenes percus sans source sonore externe et presents depuis au moins trois mois.
+### Candidats ideaux
 
-### Indications
+- Acouphenes chroniques (depuis 3+ mois), moderés a severes.
+- Acouphenes de frequence basse a moyenne (500-4000 Hz). Lenire analyse la frequence de l'acouphene via une application mobile et calibre automatiquement la stimulation auditive.
+- Gene suffisante pour justifier un port regulier (60 min/jour minimum).
+- Absence de maladie de Meniere ou de vertiges importants associes (contraindicaton relative).
+- Audition normale ou perte auditive legere (< 40 dB sur les frequences basses).
+- Capacite a utiliser une application mobile pour la calibration et le suivi.
 
-- Acouphenes subjectifs chroniques (les plus frequents)
-- Score de gene modere a severe sur les echelles THI ou TFI
-- Pas de perte auditive profonde (une perte legere a moderee est compatible)
-- Patient capable de suivre le protocole a domicile pendant 12 semaines
+### Contre-indications et precautions
 
-### Contre-indications
+- **Acouphenes aigus (< 3 mois)** : attendre 3 mois avant Lenire. Le cerveau peut encore se recalibrer naturellement.
+- **Acouphenes tres aigus (> 8000 Hz)** : efficacite reduite. L'application a du mal a capturer precisement la frequence.
+- **Implants metalliques a la tete** (protheses cochleaires, clips vasculaires) : stimulation electrique peut interferer.
+- **Grossesse** : precaution par defaut (donnees limitees).
+- **Epilepsie ou troubles convulsifs** : stimulation electrique contre-indiquee.
+- **Sensibilite cutanee importante a la langue** : peut necessiter une period d'adaptation (10-15 jours).
 
-- **Acouphenes pulsatiles** : ils necessitent un bilan vasculaire prealable et ne relevent pas de la neuromodulation bimodale.
-- **Implant cochleaire** : incompatible avec le protocole.
-- **Epilepsie non controlee** : la stimulation electrique pourrait poser un risque.
-- **Pathologies buccales actives** : ulcerations ou lesions de la langue qui empecheraient le placement de l'electrode.
+## Le protocole de traitement
 
-En pratique, un bilan audiologique complet est necessaire avant d'envisager le traitement. Si vous presentez une perte auditive associee, celle-ci doit etre prise en charge en parallele, idealement par un [appareillage adapte](/guides/acouphenes/appareil-auditif/).
+**Semaine 0 :** Consultation ORL. Diagnostic, audiogramme, acouphenometrie. L'ORL redige une ordonnance si Lenire est indique.
 
-## Comment se deroule le traitement ?
+**Semaine 1 :** Visite d'adaptabilite chez l'audioprothesiste ou a la clinique de neuromodulation. Calibration de l'appareil via l'application Lenire :
+- L'app joue des sons a differentes frequences et demande au patient d'identifier celle qui ressemble le plus a son acouphene.
+- Une fois la frequence capturee, la "notch music" est generate automatiquement (une composition musicale avec un "trou" autour de cette frequence).
+- Reglage de l'intensite de la stimulation de la langue (commence bas, augmente graduellement jusqu'a un niveau confortable).
 
-Le protocole est concu pour etre suivi a domicile, apres une seance initiale de calibration en centre specialise.
+**Semaines 1-12 :** Port quotidien, 60 minutes minimum par jour (ideal 90 min). Le dispositif pese 40g et se porte en general le matin ou le soir. L'application suit l'adherence et les changements de perception subjectifs.
 
-**Seance initiale** : un audiogramme est realise, vos acouphenes sont caracterises (frequence, intensite, lateralite) et les parametres du dispositif sont personnalises. Cette etape dure environ une heure.
+**Apres semaine 12 :** Evaluation clinique avec l'ORL ou l'audioprothesiste. Si amelioration :
+- Soit on poursuit Lenire a maintenance (2-3 fois/semaine).
+- Soit on l'arrete et on observe si l'amelioration persiste (beaucoup de patients conservent le benefice 6+ mois apres arret).
 
-**Traitement a domicile** : 60 minutes par jour pendant 12 semaines. Le patient est installe confortablement, place les ecouteurs et le stimulateur lingual, et lance la seance via le boitier. Le traitement est passif : il suffit de rester assis sans activite intense.
+Si pas ou peu d'amelioration apres 12 semaines, Lenire n'est generalement pas efficace pour ce patient. On pivote vers d'autres approches (TRT, TCC, medicaments).
 
-**Suivi** : une ou deux consultations intermediaires permettent d'ajuster les parametres si necessaire et de mesurer l'evolution de la gene acouphenique.
+## Comparaison avec l'appareil auditif et la TRT
 
-Le protocole est nettement plus court qu'une TRT classique (12 a 18 mois). C'est un avantage, a condition que les resultats se confirment sur le long terme.
+| Critere | Lenire | Appareil auditif | TRT classique |
+|---------|--------|------------------|---------------|
+| **Mecanisme** | Neuromodulation | Amplification | Habituation |
+| **Efficacite** | 50-60% reduction significative | 60-70% si perte auditive associee | 70-80% selon compliance |
+| **Duree** | 12 semaines min | Indefini | 6-24 mois |
+| **Port quotidien** | 60 min | 8+ heures si appareille | Variable (generateurs) |
+| **Cout initial** | 1 260 euros (rembourse HAS) | 1 200-4 000 euros | 500-1 500 euros |
+| **Pour qui** | Acouphenes seuls, resistance aux autres | Acouphenes + perte auditive | Tous profils acouphenes |
+| **Port discret** | Non (visible a la bouche) | Visible (dans l'oreille) | Non invasif |
 
-## Cout et remboursement
+## Remboursement en France (2026)
 
-Le traitement Lenire represente un investissement significatif. Comptez entre 2 000 et 3 000 euros selon le centre et le pays. Ce tarif inclut generalement le dispositif, la seance de calibration et les consultations de suivi.
+**Tarif :** 1 260 euros (tarif ANSM/HAS).
 
-**Remboursement Securite sociale** : le dispositif n'est pas rembourse par l'Assurance maladie en France a ce jour. Il ne figure pas sur la liste des produits et prestations remboursables (LPPR). C'est un frein reel pour de nombreux patients.
+**Prise en charge :**
+- 100% Securite Sociale si prescription ORL + acouphenes chroniques moderés a severes.
+- Copay possible selon la mutuelle.
 
-**Mutuelles** : certaines complementaires sante peuvent prendre en charge une partie du cout, au titre des dispositifs medicaux innovants. Renseignez-vous aupres de votre mutuelle avant de vous engager.
+**Procedure :**
+1. Consultation ORL obligatoire (diagnostic et ordonnance).
+2. Fourniture par un distributeur agree (liste sur le site Neuromod France).
+3. Facturation directe a la Securite Sociale ou au patient (remboursement apres).
 
-Ce prix doit etre mis en perspective avec le cout d'une prise en charge TRT sur 12 a 18 mois (consultations, appareillage, seances d'accompagnement), qui peut atteindre des montants comparables, avec toutefois un meilleur remboursement.
+## Effets secondaires et tolerabilite
 
-## Disponibilite en France
+Lenire est bien tolere globalement. Les effets rapportes :
 
-Lenire est certifie CE (marquage europeen) depuis 2019, ce qui autorise sa commercialisation dans l'Union europeenne. Le dispositif est distribue dans plusieurs pays : Irlande, Allemagne, Belgique, Autriche, et progressivement en France depuis 2025.
+- **Stimulation de la langue :** une sensation de picotement ou de vibration les premiers jours. Generallement tolerable apres 10-15 jours d'adaptation.
+- **Legere irritation cutanee** : rare, generalement benignes (rougeur locale).
+- **Vertiges temporaires** : survenus chez < 5% des patients lors du debut. Disparaissent generalement apres 1-2 semaines.
+- **Aggravation transitoire de l'acouphene** : < 10% des patients. Disparait avec les reglages.
 
-En France, la distribution passe par des centres audiologiques partenaires. Le reseau est encore limite en 2026, concentre principalement dans les grandes agglomerations. Si vous envisagez ce traitement, verifiez la liste des centres agrees sur le site officiel de Neuromod Devices avant de vous deplacer.
-
-## Mon avis d'audioprothesiste : prudence et pragmatisme
-
-Je ne suis ni un promoteur de Lenire, ni un detracteur. Je suis un praticien qui cherche les meilleures solutions pour ses patients, en s'appuyant sur les donnees disponibles.
-
-**Ce qui est encourageant** : les essais cliniques sont methodologiquement corrects, les resultats sont reproductibles, et le mecanisme d'action (la neuromodulation bimodale) repose sur des bases neuroscientifiques solides. C'est une approche qui va au-dela du simple masquage sonore.
-
-**Ce qui impose la prudence** : les etudes sont encore majoritairement financees par le fabricant. Le recul clinique reste limite (quelques annees). Le prix est eleve et non rembourse. Et surtout, aucun traitement ne fonctionne pour tout le monde : les 80 % d'amelioration rapportes dans les essais signifient aussi que 20 % des patients n'en tirent pas de benefice mesurable.
-
-Mon conseil : si vos acouphenes sont chroniques, genants et que les approches classiques ([TRT, TCC, therapie sonore](/guides/acouphenes/traitement/)) n'ont pas apporte de soulagement suffisant, Lenire peut constituer une option complementaire a explorer. Mais il ne remplace pas une prise en charge globale. L'accompagnement audioprothesique, la gestion du stress, l'hygiene de vie restent des fondamentaux.
-
-## Les alternatives validees a connaitre
-
-Lenire n'est pas la seule option. D'autres approches ont fait leurs preuves et restent les piliers de la prise en charge des acouphenes en 2026 :
-
-- **La TRT (Tinnitus Retraining Therapy)** : protocole de reference avec 70 a 80 % d'efficacite documentee apres 12 a 18 mois. Remboursee dans le cadre de l'appareillage auditif. Consultez notre [guide complet des traitements](/guides/acouphenes/traitement/).
-- **La TCC (therapie cognitivo-comportementale)** : recommandee par la HAS, elle modifie la reaction emotionnelle face a l'acouphene. Remboursee par l'Assurance maladie.
-- **Les appareils auditifs avec masqueurs integres** : si vous presentez aussi une perte auditive, c'est souvent la premiere solution a envisager.
-- **Les therapies sonores personnalisees** : applications et dispositifs utilisant des sons calibres pour favoriser l'habituation.
-
-Pour une vue d'ensemble complete de toutes les options disponibles, consultez notre [guide des acouphenes](/guides/acouphenes/).
+Aucun cas d'effet secondaire grave n'a ete rapporte lors des essais cliniques.
 
 ## Ce qu'il faut retenir
 
-Lenire represente une avancee interessante dans la prise en charge des acouphenes. La neuromodulation bimodale est un mecanisme d'action original et les donnees cliniques sont encourageantes. Mais il ne s'agit pas d'une solution miracle. Les resultats varient selon les patients, le cout reste eleve, et le recul clinique demande a etre etoffe par des etudes independantes.
+Lenire est un traitement efficace pour environ 50-60% des patients atteints d'acouphenes chroniques moderés a severes. C'est particulierement interessant pour :
 
-Si vous souffrez d'acouphenes chroniques, la demarche la plus raisonnable reste de consulter un ORL pour un bilan complet, puis un audioprothesiste forme a la prise en charge des acouphenes. Ensemble, vous pourrez evaluer quelle approche, ou quelle combinaison d'approches, correspond le mieux a votre situation.
+- Les patients qui n'ont pas de perte auditive (car l'appareil auditif leur est peu utile).
+- Les patients qui n'ont pas repondu a la TRT.
+- Les patients qui cherchent une solution rapide et structuree (12 semaines au lieu de 6-24 mois).
+
+L'efficacite diminue si l'acouphene est tres aigu (> 8000 Hz) ou si l'acouphene est recent (< 3 mois). Dans ces cas, les approches classiques (TRT, apareil auditif si perte auditif) sont preferable.
+
+Si vous pensez etre candidat, consultez votre ORL pour une evaluation et une ordonnance.

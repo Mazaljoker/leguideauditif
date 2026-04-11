@@ -6,6 +6,8 @@ isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/applications/applications.webp
+ogImage: /images/blog/applications/applications-og.webp
 readingTime: 6
 relatedGuides:
   - vie-quotidienne/index

@@ -5,6 +5,8 @@ category: accessoires
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/meilleur-accessoire-auditif/meilleur-accessoire-auditif.webp
+ogImage: /images/blog/meilleur-accessoire-auditif/meilleur-accessoire-auditif-og.webp
 products:
   - brand: Phonak
     model: Roger On iN

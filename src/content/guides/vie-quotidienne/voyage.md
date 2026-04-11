@@ -5,7 +5,9 @@ cluster: vie-quotidienne
 isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
-authorTitle: "Audioprothesiste DE"
+author Title: "Audioprothesiste DE"
+image: /images/blog/voyage/voyage.webp
+ogImage: /images/blog/voyage/voyage-og.webp
 readingTime: 5
 relatedGuides:
   - vie-quotidienne/index

@@ -6,6 +6,8 @@ isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/renouvellement/renouvellement.webp
+ogImage: /images/blog/renouvellement/renouvellement-og.webp
 readingTime: 6
 relatedGuides:
   - remboursement/index

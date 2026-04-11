@@ -6,6 +6,8 @@ isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/ecouteurs-volume/ecouteurs-volume.webp
+ogImage: /images/blog/ecouteurs-volume/ecouteurs-volume-og.webp
 readingTime: 6
 relatedGuides:
   - prevention/index
