@@ -174,12 +174,12 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
         </div>
         <div class="bg-white rounded-xl p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
           <p class="font-sans text-sm text-gris-texte mb-1">Departement le plus sous-dote</p>
-          <p class="font-serif text-3xl font-bold text-[#F44336]">{pireMet?.nom}</p>
+          <p class="font-serif text-3xl font-bold text-[#C62828]">{pireMet?.nom}</p>
           <p class="font-sans text-xs text-gris-texte">{pireMet?.ratio_100k} / 100k hab.</p>
         </div>
         <div class="bg-white rounded-xl p-5 shadow-[0_1px_4px_rgba(27,46,74,0.05)] border border-[#1B2E4A]/5">
           <p class="font-sans text-sm text-gris-texte mb-1">Departement le mieux dote</p>
-          <p class="font-serif text-3xl font-bold text-[#4CAF50]">{meilleur.nom}</p>
+          <p class="font-serif text-3xl font-bold text-[#2E7D32]">{meilleur.nom}</p>
           <p class="font-sans text-xs text-gris-texte">{meilleur.ratio_100k} / 100k hab.</p>
         </div>
       </div>
@@ -219,7 +219,7 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
           <li><strong>Ratio :</strong> utilise la population totale (pas 60+) pour comparabilite avec les donnees DREES publiees.</li>
         </ul>
         <p>
-          Les donnees brutes sont accessibles en <a href="/data/deserts-auditifs-2026.json" class="text-orange hover:underline" rel="noopener">telechargement JSON</a> sous licence ouverte.
+          Les donnees brutes sont accessibles en <a href="/data/deserts-auditifs-2026.json" class="text-[#9A5515] underline hover:no-underline" rel="noopener">telechargement JSON</a> sous licence ouverte.
         </p>
       </div>
     </div>
@@ -247,17 +247,17 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
       </h2>
       <ul class="space-y-2">
         <li class="font-sans text-sm">
-          <a href="https://annuaire.sante.fr/" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+          <a href="https://annuaire.sante.fr/" target="_blank" rel="noopener noreferrer" class="text-[#9A5515] underline hover:no-underline">
             Annuaire Sante (RPPS) — data.gouv.fr
           </a>
         </li>
         <li class="font-sans text-sm">
-          <a href="https://www.insee.fr/fr/statistiques/8331297" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+          <a href="https://www.insee.fr/fr/statistiques/8331297" target="_blank" rel="noopener noreferrer" class="text-[#9A5515] underline hover:no-underline">
             INSEE — Estimation de population par departement (2025)
           </a>
         </li>
         <li class="font-sans text-sm">
-          <a href="https://drees.solidarites-sante.gouv.fr" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+          <a href="https://drees.solidarites-sante.gouv.fr" target="_blank" rel="noopener noreferrer" class="text-[#9A5515] underline hover:no-underline">
             DREES — Demographie des professions de sante
           </a>
         </li>
@@ -271,7 +271,7 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/trouver-audioprothesiste"
-            class="inline-block px-6 py-3 bg-[#D97B3D] text-white font-sans font-semibold rounded-lg hover:bg-[#c16a30] transition-colors"
+            class="inline-block px-6 py-3 bg-[#B55E28] text-white font-sans font-semibold rounded-lg hover:bg-[#9A4D1C] transition-colors"
           >
             Trouver un audioprothesiste pres de chez vous
           </a>
@@ -290,17 +290,17 @@ const allSchemas = [articleSchema, breadcrumbSchema, datasetSchema, faqSchema];
       <h3 class="font-sans text-lg font-bold text-marine mb-3">Articles en rapport</h3>
       <ul class="space-y-2">
         <li class="font-sans text-base">
-          <a href="/trouver-audioprothesiste" class="text-orange hover:underline">
+          <a href="/trouver-audioprothesiste" class="text-[#9A5515] underline hover:no-underline">
             Carte de tous les audioprothesistes en France
           </a>
         </li>
         <li class="font-sans text-base">
-          <a href="/guides/audioprothesiste/choisir" class="text-orange hover:underline">
+          <a href="/guides/audioprothesiste/choisir" class="text-[#9A5515] underline hover:no-underline">
             Comment choisir son audioprothesiste ?
           </a>
         </li>
         <li class="font-sans text-base">
-          <a href="/guides/remboursement/100-sante" class="text-orange hover:underline">
+          <a href="/guides/remboursement/100-sante" class="text-[#9A5515] underline hover:no-underline">
             Le 100 % Sante auditif : tout comprendre sur le remboursement
           </a>
         </li>
