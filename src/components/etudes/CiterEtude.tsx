@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-const CITATION_CODE = `<p>Source : <a href="https://leguideauditif.fr/etudes/deserts-auditifs-france-2026/" target="_blank" rel="nofollow noopener">Etude LeGuideAuditif.fr — Deserts Auditifs France 2026</a></p>`;
+const CITATION_CODE = `<p>Source : <a href="https://leguideauditif.fr/etudes/deserts-auditifs-france-2026/" target="_blank" rel="noopener">Deserts auditifs en France : Etude 2026</a></p>`;
 
 export default function CiterEtude() {
   const [copied, setCopied] = useState(false);
