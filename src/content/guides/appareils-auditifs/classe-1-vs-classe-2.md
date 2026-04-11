@@ -1,5 +1,6 @@
 ---
 title: "Classe 1 vs Classe 2 : la vraie question n'est pas celle que vous croyez"
+metaTitle: "Classe 1 vs Classe 2 : comment bien choisir ?"
 metaDescription: "Appareils auditifs Classe 1 vs Classe 2 : prix, technologies, remboursement. Guide terrain par un audioprothésiste DE, 28 ans d'expérience."
 cluster: appareils-auditifs
 isPillar: false

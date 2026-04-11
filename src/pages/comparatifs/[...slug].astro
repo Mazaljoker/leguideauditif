@@ -13,12 +13,13 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
-const { title, metaDescription, category, author, authorTitle, publishDate, updateDate, products, faq, image, ogImage, useLegacyLayout } = entry.data;
+const { title, metaTitle, metaDescription, category, author, authorTitle, publishDate, updateDate, products, faq, image, ogImage, useLegacyLayout } = entry.data;
 ---
 
 {useLegacyLayout ? (
   <ComparatifLayout
     title={title}
+    metaTitle={metaTitle}
     metaDescription={metaDescription}
     category={category}
     author={author}
@@ -36,6 +37,7 @@ const { title, metaDescription, category, author, authorTitle, publishDate, upda
 ) : (
   <ArticleLayout
     title={title}
+    metaTitle={metaTitle}
     metaDescription={metaDescription}
     category={category}
     author={author}

@@ -1,5 +1,6 @@
 ---
 title: "Remboursement des appareils auditifs en 2026 : le guide complet"
+metaTitle: "Remboursement appareils auditifs 2026 : le guide"
 metaDescription: "Tout savoir sur le remboursement des appareils auditifs en 2026 : 100% Santé, mutuelle, Classe 1 vs Classe 2, reste à charge."
 cluster: remboursement
 isPillar: true

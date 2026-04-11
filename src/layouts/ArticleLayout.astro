@@ -25,6 +25,7 @@ interface Product {
 
 interface Props {
   title: string;
+  metaTitle?: string;
   metaDescription: string;
   cluster?: string;
   category?: string;
@@ -45,6 +46,7 @@ interface Props {
 
 const {
   title,
+  metaTitle,
   metaDescription,
   cluster,
   category,
@@ -159,7 +161,7 @@ if (extraSchemas) {
 ---
 
 <BaseLayout
-  title={`${title} — LeGuideAuditif.fr`}
+  title={metaTitle || (title.length <= 39 ? `${title} — LeGuideAuditif.fr` : title.length <= 55 ? `${title} — LGA` : title)}
   description={metaDescription}
   ogImage={ogImage}
   ogType="article"

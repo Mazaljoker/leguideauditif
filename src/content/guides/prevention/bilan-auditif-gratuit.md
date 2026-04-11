@@ -1,5 +1,6 @@
 ---
 title: "Bilan auditif gratuit : où le faire et à quoi vous attendre"
+metaTitle: "Bilan auditif gratuit : où et comment le faire"
 metaDescription: "Bilan auditif gratuit chez l'audioprothésiste : déroulement, durée, résultats. Conseils terrain d'un audioprothésiste DE, 28 ans."
 cluster: prevention
 isPillar: false

@@ -1,5 +1,6 @@
 ---
 title: "Presbyacousie : comprendre et agir face à la perte auditive liée à l'âge"
+metaTitle: "Presbyacousie : comprendre la perte auditive liée à l'âge"
 metaDescription: "Presbyacousie : mecanisme, erreurs frequentes, diagnostic et appareillage. Guide par un audioprothesiste DE, 28 ans."
 cluster: perte-auditive
 isPillar: false

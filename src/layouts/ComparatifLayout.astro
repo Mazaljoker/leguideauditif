@@ -23,6 +23,7 @@ interface Product {
 
 interface Props {
   title: string;
+  metaTitle?: string;
   metaDescription: string;
   category: string;
   author: string;
@@ -38,6 +39,7 @@ interface Props {
 
 const {
   title,
+  metaTitle,
   metaDescription,
   category,
   author,
@@ -126,7 +128,7 @@ const formattedDate = publishDate.toLocaleDateString('fr-FR', {
 ---
 
 <BaseLayout
-  title={`${title} — LeGuideAuditif.fr`}
+  title={metaTitle || (title.length <= 39 ? `${title} — LeGuideAuditif.fr` : title.length <= 55 ? `${title} — LGA` : title)}
   description={metaDescription}
   ogImage={ogImage}
   ogType="article"

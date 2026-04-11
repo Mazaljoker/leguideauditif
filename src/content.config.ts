@@ -5,6 +5,7 @@ const guides = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/guides' }),
   schema: z.object({
     title: z.string(),
+    metaTitle: z.string().max(60).optional(),
     metaDescription: z.string().max(155),
     cluster: z.enum([
       'perte-auditive',
@@ -49,6 +50,7 @@ const comparatifs = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/comparatifs' }),
   schema: z.object({
     title: z.string(),
+    metaTitle: z.string().max(60).optional(),
     metaDescription: z.string().max(155),
     category: z.enum([
       'appareils-auditifs',

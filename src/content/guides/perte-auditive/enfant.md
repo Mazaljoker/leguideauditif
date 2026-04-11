@@ -1,5 +1,6 @@
 ---
 title: "Perte auditive chez l'enfant : dépistage, signes et prise en charge"
+metaTitle: "Perte auditive enfant : signes et prise en charge"
 metaDescription: "Perte auditive chez l'enfant : signes d'alerte par age, depistage neonatal, erreurs des parents, solutions."
 cluster: perte-auditive
 isPillar: false
