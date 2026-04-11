@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
+import AudiogramAnalyzer from '../../components/AudiogramAnalyzer.tsx';
+
+const title = 'Analysez votre audiogramme par IA';
+const metaDescription = 'Entrez vos seuils auditifs et obtenez une analyse gratuite : degre de perte BIAP, type de courbe, impact quotidien et recommandation d\'appareil adapte.';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Outils', href: '/outils/' },
+  { label: 'Analyse audiogramme' },
+];
+
+const faq = [
+  {
+    question: "Qu'est-ce qu'un audiogramme ?",
+    answer: "Un audiogramme est un graphique qui represente votre capacite auditive a differentes frequences sonores. Il est realise par un ORL ou un audioprothesiste lors d'un bilan auditif. L'axe horizontal indique les frequences (graves a gauche, aigus a droite) et l'axe vertical indique l'intensite en decibels (sons faibles en haut, forts en bas).",
+  },
+  {
+    question: 'Comment lire les valeurs de mon audiogramme papier ?',
+    answer: "Sur votre audiogramme, repérez les symboles O (oreille droite, en rouge) et X (oreille gauche, en bleu). Pour chaque frequence (250, 500, 1000, 2000, 4000, 8000 Hz), notez l'intensite en decibels (dB) ou le symbole est place. C'est cette valeur que vous entrez dans notre outil.",
+  },
+  {
+    question: 'Cette analyse remplace-t-elle un bilan auditif professionnel ?',
+    answer: "Non. Cette analyse est indicative et basee sur la classification BIAP. Elle ne prend pas en compte la conduction osseuse, le reflexe stapedien, ni l'audiometrie vocale. Seul un bilan complet realise par un audioprothesiste DE ou un medecin ORL permet de determiner la solution adaptee a votre situation.",
+  },
+  {
+    question: 'Quelle est la classification BIAP utilisee ?',
+    answer: "La classification du Bureau International d'Audiophonologie (BIAP, recommandation 02/1 bis) definit les degres de perte auditive : normale (0-20 dB), legere (21-40 dB), moyenne (41-70 dB), severe (71-90 dB) et profonde (au-dela de 90 dB). La moyenne est calculee sur les frequences conversationnelles : 500, 1000, 2000 et 4000 Hz. C'est cette meme classification que votre audioprothesiste utilise au cabinet.",
+  },
+  {
+    question: "Quelle est la difference entre classe 1 et classe 2 pour les appareils auditifs ?",
+    answer: "Les appareils de classe 1 (100% Sante) sont integralement rembourses : reste a charge 0 euros. Ils offrent 6 a 12 canaux de reglage et une reduction du bruit basique. Les appareils de classe 2 proposent des technologies avancees (Bluetooth, recharge, IA) avec 16 a 24 canaux, mais un reste a charge de 400 a 1 200 euros par oreille selon votre mutuelle.",
+  },
+];
+
+const publishDate = new Date('2026-04-10');
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: title,
+    description: metaDescription,
+    url: 'https://leguideauditif.fr/outils/analyse-audiogramme/',
+    inLanguage: 'fr',
+    medicalAudience: {
+      '@type': 'MedicalAudience',
+      audienceType: 'Patient',
+    },
+    author: {
+      '@type': 'Person',
+      '@id': 'https://leguideauditif.fr/#author',
+      name: 'Franck-Olivier',
+      jobTitle: 'Audioprothesiste DE',
+      url: 'https://leguideauditif.fr/auteur/franck-olivier/',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'LeGuideAuditif.fr',
+      url: 'https://leguideauditif.fr',
+    },
+    datePublished: publishDate.toISOString(),
+    lastReviewed: publishDate.toISOString(),
+    about: {
+      '@type': 'MedicalCondition',
+      name: 'Perte auditive',
+      alternateName: 'Surdite',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+
+const formattedDate = publishDate.toLocaleDateString('fr-FR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${title} — LeGuideAuditif.fr`}
+  description={metaDescription}
+  ogType="article"
+  publishDate={publishDate}
+  schema={schemas}
+>
+  <div class="bg-creme">
+    <div class="max-w-[780px] mx-auto px-5 py-4">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+
+  <article class="bg-creme pb-16">
+    <div class="max-w-[860px] mx-auto px-5">
+      <!-- Header -->
+      <header class="mb-8">
+        <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-4">
+          Analyse gratuite de votre audiogramme par IA
+        </h1>
+        <p class="text-lg text-gris-texte leading-relaxed mb-4">
+          Vous sortez de chez l'ORL avec votre audiogramme papier et vous ne comprenez pas les resultats ? Mes patients me posent cette question toutes les semaines.
+          Entrez vos seuils auditifs frequence par frequence et obtenez instantanement une analyse claire :
+          degre de perte, type de courbe, impact concret au quotidien.
+        </p>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-sans text-gris-texte">
+          <span>Par <strong class="text-marine">Franck-Olivier</strong>, Audioprothesiste DE</span>
+          <span>|</span>
+          <time datetime={publishDate.toISOString()}>Publie le {formattedDate}</time>
+        </div>
+      </header>
+
+      <!-- Health Disclaimer inline -->
+      <div class="bg-[#fef9f0] border border-[#f0dcc4] rounded-xl px-5 py-4 mb-8 text-sm text-gris-texte font-sans">
+        <strong class="text-marine">Information sante :</strong> Cet outil est a visee informative et ne remplace pas un bilan auditif professionnel. La classification BIAP utilisee est la reference internationale. Consultez un audioprothesiste DE ou un medecin ORL pour un diagnostic complet.
+      </div>
+
+      <!-- Mode d'emploi rapide -->
+      <div class="bg-blanc rounded-2xl border border-gris-clair p-6 mb-8">
+        <h2 class="font-sans text-lg font-bold text-marine mb-4">Comment utiliser cet outil ?</h2>
+        <ol class="list-decimal list-inside space-y-2 text-sm text-gris-texte font-sans">
+          <li>Prenez votre audiogramme papier (remis par l'ORL ou l'audioprothesiste)</li>
+          <li>Pour chaque frequence, reportez la valeur en dB du symbole O (oreille droite) et X (oreille gauche)</li>
+          <li>Remplissez au minimum les 4 frequences conversationnelles : 500, 1000, 2000 et 4000 Hz</li>
+          <li>Cliquez sur "Analyser" pour obtenir votre resultat instantanement</li>
+        </ol>
+      </div>
+
+      <!-- Composant React interactif -->
+      <AudiogramAnalyzer client:visible />
+
+      <!-- Contenu editorial SEO -->
+      <section class="mt-12 prose prose-lg max-w-none prose-headings:font-sans prose-headings:text-marine prose-headings:font-bold prose-p:text-marine prose-p:leading-relaxed prose-a:text-orange prose-a:font-medium hover:prose-a:underline prose-strong:text-marine prose-li:text-marine">
+        <h2>Comprendre votre audiogramme : les bases</h2>
+        <p>
+          Apres 25 ans a adapter des appareils auditifs, je peux vous dire une chose : la majorite de mes patients quittent le cabinet de l'ORL avec leur audiogramme sous le bras... et aucune idee de ce que les courbes signifient. C'est normal. Personne ne vous explique comment lire ce graphique.
+        </p>
+        <p>
+          Avec cet outil, vous entrez vos seuils auditifs et vous obtenez une premiere interpretation en quelques secondes. La methode ? La <strong>classification BIAP</strong> (Bureau International d'Audiophonologie) — la meme reference que celle que j'utilise au cabinet pour evaluer votre perte auditive.
+        </p>
+        <p>
+          Un de mes patients de 72 ans m'a dit un jour : "J'ai cherche sur internet pendant deux heures sans comprendre mon audiogramme." C'est exactement pour ca que j'ai concu cette page.
+        </p>
+
+        <h2>Les differents types de perte auditive</h2>
+        <p>
+          Votre audiogramme peut reveler plusieurs profils. Le plus courant ? La <strong>presbyacousie</strong> (baisse progressive d'audition liee a l'age). Elle touche surtout les personnes apres 55 ans et se traduit par une pente descendante sur les frequences aigues (4000 et 8000 Hz). Dans mon cabinet, je vois ca tous les jours — environ 65% de mes patients presentent ce profil. Pour en savoir plus, consultez notre <a href="/guides/perte-auditive/">guide complet sur la perte auditive</a>.
+        </p>
+        <p>
+          Autres profils possibles : la perte plate (toutes les frequences sont atteintes de facon homogene) ou le scotome (chute brutale sur une frequence isolee, souvent liee a un traumatisme sonore).
+        </p>
+        <p>
+          Chaque profil oriente vers un appareillage different. L'audiogramme est donc la premiere etape indispensable.
+        </p>
+
+        <h2>Quel appareil auditif pour quel audiogramme ?</h2>
+        <p>
+          Le choix de l'appareil depend directement de vos courbes. Presbyacousie legere a moyenne ? Ce que je recommande le plus souvent : les <strong>ecouteurs deportes (RIC)</strong>. Discrets. Performants. Ils representent pres de 7 adaptations sur 10 en France selon les donnees EuroTrak 2024.
+        </p>
+        <p>
+          Perte severe a profonde ? La, les <strong>contours d'oreille (BTE)</strong> prennent le relais — ils offrent la puissance necessaire avec un embout sur mesure.
+        </p>
+        <p>
+          Bonne nouvelle pour votre portefeuille : depuis la reforme 100% Sante, tous les types d'appareils existent en <strong>classe 1</strong> (reste a charge 0 euros) et en <strong>classe 2</strong> (technologies premium avec Bluetooth, recharge, IA embarquee). La classe 1, c'est un appareil correct, rembourse integralement. La classe 2, c'est le confort en plus — mais avec un reste a charge.
+        </p>
+        <p>
+          Decouvrez les differences dans notre <a href="/guides/appareils-auditifs/">guide des appareils auditifs</a>.
+        </p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="mt-12">
+        <h2 class="font-sans text-2xl font-bold text-marine mb-6">Questions frequentes</h2>
+        {faq.map((f) => (
+          <details class="bg-blanc rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
+            <summary class="px-6 py-5 font-sans text-[17px] font-semibold text-marine cursor-pointer list-none flex justify-between items-center">
+              <span>{f.question}</span>
+              <span class="text-xl transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div class="px-6 pb-5 text-gris-texte text-base leading-relaxed">{f.answer}</div>
+          </details>
+        ))}
+      </section>
+
+      <!-- Sources -->
+      <section class="mt-12">
+        <h2 class="font-sans text-2xl font-bold text-marine mb-4">Sources et references</h2>
+        <ul class="space-y-2">
+          <li class="font-sans text-sm">
+            <a href="https://www.biap.org/en/recommandations/recommendations/tc-02-classification/213-rec-02-1-bis-fr-classification-audiometrique-des-deficiences-auditives/file" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+              BIAP — Recommandation 02/1 bis : Classification audiometrique des deficiences auditives (2024)
+            </a>
+          </li>
+          <li class="font-sans text-sm">
+            <a href="https://www.has-sante.fr/jcms/c_2807793/fr/appareils-electroniques-correcteurs-de-surdite" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+              HAS — Appareils electroniques correcteurs de surdite (2024)
+            </a>
+          </li>
+          <li class="font-sans text-sm">
+            <a href="https://www.inserm.fr/dossier/surdites/" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+              INSERM — Dossier Surdites (2023)
+            </a>
+          </li>
+          <li class="font-sans text-sm">
+            <a href="https://www.ehima.com/eurotrak/" target="_blank" rel="noopener noreferrer" class="text-orange hover:underline">
+              EuroTrak France 2024 — Donnees marche et satisfaction des porteurs d'appareils auditifs
+            </a>
+          </li>
+        </ul>
+        <p class="text-xs text-gris-texte mt-4 font-sans">
+          Consultez notre <a href="/politique-editoriale/" class="text-orange hover:underline">politique editoriale</a> pour en savoir plus sur notre methode de verification des informations sante.
+        </p>
+      </section>
+
+      <AuthorBox />
+    </div>
+  </article>
+
+  <HealthDisclaimer />
+</BaseLayout>
