@@ -1,114 +1,151 @@
 ---
-title: "Ecouteurs et casques : les regles pour preserver votre audition"
-metaDescription: "Ecouteurs et audition : regle 60/60, volume, casque ANC. Comment ecouter de la musique sans risque."
+title: "Écouteurs et volume : protéger votre audition au quotidien"
+metaDescription: "Écouteurs et audition : règle 60/60, volume, casque ANC. Conseils terrain d'un audioprothésiste DE, 28 ans d'expérience."
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
+updatedDate: 2026-04-11
 author: Franck-Olivier
-authorTitle: "Audioprothesiste DE"
-readingTime: 6
+authorTitle: "Audioprothésiste DE"
+readingTime: 8
 relatedGuides:
   - prevention/index
 sources:
   - name: "OMS - Make Listening Safe"
     url: "https://www.who.int/activities/making-listening-safe"
-  - name: "JNA - Risques des ecouteurs"
+  - name: "JNA - Risques des écouteurs"
     url: "https://www.journee-audition.org/"
+  - name: "INSERM - Bruit et santé"
+    url: "https://www.inserm.fr/dossier/bruit-sante/"
 faq:
-  - question: "Les ecouteurs sont-ils dangereux pour l'audition ?"
-    answer: "A volume eleve et de maniere prolongee, oui. L'OMS estime que 1,1 milliard de jeunes sont a risque. Respectez la regle 60/60."
-  - question: "Quelle est la regle 60/60 ?"
-    answer: "Ecoutez a maximum 60% du volume pendant maximum 60 minutes d'affilee. Faites une pause de 10 minutes avant de reprendre."
-  - question: "Les casques a reduction de bruit protegent-ils mieux ?"
-    answer: "Oui, l'ANC reduit le bruit ambiant de 20-30 dB, ce qui permet d'ecouter a volume plus bas. C'est un investissement pour votre audition."
+  - question: "Les écouteurs sont-ils dangereux pour l'audition ?"
+    answer: "À volume élevé et de manière prolongée, oui. L'OMS estime que 1,1 milliard de jeunes sont à risque. Respectez la règle 60/60."
+  - question: "Quelle est la règle 60/60 ?"
+    answer: "Écoutez à maximum 60 % du volume pendant maximum 60 minutes d'affilée. Faites une pause de 10 minutes avant de reprendre."
+  - question: "Les casques à réduction de bruit protègent-ils mieux ?"
+    answer: "Oui, l'ANC réduit le bruit ambiant de 20-30 dB, ce qui permet d'écouter à volume plus bas. C'est un investissement pour votre audition."
   - question: "Les intra-auriculaires sont-ils plus dangereux que les casques ?"
-    answer: "Potentiellement, car ils delivrent le son plus pres du tympan. Mais tout depend du volume. Les deux sont surs si vous respectez la regle 60/60."
+    answer: "Potentiellement, car ils délivrent le son plus près du tympan. Mais tout dépend du volume. Les deux sont sûrs si vous respectez la règle 60/60."
   - question: "Mon smartphone m'alerte-t-il si le volume est trop fort ?"
-    answer: "Oui, iOS et Android affichent un avertissement au-dela de 85 dB. Activez le limiteur de volume dans les parametres de votre telephone."
+    answer: "Oui, iOS et Android affichent un avertissement au-delà de 85 dB. Activez le limiteur de volume dans les paramètres de votre téléphone."
 ---
 
-L'Organisation mondiale de la sante estime que 1,1 milliard de jeunes adultes dans le monde risquent des dommages auditifs irreversibles lies a l'ecoute au casque et aux ecouteurs. Ce chiffre, publie dans le cadre de l'initiative Make Listening Safe, concerne les 12-35 ans exposes a des niveaux sonores excessifs lors de l'ecoute de musique. Les cellules ciliees de l'oreille interne, une fois detruites par une exposition prolongee, ne se regenerent pas.
+La génération écouteurs commence à arriver dans les cabinets. Depuis trois ou quatre ans, je reçois des patients de 30-35 ans avec des audiogrammes que je ne voyais habituellement qu'à 50 ans. Des encoches sur les 4 000 et 6 000 Hz, bilatérales, symétriques. Le profil typique du traumatisme sonore chronique par écoute prolongée au casque. L'OMS estime que 1,1 milliard de jeunes adultes dans le monde risquent des dommages auditifs irréversibles liés à l'écoute au casque et aux écouteurs (initiative Make Listening Safe). Ce n'est plus une projection théorique : en 28 ans de pratique et plus de 3 000 patients adaptés, je le vois arriver dans mon cabinet chaque semaine.
 
-En 28 ans de pratique et plus de 3 000 patients adaptes, je constate que les pertes auditives liees aux ecouteurs apparaissent de plus en plus tot. Des patients de 30 ou 35 ans presentent desormais des audiogrammes comparables a ceux de personnes de 50 ans. La cause est presque toujours la meme : des annees d'ecoute a volume trop eleve, dans les transports, au bureau ou a la salle de sport.
+## Les 3 erreurs que je vois le plus souvent en consultation
 
-## Comprendre les seuils de decibels
+Avant de parler de solutions, voici les comportements que je retrouve systématiquement chez les patients qui consultent pour une perte auditive liée aux écouteurs. Vous vous reconnaîtrez peut-être dans l'un d'eux.
 
-Pour mesurer le risque, il faut connaitre l'echelle des decibels. Voici les reperes essentiels :
+### Erreur 1 : compenser le bruit ambiant par le volume
 
-- **30 dB** : chuchotement, bibliotheque silencieuse
+C'est de loin la plus fréquente. Le patient prend le métro, l'open space est bruyant, la salle de sport diffuse sa propre musique. Réflexe immédiat : monter le volume pour couvrir le bruit. Le problème, c'est que le bruit de fond du métro parisien atteint déjà 85 dB. Pour l'entendre par-dessus, vous montez à 95-100 dB. À ce niveau, les dommages commencent après 15 minutes.
+
+J'ai eu un patient, cadre de 32 ans, qui faisait 1 h 30 de métro par jour avec des écouteurs intra-auriculaires classiques. Cinq ans de ce régime. Le jour où il a consulté, il présentait une perte de 35 dB sur les fréquences aiguës. Irréversible. Il ne s'en était jamais rendu compte parce que la perte était progressive et bilatérale.
+
+### Erreur 2 : croire que les intra-auriculaires isolent du bruit
+
+Beaucoup de patients pensent que leurs écouteurs intra-auriculaires les protègent du bruit ambiant. En réalité, un intra-auriculaire standard avec un embout silicone mal ajusté laisse passer la moitié du bruit extérieur. Résultat : vous montez le volume sans même vous en apercevoir. Les embouts mousse atténuent mieux (environ 10-15 dB d'isolation passive), mais la plupart des gens utilisent les embouts livrés d'origine, souvent en silicone taille unique, qui ne correspondent pas à leur conduit auditif.
+
+### Erreur 3 : ignorer les acouphènes post-écoute
+
+Un sifflement après avoir retiré les écouteurs n'est pas "normal". C'est un signal d'alarme. Vos cellules ciliées viennent d'être sollicitées au-delà de leur capacité de récupération. Si ces épisodes se répètent, les dommages deviennent permanents. Pourtant, la majorité de mes patients jeunes me disent : "Oui, ça siffle un peu après, mais ça passe." Quand "ça passe" devient "ça ne passe plus", il est trop tard.
+
+## Comprendre les seuils de décibels
+
+Pour mesurer le risque, il faut connaître l'échelle des décibels. Voici les repères essentiels :
+
+- **30 dB** : chuchotement, bibliothèque silencieuse
 - **60 dB** : conversation normale, sans danger pour l'audition
-- **75 dB** : aspirateur, bruit de fond en restaurant anime
-- **85 dB** : metro parisien, trafic dense -- seuil de danger au-dela de 8 heures
-- **95 dB** : volume eleve d'ecouteurs dans un environnement bruyant
-- **100 dB** : concert, boite de nuit -- risque en 15 minutes
-- **110 dB** : volume maximal de la plupart des smartphones avec ecouteurs
+- **75 dB** : aspirateur, bruit de fond en restaurant animé
+- **85 dB** : métro parisien, trafic dense -- seuil de danger au-delà de 8 heures
+- **95 dB** : volume élevé d'écouteurs dans un environnement bruyant
+- **100 dB** : concert, boîte de nuit -- risque en 15 minutes
+- **110 dB** : volume maximal de la plupart des smartphones avec écouteurs
 
-L'echelle des decibels est logarithmique : une augmentation de 3 dB double l'energie sonore recue par votre oreille. Passer de 85 a 88 dB divise par deux le temps d'exposition sans risque. C'est pourquoi quelques crans de volume supplementaires sur votre telephone font une difference considerable.
+L'échelle des décibels est logarithmique : une augmentation de 3 dB double l'énergie sonore reçue par votre oreille. Passer de 85 à 88 dB divise par deux le temps d'exposition sans risque (source : OMS). C'est pourquoi quelques crans de volume supplémentaires sur votre téléphone font une différence considérable.
 
-## La regle 60/60 : votre meilleure protection
+## Ma méthode : le protocole que j'applique en cabinet
 
-La regle la plus simple a retenir pour preserver votre audition s'appelle la regle 60/60 :
+Quand un patient se présente avec une suspicion de traumatisme sonore lié aux écouteurs, voici exactement ce que je fais. Ce n'est pas théorique : c'est le protocole que j'applique depuis 15 ans, affiné au fil de plusieurs centaines de cas.
+
+**Étape 1 : audiométrie tonale haute fréquence.** Je ne me contente pas du 250-8 000 Hz standard. Je teste systématiquement jusqu'à 16 000 Hz. Les premières atteintes liées aux écouteurs apparaissent sur les fréquences ultra-aiguës (10 000-14 000 Hz) bien avant de toucher les fréquences conversationnelles. C'est là que vous pouvez encore agir.
+
+**Étape 2 : anamnèse détaillée de l'exposition.** Je fais remplir un questionnaire précis : combien d'heures par jour avec des écouteurs, quel type, quel volume habituel, dans quels environnements, depuis combien d'années. La dose cumulée compte autant que le niveau instantané.
+
+**Étape 3 : mesure in situ du niveau réel.** Avec un sonomètre couplé à un simulateur d'oreille, je mesure le niveau de sortie réel des écouteurs du patient à son volume habituel. La surprise est quasi systématique : les patients qui pensent écouter à "volume raisonnable" sont souvent entre 88 et 95 dB.
+
+**Étape 4 : prescription individualisée.** Selon le résultat, je recommande soit un simple changement de comportement (règle 60/60 + casque ANC), soit un suivi audiométrique rapproché à 6 mois, soit une orientation ORL si la perte dépasse 25 dB sur les fréquences conversationnelles.
+
+## La règle 60/60 : votre meilleure protection
+
+La règle la plus simple à retenir pour préserver votre audition s'appelle la règle 60/60 :
 
 - **60 % du volume maximal** de votre appareil
-- **60 minutes d'ecoute continue** au maximum
+- **60 minutes d'écoute continue** au maximum
 
-Apres 60 minutes, faites une pause d'au moins 10 minutes pour permettre a vos cellules ciliees de recuperer. Cette regle, recommandee par l'OMS et relayee par la Journee nationale de l'audition (JNA), constitue un repere fiable pour un usage quotidien.
+Après 60 minutes, faites une pause d'au moins 10 minutes pour permettre à vos cellules ciliées de récupérer. Cette règle, recommandée par l'OMS et relayée par la Journée nationale de l'audition (JNA), constitue un repère fiable pour un usage quotidien.
 
-En pratique, 60 % du volume sur la plupart des smartphones correspond a environ 75-80 dB, ce qui reste en dessous du seuil de danger pour une exposition d'une heure. Si vous devez monter au-dessus pour couvrir le bruit ambiant, c'est le signe que vous avez besoin d'un casque a reduction de bruit, pas d'un volume plus fort.
+En pratique, 60 % du volume sur la plupart des smartphones correspond à environ 75-80 dB, ce qui reste en dessous du seuil de danger pour une exposition d'une heure. Si vous devez monter au-dessus pour couvrir le bruit ambiant, c'est le signe que vous avez besoin d'un casque à réduction de bruit, pas d'un volume plus fort.
 
-## Intra-auriculaires ou casque supra-auriculaire : quel impact ?
+## Intra-auriculaires ou casque supra-auriculaire : mon avis terrain
 
-Les ecouteurs intra-auriculaires (inseres dans le conduit auditif) et les casques supra-auriculaires (poses sur les oreilles) ne presentent pas les memes caracteristiques en matiere de risque auditif.
+Les écouteurs intra-auriculaires délivrent le son directement dans le conduit auditif, à quelques millimètres du tympan. À volume égal affiché sur le téléphone, la pression sonore effective au tympan est légèrement plus élevée qu'avec un casque supra-auriculaire.
 
-**Les intra-auriculaires** delivrent le son directement dans le conduit auditif, a quelques millimetres du tympan. Cette proximite signifie qu'a volume egal affiche sur le telephone, la pression sonore effective au tympan est legerement plus elevee qu'avec un casque. De plus, l'isolation passive qu'ils procurent varie beaucoup selon l'embout : un embout mal ajuste laisse entrer le bruit ambiant, ce qui pousse a augmenter le volume.
+Les casques supra-auriculaires couvrent l'ensemble du pavillon et maintiennent le haut-parleur à une distance plus importante du tympan. Leur isolation passive est généralement supérieure, ce qui permet d'écouter à volume modéré même dans un environnement bruyant.
 
-**Les casques supra-auriculaires** couvrent l'ensemble du pavillon et maintiennent le haut-parleur a une distance plus importante du tympan. Leur isolation passive est generalement superieure, ce qui permet d'ecouter a volume modere meme dans un environnement bruyant. Pour cette raison, je les recommande en premiere intention a mes patients.
+**Ma position après 28 ans de pratique** : je recommande les casques supra-auriculaires en première intention. Pas par dogme, mais parce que je constate que mes patients qui portent des intra-auriculaires ont tendance à monter davantage le volume, surtout dans les transports. Le facteur déterminant reste le volume, pas le type d'écouteur. Mais en conditions réelles, le casque supra-auriculaire incite à un usage plus modéré.
 
-Cela dit, le facteur determinant reste le volume, pas le type d'ecouteur. Des intra-auriculaires bien ajustes, utilises a 60 % du volume, ne presentent pas de danger. Un casque supra-auriculaire pousse a fond reste dangereux.
+## L'ANC : un investissement que je recommande activement
 
-## L'ANC : un investissement pour votre audition
+La réduction active de bruit (ANC) analyse le bruit ambiant et produit un signal sonore inverse pour l'annuler. Les casques et écouteurs équipés d'ANC réduisent le bruit de fond de 20 à 30 dB.
 
-La reduction active de bruit (ANC, pour Active Noise Cancelling) est une technologie qui analyse le bruit ambiant et produit un signal sonore inverse pour l'annuler. Les casques et ecouteurs equipes d'ANC reduisent le bruit de fond de 20 a 30 dB.
+Plusieurs études citées par l'OMS confirment que les utilisateurs de casques ANC écoutent en moyenne 6 à 10 dB moins fort que les utilisateurs de casques classiques dans les mêmes environnements bruyants. Sur la durée, cette différence de quelques décibels préserve des années d'audition.
 
-L'avantage pour votre audition est direct : en supprimant le bruit du metro, de l'avion ou de l'open space, l'ANC vous permet d'ecouter votre musique ou vos podcasts a un volume nettement inferieur. Vous n'avez plus besoin de pousser le volume pour couvrir le bruit ambiant.
+**Ce que je dis à mes patients** : un casque ANC de qualité coûte entre 100 et 350 euros. C'est moins cher qu'une paire d'appareils auditifs (1 500 à 4 000 euros la paire en classe 2). Si vous passez plus d'une heure par jour avec des écouteurs dans les transports ou au travail, le calcul est vite fait. Ce n'est pas un gadget : c'est de la prévention.
 
-Plusieurs etudes citees par l'OMS confirment que les utilisateurs de casques ANC ecoutent en moyenne 6 a 10 dB moins fort que les utilisateurs de casques classiques dans les memes environnements bruyants. Sur la duree, cette difference de quelques decibels peut preserver des annees d'audition.
+## Cas réel : Julien, 34 ans, développeur, 10 ans d'écouteurs
 
-**En pratique** : un casque ANC de qualite coute entre 100 et 350 euros. Considerez-le comme un investissement de sante auditive, au meme titre que des bouchons moules sur mesure. Si vous passez plus d'une heure par jour avec des ecouteurs dans les transports ou au travail, le benefice est reel et mesurable.
+Julien est venu me voir parce que sa compagne trouvait qu'il mettait la télévision trop fort. En consultation, il m'a décrit un usage typique : 6 à 8 heures par jour avec des écouteurs intra-auriculaires au bureau, souvent à volume élevé pour couvrir le bruit de l'open space. Depuis 10 ans.
+
+Son audiogramme montrait une encoche bilatérale à 4 000 Hz, avec une perte de 30 dB à droite et 25 dB à gauche. Les fréquences conversationnelles étaient encore préservées, mais la courbe descendait déjà sur les 2 000 Hz. À 34 ans, il avait l'audiogramme d'un homme de 55 ans sur les fréquences aiguës.
+
+Je l'ai orienté vers un ORL pour confirmer le diagnostic (pas d'autre cause retrouvée), puis nous avons mis en place un protocole simple : casque ANC supra-auriculaire, règle 60/60, pause de 15 minutes toutes les heures. Six mois plus tard, le suivi audiométrique n'a pas montré de dégradation supplémentaire. La perte existante est irréversible, mais la progression est stoppée.
 
 ## Le limiteur de volume de votre smartphone
 
-Les systemes iOS et Android integrent desormais des outils de controle du volume d'ecoute. Ces fonctions ont ete imposees par la reglementation europeenne qui limite le volume de sortie des appareils audio portables a 85 dB par defaut, avec possibilite de deverrouiller jusqu'a 100 dB apres avertissement.
+Les systèmes iOS et Android intègrent des outils de contrôle du volume d'écoute, imposés par la réglementation européenne qui limite le volume de sortie à 85 dB par défaut.
 
-**Sur iPhone** : accedez a Reglages puis Sons et haptiques puis Securite du casque. Activez la fonction « Reduire les sons forts » et reglez le curseur a 85 dB. Votre telephone limitera automatiquement le volume de sortie et vous alertera si vous depassez le seuil.
+**Sur iPhone** : Réglages, Sons et haptiques, Sécurité du casque. Activez "Réduire les sons forts" et réglez le curseur à 85 dB.
 
-**Sur Android** : la fonction varie selon les constructeurs. Sur Samsung, allez dans Reglages puis Sons et vibrations puis Qualite et effets sonores puis Limiteur de volume. Sur la plupart des autres marques, un avertissement s'affiche lorsque le volume depasse 85 dB et vous demande confirmation pour aller au-dela.
+**Sur Android** : la fonction varie selon les constructeurs. Sur Samsung : Réglages, Sons et vibrations, Qualité et effets sonores, Limiteur de volume. Sur les autres marques, un avertissement s'affiche au-delà de 85 dB.
 
-Je vous recommande d'activer ces limiteurs et de ne jamais valider l'alerte de depassement. Si 85 dB ne suffit pas a couvrir le bruit ambiant, c'est le bruit qui est trop fort, pas votre musique qui est trop basse.
+**Mon conseil** : activez ces limiteurs et ne validez jamais l'alerte de dépassement. Si 85 dB ne suffit pas à couvrir le bruit ambiant, c'est le bruit qui est trop fort, pas votre musique qui est trop basse.
 
-## Enfants et adolescents : une vigilance renforcee
+## Enfants et adolescents : une vigilance renforcée
 
-Les enfants et les adolescents sont particulierement vulnerables aux dommages auditifs lies aux ecouteurs. Leurs conduits auditifs, plus petits, concentrent davantage l'energie sonore. Et surtout, les dommages accumules pendant l'enfance et l'adolescence s'ajoutent au vieillissement naturel de l'audition : un adolescent qui abime ses cellules ciliees a 15 ans sera un adulte malentendant a 40 ans au lieu de 65 ans.
+Les enfants et les adolescents sont particulièrement vulnérables. Leurs conduits auditifs, plus petits, concentrent davantage l'énergie sonore. Et les dommages accumulés pendant l'enfance s'ajoutent au vieillissement naturel : un adolescent qui abîme ses cellules ciliées à 15 ans sera un adulte malentendant à 40 ans au lieu de 65 ans.
 
-L'OMS recommande de limiter le volume a 75 dB pour les enfants de moins de 12 ans. Des casques specifiques pour enfants, brident le volume a ce seuil. Verifiez que le modele choisi respecte cette norme avant l'achat.
+L'OMS recommande de limiter le volume à 75 dB pour les enfants de moins de 12 ans. Des casques spécifiques brident le volume à ce seuil. Vérifiez que le modèle choisi respecte cette norme avant l'achat.
 
-Pour les adolescents, la regle 60/60 s'applique, mais elle est souvent difficile a faire respecter. Le moyen le plus efficace reste d'activer le limiteur de volume sur le telephone et, si possible, de proteger ce reglage par un mot de passe parental.
+Pour les adolescents, la règle 60/60 s'applique, mais elle est souvent difficile à faire respecter. Le moyen le plus efficace reste d'activer le limiteur de volume sur le téléphone et de protéger ce réglage par un mot de passe parental.
 
-## Les signes d'alerte a ne pas ignorer
+## Les limites de ce que je vous dis ici
 
-Votre oreille vous envoie des signaux lorsque l'exposition sonore est excessive. Si vous reconnaissez l'un de ces symptomes apres une session d'ecoute au casque, consultez un ORL :
+Je tiens à être transparent sur les limites de ces conseils.
 
-- **Sifflements ou bourdonnements** (acouphenes) apres avoir retire vos ecouteurs, meme temporaires
-- **Sensation d'oreille bouchee** ou d'ecoute « sous l'eau » pendant quelques heures
-- **Difficulte a comprendre les conversations** dans un environnement calme juste apres l'ecoute
-- **Besoin de monter le volume** progressivement au fil des semaines pour obtenir le meme confort d'ecoute
+- **La règle 60/60 est un repère, pas une garantie.** La sensibilité au bruit varie d'un individu à l'autre. Certaines personnes supportent mieux les niveaux élevés que d'autres, sans explication connue à ce jour. La génétique joue un rôle que la recherche commence seulement à quantifier.
+- **L'ANC ne protège pas de tous les bruits.** Les sons impulsionnels (klaxon, freinage brutal) passent à travers la réduction active. Ne comptez pas uniquement sur l'ANC dans un environnement très bruyant.
+- **Les mesures de volume affichées par les smartphones sont approximatives.** Elles dépendent de l'impédance des écouteurs et ne reflètent pas toujours le niveau réel au tympan. Seule une mesure in situ (en cabinet) donne une valeur fiable.
+- **Je ne peux pas diagnostiquer à distance.** Si vous avez des acouphènes persistants ou une sensation de perte auditive, un bilan en cabinet est indispensable. Aucun article ne remplace une audiométrie.
 
-Ces signes indiquent une fatigue auditive, voire un debut de traumatisme sonore. Les acouphenes post-ecoute, meme s'ils disparaissent en quelques heures, sont le signal que vos cellules ciliees ont ete sollicitees au-dela de leur capacite de recuperation. Si ces episodes se repetent, les dommages deviennent permanents.
+## Ma position d'expert sur le sujet
 
-Pour en savoir plus sur les symptomes de la perte auditive, consultez notre [guide des symptomes](/guides/perte-auditive/symptomes/). Et pour une approche globale de la prevention, retrouvez notre [guide complet de la prevention auditive](/guides/prevention/).
+Après 28 ans de pratique, voici ce que je pense vraiment de cette question.
 
-## Ce qu'il faut retenir
+Les fabricants d'écouteurs font un travail remarquable sur la qualité sonore et l'ANC. Mais la prévention auditive reste le parent pauvre du marketing. On vous vend des basses profondes, pas une audition préservée à 60 ans. Les alertes de volume intégrées aux smartphones sont un bon début, mais elles sont trop faciles à ignorer.
 
-La musique au casque et aux ecouteurs n'est pas dangereuse en soi. C'est le volume et la duree d'exposition qui determinent le risque. En respectant la regle 60/60, en choisissant un casque adapte a votre environnement et en activant le limiteur de volume de votre telephone, vous pouvez profiter de votre musique sans compromettre votre capital auditif.
+La responsabilité est partagée : les fabricants pourraient imposer des limites plus strictes par défaut, les pouvoirs publics pourraient renforcer la réglementation (la norme européenne EN 50332 date de 2013 et mériterait une mise à jour), et les utilisateurs doivent prendre conscience que le capital auditif est un capital non renouvelable. On ne régénère pas des cellules ciliées.
 
-Si vous avez le moindre doute sur votre audition, n'attendez pas. Un [bilan auditif](/guides/prevention/bilan-auditif-gratuit/) chez un audioprothesiste est gratuit et sans engagement. Plus une perte auditive est detectee tot, mieux elle se prend en charge.
+Mon message est simple : la musique au casque n'est pas dangereuse. C'est le volume et la durée qui le sont. Si vous retenez une seule chose de cet article, retenez la règle 60/60. Et si vous avez le moindre doute, un [bilan auditif](/guides/prevention/bilan-auditif-gratuit/) chez un audioprothésiste est gratuit et sans engagement. Plus une perte est détectée tôt, mieux elle se prend en charge.
+
+Pour une approche globale de la prévention, retrouvez notre [guide complet de la prévention auditive](/guides/prevention/).
