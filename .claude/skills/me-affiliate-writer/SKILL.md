@@ -167,6 +167,10 @@ Si un element manque → COMPLETER avant envoi.
 - **Vouvoiement** : TOUJOURS
 - **YMYL** : chaque claim medical source. Pas de promesse therapeutique.
 - **Non-genericite** : si un paragraphe pourrait etre sur Wikipedia → le reecrire.
+- **Accents UTF-8 OBLIGATOIRES** : tout le contenu DOIT utiliser les accents francais
+  complets (é, è, ê, ë, à, â, ù, û, î, ï, ô, ç). Aucun mot francais ne doit etre
+  ecrit sans ses accents. HARD BLOCK : un article sans accents est REJECT automatique.
+  Les URLs et slugs restent sans accents.
 
 ## TEST DE REALITE (regle ultime)
 

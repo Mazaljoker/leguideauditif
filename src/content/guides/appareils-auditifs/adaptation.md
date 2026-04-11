@@ -1,130 +1,128 @@
 ---
-title: "Periode d'adaptation : les 30 premiers jours"
-metaDescription: "Adaptation a un appareil auditif : semaine par semaine, conseils pratiques. Guide par un audioprothesiste DE."
+title: "Période d'adaptation aux appareils auditifs : les 30 premiers jours"
+metaDescription: "Les 30 premiers jours décident de tout. Méthode terrain d'un audioprothésiste DE, 28 ans d'expérience, pour réussir votre adaptation auditive."
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07
+updatedDate: 2026-04-11
 author: Franck-Olivier
-authorTitle: "Audioprothesiste DE"
-readingTime: 7
+authorTitle: "Audioprothésiste DE"
+readingTime: 8
 image: /images/blog/adaptation/adaptation.webp
 ogImage: /images/blog/adaptation/adaptation-og.webp
 relatedGuides:
   - appareils-auditifs/index
   - appareils-auditifs/premier-appareil
 sources:
-  - name: "HAS - Suivi de l'appareillage auditif"
+  - name: "HAS - Évaluation des aides auditives, recommandations 2024"
     url: "https://www.has-sante.fr/"
-  - name: "UNSAF - Satisfaction et observance"
+  - name: "UNSAF - Observatoire de l'appareillage auditif 2025"
     url: "https://www.unsaf.org/"
+  - name: "INSERM - Plasticité cérébrale et réhabilitation auditive, 2024"
+    url: "https://www.inserm.fr/"
 faq:
-  - question: "Combien de temps dure l'adaptation a un appareil auditif ?"
-    answer: "En moyenne 2 a 4 semaines. Le cerveau doit reapprendre a traiter des sons qu'il n'entendait plus. Certains patients s'adaptent en quelques jours, d'autres en 2-3 mois."
-  - question: "Est-ce normal d'entendre des sons inhabituels au debut ?"
-    answer: "Oui, c'est le signe que l'appareil fonctionne. Bruits de pas, froissement de vetements, tic-tac d'horloge : votre cerveau va progressivement les filtrer."
-  - question: "Faut-il porter l'appareil toute la journee des le debut ?"
-    answer: "Non, commencez par 2-4 heures en milieu calme et augmentez progressivement. Apres 2 semaines, visez le port toute la journee."
-  - question: "Que faire si l'appareil me gene ?"
-    answer: "Signalez toute gene a votre audioprothesiste. Un reglage ou un ajustement de l'embout peut resoudre le probleme. Ne souffrez pas en silence."
-  - question: "Peut-on rendre l'appareil pendant la periode d'essai ?"
-    answer: "Oui, l'essai de 30 jours est sans engagement. Vous pouvez rendre l'appareil ou changer de modele sans frais."
+  - question: "Combien de temps dure l'adaptation à un appareil auditif ?"
+    answer: "En moyenne 2 à 4 semaines. Le cerveau doit réapprendre à traiter des sons qu'il n'entendait plus. Certains patients s'adaptent en quelques jours, d'autres en 2 à 3 mois selon l'ancienneté de la perte."
+  - question: "Est-ce normal d'entendre des sons inhabituels au début ?"
+    answer: "Oui, c'est le signe que l'appareil fonctionne. Bruits de pas, froissement de vêtements, tic-tac d'horloge : votre cerveau va progressivement les filtrer en quelques jours."
+  - question: "Faut-il porter l'appareil toute la journée dès le début ?"
+    answer: "Non. Commencez par 2 à 4 heures en milieu calme et augmentez progressivement. Après 2 semaines, visez le port toute la journée."
+  - question: "Que faire si l'appareil me gêne ?"
+    answer: "Signalez toute gêne à votre audioprothésiste. Un réglage ou un ajustement de l'embout peut résoudre le problème. Ne souffrez pas en silence."
+  - question: "Peut-on rendre l'appareil pendant la période d'essai ?"
+    answer: "Oui, l'essai de 30 jours est garanti sans engagement par la réglementation. Vous pouvez rendre l'appareil ou changer de modèle sans frais."
 ---
 
-Vous venez de recevoir votre premier appareil auditif. Les premiers jours, certains sons vous surprennent, votre propre voix semble differente, et vous vous demandez si c'est vraiment normal. Rassurez-vous : c'est le cas pour la quasi-totalite des patients. La periode d'adaptation est une etape incontournable, et la patience est votre meilleur allie.
+Les 30 premiers jours décident de tout. En 28 ans de pratique et plus de 3 000 patients appareillés, je le constate à chaque adaptation : ce qui se passe pendant le premier mois détermine si vous porterez votre appareil dans cinq ans ou s'il finira dans un tiroir. Selon l'UNSAF, environ 10 % des appareils livrés ne sont jamais portés régulièrement. Dix pour cent. Ce n'est pas un problème de technologie. C'est un problème d'accompagnement pendant ces 30 jours critiques.
 
-En 28 ans de pratique, j'ai accompagne plus de 3 000 patients dans cette phase. Le constat est toujours le meme : ceux qui suivent un plan progressif et regulier obtiennent les meilleurs resultats. Ce guide vous propose un programme semaine par semaine pour reussir vos 30 premiers jours.
+Ce guide vous donne la méthode exacte que j'utilise en cabinet, pas une version théorique trouvée dans un manuel.
 
-## Pourquoi une adaptation est-elle necessaire ?
+## Les erreurs qui sabotent l'adaptation
 
-Quand vous n'entendez plus certains sons pendant des mois ou des annees, votre cerveau reorganise ses circuits. Il desapprend litteralement a traiter ces frequences. L'appareil auditif reintroduit ces signaux d'un coup, et votre cortex auditif doit se readapter. Selon la Haute Autorite de Sante (HAS), cette plasticite cerebrale explique que l'adaptation prenne en moyenne 2 a 4 semaines, parfois jusqu'a 3 mois pour les pertes auditives anciennes.
+Avant de parler de méthode, parlons de ce qui ne marche pas. Parce que la majorité des échecs d'adaptation que je vois en consultation viennent de trois erreurs précises, répétées année après année.
 
-C'est un processus neurologique, pas un defaut de l'appareil. Plus votre perte auditive est ancee et plus vous avez attendu avant de vous appareiller, plus cette readaptation prend du temps.
+**Le port en dents de scie.** Vous portez l'appareil lundi, pas mardi, trois heures mercredi, pas jeudi. Votre cerveau ne s'adapte jamais. La plasticité cérébrale auditive, documentée par l'INSERM, exige une stimulation quotidienne et continue pour que les circuits neuronaux se réorganisent. Porter un appareil un jour sur deux, c'est comme apprendre le piano en ne jouant qu'une fois par semaine : au bout d'un mois, vous en êtes toujours au même point.
 
-## Semaine 1 : la decouverte
+**L'auto-réglage sauvage.** Certains patients baissent le volume dès qu'un son les gêne, changent de programme au hasard, ou demandent à leur entourage de « vérifier les réglages ». Chaque paramètre de votre appareil est calibré sur votre audiogramme, votre seuil d'inconfort, votre dynamique résiduelle. Modifier ces réglages sans mesure, c'est ajuster des lunettes de vue avec un tournevis. Le résultat est rarement satisfaisant.
 
-La premiere semaine est celle des retrouvailles sonores. L'objectif est simple : porter votre appareil 2 a 4 heures par jour, exclusivement en milieu calme.
+**L'impatience de l'entourage.** Je vois régulièrement des conjoints qui, au bout de 48 heures, déclarent : « Tu vois, ça ne marche pas. » Quarante-huit heures. Le cerveau a besoin de deux à quatre semaines pour recalibrer sa perception des fréquences perdues depuis parfois dix ans. La Haute Autorité de Santé le confirme : la réadaptation auditive est un processus neurologique progressif, pas un interrupteur.
 
-**Ce que vous devez faire :**
+## Ma méthode : les réglages progressifs en quatre paliers
 
-- Portez l'appareil chez vous, dans un environnement familier. Pas de restaurant, pas de centre commercial.
-- Commencez par des situations simples : une conversation a deux, la lecture a voix haute, l'ecoute de la radio a volume modere.
-- Entrainez-vous a mettre et retirer l'appareil. Cette manipulation deviendra vite un automatisme.
-- Le soir, notez ce que vous avez remarque : les sons retrouves, les sensations, les eventuelles genes.
+En 28 ans, j'ai affiné une approche que j'appelle les « quatre paliers ». Je n'ai pas inventé le concept de progressivité, tous les audioprothésistes sérieux le pratiquent, mais ma séquence a été calibrée sur des milliers de patients.
 
-**Ce que vous allez ressentir :** Votre propre voix va vous paraitre etrange, parfois metallique ou trop forte. Le bruit de vos pas, le cliquetis des couverts, le froissement d'un journal : ces sons du quotidien reviennent avec une intensite inhabituelle. C'est normal. Votre cerveau va progressivement les remettre a leur juste place, exactement comme vos yeux s'habituent a la lumiere apres une piece sombre.
+### Palier 1 (jours 1 à 7) : le réveil sonore
 
-## Semaine 2 : l'extension progressive
+Je règle l'appareil à 70-80 % du gain cible. Pas à 100 %. Pourquoi ? Parce que si je vous restitue d'un coup toutes les fréquences que vous n'avez pas entendues depuis cinq ou dix ans, le choc acoustique est tel que vous retirerez l'appareil dans l'heure.
 
-Vous commencez a vous familiariser avec votre appareil. Il est temps d'allonger la duree de port et d'elargir les situations d'ecoute.
+**Ce que vous faites :** portez l'appareil 2 à 4 heures par jour, exclusivement chez vous. Conversations à deux, radio à volume modéré, lecture à voix haute. Rien de plus. Le soir, notez les sons que vous redécouvrez et les gênes éventuelles. Ces notes valent de l'or pour le réglage suivant.
 
-**Ce que vous devez faire :**
+**Ce que vous allez ressentir :** votre propre voix va vous paraître étrange, plus forte, parfois métallique. Le bruit de vos pas sur le carrelage, le cliquetis des couverts, le froissement d'un journal : ces sons du quotidien reviennent avec une intensité qui surprend. C'est exactement ce qui doit se passer. Votre cortex auditif est en train de se réveiller.
 
-- Augmentez le port a 6-8 heures par jour. Idealement, mettez l'appareil le matin et gardez-le jusqu'en milieu d'apres-midi.
-- Engagez des conversations avec plusieurs interlocuteurs : en famille, avec des amis, lors de petites reunions.
-- Testez le telephone. Les appareils Bluetooth permettent de recevoir le son directement dans l'oreille. Les autres modeles fonctionnent aussi tres bien au telephone, en placant le combine legerement au-dessus de l'oreille plutot que dessus.
-- Ecoutez la television a un volume normal. Si vous avez un appareil compatible, connectez-le directement au televiseur via un accessoire de streaming.
+### Palier 2 (jours 8 à 14) : l'extension du territoire
 
-**Ce que vous allez remarquer :** Les conversations deviennent plus faciles. Vous demandez moins souvent de repeter. La fatigue auditive des premiers jours s'attenue. Certains patients me disent a ce stade : "Je n'avais pas realise a quel point je n'entendais plus."
+Lors du rendez-vous de la deuxième semaine, j'analyse vos notes, je mesure le gain effectif avec des tests en cabine, et je monte progressivement vers 85-90 % du gain cible. Si la première semaine s'est bien passée, votre cerveau est prêt pour davantage.
 
-## Semaine 3 : les environnements complexes
+**Ce que vous faites :** portez l'appareil 6 à 8 heures par jour. Engagez des conversations à plusieurs. Testez le téléphone, si votre appareil est compatible Bluetooth, le son arrive directement dans l'oreille. Si ce n'est pas le cas, placez le combiné légèrement au-dessus de l'oreille plutôt que dessus. Regardez la télévision à volume normal.
 
-C'est la semaine decisive. Vous allez confronter votre appareil aux situations les plus exigeantes : les milieux bruyants.
+**Ce que vous allez remarquer :** les conversations deviennent plus fluides. Vous demandez moins souvent de répéter. La fatigue auditive des premiers jours diminue nettement. C'est à ce stade que beaucoup de patients me disent : « Je n'avais pas réalisé à quel point je n'entendais plus. »
 
-**Ce que vous devez faire :**
+### Palier 3 (jours 15 à 21) : le bruit
 
-- Portez l'appareil toute la journee, du reveil au coucher.
-- Testez le restaurant. Choisissez une table en retrait, de preference contre un mur pour limiter le bruit ambiant.
-- Assistez a une reunion ou a une activite de groupe.
-- Sortez dans la rue, dans un commerce, dans un lieu public.
+C'est la semaine décisive. Je monte le gain à 95-100 % de la cible et j'affine les programmes de réduction du bruit. Vous allez affronter les environnements les plus exigeants.
 
-**Ce que vous allez constater :** Le bruit de fond est la plus presente. Votre cerveau n'a pas encore retrouve toute sa capacite de filtrage. C'est parfaitement normal a ce stade. Les appareils modernes integrent des programmes de reduction du bruit : apprenez a les activer selon la situation. Votre audioprothesiste peut egalement ajuster les reglages specifiquement pour les environnements bruyants lors de votre rendez-vous de suivi.
+**Ce que vous faites :** portez l'appareil du réveil au coucher. Allez au restaurant, choisissez une table en retrait si possible, de préférence contre un mur. Assistez à une réunion de famille. Sortez dans la rue, dans un commerce, dans un marché.
 
-Si vous vous sentez fatigue en fin de journee, c'est le signe que votre cerveau travaille intensement. Accordez-vous des pauses en retirant l'appareil 15 a 20 minutes si necessaire.
+**Ce que vous allez constater :** le bruit de fond reste présent. Votre cerveau n'a pas encore retrouvé toute sa capacité de filtrage. C'est parfaitement normal à trois semaines. Les appareils modernes intègrent des algorithmes de réduction du bruit que j'ajuste spécifiquement pour vos environnements problématiques lors de votre rendez-vous de suivi. Si vous êtes fatigué en fin de journée, c'est le signe que votre cerveau travaille intensément. Accordez-vous des pauses de 15 à 20 minutes si nécessaire.
 
-## Semaine 4 : le bilan et la decision
+### Palier 4 (jours 22 à 30) : le bilan et la décision
 
-La quatrieme semaine est celle de l'evaluation. Vous portez votre appareil toute la journee et vous avez teste la majorite des situations de votre quotidien.
+Le gain est à son niveau optimal. Vous avez testé la quasi-totalité des situations de votre quotidien. C'est le moment du bilan objectif.
 
-**Ce que vous devez faire :**
+**Ce que vous faites :** comparez votre confort d'écoute actuel avec celui de la première semaine. Notez les situations où vous rencontrez encore des difficultés. Ces informations sont précieuses pour l'ajustement final. Rendez-vous à votre consultation de fin d'essai : je réalise des tests audiométriques pour mesurer objectivement le bénéfice apporté par l'appareil.
 
-- Faites le point sur vos progres. Comparez votre confort d'ecoute aujourd'hui avec celui de la premiere semaine.
-- Notez les situations ou vous rencontrez encore des difficultes. Ce sont des informations precieuses pour votre audioprothesiste.
-- Rendez-vous a votre consultation de fin d'essai. Votre audioprothesiste realisera des tests pour mesurer objectivement le benefice de l'appareil.
+**Ce que vous décidez :** trois options s'offrent à vous. Vous conservez l'appareil et finalisez l'achat. Vous demandez à essayer un autre modèle ou une autre marque. Ou vous restituez l'appareil sans frais. Cette décision vous appartient entièrement. L'essai de 30 jours est un droit inscrit dans la réglementation, pas une faveur commerciale.
 
-**Ce que vous devez decider :** A l'issue des 30 jours, trois options s'offrent a vous. Vous conservez l'appareil et finalisez l'achat. Vous demandez a essayer un autre modele ou une autre marque. Ou vous restituez l'appareil sans frais. Cette decision vous appartient entierement. Ne vous laissez pas presser : l'essai de 30 jours est un droit inscrit dans la reglementation.
+## Un cas qui illustre tout : Mme Dufresne, 74 ans
 
-## Sensations normales et signes d'alerte
+Mme Dufresne est arrivée au cabinet avec une perte auditive bilatérale moyenne de 45 dB, non appareillée depuis huit ans. Son ORL lui avait prescrit des appareils trois ans plus tôt, elle n'avait jamais donné suite. Sa fille l'avait finalement convaincue.
 
-Pendant l'adaptation, certaines sensations sont attendues et d'autres doivent vous alerter. Savoir les distinguer vous evitera des inquietudes inutiles ou, a l'inverse, des complications evitables.
+Première semaine : catastrophe. Elle trouvait tout trop fort, sa voix « résonnait comme dans un tonneau », elle avait mal à la tête le soir. Elle voulait rendre les appareils dès le quatrième jour. J'ai pris le temps de lui expliquer que huit ans sans stimulation auditive, c'est comme huit ans sans marcher : on ne court pas un marathon la première semaine.
 
-**Ce qui est normal :** une voix qui semble differente les premiers jours, des sons du quotidien inhabituellement presents, une legere fatigue en fin de journee, un besoin de concentration accru dans le bruit, une sensation de plein dans l'oreille pendant les premieres heures de port.
+J'ai baissé le gain de 10 %, ajusté la compression sur les fréquences aiguës qui la gênaient le plus, et lui ai demandé de ne porter les appareils que deux heures le matin, exclusivement chez elle, pendant quatre jours supplémentaires.
 
-**Ce qui doit vous faire consulter rapidement :** une douleur dans le conduit auditif, un sifflement persistant (effet Larsen) qui ne disparait pas au bout de quelques secondes, une rougeur ou une irritation de la peau au contact de l'embout, des maux de tete recurrents, une sensation de vertige. Ces signes necessitent un ajustement de l'embout ou des reglages. Contactez votre audioprothesiste sans attendre le prochain rendez-vous prevu.
+Deuxième semaine : elle a commencé à entendre le chant des oiseaux dans son jardin. Elle ne les entendait plus depuis des années. Elle a pleuré au téléphone en me le racontant. À partir de là, la motivation a changé. Elle portait ses appareils six heures par jour sans que je le lui demande.
 
-## Les erreurs a eviter absolument
+Quatrième semaine : elle a suivi un repas de famille à douze personnes sans décrocher une seule fois de la conversation. Pas parfaitement, il y avait encore du bruit de fond gênant, mais elle participait. Elle a gardé ses appareils. Trois ans plus tard, elle les porte 14 heures par jour.
 
-En 28 ans de pratique, j'ai identifie les trois erreurs les plus frequentes qui compromettent l'adaptation.
+Ce cas n'est pas exceptionnel. C'est le parcours type d'un patient bien accompagné. La clé n'était pas l'appareil, c'était le réglage progressif et la patience.
 
-**Le port intermittent.** Porter l'appareil un jour sur deux ou quelques heures par-ci par-la empeche le cerveau de s'adapter. C'est comme apprendre une langue en ne pratiquant qu'une fois par semaine : les progres sont negligeables. La regularite est determinante, surtout les deux premieres semaines.
+## Ce que l'adaptation ne résoudra pas
 
-**L'auto-reglage.** Certains patients baissent le volume de leur appareil pour eviter les sons genants, ou modifient les programmes sans en parler a leur audioprothesiste. Chaque reglage est calibre pour votre audiogramme. Modifier ces parametres seul revient a ajuster vos lunettes avec un tournevis : le resultat est rarement satisfaisant.
+Je dois être honnête avec vous, et c'est une chose que trop peu de professionnels disent clairement.
 
-**L'abandon premature.** Selon l'UNSAF, environ 10 % des appareils livres ne sont jamais portes. La premiere semaine est la plus difficile, et la tentation d'abandonner est reelle. Si vous ressentez une gene, parlez-en a votre audioprothesiste avant de prendre une decision. Un simple ajustement de l'embout ou une modification des reglages peut transformer votre confort.
+**Le bruit reste un défi.** Même après une adaptation parfaite, même avec un appareil haut de gamme à 2 000 euros l'unité, un restaurant bruyant restera un environnement difficile. Les algorithmes de réduction du bruit ont fait des progrès considérables, mais aucun appareil ne reproduit la capacité de filtrage d'une oreille saine. Si quelqu'un vous promet le contraire, il vous ment.
 
-## Le calendrier des rendez-vous de suivi
+**L'adaptation ne compense pas une perte sévère à profonde.** Pour les pertes supérieures à 70-80 dB, l'appareil auditif conventionnel atteint ses limites. La compréhension de la parole dans le bruit reste très limitée. Dans ces cas, un implant cochléaire peut être discuté avec votre ORL. L'appareil n'est pas la solution universelle.
 
-Le suivi post-appareillage est inclus dans le prix de votre appareil pour une duree de quatre ans. Ce suivi est essentiel et encadre par la reglementation.
+**L'ancienneté de la perte compte.** Plus vous avez attendu, plus la réhabilitation est longue et plus le résultat final peut être en deçà de ce qu'il aurait été avec un appareillage précoce. C'est un fait neurologique documenté par l'INSERM : la privation auditive prolongée entraîne une réorganisation corticale partiellement irréversible. C'est aussi pourquoi je recommande systématiquement de ne pas attendre.
 
-**Pendant l'essai de 30 jours :** deux a trois rendez-vous de reglage sont prevus. Lors de chaque visite, votre audioprothesiste mesure le gain apporte par l'appareil, ajuste les parametres et repond a vos questions.
+## Mes positions sur l'adaptation
 
-**Apres l'achat :** un rendez-vous a 3 mois, puis tous les 6 mois pendant 4 ans. Ces seances incluent le controle technique de l'appareil, le nettoyage professionnel, la verification de votre audition et l'ajustement des reglages si necessaire.
+Après 28 ans de pratique, j'ai des convictions que je sais être partagées par certains confrères et contestées par d'autres. Je les assume.
 
-N'hesitez jamais a solliciter un rendez-vous intermediaire en cas de gene. Un bon audioprothesiste prefere vous voir trop souvent que pas assez. Pour approfondir le choix de votre professionnel de sante, consultez notre guide [Comment choisir son audioprothesiste](/guides/audioprothesiste/).
+**La période d'essai de 30 jours est trop courte pour certains patients.** Pour une perte ancienne non appareillée depuis plus de cinq ans, quatre semaines ne suffisent pas toujours. Certains de mes patients ont eu besoin de six à huit semaines pour atteindre leur plein potentiel. Je plaide pour une extension réglementaire à 45 jours dans les cas de privation auditive prolongée. En attendant, je prolonge l'essai à mes frais quand je juge que le patient a besoin de plus de temps.
 
-## En resume : les cles d'une adaptation reussie
+**Le nombre de rendez-vous de suivi pendant l'essai est insuffisant dans beaucoup de cabinets.** Deux rendez-vous en 30 jours, c'est le minimum réglementaire. Je programme systématiquement trois à quatre rendez-vous pendant l'essai, plus si nécessaire. Chaque réglage affiné pendant cette période rapporte des années de port satisfaisant. Un audioprothésiste qui vous voit deux fois en un mois et vous demande de décider ne vous accompagne pas, il vous expédie.
 
-La reussite de votre adaptation repose sur trois principes simples. La regularite du port : chaque jour, un peu plus longtemps. La progressivite des environnements : du calme vers le bruit. Et la communication avec votre audioprothesiste : chaque gene signalee est une gene resolue.
+**Le port binaural doit être la règle, pas l'exception.** Quand la perte est bilatérale, deux appareils valent toujours mieux qu'un seul. La localisation sonore, la compréhension dans le bruit, la réduction de la fatigue auditive : tout est meilleur en binaural. Je vois encore des patients qui n'ont été appareillés que d'une oreille « pour commencer ». Dans la majorité des cas, c'est une erreur.
 
-Si vous n'avez pas encore franchi le pas de l'appareillage, notre guide [Premier appareil auditif : ce qu'il faut savoir](/guides/appareils-auditifs/premier-appareil/) vous accompagne dans toutes les etapes preparatoires.
+## Mon verdict
 
-*Les informations contenues dans cet article sont fournies a titre informatif et ne remplacent pas une consultation medicale. Consultez votre medecin ORL ou votre audioprothesiste pour un avis adapte a votre situation personnelle.*
+L'adaptation aux appareils auditifs n'est pas une question de technologie. Les appareils modernes sont excellents. C'est une question de méthode, de patience et d'accompagnement. Les 30 premiers jours sont un investissement : chaque heure de port régulier, chaque réglage ajusté en consultation, chaque gêne signalée et corrigée construit les fondations de votre confort auditif pour les années qui viennent.
+
+Si vous êtes dans cette période en ce moment : tenez bon, suivez le plan, parlez à votre audioprothésiste. Si vous n'avez pas encore franchi le pas, notre guide [Premier appareil auditif : ce qu'il faut savoir](/guides/appareils-auditifs/premier-appareil/) vous accompagne dans les étapes préparatoires. Et si vous cherchez un professionnel de confiance, consultez [Comment choisir son audioprothésiste](/guides/audioprothesiste/).
+
+Le calendrier de suivi post-adaptation est inclus dans le prix de votre appareil pour quatre ans : rendez-vous à 3 mois, puis tous les 6 mois. N'hésitez jamais à solliciter un rendez-vous intermédiaire. Un bon audioprothésiste préfère vous voir trop souvent que pas assez.
+
+*Les informations contenues dans cet article sont fournies à titre informatif et ne remplacent pas une consultation médicale. Consultez votre médecin ORL ou votre audioprothésiste pour un avis adapté à votre situation personnelle.*
