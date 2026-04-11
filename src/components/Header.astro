@@ -1,24 +1,22 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const navLinks = [
-  { href: '/guides/perte-auditive/', label: 'Perte auditive' },
+  { href: '/guides/', label: 'Guides' },
+  { href: '/catalogue/', label: 'Appareils & prix' },
   { href: '/guides/audiogramme/', label: 'Audiogramme' },
-  { href: '/guides/appareils-auditifs/', label: 'Appareils' },
-  { href: '/guides/acouphenes/', label: 'Acouphenes' },
-  { href: '/guides/remboursement/', label: 'Prix & remboursement' },
-  { href: '/catalogue/', label: 'Catalogue' },
-  { href: '/comparatifs/meilleur-appareil-auditif-2026/', label: 'Comparatifs' },
-  { href: '/annonces/', label: 'Annonces' },
+  { href: '/faq/', label: 'FAQ' },
 ];
 ---
 
-<!-- Top Bar -->
+<!-- Top Bar (scrolle avec le contenu, pas sticky) -->
 <div class="bg-marine text-white py-2 text-center font-sans text-[13px] tracking-wide">
-  <span class="opacity-80">Guide independant redige par un audioprothesiste DE — 28 ans de clinique, 5 ans chez Auzen.com</span>
+  <span class="opacity-80">Guide indépendant rédigé par un audioprothésiste diplômé d'État — sources médicales vérifiées</span>
 </div>
 
-<!-- Header -->
-<header class="bg-blanc border-b border-gris-clair sticky top-0 z-50 shadow-[0_2px_12px_rgba(27,46,74,0.06)]">
-  <div class="max-w-[1140px] mx-auto px-5 flex items-center justify-between py-4">
+<!-- Header sticky -->
+<header class="bg-blanc border-b border-gris-clair sticky top-0 z-50 shadow-[0_2px_12px_rgba(27,46,74,0.06)] relative">
+  <div id="site-header" class="max-w-[1140px] mx-auto px-5 flex items-center justify-between py-4 transition-[padding] duration-300 motion-reduce:transition-none">
     <!-- Logo -->
     <a href="/" class="no-underline hover:no-underline">
       <img
@@ -38,63 +36,214 @@ const navLinks = [
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden lg:flex items-center gap-7" aria-label="Navigation principale">
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="text-marine font-sans text-[15px] font-medium no-underline py-1.5 border-b-2 border-transparent hover:text-orange hover:border-orange transition-all duration-200 hover:no-underline"
+          class="text-marine font-sans text-[16px] font-medium no-underline py-1.5 border-b-2 border-transparent hover:text-orange hover:border-orange transition-all duration-200 hover:no-underline"
         >
           {link.label}
         </a>
       ))}
+
+      <!-- Bouton recherche -->
+      <button
+        id="search-btn"
+        aria-label="Rechercher sur le site"
+        class="p-2 text-marine hover:text-orange transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center"
+      >
+        <Icon name="lucide:search" class="w-6 h-6" />
+      </button>
+
+      <!-- CTA -->
       <a
         href="/trouver-audioprothesiste/"
-        class="inline-flex items-center gap-2 px-5 py-2.5 bg-orange text-white font-sans text-sm font-semibold rounded-md hover:bg-orange-hover transition-colors no-underline hover:no-underline"
+        class="inline-flex items-center gap-2 px-5 py-2.5 bg-orange text-white font-sans text-[16px] font-semibold rounded-md hover:bg-orange-hover transition-colors no-underline hover:no-underline min-h-[48px]"
       >
-        Trouver un audio
+        Trouver un audioprothésiste
       </a>
     </nav>
 
-    <!-- Mobile Menu Button -->
-    <button
-      class="lg:hidden flex flex-col gap-1.5 p-2"
-      aria-label="Ouvrir le menu"
-      id="mobile-menu-btn"
-    >
-      <span class="block w-6 h-0.5 bg-marine"></span>
-      <span class="block w-6 h-0.5 bg-marine"></span>
-      <span class="block w-6 h-0.5 bg-marine"></span>
-    </button>
+    <!-- Mobile : recherche + hamburger -->
+    <div class="flex lg:hidden items-center gap-2">
+      <button
+        id="search-btn-mobile"
+        aria-label="Rechercher sur le site"
+        class="p-3 text-marine hover:text-orange transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center"
+      >
+        <Icon name="lucide:search" class="w-6 h-6" />
+      </button>
+      <button
+        id="mobile-menu-btn"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="p-3 min-h-[48px] min-w-[48px] flex flex-col items-center justify-center gap-1.5"
+      >
+        <span class="block w-6 h-0.5 bg-marine transition-transform duration-200 motion-reduce:transition-none" id="hamburger-top"></span>
+        <span class="block w-6 h-0.5 bg-marine transition-opacity duration-200 motion-reduce:transition-none" id="hamburger-mid"></span>
+        <span class="block w-6 h-0.5 bg-marine transition-transform duration-200 motion-reduce:transition-none" id="hamburger-bot"></span>
+      </button>
+    </div>
   </div>
 
-  <!-- Mobile Nav -->
+  <!-- Mobile Nav (slide-down) -->
   <nav
     id="mobile-menu"
-    class="hidden lg:hidden border-t border-gris-clair bg-blanc px-5 pb-4"
+    class="lg:hidden grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 motion-reduce:transition-none border-t border-gris-clair bg-blanc"
     aria-label="Navigation mobile"
+    aria-hidden="true"
   >
-    {navLinks.map((link) => (
-      <a
-        href={link.href}
-        class="block py-3 text-marine font-sans text-base font-medium border-b border-gris-clair no-underline hover:text-orange"
-      >
-        {link.label}
-      </a>
-    ))}
-    <a
-      href="/trouver-audioprothesiste/"
-      class="mt-3 block text-center px-5 py-3 bg-orange text-white font-sans font-semibold rounded-md no-underline hover:bg-orange-hover"
-    >
-      Trouver un audioprothesiste
-    </a>
+    <div class="overflow-hidden">
+      <div class="px-5 pb-4">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="flex items-center min-h-[48px] py-3 text-marine font-sans text-lg font-medium border-b border-gris-clair no-underline hover:text-orange hover:no-underline"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/trouver-audioprothesiste/"
+          class="mt-3 flex items-center justify-center min-h-[48px] px-5 py-3 bg-orange text-white font-sans font-semibold rounded-md no-underline hover:bg-orange-hover hover:no-underline"
+        >
+          Trouver un audioprothésiste
+        </a>
+      </div>
+    </div>
   </nav>
+
+  <!-- Search overlay -->
+  <div
+    id="search-overlay"
+    class="hidden absolute left-0 right-0 top-full bg-blanc border-b border-gris-clair shadow-lg z-40"
+    aria-hidden="true"
+  >
+    <div class="max-w-[1140px] mx-auto px-5 py-6">
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-sans text-[16px] font-semibold text-marine">Rechercher</span>
+        <button
+          id="search-close"
+          aria-label="Fermer la recherche"
+          class="p-2 text-marine hover:text-orange transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center"
+        >
+          <Icon name="lucide:x" class="w-5 h-5" />
+        </button>
+      </div>
+      <div id="pagefind-container"></div>
+      <p id="pagefind-fallback" class="hidden text-gris-texte font-sans text-sm text-center py-4">
+        Recherche disponible après le build du site.
+      </p>
+    </div>
+  </div>
 </header>
 
 <script>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn?.addEventListener('click', () => {
-    const expanded = menu?.classList.toggle('hidden');
-    btn.setAttribute('aria-expanded', String(!expanded));
+  // --- Scroll-shrink ---
+  const headerInner = document.getElementById('site-header');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion && headerInner) {
+    headerInner.style.transitionDuration = '0s';
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!headerInner) return;
+    const scrolled = window.scrollY > 50;
+    headerInner.classList.toggle('py-4', !scrolled);
+    headerInner.classList.toggle('py-2', scrolled);
+  }, { passive: true });
+
+  // --- Mobile menu ---
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerTop = document.getElementById('hamburger-top');
+  const hamburgerMid = document.getElementById('hamburger-mid');
+  const hamburgerBot = document.getElementById('hamburger-bot');
+
+  function toggleMobileMenu(open?: boolean) {
+    if (!mobileMenu || !menuBtn) return;
+    const isOpen = open ?? mobileMenu.classList.contains('grid-rows-[0fr]');
+    mobileMenu.classList.toggle('grid-rows-[0fr]', !isOpen);
+    mobileMenu.classList.toggle('grid-rows-[1fr]', isOpen);
+    mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menuBtn.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+
+    // Animer le hamburger en X
+    hamburgerTop?.classList.toggle('translate-y-[4px]', isOpen);
+    hamburgerTop?.classList.toggle('rotate-45', isOpen);
+    hamburgerMid?.classList.toggle('opacity-0', isOpen);
+    hamburgerBot?.classList.toggle('-translate-y-[4px]', isOpen);
+    hamburgerBot?.classList.toggle('-rotate-45', isOpen);
+  }
+
+  menuBtn?.addEventListener('click', () => toggleMobileMenu());
+
+  // --- Search overlay ---
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchBtns = [document.getElementById('search-btn'), document.getElementById('search-btn-mobile')];
+  const searchClose = document.getElementById('search-close');
+  let pagefindLoaded = false;
+
+  async function openSearch() {
+    if (!searchOverlay) return;
+    searchOverlay.classList.remove('hidden');
+    searchOverlay.setAttribute('aria-hidden', 'false');
+
+    // Fermer le menu mobile si ouvert
+    toggleMobileMenu(false);
+
+    if (!pagefindLoaded) {
+      pagefindLoaded = true;
+      try {
+        // Charger le CSS Pagefind
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/pagefind/pagefind-ui.css';
+        document.head.appendChild(link);
+
+        // Import dynamique — variable pour empecher Vite de resoudre statiquement
+        const pagefindPath = '/pagefind/pagefind-ui.js';
+        const { PagefindUI } = await import(/* @vite-ignore */ pagefindPath);
+        new PagefindUI({
+          element: '#pagefind-container',
+          showSubResults: true,
+          translations: {
+            placeholder: 'Rechercher un guide, un appareil...',
+            zero_results: 'Aucun résultat pour [SEARCH_TERM]',
+          },
+        });
+      } catch {
+        // Pagefind n'existe qu'après npm run build
+        document.getElementById('pagefind-fallback')?.classList.remove('hidden');
+      }
+    }
+
+    // Focus sur l'input de recherche
+    setTimeout(() => {
+      searchOverlay.querySelector('input')?.focus();
+    }, 100);
+  }
+
+  function closeSearch() {
+    if (!searchOverlay) return;
+    searchOverlay.classList.add('hidden');
+    searchOverlay.setAttribute('aria-hidden', 'true');
+  }
+
+  searchBtns.forEach((btn) => btn?.addEventListener('click', openSearch));
+  searchClose?.addEventListener('click', closeSearch);
+
+  // --- Escape key ---
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!searchOverlay?.classList.contains('hidden')) {
+      closeSearch();
+    } else if (mobileMenu?.classList.contains('grid-rows-[1fr]')) {
+      toggleMobileMenu(false);
+      menuBtn?.focus();
+    }
   });
 </script>
