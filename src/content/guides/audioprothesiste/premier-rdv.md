@@ -1,5 +1,6 @@
 ---
 title: "Premier rendez-vous chez l'audioprothésiste : à quoi vous attendre"
+metaTitle: "Premier RDV audioprothésiste : à quoi s'attendre"
 metaDescription: "Premier RDV chez l'audioprothésiste : déroulement, bilan, essai d'appareils. Guide terrain pour bien vous préparer."
 cluster: audioprothesiste
 isPillar: false

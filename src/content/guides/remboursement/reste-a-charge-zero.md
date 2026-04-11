@@ -1,5 +1,6 @@
 ---
 title: "Reste à charge zéro appareils auditifs : comment en bénéficier"
+metaTitle: "Reste à charge zéro auditif : comment en profiter"
 metaDescription: "Reste à charge zéro pour les appareils auditifs : conditions, démarches, appareils éligibles. Guide complet 2026 par un audioprothésiste DE."
 cluster: remboursement
 isPillar: false

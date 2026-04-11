@@ -1,5 +1,6 @@
 ---
 title: "Comprendre votre devis audioprothésiste : guide ligne par ligne"
+metaTitle: "Devis audioprothésiste : guide ligne par ligne"
 metaDescription: "Lire et comparer un devis audioprothesiste : lignes obligatoires, prix, prestations, pieges a eviter. Guide pratique."
 cluster: remboursement
 isPillar: false

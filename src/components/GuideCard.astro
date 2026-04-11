@@ -17,7 +17,7 @@ const { href, title, description, tag, image } = Astro.props;
     {image ? (
       <img
         src={image}
-        alt=""
+        alt={title}
         width="400"
         height="220"
         loading="lazy"

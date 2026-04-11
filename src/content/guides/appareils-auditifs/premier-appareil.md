@@ -1,5 +1,6 @@
 ---
 title: "Premier appareil auditif : ce qu'il faut savoir avant de vous lancer"
+metaTitle: "Premier appareil auditif : tout savoir avant achat"
 metaDescription: "Premier appareil auditif : erreurs frequentes, adaptation progressive, conseils terrain. Par un audioprothesiste DE."
 cluster: appareils-auditifs
 isPillar: false

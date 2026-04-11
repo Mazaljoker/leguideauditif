@@ -1,5 +1,6 @@
 ---
 title: "Appareil auditif et acouphènes : ce que 28 ans de terrain m'ont appris"
+metaTitle: "Appareil auditif et acouphènes : guide terrain"
 metaDescription: "Appareil auditif et acouphenes : efficacite reelle, erreurs courantes et protocole. Par un audioprothesiste DE, 3 000+ patients."
 cluster: acouphenes
 isPillar: false

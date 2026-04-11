@@ -1,5 +1,6 @@
 ---
 title: "Acouphènes et stress : le cercle vicieux décrypté par un audioprothésiste"
+metaTitle: "Acouphènes et stress : le cercle vicieux décrypté"
 metaDescription: "Acouphènes et stress : un audioprothésiste DE explique le cercle vicieux, les erreurs courantes et la méthode concrète pour reprendre le contrôle."
 cluster: acouphenes
 isPillar: false

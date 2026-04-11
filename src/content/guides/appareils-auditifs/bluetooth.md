@@ -1,5 +1,6 @@
 ---
 title: "Bluetooth et appareils auditifs : ce que 28 ans de terrain m'ont appris"
+metaTitle: "Bluetooth et appareils auditifs : guide terrain"
 metaDescription: "Appareil auditif Bluetooth : methode d'appariement, cas reels et limites. Par un audioprothesiste DE, 3 000+ patients."
 cluster: appareils-auditifs
 isPillar: false

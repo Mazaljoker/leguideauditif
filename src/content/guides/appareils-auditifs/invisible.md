@@ -1,5 +1,6 @@
 ---
 title: "Appareils auditifs invisibles : ce que 28 ans de terrain m'ont appris"
+metaTitle: "Appareils auditifs invisibles : guide terrain 2026"
 metaDescription: "Appareils auditifs invisibles CIC et IIC : limites, methode de selection et cas reel. Par un audioprothesiste DE."
 cluster: appareils-auditifs
 isPillar: false

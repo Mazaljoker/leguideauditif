@@ -6,9 +6,21 @@ interface BreadcrumbItem {
 
 interface Props {
   items: BreadcrumbItem[];
+  includeSchema?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, includeSchema = true } = Astro.props;
+
+const breadcrumbSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.label,
+    ...(item.href ? { item: `https://leguideauditif.fr${item.href}` } : {}),
+  })),
+});
 ---
 
 <nav class="font-sans text-sm text-gris-texte py-4" aria-label="Fil d'Ariane">
@@ -25,3 +37,4 @@ const { items } = Astro.props;
     ))}
   </ol>
 </nav>
+{includeSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}

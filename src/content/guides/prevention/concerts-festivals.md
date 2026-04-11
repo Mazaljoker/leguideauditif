@@ -1,5 +1,6 @@
 ---
 title: "Concerts et festivals : protéger vos oreilles sans gâcher le plaisir"
+metaTitle: "Concerts et festivals : protéger vos oreilles"
 metaDescription: "Protéger son audition en concert et festival : bouchons, distance, pauses. Conseils terrain d'un audioprothésiste DE, 28 ans."
 cluster: prevention
 isPillar: false

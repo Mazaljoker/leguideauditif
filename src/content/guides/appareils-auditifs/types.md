@@ -1,5 +1,6 @@
 ---
 title: "Contour, intra, RIC, invisible : quel type d'appareil auditif choisir ?"
+metaTitle: "Types d'appareils auditifs : contour, intra, RIC"
 metaDescription: "Les 4 types d'appareils auditifs expliqués par un audioprothésiste DE : contour BTE, RIC, intra, invisible. Méthode expert et erreurs à éviter."
 cluster: appareils-auditifs
 isPillar: false

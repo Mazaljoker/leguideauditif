@@ -1,5 +1,6 @@
 ---
 title: "Bouchons et protections auditives : guide expert pour bien choisir"
+metaTitle: "Protections auditives : guide expert pour choisir"
 metaDescription: "Protections auditives : bouchons moulés, filtres, casques anti-bruit. Guide terrain par un audioprothésiste DE, 28 ans d'expérience."
 cluster: prevention
 isPillar: false

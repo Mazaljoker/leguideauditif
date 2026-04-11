@@ -1,5 +1,6 @@
 ---
 title: "Période d'adaptation aux appareils auditifs : les 30 premiers jours"
+metaTitle: "Adaptation appareil auditif : les 30 premiers jours"
 metaDescription: "Les 30 premiers jours décident de tout. Méthode terrain d'un audioprothésiste DE, 28 ans d'expérience, pour réussir votre adaptation auditive."
 cluster: appareils-auditifs
 isPillar: false
