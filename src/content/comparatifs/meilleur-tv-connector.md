@@ -5,6 +5,8 @@ category: accessoires
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/meilleur-tv-connector/meilleur-tv-connector.webp
+ogImage: /images/blog/meilleur-tv-connector/meilleur-tv-connector-og.webp
 products:
   - brand: Phonak
     model: TV Connector

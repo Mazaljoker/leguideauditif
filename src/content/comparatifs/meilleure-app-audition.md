@@ -5,6 +5,8 @@ category: accessoires
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/meilleure-app-audition/meilleure-app-audition.webp
+ogImage: /images/blog/meilleure-app-audition/meilleure-app-audition-og.webp
 products:
   - brand: Phonak
     model: myPhonak

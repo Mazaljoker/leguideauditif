@@ -5,8 +5,8 @@ category: appareils-auditifs
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
-image: /images/blog/appareil-acouphenes-comp/appareil-acouphenes-comp.webp
-ogImage: /images/blog/appareil-acouphenes-comp/appareil-acouphenes-comp-og.webp
+image: /images/blog/meilleur-appareil-acouphenes/meilleur-appareil-acouphenes.webp
+ogImage: /images/blog/meilleur-appareil-acouphenes/meilleur-appareil-acouphenes-og.webp
 products:
   - brand: Widex
     model: SmartRIC Moment
@@ -98,7 +98,7 @@ La Notch Therapy de Signia fonctionne de maniere radicalement differente. Au lie
 
 ### Phonak Tinnitus Balance : la personnalisation sonore
 
-Phonak integre dans ses appareils Audeo Lumity un generateur de bruit largement personnalisable via l'application myPhonak. Vous pouvez ajuster le type de son (bruit blanc, rose, bruit de fond), le volume, la forme spectrale et la bande passante. Votre audioprothesiste peut egalement configurer un profil de masquage adapte a votre audiogramme et a la frequence de votre acouphene directement depuis le logiciel de reglage Phonak Target.
+Phonakintegre dans ses appareils Audeo Lumity un generateur de bruit largement personnalisable via l'application myPhonak. Vous pouvez ajuster le type de son (bruit blanc, rose, bruit de fond), le volume, la forme spectrale et la bande passante. Votre audioprothesiste peut egalement configurer un profil de masquage adapte a votre audiogramme et a la frequence de votre acouphene directement depuis le logiciel de reglage Phonak Target.
 
 ### ReSound Relief : l'application therapeutique
 
