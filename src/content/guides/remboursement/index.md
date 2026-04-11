@@ -107,13 +107,13 @@ La Sécurité sociale rembourse sur la base de la Liste des Produits et Prestati
 
 ### La base de remboursement
 
-**240 euros par oreille** pour les adultes (plus de 20 ans). Le taux de remboursement est de 60 %, soit **144 euros** pris en charge par l'Assurance maladie (source : Ameli.fr).
+La base de remboursement de la Sécurité sociale (BRSS) est fixée à **400 euros par oreille** pour les adultes (plus de 20 ans). Le taux de remboursement est de 60 %, soit **240 euros** pris en charge par l'Assurance maladie (source : Ameli.fr).
 
 Pour les moins de 20 ans, la base est de **1 400 euros par appareil** -- une différence considérable qui reflète la priorité donnée à l'appareillage pédiatrique.
 
 ### Appareillage binaural
 
-Perte auditive sur les deux oreilles ? La Sécurité sociale prend en charge deux appareils. Base de remboursement : **480 euros** pour l'équipement bilatéral.
+Perte auditive sur les deux oreilles ? La Sécurité sociale prend en charge deux appareils. Base de remboursement : **800 euros** au total (2 x 400 euros), soit **480 euros** remboursés par la Sécu (2 x 240 euros).
 
 Ce que je vois trop souvent : des patients qui renoncent à l'appareillage de la deuxième oreille "pour économiser". C'est une fausse économie. L'appareillage binaural améliore la localisation des sons et la compréhension dans le bruit de manière significative. En Classe 1, les deux oreilles sont à zéro euro. Il n'y a aucune raison valable de n'en appareiller qu'une.
 
@@ -134,7 +134,7 @@ En Classe 2 : c'est là que ça se complique. La prise en charge varie énormém
 
 ### Comment comparer les mutuelles sans se faire piéger
 
-La plupart des gens comparent les pourcentages. "Ma mutuelle rembourse 300 % de la base Sécu !" Ça sonne bien. Sauf que 300 % de 240 euros, ça fait 720 euros. Sur un appareil à 1 800 euros, il vous reste 1 080 euros à payer. Par oreille.
+La plupart des gens comparent les pourcentages. "Ma mutuelle rembourse 300 % de la base Sécu !" Ça sonne bien. Sauf que 300 % de 400 euros (la BRSS), ça fait 1 200 euros de prise en charge totale (Sécu + mutuelle). Sur un appareil à 1 800 euros, il vous reste 600 euros à payer. Par oreille. Et avec un contrat à 200 % de la BRSS, ça tombe à 800 euros de couverture totale -- reste à charge : 1 000 euros. Les pourcentages masquent la réalité.
 
 Ma méthode : demandez toujours le montant en euros, pas le pourcentage. Appelez votre mutuelle, donnez le code LPPR de l'appareil, et demandez : "Combien allez-vous me rembourser en euros ?" C'est la seule façon de savoir ce que vous allez réellement payer. Et faites-le avant l'essai, pas après.
 
@@ -177,8 +177,8 @@ Les lignes obligatoires du devis :
 1. Désignation de l'appareil (marque, modèle, classe, type)
 2. Prix de vente TTC (appareil + suivi)
 3. Détail des prestations incluses sur 4 ans
-4. Base de remboursement Sécu (240 euros/oreille pour les adultes)
-5. Montant remboursé par la Sécu (144 euros)
+4. Base de remboursement Sécu (400 euros/oreille pour les adultes)
+5. Montant remboursé par la Sécu (240 euros, soit 60 % de la BRSS)
 6. Estimation du remboursement mutuelle
 7. Reste à charge estimé
 
