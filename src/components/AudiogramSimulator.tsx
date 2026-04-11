@@ -1,10 +1,11 @@
 /**
- * AudiogramSimulator v3 — Audiogramme complet interactif
- * 7 points draggables (un par frequence), courbe, perte moyenne BIAP
+ * AudiogramSimulator v5 — 2 grilles cote a cote (OD + OG)
+ * Chaque oreille a sa propre grille, 7 points draggables, courbe, perte BIAP
  * PAS de diagnostic, PAS de recommandation produit
  */
 import { useState, useCallback, useMemo, useRef } from 'react';
 
+// ─── Constantes ─────────────────────────────────────────────
 const BIAP_LEVELS = [
   { min: 0, max: 20, label: 'Audition normale', color: '#16a34a', bg: '#dcfce7' },
   { min: 21, max: 40, label: 'Perte legere', color: '#ca8a04', bg: '#fef9c3' },
@@ -15,393 +16,360 @@ const BIAP_LEVELS = [
 
 const FREQUENCIES = [125, 250, 500, 1000, 2000, 4000, 8000] as const;
 const FREQ_LABELS = ['125', '250', '500', '1k', '2k', '4k', '8k'] as const;
-
-/** Frequences utilisees pour le calcul BIAP (500, 1000, 2000, 4000 Hz) */
 const BIAP_FREQ_INDICES = [2, 3, 4, 5] as const;
 
+type Ear = 'right' | 'left';
+const EAR_CFG = {
+  right: { label: 'Oreille droite', short: 'OD', color: '#dc2626', symbol: 'O' },
+  left: { label: 'Oreille gauche', short: 'OG', color: '#2563eb', symbol: 'X' },
+} as const;
+
 const PRESETS = [
-  {
-    label: 'Normal',
-    values: [5, 5, 10, 10, 10, 15, 15],
-    desc: 'Audition normale, tous seuils < 20 dB',
-  },
-  {
-    label: 'Presbyacousie',
-    values: [10, 10, 15, 25, 40, 55, 65],
-    desc: 'Perte typique liee a l\'age : chute sur les aigus',
-  },
-  {
-    label: 'Transmission',
-    values: [40, 40, 45, 45, 40, 40, 35],
-    desc: 'Perte plate ~40 dB, oreille interne intacte',
-  },
-  {
-    label: 'Severe',
-    values: [50, 55, 65, 75, 80, 85, 90],
-    desc: 'Perte severe a profonde, appareillage indispensable',
-  },
+  { label: 'Normal', right: [5, 5, 10, 10, 10, 15, 15], left: [5, 10, 10, 10, 15, 15, 20] },
+  { label: 'Presbyacousie', right: [10, 10, 15, 25, 40, 55, 65], left: [10, 15, 20, 30, 45, 60, 70] },
+  { label: 'Asymetrique', right: [10, 10, 15, 15, 20, 25, 30], left: [15, 20, 30, 45, 55, 65, 70] },
+  { label: 'Severe', right: [50, 55, 65, 75, 80, 85, 90], left: [55, 60, 70, 80, 85, 90, 95] },
 ] as const;
 
-// ─── Geometrie SVG ──────────────────────────────────────────
-const SVG_W = 600;
-const SVG_H = 420;
-const PAD = { top: 28, right: 16, bottom: 44, left: 48 };
+// ─── Geometrie SVG (par grille) ─────────────────────────────
+const SVG_W = 320;
+const SVG_H = 360;
+const PAD = { top: 24, right: 10, bottom: 40, left: 40 };
 const GRID_W = SVG_W - PAD.left - PAD.right;
 const GRID_H = SVG_H - PAD.top - PAD.bottom;
 
 function freqToX(idx: number): number {
   return PAD.left + (idx / (FREQUENCIES.length - 1)) * GRID_W;
 }
-
 function dbToY(db: number): number {
   return PAD.top + (db / 120) * GRID_H;
 }
-
 function yToDb(y: number): number {
-  const raw = ((y - PAD.top) / GRID_H) * 120;
-  return Math.round(Math.max(0, Math.min(120, raw)) / 5) * 5;
+  return Math.round(Math.max(0, Math.min(120, ((y - PAD.top) / GRID_H) * 120)) / 5) * 5;
 }
-
 function xToFreqIndex(x: number): number {
   const ratio = (x - PAD.left) / GRID_W;
   return Math.round(Math.max(0, Math.min(FREQUENCIES.length - 1, ratio * (FREQUENCIES.length - 1))));
 }
-
 function getBiapLevel(db: number): (typeof BIAP_LEVELS)[number] {
-  for (const level of BIAP_LEVELS) {
-    if (db <= level.max) return level;
-  }
+  for (const level of BIAP_LEVELS) { if (db <= level.max) return level; }
   return BIAP_LEVELS[BIAP_LEVELS.length - 1];
 }
+function calcBiapAvg(values: number[]): number {
+  return Math.round(BIAP_FREQ_INDICES.reduce((s, i) => s + values[i], 0) / BIAP_FREQ_INDICES.length);
+}
 
-// ─── Composant ──────────────────────────────────────────────
-export default function AudiogramSimulator() {
-  const [values, setValues] = useState<number[]>([10, 10, 15, 15, 15, 20, 20]);
-  const [selected, setSelected] = useState(3); // 1000 Hz par defaut
-  const [activePreset, setActivePreset] = useState<number | null>(null);
-  const [dragging, setDragging] = useState<number | null>(null);
+// ─── Sous-composant : une grille pour une oreille ───────────
+interface EarGridProps {
+  ear: Ear;
+  values: number[];
+  selected: number;
+  dragging: boolean;
+  onPointDown: (idx: number, e: React.MouseEvent | React.TouchEvent) => void;
+  onGridClick: (idx: number, db: number) => void;
+  onDragMove: (db: number) => void;
+  onDragEnd: () => void;
+  onSelect: (idx: number) => void;
+}
+
+function EarGrid({ ear, values, selected, dragging, onPointDown, onGridClick, onDragMove, onDragEnd, onSelect }: EarGridProps) {
   const svgRef = useRef<SVGSVGElement>(null);
+  const cfg = EAR_CFG[ear];
+  const avg = calcBiapAvg(values);
+  const avgLevel = getBiapLevel(avg);
 
-  // Perte moyenne BIAP (500, 1000, 2000, 4000 Hz)
-  const biapAverage = useMemo(() => {
-    const sum = BIAP_FREQ_INDICES.reduce((acc, idx) => acc + values[idx], 0);
-    return Math.round(sum / BIAP_FREQ_INDICES.length);
-  }, [values]);
-
-  const averageLevel = useMemo(() => getBiapLevel(biapAverage), [biapAverage]);
-  const selectedLevel = useMemo(() => getBiapLevel(values[selected]), [values, selected]);
-
-  const updatePoint = useCallback((idx: number, db: number) => {
-    setValues(prev => {
-      const next = [...prev];
-      next[idx] = db;
-      return next;
-    });
-    setActivePreset(null);
-  }, []);
-
-  const handlePreset = useCallback((idx: number) => {
-    setValues([...PRESETS[idx].values]);
-    setActivePreset(idx);
-  }, []);
-
-  const handleSliderChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    updatePoint(selected, Number(e.target.value));
-  }, [selected, updatePoint]);
-
-  // ─── SVG interaction (click + drag) ───────────────────────
   const getSvgCoords = useCallback((e: React.MouseEvent | React.TouchEvent): { x: number; y: number } | null => {
     const svg = svgRef.current;
     if (!svg) return null;
     const rect = svg.getBoundingClientRect();
-    let clientX: number, clientY: number;
+    let cx: number, cy: number;
     if ('touches' in e) {
       if (e.touches.length === 0) return null;
-      clientX = e.touches[0].clientX;
-      clientY = e.touches[0].clientY;
+      cx = e.touches[0].clientX; cy = e.touches[0].clientY;
     } else {
-      clientX = e.clientX;
-      clientY = e.clientY;
+      cx = e.clientX; cy = e.clientY;
     }
-    return {
-      x: (clientX - rect.left) * (SVG_W / rect.width),
-      y: (clientY - rect.top) * (SVG_H / rect.height),
-    };
+    return { x: (cx - rect.left) * (SVG_W / rect.width), y: (cy - rect.top) * (SVG_H / rect.height) };
   }, []);
 
-  const handleSvgClick = useCallback((e: React.MouseEvent<SVGSVGElement>) => {
-    if (dragging !== null) return; // click apres drag, ignorer
-    const coords = getSvgCoords(e);
-    if (!coords) return;
-    if (coords.x < PAD.left || coords.x > PAD.left + GRID_W) return;
-    if (coords.y < PAD.top || coords.y > PAD.top + GRID_H) return;
-    const idx = xToFreqIndex(coords.x);
-    const db = yToDb(coords.y);
-    setSelected(idx);
-    updatePoint(idx, db);
-  }, [dragging, getSvgCoords, updatePoint]);
+  const handleClick = useCallback((e: React.MouseEvent<SVGSVGElement>) => {
+    if (dragging) return;
+    const c = getSvgCoords(e);
+    if (!c || c.x < PAD.left || c.x > PAD.left + GRID_W || c.y < PAD.top || c.y > PAD.top + GRID_H) return;
+    onGridClick(xToFreqIndex(c.x), yToDb(c.y));
+  }, [dragging, getSvgCoords, onGridClick]);
 
-  const handlePointDown = useCallback((idx: number, e: React.MouseEvent | React.TouchEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    setDragging(idx);
-    setSelected(idx);
-  }, []);
+  const handleMove = useCallback((e: React.MouseEvent | React.TouchEvent) => {
+    if (!dragging) return;
+    const c = getSvgCoords(e);
+    if (c) onDragMove(yToDb(c.y));
+  }, [dragging, getSvgCoords, onDragMove]);
 
-  const handlePointerMove = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    if (dragging === null) return;
-    const coords = getSvgCoords(e);
-    if (!coords) return;
-    updatePoint(dragging, yToDb(coords.y));
-  }, [dragging, getSvgCoords, updatePoint]);
-
-  const handlePointerUp = useCallback(() => {
-    setDragging(null);
-  }, []);
-
-  // Courbe polyline
   const curvePath = values.map((db, i) => `${freqToX(i)},${dbToY(db)}`).join(' ');
 
-  // Zone de parole
-  const speechX1 = freqToX(2); // 500 Hz
-  const speechX2 = freqToX(5); // 4000 Hz
+  const renderSymbol = (cx: number, cy: number, isSelected: boolean) => {
+    const r = isSelected ? 10 : 7;
+    if (ear === 'right') {
+      return (
+        <>
+          <circle cx={cx} cy={cy} r={r} fill="#fff" stroke={cfg.color} strokeWidth={isSelected ? 2.5 : 2} />
+          <circle cx={cx} cy={cy} r={isSelected ? 3.5 : 2.5} fill={cfg.color} />
+        </>
+      );
+    }
+    const s = isSelected ? 5 : 3.5;
+    return (
+      <>
+        <circle cx={cx} cy={cy} r={r} fill="#fff" stroke={cfg.color} strokeWidth={isSelected ? 2.5 : 2} />
+        <line x1={cx - s} y1={cy - s} x2={cx + s} y2={cy + s} stroke={cfg.color} strokeWidth={isSelected ? 2.5 : 2} strokeLinecap="round" />
+        <line x1={cx + s} y1={cy - s} x2={cx - s} y2={cy + s} stroke={cfg.color} strokeWidth={isSelected ? 2.5 : 2} strokeLinecap="round" />
+      </>
+    );
+  };
+
+  return (
+    <div className="flex-1 min-w-0">
+      {/* Titre oreille */}
+      <div className="flex items-center gap-2 mb-2">
+        <span className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold"
+          style={{ backgroundColor: cfg.color }}>{cfg.symbol}</span>
+        <span className="font-sans text-sm font-bold" style={{ color: cfg.color }}>{cfg.label}</span>
+      </div>
+
+      <svg
+        ref={svgRef}
+        viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+        className="w-full select-none"
+        style={{ cursor: dragging ? 'grabbing' : 'crosshair', touchAction: 'none' }}
+        role="img"
+        aria-label={`${cfg.label} — ${avg} dB : ${avgLevel.label}`}
+        onClick={handleClick}
+        onMouseMove={handleMove}
+        onMouseUp={onDragEnd}
+        onMouseLeave={onDragEnd}
+        onTouchMove={handleMove}
+        onTouchEnd={onDragEnd}
+      >
+        {/* Bandes BIAP */}
+        {BIAP_LEVELS.map((band) => (
+          <rect key={band.label} x={PAD.left} y={dbToY(band.min)}
+            width={GRID_W} height={dbToY(Math.min(band.max, 120)) - dbToY(band.min)}
+            fill={band.color} opacity={0.07} />
+        ))}
+
+        {/* Grille */}
+        {[0, 20, 40, 60, 80, 100, 120].map((d) => (
+          <g key={`db-${d}`}>
+            <line x1={PAD.left} y1={dbToY(d)} x2={PAD.left + GRID_W} y2={dbToY(d)}
+              stroke="#CBD5E1" strokeWidth={d % 40 === 0 ? '0.7' : '0.35'} />
+            <text x={PAD.left - 5} y={dbToY(d)} textAnchor="end" fill="#64748B"
+              fontSize="9" fontFamily="Inter, sans-serif" dominantBaseline="central">{d}</text>
+          </g>
+        ))}
+        {FREQUENCIES.map((_, i) => (
+          <g key={`f-${i}`}>
+            <line x1={freqToX(i)} y1={PAD.top} x2={freqToX(i)} y2={PAD.top + GRID_H}
+              stroke="#CBD5E1" strokeWidth="0.35" />
+            <text x={freqToX(i)} y={PAD.top + GRID_H + 13} textAnchor="middle"
+              fill="#64748B" fontSize="9" fontFamily="Inter, sans-serif">{FREQ_LABELS[i]}</text>
+          </g>
+        ))}
+
+        {/* Label axe X */}
+        <text x={PAD.left + GRID_W / 2} y={SVG_H - 4} textAnchor="middle"
+          fill="#1B2E4A" fontSize="10" fontFamily="Inter, sans-serif" fontWeight="600">
+          Frequences (Hz)
+        </text>
+
+        {/* Bordure */}
+        <rect x={PAD.left} y={PAD.top} width={GRID_W} height={GRID_H}
+          fill="none" stroke="#94A3B8" strokeWidth="0.8" />
+
+        {/* Ligne moyenne BIAP */}
+        <line x1={PAD.left} y1={dbToY(avg)} x2={PAD.left + GRID_W} y2={dbToY(avg)}
+          stroke={avgLevel.color} strokeWidth="1.2" strokeDasharray="5 3" opacity={0.5} />
+
+        {/* Courbe */}
+        <polyline points={curvePath} fill="none" stroke={cfg.color}
+          strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" opacity={0.85} />
+
+        {/* Points */}
+        {values.map((db, i) => {
+          const x = freqToX(i);
+          const y = dbToY(db);
+          const isSel = i === selected;
+          return (
+            <g key={`p-${i}`}
+              onMouseDown={(e) => onPointDown(i, e)}
+              onTouchStart={(e) => onPointDown(i, e)}
+              onClick={(e) => { e.stopPropagation(); onSelect(i); }}
+              style={{ cursor: 'grab' }}>
+              {/* Zone touch */}
+              <circle cx={x} cy={y} r="20" fill="transparent" />
+              {/* Halo */}
+              {isSel && <circle cx={x} cy={y} r="16" fill={cfg.color} opacity={0.12} className="sim-halo" />}
+              {/* Symbole */}
+              {renderSymbol(x, y, isSel)}
+              {/* Label dB */}
+              {isSel && (
+                <>
+                  <rect x={x > PAD.left + GRID_W / 2 ? x - 58 : x + 14} y={y - 11}
+                    width="44" height="18" rx="4" fill={cfg.color} opacity={0.9} />
+                  <text x={x > PAD.left + GRID_W / 2 ? x - 36 : x + 36} y={y - 2}
+                    textAnchor="middle" fill="#fff" fontSize="10" fontFamily="Inter, sans-serif"
+                    fontWeight="700" dominantBaseline="central">{db} dB</text>
+                </>
+              )}
+            </g>
+          );
+        })}
+      </svg>
+
+      {/* Resultat sous la grille */}
+      <div className="mt-2 rounded-lg px-3 py-2 border-2 font-sans"
+        style={{ backgroundColor: avgLevel.bg, borderColor: avgLevel.color }}>
+        <p className="text-sm font-bold" style={{ color: avgLevel.color }}>
+          {avg} dB — {avgLevel.label}
+        </p>
+        <div className="flex flex-wrap gap-x-2 text-[10px] text-[#6B6560] mt-0.5">
+          {values.map((db, i) => (
+            <span key={i} style={{ fontWeight: i === selected ? 700 : 400,
+              color: i === selected ? cfg.color : undefined }}>
+              {FREQ_LABELS[i]}:{db}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Composant principal ────────────────────────────────────
+export default function AudiogramSimulator() {
+  const [right, setRight] = useState<number[]>([10, 10, 15, 15, 15, 20, 20]);
+  const [left, setLeft] = useState<number[]>([10, 15, 15, 15, 20, 25, 25]);
+  const [activeEar, setActiveEar] = useState<Ear>('right');
+  const [selectedR, setSelectedR] = useState(3);
+  const [selectedL, setSelectedL] = useState(3);
+  const [activePreset, setActivePreset] = useState<number | null>(null);
+  const [dragging, setDragging] = useState<{ ear: Ear; idx: number } | null>(null);
+
+  const selected = activeEar === 'right' ? selectedR : selectedL;
+  const values = activeEar === 'right' ? right : left;
+  const earCfg = EAR_CFG[activeEar];
+  const selectedLevel = getBiapLevel(values[selected]);
+
+  const avgR = useMemo(() => calcBiapAvg(right), [right]);
+  const avgL = useMemo(() => calcBiapAvg(left), [left]);
+  const asymmetry = Math.abs(avgR - avgL);
+
+  const updatePoint = useCallback((ear: Ear, idx: number, db: number) => {
+    (ear === 'right' ? setRight : setLeft)(prev => { const n = [...prev]; n[idx] = db; return n; });
+    setActivePreset(null);
+  }, []);
+
+  const handlePreset = useCallback((idx: number) => {
+    setRight([...PRESETS[idx].right]);
+    setLeft([...PRESETS[idx].left]);
+    setActivePreset(idx);
+  }, []);
+
+  const handleSliderChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    updatePoint(activeEar, selected, Number(e.target.value));
+  }, [activeEar, selected, updatePoint]);
+
+  // Handlers pour chaque grille
+  const makeHandlers = useCallback((ear: Ear) => ({
+    onPointDown: (idx: number, e: React.MouseEvent | React.TouchEvent) => {
+      e.stopPropagation(); e.preventDefault();
+      setDragging({ ear, idx });
+      setActiveEar(ear);
+      (ear === 'right' ? setSelectedR : setSelectedL)(idx);
+    },
+    onGridClick: (idx: number, db: number) => {
+      setActiveEar(ear);
+      (ear === 'right' ? setSelectedR : setSelectedL)(idx);
+      updatePoint(ear, idx, db);
+    },
+    onDragMove: (db: number) => {
+      if (dragging && dragging.ear === ear) updatePoint(ear, dragging.idx, db);
+    },
+    onDragEnd: () => setDragging(null),
+    onSelect: (idx: number) => {
+      setActiveEar(ear);
+      (ear === 'right' ? setSelectedR : setSelectedL)(idx);
+    },
+  }), [dragging, updatePoint]);
 
   return (
     <div className="bg-[#F8F5F0] border border-[#E8E4DF] rounded-2xl p-5 sm:p-7 my-8">
       {/* Header */}
       <h3 className="font-sans text-xl font-bold text-[#1B2E4A] mb-1">
-        Simulateur d'audiogramme
+        Simulateur d'audiogramme bilateral
       </h3>
       <p className="font-sans text-sm text-[#6B6560] mb-4">
-        Cliquez sur la grille pour placer les points, ou glissez-les pour dessiner votre audiogramme.
+        Cliquez sur chaque grille ou glissez les points pour dessiner l'audiogramme de chaque oreille.
       </p>
 
       {/* Presets */}
       <div className="flex flex-wrap gap-2 mb-4">
         {PRESETS.map((p, i) => (
-          <button
-            type="button"
-            key={p.label}
-            onClick={() => handlePreset(i)}
-            className="font-sans text-[13px] font-medium px-4 py-2 rounded-lg border transition-all"
+          <button type="button" key={p.label} onClick={() => handlePreset(i)}
+            className="font-sans text-[13px] font-medium px-3.5 py-2 rounded-lg border transition-all"
             style={{
               backgroundColor: activePreset === i ? '#1B2E4A' : '#fff',
               color: activePreset === i ? '#fff' : '#1B2E4A',
               borderColor: activePreset === i ? '#1B2E4A' : '#CBD5E1',
-            }}
-            aria-label={p.desc}
-          >
+            }}>
             {p.label}
           </button>
         ))}
       </div>
 
-      {/* Curseur pour le point selectionne */}
+      {/* Curseur point selectionne */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-5 bg-white rounded-xl px-4 py-3 border border-[#E2E8F0]">
-        <label htmlFor="sim-db" className="font-sans text-sm font-semibold text-[#1B2E4A] shrink-0">
-          {FREQ_LABELS[selected]} Hz :{' '}
-          <span style={{ color: selectedLevel.color }}>{values[selected]} dB</span>
+        <label htmlFor="sim-db" className="font-sans text-sm font-semibold shrink-0"
+          style={{ color: earCfg.color }}>
+          {earCfg.symbol} {FREQ_LABELS[selected]} Hz : {values[selected]} dB
         </label>
-        <input
-          id="sim-db"
-          type="range"
-          min={0}
-          max={120}
-          step={5}
-          value={values[selected]}
-          onChange={handleSliderChange}
-          aria-label={`Intensite a ${FREQUENCIES[selected]} Hz : ${values[selected]} decibels`}
-          aria-valuemin={0}
-          aria-valuemax={120}
-          aria-valuenow={values[selected]}
+        <input id="sim-db" type="range" min={0} max={120} step={5}
+          value={values[selected]} onChange={handleSliderChange}
+          aria-label={`${earCfg.label}, ${FREQUENCIES[selected]} Hz : ${values[selected]} decibels`}
           className="sim-slider flex-1"
-          style={{ '--slider-color': selectedLevel.color } as React.CSSProperties}
-        />
-        <span className="font-sans text-xs text-[#94A3B8] shrink-0">{values[selected]} dB</span>
+          style={{ '--slider-color': earCfg.color } as React.CSSProperties} />
+        <span className="font-sans text-xs shrink-0" style={{ color: selectedLevel.color }}>
+          {values[selected]} dB — {selectedLevel.label}
+        </span>
       </div>
 
-      {/* Grille SVG */}
-      <div className="overflow-hidden -mx-2 px-2">
-        <svg
-          ref={svgRef}
-          viewBox={`0 0 ${SVG_W} ${SVG_H}`}
-          className="w-full mx-auto select-none"
-          style={{ maxWidth: 600, cursor: dragging !== null ? 'grabbing' : 'crosshair', touchAction: 'none' }}
-          role="img"
-          aria-label={`Audiogramme complet — perte moyenne ${biapAverage} dB : ${averageLevel.label}`}
-          onClick={handleSvgClick}
-          onMouseMove={handlePointerMove}
-          onMouseUp={handlePointerUp}
-          onMouseLeave={handlePointerUp}
-          onTouchMove={handlePointerMove}
-          onTouchEnd={handlePointerUp}
-        >
-          {/* Bandes BIAP */}
-          {BIAP_LEVELS.map((band) => {
-            const y1 = dbToY(band.min);
-            const y2 = dbToY(Math.min(band.max, 120));
-            return (
-              <rect key={band.label} x={PAD.left} y={y1} width={GRID_W} height={y2 - y1}
-                fill={band.color} opacity={0.08} />
-            );
-          })}
-
-          {/* Zone de parole */}
-          <rect x={speechX1} y={dbToY(15)} width={speechX2 - speechX1}
-            height={dbToY(65) - dbToY(15)} fill="#1B2E4A" opacity={0.04} rx="4" />
-          <text x={(speechX1 + speechX2) / 2} y={dbToY(18)} textAnchor="middle"
-            fill="#1B2E4A" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="500"
-            opacity={0.3} dominantBaseline="central">
-            Zone de la parole
-          </text>
-
-          {/* Lignes horizontales dB */}
-          {[0, 20, 40, 60, 80, 100, 120].map((d) => {
-            const y = dbToY(d);
-            return (
-              <g key={`db-${d}`}>
-                <line x1={PAD.left} y1={y} x2={PAD.left + GRID_W} y2={y}
-                  stroke="#CBD5E1" strokeWidth={d % 40 === 0 ? '0.8' : '0.4'} />
-                <text x={PAD.left - 6} y={y} textAnchor="end" fill="#64748B"
-                  fontSize="10" fontFamily="Inter, sans-serif" dominantBaseline="central">
-                  {d}
-                </text>
-              </g>
-            );
-          })}
-
-          {/* Lignes verticales frequences */}
-          {FREQUENCIES.map((_, i) => {
-            const x = freqToX(i);
-            return (
-              <g key={`freq-${i}`}>
-                <line x1={x} y1={PAD.top} x2={x} y2={PAD.top + GRID_H}
-                  stroke="#CBD5E1" strokeWidth="0.4" />
-                <text x={x} y={PAD.top + GRID_H + 14} textAnchor="middle"
-                  fill="#64748B" fontSize="10" fontFamily="Inter, sans-serif">
-                  {FREQ_LABELS[i]}
-                </text>
-              </g>
-            );
-          })}
-
-          {/* Labels axes */}
-          <text x={PAD.left + GRID_W / 2} y={SVG_H - 4} textAnchor="middle"
-            fill="#1B2E4A" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="600">
-            Frequences (Hz)
-          </text>
-          <text x={12} y={PAD.top + GRID_H / 2} textAnchor="middle"
-            fill="#1B2E4A" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="600"
-            transform={`rotate(-90, 12, ${PAD.top + GRID_H / 2})`}>
-            Intensite (dB HL)
-          </text>
-
-          {/* Bordure */}
-          <rect x={PAD.left} y={PAD.top} width={GRID_W} height={GRID_H}
-            fill="none" stroke="#94A3B8" strokeWidth="1" />
-
-          {/* Ligne moyenne BIAP (pointillee) */}
-          <line x1={PAD.left} y1={dbToY(biapAverage)} x2={PAD.left + GRID_W} y2={dbToY(biapAverage)}
-            stroke={averageLevel.color} strokeWidth="1.5" strokeDasharray="6 4" opacity={0.5} />
-          <text x={PAD.left + GRID_W + 2} y={dbToY(biapAverage)} fill={averageLevel.color}
-            fontSize="9" fontFamily="Inter, sans-serif" fontWeight="600" dominantBaseline="central">
-            Moy.
-          </text>
-
-          {/* Courbe audiogramme */}
-          <polyline
-            points={curvePath}
-            fill="none"
-            stroke="#dc2626"
-            strokeWidth="2.5"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            opacity={0.8}
-          />
-
-          {/* Points interactifs */}
-          {values.map((db, i) => {
-            const x = freqToX(i);
-            const y = dbToY(db);
-            const isSelected = i === selected;
-            const ptLevel = getBiapLevel(db);
-            return (
-              <g key={`pt-${i}`}
-                onMouseDown={(e) => handlePointDown(i, e)}
-                onTouchStart={(e) => handlePointDown(i, e)}
-                style={{ cursor: 'grab' }}
-              >
-                {/* Zone de touch elargie (44px) */}
-                <circle cx={x} cy={y} r="22" fill="transparent" />
-
-                {/* Halo selection */}
-                {isSelected && (
-                  <circle cx={x} cy={y} r="18" fill={ptLevel.color} opacity={0.12}
-                    className="sim-halo" />
-                )}
-
-                {/* Cercle principal — O rouge (convention oreille droite) */}
-                <circle cx={x} cy={y}
-                  r={isSelected ? 11 : 8}
-                  fill={isSelected ? ptLevel.color : '#dc2626'}
-                  stroke="#fff" strokeWidth={isSelected ? 3 : 2.5}
-                  className="drop-shadow-md"
-                />
-
-                {/* Label dB sur le point selectionne */}
-                {isSelected && (
-                  <>
-                    <rect x={x + 15} y={y - 12} width="48" height="20" rx="4"
-                      fill={ptLevel.color} opacity={0.92} />
-                    <text x={x + 39} y={y - 2} textAnchor="middle" fill="#fff"
-                      fontSize="10" fontFamily="Inter, sans-serif" fontWeight="700"
-                      dominantBaseline="central">
-                      {db} dB
-                    </text>
-                  </>
-                )}
-              </g>
-            );
-          })}
-        </svg>
+      {/* ─── 2 grilles cote a cote ───────────────────────── */}
+      <div className="flex flex-col sm:flex-row gap-4">
+        <EarGrid ear="right" values={right} selected={selectedR}
+          dragging={dragging?.ear === 'right'} {...makeHandlers('right')} />
+        <EarGrid ear="left" values={left} selected={selectedL}
+          dragging={dragging?.ear === 'left'} {...makeHandlers('left')} />
       </div>
 
-      {/* Resultat global */}
-      <div className="mt-5 rounded-xl px-5 py-4 font-sans border-2"
-        style={{ backgroundColor: averageLevel.bg, borderColor: averageLevel.color }}>
-        <div className="flex items-start gap-3">
-          <span className="shrink-0 w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-lg"
-            style={{ backgroundColor: averageLevel.color }} aria-hidden="true">
-            {biapAverage <= 20 ? '\u2713' : biapAverage <= 70 ? '!' : '\u26A0'}
-          </span>
-          <div className="flex-1">
-            <p className="text-base font-bold text-[#1B2E4A] mb-1">
-              Perte moyenne : <span style={{ color: averageLevel.color }}>{biapAverage} dB — {averageLevel.label}</span>
-            </p>
-            <p className="text-sm text-[#1B2E4A] opacity-75 mb-2">
-              Moyenne calculee sur 500, 1 000, 2 000 et 4 000 Hz (classification BIAP).
-            </p>
-            {/* Detail par frequence */}
-            <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-[#6B6560]">
-              {values.map((db, i) => (
-                <span key={i} className="inline-flex items-center gap-1"
-                  style={{ fontWeight: i === selected ? 700 : 400,
-                    color: i === selected ? getBiapLevel(db).color : undefined }}>
-                  {FREQ_LABELS[i]}: {db} dB
-                </span>
-              ))}
-            </div>
-          </div>
+      {/* Alerte asymetrie */}
+      {asymmetry >= 15 && (
+        <div className="mt-4 rounded-xl px-4 py-3 bg-[#fef2f2] border-2 border-[#dc2626] font-sans">
+          <p className="text-sm font-bold text-[#dc2626] mb-0.5">
+            Asymetrie : {asymmetry} dB entre les deux oreilles
+          </p>
+          <p className="text-xs text-[#991b1b]">
+            Une difference superieure a 15 dB justifie une consultation ORL pour ecarter une cause
+            retrocochelaire (tumeur du nerf auditif). Cet outil est educatif — consultez un professionnel.
+          </p>
         </div>
-      </div>
+      )}
 
       {/* Legende BIAP */}
       <div className="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-2">
         {BIAP_LEVELS.map((band) => {
-          const isActive = biapAverage >= band.min && biapAverage <= band.max;
+          const worst = Math.max(avgR, avgL);
+          const isActive = worst >= band.min && worst <= band.max;
           return (
-            <div key={band.label}
-              className="flex items-center gap-2 rounded-lg px-3 py-2 font-sans text-xs"
+            <div key={band.label} className="flex items-center gap-2 rounded-lg px-3 py-2 font-sans text-xs"
               style={{
                 backgroundColor: isActive ? band.bg : '#fff',
                 border: isActive ? `2px solid ${band.color}` : '1px solid #E2E8F0',
@@ -467,8 +435,8 @@ export default function AudiogramSimulator() {
           outline-offset: 2px;
         }
         @keyframes sim-pulse {
-          0%, 100% { r: 18; opacity: 0.12; }
-          50% { r: 24; opacity: 0.06; }
+          0%, 100% { r: 16; opacity: 0.12; }
+          50% { r: 22; opacity: 0.06; }
         }
         .sim-halo { animation: sim-pulse 2s ease-in-out infinite; }
         @media (prefers-reduced-motion: reduce) {
