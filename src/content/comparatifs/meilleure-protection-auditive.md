@@ -1,22 +1,15 @@
 ---
 title: "Meilleure protection auditive 2026 : casques, bouchons, anti-bruit"
 metaDescription: "Comparatif protection auditive : casques anti-bruit, bouchons mousse, protections sur mesure. Niveaux d'attenuation, confort, prix. Guide expert 2026."
-cluster: protection
-isPillar: true
+category: protections-auditives
 publishDate: 2026-02-15
 author: Franck-Olivier
-author_title: "Audioprothesiste DE"
-readingTime: 9
+authorTitle: "Audioprothesiste DE"
 image: /images/blog/meilleure-protection-auditive/meilleure-protection-auditive.webp
 ogImage: /images/blog/meilleure-protection-auditive/meilleure-protection-auditive-og.webp
 relatedGuides:
   - prevention/bruit-travail
   - prevention/bruit-loisir
-sources:
-  - name: "INRS - Protection auditive au travail"
-    url: "https://www.inrs.fr/"
-  - name: "OSHA - Hearing Protection Standards"
-    url: "https://www.osha.gov/"
 faq:
   - question: "Quel est l'indice de reduction du bruit (SNR) minimum recommande ?"
     answer: "L'indice SNR depend du niveau de bruit ambiant. Pour un bruit a 85 dB(A), une attenuation de 20-25 dB est suffisante. Pour 100 dB(A), il faut 30-35 dB. L'INRS recommande de verifier la conformite CE/EN 352."
