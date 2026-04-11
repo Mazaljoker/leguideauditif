@@ -16,11 +16,7 @@ export default function DownloadLeadMagnet() {
 
     try {
       // Store lead in Supabase
-      const { createClient } = await import('@supabase/supabase-js');
-      const supabase = createClient(
-        (import.meta as Record<string, Record<string, string>>).env.PUBLIC_SUPABASE_URL,
-        (import.meta as Record<string, Record<string, string>>).env.PUBLIC_SUPABASE_ANON_KEY
-      );
+      const { supabase } = await import('../../lib/supabase');
 
       await supabase.from('leads').insert({
         first_name: email.split('@')[0],
