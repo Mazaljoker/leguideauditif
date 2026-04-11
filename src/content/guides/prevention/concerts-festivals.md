@@ -6,6 +6,8 @@ isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/concerts-festivals/concerts-festivals.webp
+ogImage: /images/blog/concerts-festivals/concerts-festivals-og.webp
 readingTime: 5
 relatedGuides:
   - prevention/index

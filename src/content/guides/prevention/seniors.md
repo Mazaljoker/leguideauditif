@@ -6,6 +6,8 @@ isPillar: false
 publishDate: 2026-04-07
 author: Franck-Olivier
 authorTitle: "Audioprothesiste DE"
+image: /images/blog/seniors/seniors.webp
+ogImage: /images/blog/seniors/seniors-og.webp
 readingTime: 6
 relatedGuides:
   - prevention/index
