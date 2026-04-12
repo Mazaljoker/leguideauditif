@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /auth/
+Disallow: /annonces/mes-annonces/
+Disallow: /annonces/alertes/
+Disallow: /revendiquer/confirmation/
+Disallow: /revendiquer-gratuit/confirmation/
 
 Sitemap: https://leguideauditif.fr/sitemap-index.xml
