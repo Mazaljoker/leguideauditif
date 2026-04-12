@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
+import LeadForm from '../../components/LeadForm.tsx';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Devis gratuit' },
+];
+
+const appareil = Astro.url.searchParams.get('appareil');
+const appareilLabel = appareil
+  ? appareil.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())
+  : null;
+
+const pageTitle = appareilLabel
+  ? `Devis ${appareilLabel} — LeGuideAuditif`
+  : 'Devis appareil auditif gratuit — LeGuideAuditif';
+
+const pageDescription = appareilLabel
+  ? `Recevez un devis gratuit et personnalisé pour le ${appareilLabel}. Un audioprothésiste diplômé d'État près de chez vous vous rappelle sous 48h.`
+  : "Recevez un devis gratuit pour vos appareils auditifs. Un audioprothésiste diplômé d'État près de chez vous vous rappelle sous 48h.";
+
+const faqItems = [
+  {
+    question: 'Le devis est-il vraiment gratuit ?',
+    answer: "Oui, le devis et le bilan auditif préalable sont entièrement gratuits. C'est une obligation légale : l'audioprothésiste ne peut pas facturer la consultation d'appareillage. Vous n'avez aucun engagement d'achat.",
+  },
+  {
+    question: 'Combien coûte un appareil auditif en 2026 ?',
+    answer: "Les appareils de classe 1 (100% Santé) sont intégralement remboursés — reste à charge zéro. Les appareils de classe 2 vont de 800 à 2 000 EUR par oreille avant remboursement. Le devis détaille précisément votre reste à charge après Sécurité sociale et mutuelle. <a href='/guides/remboursement/100-sante-audition/' class='text-orange hover:underline'>En savoir plus sur le 100% Santé</a>.",
+  },
+  {
+    question: "Combien de temps dure l'essai d'un appareil auditif ?",
+    answer: "La loi impose un essai de 30 jours minimum avant tout achat. En pratique, la plupart des audioprothésistes proposent 45 à 60 jours. Si l'appareil ne vous convient pas, vous le rendez sans frais.",
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: pageTitle,
+    url: 'https://leguideauditif.fr/devis/',
+    description: pageDescription,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  schema={schema}
+>
+  <div class="bg-creme">
+    <div class="max-w-[780px] mx-auto px-5">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+
+  <main class="max-w-[780px] mx-auto px-5 py-8" id="main-content">
+    <h1 class="font-serif text-3xl font-bold text-marine mb-4">
+      {appareilLabel
+        ? `Devis gratuit : ${appareilLabel}`
+        : 'Demandez votre devis appareil auditif gratuit'}
+    </h1>
+
+    <p class="text-gris text-lg leading-relaxed mb-2">
+      {appareilLabel
+        ? `Vous souhaitez en savoir plus sur le ${appareilLabel} ? Remplissez le formulaire ci-dessous.`
+        : "Comparez les prix et trouvez l'appareil auditif adapté à votre perte auditive."}
+    </p>
+
+    <p class="text-gris leading-relaxed mb-6">
+      En 28 ans de pratique, j'ai accompagné plus de 3 000 patients dans le choix de leur appareil. Le premier réflexe que je recommande toujours : demander un devis détaillé, avec le reste à charge réel après <a href="/guides/remboursement/100-sante-audition/" class="text-orange hover:underline">100% Santé</a> et mutuelle. Trop de patients attendent des années parce qu'ils imaginent un coût insurmontable — alors qu'un appareil de classe 1 est remboursé intégralement depuis 2021.
+    </p>
+
+    <LeadForm client:load />
+
+    <section class="mt-12 space-y-6">
+      <h2 class="font-serif text-2xl font-bold text-marine">Concrètement, comment ça se passe ?</h2>
+
+      <ol class="space-y-4 text-gris">
+        <li class="flex gap-4">
+          <span class="shrink-0 w-8 h-8 rounded-full bg-orange text-blanc flex items-center justify-center font-bold text-sm">1</span>
+          <div>
+            <p class="font-semibold text-marine">Vous remplissez le formulaire (1 minute)</p>
+            <p>Code postal et type de perte suffisent. On ne vous demandera jamais de numéro de carte bancaire — le bilan auditif est gratuit, c'est la loi.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="shrink-0 w-8 h-8 rounded-full bg-orange text-blanc flex items-center justify-center font-bold text-sm">2</span>
+          <div>
+            <p class="font-semibold text-marine">Un audioprothésiste DE vous rappelle sous 48h</p>
+            <p>Il propose un rendez-vous pour un bilan auditif complet — test tonal, vocal, mesure dans le bruit. Comptez 30 minutes environ. C'est ce bilan qui détermine quel type d'appareil vous conviendrait.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="shrink-0 w-8 h-8 rounded-full bg-orange text-blanc flex items-center justify-center font-bold text-sm">3</span>
+          <div>
+            <p class="font-semibold text-marine">Vous recevez un devis normalisé</p>
+            <p>Le devis suit le modèle imposé par l'arrêté du 14 novembre 2018. Il détaille le prix de l'appareil, les séances de réglage incluses (minimum 1 an), et surtout votre reste à charge précis après remboursement Sécurité sociale et complémentaire.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="text-gris text-sm italic mt-4">
+        Rappel : vous disposez d'un délai de réflexion de 30 jours après réception du devis. Aucun acompte ne peut être exigé avant la fin de la période d'essai.
+      </p>
+    </section>
+
+    <section class="mt-12 space-y-6">
+      <h2 class="font-serif text-2xl font-bold text-marine">Questions fréquentes</h2>
+      {faqItems.map((faq) => (
+        <details class="border border-creme-dark rounded-lg">
+          <summary class="cursor-pointer px-5 py-4 font-semibold text-marine hover:bg-creme transition-colors">
+            {faq.question}
+          </summary>
+          <div class="px-5 pb-4 text-gris leading-relaxed" set:html={faq.answer} />
+        </details>
+      ))}
+
+      <p class="text-gris text-sm">
+        D'autres questions ? Consultez notre <a href="/guides/remboursement/prix-appareil-auditif/" class="text-orange hover:underline">guide complet sur les prix des appareils auditifs</a> ou parcourez le <a href="/catalogue/" class="text-orange hover:underline">catalogue d'appareils</a> pour comparer les modèles.
+      </p>
+    </section>
+
+    <div class="mt-12">
+      <AuthorBox />
+    </div>
+
+    <div class="mt-8">
+      <HealthDisclaimer />
+    </div>
+  </main>
+</BaseLayout>

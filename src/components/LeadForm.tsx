@@ -31,7 +31,7 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
 
     setLoading(false);
     if (dbError) {
-      setError('Une erreur est survenue. Veuillez reessayer.');
+      setError('Une erreur est survenue. Veuillez réessayer.');
     } else {
       setSubmitted(true);
     }
@@ -44,12 +44,12 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
           <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M20 6 9 17l-5-5" />
           </svg>
-          Votre demande a bien ete envoyee
+          Votre demande a bien été envoyée
         </p>
         <p className="mt-2 text-[var(--color-gris)]">
           {centreName
             ? `${centreName} vous contactera sous 48h.`
-            : 'Un audioprothesiste de votre secteur vous contactera sous 48h.'}
+            : 'Un audioprothésiste de votre secteur vous contactera sous 48h.'}
         </p>
       </div>
     );
@@ -66,7 +66,7 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
     ? `${centreName} vous rappelle sous 48h pour un bilan auditif gratuit.`
     : variant === 'claimed' && centreName
       ? `${centreName} vous rappelle sous 48h.`
-      : 'Un audioprothesiste proche de chez vous vous rappelle sous 48h.';
+      : 'Un audioprothésiste proche de chez vous vous rappelle sous 48h.';
 
   // Style du conteneur selon variant
   const containerClass = variant === 'premium'
@@ -74,7 +74,7 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
     : 'my-8 rounded-lg border-2 border-[var(--color-orange)] bg-[var(--color-blanc)] p-8';
 
   const buttonLabel = variant === 'premium'
-    ? 'Etre rappele gratuitement'
+    ? 'Être rappelé gratuitement'
     : 'Demander un devis gratuit';
 
   return (
@@ -88,7 +88,7 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
             <path d="M12 17h.01" />
           </svg>
           <p className="text-[11px] font-medium text-[#A32D2D]">
-            Attention : ce centre n'a pas revendique sa fiche. Votre demande sera orientee vers un centre verifie a proximite.
+            Attention : ce centre n'a pas revendiqué sa fiche. Votre demande sera orientée vers un centre vérifié à proximité.
           </p>
         </div>
       )}
@@ -115,7 +115,7 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
       <form onSubmit={handleSubmit} className="grid gap-4 md:grid-cols-2">
         <div>
           <label htmlFor="lead-prenom" className="block text-sm font-medium text-[var(--color-marine)] mb-1">
-            Prenom
+            Prénom
           </label>
           <input
             id="lead-prenom"
@@ -128,7 +128,7 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
 
         <div>
           <label htmlFor="lead-tel" className="block text-sm font-medium text-[var(--color-marine)] mb-1">
-            Telephone
+            Téléphone
           </label>
           <input
             id="lead-tel"
@@ -166,10 +166,10 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
             required
             className="w-full rounded-[var(--radius-md)] border border-[var(--color-creme-dark)] px-4 py-3 text-base focus:border-[var(--color-orange)] focus:outline-none focus:ring-2 focus:ring-[var(--color-orange)]/20"
           >
-            <option value="">Selectionnez</option>
-            <option value="legere">Legere</option>
+            <option value="">Sélectionnez</option>
+            <option value="legere">Légère</option>
             <option value="moyenne">Moyenne</option>
-            <option value="severe">Severe</option>
+            <option value="severe">Sévère</option>
             <option value="profonde">Profonde</option>
             <option value="ne-sais-pas">Je ne sais pas</option>
           </select>
@@ -179,9 +179,9 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
           <label className="flex items-start gap-2 text-sm text-[var(--color-gris)]">
             <input type="checkbox" required className="mt-1" />
             <span>
-              J'accepte que mes donnees soient traitees pour etre mis en relation avec un audioprothesiste.{' '}
+              J'accepte que mes données soient traitées pour être mis en relation avec un audioprothésiste.{' '}
               <a href="/politique-confidentialite/" className="text-[var(--color-orange)] underline">
-                Politique de confidentialite
+                Politique de confidentialité
               </a>
             </span>
           </label>
@@ -207,12 +207,12 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
       {/* Message sous le formulaire selon variant */}
       {variant === 'rpps' && (
         <p className="text-[11px] font-medium text-[#A32D2D] mt-4 text-center">
-          Attention : ce centre n'a pas revendique sa fiche. Votre demande sera orientee vers un centre verifie a proximite.
+          Attention : ce centre n'a pas revendiqué sa fiche. Votre demande sera orientée vers un centre vérifié à proximité.
         </p>
       )}
       {variant === 'claimed' && (
         <p className="text-[11px] text-[var(--color-gris)] mt-4 text-center italic">
-          Les fiches premium recoivent les demandes en priorite.
+          Les fiches premium reçoivent les demandes en priorité.
         </p>
       )}
       {variant === 'premium' && (

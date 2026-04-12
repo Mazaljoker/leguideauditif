@@ -39,7 +39,10 @@ const similar = allData
 
 const classe1 = isClasse1(product);
 const fullName = `${product.marqueLabel} ${product.modele}${product.niveau ? ' ' + product.niveau : ''}`;
-const title = `${fullName} — Prix, avis et caractéristiques`;
+const titleSuffix = ' — Prix, avis et fiche complète';
+const title = (fullName + titleSuffix).length > 60
+  ? `${fullName} — Prix et avis`
+  : `${fullName}${titleSuffix}`;
 const description = `${fullName} : ${FORME_TYPE_LABELS[product.formeType] || product.formeType}, ${product.puce || ''}. ${price ? formatPrice(price) + ' par appareil.' : ''} Fiche complète par un audioprothésiste DE.`;
 const schema = productJsonLd(product);
 ---

@@ -14,7 +14,7 @@ const categories = [
   { key: 'cession', label: 'Cession & Installation', desc: 'Vendre ou reprendre un centre', icon: 'lucide:building-2', color: 'bg-blue-50 border-blue-200 hover:border-blue-400' },
   { key: 'emploi', label: 'Emploi & Recrutement', desc: 'Recruter ou trouver un poste', icon: 'lucide:briefcase', color: 'bg-emerald-50 border-emerald-200 hover:border-emerald-400' },
   { key: 'remplacement', label: 'Remplacement', desc: 'Trouver ou proposer un remplacement', icon: 'lucide:calendar-clock', color: 'bg-purple-50 border-purple-200 hover:border-purple-400' },
-  { key: 'materiel', label: 'Materiel professionnel', desc: 'Acheter ou vendre du materiel', icon: 'lucide:wrench', color: 'bg-amber-50 border-amber-200 hover:border-amber-400' },
+  { key: 'materiel', label: 'Matériel professionnel', desc: 'Acheter ou vendre du matériel', icon: 'lucide:wrench', color: 'bg-amber-50 border-amber-200 hover:border-amber-400' },
 ];
 
 const counts: Record<string, number> = {};
@@ -43,14 +43,14 @@ const breadcrumbs = [
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Petites annonces audioprothesistes',
+  name: 'Petites annonces audioprothésistes',
   numberOfItems: Object.values(counts).reduce((a, b) => a + b, 0),
 };
 ---
 
 <BaseLayout
-  title="Petites annonces audioprothesistes — Cession, emploi, remplacement, materiel | LeGuideAuditif"
-  description="Annonces cession de centres, offres d'emploi, remplacements et materiel d'occasion pour audioprothesistes. Publiez gratuitement."
+  title="Annonces audioprothésistes — LeGuideAuditif"
+  description="Annonces cession de centres, offres d'emploi, remplacements et matériel d'occasion pour audioprothésistes. Publiez gratuitement."
   schema={schema}
 >
   <div class="max-w-[1140px] mx-auto px-5 py-8">
@@ -87,7 +87,7 @@ const schema = {
         class="inline-flex items-center gap-2 px-8 py-3.5 bg-orange text-white font-sans text-lg font-bold rounded-xl no-underline hover:bg-orange-hover transition-colors hover:no-underline"
       >
         <Icon name="lucide:plus-circle" class="w-5 h-5" />
-        Deposer une annonce gratuitement
+        Déposer une annonce gratuitement
       </a>
     </div>
 
