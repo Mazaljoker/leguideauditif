@@ -4,7 +4,7 @@ metaDescription: "ORL, audioprothésiste, orthophoniste : rôles, compétences, 
 cluster: audioprothesiste
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
@@ -52,7 +52,7 @@ L'orthophoniste est le grand oublié du parcours auditif. Beaucoup de patients p
 
 C'est là que l'orthophoniste intervient. La rééducation auditive aide le cerveau à réapprendre à discriminer les phonèmes, à filtrer le bruit, à reconstruire la compréhension. J'oriente environ 5 % de mes patients vers l'orthophonie après l'appareillage. Ce sont systématiquement des personnes qui ont attendu trop longtemps. Si j'avais pu les appareiller plus tôt, la rééducation n'aurait pas été nécessaire.
 
-## Le parcours de soins tel que je le pratique depuis 28 ans
+## Le parcours de soins tel que je le pratique au quotidien
 
 ### Étape 1 -- Le médecin traitant : le dépistage
 
@@ -115,6 +115,10 @@ Si M. Lefèvre avait commencé par son médecin traitant, celui-ci aurait pu l'o
 
 Le bon parcours fait gagner du temps. Le mauvais en fait perdre.
 
+---
+
+Suzanne, 67 ans, ancienne professeure de français, m'a consulté en 2025 avec une situation que je rencontre plus souvent qu'on ne le croit. Elle avait fait les choses dans l'ordre : médecin traitant, ordonnance ORL, bilan audioprothésiste. Mais son ORL n'avait rédigé qu'un audiogramme tonal, sans mentionner les difficultés de compréhension vocale que Suzanne décrivait en consultation. Résultat : l'ordonnance était techniquement conforme, mais elle ne reflétait pas la réalité clinique. À la livraison de ses appareils, Suzanne se plaignait que "ça n'aidait pas vraiment en réunion". J'ai refait une audiométrie vocale complète. Son score de discrimination dans le bruit était nettement plus dégradé que son audiogramme tonal ne le suggérait. J'ai orienté son réglage sur les fréquences conversationnelles et recommandé une évaluation orthophonique. En deux mois, sa compréhension en réunion s'était améliorée de façon sensible. Ce que cet exemple illustre : le parcours en ordre ne garantit pas un parcours complet. Chaque professionnel fait son métier dans son périmètre. Vous êtes le seul à posséder la vision globale de votre situation. Partagez-la à chaque étape.
+
 ## Les limites que je reconnais honnêtement
 
 **La coordination entre professionnels est insuffisante.** En théorie, l'ORL, l'audioprothésiste et l'orthophoniste travaillent en équipe. En pratique, les échanges sont souvent limités à l'ordonnance initiale. Je reçois rarement un retour de l'ORL sur l'évolution médicale de mes patients, et l'ORL reçoit rarement mes comptes rendus d'appareillage sauf quand je les envoie de ma propre initiative. Le dossier médical partagé (Mon Espace Santé) devrait améliorer cette situation, mais son adoption est encore faible en 2026.
@@ -129,14 +133,14 @@ Le bon parcours fait gagner du temps. Le mauvais en fait perdre.
 
 **L'orthophonie est sous-prescrite en audiologie adulte.** Les ORL prescrivent facilement l'orthophonie pour les enfants, beaucoup moins pour les adultes appareillés tardivement. Pourtant, la rééducation auditive adulte a fait ses preuves dans les études cliniques. Le frein est souvent le manque de disponibilité des orthophonistes spécialisés en audiologie et la méconnaissance de cette indication par certains ORL.
 
-**Le patient est le vrai coordinateur de son parcours.** En l'absence de coordination structurée entre professionnels, c'est à vous de transmettre les informations. Apportez votre audiogramme ORL à l'audioprothésiste. Apportez le compte rendu d'appareillage à votre ORL. Signalez à votre médecin traitant que vous êtes appareillé. Demandez à votre audioprothésiste s'il pense qu'une rééducation orthophonique serait utile. Personne ne fera ce lien à votre place.
+**Le patient est le vrai coordinateur de son parcours.** En l'absence de coordination structurée entre professionnels, c'est à vous de transmettre les informations. C'est une responsabilité que personne ne vous a confiée officiellement, mais que le système vous impose de fait. Apportez votre audiogramme ORL à l'audioprothésiste. Apportez le compte rendu d'appareillage à votre ORL. Signalez à votre médecin traitant que vous êtes appareillé. Demandez à votre audioprothésiste s'il pense qu'une rééducation orthophonique serait utile. Personne ne fera ce lien à votre place.
 
 ## Mon avis d'expert après 28 ans de terrain
 
 Le parcours de soins auditifs en France est logique dans sa structure : le médecin traitant dépiste, l'ORL diagnostique et prescrit, l'audioprothésiste appareille et suit, l'orthophoniste rééduque si nécessaire. Chaque rôle est distinct et non interchangeable.
 
-Le problème n'est pas le parcours. Le problème, c'est que personne ne l'explique clairement aux patients. En 28 ans, j'ai vu des centaines de personnes perdre des semaines à consulter le mauvais professionnel au mauvais moment. Si vous suspectez une perte auditive, la première étape est simple : parlez-en à votre médecin traitant ou prenez rendez-vous directement chez un ORL. Et si vous souhaitez d'abord évaluer votre audition, un [bilan auditif gratuit chez un audioprothésiste](/guides/audioprothesiste/) est toujours possible, sans ordonnance et sans engagement. Mais ne confondez pas ce bilan de dépistage avec un diagnostic médical.
+Le problème n'est pas le parcours. Le problème, c'est que personne ne l'explique clairement aux patients. J'ai vu des centaines de personnes perdre des semaines à consulter le mauvais professionnel au mauvais moment. Si vous suspectez une perte auditive, la première étape est simple : parlez-en à votre médecin traitant ou prenez rendez-vous directement chez un ORL. Et si vous souhaitez d'abord évaluer votre audition, un [bilan auditif gratuit chez un audioprothésiste](/guides/audioprothesiste/) est toujours possible, sans ordonnance et sans engagement. Mais ne confondez pas ce bilan de dépistage avec un diagnostic médical.
 
-Respecter l'ordre du parcours vous garantit un diagnostic fiable, un appareillage adapté, un remboursement optimal, et surtout : aucune pathologie traitable oubliée en chemin.
+Respecter l'ordre du parcours vous garantit un diagnostic fiable, un appareillage adapté, un remboursement optimal, et surtout : aucune pathologie traitable oubliée en chemin. Ne laissez pas les délais d'attente ou la complexité administrative vous décourager à mi-parcours. L'étape que vous sautez aujourd'hui sera celle qui vous coûtera le plus dans six mois.
 
 *Les informations contenues dans cet article ont une vocation informative et ne remplacent pas une consultation médicale. Consultez votre médecin ORL pour tout diagnostic auditif. Sources : Ameli.fr, Code de la santé publique (consultés en 2026).*

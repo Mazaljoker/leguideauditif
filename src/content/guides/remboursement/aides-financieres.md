@@ -5,7 +5,7 @@ metaDescription: "Aides financieres appareils auditifs : PCH, MDPH, AGEFIPH, CSS
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
@@ -161,6 +161,12 @@ Plusieurs caisses de retraite proposent des **aides ponctuelles** pour des dépe
 
 Les montants varient de quelques centaines d'euros à plus de 1 000 euros selon les caisses et votre situation. Contactez directement votre caisse de retraite.
 
+## Ce que Véronique a obtenu en posant une seule question
+
+Véronique, 52 ans, aide à domicile en EHPAD, souffrait d'une perte auditive bilatérale moyenne depuis trois ans. Reconnue en invalidité catégorie 2, elle pensait ne pas avoir droit à la PCH parce qu'elle travaillait encore à temps partiel. Erreur fréquente : la PCH pour aide technique n'est pas conditionnée à l'inactivité. Elle a déposé son dossier MDPH avec son bilan audiométrique et le devis normalisé que je lui avais fourni. Délai de traitement : cinq mois. Résultat : 720 euros de PCH par appareil, en complément du Classe 2 qu'elle avait choisi pour son activité professionnelle en milieu bruyant. Son reste à charge final : zéro euro.
+
+Une seule question posée à la MDPH -- « Suis-je éligible malgré mon temps partiel ? » -- a tout changé. Les aides ne tombent pas du ciel : il faut les demander, et pour les demander, il faut savoir qu'elles existent.
+
 ## Fonds départementaux et aides extra-légales
 
 Chaque département dispose de **fonds d'aide sociale** pouvant intervenir en dernier recours. Ces fonds sont soumis à conditions de ressources et à l'appréciation de la commission d'aide sociale.
@@ -191,7 +197,7 @@ La plupart de ces aides sont **cumulables** entre elles, dans la limite de votre
 
 Le total des aides ne peut pas dépasser le prix de l'appareil. Mon rôle en tant qu'audioprothésiste, c'est aussi de vous aider à articuler ces différents financements. Je fais ce travail pour chaque patient concerné, et je considère que c'est aussi important que le réglage de l'appareil.
 
-Mon conseil pratique : commencez par demander votre [devis normalisé](/guides/remboursement/devis/) à votre audioprothésiste, puis consultez votre mutuelle. Avec le reste à charge estimé en main, vous pourrez solliciter les aides complémentaires en toute connaissance de cause.
+Mon conseil pratique : commencez par demander votre [devis normalisé](/guides/remboursement/devis/) à votre audioprothésiste, puis consultez votre mutuelle. Si vous attendez que tout soit parfaitement aligné pour agir, vous n'agirez jamais. Commencez par le premier maillon -- le devis -- et les autres pièces du puzzle s'assembleront naturellement. Avec le reste à charge estimé en main, vous pourrez solliciter les aides complémentaires en toute connaissance de cause.
 
 Pour approfondir le rôle de la mutuelle, consultez notre [guide dédié au choix de la mutuelle pour l'audioprothèse](/guides/remboursement/mutuelle/).
 

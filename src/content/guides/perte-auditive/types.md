@@ -5,7 +5,7 @@ metaDescription: "Les 3 types de perte auditive : transmission, perception, mixt
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
@@ -165,6 +165,16 @@ Cet examen dure environ 20 minutes et ne provoque aucune douleur. Il est systém
 | **Fréquence chez l'adulte** | ~10 % | ~90 % | Variable, augmente avec l'âge |
 | **Audiogramme** | Écart CA/CO, CO normale | CA et CO abaissées ensemble | Écart CA/CO, CO abaissée |
 
+## Quand le type change tout au traitement : le cas d'Arnaud
+
+Arnaud, 47 ans, chef cuisinier, m'a été adressé par son médecin traitant avec une mention laconique : "baisse auditive bilatérale, appareillage à envisager". Son audiogramme tonal en conduction aérienne montrait effectivement une perte de 30 à 35 dB sur les fréquences graves. Profil inhabituel pour son âge --- trop grave, trop jeune.
+
+J'ai fait la conduction osseuse. Résultat : normale. Rinne audiométrique de 30 dB sur les basses fréquences bilatéral. Ce n'est pas une presbyacousie, et ce n'est pas un traumatisme sonore. La forme de la courbe, l'âge, le profil féminin de sa femme qui avait fait la même chose à 35 ans après une grossesse --- tout pointait vers une otospongiose.
+
+Je l'ai renvoyé chez l'ORL avec un courrier précis. Confirmation en trois semaines. Stapédotomie droite quatre mois plus tard. Gain de 25 dB sur l'oreille opérée. Sans la conduction osseuse, Arnaud partait avec des appareils auditifs réglés pour une presbyacousie des basses fréquences --- appareils inefficaces sur une composante mécanique traitable chirurgicalement.
+
+Ce cas illustre une règle que j'applique sans exception : on ne règle jamais un appareil auditif sans conduction osseuse. Jamais. Le type de surdité n'est pas un détail académique. C'est ce qui détermine si votre traitement vous aide ou vous trompe.
+
 ## Ce que la classification ne dit pas : les limites
 
 Aussi utile soit-elle, la distinction transmission/perception/mixte a ses angles morts. En tant qu'audioprothésiste, je dois être honnête sur ce que cette classification ne capture pas.
@@ -190,6 +200,8 @@ Si un membre de ma famille me demandait "j'entends mal, qu'est-ce que je fais ?"
 3. **Comprenez votre type de surdité** avant d'accepter une solution. Transmission ? Perception ? Mixte ? Chaque type a sa logique de prise en charge.
 4. **Ne refusez pas l'appareillage par principe** si on vous diagnostique une surdité de perception. Les aides auditives actuelles, y compris celles en classe 1 (100 % Santé, intégralement remboursées), donnent d'excellents résultats quand elles sont bien réglées.
 5. **Plus la prise en charge est précoce, meilleurs sont les résultats.** Le cerveau désapprend à traiter les sons qu'il ne reçoit plus. Chaque année de retard complique la réhabilitation.
+
+Avant votre prochain rendez-vous ORL ou audioprothésiste, préparez une question simple à poser : "Avez-vous testé la conduction osseuse ?" Si la réponse est non, demandez pourquoi. C'est votre droit, et c'est une information diagnostique qui peut tout changer.
 
 Si vous reconnaissez certains [symptômes de perte auditive](/guides/perte-auditive/symptomes/) chez vous ou chez un proche, n'attendez pas. Renseignez-vous aussi sur [les différents types d'appareils auditifs](/guides/appareils-auditifs/types/) et sur [les modalités de remboursement](/guides/remboursement/) -- depuis la réforme 100 % Santé, le reste à charge peut être nul sur les appareils de classe 1.
 

@@ -5,7 +5,7 @@ metaDescription: "TV et appareil auditif : TV Connector, boucle magnétique, sou
 cluster: vie-quotidienne
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 7
@@ -118,8 +118,18 @@ Au-delà des accessoires, l'aménagement de votre pièce influence la qualité d
 - **Ajoutez du tissu** : un tapis, des rideaux, un plaid sur le canapé -- ces surfaces absorbent les réflexions sonores et réduisent la réverbération. Un salon tout en parquet et baies vitrées est un cauchemar acoustique.
 - **Réduisez les bruits de fond** : éteignez la hotte aspirante, fermez la fenêtre côté rue, demandez aux autres occupants de baisser le volume de leurs appareils. Chaque source de bruit supprimée libère de la "bande passante" pour les dialogues de la TV.
 
+## Ce que Monique a récupéré grâce à une prise optique
+
+Monique, 79 ans, ancienne directrice d'école primaire, regardait la télévision depuis dix ans avec le volume à 48. Son mari, Jacques, dormait dans une autre pièce les soirs de film. Le médecin de famille avait suggéré un appareillage, mais personne n'avait mentionné le TV Connector lors de la livraison des appareils deux ans plus tôt.
+
+Quand elle est venue me voir pour un réglage de routine, je lui ai demandé si elle utilisait le programme télévision de son application. Regard vide. Je lui ai demandé si elle avait un TV Connector. "C'est quoi ?" Deux ans avec des appareils Phonak connectés, sans le boîtier correspondant. Trente minutes plus tard, avec le Phonak TV Connector branché sur la sortie optique de son téléviseur, elle entendait les dialogues à un volume de 22 -- la moitié de ce qu'elle utilisait depuis une décennie. Jacques a dormi dans la chambre conjugale ce soir-là.
+
+Ce qui m'a frappé dans ce cas : les appareils fonctionnaient parfaitement. L'audioprothésiste qui l'avait appareillée avait fait un bon travail. Simplement, personne n'avait mentionné l'accessoire qui transforme la télévision d'une épreuve en un plaisir retrouvé. Le matériel seul ne suffit pas -- il faut connaître tout l'écosystème. Lors de votre prochain rendez-vous de suivi, posez la question directement : "Ai-je un accessoire TV compatible avec mes appareils ?"
+
 ## Ce qu'il faut retenir
 
 La télévision ne devrait pas être une source de tension dans votre foyer. Le TV Connector reste la solution la plus fiable et la plus universelle pour recevoir un son clair sans augmenter le volume pour votre entourage. Combinez-le avec les sous-titres et un programme TV bien réglé dans votre application, et vous retrouverez le plaisir de regarder vos émissions préférées sans compromis.
 
 Si vous hésitez sur la solution la plus adaptée à votre équipement, parlez-en à votre audioprothésiste. Il connaît vos appareils, votre perte auditive et vos habitudes. En 28 ans, j'ai vu la technologie transformer radicalement le confort TV de mes patients -- du volume à 60 qui faisait trembler les murs, au TV Connector silencieux qui a ramené la paix dans le salon. La solution existe. Il suffit de la mettre en place.
+
+Un point contre-intuitif que j'observe régulièrement : monter le volume de la télévision ne résout pas le problème de compréhension des dialogues. La presbyacousie touche les aigus, ceux des consonnes. Amplifier l'ensemble du spectre sonore aggrave souvent la situation -- les graves deviennent assourdissants, et les consonnes restent aussi floues. La solution n'est pas le volume, c'est la qualité du signal. Ne laissez pas une semaine de plus passer avec un volume excessif : un bilan de suivi chez votre audioprothésiste, assorti d'un test du programme TV, peut changer votre quotidien en une seule séance.

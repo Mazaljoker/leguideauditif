@@ -5,7 +5,7 @@ metaDescription: "Conseils pour communiquer avec un proche malentendant : postur
 cluster: vie-quotidienne
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 8
@@ -120,6 +120,14 @@ Votre présence aux rendez-vous de réglage est précieuse. Je recommande systé
 - **Vous participez au réglage** : lors des tests en cabine, votre voix familière sert de référence. L'audioprothésiste peut ajuster les paramètres en conditions réalistes. J'utilise souvent la voix du conjoint pour valider mes réglages -- c'est la voix que le patient doit comprendre en priorité au quotidien.
 - **Vous motivez le port régulier** : les premières semaines d'adaptation sont parfois décourageantes. Votre encouragement fait la différence entre un appareil porté quotidiennement et un appareil qui finit dans un tiroir. J'ai vu des appareils à 1 500 euros dormir dans leur boîtier pendant des mois -- et repartir quand le conjoint a commencé à encourager le port progressif.
 
+## Ce que le fils de Gérard a changé en une phrase
+
+Gérard, 77 ans, ancien menuisier, avait abandonné ses appareils au bout de deux mois. Trop de bruit, disait-il. Trop fatiguant. Sa femme avait renoncé à le convaincre. C'est son fils, Thomas, qui m'a appelé pour prendre rendez-vous.
+
+Thomas est venu avec son père. Pendant la consultation, il a décrit des situations précises : le dimanche au restaurant avec les petits-enfants, les conversations téléphoniques avec les frères et sœurs. Ces informations m'ont permis d'ajuster le programme « milieu bruyant » de façon beaucoup plus ciblée. Mais surtout, Thomas a dit quelque chose d'essentiel : « Papa, tu nous manques aux repas. Tu décroches au bout de vingt minutes. » Gérard n'avait pas réalisé à quel point son retrait était visible. Il a repris le port régulier la semaine suivante.
+
+L'entourage ne remplace pas l'audioprothésiste. Mais parfois, une phrase dite par la bonne personne au bon moment fait ce qu'aucun réglage ne peut accomplir seul.
+
 ## L'isolement social : un risque réel et documenté
 
 La perte auditive non traitée n'est pas qu'un désagrément. C'est un facteur de risque majeur identifié par la recherche scientifique. La commission Lancet sur la prévention de la démence classe la perte auditive en milieu de vie comme le premier facteur de risque modifiable de déclin cognitif, représentant environ 8 % des cas évitables. L'OMS confirme que la déficience auditive non corrigée est associée à un risque accru de dépression, d'isolement social et de perte d'autonomie, en particulier chez les personnes de plus de 65 ans.
@@ -131,5 +139,7 @@ L'entourage est le premier filet de sécurité. En maintenant la communication, 
 ## Ce qu'il faut retenir
 
 Communiquer avec un proche malentendant demande de la patience, quelques réflexes simples et beaucoup de bienveillance. Les 8 règles de ce guide ne sont pas compliquées à appliquer, mais elles font une différence considérable au quotidien. Et si votre proche n'est pas encore appareillé, votre rôle est peut-être le plus important de tous : l'encourager à franchir le pas du bilan auditif.
+
+Si votre proche résiste encore à l'idée d'un appareillage, ne lâchez pas -- mais ne poussez pas non plus. L'insistance excessive peut produire l'effet inverse. La meilleure stratégie que j'ai observée en 28 ans : proposer une consultation sans engagement, présenter ça comme une information, pas une décision. Le bilan auditif gratuit est souvent le déclencheur que la famille n'avait pas osé proposer.
 
 En 28 ans, j'ai appareillé des milliers de patients. Les résultats les plus spectaculaires, je les ai toujours observés quand la famille était impliquée. Pas besoin de grand-chose -- juste ces réflexes, cette patience, et la conviction que bien entendre n'est pas un luxe mais un droit. Pour retrouver ensemble le plaisir d'échanger sans effort.

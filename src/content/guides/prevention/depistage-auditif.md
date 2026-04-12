@@ -4,7 +4,7 @@ metaDescription: "Dépistage auditif : quand, où, comment. Recommandations par 
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 8
@@ -116,6 +116,16 @@ Je l'ai appareillée. L'adaptation a pris 3 mois, parce que son cerveau avait pe
 
 Voilà concrètement ce que coûtent 7 ans de retard au dépistage.
 
+## Ce que Sylvie m'a enseigné sur le bon moment
+
+Sylvie, 53 ans, cadre dans le secteur bancaire, est venue pour "voir" --- pas parce qu'elle avait des symptômes, mais parce qu'elle avait lu un article sur le lien entre perte auditive et risque de démence. Elle n'avait aucune gêne déclarée. Ses proches ne lui reprochaient rien. Elle entendait parfaitement, du moins c'est ce qu'elle croyait.
+
+Son audiogramme tonal était quasi normal : 15 à 20 dB sur les aigus. Pas de perte cliniquement significative. Mais l'audiométrie vocale dans le bruit a tout changé : intelligibilité de 72 % à 65 dB avec bruit de fond, pour une norme attendue autour de 90 % à son âge.
+
+Cet écart --- audition normale, compréhension dégradée dans le bruit --- est ce que la recherche appelle aujourd'hui la "synaptopathie cochléaire" ou "surdité cachée". Les cellules ciliées sont intactes, mais les synapses qui relient la cochlée au nerf auditif ont été fragilisées par des années d'exposition à des niveaux modérés. Aucun test en ligne ne mesure ça. Seule l'audiométrie vocale dans le bruit le révèle.
+
+Sylvie n'avait besoin d'aucun appareillage. Mais elle est repartie avec un audiogramme de référence, une recommandation de suivi dans deux ans, et la confirmation que consulter "trop tôt" n'existe pas. Ce bilan lui a donné quelque chose de précieux : une ligne de base pour mesurer l'avenir.
+
 ## Facteurs de risque : faut-il dépister plus tôt ?
 
 Certaines situations justifient un dépistage avant 50 ans.
@@ -179,5 +189,7 @@ Si vous avez plus de 50 ans et que vous n'avez jamais fait tester votre audition
 **Mon engagement** : en 28 ans et 3 000 patients, je n'ai jamais vu un patient regretter d'avoir fait un dépistage trop tôt. J'en ai vu des centaines regretter de ne pas l'avoir fait plus tôt.
 
 ## FAQ
+
+Vous n'avez jamais fait tester votre audition ? Prenez rendez-vous cette semaine chez un audioprothésiste. C'est gratuit, sans ordonnance, sans engagement. Dans trente minutes, vous aurez votre audiogramme de référence. C'est le document le plus précieux que vous puissiez avoir pour suivre votre audition au fil des années.
 
 Si vous avez d'autres questions sur le dépistage auditif, consultez les guides de notre cluster [prévention auditive](/guides/prevention/) ou [prenez rendez-vous avec un audioprothésiste](/trouver-audioprothesiste/) près de chez vous.

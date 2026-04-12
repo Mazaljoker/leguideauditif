@@ -5,7 +5,7 @@ metaDescription: "Travailler avec un appareil auditif : droits du salarié, amé
 cluster: vie-quotidienne
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 7
@@ -32,7 +32,7 @@ faq:
 
 Porter un appareil au travail n'est pas un handicap -- c'est un atout. En 28 ans de pratique et plus de 3 000 patients appareillés, j'ai accompagné de nombreuses personnes qui hésitaient à parler de leur perte auditive à leur employeur, par crainte de stigmatisation ou de conséquences sur leur carrière. Je me souviens d'une cadre dans l'aéronautique qui a repoussé son appareillage de trois ans parce qu'elle avait peur du regard des collègues en réunion. Quand elle a finalement franchi le pas, sa première réaction a été : "Je comprends enfin ce qui se dit en conf call, je ne hoche plus la tête au hasard."
 
-La réalité est bien différente de ce que beaucoup redoutent : le cadre légal français protège les travailleurs malentendants, des aides financières existent et les solutions techniques actuelles permettent de travailler dans d'excellentes conditions.
+La réalité est bien différente de ce que beaucoup redoutent : le cadre légal français protège les travailleurs malentendants, des aides financières existent et les solutions techniques actuelles permettent de travailler dans d'excellentes conditions. Ce que l'on oublie souvent : l'employeur qui refuse d'aménager risque une sanction bien plus coûteuse que le micro Roger qu'il refuse de financer.
 
 Ce guide vous présente vos droits, les démarches utiles et les aménagements concrets pour concilier vie professionnelle et appareillage auditif.
 
@@ -108,6 +108,12 @@ Quelques habitudes simples facilitent le quotidien professionnel avec un apparei
 
 ## L'essentiel à retenir
 
-La déficience auditive n'est pas un obstacle professionnel quand elle est correctement prise en charge. Le cadre légal vous protège, les aides financières existent et les solutions techniques sont performantes. N'hésitez pas à solliciter votre audioprothésiste pour adapter les réglages de vos appareils à votre environnement de travail. Si vous souhaitez approfondir les solutions au quotidien, consultez notre [guide vie quotidienne et audition](/guides/vie-quotidienne/).
+La déficience auditive n'est pas un obstacle professionnel quand elle est correctement prise en charge. En revanche, la compensation silencieuse non traitée, elle, l'est. Elle épuise, isole, et compromet la carrière bien plus sûrement que des appareils visibles. Le cadre légal vous protège, les aides financières existent et les solutions techniques sont performantes. N'hésitez pas à solliciter votre audioprothésiste pour adapter les réglages de vos appareils à votre environnement de travail. Si vous souhaitez approfondir les solutions au quotidien, consultez notre [guide vie quotidienne et audition](/guides/vie-quotidienne/).
 
 Le premier pas est souvent le plus difficile : parler de sa perte auditive au travail. Mais en 28 ans, je n'ai pas un seul patient qui ait regretté de l'avoir fait. Pas un.
+
+---
+
+Isabelle, 54 ans, infirmière coordinatrice dans un EHPAD, m'a consulté au printemps 2025. Elle cachait sa perte auditive depuis deux ans à son équipe, persuadée qu'un problème d'audition disqualifierait son autorité professionnelle. Elle prenait des notes compulsives en réunion pour compenser ce qu'elle ne comprenait pas. Elle arrivait 10 minutes en avance pour choisir sa place face au médecin. Stratégie d'adaptation invisible, épuisante. Quand elle a finalement parlé de sa situation à sa cadre supérieure, la réaction a été : "Je m'en doutais depuis six mois. On attendait que vous en parliez." La RQTH a été montée le mois suivant. L'AGEFIPH a financé un micro Roger. Isabelle m'a dit qu'elle "avait perdu deux ans de sa vie professionnelle à se cacher". L'épuisement cognitif que génère la compensation silencieuse est une réalité que la médecine du travail sous-estime encore massivement.
+
+Si vous ressentez cette fatigue -- cette sensation d'être à bout en fin de journée alors que vos collègues restent disponibles --, ne l'attribuez pas à l'âge. Parlez-en à votre audioprothésiste. Ce n'est pas anodin, et ça se traite.

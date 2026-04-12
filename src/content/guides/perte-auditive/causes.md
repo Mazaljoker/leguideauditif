@@ -4,7 +4,7 @@ metaDescription: "Causes de la perte auditive : presbyacousie, bruit, medicament
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 10
@@ -129,6 +129,14 @@ Plusieurs pathologies de l'oreille provoquent une perte auditive, temporaire ou 
 
 **Cas réel :** M. T., 45 ans, artificier professionnel. Malgré le port de protections auditives réglementaires, il avait développé une perte bilatérale de 50 dB sur les fréquences aiguës après 15 ans de métier. Les protections atténuaient le bruit, mais pas suffisamment sur les détonations à plus de 140 dB. C'est un rappel important : les protections réduisent le risque, elles ne l'éliminent pas à 100 %.
 
+## Un moment qui m'a arrêté net
+
+Gérard, 66 ans, ancien technicien de maintenance industrielle, est venu me voir en novembre dernier. Pas de sa propre initiative : sa femme avait réservé le rendez-vous. Lui était là "pour lui faire plaisir". Pendant l'anamnèse, il m'a dit qu'il n'avait jamais travaillé dans le bruit --- il gérait des plannings et coordinait des équipes, pas de travail physique direct. Son audiogramme a pourtant montré une encoche marquée à 4 000 Hz droite, avec 10 dB d'asymétrie en faveur de la gauche.
+
+J'ai creusé. Quarante minutes plus tard, Gérard se souvenait : de 30 à 50 ans, il avait passé tous ses week-ends à rénover une maison de campagne. Tronçonneuse, meuleuse d'angle, scie circulaire. "Mais c'était le week-end, pas le travail." Cette distinction que font beaucoup de patients entre bruit professionnel et bruit de loisir n'existe pas dans l'oreille interne. Les cellules ciliées ne lisent pas votre contrat de travail. Elles comptent les décibels.
+
+Si vous voulez savoir exactement comment protéger vos oreilles face au bruit, lisez notre [guide sur les protections auditives](/guides/prevention/protections-auditives/).
+
 ## Surdité de transmission ou surdité de perception ?
 
 Comprendre la différence est essentiel, car les causes, les traitements et le pronostic sont très différents.
@@ -177,5 +185,7 @@ Après 28 ans et plus de 3 000 patients, voici mon jugement d'expert sur les con
 3. **Prenez rendez-vous chez un audioprothésiste** : si le bilan confirme une perte auditive nécessitant un appareillage, un audioprothésiste vous proposera des solutions adaptées. Le bilan auditif de dépistage est gratuit, sans ordonnance.
 
 4. **Renseignez-vous sur la prise en charge financière** : depuis la réforme 100 % Santé, des aides auditives de classe 1 sont intégralement remboursées (base Sécurité sociale : 240 €, plafond BRSS : 400 €). Consultez notre [guide remboursement](/guides/remboursement/) pour connaître vos droits.
+
+Si vous vous reconnaissez dans plus d'un facteur de cette page, ne cherchez pas de certitude en ligne : un audiogramme en cabine vous donnera une réponse précise, gratuite, en 30 minutes. Prenez rendez-vous cette semaine.
 
 N'attendez pas que la situation s'aggrave. En 28 ans de pratique, j'ai constaté que les patients qui consultent tôt s'adaptent mieux à leurs aides auditives et retrouvent plus rapidement une vie sociale épanouie. Chaque année de retard rend l'adaptation un peu plus difficile. C'est un fait clinique, pas une technique de vente.

@@ -5,7 +5,7 @@ metaDescription: "Appareils auditifs invisibles CIC et IIC : limites, methode de
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 10
@@ -101,6 +101,10 @@ Si le patient répond oui aux deux premières questions, je le dissuade de l'inv
 
 Si le patient passe les trois premières étapes, je prends l'empreinte silicone du conduit auditif et je commande la coque sur mesure au fabricant. Le délai est de 5 à 10 jours ouvrés. Au premier essayage, je vérifie le confort d'insertion, l'absence de douleur et la qualité du rendu sonore. La période d'essai de 30 jours démarre à ce moment-là.
 
+## Chantal, 59 ans : portée un an, rangée pour une sensation
+
+Chantal avait un CIC anatomiquement parfait. Conduit large, perte dans les limites, entretien rigoureux. Au bout d'un an, elle portait l'appareil de moins en moins. En consultation de suivi, j'ai fini par lui poser la vraie question : « Qu'est-ce qui vous gêne exactement ? » Sa réponse : « Ma propre voix. Je m'entends comme si j'étais dans une cave. » L'effet d'occlusion n'était pas insupportable le premier mois, mais à mesure que son oreille s'était adaptée à l'amplification, la résonance de sa propre voix était devenue la source d'inconfort principale. J'avais pourtant prévu des évents. Mais certains conduits ne tolèrent pas suffisamment la ventilation sans que le gain sonore en souffre. On a repris l'appareillage avec un RIC à dôme ouvert. La sensation d'occlusion a disparu. Chantal porte ses appareils neuf heures par jour depuis deux ans. Le CIC était techniquement correct. Il n'était pas adapté à sa sensibilité.
+
 ## Cas réel : M. Leroy, 67 ans, « je veux un invisible ou rien »
 
 M. Leroy (le prénom est modifié) est arrivé en consultation en janvier 2025 avec une demande très claire : « Je suis cadre dirigeant, je refuse qu'on voie un appareil. » Perte auditive bilatérale, presbyacousie progressive : 40 dB de perte moyenne sur les fréquences conversationnelles, chute à 55 dB sur les aigus.
@@ -112,6 +116,8 @@ M. Leroy (le prénom est modifié) est arrivé en consultation en janvier 2025 a
 **Sa réaction.** Sceptique. Je lui ai proposé un test A/B sur une semaine : un CIC sur une oreille, un RIC mini de la même marque sur l'autre. Au bout de 4 jours, il m'a rappelé : « Le RIC est meilleur en réunion. Et personne ne l'a remarqué. » Il a choisi le RIC bilatéral.
 
 **Leçon.** Ce cas illustre parfaitement pourquoi je refuse de poser un invisible sans questionnaire de mode de vie. Le conduit permettait un CIC — mais la vie quotidienne du patient l'interdisait. Si je l'avais appareillé en invisible, il aurait été déçu par la qualité sonore en environnement professionnel et aurait conclu, à tort, que « les appareils auditifs ne marchent pas ».
+
+**Vous êtes attirés par l'invisible mais vous n'êtes pas encore appareillé ?** Ne commencez pas par là. Demandez d'abord à tester un RIC mini pendant 15 jours. Si, au bout de ce délai, la discrétion du RIC ne vous suffit toujours pas, alors on reparle de l'invisible en connaissance de cause. [Consultez notre guide des types d'appareils](/guides/appareils-auditifs/types/) pour comprendre toutes les options disponibles.
 
 ## Les limites que vous devez connaître
 
@@ -152,9 +158,13 @@ Il n'existe aucun appareil CIC ou IIC en Classe 1 (100 % Santé). Tous les invis
 
 ## Mes prises de position — elles ne font pas consensus
 
+**La phrase rupture que peu d'audioprothésistes prononcent en consultation : « Votre demande est légitime, mais l'appareil que vous demandez n'est peut-être pas celui dont vous avez besoin. »** Ce n'est pas un refus. C'est la base de toute démarche médicale honnête.
+
 ### Le RIC mini est le meilleur appareil pour 80 % des patients qui demandent un invisible
 
 Cette position déplaît aux patients (qui veulent l'invisible pur) et à certains fabricants (dont les marges sont plus élevées sur les intra-auriculaires sur mesure). Je la maintiens, données à l'appui. Sur mes 3 000 patients, ceux qui portent un RIC mini sont plus satisfaits à 12 mois que ceux qui portent un CIC — meilleure qualité sonore, meilleure connectivité, meilleure observance. L'écart de discrétion entre un RIC mini bien ajusté et un CIC est négligeable dans la vie réelle. La seule exception : le patient qui a une raison objective de vouloir le conduit auditif complètement libre derrière l'oreille (casque de sécurité au travail, par exemple).
+
+**Idée reçue à corriger : on croit que l'invisible est forcément plus performant parce qu'il est plus cher et plus technique à fabriquer.** Faux. La fabrication sur mesure justifie le surcoût — pas les performances sonores. Sur la correction audioprothétique pure, un RIC bien ajusté fait jeu égal ou mieux dans la grande majorité des environnements.
 
 ### L'otoscopie doit précéder toute discussion commerciale
 

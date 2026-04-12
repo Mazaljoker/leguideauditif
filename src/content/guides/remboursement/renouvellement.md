@@ -5,7 +5,7 @@ metaDescription: "Renouvellement appareils auditifs : delai 4 ans, demarches, re
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 7
@@ -131,6 +131,14 @@ Le renouvellement est le moment idéal pour bénéficier des innovations. Entre 
 
 N'hésitez pas à demander une démonstration comparative entre vos anciens appareils et les nouveaux modèles. La différence se ressent souvent immédiatement.
 
+## Ce que Paulette a failli rater par excès de fidélité
+
+Paulette, 81 ans, portait ses appareils depuis cinq ans et demi chez le même centre. Elle avait l'habitude, elle aimait « sa » secrétaire, elle ne voulait pas changer. Mais son audioprothésiste titulaire était parti, et depuis six mois, elle voyait des remplaçants différents à chaque visite. Personne ne connaissait son dossier. Personne ne s'était aperçu que son audiogramme avait décliné de 10 dB sur les aigus depuis le dernier bilan.
+
+Quand elle est venue me voir pour un deuxième avis, ses appareils étaient réglés sur un profil qui datait de plus d'un an. Elle entendait moins bien qu'elle n'aurait dû. En deux séances, avec un audiogramme actualisé et un réglage adapté, elle a retrouvé une compréhension qu'elle pensait avoir perdue à jamais.
+
+La fidélité à un centre est une qualité. Mais la fidélité à un réglage obsolète, non. Le renouvellement est l'occasion de repartir sur de bonnes bases -- avec ou sans le même centre.
+
 ## Changer d'audioprothésiste : c'est votre droit
 
 Vous n'êtes pas obligé de renouveler chez le même audioprothésiste. Le libre choix du professionnel de santé s'applique pleinement. Si vous avez déménagé, si vous souhaitez un second avis ou si le courant ne passe plus, vous pouvez consulter un autre centre.
@@ -147,6 +155,8 @@ Pour éviter de vous retrouver sans appareil fonctionnel :
 - **À la date anniversaire des 4 ans** : la facturation peut être réalisée avec prise en charge
 
 Cette anticipation vous laisse le temps de comparer les offres, d'essayer plusieurs modèles et de prendre une décision éclairée -- sans la pression d'une panne qui vous laisse sans appareil.
+
+Vous pensez peut-être que vos appareils « font encore l'affaire ». Dans un tiers des cas que je vois, c'est vrai. Dans les deux autres tiers, c'est une habitude d'adaptation progressive qui masque une correction devenue insuffisante. Ne laissez pas votre cerveau normaliser une audition dégradée.
 
 Le renouvellement de vos appareils auditifs tous les 4 ans n'est pas une obligation, mais c'est une opportunité. C'est l'occasion de bénéficier des progrès technologiques, d'adapter votre appareillage à l'évolution de votre audition et de repartir pour quatre années de suivi complet. Avec le dispositif 100% Santé, le reste à charge zéro en Classe 1 s'applique à chaque renouvellement.
 

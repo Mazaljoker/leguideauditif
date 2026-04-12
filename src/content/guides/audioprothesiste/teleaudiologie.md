@@ -4,7 +4,7 @@ metaDescription: "Téléaudiologie : réglages d'appareils auditifs à distance,
 cluster: audioprothesiste
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
@@ -73,6 +73,12 @@ Coût du déplacement évité : 110 km, une demi-journée pour deux personnes. D
 
 C'est exactement à ça que sert la téléaudiologie.
 
+---
+
+Andrée, 82 ans, appareillée depuis trois ans, vit seule dans une commune rurale à 60 km de mon cabinet. Sa voisine la conduisait autrefois à ses rendez-vous. Depuis que cette voisine a déménagé, chaque visite en centre représente une organisation logistique complète. Andrée m'avait signalé en octobre 2025 que son appareil gauche lui semblait "moins fort". Avant la téléaudiologie, elle aurait attendu son prochain bilan semestriel, en mars. Avec la téléaudiologie, elle m'a envoyé un message vocal via l'application -- "ça n'amplifie plus pareil à gauche". J'ai consulté ses données d'utilisation : port quotidien stable, pas de chute de signal. J'ai augmenté le gain de 2 dB sur les médiums à gauche et lui ai demandé de me confirmer le lendemain. Confirmation positive le lendemain matin. Mais j'avais noté quelque chose : l'asymétrie de gain entre les deux oreilles avait légèrement augmenté sur 6 semaines. J'ai demandé à Andrée de venir en cabinet au bilan de mars, en priorité, avec un audiogramme de contrôle. L'évolution de l'oreille gauche pouvait être une dérive de réglage -- ou une évolution auditive réelle. La téléaudiologie avait soulagé l'inconfort immédiat, mais elle avait aussi déclenché une alerte que seule une mesure in vivo en cabinet pourrait trancher. Ce n'est pas un outil autonome. C'est un relais.
+
+Votre audioprothésiste propose la téléaudiologie mais vous ne savez pas comment ça fonctionne avec votre modèle d'appareil ? Demandez-lui une démonstration lors de votre prochain rendez-vous -- 10 minutes qui peuvent changer votre rapport au suivi.
+
 ## Comment ça fonctionne techniquement
 
 Le processus est plus simple qu'il n'y paraît :
@@ -101,7 +107,7 @@ Toutes fonctionnent sur le même principe : un pont entre le logiciel de réglag
 
 **Le Bluetooth est un prérequis absolu.** Si vos appareils ne disposent pas du Bluetooth -- certains modèles d'entrée de gamme ou des appareils de plus de 5 ans -- la téléaudiologie est impossible. Vous devez aussi posséder un smartphone compatible (iOS ou Android récent) et savoir utiliser l'application. Pour les patients peu familiers avec la technologie mobile, c'est un obstacle réel. Je passe régulièrement 15 minutes en début d'appareillage à configurer l'application avec mes patients. Certains n'y arrivent jamais seuls, et c'est leur droit.
 
-**La qualité des retours patients est variable.** Le réglage à distance repose entièrement sur ce que vous décrivez. "Ça ne va pas" n'est pas exploitable. "Le programme restaurant coupe les voix aiguës quand il y a plus de 4 personnes à table" est exploitable. L'audioprothésiste ne peut pas mesurer votre gêne à distance. Il interprète vos mots. Plus vous êtes précis, meilleur sera le réglage.
+**La qualité des retours patients est variable.** Le réglage à distance repose entièrement sur ce que vous décrivez. "Ça ne va pas" n'est pas exploitable. "Le programme restaurant coupe les voix aiguës quand il y a plus de 4 personnes à table" est exploitable. Paradoxalement, les patients les moins technophiles -- ceux pour qui la téléaudiologie est la plus complexe à utiliser -- sont souvent ceux qui en bénéficieraient le plus géographiquement. L'audioprothésiste ne peut pas mesurer votre gêne à distance. Il interprète vos mots. Plus vous êtes précis, meilleur sera le réglage.
 
 **Les données d'utilisation ne disent pas tout.** L'application me montre que vous portez vos appareils 10 heures par jour et que vous êtes 40 % du temps en environnement calme. Elle ne me dit pas que vous les retirez systématiquement au restaurant parce que le bruit vous agresse. Les chiffres sans contexte sont trompeurs.
 

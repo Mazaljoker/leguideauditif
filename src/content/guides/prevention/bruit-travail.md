@@ -4,7 +4,7 @@ metaDescription: "Bruit au travail : seuils légaux, protections, droits du sala
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 9
@@ -129,6 +129,18 @@ La surdité provoquée par le bruit au travail est reconnue comme maladie profes
 
 **Mon conseil** : n'attendez pas que la perte soit installée pour engager les démarches. Si vous ressentez des acouphènes persistants, une difficulté à suivre les conversations dans le bruit ou une fatigue auditive en fin de journée, consultez sans tarder. J'ai vu trop de patients attendre "que ce soit vraiment gênant" pour consulter. À ce stade, la perte est déjà significative.
 
+## Ce que Didier m'a appris sur la culture d'équipe
+
+Didier, 54 ans, chef d'équipe dans une fonderie, est venu me voir après que son entreprise ait reçu une injonction de l'inspection du travail. Pas pour lui-même, mais parce que son employeur lui demandait d'inciter ses collègues à passer un bilan auditif. "Je leur dis de mettre les bouchons depuis dix ans, ils ne le font pas. Qu'est-ce que vous voulez que je leur dise de plus ?"
+
+Je lui ai posé une question directe : "Et vous, Didier, vous les portez ?" Long silence. "Non. Parce que si le chef ne les porte pas, les autres non plus."
+
+Son audiogramme : perte de 55 dB à 4 000 Hz bilatérale. Le profil le plus typique du traumatisme sonore professionnel que j'aie jamais vu. Didier était son propre contre-exemple.
+
+Ce que son cas illustre mieux qu'aucune statistique : la prévention du bruit au travail n'est pas une question réglementaire. C'est une question de leadership. Un chef d'équipe qui porte ses bouchons multiplie le taux de port par deux ou trois dans son équipe. Un chef d'équipe qui ne les porte pas donne la permission implicite de ne pas les porter. Vingt ans de réglementation n'ont pas résolu ce que dix jours d'exemple auraient pu changer.
+
+Si vous êtes en position d'encadrement dans un secteur bruyant, posez-vous la question : votre comportement encourage-t-il ou décourage-t-il la protection dans votre équipe ?
+
 ## Le dépistage en médecine du travail
 
 Le médecin du travail joue un rôle central dans la prévention de la surdité professionnelle. Lors de la visite d'embauche, il peut réaliser un audiogramme de référence qui servira de comparaison tout au long de votre carrière. Pour les salariés exposés à plus de 85 dB, un contrôle audiométrique est réalisé au minimum tous les 3 ans.
@@ -157,5 +169,7 @@ Je suis audioprothésiste, pas vendeur de bouchons. Je dois être honnête sur l
 - Vous avez le droit de consulter le médecin du travail à tout moment.
 - Vous avez le droit d'exercer un droit de retrait si le bruit présente un danger grave et imminent.
 - Vous avez droit à la reconnaissance en maladie professionnelle si votre surdité est liée au travail.
+
+Si vous travaillez en milieu bruyant et que vous n'avez pas fait d'audiogramme de référence depuis plus de trois ans, contactez votre médecin du travail cette semaine. C'est gratuit, c'est votre droit, et c'est le seul moyen de savoir si la prévention fonctionne. Consultez aussi notre [guide complet sur les protections auditives](/guides/prevention/protections-auditives/) pour choisir la protection adaptée à votre poste.
 
 Le bruit au travail n'est pas une fatalité. La réglementation française offre un cadre protecteur solide, mais encore faut-il le connaître et le faire respecter. Pour aller plus loin sur la prévention auditive au quotidien, consultez notre [guide complet de prévention](/guides/prevention/).

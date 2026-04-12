@@ -5,7 +5,7 @@ metaDescription: "Protéger son audition en concert et festival : bouchons, dist
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
@@ -115,6 +115,20 @@ Ce cas est représentatif : il suffit d'une seule exposition non protégée pour
 
 Pour en savoir plus sur les sifflements persistants, consultez notre [guide sur les acouphènes](/guides/acouphenes/).
 
+## La conversation qui m'a le plus heurté
+
+Lucas, 22 ans, passionné de musique électronique, est venu me voir après que son ORL l'ait orienté pour un bilan. Pas de plainte initiale --- l'ORL avait détecté une encoche à 6 000 Hz lors d'une consultation pour un épisode d'oreilles bouchées.
+
+Pendant l'anamnèse, Lucas m'a dit quelque chose que j'entends de plus en plus chez les jeunes : "Je savais que c'était dangereux. Mais je me disais que j'avais le temps. Que les vraies conséquences, c'était pour plus tard."
+
+Cette logique du "plus tard" est la plus dangereuse qui soit en audiologie. Parce que les cellules ciliées ne savent pas qu'il y aura un "plus tard". Elles meurent maintenant, sans douleur, sans signal d'alarme clair, et sans possibilité de récupération.
+
+Lucas avait une perte de 20 dB à 6 000 Hz bilatérale. Modeste sur le papier. Mais il avait 22 ans. Avec ce profil à 22 ans, sans changement de comportement, la projection à 45 ans n'est pas rassurante.
+
+Il est reparti avec une paire de bouchons à filtre acoustique, une application de mesure de volume, et une recommandation de suivi dans un an. Ce n'est pas un cas de traitement. C'est un cas de prévention réussie --- à condition que Lucas tienne ses résolutions.
+
+Ce que son cas illustre : la fenêtre de prévention ne dure pas indéfiniment. A 22 ans, les dommages sont encore limités. A 32 ans, s'il continue, ils ne le seront plus.
+
 ## Le cas particulier des enfants
 
 Les oreilles des enfants sont plus fragiles. Leur conduit auditif est plus court, ce qui amplifie naturellement les sons qui atteignent le tympan.
@@ -141,4 +155,4 @@ Je ne demande pas qu'on baisse le volume des concerts. La musique live est un ar
 
 En attendant, la responsabilité est individuelle. Une paire de bouchons à 20 euros dans la poche. C'est tout. C'est la différence entre profiter de la musique pendant 50 ans et vivre avec un sifflement permanent à 30 ans.
 
-Si vous avez le moindre doute sur votre audition après un concert, n'hésitez pas à consulter un audioprothésiste pour un [bilan auditif gratuit](/guides/prevention/bilan-auditif-gratuit/). Mieux vaut une vérification rassurante qu'un diagnostic tardif.
+Vous allez en concert ce week-end ? Commandez une paire de bouchons à filtre acoustique avant de partir --- ils arrivent en 24h48h et coûtent 15 à 30 euros. Si vous avez déjà été exposé à des niveaux élevés sans protection et que vous n'avez jamais fait de bilan, prenez rendez-vous dès lundi pour un [bilan auditif gratuit](/guides/prevention/bilan-auditif-gratuit/). Voir la courbe de son propre audiogramme change le comportement mieux que n'importe quel article. Mieux vaut une vérification rassurante qu'un diagnostic tardif.

@@ -5,7 +5,7 @@ metaDescription: "Bilan auditif gratuit chez l'audioprothésiste : déroulement,
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
@@ -118,6 +118,20 @@ Je lui ai montré l'audiogramme, expliqué les chiffres, et recommandé une cons
 
 Ce bilan a pris 35 minutes. Il n'a rien coûté. Et Robert m'a dit trois mois plus tard : "Je ne savais pas ce que je ratais."
 
+## Ce que trente minutes ont changé pour Mireille
+
+Mireille, 71 ans, retraitée de l'enseignement secondaire, est venue pour un bilan "par curiosité" après avoir vu une affiche dans la salle d'attente de son médecin traitant. Elle n'avait pas de symptômes particuliers. Elle avait simplement remarqué que ses petits-enfants répétaient parfois leurs phrases --- mais elle attribuait ça au fait qu'ils "avalaient leurs mots, comme tous les enfants".
+
+L'entretien initial a duré quinze minutes. J'ai posé mes questions habituelles. La télévision ? "Je la mets à un volume qui convient à tout le monde." Le téléphone ? "Je préfère les SMS." Les réunions de famille ? "On n'en fait plus beaucoup, c'est trop fatigant d'organiser."
+
+Chacune de ces réponses, prise isolément, est banale. Ensemble, elles dessinent le portrait d'une femme qui a progressivement réorganisé sa vie sociale autour de sa perte auditive sans le formuler ainsi.
+
+L'audiogramme : 40 dB de perte sur les fréquences conversationnelles bilatérale, presbyacousie typique. Ce n'était pas une découverte dramatique. Mais quand j'ai posé les écouteurs et fait écouter à Mireille ce que la simulation de sa perte donnait, elle s'est tue un moment. Puis elle m'a dit : "Donc mes petits-enfants n'avalent pas leurs mots."
+
+Non. Ils ne les avaient jamais avalés.
+
+Ce bilan a duré trente-cinq minutes. Il était gratuit. Il a expliqué à Mireille dix ans de petites incompréhensions en une heure. C'est pour ça que je milite pour le dépistage systématique.
+
 ## Bilan audioprothésiste vs consultation ORL : comprendre la complémentarité
 
 Le **bilan chez l'audioprothésiste** est un examen de dépistage et d'évaluation fonctionnelle. Il identifie une perte, en mesure l'ampleur et évalue son impact sur votre compréhension. Il est gratuit et sans ordonnance.
@@ -148,5 +162,7 @@ Après 28 ans de pratique, voici ma conviction : le dépistage auditif devrait �
 Le frein principal n'est pas financier (le bilan est gratuit), ni logistique (4 500 audioprothésistes sur le territoire). Le frein est culturel. L'audition est le parent pauvre de la santé. On va chez l'ophtalmo tous les deux ans, on fait son bilan sanguin annuel, mais l'audition, "ça peut attendre." Non, ça ne peut pas attendre. L'étude ACHIEVE (Lancet, 2023) montre qu'un appareillage précoce ralentit le déclin cognitif de 48 % chez les personnes à risque. Ce n'est pas un détail : c'est un argument de santé publique majeur.
 
 Mon message est simple. Trente minutes. Gratuit. Sans ordonnance. Sans engagement. N'attendez pas que la gêne devienne un handicap. Utilisez notre [annuaire des audioprothésistes](/trouver-audioprothesiste/) pour trouver un professionnel près de chez vous, ou consultez notre [guide complet de la prévention auditive](/guides/prevention/) pour aller plus loin.
+
+Trente minutes. Gratuit. Sans ordonnance. Si vous avez hésité à prendre rendez-vous en lisant cet article, c'est le moment de ne plus hésiter. Utilisez notre [annuaire des audioprothésistes](/trouver-audioprothesiste/) pour trouver un professionnel près de chez vous --- et revenez dans deux ans avec un audiogramme de comparaison.
 
 Votre audition mérite cette demi-heure d'attention.
