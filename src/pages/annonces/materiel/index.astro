@@ -8,27 +8,27 @@ import AnnonceListing from '../../../components/annonces/AnnonceListing';
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
   { label: 'Annonces', href: '/annonces/' },
-  { label: 'Materiel professionnel' },
+  { label: 'Matériel professionnel' },
 ];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Materiel audioprothese occasion',
+  name: 'Matériel audioprothèse occasion',
 };
 ---
 
 <BaseLayout
-  title="Materiel audioprothese occasion — Petites annonces | LeGuideAuditif"
-  description="Cabines audiometriques, audiometres, chaines de mesure d'occasion. Achetez ou vendez votre materiel."
+  title="Matériel audioprothèse occasion — LeGuideAuditif"
+  description="Cabines audiométriques, audiomètres, chaînes de mesure d'occasion. Achetez ou vendez votre matériel."
   schema={schema}
 >
   <div class="max-w-[1140px] mx-auto px-5 py-8">
     <Breadcrumbs items={breadcrumbs} />
 
-    <h1 class="font-sans text-3xl font-extrabold text-marine mb-2">Materiel professionnel</h1>
+    <h1 class="font-sans text-3xl font-extrabold text-marine mb-2">Matériel professionnel</h1>
     <p class="text-gris-texte text-lg mb-8 font-sans">
-      Cabines audiometriques, audiometres, chaines de mesure, mobilier et informatique d'occasion.
+      Cabines audiométriques, audiomètres, chaînes de mesure, mobilier et informatique d'occasion.
     </p>
 
     <AnnonceListing client:load categorie="materiel" />

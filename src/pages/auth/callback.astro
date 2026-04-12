@@ -8,7 +8,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   title="Connexion en cours... | LeGuideAuditif"
   description="Redirection après connexion."
 >
+  <meta slot="head" name="robots" content="noindex" />
   <div class="max-w-[1140px] mx-auto px-5 py-16 text-center">
+    <h1 class="sr-only">Connexion en cours</h1>
     <p class="text-lg text-gris-texte font-sans">Connexion en cours...</p>
   </div>
 </BaseLayout>

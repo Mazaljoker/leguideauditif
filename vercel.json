@@ -4,6 +4,21 @@
       "source": "/guides/perte-auditive/audiogramme/",
       "destination": "/guides/audiogramme/",
       "permanent": true
+    },
+    {
+      "source": "/trouver-un-audioprothesiste/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/carte-audioprothesistes/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/remboursement/100-sante",
+      "destination": "/guides/remboursement/100-sante-audition/",
+      "permanent": true
     }
   ]
 }
