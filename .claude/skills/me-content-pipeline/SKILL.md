@@ -21,8 +21,9 @@ De la generation a la publication, en passant par l'humanisation et le double ga
 ## CHAINE GAN
 
 ```
-me-affiliate-writer → nposts-seo-humanizer → nposts-content-evaluator (>=70)
-→ me-eeat-compliance (>=80) → nposts-seo-fixer → nposts-seo-post-publish
+me-affiliate-writer → nposts-seo-humanizer → me-detector-inverse (>=75)
+→ nposts-content-evaluator (>=75 ET terrain >=80) → me-eeat-compliance (>=80)
+→ nposts-seo-fixer → nposts-seo-post-publish
 ```
 
 ## MACHINE A ETATS
@@ -34,7 +35,8 @@ Consulter `references/pipeline-state-machine.md` pour la definition complete.
 | INIT | — | Brief analyse, type determine (guide/comparatif) |
 | GENERATING | me-affiliate-writer | Contenu genere avec frontmatter |
 | HUMANIZING | nposts-seo-humanizer | Burstiness >= 0.7, Flesch 60-80, P0 = 0 |
-| GATE_1 | nposts-content-evaluator | Score >= 70 (PASS) |
+| GATE_1_5 | me-detector-inverse | Score >= 75 (PASS) |
+| GATE_1 | nposts-content-evaluator | Score >= 75 ET terrain >= 80 (PASS) |
 | GATE_2 | me-eeat-compliance | Score >= 80 (PASS) |
 | FIXING | nposts-seo-fixer | Corrections appliquees, JSON-LD injecte |
 | PUBLISHING | nposts-seo-fixer | Branche + PR creees |
@@ -47,8 +49,11 @@ Consulter `references/pipeline-state-machine.md` pour la definition complete.
 ```
 INIT → GENERATING          : toujours
 GENERATING → HUMANIZING    : contenu produit
-HUMANIZING → GATE_1        : humanisation complete
-GATE_1 → GATE_2            : verdict == PASS (score >= 70)
+HUMANIZING → GATE_1_5      : humanisation complete
+GATE_1_5 → GATE_1          : verdict == PASS (score >= 75)
+GATE_1_5 → HUMANIZING      : verdict == FAIL-FIXABLE && iteration < 2
+GATE_1_5 → BLOCKED         : verdict == FAIL-REWRITE || iteration >= 2
+GATE_1 → GATE_2            : verdict == PASS (score >= 75 ET terrain >= 80)
 GATE_1 → HUMANIZING        : verdict == REVISE && iteration < 3
 GATE_1 → BLOCKED           : verdict == REJECT || iteration >= 3
 GATE_2 → FIXING            : verdict == PASS (score >= 80)

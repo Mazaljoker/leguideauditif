@@ -68,3 +68,105 @@ Les blocs sont obligatoires MAIS leur forme, position et intensite DOIVENT varie
 ## Score de non-interchangeabilite
 
 Minimum 3 elements par article impossibles a retrouver sur vivason.fr ou audika.fr.
+
+---
+
+## DIFFERENCIATION AVANCEE — ANTI-IA v2
+
+### 1. Desoptimisation volon taire (micro-imperfections naturelles)
+
+Un texte trop propre = texte IA. Introduire des imperfections CONTROLEES :
+
+- **Repetition legere naturelle** : reprendre un mot-cle une fois de trop, comme a l'oral ("l'adaptation, oui, l'adaptation prend du temps")
+- **Phrase pas parfaitement equilibree** : une subordonnee qui traine, un tiret qui coupe
+- **Mini-digression** : 1-2 phrases hors sujet direct qui revelent le vecu ("ca me rappelle un patient qui...")
+- **Rythme casse** : apres 3 phrases longues, une phrase de 4 mots. Apres une enumeration, une rupture.
+
+REGLE : minimum 2 micro-imperfections par section de 300 mots.
+
+### 2. Friction cognitive (tensions et limites)
+
+Google valorise les contenus qui montrent la complexite reelle. Chaque section DOIT contenir :
+
+- **1 tension ou contradiction** : "On recommande X, mais dans certains cas X aggrave le probleme"
+- **1 nuance clinique** : "Ca depend de votre perte — une presbyacousie legere, ce n'est pas la meme chose qu'une surdite mixte"
+- **1 limite avouee** : "Aucun appareil ne restaure une audition normale. Point."
+
+INTERDIT : article ou section 100% positif sans friction.
+
+### 3. Signature personnelle Franck-Olivier
+
+Patterns propres qui creent une empreinte reconnaissable :
+
+**Phrases signature (utiliser 3-5 par article, varier)** :
+- "Ce que je vois tous les jours en cabinet..."
+- "Erreur classique."
+- "Je vais etre direct :"
+- "En 28 ans, j'ai appris une chose..."
+- "La question que mes patients me posent le plus souvent..."
+- "Je deconseille. Et je vais vous expliquer pourquoi."
+- "C'est la que ca se complique."
+
+**Ton expert-patient (PAS copywriter-lecteur)** :
+- Parler comme en consultation, pas comme dans une brochure
+- Utiliser "je" quand c'est un avis, "vous" quand c'est une action
+- Phrases courtes pour les verdicts, longues pour les explications
+
+### 4. Interdictions anti-generique renforcees
+
+INTERDIT dans tout contenu :
+- "objectif simple"
+- "ce guide va vous..."
+- "il est important de"
+- "n'hesitez pas"
+- "dans cet article, nous allons..."
+- "vous l'aurez compris"
+- "en conclusion" (remplacer par une vraie derniere phrase)
+- toute phrase generique interchangeable d'un site a l'autre
+
+### 5. Test final anti-IA
+
+Avant envoi au humanizer, poser ces 3 questions :
+
+1. **Test du redacteur** : "Un redacteur SEO sans expertise auditive pourrait-il ecrire ce paragraphe ?" Si OUI -> reecrire.
+2. **Test du site concurrent** : "Ce paragraphe pourrait-il apparaitre sur audika.fr ou vivason.fr ?" Si OUI -> reecrire.
+3. **Test de la signature** : "Si on enleve le nom de l'auteur, sait-on que c'est un audioprothesiste qui parle ?" Si NON -> ajouter du vecu.
+
+### 6. Chaos controle (CRITIQUE pour A+)
+
+Le systeme est tres structure. Google detecte les patterns repetitifs INTER-ARTICLES.
+Pour etre imprevisible, appliquer ces regles de variabilite :
+
+**Regle du tiers imprevisible** : 1 article sur 3 DOIT volontairement casser le cadre.
+
+Exemples de cassures autorisees :
+- Une section sans structure claire — juste un paragraphe long, comme une reflexion a voix haute
+- Une anecdote longue (8-12 phrases) non optimisee SEO, brute, personnelle
+- Une reponse directe sans H2 (question -> reponse en 2 phrases -> explication ensuite)
+- Une repetition assumee sur 2 paragraphes (le meme point vu sous 2 angles)
+- Un article volontairement plus court que les autres (800-1000 mots au lieu de 1500+)
+- Un article sans FAQ, sans schema Product — juste un article de fond
+
+**Regle de la profondeur variable** :
+- Article 1 : dense, tres technique, 7 blocs terrain
+- Article 2 : plus personnel, 4-5 blocs terrain seulement, ton plus libre
+- Article 3 : structure classique
+- NE JAMAIS faire 3 articles consecutifs avec la meme densite terrain
+
+**Regle de l'irregularite structurelle** :
+- Varier le nombre de H2 (parfois 3, parfois 8)
+- Varier la longueur des sections (une section de 50 mots suivie d'une de 400)
+- Placer les blocs terrain a des endroits differents (erreur en intro, erreur en conclusion, erreur dans FAQ)
+- NE JAMAIS commencer 2 articles consecutifs de la meme facon
+
+**Objectif** : un humain qui lirait 5 articles ne devrait PAS pouvoir deviner le "template".
+
+### 7. Degradation SEO volontaire (1 article sur 4)
+
+Pour casser les patterns site-wide, 1 article sur 4 doit etre volontairement :
+- Moins optimise techniquement (pas de keyword dans chaque H2)
+- Plus brut / plus personnel (ton "billet d'humeur expert")
+- Structure libre (pas de FAQ, pas de tableau comparatif)
+- Mais TOUJOURS avec le vecu terrain et les sources
+
+Pourquoi : Google surveille la regularite site-wide. Un site ou TOUS les articles sont "parfaitement optimises" est suspect. L'irregularite naturelle est un signal de confiance.

@@ -107,6 +107,17 @@ Schema : {type} | FAQPage
 - **Non-genericite** : si un paragraphe pourrait etre sur Wikipedia, le reecrire.
 - **Test de realite** : "Un vrai audioprothesiste dirait ca comme ca ?" Si non, reecrire.
 
+## ANTI-IA AVANCE (v2 — obligatoire)
+
+Voir `references/terrain-framework.md` section "DIFFERENCIATION AVANCEE" pour le detail complet.
+
+Regles cles :
+1. **Desoptimisation** : min 2 micro-imperfections par 300 mots (repetition legere, digression, rythme casse)
+2. **Friction cognitive** : 1 tension + 1 nuance + 1 limite par section
+3. **Signature Franck** : 3-5 phrases signature par article ("Ce que je vois tous les jours...", "Erreur classique.", "Je vais etre direct :")
+4. **Interdictions** : "objectif simple", "ce guide va vous...", "n'hesitez pas", "vous l'aurez compris"
+5. **Triple test** : redacteur SEO / site concurrent / signature — les 3 doivent echouer
+
 ## NOTION
 
 Tracker dans la base editoriale LGA : slug, type, terrain_checklist scores, date.
