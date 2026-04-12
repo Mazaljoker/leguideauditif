@@ -1,6 +1,12 @@
 {
   "redirects": [
     {
+      "source": "/:path(.*)",
+      "has": [{ "type": "host", "value": "www.leguideauditif.fr" }],
+      "destination": "https://leguideauditif.fr/:path",
+      "permanent": true
+    },
+    {
       "source": "/guides/perte-auditive/audiogramme/",
       "destination": "/guides/audiogramme/",
       "permanent": true
