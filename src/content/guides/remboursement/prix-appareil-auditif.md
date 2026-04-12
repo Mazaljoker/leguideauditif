@@ -4,7 +4,7 @@ metaDescription: "Prix appareils auditifs 2026 : Classe 1 des 0 euro, Classe 2 d
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 image: /images/blog/prix-appareil-auditif/prix-appareil-auditif.webp
@@ -247,6 +247,14 @@ La loi vous autorise à consulter plusieurs audioprothésistes et à comparer le
 ### 5. Penser au renouvellement
 
 Le délai légal de renouvellement est de 4 ans. Si vos appareils actuels fonctionnent encore mais sont dépassés technologiquement, vérifiez que vous êtes bien dans les délais pour bénéficier d'une nouvelle prise en charge complète.
+
+## Ce que Martial a compris que personne ne lui avait expliqué
+
+Martial, 62 ans, directeur régional d'une enseigne de bricolage, est venu me consulter avec une liste de modèles imprimée sur trois pages. Il avait tout comparé : prix, nombre de canaux, indices IP, applications, avis en ligne. Il voulait « le meilleur ». Je lui ai posé ma première question habituelle : dans quelles situations entendez-vous mal en priorité ? Sa réponse : « En réunion. On est huit autour d'une table, les gens parlent vite. »
+
+Je lui ai présenté deux appareils. Le premier à 1 800 euros avec 48 canaux, IA embarquée, Bluetooth binaural. Le second à 1 100 euros, milieu de gamme, directionnalité adaptive correcte. Je les lui ai fait essayer dans mon espace de démonstration avec fond sonore de réunion. Sa surprise : il ne distinguait pas les deux. La différence se jouait sur des paramètres que sa perte modérée ne mobilisait pas encore.
+
+Il est reparti avec le milieu de gamme. Son reste à charge : 280 euros après mutuelle. Six mois plus tard, au suivi, il m'a dit : « Je suis à nouveau le premier à comprendre les blagues en réunion. » Le budget n'était pas l'enjeu. L'adéquation entre l'appareil et la perte, si.
 
 ## Mon verdict : recommandation, rejet et nuance
 

@@ -5,7 +5,7 @@ metaDescription: "Appareil auditif rechargeable ou a piles ? Limites batterie, c
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 10
@@ -127,6 +127,10 @@ Mme Garnier (le prénom est modifié) portait des appareils à piles 312 depuis 
 
 **Leçon.** Le choix entre rechargeable et piles n'est pas technologique — il est fonctionnel. Pour Mme Garnier, le rechargeable n'était pas un confort. C'était une condition de port quotidien. Si elle était restée aux piles, elle aurait continué à porter ses appareils de manière intermittente, avec tous les effets négatifs sur la rééducation auditive.
 
+## Monique, 65 ans : le chargeur oublié à la résidence secondaire
+
+Monique est retraitée, elle partage son temps entre son appartement en ville et une maison à la campagne. Elle avait opté pour le rechargeable — bon choix en théorie, profil sédentaire, dextérité correcte. Le problème s'est posé lors de son premier séjour de dix jours à la campagne : elle avait laissé le chargeur sur la table de nuit en ville. Après deux jours, ses appareils étaient déchargés. Elle a appelé le centre en catastrophe. On a pu lui faire parvenir un chargeur de prêt par courrier express, mais elle a quand même passé une journée sans appareils. Depuis, elle a un chargeur dans chaque résidence. Cela semble évident après coup. Mais personne ne lui avait posé la question lors du choix de l'appareil. C'est exactement ce type de détail pratique qui distingue un accompagnement sérieux d'une simple remise d'appareils.
+
 ## Les limites du rechargeable que vous devez connaître
 
 ### La dégradation de la batterie est inévitable
@@ -165,7 +169,11 @@ Le rechargeable coûte 100 à 200 euros de plus par oreille que la version piles
 | **Disponibilité en urgence** | Pile en pharmacie en 5 minutes | Charge nécessaire (ou chargeur portable) |
 | **Longévité de l'alimentation** | Stable dans le temps | Dégradation après 3-4 ans |
 
+**Vous renouvelez vos appareils dans les prochains mois ?** C'est le bon moment pour réévaluer votre choix d'alimentation. Si vous avez eu des difficultés avec les piles — manipulation, oublis, piles mortes en déplacement — le passage au rechargeable peut changer votre quotidien. [Consultez notre guide complet sur le remboursement](/guides/remboursement/) pour comprendre ce qui est pris en charge.
+
 ## Mes prises de position — elles ne font pas consensus
+
+**Ce que personne ne dit assez clairement : 80 % des patients choisissent le rechargeable parce que c'est la norme présentée en cabinet, pas parce qu'on a évalué leur situation précise.** Ce n'est pas toujours une erreur — mais c'est rarement une décision éclairée. Poser les quatre questions que j'utilise en cabinet prend cinq minutes. Cela évite des mois de frustration.
 
 ### Le rechargeable est le bon choix par défaut, pas le choix automatique
 

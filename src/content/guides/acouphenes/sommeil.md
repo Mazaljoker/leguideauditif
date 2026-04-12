@@ -4,7 +4,7 @@ metaDescription: "Acouphenes et insomnie : strategies pour retrouver le sommeil.
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
@@ -87,6 +87,14 @@ L'enrichissement sonore ne compense pas des habitudes de sommeil dégradées. Ce
 
 **Écrans** : arrêt une heure avant le coucher. Pour un patient acouphénique, c'est encore plus critique que pour la population générale. Chaque minute supplémentaire d'éveil dans le lit est une minute supplémentaire passée à écouter l'acouphène dans le silence. Le calcul est simple : si la lumière bleue retarde votre endormissement de 45 minutes, ce sont 45 minutes de sifflement amplifié par le silence nocturne.
 
+### Micro-digression : Damien, 50 ans, graphiste indépendant
+
+Damien travaille seul chez lui depuis dix ans. Bureau silencieux, horaires décalés, pas de télévision en fond. Il a développé un acouphène unilatéral droit il y a dix-huit mois — sifflement aigu discret en journée, insupportable dès minuit. Quand il m'a consulté, il avait testé sept applications différentes de bruit blanc, aucune ne l'aidait à s'endormir. Le problème n'était pas le choix du son. C'était le volume : il montait systématiquement jusqu'à ne plus entendre l'acouphène, croyant que c'était l'objectif.
+
+En une séance, j'ai recalibré le réglage : un bruit rose à 34 dB — il entendait encore son sifflement, mais en arrière-plan. Résultat dès la première semaine : endormissement en quarante minutes au lieu de deux heures et demie. Ce n'est pas la technologie qui avait changé. C'était la compréhension du principe.
+
+Ce cas illustre quelque chose d'important : la thérapie sonore nocturne est contre-intuitive. Elle ne doit pas faire disparaître l'acouphène — elle doit le noyer dans un contexte sonore qui en réduit le contraste. Beaucoup de patients ratent cela d'un souffle de volume.
+
 ### Étape 3 : la TCC-I quand l'insomnie est installée
 
 Si les étapes 1 et 2 ne suffisent pas après trois à quatre semaines, c'est le moment d'orienter vers la TCC de l'insomnie (TCC-I). La Haute Autorité de Santé la recommande comme traitement de première intention de l'insomnie chronique. La méta-analyse de Schoisswohl et al. publiée dans JAMA Otolaryngology en 2023 confirme l'efficacité de la TCC sur la détresse liée aux acouphènes, avec un effet maintenu à long terme.
@@ -124,6 +132,12 @@ Ce que nous avons mis en place :
 4. Deuxième suivi à J+30 : endormissement en vingt minutes. Réveils nocturnes réduits de quatre à un. Troisième suivi à J+90 : Mme R. qualifie son sommeil de "correct." Pas parfait — elle entend encore ses acouphènes en s'endormant. Mais ils ne la réveillent plus. Le sifflement est toujours là. La souffrance, elle, a diminué de 80 % sur l'échelle THI.
 
 Ce cas illustre un point essentiel : il n'y a pas de solution unique. C'est la combinaison appareillage + enrichissement nocturne + TCC-I + suivi qui a fonctionné. Retirer un seul élément, et le résultat aurait été différent.
+
+## Contradiction heuristique : dormir moins peut améliorer votre nuit suivante
+
+La restriction de sommeil — réduire volontairement le temps passé au lit pour augmenter la pression de sommeil — est la technique la plus paradoxale de la TCC-I. Elle fait peur parce qu'elle semble aggraver le problème à court terme. Elle est pourtant l'une des plus efficaces. Quand vous êtes acouphénique et insomniaque, votre lit est devenu un lieu d'angoisse. Passer sept heures couché sans dormir, à écouter votre sifflement dans le silence, aggrave la relation pavlovienne entre le lit et l'éveil. La restriction force votre cerveau à réassocier le lit au sommeil profond — parce que vous n'y allez que lorsque la somnolence est intense. Les premières nuits sont pénibles. Les nuits suivantes sont transformées.
+
+Si vous êtes en dette de sommeil chronique depuis plusieurs mois, ne cherchez pas à récupérer tout d'un coup. Demandez une orientation vers un psychologue formé à la TCC-I — cette technique ne s'improvise pas.
 
 ## Les limites honnêtes de ce protocole
 

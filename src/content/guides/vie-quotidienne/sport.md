@@ -4,7 +4,7 @@ metaDescription: "Sport avec un appareil auditif : natation, course, vélo, ski.
 cluster: vie-quotidienne
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 7
@@ -104,9 +104,17 @@ Les appareils auditifs modernes proposent des programmes spécifiques que votre 
 
 Demandez à votre audioprothésiste de créer ou d'ajuster ces programmes en fonction de vos pratiques sportives. Chaque activité a ses particularités sonores, et un réglage personnalisé fait toute la différence. C'est un ajustement de dix minutes lors d'un rendez-vous de suivi -- et c'est inclus dans votre prise en charge.
 
+## Ce que Sylvie avait résolu toute seule -- sans le savoir
+
+Sylvie, 69 ans, ancienne kinésithérapeute, pratique le vélo de randonnée plusieurs fois par semaine. Elle m'a dit au suivi de six mois : « J'ai trouvé une astuce -- je mets mon bandeau de sport sous le casque et ça tient impeccable, plus aucun sifflement. » Elle avait découvert seule ce que je recommande à tous mes patients cyclistes : le bandeau absorbe la transpiration des tempes et maintient les contours en place, éliminant le micro-espace entre l'appareil et le conduit qui génère le Larsen au vent. Parfois, les meilleurs conseils viennent du terrain, pas du cabinet.
+
+Ce cas illustre quelque chose d'important : vos retours d'expérience ont une valeur clinique réelle. Quand vous trouvez une astuce qui fonctionne, signalez-la à votre audioprothésiste. Il peut l'intégrer à ses recommandations pour d'autres patients dans la même situation.
+
 ## Ce qu'il faut retenir
 
 Le sport et les appareils auditifs sont compatibles dans la grande majorité des cas. Les deux seules situations qui imposent le retrait sont les sports aquatiques (immersion) et les sports de contact violent (risque de choc). Pour tout le reste -- marche, course, vélo, golf, gym, yoga, ski -- gardez vos appareils, équipez-vous d'un clip de rétention et séchez-les correctement après l'effort.
+
+L'idée que les appareils auditifs sont fragiles et doivent être protégés à tout prix conduit à l'erreur inverse : les retirer trop souvent, précisément quand ils sont les plus utiles. Un appareil correctement entretenu supporte une vie active sans problème. C'est l'inactivité -- les jours sans port -- qui nuit davantage à son utilisateur que quelques séances de vélo ou de randonnée.
 
 Rester actif est essentiel pour votre santé globale, surtout après 65 ans. L'OMS recommande au moins 150 minutes d'activité physique modérée par semaine pour les seniors. Vos appareils auditifs sont là pour vous accompagner dans cette démarche, pas pour vous freiner. En 28 ans, je n'ai jamais eu un patient qui a dû arrêter le sport à cause de ses appareils. J'en ai eu beaucoup qui ont repris le sport grâce à eux -- parce qu'ils entendaient de nouveau le coach, le partenaire, l'environnement.
 

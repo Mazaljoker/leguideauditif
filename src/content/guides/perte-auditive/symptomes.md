@@ -4,7 +4,7 @@ metaDescription: "7 signes de perte auditive : difficulte a entendre, TV trop fo
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 image: /images/blog/symptomes/symptomes.webp
@@ -165,6 +165,14 @@ Quand je lui ai fait ecouter un enregistrement de parole a son niveau de perte s
 
 Trois mois apres l'appareillage, Philippe m'a dit une phrase que j'entends souvent : "Je ne savais pas que les oiseaux chantaient encore dans mon jardin." Ce n'est pas une anecdote isolee. C'est le quotidien de mes consultations.
 
+## Ce que Colette m'a appris sur la compensation invisible
+
+Colette, 74 ans, ancienne comptable, m'a consulté il y a deux ans dans un contexte particulier : ce n'est pas elle qui avait pris rendez-vous, c'est son cardiologue. Lors d'une visite de routine, il lui avait demandé si elle entendait bien. Elle avait répondu "oui, très bien." Mais le médecin avait remarqué qu'elle attendait systématiquement de voir ses lèvres bouger avant de répondre à ses questions. Détail imperceptible. Lui l'avait noté.
+
+Son audiogramme : perte bilatérale de 50 dB sur les fréquences conversationnelles. Depuis combien de temps ? "Je ne sais pas. Peut-être cinq ans. Peut-être plus." Elle compensait si naturellement --- en lisant sur les lèvres, en demandant aux gens de se rapprocher, en évitant les conversations difficiles --- qu'elle ne se rendait plus compte de l'étendue de sa perte.
+
+Ce que ce cas m'a enseigné : les symptômes les plus révélateurs ne sont pas toujours ceux que le patient ressent. Ce sont ceux que les autres observent. Votre médecin traitant, votre cardiologue, votre pharmacien --- n'importe quel professionnel de santé qui vous voit régulièrement peut repérer des signes que vous avez cessé de voir. Si l'un d'eux mentionne votre audition, prenez-le au sérieux, même si vous êtes convaincu d'entendre correctement.
+
 ## Ce que les symptômes seuls ne vous disent pas
 
 Je tiens à être clair sur les limites de l'auto-évaluation, même avec cette liste de symptômes.
@@ -210,6 +218,8 @@ Si vous vous êtes reconnu dans plusieurs des symptômes décrits ci-dessus, voi
 **Étape 2 : Le bilan ORL.** L'ORL réalise un audiogramme, un examen indolore qui dure environ 20 minutes. Cet examen mesure votre capacité à percevoir les sons à différentes fréquences et intensités. Il est pris en charge par l'Assurance maladie.
 
 **Étape 3 : L'appareillage si nécessaire.** Si une perte auditive est confirmée, l'ORL vous délivre une ordonnance pour un appareillage. Vous pouvez alors consulter un audioprothésiste pour un essai d'aides auditives. Le [remboursement par la Sécurité sociale et votre mutuelle](/guides/remboursement/) est aujourd'hui bien encadré, notamment grâce au dispositif 100 % Santé (BRSS 400 &euro;, base Sécu 240 &euro;).
+
+Vous vous reconnaissez dans deux ou trois symptômes de cette liste ? Ne passez pas à autre chose. Un [bilan auditif gratuit](/guides/prevention/bilan-auditif-gratuit/) chez un audioprothésiste ne prend pas 30 minutes et peut changer votre quotidien pour les vingt prochaines années.
 
 **Ne tardez pas.** Plus une perte auditive est prise en charge tôt, meilleurs sont les résultats. Le cerveau s'adapte mieux aux aides auditives lorsque la privation sensorielle est de courte durée.
 

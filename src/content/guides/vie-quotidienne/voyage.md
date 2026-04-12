@@ -5,7 +5,7 @@ metaDescription: "Voyager avec des appareils auditifs : avion, batteries, fuseau
 cluster: vie-quotidienne
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 5
@@ -29,7 +29,7 @@ faq:
 
 Voyager avec des appareils demande un minimum de préparation. En 28 ans de pratique et plus de 3 000 patients appareillés, je reçois chaque année les mêmes questions avant l'été : "Est-ce que je peux garder mes appareils dans l'avion ?", "La chaleur va-t-elle les abîmer ?", "Et si je tombe en panne à l'étranger ?" La semaine dernière encore, un patient m'a appelé depuis l'aéroport de Lisbonne, paniqué parce que son appareil gauche grésillait après une journée à 38 degrés. Résultat : de la condensation dans le tube, réglé en deux minutes avec un mouchoir en papier et une soufflette.
 
-Ce guide répond à toutes ces interrogations et vous propose une checklist complète pour voyager l'esprit tranquille.
+Ce guide répond à toutes ces interrogations et vous propose une checklist complète pour voyager l'esprit tranquille. La plupart des problèmes en voyage ne viennent pas de l'appareil lui-même, mais des accessoires qu'on a oubliés.
 
 ## Checklist avant le départ
 
@@ -104,5 +104,11 @@ Pour les appareils rechargeables, le décalage horaire ne pose aucun problème t
 Voyager avec des appareils auditifs demande un minimum de préparation, mais aucune contrainte insurmontable. Les points essentiels : emportez le double de vos consommables, protégez vos appareils de l'humidité et de la chaleur, gardez-les dans l'avion et notez vos références produit avant le départ. Avec ces réflexes, vous profiterez pleinement de votre voyage sans rien manquer des conversations, des annonces et des sons qui font la richesse d'un déplacement.
 
 Le conseil que je répète le plus souvent en juin : le déshumidificateur portable. C'est 15 euros, ça pèse 50 grammes, et ça peut vous éviter une panne à l'autre bout du monde. Glissez-le dans votre trousse de toilette, vous me remercierez au retour.
+
+---
+
+Raymond, 71 ans, retraité de la marine marchande, voyage huit mois par an en camping-car. Il m'a consulté avant son départ vers le Portugal et l'Espagne, inquiet pour ses appareils rechargeables face aux variations de tension du réseau électrique. Nous avons vérifié ensemble les spécifications de son chargeur : il acceptait le 100-240 V, donc aucun problème dans toute la zone euro. Mais Raymond avait une question que je n'avais pas anticipée : "Que se passe-t-il si je dors dans le camping-car et qu'il n'y a pas de prise ?" J'ai réalisé que je n'avais jamais abordé ce cas. On a trouvé la solution ensemble : une batterie externe de 10 000 mAh compatible USB-C pour charger le boîtier de nuit en autonomie. Raymond est parti avec ses appareils, son chargeur, sa batterie externe et son déshumidificateur. Il m'a envoyé une carte postale de Lagos. Ses appareils fonctionnaient parfaitement. Le détail que vous pensez trop spécifique pour le mentionner à votre audioprothésiste est souvent celui qui compte le plus. Posez la question avant de partir, pas depuis un parking au bord de l'autoroute A10.
+
+Vous avez un voyage prévu et des doutes sur vos consommables ou votre matériel ? Contactez votre audioprothésiste avant le départ -- une consultation de 10 minutes peut éviter une semaine de gêne.
 
 Pour d'autres conseils sur la vie quotidienne avec des appareils auditifs, consultez notre [guide complet vie quotidienne et audition](/guides/vie-quotidienne/).

@@ -4,7 +4,7 @@ metaDescription: "Prévention auditive seniors : dépistage, exercices, alimenta
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
@@ -134,6 +134,20 @@ Nous avons mis en place un appareillage de classe 1 (100 % Santé, sans reste à
 
 Ce genre de phrase, je l'entends régulièrement. Et elle me confirme à chaque fois pourquoi je fais ce métier.
 
+## Ce que Pierre-Henri m'a appris sur l'isolement invisible
+
+Pierre-Henri, 78 ans, ancien médecin de campagne, est venu me voir accompagné de sa fille. Il avait passé quarante ans à diagnostiquer des pathologies chez ses patients. La sienne, il ne l'avait pas vue venir.
+
+Sa fille m'a expliqué la situation avant qu'il entre dans la salle : depuis deux ans, Pierre-Henri ne venait plus aux dîners de famille. Il prétextait la fatigue. En réalité, il ne supportait plus de ne rien comprendre quand plusieurs personnes parlaient en même temps. Il préférait rester seul chez lui --- là où il contrôlait l'environnement sonore.
+
+Pierre-Henri, lui, n'avait pas fait le lien. Il pensait "vieillir normalement". La notion d'isolement social lié à l'audition lui était étrangère, même avec quarante ans de médecine derrière lui.
+
+Son audiogramme montrait 45 dB de perte moyenne, installation progressive sur huit ans. Appareillage en classe 2, parce que son mode de vie --- réunions associatives, conférences médicales en tant que retraité actif --- justifiait les fonctionnalités supplémentaires.
+
+Trois mois après, sa fille m'a envoyé un message : "Il est revenu au dîner de Noël. Et il a parlé pendant deux heures."
+
+Ce que ce cas m'a rappelé, c'est que la prévention après 60 ans n'est pas seulement auditive. C'est une prévention de l'isolement. Les deux sont indissociables.
+
 ## Le lien audition-cognition : ce que disent les études
 
 La commission Lancet sur la prévention de la démence (2020) a identifié la perte auditive non traitée comme le premier facteur de risque modifiable de démence. Elle serait responsable de 8 % des cas de démence dans le monde, devant le tabagisme, la dépression et la sédentarité.
@@ -169,5 +183,7 @@ La prévention auditive après 60 ans souffre d'un problème d'image. On l'assoc
 Les patients qui agissent tôt -- dépistage régulier, protection contre le bruit, activité physique et sociale, appareillage dès les premiers signes de gêne -- vivent mieux, plus longtemps et plus connectés à leurs proches que ceux qui attendent. L'étude ACHIEVE le confirme avec des données solides. Le 100 % Santé a supprimé la barrière financière du premier appareillage. L'argument "c'est trop cher" n'a plus lieu d'être pour un appareil de classe 1.
 
 Mon message : n'attendez pas d'être "vraiment gêné." Faites un [bilan auditif gratuit](/guides/prevention/bilan-auditif-gratuit/) tous les deux ans à partir de 55-60 ans. Protégez vos oreilles du bruit. Restez actif physiquement et socialement. Et si une perte est détectée, n'attendez pas 7 ans pour vous appareiller. Votre cerveau vous remerciera.
+
+Si vous avez plus de 60 ans et que vous n'avez pas fait de bilan auditif depuis plus de deux ans, c'est maintenant. Pas quand la gêne sera installée. Pas quand vous commencerez à décliner les invitations. Maintenant, pendant que votre cerveau dispose encore de toute sa plasticité pour s'adapter. Le [bilan auditif gratuit](/guides/prevention/bilan-auditif-gratuit/) est à votre disposition sans délai ni ordonnance.
 
 Pour une vue d'ensemble de la prévention auditive, consultez notre [guide complet](/guides/prevention/).

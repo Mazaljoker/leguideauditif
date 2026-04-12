@@ -4,7 +4,7 @@ metaDescription: "Surdite brusque : consulter un ORL dans les 48h. Symptomes, er
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
@@ -167,6 +167,18 @@ Je refuse de vous donner un discours rassurant qui ne correspond pas à la réal
 
 **Deuxième limite : certaines surdités brusques ne sont pas réversibles.** Quand la perte initiale est sévère (supérieure à 70 dB), quand des vertiges sont associés, quand le patient a plus de 65 ans -- les chances de récupération complète diminuent significativement. Il faut le dire clairement, pas pour décourager, mais pour que les attentes soient réalistes. Un patient qui s'attend à une guérison totale et qui garde une perte de 40 dB vit un deuxième traumatisme.
 
+## Ce que personne ne vous dit sur les premières heures
+
+Claudine, 64 ans, retraitée de la fonction publique, m'a appelé un dimanche matin à 9h. Elle avait perdu l'audition de l'oreille droite dans la nuit. Elle s'était réveillée à 3h avec un sifflement intense, avait attendu que "ça passe", et m'appelait six heures plus tard parce que rien n'avait changé.
+
+Six heures. C'est six heures de fenêtre thérapeutique déjà entamée.
+
+Je lui ai demandé une chose : où était son téléphone. Elle l'a mis sur l'oreille droite. Silence total. J'ai appelé immédiatement l'ORL de garde. Rendez-vous obtenu dans l'heure. Corticothérapie démarrée avant midi.
+
+Ce qui m'a frappé dans son cas, c'est la phrase qu'elle a dite au téléphone : "Je ne voulais pas déranger un dimanche." Cette politesse, cette réticence à "faire de l'histoire" pour une oreille --- c'est elle qui coûte des auditions. La surdité brusque est l'une des seules urgences médicales en audiologie où l'attitude du patient dans les premières heures change mesurable le pronostic. Votre gêne à "déranger" ne vaut pas six mois d'acouphènes chroniques.
+
+À J+21, Claudine avait récupéré 80 % de son audition initiale. Elle s'en est bien sortie. Mais j'y pense encore, à ces six heures perdues.
+
 ## Deux positions que je défends en tant que professionnel de terrain
 
 ### Position 1 : l'audioprothésiste doit être un maillon de la chaîne d'urgence
@@ -202,5 +214,7 @@ Après 28 ans et des dizaines de patients concernés par la surdité brusque, vo
 La surdité brusque est l'une des rares situations en audiologie où le facteur temps fait une différence mesurable et documentée sur le pronostic. Ce n'est pas comme la presbyacousie, qui évolue lentement et laisse le temps de la réflexion. Ici, chaque jour compte.
 
 Mon rôle en tant qu'audioprothésiste n'est pas de traiter cette urgence -- c'est le domaine de l'ORL. Mon rôle est triple : orienter rapidement vers le bon spécialiste, accompagner le patient dans l'après (appareillage si nécessaire, gestion des acouphènes), et informer le grand public pour que le réflexe de consultation en urgence devienne aussi naturel que celui d'appeler le 15 pour une douleur thoracique.
+
+Vous connaissez maintenant les signes. Partagez ce guide avec un proche : la probabilité qu'il soit concerné un jour est plus élevée que vous ne le pensez, et les mots "urgence ORL dans les 48 heures" peuvent sauver une oreille.
 
 Si vous retenez une seule chose de cet article : une perte auditive soudaine d'une oreille, avec ou sans acouphène, avec ou sans vertige, c'est un ORL dans les 48 heures. Pas demain. Pas la semaine prochaine. Aujourd'hui.

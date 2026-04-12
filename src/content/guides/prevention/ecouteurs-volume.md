@@ -4,7 +4,7 @@ metaDescription: "Écouteurs et audition : règle 60/60, volume, casque ANC. Con
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
@@ -138,6 +138,18 @@ Je tiens à être transparent sur les limites de ces conseils.
 - **Les mesures de volume affichées par les smartphones sont approximatives.** Elles dépendent de l'impédance des écouteurs et ne reflètent pas toujours le niveau réel au tympan. Seule une mesure in situ (en cabinet) donne une valeur fiable.
 - **Je ne peux pas diagnostiquer à distance.** Si vous avez des acouphènes persistants ou une sensation de perte auditive, un bilan en cabinet est indispensable. Aucun article ne remplace une audiométrie.
 
+## La visite que je n'oublierai pas de sitôt
+
+Théo, 19 ans, étudiant en BTS, est venu avec sa mère. Lui pensait que c'était inutile. Elle avait insisté parce qu'il mettait ses écouteurs dès le réveil et les retirait juste avant de dormir --- parfois douze heures par jour. Il m'a dit, avant même que j'aie ouvert son dossier : "De toute façon, je n'ai pas encore de problème."
+
+Son audiogramme tonal standard était effectivement normal. J'ai ajouté le test en haute fréquence, jusqu'à 16 000 Hz. À 14 000 Hz : effondrement de 35 dB bilatéral. Les fréquences ultra-aiguës --- celles que le test standard ne couvre pas, celles que vous ne remarquez pas encore --- étaient déjà endommagées.
+
+J'ai montré la courbe à Théo. Puis je lui ai expliqué : ces fréquences ne reviennent pas. Elles ne sont pas "en dehors du champ conversationnel" comme le dirait un audiogramme classique --- elles sont le premier étage de la dégradation. Dans dix ans, si le comportement ne change pas, c'est à 8 000 Hz que la courbe s'effondrera. Et là, ce seront les consonnes de la parole qui commenceront à disparaître.
+
+Théo a regardé la courbe longtemps. Puis il a dit : "Personne ne m'avait jamais montré ça." Non. Parce que le test standard ne le cherche pas. Et parce que quand on a 19 ans et qu'on n'a "pas encore de problème", on ne consulte pas.
+
+C'est le paradoxe de la prévention auditive chez les jeunes : le dommage existe avant le symptôme. Toujours.
+
 ## Ma position d'expert sur le sujet
 
 Après 28 ans de pratique, voici ce que je pense vraiment de cette question.
@@ -147,5 +159,7 @@ Les fabricants d'écouteurs font un travail remarquable sur la qualité sonore e
 La responsabilité est partagée : les fabricants pourraient imposer des limites plus strictes par défaut, les pouvoirs publics pourraient renforcer la réglementation (la norme européenne EN 50332 date de 2013 et mériterait une mise à jour), et les utilisateurs doivent prendre conscience que le capital auditif est un capital non renouvelable. On ne régénère pas des cellules ciliées.
 
 Mon message est simple : la musique au casque n'est pas dangereuse. C'est le volume et la durée qui le sont. Si vous retenez une seule chose de cet article, retenez la règle 60/60. Et si vous avez le moindre doute, un [bilan auditif](/guides/prevention/bilan-auditif-gratuit/) chez un audioprothésiste est gratuit et sans engagement. Plus une perte est détectée tôt, mieux elle se prend en charge.
+
+Si vous portez des écouteurs plus de deux heures par jour, faites faire un test en haute fréquence (jusqu'à 16 000 Hz) lors de votre prochain bilan --- demandez-le explicitement, il n'est pas toujours inclus par défaut. C'est le seul moyen de voir venir les dommages avant qu'ils n'atteignent les fréquences conversationnelles. Le [bilan auditif gratuit](/guides/prevention/bilan-auditif-gratuit/) chez un audioprothésiste reste le point de départ.
 
 Pour une approche globale de la prévention, retrouvez notre [guide complet de la prévention auditive](/guides/prevention/).

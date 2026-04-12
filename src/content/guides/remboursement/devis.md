@@ -5,7 +5,7 @@ metaDescription: "Lire et comparer un devis audioprothesiste : lignes obligatoir
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
@@ -145,6 +145,14 @@ Quand un patient me montre un devis concurrent, voici exactement ce que je véri
 
 **Mon conseil** : demandez au minimum deux devis avant de vous engager. Prenez le temps de les lire chez vous, au calme. Un audioprothésiste sérieux ne vous mettra jamais la pression pour signer sur place.
 
+## Ce que Nathalie a découvert en comparant deux devis
+
+Nathalie, 64 ans, ancienne infirmière coordinatrice, avait reçu deux devis pour le même appareil Signia IX 7 : 1 450 euros dans un centre commercial, 1 390 euros dans un cabinet indépendant. Elle est venue me demander lequel choisir.
+
+Je lui ai montré les lignes une par une. Le premier devis incluait un embout sur mesure et une assurance perte et casse sur 4 ans. Le second n'incluait ni l'un ni l'autre. En rajoutant ces options au devis le moins cher, le total passait à 1 560 euros. Ce n'était pas le devis le moins cher. C'était le devis le moins lisible.
+
+Le devis normalisé est fait pour que vous puissiez comparer ligne à ligne. Si un devis ne détaille pas ses inclusions, demandez une clarification avant de signer. Tout ce qui n'est pas écrit n'est pas garanti.
+
 ## Les pièges à éviter
 
 En 28 ans de métier, j'ai vu des patients surpris par des frais qu'ils pensaient inclus. Les situations à surveiller :
@@ -167,6 +175,6 @@ Le devis ne vous engage pas. Vous disposez de droits importants :
 
 - **Droit à l'information** : votre audioprothésiste a l'obligation de vous expliquer chaque ligne du devis. N'hésitez pas à poser toutes vos questions. Un professionnel compétent prendra le temps nécessaire.
 
-Le devis est votre meilleur outil pour maîtriser votre budget et vos droits. Lisez-le attentivement, comparez-le, et ne signez que lorsque vous avez compris chaque ligne. Pour approfondir les questions de financement, retrouvez notre guide complet sur le [remboursement des appareils auditifs](/guides/remboursement/) et notre article détaillé sur les [prix des appareils auditifs en 2026](/guides/remboursement/prix-appareil-auditif/).
+Le devis est votre meilleur outil pour maîtriser votre budget et vos droits. Lisez-le attentivement, comparez-le, et ne signez que lorsque vous avez compris chaque ligne. Un bon audioprothésiste répondra à chacune de vos questions sans montrer d'impatience. S'il soupire quand vous demandez des précisions, c'est un signal -- pas sur votre curiosité, sur son professionnalisme. Pour approfondir les questions de financement, retrouvez notre guide complet sur le [remboursement des appareils auditifs](/guides/remboursement/) et notre article détaillé sur les [prix des appareils auditifs en 2026](/guides/remboursement/prix-appareil-auditif/).
 
 *Les informations de cet article sont fournies à titre indicatif et ne remplacent pas un conseil personnalisé. Le format du devis normalisé est défini par arrêté ministériel. Consultez votre audioprothésiste pour toute question relative à votre devis.*

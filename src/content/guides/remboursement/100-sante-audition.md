@@ -4,7 +4,7 @@ metaDescription: "100% Sante audition : conditions, appareils eligibles, reste a
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 image: /images/blog/100-sante-audition/100-sante-audition.webp
@@ -84,6 +84,8 @@ En 2022, sa fille l'a accompagnée dans mon centre après avoir lu un article su
 Après la période d'essai de 30 jours, elle m'a dit quelque chose que je n'oublie pas : « J'entends les oiseaux le matin. Je ne savais même plus qu'ils chantaient. » Huit ans perdus, non pas à cause de sa surdité, mais à cause du prix. C'est exactement ce type de situation que la réforme 100% Santé a été conçue pour éliminer.
 
 Ce n'est pas un cas isolé. Dans mes centres, plus de 60 % des patients appareillés en Classe 1 n'auraient jamais franchi le pas sans le reste à charge zéro.
+
+Voici ce que la plupart des guides ne vous disent pas : le Classe 1 peut être supérieur au Classe 2 pour certains profils. Un patient avec une perte légère unilatérale n'a pas besoin de 48 canaux et d'une intelligence artificielle embarquée. Un appareil surdimensionné pour son profil auditif génère de la fatigue, des sifflements parasites, et finit dans un tiroir. J'ai appareillé Solange, 73 ans, ancienne comptable, avec un micro-contour Classe 1 après qu'elle eut testé un Classe 2 haut de gamme pendant deux semaines. Son verdict : « Le moins cher est plus confortable. » Ce n'était pas un défaut du Classe 2 -- c'était simplement trop pour une perte de 30 dB en plateau.
 
 ## Ce que le 100% Santé ne couvre pas : soyons honnêtes
 
@@ -185,3 +187,5 @@ Votre audioprothésiste assure un suivi régulier : réglages, contrôles d'effi
 ---
 
 La réforme 100% Santé a profondément changé l'accès aux soins auditifs en France. Si vous ou un proche ressentez des difficultés à entendre, n'attendez plus : l'appareillage de qualité est désormais accessible à tous, sans reste à charge. Consultez un ORL, puis un audioprothésiste de confiance pour démarrer votre parcours.
+
+Ne laissez pas une information incomplète différer une décision qui peut changer votre quotidien. Si ce guide a répondu à l'une de vos questions, la prochaine étape est simple : prenez rendez-vous pour un bilan auditif gratuit, sans engagement, chez un audioprothésiste près de chez vous.

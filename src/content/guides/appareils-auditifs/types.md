@@ -5,7 +5,7 @@ metaDescription: "Les 4 types d'appareils auditifs expliqués par un audioproth�
 cluster: appareils-auditifs
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 image: /images/blog/types/types.webp
@@ -155,6 +155,10 @@ Les appareils invisibles se déclinent en deux formats : le CIC (Completely-in-C
 
 L'invisible séduit par sa discrétion mais impose des compromis réels sur la puissance et les fonctionnalités. Il concerne environ 5 % des appareillages en France.
 
+## Françoise, 73 ans : porteur de lunettes orienté à tort vers l'intra
+
+Françoise portait des lunettes depuis l'âge de quarante ans et était convaincue qu'un contour derrière l'oreille serait impossible à porter. Un confrère lui avait d'ailleurs suggéré un intra-auriculaire lors d'une première consultation. Je l'ai reçue pour un deuxième avis. J'ai commencé par lui faire essayer un RIC avec boîtier slim — un modèle dont le boîtier fait moins de 6 mm d'épaisseur. Elle a mis ses lunettes par-dessus. Aucune gêne. La branche de lunettes passait parfaitement au-dessus du fil du RIC, quasi invisible derrière le pavillon. L'intra-auriculaire qu'on lui avait proposé impliquait un reste à charge de 350 euros par oreille. Le RIC était disponible en Classe 1. Elle est repartie avec un RIC binaural, aucun reste à charge, et aucune contrainte de port de lunettes. Le problème des lunettes est réel — mais dans la majorité des cas, il se résout avec le bon boîtier de RIC, pas forcément en changeant de type d'appareil.
+
 ## Cas de cabinet : quand le patient change d'avis
 
 Alain, 68 ans, chef d'entreprise a la veille de la retraite, est arrive a mon cabinet avec une demande ferme : "Je veux l'invisible, comme mon associe." Son audiogramme revelait une perte moyenne de 55 dB sur l'oreille droite, 60 dB sur la gauche, avec une chute marquee sur les aigus. Anatomiquement, son conduit gauche presentait une courbure prononcee a 15 mm de l'entree.
@@ -182,7 +186,11 @@ Ce cas est banal. Il se produit dans mon cabinet au moins deux fois par semaine.
 
 ## Mes prises de position
 
+**Si vous n'avez pas encore choisi votre type d'appareil, ne le faites pas sur la base d'une fiche technique ou d'un avis en ligne.** Le type qui convient à votre voisin, à votre frère, à votre ami de bridge n'est pas forcément le vôtre. L'anatomie de votre conduit, votre degré de perte et votre dextérité décident bien plus que vos préférences esthétiques. [Prenez rendez-vous avec un audioprothésiste](/guides/audioprothesiste/) qui prend le temps de l'évaluation clinique avant de vous présenter un catalogue.
+
 **Le RIC domine le marché, et ce n'est pas entièrement une bonne chose.** Avec 70 % des ventes, le RIC est devenu le réflexe par défaut de la profession. Les fabricants concentrent leur R&D dessus, les audioprothésistes le maîtrisent mieux, les patients le demandent. Mais cette domination crée un biais. J'ai vu des confrères poser des RIC avec dôme ouvert sur des pertes qui réclamaient un embout fermé ou un contour -- parce que c'est "plus simple" et "plus rapide." Un appareil mal choisi, même haut de gamme, donne de mauvais résultats. La technologie ne compense pas une erreur d'indication.
+
+**La phrase que personne ne prononce en centre, et qui devrait l'être plus souvent : « Je vais vous faire essayer deux types différents avant de conclure. »** Trop rare. Trop souvent remplacée par une présentation du modèle disponible en stock ce jour-là.
 
 **Le contour d'oreille est le type le plus sous-estimé du marché.** On ne le recommande presque plus, sauf pour les pertes profondes. C'est une erreur. Sur un patient de 80 ans avec une dextérité réduite, un contour rechargeable avec embout sur mesure sera plus fiable, plus stable et plus confortable au quotidien qu'un RIC dont il n'arrive pas à replacer l'écouteur. La robustesse du contour est une qualité, pas un défaut. Arrêtons de le proposer uniquement en dernier recours.
 

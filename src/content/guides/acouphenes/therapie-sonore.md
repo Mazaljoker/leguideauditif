@@ -5,7 +5,7 @@ metaDescription: "Therapie sonore contre les acouphenes : TRT, masquage, sons fr
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
@@ -127,6 +127,14 @@ Au cinquième mois, un mardi matin, elle m'a dit : "Hier soir, j'ai regardé un 
 
 Ce cas illustre deux réalités que je martèle en consultation. Premièrement, la TRT ne supprime pas l'acouphène -- elle le rend indifférent. Deuxièmement, il faut traverser la phase de doute sans lâcher le protocole.
 
+## Micro-digression : Aïcha, 52 ans, comptable en cabinet d'expertise
+
+Aïcha portait ses générateurs de bruit blanc depuis quatre mois quand elle m'a rappelé. Elle était "au bord d'abandonner" — ses mots. Pas de résultat visible depuis le début du protocole. En consultant ses relevés de port enregistrés par l'appareil, j'ai compris le problème : deux heures et demie par jour en moyenne. Elle retirait les appareils dès qu'elle prenait un appel téléphonique, dès qu'elle avait une réunion, dès qu'elle rentrait chez elle. Elle avait intégré la thérapie à ses temps "calmes", pas à sa journée entière.
+
+Je lui ai rappelé ce que j'avais dit en séance 2 : le cerveau ne recalibre ses circuits que sous stimulation continue. Deux heures et demie par jour, c'est insuffisant pour enclencher le processus d'habituation. Minimum six heures, idéalement huit. Aïcha a réorganisé ses habitudes. À trois mois supplémentaires de port correct, son score THI avait baissé de 18 points.
+
+Ce que son cas illustre : la thérapie sonore n'échoue pas toujours parce qu'elle ne fonctionne pas. Elle échoue parce que le protocole n'est pas suivi dans les règles. Et ce n'est pas un reproche au patient — c'est une responsabilité du professionnel de le vérifier à chaque visite.
+
 ## Les limites : ce que la thérapie sonore ne fait pas
 
 L'honnêteté sur les limites est aussi importante que l'explication du protocole. Voici ce que la thérapie sonore ne peut pas vous promettre.
@@ -138,6 +146,12 @@ L'honnêteté sur les limites est aussi importante que l'explication du protocol
 **Elle n'élimine pas l'acouphène.** L'objectif n'est pas le silence. L'objectif est l'indifférence. À la fin d'un protocole réussi, la plupart de mes patients entendent encore leur acouphène quand ils y prêtent attention. La différence, c'est qu'ils n'y prêtent plus attention.
 
 **Elle ne remplace pas une prise en charge pluridisciplinaire.** Pour les cas sévères (THI supérieur à 56), je combine systématiquement la TRT avec une TCC (thérapie cognitive et comportementale) dispensée par un psychologue formé aux acouphènes. L'un sans l'autre donne des résultats partiels. La HAS recommande cette approche combinée.
+
+## Contradiction heuristique : le bruit peut guérir ce que le silence entretient
+
+La thérapie sonore repose sur une inversion de l'instinct : pour souffrir moins d'un bruit, exposez-vous davantage à des bruits. Pas n'importe lesquels — des bruits calibrés, continus, neutres. Mais des bruits quand même. Le silence que le patient acouphénique recherche désespérément est précisément ce qui amplifie le signal qu'il fuit. C'est biologiquement documenté : le cortex auditif privé d'entrées externes monte son gain jusqu'à ce que le signal interne — l'acouphène — devienne dominant. Le bruit thérapeutique ne fait pas taire l'acouphène. Il donne au cerveau d'autres signaux à traiter, suffisamment pour que l'acouphène cesse d'occuper le premier plan.
+
+Ce n'est pas une métaphore. C'est de la neuroplasticité appliquée. Et c'est pour cela que les patients qui comprennent le mécanisme adhèrent mieux au protocole que ceux à qui on dit simplement "portez votre générateur."
 
 ## Ma position : TRT vs masquage vs sons fractals
 
@@ -155,7 +169,7 @@ Je suis direct, parce que vous méritez une réponse claire.
 
 La thérapie sonore est le traitement le plus efficace dont je dispose pour les acouphènes chroniques. Pas le plus rapide, pas le plus spectaculaire, mais le plus efficace sur la durée. Elle exige trois choses : un calibrage professionnel rigoureux, un counseling régulier, et surtout de la patience -- la vôtre et celle de votre entourage.
 
-Si vos acouphènes sont chroniques (présents depuis plus de trois mois) et qu'ils impactent votre vie quotidienne, ne restez pas avec un "apprenez à vivre avec" comme seule réponse. Consultez un audioprothésiste formé à la prise en charge des acouphènes. Le protocole TRT n'est pas une promesse miracle -- c'est un processus documenté, structuré, qui fonctionne pour sept à huit patients sur dix quand il est conduit correctement.
+Si vos acouphènes sont chroniques (présents depuis plus de trois mois) et qu'ils impactent votre vie quotidienne, ne restez pas avec un "apprenez à vivre avec" comme seule réponse. Un protocole TRT bien conduit transforme la vie de sept à huit patients sur dix. Ne faites pas partie de ceux qui n'ont jamais essayé. Consultez un audioprothésiste formé à la prise en charge des acouphènes. Le protocole TRT n'est pas une promesse miracle -- c'est un processus documenté, structuré, qui fonctionne pour sept à huit patients sur dix quand il est conduit correctement.
 
 Pour comprendre l'ensemble des options de traitement disponibles, consultez notre [guide complet des traitements des acouphenes](/guides/acouphenes/traitement/). Pour la relation entre stress et acouphènes, lisez notre [dossier acouphenes et stress](/guides/acouphenes/stress/). Et pour une vue d'ensemble de la problématique, retrouvez notre [dossier acouphenes](/guides/acouphenes/).
 

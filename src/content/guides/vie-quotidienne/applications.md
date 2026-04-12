@@ -5,7 +5,7 @@ metaDescription: "Applications smartphone pour appareils auditifs : myPhonak, Ot
 cluster: vie-quotidienne
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 6
@@ -115,6 +115,12 @@ La compatibilité varie selon les fabricants et les modèles. Voici les grandes 
 - **Android** : Android 10 ou supérieur pour la plupart des applications. Le protocole ASHA (Audio Streaming for Hearing Aids) est requis et dépend du modèle de téléphone. Samsung, Google Pixel et la plupart des modèles récents sont compatibles.
 - **Vérification** : chaque fabricant publie une liste de smartphones compatibles sur son site. Demandez à votre audioprothésiste de vérifier la compatibilité avant l'achat de vos appareils.
 
+## Ce que Jocelyne a découvert six mois après la livraison
+
+Jocelyne, 72 ans, ancienne responsable de pharmacie, m'a appelé pour signaler que son appareil « ne fonctionnait plus au restaurant ». Elle utilisait myPhonak depuis six mois mais n'avait jamais exploré l'onglet « Programmes ». En cinq minutes au téléphone, je lui ai montré comment activer le programme « Restaurant bruyant » que j'avais configuré dès la livraison. Elle ne savait pas qu'il existait.
+
+Ce n'est pas de la négligence de sa part -- c'est une réalité que j'observe très régulièrement : les patients utilisent l'application à 20 % de ses possibilités. Ils règlent le volume, et c'est tout. Les programmes dédiés, les presets géolocalisés, le suivi de batterie par notification -- tout cela reste inexploité. Lors de votre prochain rendez-vous, demandez à votre audioprothésiste une visite guidée de 10 minutes dans l'application. C'est du temps bien investi.
+
 ## Astuces pour bien utiliser votre application
 
 **Activez les notifications de batterie.** Configurez l'alerte à 20 % pour ne jamais être pris au dépourvu. C'est le premier réglage que je conseille à mes patients lors de la première mise en service.
@@ -128,6 +134,8 @@ La compatibilité varie selon les fabricants et les modèles. Voici les grandes 
 **Gardez votre Bluetooth activé.** L'application a besoin du Bluetooth pour communiquer avec vos appareils. Si vous désactivez le Bluetooth pour économiser la batterie de votre téléphone, l'application ne fonctionnera plus. La consommation énergétique du Bluetooth Low Energy est négligeable sur les smartphones récents.
 
 ## Ce que l'application ne remplace pas
+
+Paradoxalement, les patients les plus autonomes avec l'application viennent aussi plus régulièrement en suivi. Parce qu'ils savent ce qu'ils entendent, ils peuvent décrire précisément ce qui ne va pas. Un patient qui ajuste lui-même ses programmes développe un vocabulaire auditif qui rend chaque rendez-vous plus efficace. L'autonomie numérique et le suivi professionnel ne s'opposent pas -- ils se renforcent.
 
 L'application vous donne de l'autonomie, mais elle ne remplace pas votre audioprothésiste. Les réglages fins -- la courbe de gain, la compression, la gestion du bruit -- restent du ressort du professionnel. L'application vous permet d'ajuster le confort au quotidien, pas de modifier la prescription audiologique.
 

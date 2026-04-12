@@ -4,7 +4,7 @@ metaDescription: "Hyperacousie : causes, diagnostic et prise en charge par un au
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
@@ -59,7 +59,7 @@ La recherche actuelle (Pienkowski et al., Frontiers in Neurology, 2024) distingu
 
 ## Ma méthode de bilan en 4 étapes
 
-Le diagnostic d'hyperacousie ne se résume pas à une seule mesure. Voici le protocole que j'ai affiné sur 28 ans de pratique.
+Le diagnostic d'hyperacousie ne se résume pas à une seule mesure. Voici le protocole que j'applique en cabinet depuis plus de deux décennies.
 
 **Étape 1 : le questionnaire d'impact.** Avant même de toucher un appareil de mesure, je prends vingt minutes pour comprendre le quotidien du patient. Quelles situations sont évitées ? Depuis quand ? Y a-t-il eu un élément déclencheur identifiable ? Le retentissement social est-il mesuré (isolement, arrêt de travail, tensions familiales) ? Ce n'est pas du bavardage : c'est la cartographie sans laquelle tout le reste est aveugle.
 
@@ -87,6 +87,8 @@ Hugo, 29 ans, DJ amateur le week-end et developpeur en semaine, est arrive un lu
 
 **Un traumatisme crânien**, une chirurgie de l'oreille, une paralysie faciale (dysfonction du muscle stapédien) ou certaines pathologies neurologiques (migraine chronique, maladie de Lyme, sclérose en plaques) figurent parmi les causes moins fréquentes mais bien documentées.
 
+Mamadou, 61 ans, ancien contremaître dans une usine agroalimentaire, est venu me voir après un an de silence médical. Son audiogramme était dans les normes pour son âge. Ses ORL successifs avaient conclu à une "sensibilité personnelle". Ce que personne n'avait mesuré : ses LDL. Quand je les ai testés, les seuils d'inconfort descendaient à 52 dB sur les fréquences 1 000-2 000 Hz — le niveau d'une conversation dans une pièce normale. Il portait des bouchons d'oreilles dix heures par jour depuis huit mois. En cabinet, je lui ai expliqué que chaque heure supplémentaire avec ces bouchons aggravait le problème. Il m'a regardé comme si je lui annonçais que l'eau mouille les pierres. Six mois de désensibilisation progressive ont remis ses seuils à 70 dB. Il a pu recommencer à dîner en famille.
+
 ## Cas réel : Mme D., 58 ans, enseignante
 
 Mme D. est venue me voir après deux ans d'errance médicale. Enseignante en école primaire, elle ne supportait plus le bruit de sa classe. Les cris des enfants déclenchaient une douleur physique dans l'oreille droite, suivie de maux de tête qui duraient des heures. Elle avait consulté trois ORL. Le premier avait conclu à "du stress". Le deuxième lui avait prescrit des anxiolytiques. Le troisième avait mesuré un audiogramme normal et conclu qu'il n'y avait "rien d'auditif".
@@ -94,6 +96,12 @@ Mme D. est venue me voir après deux ans d'errance médicale. Enseignante en éc
 Quand j'ai mesuré ses LDL, les seuils d'inconfort étaient à 55 dB sur les fréquences 2 000-4 000 Hz, soit le niveau d'une conversation normale. Elle avait bien une hyperacousie de douleur, avec un audiogramme tonal effectivement normal. L'audiogramme ne mesure pas la même chose.
 
 Nous avons mis en place un protocole de TRT avec générateurs de bruit blanc portés six heures par jour, à un niveau juste en dessous du seuil de gêne. En parallèle, un suivi en TCC avec un psychologue formé à l'hyperacousie. Les trois premiers mois ont été difficiles : les progrès étaient imperceptibles, Mme D. doutait. Au quatrième mois, elle m'a dit qu'elle avait pu déjeuner au restaurant avec sa fille sans grimper aux rideaux. Au douzième mois, elle était de retour en classe à temps plein, avec des bouchons filtrants en réserve pour les moments les plus bruyants. Pas guérie au sens strict : ses LDL avaient remonté à 75 dB, pas à 95. Mais fonctionnelle. C'est ce qui compte.
+
+## Contradiction heuristique : protéger ses oreilles peut rendre plus vulnérable
+
+La phrase qui surprend toujours mes patients hyperacousiques : "Vos bouchons d'oreilles sont peut-être votre pire traitement." L'instinct de protection est compréhensible, mais la biologie auditive fonctionne à rebours de cette logique. Plus vous privez votre cortex auditif de stimulations, plus il monte son gain interne pour compenser. Le résultat : vous devenez progressivement sensible à des niveaux sonores de plus en plus faibles. La surprotection crée une dépendance au silence qui aggrave chaque exposition ordinaire. Vous ne pouvez pas rééduquer un cerveau en l'enfermant dans le vide.
+
+Si vous portez des bouchons en dehors des contextes bruyants légitimes — c'est-à-dire au-delà de 85 dB — consultez un audioprothésiste formé à l'hyperacousie avant que la fenêtre thérapeutique ne se referme.
 
 ## Les traitements qui fonctionnent : et leurs limites
 

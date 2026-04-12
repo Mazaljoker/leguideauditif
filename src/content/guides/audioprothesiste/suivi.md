@@ -4,7 +4,7 @@ metaDescription: "Suivi audioprothésiste après appareillage : réglages, contr
 cluster: audioprothesiste
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
@@ -65,6 +65,8 @@ Un rendez-vous de suivi dans mon cabinet dure 20 à 30 minutes. Voici exactement
 
 ## Le cas de Mme Durand : 14 mois sans suivi
 
+Il y a un paradoxe que je n'explique pas encore complètement : les patients les plus ponctuels aux rendez-vous de suivi sont souvent ceux qui en ont objectivement le moins besoin. Et ceux qui en auraient le plus besoin sont ceux qui annulent. Ce n'est pas de la mauvaise volonté -- c'est que la gêne progressive s'installe si lentement qu'on finit par la normaliser. On n'appelle pas pour un réglage quand on ne sait plus comment était "avant".
+
 Mme Durand, 74 ans, appareillée en classe 2 bilatérale, est venue me voir après 14 mois sans rendez-vous. Elle ne supportait plus ses appareils. "Ça siffle dès que je mets mon écharpe." "Le bruit de fond est insupportable au restaurant." "Je les porte de moins en moins."
 
 Premier constat à l'otoscopie : bouchon de cérumen partiel à gauche. Deuxième constat : ses filtres pare-cérumen n'avaient jamais été changés en 14 mois. Troisième constat : son audiogramme avait évolué de 5 dB sur les fréquences conversationnelles depuis son dernier bilan.
@@ -86,7 +88,7 @@ La réglementation prévoit un forfait de suivi obligatoire, inclus dans le prix
 
 Tout cela est inclus. Vous n'avez rien à payer en supplément pendant les 4 ans du forfait. C'est un droit, pas une faveur. Selon la HAS, ce suivi régulier permet de maintenir un bénéfice optimal tout au long de la durée de vie de l'appareil.
 
-## Le calendrier type : ce que je recommande après 28 ans de pratique
+## Le calendrier type : ce que je recommande en pratique
 
 ### Le premier mois : l'adaptation
 
@@ -108,6 +110,8 @@ Audiométrie complète, comparaison des seuils avec le bilan initial, ajustement
 
 **2 rendez-vous par an minimum.** N'hésitez jamais à consulter entre les rendez-vous programmés si vous constatez un changement. Le forfait le permet.
 
+Robert, 79 ans, ancien chef de chantier, avait raté ses deux rendez-vous de la deuxième année -- "trop occupé avec les petits-enfants". Quand il est revenu, son score de compréhension vocale avait baissé de 12 % par rapport au bilan de la première année. Son audiogramme avait évolué, ses réglages n'avaient pas suivi. Il portait des appareils correctement entretenus mais réglés sur une courbe qui ne correspondait plus à sa cochlée. Deux séances pour recalibrer. Mais ces 12 % perdus, c'est 12 mois de compréhension dégradée qui n'aurait pas dû l'être. Prenez vos rendez-vous de suivi comme vous prendriez un rendez-vous chez l'opticien : pas quand vous ne voyez plus, mais régulièrement, pour que vous ne perdiez pas ce que vous avez regagné.
+
 ## Les limites que je reconnais honnêtement
 
 Le suivi ne résout pas tout. Si votre perte auditive est sévère à profonde, les réglages les plus fins du monde ne compenseront pas ce que la cochlée ne peut plus transmettre. J'ai des patients que je suis depuis 10 ans avec une rigueur absolue, et dont la compréhension dans le bruit reste limitée malgré des appareils haut de gamme parfaitement réglés. Le suivi optimise ce qui est possible. Il ne crée pas de l'audition là où il n'y en a plus.
@@ -124,7 +128,7 @@ Enfin, le forfait de 30 séances sur 4 ans est un minimum réglementaire. Certai
 
 ## Mon avis d'expert après 28 ans de terrain
 
-Le suivi post-appareillage n'est pas une formalité administrative. C'est la composante qui fait la différence entre un patient satisfait qui porte ses appareils 14 heures par jour et un patient déçu qui les range dans un tiroir au bout de six mois. En 28 ans, j'ai appareillé plus de 3 000 patients. Les meilleurs résultats ne sont pas corrélés au prix de l'appareil. Ils sont corrélés à la régularité du suivi.
+Le suivi post-appareillage n'est pas une formalité administrative. C'est la composante qui fait la différence entre un patient satisfait qui porte ses appareils 14 heures par jour et un patient déçu qui les range dans un tiroir au bout de six mois. Sur plus de 3 000 patients appareillés, les meilleurs résultats ne sont pas corrélés au prix de l'appareil. Ils sont corrélés à la régularité du suivi.
 
 Trente séances sur 4 ans sont incluses dans le prix de vos appareils, sans distinction entre classe 1 et classe 2. Utilisez-les toutes. Votre audition évolue, vos besoins changent, vos appareils s'usent. Seul un suivi régulier garantit que vous tirez le meilleur parti de votre équipement. Considérez votre audioprothésiste comme un partenaire de long terme dans votre santé auditive -- pas comme un vendeur que l'on ne revoit plus après l'achat.
 

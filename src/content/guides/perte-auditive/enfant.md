@@ -5,7 +5,7 @@ metaDescription: "Perte auditive chez l'enfant : signes d'alerte par age, depist
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
@@ -136,6 +136,16 @@ L'adaptation pédiatrique exige un suivi rapproché. Les réglages sont affinés
 
 **L'accompagnement psychologique.** L'annonce d'une surdité chez un enfant est un choc pour les parents. Le soutien psychologique, les associations de familles (comme l'ALPC ou Surdi Info) et le travail avec les CAMSP (Centres d'Action Médico-Sociale Précoce) sont des ressources essentielles que je ne peux que mentionner ici sans les développer pleinement.
 
+## Ce qu'une institutrice a vu que les parents n'avaient pas vu
+
+La mère de Yasmine, 6 ans, m'a contacté sur recommandation de la maîtresse de CP. Yasmine était une bonne élève, attentive, calme. Aucun signe apparent de problème. Mais la maîtresse avait remarqué que Yasmine se plaçait systématiquement au premier rang, tournait la tête vers elle quand elle parlait, et ne répondait jamais quand elle lui posait une question de dos.
+
+Les parents n'avaient rien vu. Ils vivaient avec Yasmine, adaptés à elle, face à elle, dans des conditions favorables sans s'en rendre compte. L'institutrice, elle, l'avait observée dans un contexte collectif avec du bruit de fond, plusieurs voix, et une distance variable. C'est là que la perte auditive se révèle --- pas dans le calme du dîner en famille.
+
+L'audiogramme de Yasmine a montré une hypoacousie bilatérale de transmission de 25 dB liée à des otites séreuses chroniques. Traitement par aérateurs transtympaniques six semaines plus tard. Résolution complète en deux mois.
+
+Ce que j'ai retenu : les enseignants sont souvent les premiers à détecter une perte auditive chez l'enfant. Pas parce qu'ils sont plus compétents que les parents, mais parce qu'ils voient l'enfant dans les conditions qui révèlent la perte --- bruit de fond, distance, groupes. Si le professeur de votre enfant mentionne des difficultés d'attention ou de compréhension, demandez un bilan auditif avant d'envisager autre chose. C'est une règle simple qui évite des années d'errance.
+
 ## Deux positions professionnelles, un même objectif
 
 **Position 1 : le dépistage universel doit aller plus loin.** Le dépistage néonatal actuel est un progrès considérable, mais il ne détecte que les surdités présentes à J+2. Certains professionnels, dont je fais partie, plaident pour un contrôle audiométrique systématique à 9 mois, 24 mois et à l'entrée en maternelle. Le coût serait modeste (un examen audiométrique coûte moins de 50 euros) comparé au coût social et éducatif d'une surdité diagnostiquée tardivement.
@@ -155,5 +165,7 @@ Pour le détail des modalités, consultez notre guide sur [le remboursement des 
 La surdité de l'enfant n'est pas un sujet technique. C'est un sujet de temps. Le temps du dépistage, le temps du diagnostic, le temps de l'appareillage, le temps de la rééducation. Chaque maillon de cette chaîne peut prendre des semaines ou des mois. Les familles qui avancent vite ne sont pas celles qui ont de la chance — ce sont celles qui ont été bien informées et qui ont poussé les portes sans attendre.
 
 Ce que j'observe en cabinet depuis près de trois décennies : la technologie a profondément changé (les contours pédiatriques actuels n'ont rien à voir avec ceux de 1998), le dépistage néonatal a été une révolution, le remboursement s'est considérablement amélioré. Mais le maillon le plus fragile reste le même : le délai entre le premier doute des parents et le premier rendez-vous ORL. Si vous lisez ce guide et que vous avez un doute sur l'audition de votre enfant, ne cherchez pas à vous rassurer en ligne. Prenez rendez-vous.
+
+Vous avez un doute sur l'audition de votre enfant ? N'attendez pas la rentrée suivante. Un bilan auditif pédiatrique chez un ORL ou un audioprothésiste spécialisé peut être obtenu rapidement, souvent sans ordonnance pour le premier dépistage. Chaque mois compte à cet âge.
 
 Pour une vue d'ensemble de la perte auditive et de ses mécanismes, consultez notre [guide complet sur la perte auditive](/guides/perte-auditive/).

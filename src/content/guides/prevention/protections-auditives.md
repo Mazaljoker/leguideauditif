@@ -5,7 +5,7 @@ metaDescription: "Protections auditives : bouchons moulés, filtres, casques ant
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 9
@@ -142,6 +142,18 @@ Un SNR de 20 dB signifie qu'un environnement à 100 dB sera ramené à environ 8
 
 **Mon expérience** : en conditions réelles, l'atténuation effective est toujours inférieure à celle mesurée en laboratoire. Pour les bouchons en mousse, comptez 50 à 70 % de la valeur SNR annoncée. Pour les bouchons moulés, c'est plus proche de 80 à 90 %, parce que l'étanchéité est meilleure.
 
+## Pourquoi le bon type fait toute la différence : le cas d'Alain
+
+Alain, 61 ans, retraité, chassait depuis trente ans. Toujours avec des bouchons. Des bouchons en mousse, achetés en boîte de 50 en grande surface, remplacés régulièrement. Il pensait être protégé. Son audiogramme, pourtant, montrait une perte asymétrique de 35 dB à 4 000 Hz à droite, 20 dB à gauche --- le profil du tireur droitier, exposé à l'onde de choc du côté de l'arme.
+
+Comment ? Il portait ses bouchons.
+
+En creusant, la réponse est apparue : Alain comprimait ses bouchons en mousse, les insérait correctement, mais les laissait ressortir légèrement pour "entendre les sons de la forêt". Il maintenait une étanchéité partielle, environ 10 dB d'atténuation réelle au lieu des 30 annoncés. Et les détonations à 160 dB passaient à travers avec 150 dB effectifs au tympan. Encore largement au-dessus du seuil de dommage instantané.
+
+La solution n'était pas de changer son comportement. C'était de changer le produit. Je lui ai proposé des protections électroniques de tir : elles laissent passer les sons ambiants en dessous de 82 dB, et compriment instantanément les sons impulsionnels au-dessus de ce seuil. Alain entend la forêt. Il ne s'abîme plus les oreilles.
+
+Ce que ce cas m'a rappelé : une mauvaise protection bien portée protège moins qu'une bonne protection parfois portée. Et une protection inadaptée à l'usage, même portée correctement, peut ne pas protéger du tout.
+
 ## Entretien et remplacement
 
 Les protections réutilisables nécessitent un entretien régulier pour conserver leur efficacité et prévenir les infections du conduit auditif.
@@ -169,5 +181,7 @@ Je serais irresponsable de ne pas mentionner les limites.
 Si vous êtes exposé régulièrement au bruit (travail, musique, loisirs motorisés), un rendez-vous chez un audioprothésiste vous permettra d'obtenir des protections parfaitement adaptées. La prise d'empreinte est rapide, indolore, et les bouchons moulés sont prêts sous deux semaines.
 
 C'est aussi l'occasion de faire un bilan auditif. Si vous avez plus de 50 ans ou si vous travaillez en milieu bruyant, un dépistage régulier est recommandé (tous les 2 à 3 ans selon la Haute Autorité de Santé).
+
+Vous ne savez pas quelle protection vous convient ? Un audioprothésiste peut faire la prise d'empreinte en consultation et vous orienter vers la solution adaptée à votre usage exact. Si vous êtes exposé régulièrement au bruit, ce rendez-vous est aussi l'occasion de faire votre [bilan auditif gratuit](/guides/prevention/bilan-auditif-gratuit/) --- deux objectifs, une seule visite.
 
 Pour aller plus loin, consultez notre [guide complet de prévention auditive](/guides/prevention/) et notre dossier sur le [bruit au travail](/guides/prevention/bruit-travail/) qui détaille vos droits en milieu professionnel.

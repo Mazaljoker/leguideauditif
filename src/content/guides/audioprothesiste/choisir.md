@@ -4,7 +4,7 @@ metaDescription: "Choisir un bon audioprothésiste : critères terrain, question
 cluster: audioprothesiste
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 9
@@ -61,7 +61,7 @@ Que se passe-t-il si votre audioprothésiste est absent (vacances, maladie, dép
 
 ## Ma méthode pour évaluer un centre en 15 minutes
 
-Après 28 ans et 18 centres différents, j'ai développé une grille d'évaluation que j'utilise moi-même quand je recommande des confrères à des patients qui déménagent. Voici les 7 critères que je vérifie, dans cet ordre.
+J'ai développé une grille d'évaluation -- après avoir exercé dans 18 centres différents -- que j'utilise moi-même quand je recommande des confrères à des patients qui déménagent. Voici les 7 critères que je vérifie, dans cet ordre.
 
 ### 1. Le diplôme d'État
 
@@ -158,7 +158,7 @@ Certains centres utilisent des techniques commerciales inappropriées : promotio
 
 ## Indépendant, enseigne ou réseau mutualiste ?
 
-Le paysage de l'audioprothèse en France se divise en trois catégories. Ayant exercé dans les trois au cours de mes 28 ans de carrière, je peux vous donner un avis terrain.
+Le paysage de l'audioprothèse en France se divise en trois catégories. Ayant exercé dans les trois au long de ma carrière, je peux vous donner un avis terrain.
 
 **L'indépendant** exerce sous son propre nom. Il choisit librement ses fournisseurs et fixe son organisation. L'avantage principal : un interlocuteur unique qui vous connaît personnellement, souvent un choix de marques plus large. La limite : en cas de déplacement ou d'absence prolongée, pas de relais automatique.
 
@@ -182,4 +182,12 @@ Vous savez maintenant quoi chercher et quoi éviter. Deux étapes concrètes pou
 
 2. **Préparez votre premier rendez-vous.** Savoir ce qui vous attend vous permettra d'arriver confiant et de poser les bonnes questions : [Le premier rendez-vous chez l'audioprothésiste](/guides/audioprothesiste/premier-rdv/).
 
+Si vous hésitez encore entre deux centres après avoir appliqué ces critères, c'est souvent le ressenti du premier contact -- accueil téléphonique, disponibilité, clarté des réponses -- qui fait la différence. Ce ressenti est une donnée clinique, pas une impression.
+
 Le choix de votre audioprothésiste est un investissement pour les 4 prochaines années. Prenez le temps de comparer, posez vos questions et faites confiance à votre ressenti. Un bon professionnel vous écoutera avant de vous appareiller.
+
+---
+
+Gérard, 66 ans, comptable indépendant, m'a consulté après avoir choisi son premier audioprothésiste sur la base d'un seul critère : la note Google du centre (4,9 étoiles sur 52 avis). La qualité d'un centre sur Google Maps reflète souvent la convivialité de l'accueil, pas la rigueur clinique. Gérard avait reçu un réglage unique, aucune mesure in situ, et repartait en roue libre avec des appareils à 1 200 euros par oreille qu'il ne portait plus au bout de trois mois. Quand je l'ai reçu, les appareils étaient techniquement fonctionnels. Le réglage, lui, correspondait à un profil auditif moyen -- pas au sien. Six semaines de suivi rigoureux plus tard, Gérard portait ses appareils 11 heures par jour. La note Google n'a pas changé. La qualité du suivi, si.
+
+Voici la contradiction que personne ne formule clairement : un centre populaire peut être mauvais sur le fond, et un centre discret peut être excellent. Le seul indicateur fiable est la qualité du suivi -- et ça, vous ne le saurez qu'en posant les bonnes questions avant de vous engager. Utilisez la grille de ce guide. Elle n'est pas exhaustive, mais elle sépare rapidement les professionnels sérieux de ceux qui misent sur l'image.

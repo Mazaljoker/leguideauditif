@@ -5,7 +5,7 @@ metaDescription: "Téléphoner avec un appareil auditif : Bluetooth, bobine T, a
 cluster: vie-quotidienne
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-11
+updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 7
@@ -128,10 +128,18 @@ Quand la connexion Bluetooth directe n'est pas disponible ou quand vous souhaite
 
 **Le téléphone à boucle inductive.** Pour le domicile, un téléphone amplifié avec boucle inductive intégrée est un investissement modeste (40 à 120 euros) qui simplifie chaque appel. C'est l'accessoire que je recommande en priorité aux patients qui n'ont pas le Bluetooth -- avant même le TV Connector.
 
+## Ce que Raymonde a retrouvé grâce à un accessoire de 40 euros
+
+Raymonde, 84 ans, vivait seule depuis le décès de son mari. Elle avait progressivement cessé de décrocher son téléphone fixe -- les conversations devenaient incompréhensibles, et elle préférait ne pas répondre plutôt que de faire répéter cinq fois. Sa fille, inquiète, m'a appelé.
+
+Raymonde portait des appareils depuis deux ans, Classe 1, sans Bluetooth. Sa bobine T était activée, mais son téléphone fixe datait de 2008 et n'avait aucune compatibilité télécoil. J'ai recommandé un modèle Amplicomms à boucle inductive intégrée, classé T4, à 45 euros. Livré par sa fille un lundi. Le jeudi suivant, sa fille m'a rappelé : « Elle décroche à nouveau. Elle a parlé vingt minutes avec sa soeur hier soir. »
+
+Quarante-cinq euros et un changement de téléphone pour rétablir un lien social que la malentendance avait coupé. L'isolation auditive n'est pas toujours un problème d'appareil -- c'est parfois un problème d'environnement qu'on n'a pas pensé à adapter.
+
 ## Ce qu'il faut retenir
 
 Le téléphone n'est plus une fatalité pour les porteurs d'appareils auditifs. Avec le Bluetooth binaural, vous retrouvez un confort d'appel que beaucoup de mes patients qualifient de supérieur à celui d'avant leur perte auditive -- parce que le son arrive directement, sans bruit ambiant, dans les deux oreilles. Sans Bluetooth, la bobine T et le bon positionnement du combiné permettent des conversations claires.
 
-L'essentiel est de connaître les possibilités de vos appareils et de les exploiter. Si vous avez des difficultés à téléphoner malgré vos appareils, parlez-en à votre audioprothésiste. Un ajustement du programme téléphonique ou l'activation de la bobine T suffisent souvent à résoudre le problème. Ce n'est pas normal de ne plus pouvoir téléphoner quand on est appareillé -- c'est un signe que le réglage mérite d'être revu.
+L'essentiel est de connaître les possibilités de vos appareils et de les exploiter. Si vous avez des difficultés à téléphoner malgré vos appareils, parlez-en à votre audioprothésiste. Un ajustement du programme téléphonique ou l'activation de la bobine T suffisent souvent à résoudre le problème. Ce n'est pas normal de ne plus pouvoir téléphoner quand on est appareillé -- c'est un signe que le réglage mérite d'être revu. Et si vos appareils sont parfaitement réglés, interrogez votre environnement : votre téléphone, votre lieu d'appel, vos habitudes. L'une de ces trois variables est peut-être plus simple à changer que vous ne le pensez.
 
 Retrouvez d'autres conseils pour votre quotidien dans notre [guide vie quotidienne et audition](/guides/vie-quotidienne/).
