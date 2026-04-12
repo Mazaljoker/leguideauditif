@@ -54,7 +54,7 @@ me-affiliate-writer > nposts-seo-humanizer > nposts-content-evaluator (>=70)
 
 ## Auteur de reference
 
-Franck-Olivier, Audioprothesiste DE, 25 ans exp, 18 centres diriges, 3000+ patients.
+Franck-Olivier, Audioprothesiste DE, 28 ans exp, 18 centres diriges, 3000+ patients.
 Page auteur : /auteur/franck-olivier/
 E-E-A-T Trust pondere x1.75 (YMYL sante)
 

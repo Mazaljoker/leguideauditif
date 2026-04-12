@@ -77,7 +77,7 @@
   "@type": "Person",
   "name": "Franck-Olivier Chabbat",
   "jobTitle": "Audioprothesiste diplome d'Etat",
-  "description": "Audioprothesiste DE avec 25+ ans d'experience, 3000+ patients adaptes",
+  "description": "Audioprothesiste DE avec 28 ans d'experience, 3000+ patients adaptes",
   "url": "https://leguideauditif.fr/auteur/franck-olivier/",
   "knowsAbout": [
     "Appareils auditifs",
