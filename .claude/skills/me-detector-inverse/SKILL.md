@@ -183,6 +183,45 @@ Quick fixes : {liste}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
+## CHECKS SUPPLEMENTAIRES (couches avancees)
+
+### Reality Consistency Check
+
+Verifier la coherence clinique interne :
+- Aucun cas "trop parfait" (patient → appareil → tout va bien) : si detecte → malus -5
+- Progression temporelle realiste dans les cas evoques : si absente → flag
+- Au moins 30% des cas avec echec/hesitation/resultat partiel
+- Incertitude clinique presente (min 2 par article)
+
+### Google Skeptic Simulation
+
+Avant verdict final, simuler 3 lecteurs :
+
+1. **Google Helpful Content** : le contenu apporte-t-il une valeur que les 10 premiers resultats n'ont pas ?
+2. **Audioprothesiste expert** : un confrere trouverait-il ca credible et precis ?
+3. **Patient sceptique** : un patient mefiant serait-il convaincu ou detecterait-il du marketing deguise ?
+
+Si 1 des 3 echoue → flag dans le rapport. Si 2 echouent → malus -10.
+
+### Redundancy Control
+
+Controle de repetition inter-contenu :
+- Max 2 occurrences du meme claim factuel dans l'article
+- Max 3 repetitions du meme cluster de mots-cles
+- Paraphrase obligatoire si un concept est repris
+- "28 ans" : max 2 par article
+- "patients" : max 1 par 200 mots
+
+Si repetition excessive detectee → malus -5 + flag "redundancy"
+
+### Anti-Template Detection
+
+Scanner les patterns "site sante classique" :
+- Listes pedagogiques sans tension → malus -5
+- Sections trop symetriques (meme longueur, meme structure) → malus -5
+- Absence de voix orale (aucun "je", aucune phrase courte, ton neutre) → FAIL auto
+- Progression trop lineaire (probleme → solution → conclusion) sans digression
+
 ## REGLE D'OR
 
 Etre STRICT. Si doute, penaliser.
