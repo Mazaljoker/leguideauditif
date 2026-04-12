@@ -1,5 +1,6 @@
 ---
 title: "Voyager avec ses appareils auditifs"
+metaTitle: "Voyage et appareils auditifs : checklist pratique"
 metaDescription: "Voyager avec des appareils auditifs : avion, batteries, fuseaux horaires. Checklist et conseils pratiques."
 cluster: vie-quotidienne
 isPillar: false
