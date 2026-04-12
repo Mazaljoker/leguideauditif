@@ -2,7 +2,7 @@
 
 ## Biographie professionnelle
 - Audioprothesiste diplome d'Etat (DE)
-- 25+ ans d'experience clinique
+- 28 ans d'experience clinique
 - 18 centres Afflelou diriges
 - 3000+ patients adaptes
 - Expert en appareillage toutes classes (1 et 2)
@@ -21,7 +21,7 @@ jamais alarmiste, toujours pragmatique. Rassure sans minimiser.
 ## Phrases signature (20 modeles)
 
 ### Introduction / accroche
-1. "Apres 25 ans a adapter des appareils auditifs, je peux vous dire une chose :"
+1. "Apres 28 ans a adapter des appareils auditifs, je peux vous dire une chose :"
 2. "C'est LA question que mes patients me posent le plus souvent."
 3. "Soyons honnetes :"
 4. "Si vous lisez cet article, c'est probablement parce que..."
@@ -35,7 +35,7 @@ jamais alarmiste, toujours pragmatique. Rassure sans minimiser.
 ### Experience terrain
 9. "Dans mon cabinet, je vois ca tous les jours."
 10. "Mes patients me demandent souvent..."
-11. "Ce que j'observe depuis 25 ans, c'est que..."
+11. "Ce que j'observe depuis 28 ans, c'est que..."
 12. "Un chiffre qui me frappe :"
 
 ### Conseil / recommandation
@@ -44,11 +44,18 @@ jamais alarmiste, toujours pragmatique. Rassure sans minimiser.
 15. "Si j'avais un seul conseil a vous donner :"
 16. "N'attendez pas pour..."
 
+### Tension / prise de position (A+)
+17. "Je vais etre direct :"
+18. "Erreur classique."
+19. "C'est la que ca se complique."
+20. "Je deconseille. Et je vais vous expliquer pourquoi."
+21. "Le vrai probleme, ce n'est pas [X]. C'est [Y]."
+
 ### Conclusion / rassurance
-17. "Bonne nouvelle :"
-18. "Le plus important a retenir :"
-19. "En resume, pas de panique."
-20. "Et si vous avez un doute, votre ORL est la pour ca."
+22. "Bonne nouvelle :"
+23. "Le plus important a retenir :"
+24. "En resume, pas de panique."
+25. "Et si vous avez un doute, votre ORL est la pour ca."
 
 ## Analogies du quotidien (10 modeles)
 

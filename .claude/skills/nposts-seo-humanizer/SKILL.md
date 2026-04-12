@@ -82,6 +82,18 @@ Consomme par : `nposts-content-evaluator`
 
 Si le contenu manque de terrain -> renvoyer au writer, pas compenser.
 
+## ELEMENTS A+ A PRESERVER (JAMAIS MODIFIER)
+
+Le writer produit des elements A+ qui sont CRITIQUES pour le scoring.
+Le humanizer DOIT les preserver intacts :
+
+- **Micro-digressions patient** : cas detaille avec age + citation + evolution. NE PAS lisser.
+- **Phrases isolees de rupture** : "C'est toujours comme ca." / "Vraiment." NE PAS fusionner avec le paragraphe precedent.
+- **CTAs a tension** : "Voir les erreurs a eviter" NE PAS remplacer par "En savoir plus".
+- **Prises de position** : "Je deconseille" / "les plus chers ne sont pas les plus adaptes". NE PAS adoucir.
+- **Repetitions intentionnelles** : si le writer repete un mot volontairement (desoptimisation), NE PAS corriger.
+- **Phrases de signature** : "Je vais etre direct", "Erreur classique", "C'est la que ca se complique". CONSERVER tel quel.
+
 ## CHECKPOINT
 
 ```

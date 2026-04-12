@@ -84,12 +84,14 @@ Est-ce que ca sent un humain reel ?
 
 | Critere | Points |
 |---|---|
-| Situations vecues concretes (patients, cas) | +10 |
-| Phrases naturelles / orales | +5 |
-| Variations de rythme (burstiness : courtes + longues) | +5 |
-| Micro-imperfections naturelles (repetition legere, digression) | +5 |
+| Situations vecues concretes (patients, cas) | +8 |
+| Micro-digression patient detaillee (age + contexte + citation + evolution) | +5 |
+| Phrases naturelles / orales | +4 |
+| Variations de rythme (burstiness : courtes + longues) | +4 |
+| Phrase isolee de rupture ("C'est toujours comme ca." / "Vraiment.") | +4 |
 | Dialogues ou pensees patients entre guillemets | +5 |
 | Reactions humaines ("je vois souvent...", "ca me surprend encore") | +5 |
+| Tension emotionnelle des le debut (choc, pas intro sage) | +5 |
 | Ton robotique ou corporate detecte | -10 |
 
 ### 2. EXPERT SIGNAL (ES /30)
@@ -139,6 +141,8 @@ Calcul : score_total = HS + ES + AGS + malus + author_fingerprint (cap a 100)
 | Contenu interchangeable (pourrait etre sur vivason.fr) | -15 |
 | Repetitions marketing | -5 |
 | Structure template identique a un autre article | -10 |
+| CTAs generiques ("En savoir plus", "Decouvrir") | -5 |
+| Introduction sage / attendue (pas de tension) | -5 |
 
 ## VERDICTS
 
