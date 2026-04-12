@@ -1,5 +1,6 @@
 ---
 title: "Meilleures apps smartphone pour appareils auditifs"
+metaTitle: "Meilleure app audition 2026 : comparatif"
 metaDescription: "Comparatif apps pour appareils auditifs 2026 : myPhonak, Signia app, Smart 3D, MOMENT. Fonctionnalités et avis."
 category: accessoires
 publishDate: 2026-04-07

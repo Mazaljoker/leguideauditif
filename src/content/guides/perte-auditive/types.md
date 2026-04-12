@@ -1,5 +1,6 @@
 ---
 title: "Transmission, perception, mixte : les différences"
+metaTitle: "Types de perte auditive : guide audioprothésiste"
 metaDescription: "Les 3 types de perte auditive : transmission, perception, mixte. Diagnostic, erreurs frequentes et cas reels."
 cluster: perte-auditive
 isPillar: false
