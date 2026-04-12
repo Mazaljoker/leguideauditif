@@ -33,9 +33,17 @@ const breadcrumbs = [
   <section class="bg-creme py-16">
     <div class="max-w-[1140px] mx-auto px-5">
       <h1 class="font-sans text-[38px] font-extrabold text-marine text-center mb-4">Nos comparatifs</h1>
-      <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto">
+      <p class="text-center text-gris-texte text-lg mb-6 max-w-[600px] mx-auto">
         Des comparatifs indépendants pour vous aider à choisir le bon appareil auditif.
       </p>
+      <div class="max-w-[700px] mx-auto text-gris-texte text-base leading-relaxed mb-12 space-y-3">
+        <p>
+          Chaque comparatif est rédigé après essai en cabine ou retour patient documenté. En 28 ans, j'ai appareillé plus de 3 000 personnes — ce qui compte au quotidien, ce n'est pas la fiche technique du fabricant, c'est le confort réel dans le bruit, la tenue de la batterie au bout de 6 mois, la facilité de manipulation pour des doigts arthrosiques.
+        </p>
+        <p>
+          Nos tests couvrent les <a href="/catalogue/" class="text-orange hover:underline">appareils auditifs</a> contour, intra-auriculaire et invisible, mais aussi les accessoires (TV Connector, micro distant) et les protections auditives. Chaque verdict indique si un modèle existe en <a href="/guides/remboursement/100-sante-audition/" class="text-orange hover:underline">classe 1 (reste à charge zéro)</a> ou en classe 2, pour que vous puissiez comparer à budget équivalent.
+        </p>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {comparatifs.map((entry) => (
           <a

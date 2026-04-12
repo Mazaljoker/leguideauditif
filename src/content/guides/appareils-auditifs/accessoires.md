@@ -1,5 +1,6 @@
 ---
 title: "TV Connector, micro distant, chargeur : les essentiels"
+metaTitle: "Accessoires appareils auditifs : guide complet"
 metaDescription: "Accessoires appareils auditifs : TV Connector, micro distant, chargeur, deshumidificateur. Guide audioprothesiste DE."
 cluster: appareils-auditifs
 isPillar: false

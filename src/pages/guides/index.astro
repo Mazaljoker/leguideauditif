@@ -49,9 +49,17 @@ const clusterLabels: Record<string, string> = {
   <section class="bg-creme py-16">
     <div class="max-w-[1140px] mx-auto px-5">
       <h1 class="font-sans text-[38px] font-extrabold text-marine text-center mb-4">Nos guides</h1>
-      <p class="text-center text-gris-texte text-lg mb-12 max-w-[600px] mx-auto">
+      <p class="text-center text-gris-texte text-lg mb-6 max-w-[600px] mx-auto">
         Tous nos contenus sur la santé auditive, rédigés par un audioprothésiste DE — 28 ans de clinique, 5 ans chez Auzen.com.
       </p>
+      <div class="max-w-[700px] mx-auto text-gris-texte text-base leading-relaxed mb-12 space-y-3">
+        <p>
+          Ces guides sont nés de 28 ans de questions en cabine. "Combien ça coûte vraiment ?" "Est-ce que la mutuelle rembourse ?" "Mon appareil siffle, c'est normal ?" — chaque article répond à une question que mes patients m'ont posée des dizaines de fois. J'écris ce que je dis en consultation, sans jargon inutile, avec les mêmes exemples concrets.
+        </p>
+        <p>
+          Le contenu est organisé par thème : <strong>perte auditive</strong> (comprendre votre audiogramme), <strong>appareils</strong> (choisir le bon type), <strong>remboursement</strong> (100% Santé, mutuelle, renouvellement), <strong>acouphènes</strong>, <strong>prévention</strong> et <strong>vie quotidienne</strong> (téléphone, TV, travail, voyage). Chaque affirmation médicale est sourcée — HAS, INSERM ou études PubMed.
+        </p>
+      </div>
 
       {Object.entries(clusterLabels).map(([cluster, label]) => {
         const entries = grouped[cluster];

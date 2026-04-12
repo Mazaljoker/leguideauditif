@@ -1,5 +1,6 @@
 ---
 title: "Meilleures protections auditives 2026"
+metaTitle: "Meilleure protection auditive 2026 : comparatif"
 metaDescription: "Meilleures protections auditives 2026 : bouchons moulés, filtres, casques. Comparatif par usage et budget."
 category: protections-auditives
 publishDate: 2026-04-07
