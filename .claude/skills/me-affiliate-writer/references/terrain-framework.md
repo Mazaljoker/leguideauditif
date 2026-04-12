@@ -46,11 +46,47 @@ PAS un cas parfait. Un cas REALISTE : age, situation, plainte entre guillemets, 
 - 1 rejet : "A mon sens, [Y] est souvent inutile."
 - 1 nuance : "Ca depend de [facteurs]."
 
+### BLOC 8 : Micro-digression patient (minimum 1)
+
+Un cas precis, detaille en 3-5 phrases, insere DANS le flux (pas en encadre).
+Age, situation, plainte exacte entre guillemets, evolution dans le temps, enseignement.
+
+Exemples :
+- "Je pense a un patient de 62 ans. Premier rendez-vous : 'je veux juste verifier'. Six mois plus tard..."
+- "Une patiente de 74 ans, retraitee. Elle ne venait pas pour elle — elle venait parce que son fils insistait."
+
+INTERDIT : cas generique ("un patient m'a dit..."). Donner age + contexte + citation.
+
+### BLOC 9 : CTAs a tension (minimum 2 par article)
+
+Les CTA ne doivent JAMAIS etre generiques. Chaque CTA doit porter une intention + une tension.
+
+INTERDIT : "En savoir plus", "Tout comprendre", "Decouvrir notre guide"
+AUTORISE :
+- "Voir les erreurs a eviter"
+- "Comprendre votre audiogramme"
+- "Comparer les appareils vraiment adaptes"
+- "Savoir si vous payez trop"
+
+Formule : [verbe d'action] + [benefice concret ou tension]
+
+### BLOC 10 : Phrase isolee de rupture (minimum 1)
+
+Une phrase seule. Courte. Qui casse le rythme apres un paragraphe dense.
+
+Exemples :
+- "C'est toujours comme ca que ca commence."
+- "Vraiment."
+- "Et ca, c'est le vrai probleme."
+- "Personne ne vous le dira en magasin."
+
+INTERDIT : phrase banale ("Voyons cela ensemble."). La phrase doit creer un micro-choc.
+
 ## Regle de distribution
 
-- Article < 1500 mots : minimum 4 blocs terrain
-- Article 1500-3000 mots : minimum 6 blocs terrain
-- Article > 3000 mots : minimum 8 blocs terrain
+- Article < 1500 mots : minimum 5 blocs terrain
+- Article 1500-3000 mots : minimum 7 blocs terrain
+- Article > 3000 mots : minimum 9 blocs terrain
 
 Repartir uniformement — pas de concentration en debut ou fin.
 
