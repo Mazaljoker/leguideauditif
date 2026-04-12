@@ -12,3 +12,10 @@ dist/
 # Google OAuth tokens — NEVER commit
 google_token.json
 .claude/google_token.json
+
+# Local config & tools
+.claude/__pycache__/
+.claude/settings.local.json
+.mcp.json
+.playwright-mcp/
+test-write/
