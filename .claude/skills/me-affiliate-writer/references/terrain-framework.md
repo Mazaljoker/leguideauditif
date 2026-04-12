@@ -28,23 +28,55 @@ AU MOINS 1 section revelant le processus interne :
 
 Bloc le plus DIFFERENCIATEUR — impossible a inventer sans expertise.
 
-### BLOC 4 : Cas reel credible (minimum 1)
+### BLOC 4 : Cas reel credible avec profondeur temporelle (minimum 1)
 
-PAS un cas parfait. Un cas REALISTE : age, situation, plainte entre guillemets, resultat nuance, enseignement. Voir `references/voice-profile-franck-olivier.md` (dans humanizer) pour les canevas.
+PAS un cas parfait. Un cas REALISTE avec EVOLUTION DANS LE TEMPS :
 
-### BLOC 5 : Limites et frictions (minimum 2)
+Structure obligatoire :
+1. **Etat initial** : age, situation, plainte entre guillemets
+2. **Phase d'ajustement** : hesitation, echec partiel, changement de decision
+3. **Suivi differe** : retour patient apres semaines/mois, resultat nuance
 
-"Ce test a ses limites...", "Ca depend de...", "Attention, ce resultat peut etre trompeur si..." INTERDIT : article 100% positif.
+INTERDIT :
+- Cas "trop parfait" (patient → appareil → tout va bien)
+- Resultat lineaire sans friction
+- 100% des cas evoques avec issue positive
+
+OBLIGATOIRE :
+- 30% des cas evoques doivent inclure echec, hesitation ou resultat partiel
+- Au moins 1 ajustement de decision par article
+- Au moins 1 retour patient differe (semaines/mois apres)
+
+Exemple :
+"Au debut, il refusait l'appareillage. Trois mois plus tard, il est revenu de lui-meme.
+Mais l'adaptation a ete longue — 6 semaines au lieu de 2. Parce qu'il avait attendu trop longtemps."
+
+### BLOC 5 : Limites, frictions et contradictions (minimum 2)
+
+Chaque section DOIT contenir 3 FORCES en tension :
+1. **Une verite simple** : "Les appareils ameliorent l'audition."
+2. **Une contradiction clinique** : "Mais pas dans le bruit complexe, ou la gene persiste souvent."
+3. **Une limite explicite** : "Et chez certains patients ages, l'adaptation est partielle."
+
+INTERDIT : article ou section 100% positif sans friction.
 
 ### BLOC 6 : Prises de position (minimum 2)
 
 "A mon sens...", "Ce que je recommande toujours, et ca peut surprendre..." INTERDIT : article encyclopedique sans avis.
 
-### BLOC 7 : Expert Judgment Layer (3 elements)
+### BLOC 7 : Expert Judgment Layer avec contradiction heuristique (3+1 elements)
 
 - 1 recommandation : "Je recommande [X] dans 80% des cas."
 - 1 rejet : "A mon sens, [Y] est souvent inutile."
 - 1 nuance : "Ca depend de [facteurs]."
+- 1 exception obligatoire : CHAQUE conseil doit avoir son exception contextuelle.
+
+Formule : regle → exception → dependance au contexte
+
+Exemple :
+"Un bilan auditif doit etre fait tot."
+"Mais chez certains patients anxieux, trop tot peut retarder l'acceptation du probleme."
+"Ca depend de la maturite psychologique — pas juste de l'age."
 
 ### BLOC 8 : Micro-digression patient (minimum 1)
 
@@ -147,6 +179,14 @@ Patterns propres qui creent une empreinte reconnaissable :
 - Parler comme en consultation, pas comme dans une brochure
 - Utiliser "je" quand c'est un avis, "vous" quand c'est une action
 - Phrases courtes pour les verdicts, longues pour les explications
+
+**Signature staggering (obligatoire par section)** :
+- 1 opinion directe par section
+- 1 observation clinique personnelle par section
+- 1 divergence industrie par article (desaccord implicite avec le consensus du marche)
+
+Exemple divergence :
+"On recommande souvent les appareils connectes. Sur le terrain, ce n'est pas ce qui change le plus la satisfaction."
 
 ### 4. Interdictions anti-generique renforcees
 

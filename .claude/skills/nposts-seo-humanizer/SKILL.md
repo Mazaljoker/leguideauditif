@@ -94,6 +94,15 @@ Le humanizer DOIT les preserver intacts :
 - **Repetitions intentionnelles** : si le writer repete un mot volontairement (desoptimisation), NE PAS corriger.
 - **Phrases de signature** : "Je vais etre direct", "Erreur classique", "C'est la que ca se complique". CONSERVER tel quel.
 
+## REDUNDANCY CONTROL (couche 8)
+
+Le humanizer DOIT verifier et corriger les repetitions excessives :
+- "28 ans" : max 2 par article. Si > 2, paraphraser ("pres de trois decennies", "depuis mes debuts")
+- "patients" : max 1 pour 200 mots. Alterner avec "personnes", "ceux que j'accompagne"
+- Meme claim factuel repete : max 2 occurrences. Paraphraser obligatoire a la 3eme
+- Meme cluster de mots-cles : max 3. Varier les synonymes naturels
+- NE PAS introduire de synonymes forces ou artificiels — la variation doit rester orale
+
 ## CHECKPOINT
 
 ```
