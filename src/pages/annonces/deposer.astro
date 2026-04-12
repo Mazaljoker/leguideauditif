@@ -22,9 +22,14 @@ const breadcrumbs = [
 
     <div class="py-8">
       <h1 class="font-sans text-3xl font-extrabold text-marine text-center mb-2">Déposer une annonce</h1>
-      <p class="text-center text-gris-texte mb-8 font-sans">
+      <p class="text-center text-gris-texte mb-4 font-sans">
         Publiez gratuitement votre annonce. Elle sera visible pendant 30 jours.
       </p>
+      <div class="max-w-2xl mx-auto text-gris-texte text-sm leading-relaxed mb-8 space-y-2">
+        <p>
+          La publication est gratuite et sans engagement. Votre annonce sera visible par tous les audioprothésistes inscrits sur LeGuideAuditif. Renseignez un titre clair, une description détaillée (localisation, conditions, prix si applicable) et vos coordonnées de contact. Les annonces sont modérées avant publication pour garantir la qualité du service. Besoin de plus de visibilité ? Découvrez nos <a href="/annonces/premium/" class="text-orange hover:underline">options premium</a> : badge visible, boost en première position et alerte ciblée par département.
+        </p>
+      </div>
 
       <AuthGuard client:load>
         <AnnonceForm client:load />

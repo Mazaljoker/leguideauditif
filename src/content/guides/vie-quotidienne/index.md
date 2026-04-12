@@ -1,5 +1,6 @@
 ---
 title: "Vivre au quotidien avec des appareils auditifs"
+metaTitle: "Vie quotidienne et appareils auditifs : nos guides"
 metaDescription: "Conseils pratiques pour vivre avec vos appareils auditifs : téléphone, TV, sport, voyage. Par un audioprothésiste DE, 28 ans."
 cluster: vie-quotidienne
 isPillar: true

@@ -13,7 +13,24 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: true },
   }),
-  integrations: [react(), sitemap(), mdx(), icon()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) =>
+        ![
+          'https://leguideauditif.fr/auth/callback/',
+          'https://leguideauditif.fr/auth/login/',
+          'https://leguideauditif.fr/auth/register/',
+          'https://leguideauditif.fr/auth/profil/',
+          'https://leguideauditif.fr/annonces/alertes/',
+          'https://leguideauditif.fr/annonces/mes-annonces/',
+          'https://leguideauditif.fr/revendiquer/confirmation/',
+          'https://leguideauditif.fr/revendiquer-gratuit/confirmation/',
+        ].includes(page),
+    }),
+    mdx(),
+    icon(),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

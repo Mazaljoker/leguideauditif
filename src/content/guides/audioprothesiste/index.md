@@ -1,5 +1,6 @@
 ---
 title: "L'audioprothésiste : rôle, parcours, comment bien choisir"
+metaTitle: "Audioprothésiste : rôle et guide pour bien choisir"
 metaDescription: "Tout savoir sur l'audioprothésiste : rôle, formation, premier RDV, suivi. Guide terrain par un professionnel DE, 28 ans d'expérience."
 cluster: audioprothesiste
 isPillar: true

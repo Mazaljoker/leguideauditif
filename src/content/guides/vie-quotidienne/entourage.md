@@ -1,5 +1,6 @@
 ---
 title: "Comment communiquer avec un proche malentendant"
+metaTitle: "Entourage et perte auditive : conseils communication"
 metaDescription: "Conseils pour communiquer avec un proche malentendant : posture, articulation, patience. Guide par un audioprothésiste DE, 28 ans."
 cluster: vie-quotidienne
 isPillar: false
