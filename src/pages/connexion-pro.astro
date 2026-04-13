@@ -1,0 +1,98 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Espace professionnel — LeGuideAuditif"
+  description="Connectez-vous pour modifier votre fiche audioprothésiste sur LeGuideAuditif.fr"
+>
+  <meta slot="head" name="robots" content="noindex" />
+
+  <section class="max-w-md mx-auto px-4 py-16">
+    <div class="rounded-xl border border-gris-clair bg-blanc p-8 shadow-sm">
+      <div class="text-center mb-8">
+        <div class="w-14 h-14 rounded-full bg-marine/10 flex items-center justify-center mx-auto mb-4">
+          <Icon name="lucide:user-check" class="w-7 h-7 text-marine" />
+        </div>
+        <h1 class="font-sans text-xl font-bold text-marine">Espace professionnel</h1>
+        <p class="text-sm text-gris-texte font-sans mt-2">
+          Saisissez l'email utilis&eacute; lors de la revendication de votre fiche.
+          Vous recevrez un lien de connexion par email.
+        </p>
+      </div>
+
+      <form id="magic-link-form">
+        <div class="mb-5">
+          <label for="pro-email" class="block text-sm font-medium text-marine font-sans mb-1">
+            Email professionnel
+          </label>
+          <input
+            id="pro-email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            placeholder="votre@email.fr"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+
+        <div id="form-error" class="hidden mb-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+        <div id="form-success" class="hidden mb-4 rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-700 font-sans"></div>
+
+        <button
+          type="submit"
+          id="submit-btn"
+          class="w-full rounded-lg bg-orange px-6 py-3 text-base font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/50 cursor-pointer disabled:opacity-60"
+          style="min-height: 48px;"
+        >
+          Recevoir un lien de connexion
+        </button>
+      </form>
+
+      <p class="text-xs text-gris-texte font-sans text-center mt-6">
+        Pas encore de fiche ? <a href="/trouver-audioprothesiste/" class="text-orange font-medium hover:underline">Trouvez votre centre</a> et revendiquez-le gratuitement.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    import { supabase } from '../lib/supabase';
+
+    const form = document.getElementById('magic-link-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const errorDiv = document.getElementById('form-error') as HTMLDivElement;
+    const successDiv = document.getElementById('form-success') as HTMLDivElement;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi en cours...';
+      errorDiv.classList.add('hidden');
+      successDiv.classList.add('hidden');
+
+      const email = (document.getElementById('pro-email') as HTMLInputElement).value.trim();
+
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback-pro`,
+        },
+      });
+
+      if (error) {
+        errorDiv.textContent = 'Impossible d\u2019envoyer le lien. V\u00e9rifiez votre email.';
+        errorDiv.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Recevoir un lien de connexion';
+      } else {
+        successDiv.innerHTML = 'Un lien de connexion a \u00e9t\u00e9 envoy\u00e9 \u00e0 <strong>' + email + '</strong>. V\u00e9rifiez votre bo\u00eete de r\u00e9ception.';
+        successDiv.classList.remove('hidden');
+        submitBtn.textContent = 'Email envoy\u00e9';
+      }
+    });
+  </script>
+</BaseLayout>
