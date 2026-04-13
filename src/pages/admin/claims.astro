@@ -23,10 +23,10 @@ const { data: pendingClaims } = await supabase
 // Recuperer les claims recemment traites
 const { data: recentClaims } = await supabase
   .from('centres_auditifs')
-  .select('slug, nom, claimed_by_name, claim_status, claimed_at')
+  .select('slug, nom, cp, ville, claimed_by_name, claimed_by_email, claimed_by_adeli, claim_status, claimed_at, plan, tel, site_web, horaires, specialites, marques, a_propos, photo_url')
   .in('claim_status', ['approved', 'rejected'])
   .order('claimed_at', { ascending: false })
-  .limit(10);
+  .limit(20);
 ---
 
 <BaseLayout title="Admin — Claims en attente" description="Administration des revendications">
@@ -149,37 +149,100 @@ const { data: recentClaims } = await supabase
     {recentClaims && recentClaims.length > 0 && (
       <>
         <h2 class="font-sans text-lg font-bold text-marine mb-4">Recemment traites</h2>
-        <div class="rounded-xl border border-gris-clair bg-blanc overflow-hidden">
-          <table class="w-full text-sm font-sans">
-            <thead class="bg-creme">
-              <tr>
-                <th class="text-left px-4 py-3 text-gris-texte font-medium">Centre</th>
-                <th class="text-left px-4 py-3 text-gris-texte font-medium">Demandeur</th>
-                <th class="text-left px-4 py-3 text-gris-texte font-medium">Statut</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentClaims.map((c) => (
-                <tr class="border-t border-gris-clair">
-                  <td class="px-4 py-3 text-marine">{c.nom}</td>
-                  <td class="px-4 py-3 text-gris-texte">{c.claimed_by_name || '—'}</td>
-                  <td class="px-4 py-3">
-                    {c.claim_status === 'approved' ? (
-                      <span class="rounded-full bg-[#E1F5EE] px-2 py-0.5 text-xs font-medium text-[#0F6E56]">Approuve</span>
-                    ) : (
-                      <span class="rounded-full bg-[#FCEBEB] px-2 py-0.5 text-xs font-medium text-[#A32D2D]">Rejete</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div class="space-y-3">
+          {recentClaims.map((c) => (
+            <details class="rounded-xl border border-gris-clair bg-blanc overflow-hidden group">
+              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-creme/50 transition-colors">
+                <div class="flex items-center gap-4">
+                  <div>
+                    <span class="text-sm font-bold text-marine font-sans">{c.nom}</span>
+                    <span class="text-xs text-gris-texte font-sans ml-2">{c.cp} {c.ville}</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-gris-texte font-sans">{c.claimed_by_name}</span>
+                  {c.claim_status === 'approved' ? (
+                    <span class="rounded-full bg-[#E1F5EE] px-2 py-0.5 text-xs font-medium text-[#0F6E56]">Approuve</span>
+                  ) : (
+                    <span class="rounded-full bg-[#FCEBEB] px-2 py-0.5 text-xs font-medium text-[#A32D2D]">Rejete</span>
+                  )}
+                  <Icon name="lucide:chevron-down" class="w-4 h-4 text-gris-texte group-open:rotate-180 transition-transform" />
+                </div>
+              </summary>
+              <div class="px-5 pb-5 border-t border-gris-clair pt-4">
+                <div class="grid gap-2 sm:grid-cols-2 text-sm font-sans mb-4">
+                  <div><span class="text-gris-texte">Email :</span> <a href={`mailto:${c.claimed_by_email}`} class="text-orange hover:underline">{c.claimed_by_email}</a></div>
+                  <div><span class="text-gris-texte">RPPS/SIRET :</span> <span class="text-marine">{c.claimed_by_adeli}</span></div>
+                  {c.tel && <div><span class="text-gris-texte">Tel :</span> <span class="text-marine">{c.tel}</span></div>}
+                  {c.site_web && <div><span class="text-gris-texte">Site :</span> <a href={c.site_web} target="_blank" rel="noopener" class="text-orange hover:underline">{c.site_web}</a></div>}
+                  {c.horaires && <div><span class="text-gris-texte">Horaires :</span> <span class="text-marine">{c.horaires}</span></div>}
+                  <div><span class="text-gris-texte">Date :</span> <span class="text-marine">{c.claimed_at ? new Date(c.claimed_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'}</span></div>
+                </div>
+                {c.specialites && c.specialites.length > 0 && (
+                  <div class="mb-2">
+                    <span class="text-xs text-gris-texte font-sans">Specialites : </span>
+                    {c.specialites.map((s: string) => (
+                      <span class="inline-block rounded-full bg-[#E6F1FB] px-2 py-0.5 text-xs text-[#0C447C] font-sans mr-1">{s}</span>
+                    ))}
+                  </div>
+                )}
+                {c.marques && c.marques.length > 0 && (
+                  <div class="mb-3">
+                    <span class="text-xs text-gris-texte font-sans">Marques : </span>
+                    {c.marques.map((m: string) => (
+                      <span class="inline-block rounded-full bg-[#F8F5F0] px-2 py-0.5 text-xs text-marine font-sans mr-1">{m}</span>
+                    ))}
+                  </div>
+                )}
+                {c.a_propos && (
+                  <p class="text-xs text-gris-texte font-sans mb-3">{c.a_propos}</p>
+                )}
+                <div class="flex gap-3 pt-3 border-t border-gris-clair">
+                  <a href={`/centre/${c.slug}/`} target="_blank" class="text-xs text-orange font-sans font-medium hover:underline">Voir la fiche</a>
+                  {c.claim_status === 'approved' && (
+                    <button
+                      type="button"
+                      class="admin-revoke text-xs text-[#A32D2D] font-sans font-medium hover:underline cursor-pointer"
+                      data-slug={c.slug}
+                    >
+                      Revoquer
+                    </button>
+                  )}
+                </div>
+              </div>
+            </details>
+          ))}
         </div>
       </>
     )}
   </section>
 
   <script>
+    // --- Revoquer un claim approuve ---
+    document.querySelectorAll('.admin-revoke').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const slug = btn.getAttribute('data-slug');
+        if (!confirm('Revoquer cette revendication ? Le centre repassera en mode ghost.')) return;
+
+        btn.textContent = 'En cours...';
+
+        try {
+          const res = await fetch('/api/admin/reject-claim', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ centreSlug: slug }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error);
+          window.location.reload();
+        } catch (err) {
+          alert(err instanceof Error ? err.message : 'Erreur');
+          btn.textContent = 'Revoquer';
+        }
+      });
+    });
+
+    // --- Approuver / Rejeter un claim pending ---
     document.querySelectorAll('.admin-action').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const action = btn.getAttribute('data-action');
