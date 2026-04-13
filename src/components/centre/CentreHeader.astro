@@ -22,12 +22,12 @@ const hasPhoto = !!centre.photo_url;
 <header class="mb-8">
   {/* --- Photo grande pour claimed/premium avec image --- */}
   {hasPhoto && (plan === 'claimed' || plan === 'premium') && (
-    <div class="mb-5 rounded-xl overflow-hidden" style="max-height: 280px;">
+    <div class="mb-5 rounded-xl overflow-hidden" style="max-height: 400px;">
       <img
         src={centre.photo_url}
         alt={`Photo du centre ${centre.nom}`}
         class="w-full object-cover"
-        style="max-height: 280px;"
+        style="max-height: 400px;"
         loading="lazy"
       />
     </div>
