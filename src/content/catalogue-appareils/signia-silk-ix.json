@@ -1,4 +1,5 @@
 {
+  "slug": "signia-silk-ix",
   "marque": "signia",
   "marqueLabel": "Signia",
   "groupe": "ws-audiology",
@@ -6,28 +7,7 @@
   "formeType": "CIC",
   "formesDisponibles": "CIC instant-fit",
   "puce": "IX Platform",
-  "annee": 2023,
-  "specs": {
-    "batterie": "Li-ion",
-    "autonomie": "28",
-    "plageAdaptation": "Mild to moderate"
-  },
-  "connectivite": {
-    "bluetooth": "No",
-    "auracast": false,
-    "application": "Signia App",
-    "mainLibre": false
-  },
-  "fonctionnalites": {
-    "rechargeable": true,
-    "bobineT": false,
-    "acouphenes": true
-  },
-  "couleurs": 2,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "signia-silk-ix",
-  "niveauPosition": 1,
+  "niveauPosition": 4,
   "classe": "2",
   "rac0": false,
   "prix": {
@@ -39,23 +19,49 @@
       "min": 2698
     }
   },
+  "annee": 2024,
+  "specs": {
+    "canaux": 48,
+    "bandes": 20,
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "24-28",
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 mod\u00e9r\u00e9e"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": false,
+    "application": "Signia App (via smartphone)",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": "Feedback Canceller IX",
+    "micDirectionnels": "OVP 2.0"
+  },
+  "couleurs": 2,
   "image": "/images/appareils/aide-auditive-signia-silk-ix.jpg",
-  "descriptionCourte": "Le Signia Silk Charge&Go IX est un appareil auditif CIC entree de gamme equipe de la puce IX Platform, lance en 2023 par Signia (groupe WS Audiology). Rechargeable avec 28h d'autonomie. Connectivite No.",
+  "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/silk-charge-go-ix/",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/signia-silk-ix-fiche-technique.pdf",
+  "descriptionCourte": "Le seul CIC instant-fit rechargeable du march\u00e9. Quasi invisible dans le conduit, puce IX. 48 canaux, 24-28h d\u2019autonomie. Pour les pertes l\u00e9g\u00e8res \u00e0 mod\u00e9r\u00e9es qui veulent la discr\u00e9tion absolue.",
+  "descriptionComplete": "Le Silk, c\u2019est l\u2019appareil que vous ne voyez pas. Litt\u00e9ralement. Il se glisse dans le conduit auditif, et m\u00eame en regardant de face, rien ne d\u00e9passe. Avec la version IX rechargeable, Signia a r\u00e9solu le dernier frein des CIC : le changement de piles.\n\nCe que fait cet appareil\nLe Silk Charge&Go IX est un CIC (Completely-in-Canal) instant-fit. Contrairement aux intras sur mesure qui n\u00e9cessitent une empreinte et 2-3 semaines de fabrication, le Silk s\u2019adapte imm\u00e9diatement gr\u00e2ce \u00e0 des manchons en silicone souple (click sleeves) disponibles en plusieurs tailles. Vous l\u2019essayez au premier rendez-vous.\n\nSous le capot, c\u2019est la m\u00eame puce IX que le Pure et le Styletto : 48 canaux, 20 bandes, OVP 2.0. Dans le calme, les r\u00e9sultats sont tr\u00e8s bons. La clart\u00e9 vocale est au rendez-vous, et l\u2019OVP 2.0 fait que votre propre voix ne r\u00e9sonne pas.\n\nDans le bruit, le Silk est un peu plus limit\u00e9 que le Pure ou le Styletto. C\u2019est li\u00e9 au format : un CIC n\u2019a qu\u2019un microphone, contre deux sur un RIC. La directivit\u00e9 est donc moins pr\u00e9cise. Pour les conversations \u00e0 deux ou en petit groupe, c\u2019est tr\u00e8s bien. Pour un restaurant bond\u00e9, un RIC fera mieux.\n\nLe streaming Bluetooth est possible via BLE LE Audio \u2014 c\u2019est une avanc\u00e9e notable pour un CIC, format habituellement d\u00e9pourvu de connectivit\u00e9. Pas de mains libres par contre \u2014 le micro est dans le conduit, pas pr\u00e8s de la bouche.\n\nEn pratique, sur le terrain\nJ\u2019ai adapt\u00e9 le Silk sur des patients pour qui la discr\u00e9tion \u00e9tait la condition absolue de l\u2019appareillage. Un patient de 55 ans, chef d\u2019entreprise, m\u2019a dit : \u00ab Si \u00e7a se voit, je ne le porte pas. \u00bb Le Silk a \u00e9t\u00e9 sa solution. Au bout de deux mois, personne dans son entourage professionnel ne savait qu\u2019il \u00e9tait appareill\u00e9.\n\nL\u2019instant-fit est un vrai avantage pratique : pas de semaines d\u2019attente pour les moules. Mais il faut que l\u2019anatomie du conduit convienne \u2014 certains conduits trop \u00e9troits ou trop sinueux rendent le placement difficile. L\u2019essai en cabinet est essentiel.\n\nL\u2019autonomie de 24-28h est correcte pour un CIC rechargeable \u2014 c\u2019est d\u2019ailleurs le seul CIC instant-fit rechargeable du march\u00e9. Le chargeur est un petit bo\u00eetier de poche.\n\nPour qui est fait cet appareil ?\nLe Silk IX est id\u00e9al pour les personnes dont la discr\u00e9tion est le crit\u00e8re num\u00e9ro un, avec une perte l\u00e9g\u00e8re \u00e0 mod\u00e9r\u00e9e. Professionnels en activit\u00e9, personnes qui ne veulent rien de visible derri\u00e8re l\u2019oreille, premiers appareillages o\u00f9 l\u2019esth\u00e9tique est un frein.\n\nPas adapt\u00e9 pour les pertes s\u00e9v\u00e8res, les personnes qui ont besoin d\u2019une forte directivit\u00e9 en milieu bruyant, ou celles dont le conduit auditif ne convient pas au format CIC.\n\nPar rapport \u00e0 la concurrence\nLe Silk IX est le seul CIC instant-fit rechargeable avec puce premium du march\u00e9. C\u2019est un positionnement unique. Les alternatives sont les CIC sur mesure (Signia Insio IX, Phonak Virto) qui n\u00e9cessitent des empreintes, ou les IIC d\u2019autres marques qui fonctionnent encore sur piles.\n\nFace au Pure IX (m\u00eame puce), vous gagnez l\u2019invisibilit\u00e9 totale mais vous perdez la directivit\u00e9 double micro et le mains libres.\n\nVerdict expert\n8.0/10. Le Signia Silk Charge&Go IX est un produit sans \u00e9quivalent : le seul CIC instant-fit rechargeable avec la puce IX. Pour les patients dont la discr\u00e9tion est non n\u00e9gociable, c\u2019est LA solution. La limitation \u00e0 la perte mod\u00e9r\u00e9e et le micro unique en milieu bruyant emp\u00eachent un score plus haut, mais pour son public cible, c\u2019est exactement ce qu\u2019il faut.\n\nEn une phrase : invisible, rechargeable, et enfin connect\u00e9 \u2014 le CIC que tout le monde attendait.",
   "pointsForts": [
-    "Quasi-invisible dans le conduit auditif",
-    "Puce IX Platform",
-    "Rechargeable (28h)",
-    "Bluetooth No",
-    "Generateur de bruit pour acouphenes",
-    "Application Signia App"
+    "Seul CIC instant-fit rechargeable du march\u00e9 \u2014 pas de piles, pas d\u2019empreintes, essai imm\u00e9diat",
+    "Quasi invisible dans le conduit \u2014 rien ne d\u00e9passe, m\u00eame de face",
+    "Puce IX premium : 48 canaux, OVP 2.0, anti-larsen exemplaire",
+    "Streaming BLE LE Audio \u2014 rare pour un CIC, avanc\u00e9e notable",
+    "Autonomie 24-28h rechargeable \u2014 chargeur de poche compact"
   ],
   "pointsFaibles": [
-    "Autonomie reduite, pas de connectivite directe",
-    "Classe 2 — reste a charge variable",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Un seul microphone \u2014 directivit\u00e9 moins pr\u00e9cise qu\u2019un RIC double micro en milieu bruyant",
+    "Plage d\u2019adaptation limit\u00e9e aux pertes l\u00e9g\u00e8res \u00e0 mod\u00e9r\u00e9es",
+    "Format CIC qui ne convient pas \u00e0 toutes les anatomies de conduit \u2014 essai en cabinet indispensable"
   ],
-  "noteExpert": 6.4,
+  "noteExpert": 8.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/signia-silk-ix-fiche-technique.pdf",
-  "descriptionComplete": "Le Signia Silk Charge&Go IX est une aide auditive de type completement dans le conduit (CIC), quasi-invisible une fois en place. Lance en 2023 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Silk Charge&Go IX beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. La plage d'adaptation couvre les pertes legeres a moyennes. \n\nConnectivite\nLa connectivite No permet le streaming audio direct depuis votre smartphone. L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Silk Charge&Go IX est rechargeable (batterie Li-ion), offrant jusqu'a 28 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. Disponible en 2 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Silk Charge&Go IX integre egalement un generateur de bruit pour le soulagement des acouphenes. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 249 euros par appareil (soit ~2 498 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.4/10. Le Signia Silk Charge&Go IX est un appareil auditif CIC entree de gamme equipe de la puce IX Platform, lance en 2023 par Signia (groupe WS Audiology). Rechargeable avec 28h d'autonomie. Connectivite No."
+  "legacy": false,
+  "metaTitle": "Signia Silk Charge&Go IX : prix, avis et fiche",
+  "metaDescription": "CIC invisible rechargeable Signia, puce IX, 48 canaux. Instant-fit unique. De 1 249 \u00e0 1 549\u20ac. Avis audioproth\u00e9siste DE."
 }
