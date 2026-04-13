@@ -1,0 +1,36 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AnnonceListing from '../../../components/annonces/AnnonceListing';
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Annonces', href: '/annonces/' },
+  { label: 'Services professionnels' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Services professionnels pour audioprothésistes',
+};
+---
+
+<BaseLayout
+  title="Services professionnels pour audioprothésistes — LeGuideAuditif"
+  description="Marketing digital, gestion de réseaux sociaux, conseil et formation pour les centres auditifs indépendants."
+  schema={schema}
+>
+  <div class="max-w-[1140px] mx-auto px-5 py-8">
+    <Breadcrumbs items={breadcrumbs} />
+
+    <h1 class="font-sans text-3xl font-extrabold text-marine mb-2">Services professionnels</h1>
+    <p class="text-gris-texte text-lg mb-8 font-sans">
+      Marketing digital, gestion de réseaux sociaux, conseil et accompagnement pour les centres auditifs.
+    </p>
+
+    <AnnonceListing client:load categorie="services" />
+  </div>
+</BaseLayout>

@@ -25,6 +25,16 @@ function getPriceId(produit: AnnonceProduit): string | undefined {
 }
 
 export const POST: APIRoute = async ({ request }) => {
+  // TEMPORAIREMENT DESACTIVE — les options premium annonces seront activees
+  // quand le volume d'annonces le justifiera et que chaque feature sera fonctionnelle.
+  // TODO: reactiver produit par produit quand chaque feature sera implementee
+  return new Response(
+    JSON.stringify({
+      error: 'Les options premium annonces ne sont pas encore disponibles. Deposez votre annonce gratuitement.',
+    }),
+    { status: 400, headers: { 'Content-Type': 'application/json' } }
+  );
+
   try {
     const body = await request.json();
     const { annonce_id, produit, user_id } = body as {

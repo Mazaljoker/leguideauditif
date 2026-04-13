@@ -15,6 +15,7 @@ const categories = [
   { key: 'emploi', label: 'Emploi & Recrutement', desc: 'Recruter ou trouver un poste', icon: 'lucide:briefcase', color: 'bg-emerald-50 border-emerald-200 hover:border-emerald-400' },
   { key: 'remplacement', label: 'Remplacement', desc: 'Trouver ou proposer un remplacement', icon: 'lucide:calendar-clock', color: 'bg-purple-50 border-purple-200 hover:border-purple-400' },
   { key: 'materiel', label: 'Matériel professionnel', desc: 'Acheter ou vendre du matériel', icon: 'lucide:wrench', color: 'bg-amber-50 border-amber-200 hover:border-amber-400' },
+  { key: 'services', label: 'Services professionnels', desc: 'Marketing, gestion, conseil pour votre centre', icon: 'lucide:handshake', color: 'bg-teal-50 border-teal-200 hover:border-teal-400' },
 ];
 
 const counts: Record<string, number> = {};
@@ -67,7 +68,7 @@ const schema = {
         En 28 ans de métier, j'ai vu des dizaines de confrères chercher un successeur, un remplaçant pour l'été ou un audiomètre d'occasion — souvent par bouche-à-oreille, faute de plateforme dédiée. LeGuideAuditif comble ce manque : un espace réservé aux professionnels de l'audioprothèse, gratuit, sans intermédiaire.
       </p>
       <p>
-        Vous trouverez ici quatre catégories : <strong>cession et installation</strong> (fonds de commerce, baux), <strong>emploi et recrutement</strong> (CDI, CDD, assistants), <strong>remplacements</strong> (congés, formations) et <strong>matériel professionnel</strong> (cabines audiométriques, chaînes de mesure, mobilier). Chaque annonce est visible 30 jours et peut être boostée via nos <a href="/annonces/premium/" class="text-orange hover:underline">options premium</a>.
+        Vous trouverez ici cinq catégories : <strong>cession et installation</strong> (fonds de commerce, baux), <strong>emploi et recrutement</strong> (CDI, CDD, assistants), <strong>remplacements</strong> (congés, formations), <strong>matériel professionnel</strong> (cabines audiométriques, chaînes de mesure, mobilier) et <strong>services professionnels</strong> (marketing digital, gestion de réseaux sociaux, conseil). Chaque annonce est visible 30 jours.
       </p>
       <p>
         Le marché de l'audioprothèse évolue vite : départs en retraite, ouvertures de centres, regroupements. Si vous êtes en recherche active — que ce soit pour céder votre cabinet, recruter un collaborateur diplômé d'État, ou trouver un remplacement pendant vos congés — publiez votre annonce en moins de 2 minutes. C'est gratuit.
@@ -75,7 +76,7 @@ const schema = {
     </div>
 
     <!-- Categories -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-14">
       {categories.map((cat) => (
         <a
           href={`/annonces/${cat.key}/`}
