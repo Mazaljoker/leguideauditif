@@ -3,6 +3,8 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { createClient } from '@supabase/supabase-js';
 import { createServerClient } from '../../../lib/supabase';
+import { sendEmail } from '../../../lib/email';
+import { claimApprovedEmail } from '../../../emails/claim-approved';
 
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
 
@@ -48,7 +50,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
     const { data: centre, error: fetchError } = await supabase
       .from('centres_auditifs')
-      .select('slug, plan, claim_status')
+      .select('slug, nom, plan, claim_status, claimed_by_email, claimed_by_name')
       .eq('slug', centreSlug)
       .single();
 
@@ -79,6 +81,21 @@ export const POST: APIRoute = async ({ request, cookies }) => {
         JSON.stringify({ error: 'Erreur lors de la validation.' }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
+    }
+
+    // Envoyer l'email de confirmation au professionnel
+    if (centre.claimed_by_email && centre.claimed_by_name) {
+      const prenom = centre.claimed_by_name.split(' ')[0] || centre.claimed_by_name;
+      await sendEmail({
+        to: centre.claimed_by_email,
+        subject: `Votre fiche ${centre.nom} est valid\u00e9e sur LeGuideAuditif.fr`,
+        html: claimApprovedEmail({
+          prenom,
+          centreNom: centre.nom,
+          centreSlug: centre.slug,
+        }),
+        replyTo: 'franck@leguideauditif.fr',
+      });
     }
 
     return new Response(
