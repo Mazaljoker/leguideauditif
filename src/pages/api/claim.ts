@@ -5,6 +5,7 @@ import { createServerClient } from '../../lib/supabase';
 import { sendEmail, sendAdminNotification } from '../../lib/email';
 import { claimConfirmationEmail } from '../../emails/claim-confirmation';
 import { claimAdminNotificationEmail } from '../../emails/claim-admin-notification';
+import { generateAdminToken } from '../../lib/admin-token';
 
 const MAX_PHOTO_SIZE = 5 * 1024 * 1024; // 5 Mo
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
@@ -141,11 +142,20 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    // Generer les tokens pour les liens one-click admin
+    const baseUrl = 'https://leguideauditif.fr/api/admin';
+    const [approveToken, rejectToken] = await Promise.all([
+      generateAdminToken('approve', centreSlug),
+      generateAdminToken('reject', centreSlug),
+    ]);
+    const approveUrl = `${baseUrl}/quick-approve?slug=${centreSlug}&token=${approveToken}`;
+    const rejectUrl = `${baseUrl}/quick-reject?slug=${centreSlug}&token=${rejectToken}`;
+
     // Envoi emails (non-bloquant — on ne fait pas echouer le claim si l'email echoue)
     await Promise.allSettled([
       sendEmail({
         to: email,
-        subject: 'Votre demande de revendication a bien été reçue',
+        subject: 'Votre demande de revendication a bien \u00e9t\u00e9 re\u00e7ue',
         html: claimConfirmationEmail({ prenom, nom, centreNom: centre.nom, centreSlug }),
         replyTo: 'franck@leguideauditif.fr',
       }),
@@ -155,6 +165,8 @@ export const POST: APIRoute = async ({ request }) => {
           prenom, nom, email, adeli,
           centreNom: centre.nom, centreSlug,
           tel: tel || undefined,
+          approveUrl,
+          rejectUrl,
         }),
       ),
     ]);
