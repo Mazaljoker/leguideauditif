@@ -115,15 +115,18 @@ const maskedPhone = plan === 'rpps' && centre.tel ? maskPhone(centre.tel) : null
         <p class="text-sm text-gris-texte font-sans">www.centre-auditif.fr/***</p>
       </div>
     ) : plan === 'claimed' ? (
-      <div class="rounded-lg bg-blanc p-4 opacity-45 relative">
-        <div class="absolute top-3 right-3">
-          <Icon name="lucide:lock" class="w-3.5 h-3.5 text-[#B4B2A9]" />
-        </div>
+      <div class="rounded-lg bg-blanc p-4">
         <div class="flex items-center gap-2 mb-1">
-          <Icon name="lucide:globe" class="w-4 h-4 text-gris-texte" />
+          <Icon name="lucide:globe" class="w-4 h-4 text-marine/50" />
           <span class="text-xs text-gris-texte font-sans">Site web</span>
         </div>
-        <p class="text-[10px] font-medium text-orange font-sans">Fiche premium</p>
+        {centre.site_web ? (
+          <a href={centre.site_web} target="_blank" rel="noopener" class="text-sm font-medium text-[#185FA5] font-sans hover:underline">
+            Voir le site
+          </a>
+        ) : (
+          <p class="text-sm text-gris-texte font-sans">Non renseign\u00e9</p>
+        )}
       </div>
     ) : (
       <div class="rounded-lg bg-blanc p-4">
