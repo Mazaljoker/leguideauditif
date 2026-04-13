@@ -4,15 +4,20 @@
   "groupe": "ws-audiology",
   "modele": "Reach",
   "formeType": "RIC",
+  "formesDisponibles": "R-Li|R-Li T|R Plus|Rugged|InoX-CIC Li|Custom ITC/ITE",
   "puce": "IX Platform",
   "annee": 2024,
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
   "specs": {
     "batterie": "Li-ion",
-    "autonomie": "39",
+    "autonomie": "28-54",
+    "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
-    "bluetooth": "BLE LE Audio",
+    "bluetooth": "BLE LE Audio, MFi, ASHA",
     "auracast": false,
     "application": "Rexton App",
     "mainLibre": false
@@ -20,20 +25,38 @@
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": false,
-    "acouphenes": false
+    "acouphenes": false,
+    "antiFeedback": "Feedback Canceller IX"
   },
-  "image": "/images/appareils/aide-auditive-rexton-reach.jpg",
+  "couleurs": 4,
+  "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/",
   "venduEnEurope": true,
   "slug": "rexton-reach",
-  "niveauPosition": 4,
-  "classe": "2",
-  "rac0": false,
-  "metaDescription": "Avis expert Rexton Reach : RIC rechargeable avec technologie Signia IX, 39h autonomie, Bluetooth LE Audio, 1 499 € chez Costco. Test complet et conseil audioprothésiste.",
-  "descriptionCourte": "Avis expert Rexton Reach : RIC rechargeable avec technologie Signia IX, 39h autonomie, Bluetooth LE Audio, 1 499 € chez Costco. Test complet et conseil audioprothésiste.",
+  "prix": {
+    "eur": {
+      "min": 950,
+      "max": 1490
+    }
+  },
+  "image": "/images/appareils/aide-auditive-rexton-reach.jpg",
+  "metaTitle": "Rexton Reach : prix, avis et gamme complète",
+  "metaDescription": "Gamme Reach 2024 sur puce Signia IX : RIC, BTE, CIC. Multi-Voice Focus, IP68, jusqu'à 54 h d'autonomie. Avis audioprothésiste DE, prix 950-1 490 €.",
+  "descriptionCourte": "Gamme complète d'aides auditives Rexton sur puce Signia IX. Du RIC rechargeable au CIC invisible, Multi-Voice Focus et IP68 — technologie premium à prix maîtrisé.",
+  "pointsForts": [
+    "Technologie Signia IX intégrale à un tarif inférieur de 20 à 40 % par rapport aux Signia Pure IX",
+    "Gamme large : RIC, BTE, CIC et même un modèle Rugged renforcé — un format pour chaque profil de perte et de mode de vie",
+    "Multi-Voice Focus à 4 faisceaux : compréhension multi-interlocuteurs prouvée jusqu'à 3-4 personnes en bruit modéré",
+    "Autonomie généreuse : de 28 h (CIC) à 54 h (R Plus BTE) selon le format",
+    "IP68 sur toute la gamme RIC et BTE — robustesse certifiée contre poussière et immersion"
+  ],
+  "pointsFaibles": [
+    "Streaming musical en retrait par rapport à Phonak et Oticon — correct pour les appels, limité pour la musique",
+    "Application Rexton App basique : réglages de volume et programmes, sans la personnalisation fine de myPhonak ou Signia App",
+    "Distribution limitée en France : peu d'audioprothésistes référencent Rexton, il faut chercher un centre partenaire",
+    "Pas de mains libres sur le modèle R-Li de base — il faut la version R-Li T pour cette fonction"
+  ],
   "noteExpert": 7.5,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
-  "descriptionComplete": "Le Rexton Reach est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Rexton (groupe WS Audiology), technologie Signia a tarif reduit, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Reach beneficie de la technologie plateforme Signia. Distribue principalement via Costco aux USA, bon rapport qualite-prix. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. L'application Rexton App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Reach est rechargeable (batterie Li-ion), offrant jusqu'a 39 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.5/10. Avis expert Rexton Reach : RIC rechargeable avec technologie Signia IX, 39h autonomie, Bluetooth LE Audio, 1 499 € chez Costco. Test complet et conseil audioprothésiste.",
-  "legacy": true,
-  "legacyReason": "Doublon : Reach existe en variantes R-Li T, IIC-CIC, Slim RIC"
+  "descriptionComplete": "La marque Rexton, personne n'en parle entre audioprothésistes. C'est un tort. Filiale de WS Audiology (le groupe derrière Signia et Widex), Rexton embarque strictement la même puce IX Platform que le Signia Pure Charge&Go IX — le vaisseau amiral du groupe. La gamme Reach, sortie en 2024, décline cette plateforme sur six formats : RIC classique, BTE longue autonomie, CIC quasi invisible, et même un modèle Rugged durci pour ceux qui maltraitent leurs appareils.\n\nCe que propose la gamme Reach\n\nLe socle technique est partagé par toute la famille. Le Multi-Voice Focus découpe l'environnement sonore avec quatre faisceaux directionnels qui balaient la scène 1 000 fois par seconde. Le système repère les voix, les suit quand les interlocuteurs se déplacent, ajuste le gain en temps réel. Vous ne touchez à rien. Dans le calme, la clarté vocale est là sur tous les formats. Bruit modéré — repas de famille, terrasse de café — la compréhension tient bien avec deux ou trois personnes en face. Au-delà, brouhaha dense, ça plafonne. Comme partout. Le streaming passe par Bluetooth LE Audio, compatible iPhone et Android. Pour les appels, c'est largement suffisant. Pour la musique, soyons honnêtes : ça fait le travail en fond sonore, mais les Phonak Infinio restent devant en restitution des basses et en dynamique.\n\nCe que la plateforme IX m'a appris en cabinet\n\nCette puce, je la connais sous le badge Signia. Plusieurs dizaines de patients adaptés avant que je quitte le cabinet fin 2024. Le traitement du signal est identique d'un badge à l'autre. Mêmes algorithmes de réduction du bruit. Même gestion du larsen. Même directionnalité. Ce qui diffère entre Rexton et Signia, c'est tout ce qu'il y a autour. L'application Rexton App couvre l'essentiel — volume, programmes, localisation des appareils — sans offrir la personnalisation poussée de Signia App. Le design des boîtiers reste fonctionnel, pas plus. Et le vrai frein en France : trouver un audioprothésiste qui référence la marque relève parfois du parcours du combattant. Le tableau change aux États-Unis, où Costco distribue le Reach R-Li T80 à 1 500 dollars la paire. Le premium le plus accessible du marché américain.\n\nLes six formats de la gamme\n\nLe Reach R-Li, c'est le RIC rechargeable d'entrée : 39 h d'autonomie, Bluetooth, IP68. Le R-Li T ajoute la bobine téléphonique et les appels mains libres — c'est celui que je recommande si votre audioprothésiste le propose. Le R Plus est un contour classique, 54 h d'autonomie. Pour ceux qui oublient de recharger, c'est une vraie tranquillité. Le Rugged durcit le boîtier : travail en extérieur, sport, environnement hostile. L'InoX-CIC Li est un intra quasi invisible, rechargeable, 28 h d'autonomie. Enfin, les versions Custom ITC et ITE sont fabriquées sur mesure pour les patients qui veulent avant tout le confort de port.\n\nPour qui ? Pas pour qui ?\n\nLa gamme Reach vise les patients qui veulent la technologie premium sans le tarif premium. Profil type : perte légère à sévère, budget maîtrisé, besoin de connectivité smartphone, pas d'attente particulière sur l'application. Vous êtes primo-appareillé et les prix des Big Six vous refroidissent ? Rexton est un raccourci intelligent vers la même puce. En revanche, passez votre chemin si vous avez besoin d'un suivi fin via l'application (audiogramme in situ, réglages fréquence par fréquence), si vous êtes exigeant sur le streaming musical, ou si la notoriété de la marque compte pour vous.\n\nFace à la concurrence\n\nContre le Signia Pure IX : même moteur, prix inférieur, écosystème et distribution en retrait. Contre le Phonak Audéo Lumity : le Phonak prend l'avantage en streaming et en richesse de myPhonak, le Reach gagne en autonomie et en prix. Contre le prédécesseur Rexton BiCore : le saut est net — puce IX contre génération précédente, LE Audio, autonomie doublée sur certains formats. Le BiCore n'a plus lieu d'être recommandé.\n\nVerdict expert\n\nNote : 7,5/10. La gamme Rexton Reach fait ce qu'on lui demande : mettre la technologie Signia IX à portée d'un budget plus serré. Compréhension vocale solide, autonomie généreuse, robustesse prouvée. Le compromis se paie sur l'application, le streaming musical et la difficulté à trouver un centre partenaire en France. Si vous en trouvez un qui les propose, demandez à essayer. Le rapport qualité-prix parle de lui-même. Prix constaté : 950 à 1 490 euros l'unité, variable selon l'audioprothésiste et votre reste à charge."
 }

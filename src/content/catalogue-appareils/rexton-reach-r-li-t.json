@@ -6,14 +6,20 @@
   "formeType": "RIC",
   "formesDisponibles": "RIC T",
   "puce": "IX Platform",
+  "niveau": "80",
   "annee": 2024,
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
   "specs": {
     "batterie": "Li-ion",
-    "autonomie": "39",
-    "plageAdaptation": "Mild to profound"
+    "autonomie": "34-39",
+    "ip": "IP68",
+    "plageAdaptation": "Mild to severe",
+    "poids": "2,9 g (sans écouteur)"
   },
   "connectivite": {
-    "bluetooth": "BLE LE Audio",
+    "bluetooth": "BLE LE Audio, MFi, ASHA",
     "auracast": false,
     "application": "Rexton App",
     "mainLibre": true
@@ -21,36 +27,44 @@
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
-    "acouphenes": false
+    "acouphenes": false,
+    "antiFeedback": "Feedback Canceller IX"
   },
   "couleurs": 4,
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/",
   "venduEnEurope": true,
   "slug": "rexton-reach-r-li-t",
-  "niveauPosition": 1,
-  "rac0": false,
   "prix": {
+    "eur": {
+      "min": 950,
+      "max": 1490
+    },
     "usd": {
-      "min": 1500
+      "min": 750,
+      "max": 750
     }
   },
   "image": "/images/appareils/aide-auditive-rexton-reach-r-li-t.jpg",
-  "descriptionCourte": "Le Rexton Reach R-Li T est un appareil auditif RIC entree de gamme equipe de la puce IX Platform, lance en 2024 par Rexton (groupe WS Audiology). Rechargeable avec 39h d'autonomie. Connectivite BLE LE Audio.",
+  "metaTitle": "Rexton Reach R-Li T : prix, avis et fiche complète",
+  "metaDescription": "RIC rechargeable puce IX, 39 h d'autonomie, T-coil. Meilleur rapport qualité-prix du marché. Avis audioprothésiste DE, prix France 950-1 490 €.",
+  "descriptionCourte": "RIC rechargeable sur puce Signia IX vendu à prix cassé. 39 h d'autonomie, T-coil et mains libres — le meilleur rapport qualité-prix du marché pour une perte légère à sévère.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce IX Platform",
-    "Rechargeable (39h)",
-    "Bluetooth BLE LE Audio",
-    "Appels mains libres",
-    "Application Rexton App"
+    "Rapport qualité-prix imbattable : technologie Signia IX premium à un tarif inférieur de 20 à 40 % aux Signia Pure IX équivalents",
+    "Autonomie record de 39 h sans streaming, 34 h avec 5 h de streaming — recharge rapide 30 min pour une demi-journée d'écoute",
+    "Multi-Voice Focus à 4 faisceaux balayant 1 000 fois par seconde — clarté conversationnelle prouvée en groupe jusqu'à 3-4 personnes",
+    "Bobine T intégrée pour boucles magnétiques (cinémas, guichets, lieux de culte) — rare à ce prix",
+    "IP68 certifié + design Lifeproof : résiste aux chutes, éclaboussures et rayures du quotidien",
+    "Compatible LE Audio, MFi et ASHA — streaming direct iPhone et Android, appels mains libres"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de support Auracast",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Streaming musical en retrait par rapport aux Phonak Infinio et Oticon Intent — correct pour les appels, limité pour la musique en hi-fi",
+    "Application Rexton App moins aboutie que myPhonak ou Signia App — réglages de base sans personnalisation fine",
+    "Réseau de distribution restreint en France : peu d'audioprothésistes référencent Rexton, il faut chercher",
+    "Pas de capteurs santé ni suivi d'activité — Starkey et Signia gardent l'avantage sur ce terrain",
+    "Auracast non disponible au lancement — compatibilité LE Audio annoncée via mise à jour firmware ultérieure"
   ],
-  "noteExpert": 6.6,
+  "noteExpert": 7.6,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
-  "descriptionComplete": "Le Rexton Reach R-Li T est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Rexton (groupe WS Audiology), technologie Signia a tarif reduit, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Reach R-Li T beneficie de la technologie plateforme Signia. Distribue principalement via Costco aux USA, bon rapport qualite-prix. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Rexton App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Reach R-Li T est rechargeable (batterie Li-ion), offrant jusqu'a 39 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. Disponible en 4 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Reach R-Li T integre egalement une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.6/10. Le Rexton Reach R-Li T est un appareil auditif RIC entree de gamme equipe de la puce IX Platform, lance en 2024 par Rexton (groupe WS Audiology). Rechargeable avec 39h d'autonomie. Connectivite BLE LE Audio."
+  "descriptionComplete": "Chez Rexton, personne ne vous arrête dans la rue pour vous en parler. La marque n'a pas la notoriété d'un Phonak ou d'un Oticon. Mais voilà le truc : derrière Rexton, c'est WS Audiology. Le même groupe que Signia et Widex. Le Reach R-Li T tourne sur la puce IX Platform — exactement la même que le Signia Pure Charge&Go IX. Sauf que le prix, lui, n'a rien à voir.\n\nCe que fait cet appareil\n\nLe traitement du signal s'appuie sur la technologie Multi-Voice Focus, reprise de Signia. Quatre faisceaux directionnels scannent l'environnement 1 000 fois par seconde pour extraire les voix de vos interlocuteurs, y compris quand plusieurs personnes parlent simultanément. Dans le calme, c'est net. Naturel. Vous retrouvez le confort d'une conversation à deux sans forcer. Dans le bruit modéré — restaurant en semaine, repas de famille —, la compréhension tient bien avec deux ou trois personnes autour de la table. Au-delà, ça se corse. Restaurant bondé le samedi soir, terrasse en bord de route : la clarté se dégrade. Comme sur à peu près tous les appareils du marché, d'ailleurs. Le streaming téléphonique fait son travail : les voix arrivent bien restituées dans les deux oreilles, c'est propre pour les appels. La musique, en revanche, reste en retrait par rapport aux Phonak Infinio ou aux Oticon Intent. Ça passe en fond sonore. Pas plus.\n\nEn pratique — ce que la plateforme IX m'a appris\n\nLa plateforme IX de Signia, je la connais. Je l'ai adaptée sous sa version originale, le Pure Charge&Go IX, sur plusieurs dizaines de patients avant de quitter le cabinet. Le moteur de traitement du son est strictement identique. Mêmes algorithmes de réduction du bruit, même directionnel, même gestion du larsen. Là où ça diverge : l'application compagnon (Rexton App, plus basique que Signia App), le design du boîtier (moins léché, mais il fait le job), et le réseau de distribution. En France, peu d'audioprothésistes référencent Rexton — il faut chercher. Aux États-Unis, c'est l'appareil phare de Costco à 1 500 dollars la paire, soit moins de la moitié du prix d'un Signia IX équivalent. En France, comptez entre 950 et 1 490 euros l'unité selon le réseau. En face, le Signia Pure IX niveau 7 se situe entre 1 800 et 2 000 euros. L'écart est réel.\n\nUn point que les fiches techniques ne mentionnent jamais : la robustesse mécanique. L'IP68, oui, tout le monde l'a maintenant. Mais le Reach R-Li T ajoute un traitement de surface Lifeproof qui encaisse mieux les micro-chocs. Un appareil qui tombe sur du carrelage, ça arrive. Plus souvent qu'on ne l'imagine. Après deux ans de recul sur la plateforme IX côté Signia, le taux de panne reste parmi les plus bas du marché.\n\nPour qui ? Pas pour qui ?\n\nLe Reach R-Li T vise ceux qui veulent une aide auditive performante sans exploser le budget. Perte légère à sévère, vie active — sorties, famille, quelques réunions —, besoin de connectivité smartphone et de bobine T pour les lieux équipés de boucles magnétiques. Primo-appareillé ou renouvellement d'appareils vieillissants : c'est un candidat sérieux.\n\nEn revanche, pas pour vous si votre perte est profonde (le Reach R-Li T couvre jusqu'au sévère, pas au-delà). Pas pour vous non plus si vous êtes exigeant sur le streaming musical ou si vous voulez l'application compagnon la plus complète du marché. Dans ces cas-là, regardez du côté d'un Phonak Infinio 90 ou d'un Signia Pure IX 7.\n\nFace à la concurrence\n\nComparé au Rexton BiCore R-Li, son prédécesseur : c'est un autre monde. La puce IX remplace la génération précédente avec un vrai gain en compréhension dans le bruit, l'arrivée du LE Audio, et une autonomie qui passe de 28 à 39 heures. Le BiCore n'avait pas le mode mains libres — le Reach R-Li T l'intègre. Face au Signia Pure Charge&Go IX 7 : même puce, performances sonores comparables, prix inférieur de 20 à 40 %. Le Signia garde la main sur l'application, le design et la distribution. Face au Phonak Audéo Lumity 90 : le Phonak domine en streaming musical et embarque le mode SpeechSensor, mais le Reach affiche une autonomie supérieure et un prix nettement plus accessible.\n\nVerdict expert\n\nNote : 7,6/10. Le Rexton Reach R-Li T prouve qu'on peut accéder à une technologie premium sans en payer le prix. La puce IX fait le travail, l'autonomie est généreuse, la bobine T reste un vrai atout pour les seniors actifs. Le compromis porte sur l'application et le streaming musical — pour la majorité des porteurs, c'est acceptable. Si votre audioprothésiste référence Rexton et que votre priorité reste la compréhension de la parole dans un budget maîtrisé, c'est aujourd'hui le meilleur rapport qualité-prix du marché. Prix constaté en France : 950 à 1 490 euros l'unité, variable selon l'audioprothésiste et votre reste à charge."
 }
