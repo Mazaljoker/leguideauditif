@@ -178,17 +178,56 @@ const breadcrumbs = [
           />
         </div>
 
-        <div>
-          <label for="claim-horaires" class="block text-sm font-medium text-marine font-sans mb-1">
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-marine font-sans mb-2">
             Horaires d'ouverture
           </label>
-          <input
-            id="claim-horaires"
-            name="horaires"
-            type="text"
-            placeholder="Lun-Ven 9h-18h, Sam 9h-12h"
-            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
-          />
+          <input type="hidden" id="claim-horaires" name="horaires" />
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label for="h-ouverture" class="block text-xs text-gris-texte font-sans mb-1">Ouverture</label>
+              <select
+                id="h-ouverture"
+                class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
+              >
+                <option value="">--</option>
+                <option value="8h">8h</option>
+                <option value="8h30">8h30</option>
+                <option value="9h" selected>9h</option>
+                <option value="9h30">9h30</option>
+                <option value="10h">10h</option>
+              </select>
+            </div>
+            <div>
+              <label for="h-fermeture" class="block text-xs text-gris-texte font-sans mb-1">Fermeture</label>
+              <select
+                id="h-fermeture"
+                class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
+              >
+                <option value="">--</option>
+                <option value="17h">17h</option>
+                <option value="17h30">17h30</option>
+                <option value="18h" selected>18h</option>
+                <option value="18h30">18h30</option>
+                <option value="19h">19h</option>
+              </select>
+            </div>
+            <div>
+              <label for="h-samedi" class="block text-xs text-gris-texte font-sans mb-1">Samedi</label>
+              <select
+                id="h-samedi"
+                class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
+              >
+                <option value="">--</option>
+                <option value="Ferm\u00e9">Ferm\u00e9</option>
+                <option value="9h-12h" selected>9h-12h</option>
+                <option value="9h-13h">9h-13h</option>
+                <option value="10h-12h">10h-12h</option>
+                <option value="Sur RDV">Sur RDV</option>
+              </select>
+            </div>
+          </div>
+          <p class="text-xs text-gris-texte font-sans mt-1">S\u00e9lectionnez vos horaires en 3 clics</p>
         </div>
       </div>
 
@@ -359,6 +398,26 @@ const breadcrumbs = [
     }
     limitCheckboxes('specialites-container', 3);
     limitCheckboxes('marques-container', 3);
+
+    // --- Horaires : 3 selects → 1 champ texte ---
+    const hOuverture = document.getElementById('h-ouverture') as HTMLSelectElement;
+    const hFermeture = document.getElementById('h-fermeture') as HTMLSelectElement;
+    const hSamedi = document.getElementById('h-samedi') as HTMLSelectElement;
+    const hHidden = document.getElementById('claim-horaires') as HTMLInputElement;
+
+    function updateHoraires() {
+      const ouv = hOuverture.value;
+      const fer = hFermeture.value;
+      const sam = hSamedi.value;
+      const parts: string[] = [];
+      if (ouv && fer) parts.push(`Lun-Ven ${ouv}-${fer}`);
+      if (sam) parts.push(`Sam ${sam}`);
+      hHidden.value = parts.join(' | ');
+    }
+    hOuverture.addEventListener('change', updateHoraires);
+    hFermeture.addEventListener('change', updateHoraires);
+    hSamedi.addEventListener('change', updateHoraires);
+    updateHoraires(); // init avec les defaults
 
     // --- Submit (FormData pour supporter le fichier photo) ---
     form.addEventListener('submit', async (e) => {
