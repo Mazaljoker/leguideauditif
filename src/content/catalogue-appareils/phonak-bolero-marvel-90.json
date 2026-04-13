@@ -1,4 +1,5 @@
 {
+  "slug": "phonak-bolero-marvel-90",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
@@ -6,26 +7,6 @@
   "formeType": "BTE",
   "formesDisponibles": "BTE M|BTE P|BTE SP",
   "puce": "AutoSense OS 3.0",
-  "annee": 2019,
-  "specs": {
-    "batterie": "Li-ion|13|675",
-    "plageAdaptation": "Mild to profound"
-  },
-  "connectivite": {
-    "bluetooth": "BLE",
-    "auracast": false,
-    "application": "myPhonak",
-    "mainLibre": false
-  },
-  "fonctionnalites": {
-    "rechargeable": true,
-    "bobineT": false,
-    "acouphenes": false
-  },
-  "couleurs": 8,
-  "sourceUrl": "MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-bolero-marvel-90",
   "niveau": "90",
   "niveauRaw": "M90",
   "niveauPosition": 4,
@@ -33,28 +14,53 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1590
+      "min": 1200,
+      "max": 1600
     }
   },
+  "annee": 2019,
+  "specs": {
+    "batterie": "Li-ion rechargeable ou pile 13/675",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à profonde"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": false,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "StereoZoom + Speech Enhancer"
+  },
+  "couleurs": 8,
   "image": "/images/appareils/aide-auditive-phonak-bolero-marvel-30.png",
-  "descriptionCourte": "Le Phonak Bolero Marvel 90 est un appareil auditif BTE premium equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/bolero-marvel",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-bolero-marvel-datasheet.pdf",
+  "descriptionCourte": "BTE classique Phonak, plateforme Marvel (2019). Premier Phonak avec Bluetooth universel Made-for-All. Gamme Bolero arrêtée, pas de successeur — trois générations de retard.",
+  "descriptionComplete": "Le Bolero Marvel, c'est un morceau d'histoire Phonak. C'est la plateforme Marvel qui a introduit le Bluetooth universel Made-for-All — la possibilité de streamer avec N'IMPORTE QUEL téléphone, pas seulement les iPhone. En 2019, c'était une petite révolution dans notre métier. Le Bolero était la version BTE classique (contour d'oreille), le format le plus robuste et le plus polyvalent de la gamme.\n\nCe que fait cet appareil\nAutoSense OS 3.0, la première version de l'OS avec le Bluetooth universel. Le StereoZoom et le Speech Enhancer gèrent la directionnalité. Le format BTE couvre les pertes légères à profondes — c'était l'appareil polyvalent par excellence.\n\nDans le calme, le son est correct mais moins fin que les générations suivantes. Dans le bruit, c'est nettement en retrait par rapport à tout ce qui existe aujourd'hui. L'AutoSense 3.0 est la version la plus basique — pas de Motion Sensor, pas de SmartSpeech.\n\nLe Bluetooth fonctionne toujours — streaming, appels (mais pas mains libres, il faut parler dans le téléphone). L'app myPhonak est compatible.\n\nEn pratique, sur le terrain\nJ'ai beaucoup appareillé avec les Bolero Marvel, surtout les modèles P et SP pour les pertes sévères. C'était le premier BTE Phonak avec streaming direct — les patients n'en revenaient pas. Un monsieur de 68 ans, perte sévère, fan de radio : « Je reçois ma radio directement dans les oreilles, c'est magique. »\n\nAprès 6-7 ans d'usage, ces appareils commencent à montrer leur âge. Les batteries rechargeables perdent en capacité, l'écouteur s'use. Si vous approchez des 5-6 ans de port, il est temps de discuter d'un renouvellement avec votre audioprothésiste.\n\nLe problème principal : la gamme Bolero n'a PAS eu de successeur. Phonak a choisi de concentrer sa gamme BTE sur la Naída (power) et les RIC. Si vous voulez un BTE classique Phonak actuel pour des pertes légères à modérées, il n'existe plus. Le plus proche serait un RIC Audéo Infinio.\n\nVerdict expert\n6.5/10 (en 2026). Le Bolero Marvel a été un excellent appareil en son temps. Le Bluetooth universel était visionnaire. Mais après trois générations (Paradise → Lumity → Infinio), le traitement du signal accuse son âge. Si vous le portez depuis 5+ ans, c'est le bon moment pour renouveler.\n\nEn une phrase : le BTE Phonak historique qui a démocratisé le streaming universel — en fin de vie, sans successeur direct.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Puce AutoSense OS 3.0",
-    "Rechargeable",
-    "Bluetooth BLE",
-    "Application myPhonak",
-    "8 coloris disponibles"
+    "Premier BTE Phonak avec Bluetooth universel Made-for-All — historique",
+    "Format BTE polyvalent — pertes légères à profondes, robuste",
+    "8 coloris — gamme esthétique large pour un BTE",
+    "Rechargeable ou piles au choix"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable"
+    "Trois générations de retard (2019) — traitement du bruit obsolète",
+    "Pas de successeur Bolero — gamme arrêtée par Phonak",
+    "Pas d'appels mains libres — il faut parler dans le téléphone",
+    "AutoSense OS 3.0 — la version la plus basique de l'OS",
+    "Batteries rechargeables vieillissantes après 5+ ans d'usage"
   ],
-  "noteExpert": 8.4,
+  "noteExpert": 6.5,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-bolero-marvel-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Bolero Marvel 90 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2019 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce AutoSense OS 3.0, le Bolero Marvel beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Bolero Marvel est rechargeable (batterie Li-ion|13|675). Un chargeur est fourni avec l'appareil. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 590 euros par appareil (soit ~3 180 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.4/10. Le Phonak Bolero Marvel 90 est un appareil auditif BTE premium equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova). Rechargeable. Connectivite BLE.",
   "legacy": true,
-  "legacyReason": "Remplacé par aucun successeur direct. Gamme Bolero arrêtée (2019). Trois générations de retard."
+  "legacyReason": "Remplacé par aucun successeur direct. Gamme Bolero arrêtée (2019). Trois générations de retard.",
+  "metaTitle": "Phonak Bolero Marvel 90 : prix, avis et fiche",
+  "metaDescription": "BTE Phonak 2019, AutoSense 3.0, premier BT universel. Legacy — gamme arrêtée. Avis audioprothésiste DE."
 }

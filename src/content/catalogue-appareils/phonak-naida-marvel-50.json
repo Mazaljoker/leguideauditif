@@ -1,30 +1,12 @@
 {
+  "slug": "phonak-naida-marvel-50",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Naida Marvel",
+  "modele": "Naída Marvel",
   "formeType": "BTE",
-  "formesDisponibles": "BTE SP",
+  "formesDisponibles": "BTE SP|BTE UP",
   "puce": "AutoSense OS 3.0",
-  "annee": 2019,
-  "specs": {
-    "batterie": "Disposable",
-    "plageAdaptation": "Severe to profound"
-  },
-  "connectivite": {
-    "auracast": false,
-    "application": "myPhonak",
-    "mainLibre": false
-  },
-  "fonctionnalites": {
-    "rechargeable": false,
-    "bobineT": false,
-    "acouphenes": false
-  },
-  "couleurs": 8,
-  "sourceUrl": "MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-naida-marvel-50",
   "niveau": "50",
   "niveauRaw": "M50",
   "niveauPosition": 2,
@@ -32,27 +14,52 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1157
+      "min": 850,
+      "max": 1200
     }
   },
+  "annee": 2019,
+  "specs": {
+    "batterie": "Pile 675 (UP) ou pile 13 (SP)",
+    "plageAdaptation": "Sévère à profonde",
+    "ip": "IP68"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": false,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "Speech Enhancer (réduit)"
+  },
+  "couleurs": 8,
   "image": "/images/appareils/aide-auditive-phonak-naida-marvel-30.png",
-  "descriptionCourte": "Le Phonak Naida Marvel 50 est un appareil auditif BTE milieu de gamme equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova).",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/naida-marvel",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-naida-marvel-datasheet.pdf",
+  "descriptionCourte": "Power BTE Phonak Marvel milieu de gamme. Bluetooth universel, AutoSense OS 3.0. Remplacé par Naída Lumity — en fin de vie.",
+  "descriptionComplete": "Le milieu de gamme Naída Marvel. Puissance identique pour les pertes sévères à profondes, avec les algorithmes essentiels de la plateforme Marvel. En 2026, un appareil vieillissant à considérer pour le renouvellement.\n\nCe que fait cet appareil\nAutoSense OS 3.0, Bluetooth universel, puissance power BTE. Directionnalité en mode réduit. Piles uniquement. Bobine T.\n\nEn pratique, sur le terrain\nPour un quotidien très calme, le M50 fait encore le travail de base. Mais la Naída Lumity 50 apporte un gain sensible dans la compréhension, surtout la SmartSpeech Technology et l'option rechargeable.\n\nVerdict expert\n5.5/10 (en 2026). Power BTE milieu de gamme en fin de vie. Le Bluetooth reste l'atout principal. À renouveler.\n\nEn une phrase : le power BTE Marvel Confort — fonctionnel dans le calme, obsolète dans le bruit.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Puce AutoSense OS 3.0",
-    "Application myPhonak",
-    "8 coloris disponibles"
+    "Bluetooth universel Made-for-All",
+    "Puissance pour pertes sévères à profondes",
+    "Bobine T intégrée",
+    "Prix résiduel bas"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Non rechargeable (piles)",
-    "Pas de connectivite Bluetooth",
-    "Pas de bobine T (boucle magnetique)"
+    "Deux générations de retard",
+    "Piles uniquement",
+    "Gestion du bruit limitée",
+    "Pas d'appels mains libres"
   ],
-  "noteExpert": 6.5,
+  "noteExpert": 5.5,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-naida-marvel-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Naida Marvel 50 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2019 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce AutoSense OS 3.0, le Naida Marvel beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nL'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Disposable. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 157 euros par appareil (soit ~2 314 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.5/10. Le Phonak Naida Marvel 50 est un appareil auditif BTE milieu de gamme equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova).",
   "legacy": true,
-  "legacyReason": "Remplacé par Naída Lumity (2022). Deux générations de retard."
+  "legacyReason": "Remplacé par Naída Lumity (2023). Deux générations de retard.",
+  "metaTitle": "Phonak Naída Marvel 50 : prix, avis et fiche",
+  "metaDescription": "Power BTE Phonak 2019, milieu de gamme, BT universel. Legacy — remplacé par Naída Lumity. Avis audioprothésiste DE."
 }

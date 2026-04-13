@@ -1,21 +1,34 @@
 {
+  "slug": "phonak-audeo-paradise-30",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
   "modele": "Audéo Paradise",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT|RIC 312|RIC 13T",
+  "puce": "AutoSense OS 4.0",
+  "niveau": "30",
+  "niveauRaw": "P30",
+  "niveauPosition": 1,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1000,
+      "max": 1400
+    }
+  },
   "annee": 2020,
   "specs": {
-    "canaux": 20,
-    "bandes": 20,
-    "batterie": "Li-ion|312",
+    "canaux": 8,
+    "bandes": 8,
+    "batterie": "Li-ion rechargeable ou pile 312",
     "autonomie": "16",
     "ip": "IP68",
-    "plageAdaptation": "Mild to severe"
+    "plageAdaptation": "Légère à sévère"
   },
   "connectivite": {
-    "bluetooth": "BLE",
+    "bluetooth": "Bluetooth Classic + BLE",
     "auracast": false,
     "application": "myPhonak",
     "mainLibre": true
@@ -24,43 +37,33 @@
     "rechargeable": true,
     "bobineT": false,
     "acouphenes": true,
-    "antiFeedback": "Yes",
-    "micDirectionnels": "Speech Enhancer"
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "Speech Enhancer (basique)"
   },
   "couleurs": 6,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-audeo-paradise-30",
-  "niveau": "30",
-  "niveauRaw": "P30",
-  "niveauPosition": 1,
-  "classe": "2",
-  "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1390
-    }
-  },
   "image": "/images/appareils/aide-auditive-phonak-audeo-paradise-30.jpg",
-  "descriptionCourte": "Le Phonak Audéo Paradise 30 est un appareil auditif RIC entree de gamme, lance en 2020 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-paradise",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-paradise-datasheet.pdf",
+  "descriptionCourte": "RIC Phonak Paradise entrée de gamme, 8 canaux. Bluetooth universel même au niveau 30. Remplacé par l'Infinio — le Bluetooth Phonak au prix plancher en fin de stock.",
+  "descriptionComplete": "L'entrée de gamme Paradise gardait l'avantage clé de la plateforme : le Bluetooth universel. En 2020, c'était remarquable de proposer le streaming Made-for-All même au niveau le plus bas. En 2026, c'est un appareil qui montre son âge, mais qui fait encore le minimum pour un quotidien très calme.\n\nCe que fait cet appareil\n8 canaux, AutoSense OS 4.0 en mode basique. Le Bluetooth universel est là, l'app myPhonak fonctionne. La gestion du bruit est minimale — 8 canaux de 2020, c'est franchement limité. Pour des conversations en face-à-face dans le calme, ça passe. Pour tout le reste, c'est difficile.\n\nEn pratique, sur le terrain\nLe P30 était destiné aux patients avec un budget très serré qui voulaient quand même la connectivité Phonak. J'en ai adapté quelques-uns — correctement pour le calme, insuffisant dès que l'environnement se complique.\n\nEn 2026, si vous portez un P30 et que la gestion du bruit vous frustre, un appareil de génération actuelle (même en entrée de gamme Infinio 30) apportera un gain significatif.\n\nVerdict expert\n6.0/10 (en 2026). Le strict minimum Phonak avec le Bluetooth. Fonctionnel pour le calme, insuffisant dans le bruit. En fin de vie.\n\nEn une phrase : le Bluetooth Phonak au prix le plus bas — technologiquement dépassé mais encore fonctionnel dans le calme.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Rechargeable (16h)",
-    "Bluetooth BLE",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes",
-    "Appels mains libres"
+    "Bluetooth universel Made-for-All — même en entrée de gamme",
+    "Prix plancher en déstockage",
+    "App myPhonak fonctionnelle",
+    "IP68 — robustesse identique aux niveaux supérieurs"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "8 canaux seulement — gestion du bruit très limitée",
+    "Génération 2020 — deux générations de retard",
+    "Autonomie ~16h — juste",
+    "Plus fabriquée — fin de vie",
+    "Classe 2 même en entrée — reste à charge"
   ],
-  "noteExpert": 6.5,
+  "noteExpert": 6.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-paradise-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Audéo Paradise 30 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2020 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Audéo Paradise beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. Le traitement du signal s'effectue sur 20 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Audéo Paradise est rechargeable (batterie Li-ion|312), offrant jusqu'a 16 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 6 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Audéo Paradise integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen Yes, des microphones directionnels Speech Enhancer. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 390 euros par appareil (soit ~2 780 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.5/10. Le Phonak Audéo Paradise 30 est un appareil auditif RIC entree de gamme, lance en 2020 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
   "legacy": true,
-  "legacyReason": "Remplacé par Audéo Infinio (2024). Deux générations de retard."
+  "legacyReason": "Remplacé par Audéo Infinio (2024). Deux générations de retard.",
+  "metaTitle": "Phonak Audéo Paradise 30 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak 2020 entrée de gamme, 8 canaux, BT universel. Legacy — remplacé par Infinio. Avis audioprothésiste DE."
 }

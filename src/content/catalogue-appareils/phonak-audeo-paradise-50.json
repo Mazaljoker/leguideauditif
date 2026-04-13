@@ -1,36 +1,12 @@
 {
+  "slug": "phonak-audeo-paradise-50",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
   "modele": "Audéo Paradise",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT|RIC 312|RIC 13T",
-  "annee": 2020,
-  "specs": {
-    "canaux": 20,
-    "bandes": 20,
-    "batterie": "Li-ion|312",
-    "autonomie": "16",
-    "ip": "IP68",
-    "plageAdaptation": "Mild to severe"
-  },
-  "connectivite": {
-    "bluetooth": "BLE",
-    "auracast": false,
-    "application": "myPhonak",
-    "mainLibre": true
-  },
-  "fonctionnalites": {
-    "rechargeable": true,
-    "bobineT": false,
-    "acouphenes": true,
-    "antiFeedback": "Yes",
-    "micDirectionnels": "Speech Enhancer"
-  },
-  "couleurs": 6,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-audeo-paradise-50",
+  "puce": "AutoSense OS 4.0",
   "niveau": "50",
   "niveauRaw": "P50",
   "niveauPosition": 2,
@@ -38,29 +14,55 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1643
+      "min": 1200,
+      "max": 1650
     }
   },
+  "annee": 2020,
+  "specs": {
+    "canaux": 12,
+    "bandes": 12,
+    "batterie": "Li-ion rechargeable ou pile 312",
+    "autonomie": "16",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à sévère"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "Speech Enhancer (réduit)"
+  },
+  "couleurs": 6,
   "image": "/images/appareils/aide-auditive-phonak-audeo-paradise-30.jpg",
-  "descriptionCourte": "Le Phonak Audéo Paradise 50 est un appareil auditif RIC milieu de gamme, lance en 2020 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-paradise",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-paradise-datasheet.pdf",
+  "descriptionCourte": "RIC Phonak Paradise milieu de gamme, 12 canaux. Bluetooth universel maintenu. Remplacé par l'Infinio — prix attractif en fin de stock.",
+  "descriptionComplete": "Le Paradise 50, c'était le niveau Confort — les fonctionnalités essentielles avec le Bluetooth universel, 12 canaux. En 2026, c'est un appareil vieillissant mais qui fait encore le travail pour un quotidien calme.\n\nCe que fait cet appareil\n12 canaux, AutoSense OS 4.0, Bluetooth universel. Le Motion Sensor Hearing est présent en version simplifiée. Le Speech Enhancer gère la directionnalité en mode basique. Dans le calme, les résultats sont corrects. Dans le bruit, c'est limité — 12 canaux de 2020 ne rivalisent pas avec les 20 canaux de l'Infinio.\n\nLe Bluetooth universel reste le vrai atout : streaming téléphone, appels mains libres, myPhonak. Ça, c'est un confort que les niveaux d'entrée de gamme actuels en classe 1 n'offrent pas toujours.\n\nEn pratique, sur le terrain\nLe P50 était souvent prescrit aux patients avec un budget limité mais qui voulaient le Bluetooth Phonak. Une patiente de 76 ans, vie calme à domicile, qui avait besoin de comprendre sa fille au téléphone — le P50 répondait parfaitement à ce besoin.\n\nEn 2026, ces appareils fonctionnent toujours. Les pièces de rechange (écouteurs, dômes) sont encore disponibles chez Phonak.\n\nVerdict expert\n6.5/10 (en 2026). Appareil vieillissant mais fonctionnel pour un quotidien calme. Le Bluetooth universel reste un vrai plus. Si vous le portez et êtes satisfait, pas d'urgence. Si vous envisagez un achat, les gammes actuelles offrent bien mieux.\n\nEn une phrase : le Bluetooth Phonak universel à prix réduit — fonctionnel mais dépassé technologiquement.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Rechargeable (16h)",
-    "Bluetooth BLE",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes",
-    "Appels mains libres"
+    "Bluetooth universel Made-for-All — même en milieu de gamme",
+    "12 canaux suffisants pour un quotidien calme",
+    "Pièces de rechange encore disponibles chez Phonak",
+    "Prix très attractif en déstockage"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Génération 2020 — gestion du bruit nettement dépassée",
+    "12 canaux — réglage fréquentiel limité",
+    "Autonomie ~16h — juste avec streaming",
+    "Plus fabriquée — disponibilité limitée"
   ],
-  "noteExpert": 7,
+  "noteExpert": 6.5,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-paradise-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Audéo Paradise 50 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2020 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nle Audéo Paradise beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. Le traitement du signal s'effectue sur 20 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Audéo Paradise est rechargeable (batterie Li-ion|312), offrant jusqu'a 16 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 6 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Audéo Paradise integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen Yes, des microphones directionnels Speech Enhancer. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 643 euros par appareil (soit ~3 286 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7/10. Le Phonak Audéo Paradise 50 est un appareil auditif RIC milieu de gamme, lance en 2020 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
   "legacy": true,
-  "legacyReason": "Remplacé par Audéo Infinio (2024). Deux générations de retard."
+  "legacyReason": "Remplacé par Audéo Infinio (2024). Deux générations de retard.",
+  "metaTitle": "Phonak Audéo Paradise 50 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak 2020 milieu de gamme, 12 canaux, BT universel. Legacy — remplacé par Infinio. Avis audioprothésiste DE."
 }

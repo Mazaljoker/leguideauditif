@@ -1,30 +1,12 @@
 {
+  "slug": "phonak-naida-marvel-70",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Naida Marvel",
+  "modele": "Naída Marvel",
   "formeType": "BTE",
-  "formesDisponibles": "BTE SP",
+  "formesDisponibles": "BTE SP|BTE UP",
   "puce": "AutoSense OS 3.0",
-  "annee": 2019,
-  "specs": {
-    "batterie": "Disposable",
-    "plageAdaptation": "Severe to profound"
-  },
-  "connectivite": {
-    "auracast": false,
-    "application": "myPhonak",
-    "mainLibre": false
-  },
-  "fonctionnalites": {
-    "rechargeable": false,
-    "bobineT": false,
-    "acouphenes": false
-  },
-  "couleurs": 8,
-  "sourceUrl": "MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-naida-marvel-70",
   "niveau": "70",
   "niveauRaw": "M70",
   "niveauPosition": 3,
@@ -32,27 +14,52 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1323
+      "min": 1000,
+      "max": 1350
     }
   },
+  "annee": 2019,
+  "specs": {
+    "batterie": "Pile 675 (UP) ou pile 13 (SP)",
+    "plageAdaptation": "Sévère à profonde",
+    "ip": "IP68"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": false,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "StereoZoom + Speech Enhancer"
+  },
+  "couleurs": 8,
   "image": "/images/appareils/aide-auditive-phonak-naida-marvel-30.png",
-  "descriptionCourte": "Le Phonak Naida Marvel 70 est un appareil auditif BTE avance equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova).",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/naida-marvel",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-naida-marvel-datasheet.pdf",
+  "descriptionCourte": "Power BTE Phonak Marvel avancé. Bluetooth universel, AutoSense OS 3.0. Remplacé par Naída Lumity — en fin de vie.",
+  "descriptionComplete": "Le niveau avancé de la Naída Marvel. Même plateforme Marvel que le 90, algorithmes légèrement simplifiés. En 2026, c'est un appareil en fin de vie qui reste fonctionnel pour un quotidien calme.\n\nCe que fait cet appareil\nAutoSense OS 3.0, Bluetooth universel, puissance pour pertes sévères à profondes. La directionnalité StereoZoom est présente en mode simplifié. Piles uniquement, bobine T intégrée.\n\nEn pratique, sur le terrain\nMême profil que le M90 — des patients qui portent encore leur Naída Marvel après 6 ans et qui s'en sortent correctement dans le calme. Le renouvellement vers la Naída Lumity 70 apporte un gain réel dans le bruit et l'option rechargeable.\n\nVerdict expert\n6.0/10 (en 2026). Power BTE correct pour le calme, dépassé pour le bruit. La Naída Lumity 70 est le successeur naturel.\n\nEn une phrase : le power BTE Marvel avancé — fonctionnel mais à renouveler.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Puce AutoSense OS 3.0",
-    "Application myPhonak",
-    "8 coloris disponibles"
+    "Bluetooth universel Made-for-All — rare pour un power BTE de 2019",
+    "Puissance pour pertes sévères à profondes",
+    "Bobine T intégrée",
+    "Robustesse prouvée"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Non rechargeable (piles)",
-    "Pas de connectivite Bluetooth",
-    "Pas de bobine T (boucle magnetique)"
+    "Deux générations de retard — gestion du bruit dépassée",
+    "Piles uniquement — pas de rechargeable",
+    "AutoSense OS 3.0 — version basique",
+    "Pas d'appels mains libres"
   ],
-  "noteExpert": 7,
+  "noteExpert": 6.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-naida-marvel-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Naida Marvel 70 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2019 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce AutoSense OS 3.0, le Naida Marvel beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nL'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Disposable. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 323 euros par appareil (soit ~2 646 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7/10. Le Phonak Naida Marvel 70 est un appareil auditif BTE avance equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova).",
   "legacy": true,
-  "legacyReason": "Remplacé par Naída Lumity (2022). Deux générations de retard."
+  "legacyReason": "Remplacé par Naída Lumity (2023). Deux générations de retard.",
+  "metaTitle": "Phonak Naída Marvel 70 : prix, avis et fiche",
+  "metaDescription": "Power BTE Phonak 2019, avancé, BT universel. Legacy — remplacé par Naída Lumity. Avis audioprothésiste DE."
 }

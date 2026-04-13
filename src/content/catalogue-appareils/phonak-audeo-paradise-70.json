@@ -1,36 +1,12 @@
 {
+  "slug": "phonak-audeo-paradise-70",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
   "modele": "Audéo Paradise",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT|RIC 312|RIC 13T",
-  "annee": 2020,
-  "specs": {
-    "canaux": 20,
-    "bandes": 20,
-    "batterie": "Li-ion|312",
-    "autonomie": "16",
-    "ip": "IP68",
-    "plageAdaptation": "Mild to severe"
-  },
-  "connectivite": {
-    "bluetooth": "BLE",
-    "auracast": false,
-    "application": "myPhonak",
-    "mainLibre": true
-  },
-  "fonctionnalites": {
-    "rechargeable": true,
-    "bobineT": false,
-    "acouphenes": true,
-    "antiFeedback": "Yes",
-    "micDirectionnels": "Speech Enhancer"
-  },
-  "couleurs": 6,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-audeo-paradise-70",
+  "puce": "AutoSense OS 4.0",
   "niveau": "70",
   "niveauRaw": "P70",
   "niveauPosition": 3,
@@ -38,28 +14,56 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1896
+      "min": 1400,
+      "max": 1900
     }
   },
+  "annee": 2020,
+  "specs": {
+    "canaux": 16,
+    "bandes": 16,
+    "batterie": "Li-ion rechargeable ou pile 312",
+    "autonomie": "16",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à sévère"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "StereoZoom + Speech Enhancer + Motion Sensor Hearing"
+  },
+  "couleurs": 6,
   "image": "/images/appareils/aide-auditive-phonak-audeo-paradise-30.jpg",
-  "descriptionCourte": "Le Phonak Audéo Paradise 70 est un appareil auditif RIC avance, lance en 2020 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-paradise",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-paradise-datasheet.pdf",
+  "descriptionCourte": "RIC Phonak Paradise niveau avancé, 16 canaux. Bluetooth universel, Motion Sensor Hearing. Remplacé par l'Infinio — bon compromis qualité/prix en déstockage.",
+  "descriptionComplete": "Le niveau 70 de la Paradise offrait le meilleur compromis qualité/prix de la gamme à l'époque. Même plateforme AutoSense OS 4.0, mêmes fonctionnalités de connectivité, 16 canaux au lieu de 20. C'était souvent le niveau que je recommandais pour les patients avec un quotidien modérément bruyant.\n\nCe que fait cet appareil\n16 canaux, Motion Sensor Hearing, Bluetooth universel, tap control — tout le socle technologique Paradise est là. La différence avec le P90 : 4 canaux de moins et un StereoZoom légèrement simplifié. En pratique, la différence se ressent surtout dans les environnements bruyants complexes.\n\nDans le calme, performances très proches du P90. Dans le bruit modéré, correct. Dans le bruit intense, l'écart se creuse — mais même le P90 n'excelle pas dans le bruit extrême avec la technologie de 2020.\n\nEn pratique, sur le terrain\nBeaucoup de mes patients P70 sont encore satisfaits en 2026. Le profil type : retraité actif, quelques sorties en famille, pas de restaurants bruyants tous les soirs. Pour ce quotidien, le P70 fait encore le travail.\n\nUn avantage concret en 2026 : si vous trouvez un P70 en déstockage, c'est souvent au prix d'un appareil classe 1 avec les performances d'un milieu/haut de gamme. Rapport qualité/prix imbattable.\n\nVerdict expert\n7.0/10 (en 2026). Bon appareil vieillissant. Le Bluetooth universel et le Motion Sensor restent des atouts. 16 canaux suffisent pour un quotidien calme. Mais la gestion du bruit a pris deux générations de retard.\n\nEn une phrase : le compromis Paradise qui vieillit correctement — plus fabriqué, mais encore fonctionnel pour un quotidien calme.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Rechargeable (16h)",
-    "Bluetooth BLE",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes",
-    "Appels mains libres"
+    "Bluetooth universel Made-for-All — streaming tous téléphones",
+    "Motion Sensor Hearing — adaptation automatique aux mouvements",
+    "16 canaux suffisants pour un quotidien calme à modérément bruyant",
+    "Excellent rapport qualité/prix en déstockage",
+    "Fiabilité prouvée après 4+ ans"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable"
+    "Génération 2020 — traitement du bruit dépassé par Lumity et Infinio",
+    "Autonomie rechargeable ~16h — juste avec streaming intensif",
+    "Plus fabriquée — stocks limités",
+    "Pas d'Auracast ni de LE Audio"
   ],
-  "noteExpert": 7.5,
+  "noteExpert": 7.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-paradise-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Audéo Paradise 70 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2020 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nle Audéo Paradise beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. Le traitement du signal s'effectue sur 20 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Audéo Paradise est rechargeable (batterie Li-ion|312), offrant jusqu'a 16 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 6 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Audéo Paradise integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen Yes, des microphones directionnels Speech Enhancer. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 896 euros par appareil (soit ~3 792 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.5/10. Le Phonak Audéo Paradise 70 est un appareil auditif RIC avance, lance en 2020 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
   "legacy": true,
-  "legacyReason": "Remplacé par Audéo Infinio (2024). Deux générations de retard."
+  "legacyReason": "Remplacé par Audéo Infinio (2024). Deux générations de retard.",
+  "metaTitle": "Phonak Audéo Paradise 70 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak 2020 avancé, 16 canaux, BT universel. Legacy — remplacé par Infinio. Avis audioprothésiste DE."
 }

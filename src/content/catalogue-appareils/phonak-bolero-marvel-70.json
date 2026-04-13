@@ -1,4 +1,5 @@
 {
+  "slug": "phonak-bolero-marvel-70",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
@@ -6,26 +7,6 @@
   "formeType": "BTE",
   "formesDisponibles": "BTE M|BTE P|BTE SP",
   "puce": "AutoSense OS 3.0",
-  "annee": 2019,
-  "specs": {
-    "batterie": "Li-ion|13|675",
-    "plageAdaptation": "Mild to profound"
-  },
-  "connectivite": {
-    "bluetooth": "BLE",
-    "auracast": false,
-    "application": "myPhonak",
-    "mainLibre": false
-  },
-  "fonctionnalites": {
-    "rechargeable": true,
-    "bobineT": false,
-    "acouphenes": false
-  },
-  "couleurs": 8,
-  "sourceUrl": "MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-bolero-marvel-70",
   "niveau": "70",
   "niveauRaw": "M70",
   "niveauPosition": 3,
@@ -33,28 +14,51 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1390
+      "min": 1000,
+      "max": 1400
     }
   },
+  "annee": 2019,
+  "specs": {
+    "batterie": "Li-ion rechargeable ou pile 13/675",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à profonde"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": false,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "StereoZoom + Speech Enhancer"
+  },
+  "couleurs": 8,
   "image": "/images/appareils/aide-auditive-phonak-bolero-marvel-30.png",
-  "descriptionCourte": "Le Phonak Bolero Marvel 70 est un appareil auditif BTE avance equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/bolero-marvel",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-bolero-marvel-datasheet.pdf",
+  "descriptionCourte": "BTE Phonak Marvel avancé. Bluetooth universel, AutoSense OS 3.0. Gamme arrêtée. Trois générations de retard — fonctionnel pour le calme.",
+  "descriptionComplete": "Le Bolero Marvel 70, c'était le niveau avancé du BTE classique Phonak. Même Bluetooth universel que le 90, quelques canaux de moins. En 2026, trois générations plus tard, c'est un appareil en fin de vie.\n\nCe que fait cet appareil\nAutoSense OS 3.0, Bluetooth universel, directionnalité StereoZoom en mode simplifié. Dans le calme, encore fonctionnel. Dans le bruit, nettement insuffisant par rapport aux appareils actuels.\n\nEn pratique, sur le terrain\nLes patients qui portent encore un Bolero M70 depuis 2019 arrivent à la fin de la durée de vie normale (4-5 ans). Si l'appareil fonctionne et que le quotidien est calme, pas d'urgence. Mais si vous entendez mal dans le bruit ou si la batterie faiblit, c'est le signal du renouvellement.\n\nVerdict expert\n6.0/10 (en 2026). BTE fonctionnel pour le calme, dépassé pour le bruit. À renouveler si l'occasion se présente.\n\nEn une phrase : le BTE Marvel avancé — en fin de vie, à renouveler.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Puce AutoSense OS 3.0",
-    "Rechargeable",
-    "Bluetooth BLE",
-    "Application myPhonak",
-    "8 coloris disponibles"
+    "Bluetooth universel Made-for-All",
+    "Format BTE robuste et polyvalent",
+    "Rechargeable ou piles au choix"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable"
+    "Trois générations de retard — gestion du bruit obsolète",
+    "Pas de successeur — gamme Bolero arrêtée",
+    "Pas d'appels mains libres",
+    "Batteries vieillissantes après 5+ ans"
   ],
-  "noteExpert": 7.4,
+  "noteExpert": 6.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-bolero-marvel-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Bolero Marvel 70 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2019 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce AutoSense OS 3.0, le Bolero Marvel beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Bolero Marvel est rechargeable (batterie Li-ion|13|675). Un chargeur est fourni avec l'appareil. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 390 euros par appareil (soit ~2 780 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.4/10. Le Phonak Bolero Marvel 70 est un appareil auditif BTE avance equipe de la puce AutoSense OS 3.0, lance en 2019 par Phonak (groupe Sonova). Rechargeable. Connectivite BLE.",
   "legacy": true,
-  "legacyReason": "Remplacé par aucun successeur direct. Gamme Bolero arrêtée (2019). Trois générations de retard."
+  "legacyReason": "Remplacé par aucun successeur direct. Gamme Bolero arrêtée (2019). Trois générations de retard.",
+  "metaTitle": "Phonak Bolero Marvel 70 : prix, avis et fiche",
+  "metaDescription": "BTE Phonak 2019 avancé, BT universel, AutoSense 3.0. Legacy — gamme arrêtée. Avis audioprothésiste DE."
 }
