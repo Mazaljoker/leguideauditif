@@ -21,10 +21,10 @@ export function claimApprovedEmail({ prenom, centreNom, centreSlug }: ClaimAppro
       <li>Recevoir directement les demandes de devis de votre secteur</li>
       <li>Suivre les statistiques de visibilit\u00e9 de votre fiche</li>
     </ul>
-    <a href="https://leguideauditif.fr/connexion/" class="btn">Acc\u00e9der \u00e0 mon espace</a>
+    <a href="https://leguideauditif.fr/centre/${centreSlug}/" class="btn">Voir ma fiche</a>
     <h2>Boostez votre visibilit\u00e9</h2>
     <p>Avec la formule <strong>Premium</strong>, votre centre appara\u00eet en priorit\u00e9 dans les r\u00e9sultats de recherche de votre zone et vous recevez les demandes de devis en exclusivit\u00e9.</p>
-    <a href="https://leguideauditif.fr/centre/${centreSlug}/" class="btn" style="background-color: #1B2E4A;">D\u00e9couvrir la formule Premium</a>
+    <p>Pour en savoir plus, r\u00e9pondez directement \u00e0 cet email.</p>
     <p>Si vous avez des questions, r\u00e9pondez directement \u00e0 cet email.</p>
     <p>Cordialement,<br/>Franck-Olivier Chabbat<br/>Audioproth\u00e9siste DE &mdash; LeGuideAuditif.fr</p>
     `
