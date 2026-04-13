@@ -10,67 +10,6 @@ const breadcrumbs = [
   { label: 'Annonces', href: '/annonces/' },
   { label: 'Options premium' },
 ];
-
-const options = [
-  {
-    name: 'Débloquer les contacts',
-    price: '9',
-    description: 'Accédez aux coordonnées complètes de toutes les personnes intéressées par votre annonce.',
-    features: ['Nom, email, téléphone', 'Message complet', 'Profil professionnel'],
-    icon: 'lucide:unlock',
-    color: 'border-emerald-400 bg-emerald-50',
-    cta: 'Débloquer',
-  },
-  {
-    name: 'Annonce Premium',
-    price: '29',
-    description: 'Votre annonce se démarque dans les listings avec le badge Premium et une description étendue.',
-    features: ['Badge Premium visible', 'Description 5 000 caractères', 'Photos illimitées', 'Priorité dans les listings'],
-    icon: 'lucide:star',
-    color: 'border-orange bg-orange/5',
-    cta: 'Passer Premium',
-    popular: true,
-  },
-  {
-    name: 'Boost 1 semaine',
-    price: '9',
-    suffix: '/sem.',
-    description: 'Votre annonce apparaît en première position dans sa catégorie pendant 7 jours.',
-    features: ['Position #1 dans les listings', 'Durée : 7 jours', 'Renouvelable'],
-    icon: 'lucide:zap',
-    color: 'border-purple-400 bg-purple-50',
-    cta: 'Booster',
-  },
-  {
-    name: 'Alerte ciblee',
-    price: '19',
-    description: 'Envoyez votre annonce directement par email aux audioprothésistes inscrits dans votre zone.',
-    features: ['Email direct aux pros de la zone', 'Ciblage par département', 'Envoi unique'],
-    icon: 'lucide:bell-ring',
-    color: 'border-blue-400 bg-blue-50',
-    cta: 'Envoyer une alerte',
-  },
-];
-
-const packs = [
-  {
-    name: 'Pack Cession Standard',
-    price: '99',
-    description: 'Tout ce qu\'il faut pour vendre votre centre rapidement.',
-    features: ['Annonce Premium', 'Contacts débloqués', 'Boost 4 semaines', 'Économie de 47 EUR'],
-    icon: 'lucide:package',
-    color: 'border-marine bg-marine/5',
-  },
-  {
-    name: 'Pack Cession Accompagne',
-    price: '349',
-    description: 'Accompagnement personnalise par Franck-Olivier pour votre cession.',
-    features: ['Tout le Pack Standard', 'Badge "Vérifié par LeGuideAuditif"', 'Relecture et optimisation de l\'annonce', 'Conseil personnalisé par Franck-Olivier'],
-    icon: 'lucide:shield-check',
-    color: 'border-orange bg-orange/5',
-    popular: true,
-  },
-];
 ---
 
 <BaseLayout
@@ -80,95 +19,27 @@ const packs = [
   <div class="max-w-[1140px] mx-auto px-5 py-8">
     <Breadcrumbs items={breadcrumbs} />
 
-    <div class="text-center mb-12">
-      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold text-marine mb-3">
-        Boostez votre annonce
+    <div class="text-center py-16 max-w-2xl mx-auto">
+      <Icon name="lucide:clock" class="w-12 h-12 text-orange mx-auto mb-6" />
+      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold text-marine mb-4">
+        Options premium — bientôt disponibles
       </h1>
-      <p class="text-gris-texte text-lg max-w-2xl mx-auto font-sans">
-        Votre annonce est gratuite. Ces options vous permettent de maximiser votre visibilité et d'accéder aux coordonnées des professionnels intéressés.
+      <p class="text-gris-texte text-lg font-sans mb-4 leading-relaxed">
+        Les annonces sur LeGuideAuditif sont gratuites.
+        Des options de mise en avant seront proposées prochainement
+        quand la rubrique sera bien alimentée.
       </p>
-    </div>
-
-    <!-- Options individuelles -->
-    <h2 class="font-sans text-2xl font-extrabold text-marine mb-6">Options à la carte</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
-      {options.map((opt) => (
-        <div class={`rounded-xl border-2 p-6 relative ${opt.color}`}>
-          {opt.popular && (
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-orange text-white text-xs font-bold font-sans">
-              Populaire
-            </span>
-          )}
-          <Icon name={opt.icon} class="w-8 h-8 text-marine mb-3" />
-          <h3 class="font-sans text-lg font-bold text-marine mb-1">{opt.name}</h3>
-          <div class="font-sans text-3xl font-extrabold text-orange mb-1">
-            {opt.price} EUR
-            {opt.suffix && <span class="text-base font-normal text-gris-texte">{opt.suffix}</span>}
-          </div>
-          <p class="text-sm text-gris-texte font-sans mb-4">{opt.description}</p>
-          <ul class="space-y-1.5 mb-4">
-            {opt.features.map((f) => (
-              <li class="flex items-start gap-2 text-sm font-sans text-marine">
-                <Icon name="lucide:check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-
-    <!-- Packs Cession -->
-    <h2 class="font-sans text-2xl font-extrabold text-marine mb-6">Packs Cession</h2>
-    <p class="text-gris-texte font-sans mb-6 max-w-2xl">
-      Vous vendez votre centre ? Ces packs combinent plusieurs options pour maximiser vos chances de trouver un repreneur.
-    </p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mb-14">
-      {packs.map((pack) => (
-        <div class={`rounded-xl border-2 p-6 relative ${pack.color}`}>
-          {pack.popular && (
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-orange text-white text-xs font-bold font-sans">
-              Recommande
-            </span>
-          )}
-          <Icon name={pack.icon} class="w-8 h-8 text-marine mb-3" />
-          <h3 class="font-sans text-xl font-bold text-marine mb-1">{pack.name}</h3>
-          <div class="font-sans text-3xl font-extrabold text-orange mb-2">
-            {pack.price} EUR
-          </div>
-          <p class="text-sm text-gris-texte font-sans mb-4">{pack.description}</p>
-          <ul class="space-y-2">
-            {pack.features.map((f) => (
-              <li class="flex items-start gap-2 text-sm font-sans text-marine">
-                <Icon name="lucide:check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-
-    <!-- CTA -->
-    <div class="text-center bg-creme rounded-2xl p-10">
-      <h2 class="font-sans text-2xl font-extrabold text-marine mb-3">Prêt à publier ?</h2>
-      <p class="text-gris-texte font-sans mb-6">
-        Déposez votre annonce gratuitement, puis choisissez vos options depuis votre espace.
+      <p class="text-gris-texte text-lg font-sans mb-8 leading-relaxed">
+        En attendant, déposez votre annonce gratuitement — c'est 100% gratuit,
+        sans limite de durée.
       </p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a
-          href="/annonces/deposer/"
-          class="inline-flex items-center gap-2 px-8 py-3.5 bg-orange text-white font-sans text-lg font-bold rounded-xl no-underline hover:bg-orange-hover transition-colors hover:no-underline"
-        >
-          Déposer une annonce
-        </a>
-        <a
-          href="/annonces/mes-annonces/"
-          class="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-marine text-marine font-sans text-lg font-bold rounded-xl no-underline hover:bg-marine hover:text-white transition-colors hover:no-underline"
-        >
-          Mes annonces
-        </a>
-      </div>
+      <a
+        href="/annonces/deposer/"
+        class="inline-flex items-center gap-2 px-8 py-3.5 bg-orange text-white font-sans text-lg font-bold rounded-xl no-underline hover:bg-orange-hover transition-colors hover:no-underline"
+        style="min-height: 48px;"
+      >
+        Déposer une annonce
+      </a>
     </div>
   </div>
 </BaseLayout>

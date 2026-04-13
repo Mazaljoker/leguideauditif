@@ -5,6 +5,9 @@ import { CATEGORIES_META } from '../../types/annonce';
 import ContactForm from './ContactForm';
 import SignalementButton from './SignalementButton';
 
+// TODO: reactiver quand les features premium seront fonctionnelles
+const PREMIUM_FEATURES_ENABLED = false;
+
 const CATEGORIE_COLORS: Record<AnnonceCategorie, string> = {
   cession: 'bg-blue-100 text-blue-800',
   emploi: 'bg-emerald-100 text-emerald-800',
@@ -110,7 +113,7 @@ const AnnonceDetail: FC<AnnonceDetailProps> = ({ annonce, contacts: initialConta
               >
                 Mes annonces
               </a>
-              {!annonce.is_premium && (
+              {PREMIUM_FEATURES_ENABLED && !annonce.is_premium && (
                 <button
                   type="button"
                   onClick={() => handleStripeCheckout(annonce.id, annonce.user_id, 'premium')}
@@ -119,7 +122,7 @@ const AnnonceDetail: FC<AnnonceDetailProps> = ({ annonce, contacts: initialConta
                   Passer Premium — 29 EUR
                 </button>
               )}
-              {!annonce.boost_until && (
+              {PREMIUM_FEATURES_ENABLED && !annonce.boost_until && (
                 <button
                   type="button"
                   onClick={() => handleStripeCheckout(annonce.id, annonce.user_id, 'boost_semaine')}
@@ -128,7 +131,7 @@ const AnnonceDetail: FC<AnnonceDetailProps> = ({ annonce, contacts: initialConta
                   Booster — 9 EUR/sem.
                 </button>
               )}
-              {!annonce.contacts_unlocked && annonce.contacts_count > 0 && (
+              {PREMIUM_FEATURES_ENABLED && !annonce.contacts_unlocked && annonce.contacts_count > 0 && (
                 <button
                   type="button"
                   onClick={() => handleStripeCheckout(annonce.id, annonce.user_id, 'unlock_contacts')}
@@ -137,7 +140,7 @@ const AnnonceDetail: FC<AnnonceDetailProps> = ({ annonce, contacts: initialConta
                   Debloquer contacts — 9 EUR
                 </button>
               )}
-              {annonce.categorie === 'cession' && !annonce.is_premium && (
+              {PREMIUM_FEATURES_ENABLED && annonce.categorie === 'cession' && !annonce.is_premium && (
                 <button
                   type="button"
                   onClick={() => handleStripeCheckout(annonce.id, annonce.user_id, 'pack_cession')}
