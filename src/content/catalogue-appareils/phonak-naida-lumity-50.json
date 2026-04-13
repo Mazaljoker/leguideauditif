@@ -1,33 +1,12 @@
 {
+  "slug": "phonak-naida-lumity-50",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Naida Lumity P-PR",
+  "modele": "Naída Lumity P-PR",
   "formeType": "BTE",
-  "formesDisponibles": "BTE SP",
-  "puce": "AutoSense OS 5.0",
-  "annee": 2022,
-  "specs": {
-    "batterie": "Li-ion|675",
-    "autonomie": "16",
-    "ip": "IP68",
-    "plageAdaptation": "Severe to profound"
-  },
-  "connectivite": {
-    "bluetooth": "BLE",
-    "auracast": false,
-    "application": "myPhonak",
-    "mainLibre": false
-  },
-  "fonctionnalites": {
-    "rechargeable": true,
-    "bobineT": true,
-    "acouphenes": true
-  },
-  "couleurs": 7,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-naida-lumity-50",
+  "formesDisponibles": "BTE P-PR|BTE SP|BTE UP",
+  "puce": "PRISM",
   "niveau": "50",
   "niveauRaw": "L50",
   "niveauPosition": 2,
@@ -35,26 +14,55 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1557
+      "min": 1100,
+      "max": 1600
     }
   },
+  "annee": 2022,
+  "specs": {
+    "canaux": 12,
+    "bandes": 12,
+    "batterie": "Li-ion rechargeable ou pile 675",
+    "autonomie": "16",
+    "ip": "IP68",
+    "plageAdaptation": "Sévère à profonde"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "UltraZoom + SmartSpeech Technology (réduit)"
+  },
+  "couleurs": 7,
   "image": "/images/appareils/aide-auditive-phonak-naida-lumity-30.png",
-  "descriptionCourte": "Le Phonak Naida Lumity P-PR 50 est un appareil auditif BTE milieu de gamme equipe de la puce AutoSense OS 5.0, lance en 2022 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/naida-l",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-naida-lumity-product-info.pdf",
+  "descriptionCourte": "BTE de puissance Phonak milieu de gamme. Plateforme PRISM, 12 canaux. Bluetooth universel et Roger intégré. L'essentiel de la puissance Naída sans le prix premium.",
+  "descriptionComplete": "Le niveau 50, c'est l'entrée dans le « confort » chez Phonak — un terme marketing qui signifie concrètement : les fonctionnalités essentielles sont là, mais les algorithmes les plus sophistiqués de gestion du bruit sont simplifiés. Pour une Naída destinée aux pertes sévères à profondes, ça reste un appareil très capable.\n\nCe que fait cet appareil\nMême puce PRISM, même AutoSense OS 5.0, mais avec 12 canaux au lieu de 20. L'UltraZoom est présent, la SmartSpeech Technology fonctionne en mode réduit — moins de programmes automatiques simultanés. Le WhistleBlock gère le larsen.\n\nDans le calme, honnêtement, la différence avec les niveaux supérieurs est subtile. La compréhension de la parole est bonne, les voix sont claires. C'est dans le bruit que l'écart se creuse : avec 12 canaux, l'appareil a moins de finesse pour isoler la parole d'un bruit ambiant complexe. Un dîner à deux dans un restaurant calme, ça passe bien. Un repas de famille à huit avec la télé en fond, c'est plus difficile.\n\nLe Bluetooth universel est toujours là — et c'est un point clé. Même au niveau 50, vous avez le streaming direct depuis tous les téléphones, l'app myPhonak, et la compatibilité Roger.\n\nEn pratique, sur le terrain\nLe profil type du patient en Naída L50 : retraité, perte sévère, vie plutôt calme au quotidien, budget contraint. Une patiente de 82 ans que j'ai appareillée avec le L50 avait principalement besoin de comprendre sa fille au téléphone et de suivre la messe du dimanche (avec la bobine T). Mission accomplie sur ces deux points.\n\nOù le L50 montre ses limites : les repas de fête. Noël, anniversaires, les grandes tablées bruyantes. C'est là que les 8 canaux manquants par rapport au L90 se font sentir. Mais pour le quotidien, le L50 fait son travail.\n\nPour qui est fait cet appareil ?\nPour vous si vous avez une perte sévère à profonde, un quotidien calme, et un budget qui ne permet pas les niveaux 70 ou 90. Vous gardez l'essentiel : la puissance, le Bluetooth, Roger, la bobine T.\n\nPas pour vous si le bruit est votre combat quotidien — restaurant, réunions, vie sociale active. Dans ce cas, le L70 minimum est recommandé.\n\nPar rapport à la concurrence\nFace au Naída L70 : 4 canaux de moins, SmartSpeech réduit. Économie de 200 à 250€/appareil. La question à se poser : vos environnements sont-ils suffisamment calmes pour que 12 canaux suffisent ?\n\nFace à l'Oticon Xceed 1 (entrée de gamme power) : la Naída L50 garde l'avantage du Bluetooth universel et de Roger. L'Xceed 1 est plus limité en connectivité.\n\nVerdict expert\n7.2/10. Le niveau Confort de la Naída Lumity offre un bon compromis pour les patients avec perte sévère à profonde et un quotidien calme. Le Bluetooth universel et la compatibilité Roger sont maintenus — c'est l'atout clé. La gestion du bruit est simplifiée par rapport aux niveaux supérieurs.\n\nEn une phrase : la puissance Naída et la connectivité Phonak complète, à un tarif accessible. Prix constaté variable selon l'audioprothésiste et votre reste à charge.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Puce AutoSense OS 5.0",
-    "Rechargeable (16h)",
-    "Bluetooth BLE",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes"
+    "Bluetooth universel maintenu même au niveau 50 — streaming direct avec tous les téléphones",
+    "Compatibilité Roger intégrée — solution éprouvée pour la TV et les environnements bruyants",
+    "Bobine T — compatible boucles magnétiques (églises, guichets)",
+    "Prix plus accessible que les niveaux 70 et 90 — de 1 100 à 1 600€ par appareil",
+    "IP68 et boîtier identique aux niveaux supérieurs — même robustesse"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Classe 2 — reste a charge variable",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "12 canaux — gestion du bruit moins fine que les niveaux 70 (16) et 90 (20)",
+    "SmartSpeech Technology en mode réduit — moins de programmes automatiques",
+    "Autonomie rechargeable ~16h — recharge quotidienne obligatoire",
+    "Format BTE visible — nécessaire pour la puissance"
   ],
-  "noteExpert": 7,
+  "noteExpert": 7.2,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-naida-lumity-product-info.pdf",
-  "descriptionComplete": "Le Phonak Naida Lumity P-PR 50 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2022 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce AutoSense OS 5.0, le Naida Lumity P-PR beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Naida Lumity P-PR est rechargeable (batterie Li-ion|675), offrant jusqu'a 16 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 7 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Naida Lumity P-PR integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 557 euros par appareil (soit ~3 114 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7/10. Le Phonak Naida Lumity P-PR 50 est un appareil auditif BTE milieu de gamme equipe de la puce AutoSense OS 5.0, lance en 2022 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE."
+  "legacy": false,
+  "metaTitle": "Phonak Naída Lumity 50 : prix, avis et fiche",
+  "metaDescription": "BTE puissance Phonak milieu de gamme, 12 canaux, BT universel, Roger. De 1 100 à 1 600€. Pertes sévères. Avis audioprothésiste DE."
 }

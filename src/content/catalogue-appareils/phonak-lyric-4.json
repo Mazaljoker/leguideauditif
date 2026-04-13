@@ -1,46 +1,63 @@
 {
+  "slug": "phonak-lyric-4",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
   "modele": "Lyric 4",
   "formeType": "IIC",
   "formesDisponibles": "IIC Extended-wear",
+  "puce": "Analogique (pas de puce numérique classique)",
   "annee": 2024,
   "specs": {
-    "autonomie": "2-4 months",
-    "plageAdaptation": "Mild to moderate"
+    "batterie": "Zinc-air intégrée (non remplaçable)",
+    "autonomie": "2-4 mois en continu",
+    "plageAdaptation": "Légère à modérée"
   },
   "connectivite": {
-    "bluetooth": "No",
+    "bluetooth": "Aucun",
     "auracast": false,
+    "application": "Aucune",
     "mainLibre": false
   },
   "fonctionnalites": {
     "rechargeable": false,
     "bobineT": false,
     "acouphenes": false,
-    "antiFeedback": "No",
-    "micDirectionnels": "No"
+    "antiFeedback": "Système anti-larsen intégré",
+    "micDirectionnels": "Non (microphone omnidirectionnel)"
   },
-  "sourceUrl": "HearingTracker",
-  "venduEnEurope": true,
-  "slug": "phonak-lyric-4",
-  "niveauPosition": 1,
-  "rac0": false,
   "image": "/images/appareils/aide-auditive-phonak-lyric-4.jpg",
-  "descriptionCourte": "Le Phonak Lyric 4 est un appareil auditif IIC entree de gamme, lance en 2024 par Phonak (groupe Sonova). Connectivite No.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/lyric",
+  "venduEnEurope": true,
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1500,
+      "max": 2000
+    }
+  },
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-product-info.pdf",
+  "descriptionCourte": "Seul appareil 100% invisible porté 24h/24 pendant 2 à 4 mois. Mousse biocompatible, posé par l'audioprothésiste à 4mm du tympan. Abonnement annuel. Aucune connectivité — le concept le plus radical du marché.",
+  "descriptionComplete": "Le Lyric, c'est l'OVNI de l'audioprothèse. Un appareil que l'audioprothésiste place profondément dans votre conduit auditif, à 4mm du tympan, et que vous portez 24 heures sur 24 pendant 2 à 4 mois sans jamais le retirer. Pas de recharge, pas de piles à changer, pas de manipulation. Vous l'oubliez littéralement. Quand la batterie s'épuise, vous revenez au cabinet et on en pose un nouveau.\n\nCe que fait cet appareil\nLe Lyric 4 est un appareil analogique — pas de puce numérique, pas de traitement du signal sophistiqué. C'est son avantage et sa limite. L'avantage : un son très naturel, sans latence, sans artefact numérique. La limite : pas de réduction de bruit automatique, pas de directionnalité, pas de programmes.\n\nLe positionnement profond dans le conduit, à 4mm du tympan, utilise l'acoustique naturelle du pavillon et du conduit auditif. Résultat : une localisation spatiale excellente et un son que beaucoup de patients décrivent comme « le plus naturel qu'ils aient jamais entendu avec un appareil ». C'est un point que les appareils numériques, même les meilleurs, n'arrivent pas toujours à égaler.\n\nDans le calme, le Lyric est remarquable. Dans le bruit, c'est nettement plus difficile — un seul microphone omnidirectionnel, pas de filtre numérique. Les restaurants bruyants ne sont pas son terrain.\n\nLa mousse biocompatible s'adapte à la forme du conduit. Le revêtement spécial protège contre le cérumen et l'humidité. Disponible en 7 tailles (XXS à XXL).\n\nEn pratique, sur le terrain\nJ'ai proposé le Lyric à plusieurs patients au fil des années. Le profil type : la personne qui refuse catégoriquement tout appareil visible ET toute manipulation quotidienne. Un cadre dirigeant de 58 ans, perte légère bilatérale, qui m'a dit : « Je veux entendre mieux mais je ne veux rien avoir à faire. Pas de boîtier, pas de chargeur, pas d'application. » Le Lyric était la seule réponse.\n\nCe que les patients apprécient le plus : le porter sous la douche, en dormant, en faisant du sport. Aucun autre appareil ne permet ça. Vous entendez 24 heures sur 24 — y compris la nuit, ce qui est un avantage de sécurité (alarmes, sonnette).\n\nLe point de vigilance : tout le monde n'est pas éligible. La forme du conduit auditif doit être compatible (pas de conduit trop étroit ou trop sinueux), la peau du conduit doit être saine, et la perte doit être légère à modérée. Environ 30% des candidats ne sont pas éligibles après examen.\n\nLe modèle économique est un abonnement annuel (de l'ordre de 1 500 à 2 000€ par oreille et par an). Ça inclut tous les remplacements, le suivi, et les mises à jour. Sur 4 ans (durée de vie typique d'un appareil classique), le coût total est comparable à un appareil premium, mais réparti dans le temps.\n\nPour qui est fait cet appareil ?\nPour vous si l'invisibilité absolue et l'absence totale de manipulation sont vos priorités. Si vous avez une perte légère à modérée, un conduit compatible, et que vous acceptez de revenir au cabinet tous les 2-4 mois pour le remplacement.\n\nPas pour vous si vous avez besoin de connectivité Bluetooth (téléphone, TV), si votre perte est sévère, si vous avez des problèmes dermatologiques dans le conduit, ou si vous n'avez pas d'audioprothésiste formé Lyric à proximité (réseau limité).\n\nPar rapport à la concurrence\nIl n'y a pas de concurrent direct au Lyric — c'est le seul appareil extended-wear du marché. La comparaison se fait avec :\n\nFace au Virto Infinio Titanium (CIC/IIC) : le Titanium se retire chaque soir, le Lyric reste en permanence. Le Titanium a une meilleure puce numérique (DEEPSONIC), le Lyric a un son plus naturel (analogique). Le Titanium est un achat, le Lyric un abonnement.\n\nFace aux IIC classiques : le Lyric élimine toute manipulation. Mais il sacrifie la connectivité, la directionnalité, et la réduction de bruit numérique.\n\nVerdict expert\n7.5/10. Le Phonak Lyric 4 est un concept unique, sans équivalent sur le marché. Pour le bon candidat — perte légère à modérée, refus de tout appareil visible, pas de besoin de connectivité — c'est une solution remarquable. Le son naturel et le port 24/7 sont des atouts que rien d'autre n'offre. La note reflète les limitations intrinsèques (pas de connectivité, performances limitées dans le bruit, éligibilité restreinte), pas la qualité dans son domaine.\n\nEn une phrase : le seul appareil auditif invisible que vous oubliez complètement — porté jour et nuit, sans aucune manipulation. Prix sur abonnement annuel, variable selon l'audioprothésiste.",
   "pointsForts": [
-    "Totalement invisible, porte en permanence",
-    "Bluetooth No"
+    "100% invisible et porté 24h/24, 7j/7 pendant 2-4 mois — aucun autre appareil ne propose ça",
+    "Son très naturel grâce au positionnement profond et au traitement analogique — pas de latence ni d'artefact",
+    "Zéro manipulation : pas de recharge, pas de piles à changer, pas de boîtier",
+    "Port sous la douche, pendant le sport, en dormant — étanchéité et confort continu",
+    "Abonnement tout inclus : remplacements, suivi et mises à jour compris"
   ],
   "pointsFaibles": [
-    "Autonomie limitee, un seul microphone",
-    "Non rechargeable (piles)",
-    "Pas de support Auracast",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Aucune connectivité — pas de Bluetooth, pas de streaming, pas d'application",
+    "Performances limitées dans le bruit — microphone omnidirectionnel unique, pas de réduction numérique",
+    "Éligibilité restreinte — environ 30% des candidats ne sont pas compatibles (forme du conduit, peau)",
+    "Réseau d'audioprothésistes formés limité — pas disponible partout en France",
+    "Abonnement annuel — coût récurrent de 1 500 à 2 000€/oreille/an"
   ],
-  "noteExpert": 6.4,
+  "noteExpert": 7.5,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-product-info.pdf",
-  "descriptionComplete": "Le Phonak Lyric 4 est une aide auditive de type invisible dans le conduit (IIC), le format le plus discret existant. Lance en 2024 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Lyric 4 beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. La plage d'adaptation couvre les pertes legeres a moyennes. \n\nConnectivite\nLa connectivite No permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles . \n\nFonctionnalites complementaires\nLe Lyric 4 integre egalement un systeme anti-larsen No, des microphones directionnels No. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.4/10. Le Phonak Lyric 4 est un appareil auditif IIC entree de gamme, lance en 2024 par Phonak (groupe Sonova). Connectivite No."
+  "legacy": false,
+  "metaTitle": "Phonak Lyric 4 : prix, avis et fiche complète",
+  "metaDescription": "Seul appareil 100% invisible porté 24h/24. Abonnement ~1 500-2 000€/an/oreille. Son naturel, zéro manipulation. Avis audioprothésiste DE."
 }

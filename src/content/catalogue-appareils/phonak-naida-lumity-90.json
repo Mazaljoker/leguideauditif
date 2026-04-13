@@ -1,33 +1,12 @@
 {
+  "slug": "phonak-naida-lumity-90",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Naida Lumity P-PR",
+  "modele": "Naída Lumity P-PR",
   "formeType": "BTE",
-  "formesDisponibles": "BTE SP",
-  "puce": "AutoSense OS 5.0",
-  "annee": 2022,
-  "specs": {
-    "batterie": "Li-ion|675",
-    "autonomie": "16",
-    "ip": "IP68",
-    "plageAdaptation": "Severe to profound"
-  },
-  "connectivite": {
-    "bluetooth": "BLE",
-    "auracast": false,
-    "application": "myPhonak",
-    "mainLibre": false
-  },
-  "fonctionnalites": {
-    "rechargeable": true,
-    "bobineT": true,
-    "acouphenes": true
-  },
-  "couleurs": 7,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-naida-lumity-90",
+  "formesDisponibles": "BTE P-PR|BTE SP|BTE UP",
+  "puce": "PRISM",
   "niveau": "90",
   "niveauRaw": "L90",
   "niveauPosition": 4,
@@ -35,25 +14,55 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 2090
+      "min": 1500,
+      "max": 2100
     }
   },
+  "annee": 2022,
+  "specs": {
+    "canaux": 20,
+    "bandes": 20,
+    "batterie": "Li-ion rechargeable ou pile 675",
+    "autonomie": "16",
+    "ip": "IP68",
+    "plageAdaptation": "Sévère à profonde"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + BLE",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "StereoZoom 2.0 + UltraZoom + SmartSpeech Technology"
+  },
+  "couleurs": 7,
   "image": "/images/appareils/aide-auditive-phonak-naida-lumity-30.png",
-  "descriptionCourte": "Le Phonak Naida Lumity P-PR 90 est un appareil auditif BTE premium equipe de la puce AutoSense OS 5.0, lance en 2022 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/naida-l",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-naida-lumity-product-info.pdf",
+  "descriptionCourte": "BTE de puissance Phonak, plateforme PRISM. SmartSpeech Technology, Bluetooth universel, Roger intégré. 20 canaux. La référence Phonak pour les pertes sévères à profondes avec la connectivité la plus complète de sa catégorie.",
+  "descriptionComplete": "La gamme Naída, c'est le BTE de puissance chez Phonak. Quand un patient arrive avec une perte sévère à profonde et qu'il a besoin de puissance brute, c'est vers la Naída qu'on se tourne. La version Lumity, lancée sur la plateforme PRISM, a apporté la SmartSpeech Technology et le Bluetooth universel à ce segment — deux avancées qui changent le quotidien des patients les plus malentendants.\n\nCe que fait cet appareil\nLa Naída Lumity 90 tourne sur la même puce PRISM que l'Audéo Lumity, avec AutoSense OS 5.0. La différence : elle pousse la puissance bien au-delà, couvrant les pertes sévères à profondes. StereoZoom 2.0, UltraZoom et Speech Enhancer sont de la partie — un ensemble d'algorithmes qui filtrent le bruit pour extraire la parole. Le traitement s'effectue sur 20 canaux, le maximum chez Phonak pour cette génération.\n\nDans le calme, les résultats sont très bons. La clarté vocale est nette, les voix restent naturelles. Dans le bruit, c'est correct mais il faut être réaliste : une perte sévère à profonde, même avec le meilleur traitement du signal, implique un effort supplémentaire dans les environnements très bruyants. La Naída 90 fait mieux que la Naída Paradise qui la précédait, mais elle n'a pas le Spheric de l'Infinio — qui n'existe pas encore en format power BTE.\n\nLe streaming Bluetooth est universel (Classic + BLE), compatible iOS et Android. La technologie Roger est intégrée en option — un vrai plus pour les réunions ou la TV à distance.\n\nEn pratique, sur le terrain\nJ'ai adapté pas mal de Naída Lumity, notamment sur des patients qui venaient de Naída Paradise ou même de Naída Belong. Ce qui frappe en premier : le streaming Bluetooth direct. Pour des patients avec des pertes sévères qui n'avaient jamais eu de connexion directe au téléphone, c'est un vrai changement. Un patient de 71 ans, perte profonde bilatérale, m'a dit : « Pour la première fois, je comprends au téléphone sans l'aide de ma femme. »\n\nLa version P-PR (rechargeable) offre environ 16 heures d'autonomie — suffisant pour une journée standard, mais un peu juste si vous streamez intensivement. Pour les gros utilisateurs de streaming, la version avec pile 675 (UP) offre plus de marge.\n\nCe que les specs ne disent pas : le boîtier est solide, bien construit. La manipulation est facile même pour des mains peu agiles. Le format BTE est plus grand qu'un RIC, mais c'est aussi son avantage pour les seniors qui ont besoin de boutons physiques accessibles et d'un appareil qu'on attrape facilement.\n\nPour qui est fait cet appareil ?\nLa Naída Lumity 90 est faite pour vous si vous avez une perte sévère à profonde et que vous cherchez le maximum de technologie Phonak dans un format puissant. Bluetooth universel, streaming, Roger intégré, bobine T — tout y est.\n\nSi votre perte est légère à modérée, ce n'est pas l'appareil qu'il vous faut. L'Audéo Lumity ou l'Audéo Infinio seront plus adaptés, plus discrets, et mieux calibrés pour votre niveau de perte.\n\nSi le budget est serré mais que vous avez besoin de puissance, le niveau 50 ou 70 offre l'essentiel avec moins de canaux d'ajustement.\n\nPar rapport à la concurrence\nFace à la Naída Paradise 90 (génération précédente) : la Lumity apporte le Bluetooth universel, un meilleur traitement dans le bruit avec la SmartSpeech Technology, et l'app myPhonak plus aboutie. L'upgrade est significatif, surtout pour la connectivité.\n\nFace à l'Oticon Xceed (concurrent direct en power BTE) : la Naída Lumity a l'avantage de la connectivité Bluetooth universelle et de Roger intégré. L'Xceed répond avec la plateforme Polaris et un traitement du signal orienté « scène sonore ouverte ». Deux philosophies différentes — le choix se fait idéalement en testant les deux en rdv.\n\nVerdict expert\n7.8/10. La Phonak Naída Lumity 90 est un excellent BTE de puissance, fiable et complet. Le Bluetooth universel et Roger intégré la placent en tête pour la connectivité dans le segment power. L'autonomie rechargeable de 16h est un peu juste pour les gros streamers. C'est actuellement le meilleur power BTE Phonak disponible — il n'y a pas encore de Naída Infinio.\n\nEn une phrase : la référence Phonak pour les pertes sévères à profondes, avec la connectivité la plus complète de sa catégorie. Prix constaté variable selon l'audioprothésiste et votre reste à charge.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Puce AutoSense OS 5.0",
-    "Rechargeable (16h)",
-    "Bluetooth BLE",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes"
+    "SmartSpeech Technology avec StereoZoom 2.0 + UltraZoom — le meilleur traitement du bruit Phonak en format power BTE",
+    "Bluetooth universel (Classic + BLE) — streaming direct avec tous les téléphones, iOS et Android",
+    "Roger intégré en option — solution éprouvée pour les réunions, la TV et les environnements bruyants",
+    "Disponible en rechargeable (P-PR) et pile 675 (UP) — choix selon usage",
+    "Bobine T intégrée — compatible boucles magnétiques (églises, guichets, salles équipées)"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Classe 2 — reste a charge variable"
+    "Autonomie rechargeable limitée à ~16h — recharge quotidienne obligatoire, juste si streaming intensif",
+    "Format BTE visible derrière l'oreille — nécessaire pour la puissance, mais moins discret qu'un RIC",
+    "Génération PRISM (2022) — pas de puce DEEPSONIC ni de Spheric Speech Clarity, réservés à l'Audéo Infinio",
+    "Pas d'Auracast — la norme LE Audio est réservée à la génération Infinio"
   ],
-  "noteExpert": 8.5,
+  "noteExpert": 7.8,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-naida-lumity-product-info.pdf",
-  "descriptionComplete": "Le Phonak Naida Lumity P-PR 90 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2022 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce AutoSense OS 5.0, le Naida Lumity P-PR beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Naida Lumity P-PR est rechargeable (batterie Li-ion|675), offrant jusqu'a 16 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 7 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Naida Lumity P-PR integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix indicatif est d'environ 2 090 euros par appareil (soit ~4 180 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.5/10. Le Phonak Naida Lumity P-PR 90 est un appareil auditif BTE premium equipe de la puce AutoSense OS 5.0, lance en 2022 par Phonak (groupe Sonova). Rechargeable avec 16h d'autonomie. Connectivite BLE."
+  "legacy": false,
+  "metaTitle": "Phonak Naída Lumity 90 : prix, avis et fiche",
+  "metaDescription": "BTE puissance Phonak, PRISM, SmartSpeech, BT universel. De 1 500 à 2 100€. Pertes sévères à profondes. Avis audioprothésiste DE, 28 ans."
 }

@@ -1,42 +1,63 @@
 {
+  "slug": "phonak-virto-infinio-titanium",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
   "modele": "Virto Infinio Titanium",
   "formeType": "CIC",
   "formesDisponibles": "CIC|IIC",
+  "puce": "DEEPSONIC",
   "annee": 2025,
   "specs": {
-    "autonomie": "Li-ion (non-rechargeable)",
-    "plageAdaptation": "Mild to moderate"
+    "batterie": "Pile 10",
+    "autonomie": "3-5 jours",
+    "plageAdaptation": "Légère à modérée"
   },
   "connectivite": {
+    "bluetooth": "Aucun",
     "auracast": false,
+    "application": "Aucune",
     "mainLibre": false
   },
   "fonctionnalites": {
     "rechargeable": false,
     "bobineT": false,
-    "acouphenes": false
+    "acouphenes": false,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "Non (microphone omnidirectionnel)"
   },
-  "sourceUrl": "HearingTracker",
-  "venduEnEurope": true,
-  "slug": "phonak-virto-infinio-titanium",
-  "niveauPosition": 1,
-  "rac0": false,
   "image": "/images/appareils/aide-auditive-phonak-virto-infinio-titanium.jpg",
-  "descriptionCourte": "Le Phonak Virto Infinio Titanium est un appareil auditif CIC entree de gamme, lance en 2025 par Phonak (groupe Sonova).",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio-nw",
+  "venduEnEurope": true,
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1600,
+      "max": 2200
+    }
+  },
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-virto-infinio-datasheet.pdf",
+  "descriptionCourte": "CIC/IIC sur-mesure en titane, plateforme DEEPSONIC. 15 fois plus résistant que l'acrylique. Quasi invisible. Aucune connectivité Bluetooth — le choix radical de la discrétion absolue.",
+  "descriptionComplete": "Le Virto Infinio Titanium, c'est le choix de la discrétion absolue. Un appareil en titane médical, moulé à votre conduit auditif, qui disparaît complètement une fois en place. La contrepartie est claire : aucune connectivité Bluetooth, aucun streaming, aucune application. C'est un appareil auditif, point. Pour certains patients, c'est exactement ce qu'ils veulent.\n\nCe que fait cet appareil\nLe Virto Titanium tourne sur la plateforme DEEPSONIC avec AutoSense OS 7.0 — la même puce que l'Audéo Infinio et le Virto R. Le traitement du signal est donc de très bon niveau. La différence : pas de connectivité sans fil. Pas de Bluetooth, pas d'Auracast, pas d'app. L'appareil amplifie et traite le son, c'est tout.\n\nDans le calme, la qualité sonore est bonne. Le positionnement profond dans le conduit utilise l'acoustique naturelle de l'oreille — ce qui donne un son plus naturel que certains RIC, notamment pour la localisation spatiale. Dans le bruit, les performances sont limitées : un seul microphone omnidirectionnel, pas de directionnalité. Les conversations en tête-à-tête passent, les environnements bruyants sont un défi.\n\nLa coque en titane médical est 15 fois plus résistante que l'acrylique standard. Résultat : des parois plus fines, ce qui permet de loger plus de technologie dans un espace plus réduit — et de proposer le format IIC (Invisible-In-Canal) à des patients dont le conduit ne l'aurait pas permis en acrylique.\n\nPiles 10, autonomie de 3 à 5 jours selon utilisation. Pas de recharge possible.\n\nEn pratique — retours de confrères\nLe Virto Titanium est un produit 2025. Les retours de confrères qui le proposent confirment un profil patient très spécifique : la personne qui refuse catégoriquement tout appareil visible. Un collègue audioprothésiste me disait : « Le Titanium, je le propose quand le patient me dit qu'il préfère ne pas entendre plutôt que de porter quelque chose de visible. C'est le seul argument qui les fait franchir le pas. »\n\nLa qualité de fabrication en titane est remarquable — les retours SAV sont très faibles. Le moulage sur-mesure offre un confort de port élevé, et la tenue dans le conduit est bonne.\n\nLe point de vigilance principal : sans connectivité, le patient perd le streaming téléphonique, la TV directe, et le réglage à distance via l'app. Pour des patients seniors qui utilisent beaucoup le téléphone, c'est un vrai sacrifice.\n\nPour qui est fait cet appareil ?\nPour vous si la discrétion est votre critère numéro un, que vous acceptez de renoncer au Bluetooth et au streaming, et que votre perte est légère à modérée. Idéal pour les personnes actives professionnellement qui ne veulent aucun appareil visible.\n\nPas pour vous si vous avez besoin de connectivité (téléphone, TV), si votre perte est sévère, ou si vous fréquentez régulièrement des environnements bruyants.\n\nPar rapport à la concurrence\nFace au Virto Infinio R (même plateforme, rechargeable) : le Titanium est plus discret (CIC/IIC vs ITE) mais perd toute connectivité. Le choix se résume à : discrétion ou fonctionnalités ?\n\nFace au Signia Silk IX (CIC instant-fit concurrent) : le Titanium est sur-mesure (meilleur ajustement) et en titane (plus résistant). Le Silk est prêt-à-porter (pas de moulage, disponible immédiatement).\n\nFace au Phonak Lyric (extended wear) : le Titanium se retire chaque soir, le Lyric se porte 24/7 pendant 2-4 mois. Le Lyric est un abonnement, le Titanium est un achat.\n\nVerdict expert\n7.0/10. Le Phonak Virto Infinio Titanium est un appareil de niche, réservé aux patients pour qui la discrétion prime sur tout le reste. La qualité sonore DEEPSONIC est là, la fabrication en titane est irréprochable. Mais l'absence totale de connectivité est un sacrifice important en 2025. La note reflète ce compromis — pas la qualité de l'appareil dans son domaine.\n\nEn une phrase : la discrétion absolue en titane médical, avec la puce Infinio, mais sans aucune connectivité. Prix constaté variable selon l'audioprothésiste, le niveau technologique et votre reste à charge.",
   "pointsForts": [
-    "Quasi-invisible dans le conduit auditif"
+    "Discrétion maximale — format CIC/IIC quasi invisible dans le conduit auditif",
+    "Coque titane médical 15x plus résistante que l'acrylique — parois ultra-fines, plus de place pour la technologie",
+    "Puce DEEPSONIC + AutoSense OS 7.0 — même traitement du signal que l'Audéo Infinio",
+    "Son naturel grâce au positionnement profond dans le conduit — localisation spatiale préservée",
+    "Sur-mesure : moulage personnalisé pour un confort de port optimal"
   ],
   "pointsFaibles": [
-    "Autonomie reduite, pas de connectivite directe",
-    "Non rechargeable (piles)",
-    "Pas de connectivite Bluetooth",
-    "Pas de support Auracast"
+    "Aucune connectivité Bluetooth — pas de streaming téléphone, pas de TV directe, pas d'app",
+    "Microphone omnidirectionnel unique — performances limitées dans le bruit",
+    "Pertes légères à modérées uniquement — puissance insuffisante pour les pertes sévères",
+    "Piles 10 (3-5 jours) — manipulation fine requise pour le changement",
+    "Prix élevé pour un appareil sans connectivité — de 1 600 à 2 200€ par oreille"
   ],
-  "noteExpert": 6.2,
+  "noteExpert": 7.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-virto-infinio-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Virto Infinio Titanium est une aide auditive de type completement dans le conduit (CIC), quasi-invisible une fois en place. Lance en 2025 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Virto Infinio Titanium beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. La plage d'adaptation couvre les pertes legeres a moyennes. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles . \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.2/10. Le Phonak Virto Infinio Titanium est un appareil auditif CIC entree de gamme, lance en 2025 par Phonak (groupe Sonova)."
+  "legacy": false,
+  "metaTitle": "Phonak Virto Infinio Titanium : prix, avis, fiche",
+  "metaDescription": "CIC/IIC titane Phonak, puce DEEPSONIC, invisible. Sans Bluetooth. De 1 600 à 2 200€. Le choix de la discrétion. Avis audioprothésiste DE."
 }
