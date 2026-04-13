@@ -150,8 +150,25 @@
 | rexton-bicore-r-li | LEGACY | Generation precedente |
 | rexton-bicore-slim-ric | LEGACY | Generation precedente |
 
-### Unitron — 20 fiches, plateforme Sonova
-Tous a verifier en detail. Vivante = actuel, Discover Next = precedent.
+### Unitron — 24 fiches, plateforme Sonova (vérifié 2026-04-13)
+
+| Fichier | Statut | Notes |
+|---------|--------|-------|
+| unitron-moxi-vivante-3 | EXISTS | Vivante RIC, niveau 3 (Essential) — REWORKED |
+| unitron-moxi-vivante-5 | EXISTS | Vivante RIC, niveau 5 (Standard) — REWORKED |
+| unitron-moxi-vivante-7 | EXISTS | Vivante RIC, niveau 7 (Advanced) — REWORKED |
+| unitron-moxi-vivante-9 | EXISTS | Vivante RIC, niveau 9 (Premium) — REWORKED |
+| unitron-stride-vivante-3 | EXISTS | Vivante BTE, niveau 3 — REWORKED |
+| unitron-stride-vivante-5 | EXISTS | Vivante BTE, niveau 5 — REWORKED |
+| unitron-stride-vivante-7 | EXISTS | Vivante BTE, niveau 7 — REWORKED |
+| unitron-stride-vivante-9 | EXISTS | Vivante BTE, niveau 9 — REWORKED |
+| unitron-moxi-vivante | LEGACY | Doublon, décliné en 3/5/7/9 |
+| unitron-moxi-blu | LEGACY | Génération 2021, remplacé par Vivante |
+| unitron-moxi-smile | LEGACY | Ancien Smile 2022, plateforme Smile 2025 = différente |
+| unitron-shine-rev | LEGACY | Ancienne génération 2020 |
+| unitron-insera-vivante-3/5/7/9 | LEGACY | Non confirmé en France, remplacé par Insera S-R (Smile 2025) |
+| unitron-insera-discover-next-3/5/7/9 | LEGACY | Génération 2020, remplacé par Insera S-R |
+| unitron-stride-discover-next-3/5/7/9 | LEGACY | Génération 2020, remplacé par Stride Vivante |
 
 ### Bernafon — 10 fiches, plateforme Demant
 Alpha = actuel, Viron = legacy probable.
