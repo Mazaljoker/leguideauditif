@@ -157,11 +157,15 @@ const breadcrumbs = [
         </div>
       </div>
 
-      <h2 class="font-sans text-lg font-bold text-marine mt-8 mb-6">
+      <h2 class="font-sans text-lg font-bold text-marine mt-8 mb-2">
         Informations de votre centre
       </h2>
+      <div class="rounded-lg bg-[#E6F1FB] px-4 py-3 mb-5">
+        <p class="text-sm font-medium text-marine font-sans">{centre.nom}</p>
+        <p class="text-xs text-gris-texte font-sans">{centre.adresse}, {centre.cp} {centre.ville}</p>
+      </div>
       <p class="text-sm text-gris-texte font-sans mb-5">
-        Ces informations seront affichees sur votre fiche. Vous pourrez les modifier plus tard.
+        Ces informations seront affichées sur votre fiche. Vous pourrez les modifier plus tard.
       </p>
 
       <div class="grid gap-5 sm:grid-cols-2">
@@ -219,7 +223,7 @@ const breadcrumbs = [
                 class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
               >
                 <option value="">--</option>
-                <option value="Ferm\u00e9">Ferm\u00e9</option>
+                <option value="Fermé">Fermé</option>
                 <option value="9h-12h" selected>9h-12h</option>
                 <option value="9h-13h">9h-13h</option>
                 <option value="10h-12h">10h-12h</option>
@@ -227,7 +231,7 @@ const breadcrumbs = [
               </select>
             </div>
           </div>
-          <p class="text-xs text-gris-texte font-sans mt-1">S\u00e9lectionnez vos horaires en 3 clics</p>
+          <p class="text-xs text-gris-texte font-sans mt-1">Sélectionnez vos horaires en 3 clics</p>
         </div>
       </div>
 
