@@ -5,24 +5,29 @@
   "modele": "HearLink Power HdO",
   "formeType": "BTE",
   "formesDisponibles": "BTE P|BTE SP",
+  "puce": "SoundMap (Demant)",
   "annee": 2022,
   "specs": {
-    "batterie": "Disposable",
-    "plageAdaptation": "Severe to profound"
+    "canaux": 16,
+    "batterie": "Pile 13 (P) ou 675 (SP)",
+    "plageAdaptation": "Sévère à profonde",
+    "ip": "IP68"
   },
   "connectivite": {
-    "bluetooth": "BLE",
+    "bluetooth": "BLE (Made for iPhone)",
     "auracast": false,
     "application": "HearLink 2",
     "mainLibre": false
   },
   "fonctionnalites": {
     "rechargeable": false,
-    "bobineT": false,
-    "acouphenes": false
+    "bobineT": true,
+    "acouphenes": false,
+    "antiFeedback": "Suppression adaptative du larsen",
+    "micDirectionnels": "TrueEar — localisation spatiale"
   },
   "couleurs": 6,
-  "sourceUrl": "MySecondEar",
+  "sourceUrl": "hearingsolutions.philips.com + vivason.fr + ideal-audition.fr",
   "venduEnEurope": true,
   "slug": "philips-hearlink-power-hdo",
   "niveauPosition": 1,
@@ -30,26 +35,29 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1290,
-      "max": 2090
+      "min": 950,
+      "max": 1390
     }
   },
   "image": "/images/appareils/aide-auditive-philips-hearlink-power-hdo.jpg",
-  "descriptionCourte": "Le Philips HearLink Power HdO est un appareil auditif BTE entree de gamme, lance en 2022 par Philips (groupe Demant). Connectivite BLE.",
+  "descriptionCourte": "Contour d'oreille puissant par Philips (Demant). Adapté aux pertes sévères à profondes avec BLE et bobine T, mais à piles — une option accessible via les réseaux optiques.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Bluetooth BLE",
-    "Application HearLink 2",
-    "6 coloris disponibles"
+    "Puissance adaptée aux pertes sévères à profondes (70 dB et au-delà)",
+    "Robustesse mécanique du format BTE — écouteur protégé dans le boîtier, pas de panne cérumen",
+    "Bluetooth LE avec streaming direct sur iPhone — appels téléphoniques facilités",
+    "Bobine T intégrée — compatible boucles magnétiques (guichets, salles équipées)",
+    "Disponible en version 100 % Santé (niveau 3000) — reste à charge zéro possible",
+    "Manipulation facile avec doubles boutons-poussoirs — adapté aux seniors"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Non rechargeable (piles)",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable"
+    "Pas de rechargeable — piles 13 ou 675, à changer tous les 5 à 7 jours",
+    "Streaming Android nécessite un accessoire AudioClip supplémentaire",
+    "Plateforme SoundMap de génération précédente — en retrait face aux Oticon Xceed ou Phonak Naida",
+    "Volume du boîtier BTE visible derrière l'oreille — attendu pour cette catégorie de puissance"
   ],
-  "noteExpert": 6.2,
+  "noteExpert": 5.5,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-xceed-datasheet.pdf",
-  "descriptionComplete": "Le Philips HearLink Power HdO est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2022 par Philips (groupe Demant), technologie Demant/Oticon a prix accessible, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle HearLink Power HdO beneficie de la technologie SoundMap (basee sur Oticon). Distribution via reseau optique et grande surface, interface simplifiee. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application HearLink 2 permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Disposable. Disponible en 6 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 290 euros par appareil (soit ~2 580 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.2/10. Le Philips HearLink Power HdO est un appareil auditif BTE entree de gamme, lance en 2022 par Philips (groupe Demant). Connectivite BLE."
+  "metaTitle": "Philips HearLink Power HdO : prix, avis et fiche",
+  "metaDescription": "Contour puissant Philips pour pertes sévères à profondes. Avis expert, BLE, prix dès 950 €. Option 100 % Santé disponible.",
+  "descriptionComplete": "Le Philips HearLink Power HdO — « Hors d'Oreille » — est un contour classique conçu pour les pertes sévères à profondes. Fabriqué par Demant, le même groupe qu'Oticon, il reprend la technologie SoundMap dans un boîtier robuste avec écouteur intégré. Distribué via les réseaux optiques et les enseignes d'audioprothèse partenaires, il cible les patients qui ont besoin de puissance sans nécessairement viser le haut de gamme.\n\n## Ce que fait cet appareil\n\nLe traitement du signal SoundMap gère la scène sonore sur 16 canaux au niveau premium (9010), avec quatre options de réduction de bruit selon les environnements. La technologie TrueEar aide à la localisation spatiale des sons — un point important quand on perd la capacité à identifier d'où vient une voix dans une pièce.\n\nPour les pertes sévères à profondes, la question centrale est simple : est-ce que je comprends la parole face à moi ? La réponse est oui dans le calme et les situations modérées. Le HearLink Power fournit une amplification suffisante avec une bande passante couvrant les fréquences essentielles de la parole. En environnement bruyant, la réduction de bruit limite les sons parasites mais ne fait pas de miracles — aucun appareil de cette gamme de prix n'en fait avec des pertes au-delà de 70 dB.\n\nLe streaming audio fonctionne en Bluetooth LE, compatible Made for iPhone en direct. Pour les smartphones Android, un accessoire AudioClip est nécessaire — un coût et un objet en plus à gérer. La qualité du streaming reste correcte pour les appels téléphoniques, et c'est un vrai plus quand on a une perte sévère : le téléphone est historiquement un cauchemar pour ces profils, recevoir le son directement dans les appareils change la donne.\n\n## En pratique — ce que la plateforme Demant apporte\n\nLa plateforme Demant, je la connais de l'intérieur via les Oticon que j'ai adaptés pendant des années. Le HearLink Power repose sur le même socle technologique que l'Oticon Xceed dans ses grandes lignes — la même philosophie d'ouverture sonore — mais avec un étage de traitement simplifié et moins de canaux fins.\n\nL'avantage d'un BTE classique pour les pertes sévères : l'écouteur est dans le boîtier, pas dans le conduit auditif. Concrètement, ça veut dire moins de pannes liées au cérumen, moins de passages chez l'audioprothésiste pour maintenance. Le boîtier est plus gros qu'un RIC, c'est évident, mais il est aussi plus facile à manipuler — un avantage réel pour les patients âgés avec des doigts raides ou une vue qui baisse.\n\nLa bobine T (position téléphone) est intégrée — un détail que beaucoup négligent mais qui compte dans la vie quotidienne. Les guichets de banque, de poste, certaines salles de spectacle sont équipés de boucles magnétiques. Avec la bobine T activée, le son arrive directement dans l'appareil, sans bruit de fond. Pour un patient avec une perte sévère, c'est souvent la différence entre comprendre et ne pas comprendre au guichet.\n\nEn revanche, le fonctionnement sur piles (taille 13 ou 675 selon la version P ou SP) reste un point faible en 2026. Les concurrents directs — Oticon Xceed, Phonak Naida Lumity — proposent tous une version rechargeable. Changer les piles tous les cinq à sept jours n'est pas dramatique, mais c'est un geste supplémentaire qui n'est plus nécessaire chez la concurrence.\n\n## Pour qui ? Pas pour qui ?\n\n**Profil idéal** : vous avez une perte sévère à profonde (70 dB et au-delà), vous cherchez un appareil puissant et robuste sans investir dans le haut de gamme, et vous êtes à l'aise avec les piles. Le HearLink Power convient bien aux patients suivis dans un réseau optique qui distribue Philips, ou aux budgets serrés qui veulent le niveau 3000 en 100 % Santé.\n\n**Pas pour vous** : si vous pouvez investir 200 à 400 € de plus par oreille, l'Oticon Xceed du même groupe Demant offre une plateforme nettement supérieure avec plus de puissance de traitement. Si le rechargeable est indispensable — et pour beaucoup de patients âgés, il l'est — il faudra se tourner vers un Phonak Naida Lumity ou un Oticon Xceed en version rechargeable.\n\n## Face à la concurrence\n\n**Versus l'Oticon Xceed (même groupe Demant)** : l'Xceed utilise une plateforme plus récente, avec un réseau de neurones embarqué et un traitement du bruit nettement supérieur. Le HearLink Power est son cousin accessible — mêmes gènes, moins de puissance de calcul. L'écart est sensible dans les environnements complexes : réunion de famille, supermarché bondé.\n\n**Versus le Phonak Naida Lumity** : le Naida offre le rechargeable, une connectivité universelle (Bluetooth classique compatible tous smartphones sans accessoire), et la technologie Roger en option pour les situations d'écoute les plus difficiles. C'est un cran au-dessus en tout — mais aussi 400 à 600 € de plus par oreille.\n\n**Versus un BTE classe 1 (100 % Santé)** : le HearLink Power 3000 existe en version BTE SP avec reste à charge zéro. Si le budget est la priorité absolue, cette option couvre les besoins de base pour une perte sévère. Les performances sont plus basiques, mais le son est là.\n\n## Verdict expert\n\nNote : 5.5/10. Le Philips HearLink Power HdO remplit son contrat : un contour d'oreille puissant, robuste, avec une connectivité Bluetooth de base et une bobine T appréciable. Ses limites sont claires — pas de rechargeable, plateforme SoundMap d'ancienne génération, performances dans le bruit en retrait face aux références du segment. Mais pour un patient avec une perte sévère, suivi dans un réseau qui distribue Philips, avec un budget contraint ou un accès au 100 % Santé en niveau 3000, c'est un appareil qui fait le travail au quotidien. Demandez un essai de 30 jours pour vérifier que la puissance et le confort vous conviennent."
 }

@@ -5,10 +5,13 @@
   "modele": "HearLink IdO",
   "formeType": "ITE",
   "formesDisponibles": "ITC|CIC|IIC",
+  "puce": "SoundMap (Demant)",
   "annee": 2022,
   "specs": {
-    "batterie": "Disposable",
-    "plageAdaptation": "Mild to severe"
+    "canaux": 16,
+    "batterie": "Pile 10 (CIC/IIC) ou 312 (ITC)",
+    "plageAdaptation": "Légère à moyenne",
+    "ip": "IP68"
   },
   "connectivite": {
     "auracast": false,
@@ -17,11 +20,13 @@
   },
   "fonctionnalites": {
     "rechargeable": false,
-    "bobineT": false,
-    "acouphenes": false
+    "bobineT": true,
+    "acouphenes": true,
+    "antiFeedback": "Suppression adaptative du larsen",
+    "micDirectionnels": "Communication binaurale"
   },
   "couleurs": 5,
-  "sourceUrl": "MySecondEar",
+  "sourceUrl": "hearingsolutions.philips.com + vivason.fr + ideal-audition.fr",
   "venduEnEurope": true,
   "slug": "philips-hearlink-ido",
   "niveauPosition": 1,
@@ -29,24 +34,29 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1290,
-      "max": 3190
+      "min": 990,
+      "max": 1390
     }
   },
   "image": "/images/appareils/aide-auditive-philips-hearlink-ido.jpg",
-  "descriptionCourte": "Le Philips HearLink IdO est un appareil auditif ITE entree de gamme, lance en 2022 par Philips (groupe Demant).",
+  "descriptionCourte": "Intra-auriculaire sur mesure par Philips (Demant). Discrétion maximale en CIC/IIC, mais sans Bluetooth ni rechargeable — pour les profils qui privilégient l'invisibilité avant tout.",
   "pointsForts": [
-    "Sur-mesure, bonne prehension pour les seniors",
-    "Application HearLink 2"
+    "Discrétion maximale en CIC/IIC — quasi invisible dans le conduit auditif",
+    "Fabrication sur mesure adaptée à l'anatomie de votre oreille",
+    "Masqueur d'acouphènes intégré avec bruit blanc ou rose réglable",
+    "Plateforme Demant éprouvée — même socle technologique qu'Oticon",
+    "Prix accessible via les réseaux optiques (à partir de 990 € par oreille)"
   ],
   "pointsFaibles": [
-    "Moins discret qu'un RIC",
-    "Non rechargeable (piles)",
-    "Pas de connectivite Bluetooth",
-    "Pas de bobine T (boucle magnetique)"
+    "Aucun Bluetooth — pas de streaming audio ni d'appels téléphoniques en direct",
+    "Fonctionne sur piles taille 10 — autonomie limitée et changement fréquent",
+    "Récepteur exposé au cérumen — nettoyage professionnel régulier nécessaire",
+    "Performances dans le bruit en retrait face aux RIC de dernière génération",
+    "Non rechargeable — un retard net face à la concurrence en 2026"
   ],
-  "noteExpert": 6,
+  "noteExpert": 5.5,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-real-datasheet.pdf",
-  "descriptionComplete": "Le Philips HearLink IdO est une aide auditive de type intra-auriculaire (ITE) sur-mesure, offrant une bonne prehension et un rendu sonore naturel. Lance en 2022 par Philips (groupe Demant), technologie Demant/Oticon a prix accessible, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle HearLink IdO beneficie de la technologie SoundMap (basee sur Oticon). Distribution via reseau optique et grande surface, interface simplifiee. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nL'application HearLink 2 permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Disposable. Disponible en 5 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 290 euros par appareil (soit ~2 580 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6/10. Le Philips HearLink IdO est un appareil auditif ITE entree de gamme, lance en 2022 par Philips (groupe Demant)."
+  "metaTitle": "Philips HearLink IdO : prix, avis et fiche",
+  "metaDescription": "Intra-auriculaire CIC/IIC discret par Philips (Demant). Avis expert, prix dès 990 €, points forts et limites. Sans Bluetooth.",
+  "descriptionComplete": "Philips fabrique ses aides auditives chez Demant, le même groupe industriel qu'Oticon. Le HearLink IdO — pour « intra d'oreille » — est la version sur mesure de la gamme, déclinée en CIC (Completely in Canal), ITC (In The Canal) et IIC (Invisible in Canal). Un appareil qui mise tout sur la discrétion, distribué principalement via les réseaux optiques et les grandes enseignes.\n\n## Ce que fait cet appareil\n\nLe traitement du signal repose sur la technologie SoundMap de Demant, avec jusqu'à 16 canaux de réglage au niveau premium (9010). Dans le calme, la parole passe correctement : la voix est claire, les aigus présents sans agressivité, et la bande passante élargie jusqu'à 10 kHz offre un rendu naturel pour les conversations à deux ou trois.\n\nEn environnement bruyant, la réduction de bruit fait le travail de base — vous suivrez une conversation en tête-à-tête dans un restaurant peu rempli un mardi midi. Mais au-delà de quatre convives avec du bruit de fond, les limites apparaissent. C'est la contrepartie d'un traitement du signal entrée à milieu de gamme dans un format miniaturisé.\n\nPas de streaming audio. Le CIC et l'IIC sont trop petits pour embarquer une antenne Bluetooth — c'est une limite physique du format, pas un choix du fabricant. L'ITC peut intégrer une connectivité NFMI en option, mais ce n'est pas du Bluetooth direct. Si vous regardez la télévision chaque soir et voulez le son dans vos appareils, ce format n'est pas fait pour vous.\n\n## En pratique — ce que la plateforme Demant apporte\n\nJe connais bien la plateforme Demant pour avoir adapté des Oticon pendant des années. Le HearLink utilise une version simplifiée de cette technologie : la philosophie « open sound » est là dans ses grandes lignes — le cerveau reçoit une scène sonore assez large plutôt qu'un focus artificiel sur une seule voix — mais avec moins de puissance de calcul pour démêler les situations complexes.\n\nCe que les specs ne disent pas : un intra sur mesure, ça se mérite. L'empreinte d'oreille doit être impeccable, le conduit auditif suffisamment large et droit, et la gestion du cérumen rigoureuse. Certains patients reviennent toutes les six semaines parce que le récepteur se bouche. D'autres n'ont jamais le moindre souci pendant quatre ans. Votre anatomie compte autant que la technologie embarquée.\n\nLe masqueur d'acouphènes intégré est un bonus appréciable : il génère un bruit blanc ou rose réglable, utile si vous avez des sifflements associés à votre perte auditive. Quatre programmes manuels permettent de basculer entre des réglages adaptés — calme, bruit, musique, extérieur.\n\n## Pour qui ? Pas pour qui ?\n\n**Profil idéal** : vous avez une perte légère à moyenne (jusqu'à 65 dB environ), vous refusez catégoriquement un appareil visible derrière l'oreille, et le streaming n'est pas une priorité. Typiquement : un cadre en activité qui ne veut pas que ses collègues le remarquent, un enseignant soucieux de discrétion, ou un patient qui porte déjà des lunettes et ne veut rien de plus derrière le pavillon.\n\n**Pas pour vous** : si votre perte dépasse 65 dB, l'intra n'aura pas la réserve de gain nécessaire. Si vous voulez recevoir vos appels téléphoniques directement dans vos appareils, passez au MiniRITE. Et si les piles miniatures (taille 10) posent problème — vue en baisse, dextérité limitée par de l'arthrose — un RIC rechargeable sera nettement plus confortable au quotidien.\n\n## Face à la concurrence\n\n**Versus le Signia Silk IX** : le Silk est un CIC avec Bluetooth intégré, puce IX de dernière génération, et bien plus de canaux de traitement. Mais il coûte presque le double. Le HearLink reste une option pour les budgets serrés qui veulent de la discrétion sans exploser l'enveloppe.\n\n**Versus l'Oticon du même groupe Demant** : l'Oticon Intent utilise la plateforme Polaris avec un réseau de neurones embarqué et des capteurs de mouvement. Le Philips repose sur une génération antérieure du traitement Demant. L'écart se joue surtout dans le bruit : l'Oticon gère mieux les scènes à plusieurs interlocuteurs.\n\n**Versus un intra classe 1 (100 % Santé)** : le HearLink IdO est en classe 2, donc avec un reste à charge. Si votre priorité est de ne rien payer, des intras 100 % Santé existent — avec des performances plus basiques, mais le reste à charge zéro peut peser dans la balance.\n\n## Verdict expert\n\nNote : 5.5/10. Le Philips HearLink IdO est un intra-auriculaire honnête pour un usage bien ciblé : discrétion maximale, conversations en milieu calme, budget maîtrisé. L'absence de Bluetooth et de rechargeable le place une génération en retard face aux intras concurrents récents comme le Silk IX de Signia. C'est un choix défendable si l'invisibilité prime sur tout le reste — et surtout si votre réseau optique le propose avec un bon accompagnement et un prix compétitif. Pour un avis adapté à votre situation, un essai de 30 jours chez votre audioprothésiste reste le seul vrai test."
 }
