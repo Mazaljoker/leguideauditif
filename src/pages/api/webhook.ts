@@ -3,6 +3,10 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
 import { createServerClient } from '../../lib/supabase';
+import { sendEmail, sendAdminNotification } from '../../lib/email';
+import { paymentConfirmationEmail } from '../../emails/payment-confirmation';
+import { paymentAdminNotificationEmail } from '../../emails/payment-admin-notification';
+import { subscriptionCancelledEmail } from '../../emails/subscription-cancelled';
 
 const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15' as Stripe.LatestApiVersion,
@@ -93,6 +97,31 @@ export const POST: APIRoute = async ({ request }) => {
         }
 
         console.log(`Webhook annonce: ${produit} applique sur ${annonce_id}`);
+
+        // Emails de confirmation paiement annonce
+        const customerEmail = session.customer_details?.email;
+        if (customerEmail) {
+          await sendEmail({
+            to: customerEmail,
+            subject: `Confirmation de paiement — ${produit}`,
+            html: paymentConfirmationEmail({
+              email: customerEmail,
+              produit,
+              montant: session.amount_total ?? 0,
+              annonceId: annonce_id,
+            }),
+          });
+        }
+        await sendAdminNotification(
+          `Paiement annonce : ${produit}`,
+          paymentAdminNotificationEmail({
+            produit,
+            montant: session.amount_total ?? 0,
+            annonceId: annonce_id,
+            userId: user_id,
+            requiresAction: produit === 'pack_cession_accomp',
+          }),
+        );
         break;
       }
 
@@ -135,6 +164,14 @@ export const POST: APIRoute = async ({ request }) => {
       }
 
       console.log(`Centre ${centreSlug} passe en premium.`);
+
+      // Notification admin : nouveau centre premium
+      if (email) {
+        await sendAdminNotification(
+          `Centre premium : ${centreSlug}`,
+          `<p>Le centre <strong>${centreSlug}</strong> est passé en premium.</p><p>Email : ${email}</p>`,
+        );
+      }
       break;
     }
 
@@ -157,6 +194,22 @@ export const POST: APIRoute = async ({ request }) => {
       }
 
       console.log(`Subscription ${subscription.id} annulee, premium desactive.`);
+
+      // Recuperer l'email du centre pour notifier
+      const { data: cancelledCentre } = await supabase
+        .from('centres_auditifs')
+        .select('claimed_by_email, slug')
+        .eq('stripe_subscription_id', subscription.id)
+        .single();
+
+      if (cancelledCentre?.claimed_by_email) {
+        await sendEmail({
+          to: cancelledCentre.claimed_by_email,
+          subject: 'Votre abonnement Premium a été annulé',
+          html: subscriptionCancelledEmail({ centreSlug: cancelledCentre.slug }),
+          replyTo: 'franck@leguideauditif.fr',
+        });
+      }
       break;
     }
 

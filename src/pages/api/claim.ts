@@ -2,6 +2,9 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { createServerClient } from '../../lib/supabase';
+import { sendEmail, sendAdminNotification } from '../../lib/email';
+import { claimConfirmationEmail } from '../../emails/claim-confirmation';
+import { claimAdminNotificationEmail } from '../../emails/claim-admin-notification';
 
 const MAX_PHOTO_SIZE = 5 * 1024 * 1024; // 5 Mo
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
@@ -137,6 +140,24 @@ export const POST: APIRoute = async ({ request }) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
+
+    // Envoi emails (non-bloquant — on ne fait pas echouer le claim si l'email echoue)
+    await Promise.allSettled([
+      sendEmail({
+        to: email,
+        subject: 'Votre demande de revendication a bien été reçue',
+        html: claimConfirmationEmail({ prenom, nom, centreNom: centre.nom, centreSlug }),
+        replyTo: 'franck@leguideauditif.fr',
+      }),
+      sendAdminNotification(
+        `Nouvelle revendication : ${centre.nom}`,
+        claimAdminNotificationEmail({
+          prenom, nom, email, adeli,
+          centreNom: centre.nom, centreSlug,
+          tel: tel || undefined,
+        }),
+      ),
+    ]);
 
     return new Response(
       JSON.stringify({
