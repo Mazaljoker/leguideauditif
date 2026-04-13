@@ -23,7 +23,7 @@ export function claimAdminNotificationEmail({ prenom, nom, email, adeli, centreN
       ${tel ? `<p><strong>Tél :</strong> ${tel}</p>` : ''}
     </div>
     <p>Action requise : vérifier le numéro ADELI et valider ou rejeter la demande.</p>
-    <a href="https://leguideauditif.fr/centres/${centreSlug}/" class="btn">Voir la fiche</a>
+    <a href="https://leguideauditif.fr/centre/${centreSlug}/" class="btn">Voir la fiche</a>
     `
   );
 }
