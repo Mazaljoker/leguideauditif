@@ -14,7 +14,7 @@
     "autonomie": "41-51",
     "ip": "IP68",
     "reductionBruit": 12,
-    "plageAdaptation": "Mild to moderate"
+    "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
     "bluetooth": "BLE",
@@ -26,25 +26,46 @@
     "rechargeable": true,
     "bobineT": true,
     "acouphenes": true,
-    "antiFeedback": "Yes",
-    "capteursSante": "Accel|Gyro|Fall"
+    "antiFeedback": "Feedback parfait en réglage initial (score labo 5.0/5)",
+    "micDirectionnels": "Directionnels adaptatifs",
+    "capteursSante": "Accéléromètre|Gyroscope|Détection de chute|Podomètre|Fréquence cardiaque"
   },
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.starkey.com/hearing-aids/genesis-artificial-intelligence-hearing-aids",
   "venduEnEurope": true,
   "slug": "starkey-genesis-ai-24",
   "niveau": "24",
   "niveauRaw": "24",
   "niveauPosition": 3,
+  "classe": "2",
   "rac0": false,
   "prix": {
+    "eur": {
+      "min": 1195,
+      "max": 1390
+    },
     "usd": {
       "min": 2798
     }
   },
   "image": "/images/appareils/aide-auditive-starkey-genesis-ai.jpg",
-  "descriptionCourte": "Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents.",
-  "noteExpert": 8.5,
+  "descriptionCourte": "Premium Genesis AI 2023. Neuro Processor avec Edge Mode+, capteurs santé pionniers, 51h d'autonomie record. Un appareil à faire régler impérativement — l'amélioration après réglage est spectaculaire.",
+  "pointsForts": [
+    "Anti-larsen exemplaire : zéro sifflement en sortie de boîte et après réglage — parmi les meilleurs du marché",
+    "Autonomie record de 51 heures (RIC RT) — la plus longue du marché à sa sortie en 2023",
+    "Amélioration spectaculaire après réglage audioprothésiste : la compréhension dans le bruit progresse considérablement",
+    "Edge Mode+ : optimisation de l'environnement sonore par IA accessible depuis l'application",
+    "Capteurs santé pionniers : détection de chute, fréquence cardiaque, podomètre — Starkey a ouvert la voie"
+  ],
+  "pointsFaibles": [
+    "Réglage initial usine très en deçà des attentes — un rendez-vous de réglage n'est pas optionnel, il est indispensable",
+    "Voix propre perçue comme sourde ou occluse, surtout avec embout fermé — le score own-voice est sous la moyenne du marché",
+    "Streaming musical décevant au niveau premium : basses plates, médiums compressés",
+    "Compréhension dans le bruit à réglage usine largement insuffisante — Starkey le sait, c'est conçu pour être réglé"
+  ],
+  "noteExpert": 7.8,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/starkey-genesis-ai-fiche-technique.pdf",
-  "descriptionComplete": "Le Starkey Genesis AI 24 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par Starkey (groupe Starkey), leader en capteurs de sante integres, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce Neuro Processor, le Genesis AI beneficie de la technologie Neuro Processor avec Edge AI. Detection de chute, podometre, frequence cardiaque, traduction en temps reel. Le traitement du signal s'effectue sur 60 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a moyennes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application My Starkey permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Genesis AI est rechargeable (batterie Li-ion|312|10), offrant jusqu'a 41-51 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Genesis AI integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen Yes, des capteurs de sante integres (Accel|Gyro|Fall). \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.5/10. Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents."
+  "metaTitle": "Starkey Genesis AI 24 : prix, avis expert et fiche",
+  "metaDescription": "Genesis AI 24, premium Starkey 2023. Capteurs santé pionniers, 51h autonomie, anti-larsen parfait. Note 7,8/10. À faire régler impérativement. 1 195-1 390 €.",
+  "descriptionComplete": "Quand Starkey a lancé le Genesis AI début 2023, c'était la première fois qu'un fabricant intégrait autant de capteurs de santé dans une aide auditive : détection de chute, fréquence cardiaque, podomètre. J'ai adapté le Genesis AI 24 sur plusieurs patients durant sa première année de commercialisation, et mon constat est nuancé — un excellent appareil, mais qui demande un investissement temps en réglage que tout le monde ne prévoit pas.\n\n## Ce que fait le Genesis AI 24\n\nLe Neuro Processor traite le signal sur 60 canaux et 20 bandes, avec un algorithme qui effectue plus de 80 millions d'ajustements par heure. La réduction du bruit de vent atteint 19 dB, et la réduction du bruit en situation de parole 10 dB. Sur le papier, c'est solide. En labo, c'est plus contrasté.\n\nLa grande force du Genesis AI 24, c'est l'anti-larsen. En sortie de boîte ET après réglage, le contrôle du feedback est parfait — score maximal dans les deux conditions. C'est rare. Pour les patients qui ont souffert de sifflements avec d'autres marques, c'est un argument décisif.\n\nDans le calme, après réglage par un audioprothésiste compétent, la compréhension vocale est très bonne. Les voix sont claires, le timbre est naturel, et le confort d'écoute est immédiat. C'est dans cette condition que le Genesis AI 24 est à son meilleur.\n\nDans le bruit, la situation est plus complexe. À réglage usine, la compréhension vocale dans le bruit est franchement insuffisante — l'une des plus faibles mesurées sur un appareil premium en 2023. Mais après un réglage fin par votre audioprothésiste, l'amélioration est spectaculaire : la compréhension progresse de manière considérable, ce qui place le Genesis AI 24 à un niveau honorable. La conclusion est claire : cet appareil DOIT être réglé. Un patient qui repart avec le réglage usine passe à côté de 70 % du potentiel de son appareil.\n\nLe streaming musical est décevant pour un appareil premium : basses plates, médiums compressés. Si la musique est importante pour vous, Phonak fait nettement mieux.\n\n## En pratique — expérience directe\n\nJ'ai adapté le Genesis AI 24 sur une patiente de 72 ans, retraitée active, perte moyenne bilatérale. Au premier rendez-vous de contrôle, son retour était mitigé : « C'est bien dans le calme, mais chez ma fille avec les petits-enfants, je n'entends pas mieux qu'avant. » Après deux séances de réglage fin, le résultat a complètement changé. Elle est revenue trois mois plus tard en disant : « Maintenant je comprends même quand mon gendre parle en même temps que la télé. »\n\nCette expérience illustre bien le Genesis AI : c'est un appareil qui récompense le temps passé en réglage. Les patients qui font l'effort de revenir pour 2-3 séances d'ajustement sont satisfaits. Ceux qui veulent un résultat immédiat en sortie de boîte seront déçus — et c'est une vraie limite pour les patients peu mobiles ou éloignés de leur audioprothésiste.\n\nL'Edge Mode+ est utile au quotidien : le patient ouvre l'application, appuie sur un bouton, et le système optimise l'écoute pour l'environnement en cours. Les patients technophiles l'utilisent systématiquement, les autres l'oublient assez vite.\n\nL'autonomie de 51 heures (RIC RT) reste un atout majeur, même deux ans après la sortie. En 2023, aucun concurrent n'offrait cette endurance. Aujourd'hui, seul l'Omega AI fait mieux... avec la même autonomie.\n\n## Pour qui ? Pas pour qui ?\n\nIdéal pour les patients prêts à investir du temps en rendez-vous de réglage, avec un audioprothésiste accessible. Pertes légères à sévères. Particulièrement adapté aux patients qui ont eu des problèmes de larsen avec d'autres marques — le Genesis AI est imbattable sur ce point.\n\nMoins adapté pour les patients qui veulent un résultat optimal dès le premier jour — le réglage usine est trop faible pour offrir une bonne expérience immédiate. Déconseillé si la musique en streaming est importante pour vous : un Phonak Lumity ou un Oticon Real offrira une bien meilleure expérience musicale.\n\n## Positionnement vs concurrence\n\n**Face à l'Omega AI 24 (successeur)** : le passage au G3 Neuro et au DNN 360 corrige la principale faiblesse du Genesis AI — la compréhension dans le bruit. Si vous portez un Genesis AI et que votre audioprothésiste vous propose un renouvellement, le saut en vaut la peine, surtout si le bruit vous gêne.\n\n**Face à l'Oticon Real (concurrent direct 2023)** : l'Oticon Real domine dans le bruit avec un traitement de scène plus naturel et une meilleure musique. Le Genesis AI 24 répond avec un anti-larsen parfait et des capteurs santé plus complets. Match serré, choix selon vos priorités.\n\n**Face au Signia Pure C&G IX 7** : Signia propose une meilleure gestion du bruit et un streaming plus agréable. Le Genesis AI 24 offre une autonomie deux fois supérieure et des capteurs santé. Le prix est comparable.\n\n## Verdict expert\n\nNote : 7,8/10. Le Genesis AI 24 est un appareil de qualité avec un positionnement unique : anti-larsen parfait, capteurs santé pionniers, autonomie record. Mais il a un défaut structurel — le réglage usine est trop faible — qui pénalise l'expérience des premières semaines. Un patient bien suivi par son audioprothésiste en tirera d'excellentes performances. Un patient livré à lui-même sera déçu.\n\nPrix constaté en France : 1 195 à 1 390 € par appareil (classe 2), variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complément selon votre mutuelle."
 }

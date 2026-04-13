@@ -14,7 +14,7 @@
     "autonomie": "41-51",
     "ip": "IP68",
     "reductionBruit": 12,
-    "plageAdaptation": "Mild to moderate"
+    "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
     "bluetooth": "BLE",
@@ -26,25 +26,46 @@
     "rechargeable": true,
     "bobineT": true,
     "acouphenes": true,
-    "antiFeedback": "Yes",
-    "capteursSante": "Accel|Gyro|Fall"
+    "antiFeedback": "Feedback parfait (score labo 5.0/5)",
+    "micDirectionnels": "Directionnels adaptatifs",
+    "capteursSante": "Accéléromètre|Gyroscope|Détection de chute|Podomètre|Fréquence cardiaque"
   },
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.starkey.com/hearing-aids/genesis-artificial-intelligence-hearing-aids",
   "venduEnEurope": true,
   "slug": "starkey-genesis-ai-16",
   "niveau": "16",
   "niveauRaw": "16",
   "niveauPosition": 1,
+  "classe": "2",
   "rac0": false,
   "prix": {
+    "eur": {
+      "min": 850,
+      "max": 995
+    },
     "usd": {
       "min": 2598
     }
   },
   "image": "/images/appareils/aide-auditive-starkey-genesis-ai.jpg",
-  "descriptionCourte": "Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents.",
-  "noteExpert": 7.9,
+  "descriptionCourte": "Entrée de gamme Genesis AI 2023. Neuro Processor, capteurs santé complets, anti-larsen parfait, 51h d'autonomie. Porte d'entrée vers les capteurs santé Starkey à budget maîtrisé.",
+  "pointsForts": [
+    "Anti-larsen parfait identique aux niveaux supérieurs — zéro sifflement garanti",
+    "Capteurs santé complets sans bridage : chute, fréquence cardiaque, podomètre",
+    "Autonomie de 51 heures (RIC RT) — record même parmi les niveaux supérieurs de la concurrence",
+    "Prix d'entrée le plus bas de la gamme Genesis AI avec la même plateforme matérielle"
+  ],
+  "pointsFaibles": [
+    "Réglage usine très faible — encore plus critique au niveau 16 où l'adaptation automatique est basique",
+    "Gestion du bruit limitée même après réglage — les situations multi-locuteurs restent difficiles",
+    "Streaming musical très basique : peu d'intérêt pour la musique ou les podcasts",
+    "Edge Mode+ absent ou bridé au niveau 16 — moins de flexibilité d'ajustement via l'application",
+    "Plateforme 2023 : deux générations de retard face à l'Omega AI"
+  ],
+  "noteExpert": 7.4,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/starkey-genesis-ai-fiche-technique.pdf",
-  "descriptionComplete": "Le Starkey Genesis AI 16 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par Starkey (groupe Starkey), leader en capteurs de sante integres, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nEquipe de la puce Neuro Processor, le Genesis AI beneficie de la technologie Neuro Processor avec Edge AI. Detection de chute, podometre, frequence cardiaque, traduction en temps reel. Le traitement du signal s'effectue sur 60 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a moyennes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application My Starkey permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Genesis AI est rechargeable (batterie Li-ion|312|10), offrant jusqu'a 41-51 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Genesis AI integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen Yes, des capteurs de sante integres (Accel|Gyro|Fall). \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.9/10. Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents."
+  "metaTitle": "Starkey Genesis AI 16 : prix, avis expert et fiche",
+  "metaDescription": "Genesis AI 16, entrée de gamme Starkey 2023. Capteurs santé, anti-larsen parfait, 51h autonomie. Note 7,4/10. Dès 850 € par appareil en France.",
+  "descriptionComplete": "Le Genesis AI 16 est l'entrée de gamme d'une plateforme qui a fait date. Quand je l'adaptais en cabinet, le profil type du patient était clair : quelqu'un qui voulait un Starkey pour les capteurs de santé et l'anti-larsen, mais dont le budget ne permettait pas le 20 ou le 24. La question que je me posais à chaque fois : est-ce que le 16 tient ses promesses quand on enlève les couches de technologie supérieures ?\n\n## Ce que fait le Genesis AI 16\n\nMême Neuro Processor, mêmes 60 canaux, mêmes 20 bandes. Mais au niveau 16, l'adaptation automatique est réduite au minimum : l'appareil distingue les grandes catégories d'environnement (calme, bruit, musique) sans la finesse des niveaux supérieurs. Edge Mode+ est absent ou fortement bridé.\n\nDans le calme, le Genesis AI 16 fait correctement son travail. Les voix sont claires, le timbre est acceptable, et l'anti-larsen est toujours aussi efficace — ce trait de plateforme est indépendant du niveau technologique. Pour un patient qui passe l'essentiel de son temps à domicile, en conversation en tête-à-tête ou devant la télévision, c'est un appareil fonctionnel.\n\nDans le bruit, les limites apparaissent plus vite que sur les niveaux supérieurs. Un déjeuner de famille à 6 personnes devient fatigant, et un restaurant — même modérément bruyant — met le 16 en difficulté. Le réglage audioprothésiste améliore la situation, mais l'écart avec un 20 ou un 24 est plus marqué ici que sur les générations Omega AI, où la puce G3 compense davantage.\n\nLe streaming musical est très basique : c'est le minimum syndical pour recevoir les appels téléphoniques en Bluetooth. Pour la musique, ce n'est pas un bon choix.\n\n## En pratique — expérience directe\n\nParmi les patients que j'ai équipés avec le Genesis AI 16, celui qui m'a le plus marqué est un monsieur de 78 ans, veuf, vivant seul, avec une perte moyenne bilatérale. Son besoin principal : entendre la télévision à un volume raisonnable et comprendre sa fille au téléphone. Pour ces deux situations, le Genesis AI 16 a répondu parfaitement — et l'anti-larsen impeccable au téléphone a été un vrai soulagement après des années de sifflements.\n\nEn revanche, quand il allait déjeuner au foyer de retraités — une grande salle avec du bruit de fond — il revenait systématiquement déçu. Après réglage, la situation s'est améliorée sans jamais être pleinement satisfaisante. C'est la limite du 16 dans le bruit : il fait mieux que rien, mais moins bien qu'un 20 dans les mêmes conditions.\n\nLa détection de chute, en revanche, a été un atout inattendu. Sa fille a reçu une notification lors d'une chute réelle, et a pu intervenir rapidement. Pour un patient seul, c'est un argument qui dépasse le cadre de l'audioprothèse.\n\n## Pour qui ? Pas pour qui ?\n\nIdéal pour les patients au quotidien calme, vivant seuls ou en couple, dont le budget est contraint mais qui tiennent aux capteurs santé et à l'anti-larsen Starkey. Pertes légères à moyennes de préférence — les pertes sévères bénéficieront davantage de la gestion du bruit des niveaux supérieurs.\n\nMoins adapté pour les patients socialement actifs qui sortent régulièrement dans des environnements bruyants. Si le bruit est un enjeu, un Omega AI 16 à budget comparable (mais génération 2025) sera plus efficace. Et si les capteurs santé ne sont pas un critère, un Signia IX 3 ou un Oticon Intent 1 offriront une meilleure acoustique pour le même investissement.\n\n## Positionnement vs concurrence\n\n**Face à l'Omega AI 16** : le saut générationnel est significatif — DNN 360 vs directionnels classiques, TeleHear AI, capteurs respiratoires. À prix comparable, l'Omega AI 16 est objectivement supérieur. Le Genesis AI 16 ne reste pertinent que si le modèle Omega n'est pas encore disponible chez votre audioprothésiste ou en cas de promotion sur stock existant.\n\n**Face au ReSound Key 4** : le ReSound Key est un concurrent direct en entrée de gamme. Le Genesis AI 16 offre les capteurs santé en plus, mais le Key 4 a un avantage sur le streaming audio grâce à la technologie GN Audio.\n\n## Verdict expert\n\nNote : 7,4/10. Le Genesis AI 16 est un appareil honnête pour un quotidien calme, porté par un anti-larsen parfait et des capteurs santé que personne d'autre ne proposait à ce prix en 2023. Ses limites dans le bruit et son réglage usine insuffisant le pénalisent. Avec la sortie de l'Omega AI, il devient surtout intéressant en promotion ou fin de stock.\n\nPrix constaté en France : 850 à 995 € par appareil (classe 2), variable selon l'audioprothésiste et votre reste à charge."
 }

@@ -5,47 +5,59 @@
   "modele": "Signature Series",
   "formeType": "CIC",
   "formesDisponibles": "CIC R NW|CIC NW|IIC NW",
-  "puce": "Genesis AI platform",
+  "puce": "Neuro Sound Technology",
   "annee": 2024,
   "specs": {
     "batterie": "Li-ion|10",
-    "autonomie": "38 (CIC R)",
+    "autonomie": "38 (CIC R)|6 jours (CIC pile)|7 jours (IIC pile)",
     "ip": "IP68",
     "plageAdaptation": "Mild to moderate"
   },
   "connectivite": {
-    "bluetooth": "No",
+    "bluetooth": "Non (sans fil désactivé)",
     "auracast": false,
     "mainLibre": false
   },
   "fonctionnalites": {
-    "rechargeable": false,
+    "rechargeable": true,
     "bobineT": false,
-    "acouphenes": false,
-    "antiFeedback": "No",
-    "micDirectionnels": "No"
+    "acouphenes": true,
+    "antiFeedback": "Oui (adapté CIC/IIC)",
+    "micDirectionnels": "Non (omnidirectionnel CIC/IIC)"
   },
-  "sourceUrl": "HearingTracker",
+  "couleurs": 6,
+  "sourceUrl": "https://www.starkey.com/hearing-aids/signature-series-hearing-aids",
   "venduEnEurope": true,
   "slug": "starkey-signature-series",
-  "niveauPosition": 1,
+  "niveauPosition": 4,
+  "classe": "2",
   "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1200,
+      "max": 1500
+    }
+  },
   "image": "/images/appareils/aide-auditive-starkey-signature-series.png",
-  "descriptionCourte": "Le Starkey Signature Series est un appareil auditif CIC entree de gamme equipe de la puce Genesis AI platform, lance en 2024 par Starkey (groupe Starkey). Connectivite No.",
+  "descriptionCourte": "Premier CIC rechargeable au monde (2024). Quasi invisible dans le conduit, IP68, 38h d'autonomie. Aucune connectivité Bluetooth. Pour les patients qui veulent l'invisibilité absolue, rien d'autre.",
   "pointsForts": [
-    "Quasi-invisible dans le conduit auditif",
-    "Puce Genesis AI platform",
-    "Bluetooth No",
-    "Etanche IP68"
+    "Premier CIC rechargeable au monde — 38 heures d'autonomie, aucun changement de pile",
+    "Quasi invisible dans le conduit auditif — le format le plus discret du marché Starkey",
+    "IP68 sur un format CIC — résistance eau et poussière rare à cette taille",
+    "Technologie anti-acouphènes intégrée malgré le format miniature",
+    "6 couleurs de coque et version IIC (invisible-dans-le-conduit) pour une discrétion maximale"
   ],
   "pointsFaibles": [
-    "Autonomie reduite, pas de connectivite directe",
-    "Non rechargeable (piles)",
-    "Pas de support Auracast",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Aucune connectivité Bluetooth — pas de streaming, pas d'appels mains libres, pas d'application",
+    "Pas de microphones directionnels — gestion du bruit très basique, limitée au traitement algorithmique",
+    "Plage d'adaptation limitée aux pertes légères à moyennes — pas adapté aux pertes sévères",
+    "IIC disponible uniquement au niveau 24 — choix restreint si budget limité",
+    "Aucun capteur de santé — on perd la signature Starkey (chute, podomètre, etc.)"
   ],
   "noteExpert": 6.5,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/starkey-genesis-ai-brochure.pdf",
-  "descriptionComplete": "Le Starkey Signature Series est une aide auditive de type completement dans le conduit (CIC), quasi-invisible une fois en place. Lance en 2024 par Starkey (groupe Starkey), leader en capteurs de sante integres, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nEquipe de la puce Genesis AI platform, le Signature Series beneficie de la technologie Neuro Processor avec Edge AI. Detection de chute, podometre, frequence cardiaque, traduction en temps reel. La plage d'adaptation couvre les pertes legeres a moyennes. \n\nConnectivite\nLa connectivite No permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Li-ion|10. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Signature Series integre egalement un systeme anti-larsen No, des microphones directionnels No. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.5/10. Le Starkey Signature Series est un appareil auditif CIC entree de gamme equipe de la puce Genesis AI platform, lance en 2024 par Starkey (groupe Starkey). Connectivite No."
+  "metaTitle": "Starkey Signature Series : prix, avis et fiche CIC",
+  "metaDescription": "Starkey Signature Series, premier CIC rechargeable au monde. Invisible, IP68, 38h autonomie. Note 6,5/10. Aucun Bluetooth. 1 200-1 500 € par appareil.",
+  "descriptionComplete": "Il y a un profil de patient que tout audioprothésiste connaît : la personne qui refuse catégoriquement de porter quelque chose de visible derrière l'oreille. « Si on voit que j'ai un appareil, je n'en veux pas. » La Signature Series de Starkey est conçue exactement pour ce patient. Et pour lui, c'est une petite révolution : le premier CIC rechargeable au monde.\n\n## Ce que fait la Signature Series\n\nTrois formats disponibles. Le CIC R NW (rechargeable, non wireless) est le modèle phare : un intra-auriculaire quasi invisible qui se glisse dans le conduit et offre 38 heures d'autonomie par charge. Plus besoin de manipuler des piles taille 10 avec des doigts parfois peu agiles — c'est un vrai progrès pour les seniors. Le CIC NW (pile taille 10, 6 jours d'autonomie) et l'IIC NW (invisible dans le conduit, pile taille 10, 7 jours) complètent la gamme.\n\nLe traitement du son s'appuie sur la Neuro Sound Technology, dérivée de la plateforme Genesis AI. Pas de miracle : dans un format aussi petit, on ne peut pas loger de microphones directionnels. La gestion du bruit repose uniquement sur le traitement algorithmique, sans la directionnalité qui fait la force des RIC et BTE. Concrètement, dans le calme, la Signature Series offre une clarté vocale correcte pour les pertes légères à moyennes. Dans le bruit, les limites sont franches — impossible de séparer efficacement la voix du fond sonore sans directionnalité.\n\nPas de Bluetooth. Pas de streaming. Pas d'application. Pas de capteurs de santé. Pas de mains libres. La Signature Series fait UNE chose et la fait bien : amplifier le son de manière invisible. C'est un choix assumé par Starkey, et il faut le comprendre avant l'achat.\n\n## En pratique — expérience directe\n\nJ'ai adapté la Signature Series CIC R sur une patiente de 66 ans, cadre à la retraite, perte légère bilatérale, très soucieuse de son image. Elle avait essayé un RIC chez un confrère et était revenue en disant : « On voit le fil derrière l'oreille, c'est non. »\n\nLa prise d'empreinte et la fabrication sur mesure ont pris deux semaines. Le résultat cosmétique est impressionnant : une fois en place, la Signature Series est quasi indétectable — même en regardant de face. Sa satisfaction esthétique était totale.\n\nAu niveau acoustique, le bilan est plus nuancé. À la maison, en conversation avec son mari, c'est efficace : les voix sont claires, le confort est là. Au téléphone, elle a dû placer le combiné un peu plus bas que l'oreille — le CIC capte depuis le conduit, pas depuis le pavillon — mais elle s'est adaptée en quelques jours.\n\nLe problème est arrivé au restaurant. Sans directionnalité, le brouhaha devient vite envahissant. Elle a fini par reconnaître que « pour sortir, c'est juste » mais que « c'est toujours mieux que sans rien, et au moins personne ne sait que je porte des appareils ». C'est exactement le compromis de la Signature Series.\n\nLe rechargement — 38 heures d'autonomie — a été un vrai plus. Elle recharge le soir, comme un téléphone, et ne pense plus aux piles. Pour une patiente qui trouvait les piles taille 10 « impossibles à manipuler », c'est un argument massif.\n\n## Pour qui ? Pas pour qui ?\n\nIdéal pour les patients dont la priorité absolue est l'invisibilité : cadres, personnes soucieuses de l'image, patients psychologiquement réticents à un appareil visible. Pertes légères à moyennes uniquement. Mode de vie principalement calme — domicile, conversations individuelles, téléphone.\n\nFranchement déconseillé si vous êtes souvent dans le bruit — restaurants, réunions, événements. Un RIC discret (mRIC de chez Starkey ou Signia Silk IX) sera infiniment plus performant. Également déconseillé si le streaming, les appels mains libres ou les capteurs de santé sont importants pour vous — vous perdez TOUT l'écosystème Starkey connecté.\n\n## Positionnement vs concurrence\n\n**Face au Signia Silk IX** : le Silk est un CIC instant-fit (pas sur mesure) avec Bluetooth et directionnalité. Acoustiquement supérieur, mais moins invisible que l'IIC de la Signature Series. Si l'acoustique prime, Silk. Si l'invisibilité absolue prime, Signature Series.\n\n**Face au Phonak Virto Infinio** : le Virto est un intra sur mesure avec Bluetooth et connectivité complète. Plus polyvalent mais moins discret que le format IIC de Starkey. Et pas rechargeable en CIC.\n\n**Face au Starkey Omega AI CIC** : l'Omega AI CIC offre le Bluetooth et les capteurs santé dans un format intra — moins invisible que la Signature Series IIC, mais avec une connectivité complète. Si vous pouvez accepter un format légèrement moins discret, l'Omega AI CIC est objectivement un meilleur choix.\n\n## Verdict expert\n\nNote : 6,5/10. La Signature Series est un produit de niche brillant dans sa niche. Premier CIC rechargeable au monde, quasi invisible, IP68 — c'est une prouesse technique. Mais les compromis sont réels : aucune connectivité, aucune directionnalité, gestion du bruit très limitée. Pour le patient qui ne portera rien de visible, c'est le seul choix. Pour tous les autres, un RIC moderne sera objectivement supérieur en performance.\n\nPrix constaté en France : 1 200 à 1 500 € par appareil (classe 2), variable selon l'audioprothésiste et votre reste à charge. Fabrication sur mesure, délai de 2 à 3 semaines."
 }

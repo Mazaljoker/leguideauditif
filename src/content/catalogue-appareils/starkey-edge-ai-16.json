@@ -8,47 +8,60 @@
   "puce": "G2 Neuro",
   "annee": 2024,
   "specs": {
+    "canaux": 64,
+    "bandes": 24,
     "batterie": "Li-ion|312",
     "autonomie": "51",
     "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
-    "bluetooth": "BLE",
+    "bluetooth": "BLE LE Audio",
     "auracast": false,
     "application": "My Starkey",
-    "mainLibre": false
+    "mainLibre": true
   },
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
     "acouphenes": true,
-    "capteursSante": "Accel|Gyro|Fall"
+    "antiFeedback": "DNN anti-feedback",
+    "micDirectionnels": "DNN adaptatifs",
+    "capteursSante": "Accéléromètre|Gyroscope|Détection de chute|Bilan équilibre"
   },
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.starkey.com/hearing-aids",
   "venduEnEurope": true,
   "slug": "starkey-edge-ai-16",
   "niveau": "16",
   "niveauRaw": "16",
   "niveauPosition": 1,
+  "classe": "2",
   "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 950,
+      "max": 1100
+    }
+  },
   "image": "/images/appareils/aide-auditive-starkey-edge-ai-16.jpg",
-  "descriptionCourte": "Le Starkey Edge AI 16 est un appareil auditif RIC entree de gamme equipe de la puce G2 Neuro, lance en 2024 par Starkey (groupe Starkey). Rechargeable avec 51h d'autonomie. Connectivite BLE.",
+  "descriptionCourte": "Entrée de gamme Starkey 2024. Puce G2 Neuro avec NPU, LE Audio, détection de chute, 51h d'autonomie. Accès à la technologie Edge AI à budget contenu.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce G2 Neuro",
-    "Rechargeable (51h)",
-    "Bluetooth BLE",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes"
+    "Accès à la puce G2 Neuro avec NPU au prix le plus bas de la gamme Edge AI",
+    "Bluetooth LE Audio et mains libres inclus — progrès notable vs Genesis AI 16",
+    "51 heures d'autonomie (RIC RT) — identique aux niveaux supérieurs",
+    "Détection de chute et bilan d'équilibre disponibles même au niveau d'entrée"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de support Auracast",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Adaptation automatique minimale — l'appareil distingue les grandes catégories mais manque de finesse",
+    "Gestion du bruit basique — les conversations en groupe deviennent rapidement fatigantes",
+    "Génération 2024 déjà remplacée par l'Omega AI — durée de vie commerciale courte",
+    "Streaming musical très en retrait — basses absentes, restitution plate",
+    "Pas de bilan respiratoire ni de TeleHear AI (réservés à l'Omega AI)"
   ],
-  "noteExpert": 7,
+  "noteExpert": 7.7,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/starkey-genesis-ai-fiche-technique.pdf",
-  "descriptionComplete": "Le Starkey Edge AI 16 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Starkey (groupe Starkey), leader en capteurs de sante integres, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nEquipe de la puce G2 Neuro, le Edge AI beneficie de la technologie Neuro Processor avec Edge AI. Detection de chute, podometre, frequence cardiaque, traduction en temps reel. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application My Starkey permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Edge AI est rechargeable (batterie Li-ion|312), offrant jusqu'a 51 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Edge AI integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, des capteurs de sante integres (Accel|Gyro|Fall). \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7/10. Le Starkey Edge AI 16 est un appareil auditif RIC entree de gamme equipe de la puce G2 Neuro, lance en 2024 par Starkey (groupe Starkey). Rechargeable avec 51h d'autonomie. Connectivite BLE."
+  "metaTitle": "Starkey Edge AI 16 : prix, avis expert et fiche",
+  "metaDescription": "Edge AI 16, entrée de gamme Starkey 2024. Puce G2 Neuro, LE Audio, détection chute. Note 7,7/10. Dès 950 € par appareil en France.",
+  "descriptionComplete": "L'Edge AI 16 est l'entrée de gamme d'une génération qui a vécu vite. Sorti à l'automne 2024, remplacé par l'Omega AI un an plus tard, il n'a pas eu le temps de s'installer durablement en cabinet. Pourtant, pour un patient qui le trouve en stock à bon prix, il a des arguments : la puce G2 Neuro avec NPU, le Bluetooth LE Audio et la détection de chute, même au premier niveau.\n\n## Ce que fait l'Edge AI 16\n\nMême puce G2 Neuro que les niveaux supérieurs, mêmes 64 canaux, mêmes 24 bandes. Mais au niveau 16, l'adaptation automatique est réduite : l'appareil reconnaît les grandes catégories d'environnement sans la granularité des niveaux 20 et 24. Le NPU est présent mais ses capacités de classification fine ne sont pas pleinement exploitées à ce niveau.\n\nDans le calme, l'Edge AI 16 est à l'aise. Clarté vocale correcte, timbres acceptables, confort immédiat. Pour un usage principalement domestique — conversation à deux, télévision, téléphone — c'est un appareil fonctionnel.\n\nDans le bruit, les limites arrivent vite. Un repas de famille animé met le 16 en difficulté, et un restaurant — même calme — demande un effort d'attention supplémentaire. La progression par rapport au Genesis AI 16 existe (meilleure classification, transitions plus douces) mais reste modeste.\n\nLe passage au Bluetooth LE Audio est un vrai progrès par rapport au BLE classique du Genesis AI 16 : meilleure qualité d'appel, stabilité de connexion améliorée, mains libres fonctionnel. C'est probablement l'amélioration la plus tangible au quotidien pour un patient au niveau 16.\n\n## En pratique — expérience directe\n\nJ'ai eu l'occasion d'adapter l'Edge AI 16 sur quelques patients en fin d'année 2024. Le cas le plus représentatif : une dame de 75 ans, retraitée, perte légère à moyenne, budget limité. Elle portait un appareil d'une autre marque depuis 5 ans et voulait « quelque chose de plus moderne, qui sonne au téléphone ».\n\nLe LE Audio et le mains libres ont rempli le contrat immédiatement — elle a pu appeler sa fille directement depuis ses appareils, sans manipuler le téléphone. La détection de chute, activée à la demande de sa fille justement, a fonctionné correctement sans faux positifs gênants dans son cas (mode de vie calme).\n\nEn revanche, quand elle est allée à un déjeuner associatif dans une salle communale, elle a trouvé que « ça brouille quand il y a trop de monde ». C'est la limite du 16 dans le bruit — et la raison pour laquelle je recommandais quand c'était possible de monter au 20.\n\n## Pour qui ? Pas pour qui ?\n\nIdéal pour les patients au quotidien calme, budget contraint, qui veulent accéder au Bluetooth LE Audio et à la détection de chute Starkey. Premier appareillage ou renouvellement d'un appareil ancien. Pertes légères à moyennes de préférence.\n\nMoins adapté si vous sortez régulièrement dans le bruit — le 20 sera nettement plus confortable. Et attention au positionnement : l'Omega AI 16 est sorti à un prix comparable et offre le DNN 360 en plus. Si votre audioprothésiste propose les deux au même tarif, choisissez l'Omega AI sans hésiter.\n\n## Positionnement vs concurrence\n\n**Face au Genesis AI 16** : progrès réel — LE Audio, meilleure classification, NPU. Montée en gamme justifiée si le prix est équivalent.\n\n**Face à l'Omega AI 16** : l'Omega AI offre DNN 360 et TeleHear AI en plus. À prix comparable, l'Omega AI gagne. L'Edge AI 16 ne reste pertinent qu'en cas de promotion significative.\n\n**Face au Signia Pure IX 3** : Signia domine en gestion du bruit. Starkey répond avec la détection de chute et l'autonomie. Pour un quotidien calme avec besoin de sécurité, Starkey. Pour le bruit, Signia.\n\n## Verdict expert\n\nNote : 7,7/10. L'Edge AI 16 est un appareil honnête qui a apporté le LE Audio et le NPU à un prix d'entrée de gamme. Sa courte durée de vie commerciale et la sortie de l'Omega AI le relèguent au rayon des bonnes affaires en fin de stock. Pour un patient qui le trouve en promotion avec une décote de 20-30 %, c'est un excellent rapport qualité/prix.\n\nPrix constaté en France : 950 à 1 100 € par appareil (classe 2), variable selon l'audioprothésiste et votre reste à charge."
 }

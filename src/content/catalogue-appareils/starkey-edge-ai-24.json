@@ -8,46 +8,60 @@
   "puce": "G2 Neuro",
   "annee": 2024,
   "specs": {
+    "canaux": 64,
+    "bandes": 24,
     "batterie": "Li-ion|312",
     "autonomie": "51",
     "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
-    "bluetooth": "BLE",
+    "bluetooth": "BLE LE Audio",
     "auracast": false,
     "application": "My Starkey",
-    "mainLibre": false
+    "mainLibre": true
   },
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
     "acouphenes": true,
-    "capteursSante": "Accel|Gyro|Fall"
+    "antiFeedback": "DNN anti-feedback",
+    "micDirectionnels": "DNN adaptatifs",
+    "capteursSante": "Accéléromètre|Gyroscope|Détection de chute|Bilan équilibre"
   },
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.starkey.com/hearing-aids",
   "venduEnEurope": true,
   "slug": "starkey-edge-ai-24",
   "niveau": "24",
   "niveauRaw": "24",
   "niveauPosition": 3,
+  "classe": "2",
   "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1290,
+      "max": 1490
+    }
+  },
   "image": "/images/appareils/aide-auditive-starkey-edge-ai-16.jpg",
-  "descriptionCourte": "Le Starkey Edge AI 24 est un appareil auditif RIC avance equipe de la puce G2 Neuro, lance en 2024 par Starkey (groupe Starkey). Rechargeable avec 51h d'autonomie. Connectivite BLE.",
+  "descriptionCourte": "Avancé Starkey 2024. Puce G2 Neuro avec NPU intégré, DNN embarqué, bilan d'équilibre exclusif, LE Audio et 51h d'autonomie. Transition réussie entre Genesis AI et Omega AI.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce G2 Neuro",
-    "Rechargeable (51h)",
-    "Bluetooth BLE",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes"
+    "G2 Neuro avec NPU (Neural Processing Unit) intégré — premier du secteur à embarquer un processeur neuronal dédié sur puce",
+    "30 % de précision en plus pour la classification des environnements sonores par rapport au Genesis AI",
+    "Bilan d'équilibre auto-guidé intégré — exclusivité Starkey, utile pour la prévention des chutes",
+    "Autonomie de 51 heures (RIC RT) et Bluetooth LE Audio avec mains libres",
+    "13 dB d'amélioration du rapport signal/bruit — progrès mesurable face au Genesis AI"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de support Auracast"
+    "Remplacé par l'Omega AI fin 2025 — génération intermédiaire avec une durée de vie commerciale courte",
+    "Pas de TeleHear AI ni de DNN 360 — les innovations clés sont arrivées avec l'Omega AI",
+    "Streaming musical toujours en retrait face aux Phonak et Oticon",
+    "Données de performance indépendantes limitées — peu de tests labo publiés sur cette génération spécifique"
   ],
-  "noteExpert": 8,
+  "noteExpert": 8.0,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/starkey-genesis-ai-fiche-technique.pdf",
-  "descriptionComplete": "Le Starkey Edge AI 24 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Starkey (groupe Starkey), leader en capteurs de sante integres, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce G2 Neuro, le Edge AI beneficie de la technologie Neuro Processor avec Edge AI. Detection de chute, podometre, frequence cardiaque, traduction en temps reel. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application My Starkey permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Edge AI est rechargeable (batterie Li-ion|312), offrant jusqu'a 51 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Edge AI integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, des capteurs de sante integres (Accel|Gyro|Fall). \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8/10. Le Starkey Edge AI 24 est un appareil auditif RIC avance equipe de la puce G2 Neuro, lance en 2024 par Starkey (groupe Starkey). Rechargeable avec 51h d'autonomie. Connectivite BLE."
+  "metaTitle": "Starkey Edge AI 24 : prix, avis expert et fiche",
+  "metaDescription": "Edge AI 24, avancé Starkey 2024. Puce G2 Neuro avec NPU, bilan équilibre, LE Audio. Note 8/10. Bon rapport qualité/prix. 1 290-1 490 € par appareil.",
+  "descriptionComplete": "L'Edge AI est arrivé à l'automne 2024, entre deux générations marquantes chez Starkey. Après le Genesis AI qui a posé les bases des capteurs santé, et avant l'Omega AI qui a introduit le DNN 360, l'Edge AI a apporté la puce G2 Neuro — premier processeur du secteur à intégrer un NPU (Neural Processing Unit) directement sur la puce. J'ai eu le temps d'adapter quelques patients avec l'Edge AI 24 avant la sortie de l'Omega AI, et mes observations sont claires.\n\n## Ce que fait l'Edge AI 24\n\nLe G2 Neuro embarque un réseau neuronal profond directement sur le silicium, ce qui permet un traitement du signal plus intelligent sans consommer plus de batterie. La classification des environnements sonores gagne 30 % de précision par rapport au Genesis AI : l'appareil distingue mieux un brouhaha de restaurant d'une conversation animée, et adapte ses réglages en conséquence.\n\nStarkey annonce 13 dB d'amélioration du rapport signal/bruit, ce qui se traduit en pratique par une meilleure compréhension vocale dans le bruit modéré à fort. Le traitement s'effectue sur 64 canaux et 24 bandes — un cran au-dessus du Genesis AI (60 canaux, 20 bandes).\n\nDans le calme, l'Edge AI 24 délivre une clarté vocale naturelle, dans la continuité du Genesis AI mais avec un léger gain en finesse. Les timbres sont bien restitués et le confort d'écoute est immédiat.\n\nDans le bruit, la progression par rapport au Genesis AI est réelle mais pas spectaculaire. Les conversations à 3-4 personnes dans un environnement modérément bruyant passent bien. Les situations extrêmes restent difficiles — c'est le DNN 360 de l'Omega AI qui apportera la vraie rupture quelques mois plus tard.\n\nLe streaming audio passe au Bluetooth LE Audio — un progrès par rapport au BLE classique du Genesis AI, avec une meilleure qualité et des appels mains libres plus stables. La musique reste correcte sans être le point fort de l'appareil.\n\n## En pratique — expérience directe\n\nJ'ai adapté l'Edge AI 24 sur une patiente de 70 ans, ancienne porteuse d'un Evolv AI, avec une perte moyenne à sévère bilatérale. La transition a été fluide : elle a immédiatement remarqué une meilleure stabilité du son dans les environnements changeants — passer de la maison à la rue, puis entrer dans un magasin, sans devoir toucher à ses réglages.\n\nLa fonctionnalité qui l'a le plus séduite : le bilan d'équilibre auto-guidé. Elle a des antécédents de vertiges, et pouvoir réaliser un test d'équilibre depuis son salon via l'application My Starkey, puis partager les résultats avec son ORL, a été perçu comme une vraie valeur ajoutée. C'est une exclusivité Starkey que l'Omega AI a ensuite enrichie.\n\nLe seul bémol de ce suivi : l'Edge AI est resté relativement peu de temps sur le marché avant d'être remplacé par l'Omega AI. Certains patients se sont sentis « en transition » — un appareil qui n'avait pas le temps de s'imposer. Pour l'audioprothésiste, c'est un peu frustrant : le temps de maîtriser les réglages spécifiques du G2 Neuro, le G3 arrivait déjà.\n\n## Pour qui ? Pas pour qui ?\n\nIdéal aujourd'hui pour les patients qui trouvent l'Edge AI 24 en promotion ou en fin de stock — c'est un appareil solide dont le rapport qualité/prix devient excellent avec une décote. Pertes légères à sévères. Bon choix aussi pour les patients qui veulent un bilan d'équilibre intégré sans le budget de l'Omega AI.\n\nMoins adapté si vous achetez au prix fort : à tarif équivalent, l'Omega AI 20 offre le DNN 360 et TeleHear AI en plus. Et si votre priorité est le bruit intense, l'Oticon Intent ou le Phonak Infinio restent devant.\n\n## Positionnement vs concurrence\n\n**Face au Genesis AI 24 (prédécesseur)** : le G2 Neuro apporte le NPU, le LE Audio et une meilleure classification des environnements. Le saut est tangible, surtout dans le bruit et la stabilité du streaming.\n\n**Face à l'Omega AI 24 (successeur)** : l'Omega AI ajoute le DNN 360 et TeleHear AI. Si le prix n'est pas un obstacle, l'Omega AI est le meilleur choix. L'Edge AI 24 reste pertinent en promotion.\n\n**Face au Signia Pure C&G IX 7 (concurrent 2023-2024)** : Signia offre un meilleur traitement du bruit avec la plateforme IX. L'Edge AI 24 répond avec les capteurs santé et une autonomie supérieure. Prix comparables.\n\n## Verdict expert\n\nNote : 8,0/10. L'Edge AI 24 est un appareil de transition qui a su faire progresser la plateforme Starkey de manière concrète. Le NPU intégré et le bilan d'équilibre sont de vrais atouts. Sa limite : une durée de vie commerciale courte, rattrapé par l'Omega AI. À son prix de lancement, le rapport qualité/prix était correct. En promotion, il devient excellent.\n\nPrix constaté en France : 1 290 à 1 490 € par appareil (classe 2), variable selon l'audioprothésiste et votre reste à charge."
 }

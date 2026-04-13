@@ -11,7 +11,7 @@
     "canaux": 64,
     "bandes": 24,
     "batterie": "Li-ion|312",
-    "autonomie": "51",
+    "autonomie": "41-51",
     "ip": "IP68+",
     "reductionBruit": 22,
     "plageAdaptation": "Mild to severe"
@@ -26,38 +26,46 @@
     "rechargeable": true,
     "bobineT": true,
     "acouphenes": true,
-    "antiFeedback": "Yes (top)",
+    "antiFeedback": "DNN 360 anti-feedback",
     "micDirectionnels": "DNN 360",
-    "capteursSante": "Accel|Gyro|Fall|Resp"
+    "capteursSante": "Accéléromètre|Gyroscope|Détection de chute|Fréquence respiratoire|Podomètre"
   },
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-hearing-aids",
   "venduEnEurope": true,
   "slug": "starkey-omega-ai-24",
   "niveau": "24",
   "niveauRaw": "24",
   "niveauPosition": 3,
+  "classe": "2",
   "rac0": false,
   "prix": {
+    "eur": {
+      "min": 1350,
+      "max": 1490
+    },
     "usd": {
       "min": 4798
     }
   },
   "image": "/images/appareils/aide-auditive-starkey-omega-ai-16.jpg",
-  "descriptionCourte": "Le Starkey Omega AI 24 est un appareil auditif RIC avance equipe de la puce G3 Neuro, lance en 2025 par Starkey (groupe Starkey). Rechargeable avec 51h d'autonomie. Connectivite BLE LE Audio.",
+  "descriptionCourte": "Flagship Starkey 2025. Puce G3 Neuro avec DNN 360, premier système de directionnalité par réseau neuronal. Capteurs santé complets, 51h d'autonomie. Idéal pour patients actifs cherchant aide auditive + suivi santé intégré.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce G3 Neuro",
-    "Rechargeable (51h)",
-    "Bluetooth BLE LE Audio",
-    "Etanche IP68+",
-    "Generateur de bruit pour acouphenes"
+    "DNN 360 : première directionnalité par réseau neuronal profond du marché, analyse sonore à 360° en temps réel",
+    "TeleHear AI : le patient décrit son problème à voix haute et l'appareil s'ajuste automatiquement (93 % de précision annoncée)",
+    "Autonomie record de 51 heures (RIC RT) — recharge tous les 2 à 3 jours en usage courant",
+    "Capteurs santé les plus complets du marché : chute, fréquence respiratoire, podomètre, exercices d'équilibre",
+    "28 % d'amélioration de la compréhension vocale par rapport à la génération Edge AI selon Starkey"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de support Auracast"
+    "Performances dans le bruit extrême en retrait face à l'Oticon Intent 4 et au Phonak Sphere Infinio 90",
+    "Streaming musical correct mais basses en retrait par rapport aux Phonak — pas le choix des mélomanes",
+    "Voix propre (own voice) perçue comme légèrement étouffée selon les premiers retours — sensible au couplage",
+    "Prix parmi les plus élevés du marché, pas justifié si les capteurs santé ne vous intéressent pas"
   ],
-  "noteExpert": 8,
+  "noteExpert": 8.3,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/starkey-omega-ai-fiche-technique.pdf",
-  "descriptionComplete": "Le Starkey Omega AI 24 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par Starkey (groupe Starkey), leader en capteurs de sante integres, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce G3 Neuro, le Omega AI beneficie de la technologie Neuro Processor avec Edge AI. Detection de chute, podometre, frequence cardiaque, traduction en temps reel. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application My Starkey permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Omega AI est rechargeable (batterie Li-ion|312), offrant jusqu'a 51 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68+ garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Omega AI integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen Yes (top), des microphones directionnels DNN 360, des capteurs de sante integres (Accel|Gyro|Fall|Resp). \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8/10. Le Starkey Omega AI 24 est un appareil auditif RIC avance equipe de la puce G3 Neuro, lance en 2025 par Starkey (groupe Starkey). Rechargeable avec 51h d'autonomie. Connectivite BLE LE Audio."
+  "metaTitle": "Starkey Omega AI 24 : prix, avis expert et fiche",
+  "metaDescription": "Flagship Starkey 2025 avec DNN 360 et capteurs santé. Note 8,3/10. Idéal patient actif cherchant aide auditive + suivi santé. 1 350-1 490 € par appareil.",
+  "descriptionComplete": "Starkey est le dernier grand fabricant américain d'aides auditives. Quand on suit leur trajectoire — capteurs de santé pionniers, détection de chute dès 2019, IA embarquée avant la concurrence — chaque nouvelle génération est scrutée par la profession. L'Omega AI, cinquième itération de leur plateforme IA, est arrivé fin 2025 avec une ambition claire : repenser la directionnalité grâce au premier réseau neuronal profond dédié du marché.\n\n## Ce que fait l'Omega AI 24\n\nLa puce G3 Neuro, quatre fois plus rapide que celle du Genesis AI, pilote le DNN 360 : un système de directionnalité à 360 degrés qui analyse l'environnement sonore complet au lieu de simplement focaliser sur l'avant. Chaque source sonore reçoit une priorité calculée par le réseau neuronal, ce qui permet de suivre une conversation même quand votre interlocuteur n'est pas en face de vous. Le traitement s'effectue sur 64 canaux et 24 bandes de réglage, couvrant les pertes légères à sévères. Starkey annonce 28 % d'amélioration de la compréhension vocale par rapport à l'Edge AI.\n\nDans le calme, la restitution vocale est claire et naturelle, sans la coloration métallique qu'on pouvait reprocher aux anciennes générations Starkey. Les conversations en tête-à-tête sont confortables dès le premier réglage, et les voix conservent leur timbre naturel — un progrès notable par rapport au Genesis AI.\n\nDans le bruit modéré — déjeuner en famille, terrasse de café, conversation à trois ou quatre — l'Omega AI 24 se défend très bien. C'est dans le bruit intense — restaurant bondé un samedi soir, cocktail debout avec vingt personnes — qu'il montre ses limites. Il progresse nettement par rapport au Genesis AI, mais reste un cran en dessous de l'Oticon Intent 4 ou du Phonak Sphere Infinio 90 sur ces situations extrêmes.\n\nLe streaming musical est correct sans être exceptionnel : les médiums et aigus passent bien, mais les basses manquent de corps comparées à un Phonak. Les appels téléphoniques en mains libres, en revanche, sont fluides et intelligibles des deux côtés de la conversation.\n\n## En pratique — retours de confrères\n\nLes premiers confrères audioprothésistes qui adaptent l'Omega AI au quotidien sont unanimes sur deux points.\n\nD'abord, TeleHear AI change la donne en cabinet. Le patient décrit son problème à voix haute — « j'entends mal ma femme quand la télévision est allumée » — et le système ajuste les réglages instantanément, avec une précision prédictive annoncée de 93 %. Plusieurs confrères m'ont confirmé que cela réduit significativement le nombre de rendez-vous de réglage fin, ce qui est un gain de temps réel pour le patient comme pour le professionnel.\n\nEnsuite, l'autonomie fait l'unanimité. Avec 51 heures pour le RIC RT et 41 heures pour le mRIC R, les patients ne rechargent en pratique que tous les deux à trois jours. Pour une personne qui part en week-end et oublie parfois son chargeur, c'est un filet de sécurité appréciable — aucun autre fabricant n'offre cette marge aujourd'hui.\n\nLe suivi respiratoire automatique et les exercices d'équilibre guidés (Balance Builder) via l'application My Starkey sont des exclusivités Starkey. Leur impact clinique à long terme reste à évaluer par des études indépendantes, mais pour les patients sensibilisés à la prévention des chutes — et c'est un sujet majeur après 65 ans — ces fonctionnalités ont un intérêt concret.\n\nUn bémol relevé par certains confrères : la perception de la voix propre peut sembler légèrement étouffée avec certains couplages. Un réglage personnalisé en cabinet résout généralement le problème, mais c'est un point à surveiller lors de l'adaptation initiale.\n\n## Pour qui ? Pas pour qui ?\n\nL'Omega AI 24 est taillé pour les patients actifs qui veulent un appareil « tout-en-un » : aide auditive de haut niveau ET suivi de santé intégré. Pertes légères à sévères, avec de multiples formes disponibles (mRIC R, RIC RT, RIC 312, ITE R, ITC R, CIC). Particulièrement adapté aux utilisateurs de smartphone qui tireront pleinement parti de l'application My Starkey et des capteurs.\n\nMoins adapté si votre priorité absolue est la compréhension dans le bruit extrême — un Oticon Intent 4 ou un Phonak Sphere Infinio 90 fera mieux dans les situations les plus difficiles. Également discutable si vous n'avez aucun intérêt pour les capteurs de santé et le suivi via application : vous payez des fonctionnalités que vous n'utiliserez pas, et un concurrent à prix équivalent offrirait un meilleur rapport acoustique/prix.\n\n## Positionnement vs concurrence\n\n**Face à l'Edge AI 24 (prédécesseur)** : le passage du G2 au G3 Neuro apporte le DNN 360 et TeleHear AI. La compréhension vocale progresse significativement, et l'autonomie reste identique. Si votre budget le permet, la mise à niveau est justifiée par le saut de directionnalité.\n\n**Face à l'Oticon Intent 4** : c'est un match de philosophie. L'Intent domine dans le bruit avec son traitement de scène 360° éprouvé et un score en milieu bruyant parmi les meilleurs du marché. L'Omega AI répond avec les capteurs de santé et une autonomie deux fois supérieure (51h vs 24h). Priorité bruit intense → Intent. Priorité polyvalence santé → Omega AI.\n\n**Face au Phonak Audéo Infinio 90** : le Sphere reste la référence en traitement du bruit grâce à son IA hybride edge/cloud. L'Omega AI 24 offre davantage de capteurs et une meilleure autonomie. Choix selon vos priorités : performance acoustique pure (Phonak) ou écosystème santé complet (Starkey).\n\n## Verdict expert\n\nNote : 8,3/10. L'Omega AI 24 est l'appareil Starkey le plus abouti à ce jour. Le DNN 360 et TeleHear AI marquent une vraie rupture technologique, et l'écosystème de capteurs santé n'a aucun équivalent chez la concurrence. La réserve porte sur les performances en bruit extrême, où Oticon et Phonak conservent une avance mesurable. Pour un patient qui cherche à bien entendre tout en suivant sa santé au quotidien, c'est actuellement le choix le plus complet du marché.\n\nPrix constaté en France : 1 350 à 1 490 € par appareil (classe 2), variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complément selon votre mutuelle."
 }

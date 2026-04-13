@@ -7,22 +7,24 @@
   "puce": "Starkey Neuro Processor",
   "annee": 2023,
   "specs": {
+    "canaux": 60,
+    "bandes": 20,
     "batterie": "Li-ion",
-    "autonomie": "23",
+    "autonomie": "41-51",
     "ip": "IP68",
     "plageAdaptation": "Mild to profound"
   },
   "connectivite": {
     "bluetooth": "BLE",
     "auracast": false,
-    "application": "Starkey My Starkey",
+    "application": "My Starkey",
     "mainLibre": true
   },
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": false,
     "acouphenes": true,
-    "capteursSante": "Chute, podometre, frequence cardiaque"
+    "capteursSante": "Détection de chute|Podomètre|Fréquence cardiaque"
   },
   "image": "/images/appareils/aide-auditive-starkey-genesis-ai.jpg",
   "venduEnEurope": true,
@@ -30,12 +32,25 @@
   "niveauPosition": 4,
   "classe": "2",
   "rac0": false,
-  "metaDescription": "Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents.",
-  "descriptionCourte": "Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents.",
-  "noteExpert": 8.8,
+  "metaTitle": "Starkey Genesis AI : prix, avis et gamme complète",
+  "metaDescription": "Gamme Genesis AI 2023 de Starkey. Capteurs santé pionniers, 51h autonomie. Remplacée par Omega AI (2025). Déclinée en niveaux 16, 20 et 24.",
+  "descriptionCourte": "Page de gamme Genesis AI 2023. Capteurs santé pionniers (chute, podomètre, fréquence cardiaque), 51h d'autonomie record, anti-larsen parfait. Remplacée par Omega AI fin 2025. Voir les fiches détaillées par niveau : 16, 20 et 24.",
+  "pointsForts": [
+    "Première plateforme Starkey avec capteurs de santé intégrés — a ouvert la voie pour l'industrie",
+    "Anti-larsen parfait : score maximal en labo, en sortie de boîte ET après réglage",
+    "Autonomie record de 51 heures (RIC RT) — la plus longue du marché à sa sortie",
+    "Edge Mode+ : optimisation IA de l'environnement sonore via l'application"
+  ],
+  "pointsFaibles": [
+    "Réglage usine très en deçà des attentes — rendez-vous de réglage indispensable",
+    "Remplacée par l'Omega AI fin 2025 — technologie à deux générations de l'actuelle",
+    "Streaming musical décevant au regard du prix premium",
+    "Compréhension dans le bruit sous la moyenne du marché à réglage usine"
+  ],
+  "noteExpert": 7.8,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/starkey-genesis-ai-fiche-technique.pdf",
-  "descriptionComplete": "Le Starkey Genesis AI est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par Starkey (groupe Starkey), leader en capteurs de sante integres, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce Starkey Neuro Processor, le Genesis AI beneficie de la technologie Neuro Processor avec Edge AI. Detection de chute, podometre, frequence cardiaque, traduction en temps reel. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Starkey My Starkey permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Genesis AI est rechargeable (batterie Li-ion), offrant jusqu'a 23 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Genesis AI integre egalement un generateur de bruit pour le soulagement des acouphenes, des capteurs de sante integres (Chute, podometre, frequence cardiaque). \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.8/10. Découvrez Starkey Genesis AI 2023. Capteurs santé avancés, Edge Mode IA, détection chute, formats RIC. Niveaux 16-24, prix, avis expert. Comparatif avec concurrents.",
   "legacy": true,
-  "legacyReason": "Doublon : gamme Genesis AI declinee en 16/20/24"
+  "legacyReason": "Remplacée par Omega AI (2025). Gamme Genesis AI déclinée en niveaux 16, 20 et 24 — voir les fiches individuelles pour les avis détaillés.",
+  "descriptionComplete": "La gamme Genesis AI a marqué un tournant pour Starkey en 2023 : c'est la première plateforme du marché à intégrer des capteurs de santé complets dans une aide auditive — détection de chute, fréquence cardiaque, podomètre. Deux ans et deux générations plus tard (Edge AI 2024, Omega AI 2025), le Genesis AI reste vendu dans certains centres sous le nom « G Series AI ».\n\n## Ce qu'apportait le Genesis AI\n\nLe Neuro Processor traitait le signal sur 60 canaux et 20 bandes, avec Edge Mode+ pour l'optimisation IA de l'environnement sonore. Le point fort absolu : un anti-larsen parfait, score maximal en labo dans les deux conditions (sortie de boîte et après réglage). C'est un trait de plateforme que les générations suivantes ont conservé.\n\nLe point faible structurel : un réglage usine très en deçà des attentes. La compréhension dans le bruit à réglage initial était parmi les plus faibles mesurées sur un appareil premium en 2023. Mais après réglage fin par un audioprothésiste compétent, l'amélioration était spectaculaire — le Genesis AI récompensait le temps passé en cabinet.\n\n## Situation actuelle\n\nLe Genesis AI est remplacé par l'Omega AI depuis fin 2025. Il reste disponible dans certains centres, parfois en promotion ou sous le nom « G Series AI ». Pour un patient qui le trouve à bon prix, les fiches détaillées par niveau sont disponibles :\n\n- **Genesis AI 24** (avancé) : le meilleur du Genesis AI, à faire régler impérativement\n- **Genesis AI 20** (milieu de gamme) : le choix rationnel pour les capteurs santé et l'anti-larsen\n- **Genesis AI 16** (entrée de gamme) : accès aux capteurs santé à budget maîtrisé\n\n## Verdict\n\nNote de gamme : 7,8/10. Le Genesis AI a été un appareil pionnier qui a changé la donne en intégrant la santé connectée dans l'aide auditive. Ses limites dans le bruit et son réglage usine faible étaient réels, mais les capteurs de santé et l'anti-larsen parfait restaient des atouts uniques. Aujourd'hui, l'Omega AI fait mieux sur tous les plans — mais pour un patient qui trouve un Genesis AI en promotion, c'est un appareil qui tient encore la route.\n\nPrix constaté en France : 850 à 1 390 € par appareil selon le niveau (classe 2)."
 }
