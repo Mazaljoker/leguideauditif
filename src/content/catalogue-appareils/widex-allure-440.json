@@ -4,14 +4,29 @@
   "groupe": "ws-audiology",
   "modele": "Allure",
   "formeType": "RIC",
-  "formesDisponibles": "RIC R D|ITE R D|BTE R D",
+  "formesDisponibles": "RIC R D|BTE R D|ITE R D",
   "puce": "W1",
   "annee": 2025,
+  "slug": "widex-allure-440",
+  "niveau": "440",
+  "niveauRaw": "440",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1200,
+      "max": 1500
+    },
+    "usd": {
+      "min": 1949
+    }
+  },
   "specs": {
     "canaux": 15,
     "bandes": 15,
     "batterie": "Li-ion",
-    "autonomie": "25",
+    "autonomie": "25-29",
     "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
@@ -25,26 +40,31 @@
     "rechargeable": true,
     "bobineT": true,
     "acouphenes": true,
-    "antiFeedback": "Adaptive Dynamic FB",
-    "micDirectionnels": "Speech Enhancer Pro"
+    "antiFeedback": "Dynamic Feedback Controller adaptatif",
+    "micDirectionnels": "Speech Enhancer Pro (52 bandes, niveau 3)"
   },
   "couleurs": 10,
-  "sourceUrl": "HearingTracker",
-  "venduEnEurope": true,
-  "slug": "widex-allure-440",
-  "niveau": "440",
-  "niveauRaw": "440",
-  "niveauPosition": 4,
-  "rac0": false,
-  "prix": {
-    "usd": {
-      "min": 3898
-    }
-  },
   "image": "/images/appareils/aide-auditive-widex-allure.png",
-  "descriptionCourte": "Découvrez la gamme Widex Allure 2025. Technologie PureSound, zéro délai, recharge. Comparatif, niveaux, prix et avis expert d'un audioprothésiste avec 28 ans d'expérience.",
-  "noteExpert": 8.5,
+  "sourceUrl": "https://www.widex.com/en-us/hearing-aids/allure/",
+  "venduEnEurope": true,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/widex-allure-datasheet.pdf",
-  "descriptionComplete": "Le Widex Allure 440 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par Widex (groupe WS Audiology), son le plus naturel du marche, prefere des musiciens, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce W1, le Allure beneficie de la technologie PureSound avec ZeroDelay. Traitement en zero delai (0.5ms), qualite sonore audiophile. Le traitement du signal s'effectue sur 15 canaux et 15 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio + ASHA permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Widex Allure permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Allure est rechargeable (batterie Li-ion), offrant jusqu'a 25 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 10 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Allure integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen Adaptive Dynamic FB, des microphones directionnels Speech Enhancer Pro. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.5/10. Découvrez la gamme Widex Allure 2025. Technologie PureSound, zéro délai, recharge. Comparatif, niveaux, prix et avis expert d'un audioprothésiste avec 28 ans d'expérience."
+  "metaTitle": "Widex Allure 440 : prix, avis et fiche compl\u00e8te",
+  "metaDescription": "RIC premium Widex puce W1, 15 canaux. Son naturel ZeroDelay, +4,3 dB en bruit vs Moment. De 1 200 \u00e0 1 500 \u20ac. Avis audioproth\u00e9siste.",
+  "descriptionCourte": "RIC premium Widex sur puce W1. Qualit\u00e9 sonore de r\u00e9f\u00e9rence en situation calme, +4,3 dB en bruit vs Moment. Id\u00e9al pour les auditeurs exigeants sensibles au naturel du son.",
+  "pointsForts": [
+    "Qualit\u00e9 sonore parmi les plus naturelles du march\u00e9 \u2014 le ZeroDelay 0,5 ms supprime tout d\u00e9calage perceptible",
+    "Gain de +4,3 dB en rapport signal/bruit par rapport au Moment \u2014 compr\u00e9hension am\u00e9lior\u00e9e au restaurant et en famille",
+    "Puce W1 quatre fois plus rapide avec Speech Enhancer Pro sur 52 bandes d\u2019analyse",
+    "Autonomie confortable : 25-29 heures, charge rapide 30 min pour 4 heures d\u2019utilisation",
+    "10 coloris et format RIC discret \u2014 trois formes disponibles (RIC, BTE, ITE rechargeable)"
+  ],
+  "pointsFaibles": [
+    "Gestion du larsen exigeante apr\u00e8s r\u00e9glage fin \u2014 demande une attention particuli\u00e8re de l\u2019audioproth\u00e9siste sur certaines configurations",
+    "Streaming musical correct mais en retrait par rapport au Phonak Infinio \u2014 pas le choix n\u00b01 pour les m\u00e9lomanes",
+    "Pas d\u2019Auracast \u2014 la norme de streaming public n\u2019est pas encore int\u00e9gr\u00e9e",
+    "Prix premium classe 2 \u2014 le reste \u00e0 charge peut \u00eatre significatif selon votre mutuelle"
+  ],
+  "noteExpert": 8.2,
+  "descriptionComplete": "Widex a toujours occup\u00e9 une place \u00e0 part dans la profession. L\u00e0 o\u00f9 d\u2019autres fabricants poussent la r\u00e9duction de bruit agressive, Widex d\u00e9fend depuis 20 ans une philosophie du son naturel \u2014 et le Allure 440, propuls\u00e9 par la nouvelle puce W1, pousse cette approche \u00e0 son meilleur niveau. Les premiers retours de confr\u00e8res audioproth\u00e9sistes qui l\u2019adaptent depuis d\u00e9but 2025 confirment une progression claire par rapport au Moment, notamment dans les environnements bruyants.\n\nCe que fait cet appareil\n\nLa puce W1 traite le signal quatre fois plus vite que la g\u00e9n\u00e9ration Moment, avec un d\u00e9lai de seulement 0,5 ms (technologie ZeroDelay). En pratique, vous n\u2019entendez aucun d\u00e9calage entre le son direct et le son amplifi\u00e9 \u2014 c\u2019est ce qui donne au Widex cette signature sonore que les patients d\u00e9crivent souvent comme \u00ab plus naturelle \u00bb que la concurrence.\n\nLe Speech Enhancer Pro analyse le son sur 52 bandes avant d\u2019optimiser l\u2019amplification sur 15 canaux. R\u00e9sultat : Widex annonce +4,3 dB d\u2019am\u00e9lioration du rapport signal/bruit par rapport au Moment \u2014 ce qui se traduit concr\u00e8tement par une meilleure compr\u00e9hension au restaurant ou en r\u00e9union de famille. 92 % des testeurs ont pr\u00e9f\u00e9r\u00e9 le Allure en environnement bruyant par rapport \u00e0 la g\u00e9n\u00e9ration pr\u00e9c\u00e9dente.\n\nDans le calme, la qualit\u00e9 sonore est l\u2019un des points forts historiques de Widex. Le Allure 440 ne d\u00e9roge pas : voix claires, musique fid\u00e8le, sons environnementaux restitu\u00e9s avec finesse. C\u2019est en streaming musical que les limites apparaissent \u2014 correct, mais pas au niveau d\u2019un Phonak Infinio sur cet axe pr\u00e9cis.\n\nEn pratique\n\nUn confr\u00e8re audioproth\u00e9siste qui adapte le Allure depuis sa sortie m\u2019a confirm\u00e9 un point que je retrouve souvent chez Widex : les patients qui viennent du Moment s\u2019y retrouvent imm\u00e9diatement. La transition est fluide, le \u00ab son Widex \u00bb est pr\u00e9serv\u00e9, avec un gain r\u00e9el en compr\u00e9hension dans le bruit.\n\nCe m\u00eame confr\u00e8re m\u2019a signal\u00e9 un point de vigilance : la gestion du larsen apr\u00e8s r\u00e9glage fin demande une attention particuli\u00e8re. Avec des d\u00f4mes ouverts, le syst\u00e8me anti-larsen adaptatif reste efficace. Mais sur certaines configurations avec embouts ferm\u00e9s et gains \u00e9lev\u00e9s, il peut y avoir un compromis entre suppression du sifflement et qualit\u00e9 sonore. C\u2019est un point technique que votre audioproth\u00e9siste g\u00e8re lors des s\u00e9ances de r\u00e9glage.\n\nL\u2019application Widex Allure est simple et fonctionnelle. Les patients actifs appr\u00e9cient le contr\u00f4le via Apple Watch. Le chargeur standard offre une charge compl\u00e8te en 4 heures, et 30 minutes de charge rapide donnent environ 4 heures d\u2019utilisation \u2014 pratique pour un oubli de charge la veille.\n\nPour qui ?\n\nLe Widex Allure 440 est id\u00e9al si vous \u00eates sensible \u00e0 la qualit\u00e9 sonore et au naturel du son, si vous avez une perte auditive l\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re, et si vous souhaitez un appareil rechargeable, discret et connect\u00e9. Les amateurs de musique y trouveront l\u2019un des rendus les plus fid\u00e8les du march\u00e9. Les patients venant du Moment qui souhaitent monter en gamme feront une transition sans surprise.\n\nIl n\u2019est pas le meilleur choix si vous cherchez avant tout la performance maximale en milieu tr\u00e8s bruyant \u2014 l\u2019Oticon Intent reste devant sur cet axe. Si le streaming musical est votre priorit\u00e9 absolue, le Phonak Infinio excelle davantage. Et si votre budget est serr\u00e9, le Allure 330 offre 80 % des performances pour un co\u00fbt inf\u00e9rieur.\n\nPositionnement\n\nPar rapport au Widex Moment 440 qu\u2019il remplace, le Allure apporte un gain mesurable en compr\u00e9hension dans le bruit (+4,3 dB), une puce quatre fois plus rapide, et une application modernis\u00e9e. Le son naturel \u00ab signature Widex \u00bb est pr\u00e9serv\u00e9 et affin\u00e9. En revanche, les am\u00e9liorations en streaming musical restent modestes.\n\nFace au Signia Pure IX 7, le Allure offre un son per\u00e7u comme plus naturel et un d\u00e9lai plus court (0,5 ms vs environ 2,5 ms). Le Signia compense par une gestion du bruit plus agressive et une option Bluetooth Classic (BCT) pour les t\u00e9l\u00e9phones anciens. Face \u00e0 l\u2019Oticon Intent 4, le Widex Allure est plus doux dans son traitement sonore \u2014 l\u2019Oticon est plus analytique et plus performant en milieu tr\u00e8s bruyant, mais certains patients pr\u00e9f\u00e8rent le confort d\u2019\u00e9coute Widex.\n\nVerdict expert\n\nNote : 8,2/10. Le Widex Allure 440 confirme la place de Widex dans le trio de t\u00eate pour la qualit\u00e9 sonore per\u00e7ue. La puce W1 comble le retard en milieu bruyant tout en pr\u00e9servant cette signature sonore que les fid\u00e8les de la marque appr\u00e9cient. Un excellent choix pour les patients exigeants sur le naturel du son, \u00e0 condition d\u2019un r\u00e9glage fin soign\u00e9 par votre audioproth\u00e9siste. Prix constat\u00e9 : de 1 200 \u00e0 1 500 \u20ac par appareil, variable selon l\u2019audioproth\u00e9siste et votre reste \u00e0 charge."
 }

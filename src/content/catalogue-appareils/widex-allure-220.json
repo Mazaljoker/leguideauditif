@@ -4,14 +4,29 @@
   "groupe": "ws-audiology",
   "modele": "Allure",
   "formeType": "RIC",
-  "formesDisponibles": "RIC R D|ITE R D|BTE R D",
+  "formesDisponibles": "RIC R D|BTE R D|ITE R D",
   "puce": "W1",
   "annee": 2025,
+  "slug": "widex-allure-220",
+  "niveau": "220",
+  "niveauRaw": "220",
+  "niveauPosition": 2,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 850,
+      "max": 1100
+    },
+    "usd": {
+      "min": 1399
+    }
+  },
   "specs": {
-    "canaux": 15,
+    "canaux": 10,
     "bandes": 15,
     "batterie": "Li-ion",
-    "autonomie": "25",
+    "autonomie": "25-29",
     "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
@@ -25,26 +40,31 @@
     "rechargeable": true,
     "bobineT": true,
     "acouphenes": true,
-    "antiFeedback": "Adaptive Dynamic FB",
-    "micDirectionnels": "Speech Enhancer Pro"
+    "antiFeedback": "Dynamic Feedback Controller adaptatif",
+    "micDirectionnels": "Speech Enhancer Pro (52 bandes, niveau 2)"
   },
   "couleurs": 10,
-  "sourceUrl": "HearingTracker",
-  "venduEnEurope": true,
-  "slug": "widex-allure-220",
-  "niveau": "220",
-  "niveauRaw": "220",
-  "niveauPosition": 2,
-  "rac0": false,
-  "prix": {
-    "usd": {
-      "min": 3165
-    }
-  },
   "image": "/images/appareils/aide-auditive-widex-allure.png",
-  "descriptionCourte": "Découvrez la gamme Widex Allure 2025. Technologie PureSound, zéro délai, recharge. Comparatif, niveaux, prix et avis expert d'un audioprothésiste avec 28 ans d'expérience.",
-  "noteExpert": 7.9,
+  "sourceUrl": "https://www.widex.com/en-us/hearing-aids/allure/",
+  "venduEnEurope": true,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/widex-allure-datasheet.pdf",
-  "descriptionComplete": "Le Widex Allure 220 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par Widex (groupe WS Audiology), son le plus naturel du marche, prefere des musiciens, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce W1, le Allure beneficie de la technologie PureSound avec ZeroDelay. Traitement en zero delai (0.5ms), qualite sonore audiophile. Le traitement du signal s'effectue sur 15 canaux et 15 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio + ASHA permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Widex Allure permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Allure est rechargeable (batterie Li-ion), offrant jusqu'a 25 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 10 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Allure integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen Adaptive Dynamic FB, des microphones directionnels Speech Enhancer Pro. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.9/10. Découvrez la gamme Widex Allure 2025. Technologie PureSound, zéro délai, recharge. Comparatif, niveaux, prix et avis expert d'un audioprothésiste avec 28 ans d'expérience."
+  "metaTitle": "Widex Allure 220 : prix, avis et fiche compl\u00e8te",
+  "metaDescription": "Entr\u00e9e de gamme Widex puce W1, 10 canaux. Son naturel ZeroDelay accessible. De 850 \u00e0 1 100 \u20ac. Avis audioproth\u00e9siste.",
+  "descriptionCourte": "Entr\u00e9e de gamme Widex sur puce W1. 10 canaux, ZeroDelay 0,5 ms, son naturel Widex accessible. Premier prix de la gamme Allure pour un budget ma\u00eetris\u00e9.",
+  "pointsForts": [
+    "Puce W1 de derni\u00e8re g\u00e9n\u00e9ration avec ZeroDelay 0,5 ms \u2014 m\u00eame qualit\u00e9 sonore naturelle que le 440",
+    "Prix le plus accessible de la gamme Allure \u2014 entr\u00e9e s\u00e9rieuse dans l\u2019univers Widex",
+    "Autonomie identique : 25-29 heures en Li-ion rechargeable avec charge rapide",
+    "Bluetooth LE Audio + ASHA et application Widex Allure \u2014 m\u00eame connectivit\u00e9 que le premium"
+  ],
+  "pointsFaibles": [
+    "10 canaux seulement \u2014 r\u00e9glage audioproth\u00e9siste moins granulaire qu\u2019avec le 440 (15 canaux)",
+    "Speech Enhancer Pro niveau 2 et True Sound Softener niveau 1 \u2014 gestion du bruit en retrait",
+    "SmartWind Manager niveau 1 \u2014 confort r\u00e9duit en ext\u00e9rieur par grand vent",
+    "3 programmes seulement \u2014 moins de flexibilit\u00e9 dans les environnements vari\u00e9s",
+    "Pas la meilleure option pour les pertes auditives atypiques n\u00e9cessitant un r\u00e9glage tr\u00e8s fin"
+  ],
+  "noteExpert": 7.7,
+  "descriptionComplete": "Acc\u00e9der \u00e0 la qualit\u00e9 sonore Widex sans exploser son budget : c\u2019est la promesse du Allure 220. Positionn\u00e9 en entr\u00e9e de gamme, il embarque la m\u00eame puce W1 que le 440 premium, la m\u00eame technologie ZeroDelay \u2014 mais avec un traitement du signal adapt\u00e9 \u00e0 un usage quotidien moins exigeant. Pour un premier appareillage ou un renouvellement ma\u00eetris\u00e9, c\u2019est un point d\u2019entr\u00e9e s\u00e9rieux dans l\u2019univers Widex.\n\nCe que fait cet appareil\n\nLe Allure 220 repose sur la m\u00eame architecture W1 que ses grands fr\u00e8res. Le ZeroDelay \u00e0 0,5 ms est pr\u00e9sent \u2014 le son naturel Widex ne change pas. La diff\u00e9rence se situe dans la finesse du traitement : 10 canaux contre 15 pour le 440, 6 classes de sons au lieu de 11, et un Speech Enhancer Pro au niveau 2 contre 3 pour le 440 et le 330.\n\nEn conversation dans le calme, le 220 est tr\u00e8s convaincant. La voix de votre interlocuteur est claire, les sons environnementaux restent pr\u00e9sents sans \u00eatre g\u00eanants. C\u2019est dans les environnements bruyants que l\u2019\u00e9cart se creuse : le traitement moins fin rend les situations de groupe ou de restaurant plus fatigantes qu\u2019avec le 440 ou le 330.\n\nC\u00f4t\u00e9 streaming, les performances sont identiques \u2014 m\u00eame codec Bluetooth LE Audio, m\u00eame application Widex Allure, m\u00eame contr\u00f4le Apple Watch. L\u2019autonomie reste \u00e0 25-29 heures.\n\nCe que les specs ne disent pas\n\nAvec 10 canaux, le r\u00e9glage par votre audioproth\u00e9siste est moins granulaire. Cela signifie que votre professionnel de sant\u00e9 a moins de leviers pour ajuster finement l\u2019amplification \u00e0 votre audiogramme. Pour une perte auditive r\u00e9guli\u00e8re de type presbyacousie, ce n\u2019est pas un probl\u00e8me \u2014 10 canaux couvrent largement les besoins. Pour des pertes atypiques ou tr\u00e8s asym\u00e9triques, les 15 canaux du 440 offrent plus de marge de manoeuvre.\n\nLe True Sound Softener et le SmartWind Manager sont au niveau 1 (contre 3 pour le 440), ce qui se traduit par une gestion des sons forts et du vent moins sophistiqu\u00e9e. Si vous passez beaucoup de temps en ext\u00e9rieur \u2014 marche, v\u00e9lo, jardinage \u2014 c\u2019est un facteur \u00e0 prendre en compte dans votre choix.\n\nPour qui ?\n\nLe Widex Allure 220 est id\u00e9al si vous cherchez un premier appareillage avec une qualit\u00e9 sonore reconnue, si vous avez une perte auditive l\u00e9g\u00e8re \u00e0 moyenne de type presbyacousie classique, et si vous vivez dans un environnement plut\u00f4t calme avec des sorties sociales ponctuelles. C\u2019est le choix du son naturel Widex avec un budget ma\u00eetris\u00e9.\n\nIl n\u2019est pas le meilleur choix si vous fr\u00e9quentez r\u00e9guli\u00e8rement des environnements bruyants \u2014 le 330 sera nettement plus confortable pour un surco\u00fbt mod\u00e9r\u00e9. Si votre perte auditive est atypique et n\u00e9cessite un r\u00e9glage tr\u00e8s fin, les canaux suppl\u00e9mentaires du 330 ou du 440 feront la diff\u00e9rence.\n\nPositionnement\n\nPar rapport au Moment 220 qu\u2019il remplace, le Allure 220 apporte la puce W1 plus rapide et une am\u00e9lioration mesurable en milieu bruyant. La transition est d\u2019autant plus int\u00e9ressante que les prix restent dans la m\u00eame fourchette.\n\nFace au Signia Pure IX 3 (son concurrent direct en entr\u00e9e de gamme), le Allure 220 offre un son plus naturel mais un traitement du bruit moins agressif. Le Signia a l\u2019avantage d\u2019une r\u00e9duction de bruit plus marqu\u00e9e, ce qui peut \u00eatre pr\u00e9f\u00e9rable pour les personnes vivant dans des environnements constamment bruyants. Face au Phonak Aud\u00e9o Lumity 30, le rapport qualit\u00e9/prix est comparable, avec des philosophies sonores diff\u00e9rentes \u2014 naturel Widex contre clart\u00e9 Phonak.\n\nVerdict expert\n\nNote : 7,7/10. Le Widex Allure 220 donne acc\u00e8s \u00e0 la signature sonore Widex et \u00e0 la puce W1 de derni\u00e8re g\u00e9n\u00e9ration pour le budget le plus contenu de la gamme. Un choix pertinent pour un premier appareillage ou un renouvellement sans surco\u00fbt, \u00e0 condition de ne pas surestimer ses performances en milieu bruyant. Prix constat\u00e9 : de 850 \u00e0 1 100 \u20ac par appareil, variable selon l\u2019audioproth\u00e9siste et votre reste \u00e0 charge."
 }
