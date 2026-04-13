@@ -20,6 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
     const email = formData.get('email') as string;
     const adeli = formData.get('adeli') as string;
     const centreNom = formData.get('centreNom') as string | null;
+    const siteWeb = formData.get('site_web') as string | null;
     const tel = formData.get('tel') as string | null;
     const horaires = formData.get('horaires') as string | null;
     const a_propos = formData.get('a_propos') as string | null;
@@ -124,6 +125,7 @@ export const POST: APIRoute = async ({ request }) => {
     };
 
     if (centreNom && centreNom.trim()) updateData.nom = centreNom.trim();
+    if (siteWeb && siteWeb.trim()) updateData.site_web = siteWeb.trim();
     if (tel) updateData.tel = tel;
     if (horaires) updateData.horaires = horaires;
     if (a_propos) updateData.a_propos = a_propos;
