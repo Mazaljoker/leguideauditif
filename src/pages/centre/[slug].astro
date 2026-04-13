@@ -43,6 +43,10 @@ const isClaimed = typedCentre.plan === 'claimed';
 const isPremium = typedCentre.plan === 'premium';
 const isPendingClaim = isRpps && typedCentre.claim_status === 'pending';
 
+// Verifier si le visiteur est le proprietaire de cette fiche
+const user = Astro.locals.user;
+const isOwner = user?.email === typedCentre.claimed_by_email && typedCentre.claim_status === 'approved';
+
 // --- Données conditionnelles ---
 
 // Centres concurrents (État 1 uniquement)
@@ -179,6 +183,16 @@ if (typedCentre.marques?.length > 0) {
         ================================================================ */}
     {isClaimed && (
       <>
+        {isOwner && (
+          <a
+            href={`/centre/${typedCentre.slug}/modifier`}
+            class="flex items-center justify-center gap-2 w-full rounded-lg bg-marine px-5 py-3 text-sm font-medium text-blanc font-sans mb-4 hover:bg-marine/90 transition-colors"
+            style="min-height: 44px;"
+          >
+            <Icon name="lucide:pen-line" class="w-4 h-4" />
+            Modifier ma fiche
+          </a>
+        )}
         <CentreHeader centre={typedCentre} />
         <CentreInfoGrid centre={typedCentre} />
 

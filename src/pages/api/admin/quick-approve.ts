@@ -59,13 +59,42 @@ export const GET: APIRoute = async ({ url }) => {
     });
   }
 
-  // Envoyer l'email au professionnel
-  if (centre.claimed_by_email && centre.claimed_by_name) {
-    const prenom = centre.claimed_by_name.split(' ')[0] || centre.claimed_by_name;
+  // Creer le compte Supabase Auth pour le professionnel (magic link)
+  let magicLinkNote = '';
+  if (centre.claimed_by_email) {
+    const { data: existingUsers } = await supabase.auth.admin.listUsers();
+    const alreadyExists = existingUsers?.users?.some(u => u.email === centre.claimed_by_email);
+
+    if (!alreadyExists) {
+      const { error: createError } = await supabase.auth.admin.createUser({
+        email: centre.claimed_by_email,
+        email_confirm: true,
+        user_metadata: { centre_slug: slug, role: 'pro' },
+      });
+      if (createError) {
+        console.error('User creation error:', createError.message);
+      }
+    }
+
+    // Generer un magic link pour connexion directe
+    const { data: linkData, error: linkError } = await supabase.auth.admin.generateLink({
+      type: 'magiclink',
+      email: centre.claimed_by_email,
+      options: { redirectTo: `https://leguideauditif.fr/centre/${slug}/modifier` },
+    });
+    if (linkError) {
+      console.error('Magic link error:', linkError.message);
+    }
+
+    const magicLink = linkData?.properties?.action_link || `https://leguideauditif.fr/connexion-pro`;
+    magicLinkNote = magicLink;
+
+    // Envoyer l'email au professionnel avec le magic link
+    const prenom = centre.claimed_by_name?.split(' ')[0] || '';
     await sendEmail({
       to: centre.claimed_by_email,
       subject: `Votre fiche ${centre.nom} est valid\u00e9e sur LeGuideAuditif.fr`,
-      html: claimApprovedEmail({ prenom, centreNom: centre.nom, centreSlug: centre.slug }),
+      html: claimApprovedEmail({ prenom, centreNom: centre.nom, centreSlug: slug, magicLink }),
       replyTo: 'franck@leguideauditif.fr',
     });
   }
