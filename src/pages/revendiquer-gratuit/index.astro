@@ -161,12 +161,26 @@ const breadcrumbs = [
         Informations de votre centre
       </h2>
       <div class="rounded-lg bg-[#E6F1FB] px-4 py-3 mb-5">
-        <p class="text-sm font-medium text-marine font-sans">{centre.nom}</p>
         <p class="text-xs text-gris-texte font-sans">{centre.adresse}, {centre.cp} {centre.ville}</p>
       </div>
       <p class="text-sm text-gris-texte font-sans mb-5">
         Ces informations seront affichées sur votre fiche. Vous pourrez les modifier plus tard.
       </p>
+
+      <div class="mb-5">
+        <label for="claim-centre-nom" class="block text-sm font-medium text-marine font-sans mb-1">
+          Nom de votre centre
+        </label>
+        <input
+          id="claim-centre-nom"
+          name="centreNom"
+          type="text"
+          value={centre.nom}
+          required
+          class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+        />
+        <p class="text-xs text-gris-texte font-sans mt-1">Nom INSEE : {centre.nom} — modifiez si votre nom commercial est différent</p>
+      </div>
 
       <div class="grid gap-5 sm:grid-cols-2">
         <div>
