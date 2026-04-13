@@ -1,22 +1,34 @@
 {
+  "slug": "phonak-audeo-lumity-30",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Audéo Lumity",
+  "modele": "Aud\u00e9o Lumity",
   "formeType": "RIC",
-  "formesDisponibles": "RIC R|RIC RT|RIC RL|RIC 312|Slim",
-  "puce": "AutoSense OS 5.0",
+  "formesDisponibles": "RIC R|RIC RT|RIC 312",
+  "puce": "PRISM",
+  "niveau": "30",
+  "niveauRaw": "L30",
+  "niveauPosition": 2,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 900,
+      "max": 1150
+    }
+  },
   "annee": 2022,
   "specs": {
-    "canaux": 20,
-    "bandes": 20,
-    "batterie": "Li-ion|312",
-    "autonomie": "16-18",
+    "canaux": 8,
+    "bandes": 8,
+    "batterie": "Li-ion rechargeable ou pile 312",
+    "autonomie": "16-24",
     "ip": "IP68",
-    "plageAdaptation": "Mild to profound"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re"
   },
   "connectivite": {
-    "bluetooth": "BLE 4.2",
+    "bluetooth": "Bluetooth Classic + BLE",
     "auracast": false,
     "application": "myPhonak",
     "mainLibre": true
@@ -26,33 +38,29 @@
     "bobineT": true,
     "acouphenes": true,
     "antiFeedback": "WhistleBlock",
-    "micDirectionnels": "StereoZoom 2.0"
+    "micDirectionnels": "SmartSpeech Technology"
   },
-  "couleurs": 11,
-  "sourceUrl": "HearingTracker",
+  "couleurs": 9,
+  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.webp",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-lumity",
   "venduEnEurope": true,
-  "slug": "phonak-audeo-lumity-30",
-  "niveau": "30",
-  "niveauRaw": "L30",
-  "niveauPosition": 1,
-  "rac0": false,
-  "prix": {
-    "usd": {
-      "min": 2498
-    }
-  },
-  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.png",
-  "descriptionCourte": "Avis expert sur les appareils auditifs Phonak Audéo Lumity (2022-2026). Technologie AutoSense 5.0, 5 formats (rechargeable, piles, waterproof, slim), Bluetooth universel. Comparaison vs Infinio, tarifs, remboursement Sécu.",
-  "pointsForts": [
-    "Travaillez en bruitée",
-    "Voyagez",
-    "Êtes musicien/audiophile",
-    "Avez perte légère à modérée",
-    "Fréquentez l'église",
-    "Craignez l'esthétique"
-  ],
-  "noteExpert": 7.7,
-  "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Audéo Lumity 30 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2022 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nEquipe de la puce AutoSense OS 5.0, le Audéo Lumity beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. Le traitement du signal s'effectue sur 20 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE 4.2 permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Audéo Lumity est rechargeable (batterie Li-ion|312), offrant jusqu'a 16-18 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 11 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Audéo Lumity integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen WhistleBlock, des microphones directionnels StereoZoom 2.0. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.7/10. Avis expert sur les appareils auditifs Phonak Audéo Lumity (2022-2026). Technologie AutoSense 5.0, 5 formats (rechargeable, piles, waterproof, slim), Bluetooth universel. Comparaison vs Infinio, tarifs, remboursement Sécu."
+  "descriptionCourte": "RIC Phonak Lumity entr\u00e9e de gamme. BT universel inclus, 8 canaux. Generation \u00e9prouv\u00e9e au prix le plus accessible de la gamme Phonak actuelle.",
+  "descriptionComplete": "Le Lumity 30, c\u2019est l\u2019entr\u00e9e de gamme Phonak avec la connectivit\u00e9 universelle. Pour moins de 1 000\u20ac par appareil, vous avez le Bluetooth Classic qui fonctionne avec tous les t\u00e9l\u00e9phones, l\u2019app myPhonak et un appareil fiable.\n\nCe que fait cet appareil\n8 canaux et 8 bandes \u2014 c\u2019est le minimum de la gamme Lumity. Dans le calme, les conversations sont claires et confortables. Dans le bruit, il faut \u00eatre honn\u00eate : c\u2019est limit\u00e9. Le Lumity 30 est fait pour un quotidien calme.\n\nL\u2019atout du 30 : le Bluetooth Classic est l\u00e0 quand m\u00eame. Et la bobine T est disponible sur la version RT. C\u2019est rare \u00e0 ce prix.\n\nEn pratique, sur le terrain\nJ\u2019ai adapt\u00e9 le Lumity 30 sur des patients avec un budget tr\u00e8s serr\u00e9 mais qui voulaient rester chez Phonak. Pour entendre la t\u00e9l\u00e9, suivre une conversation \u00e0 deux, passer des appels \u2014 mission accomplie. Pas de miracle en milieu bruyant, mais c\u2019est attendu \u00e0 ce niveau.\n\nPour qui est fait cet appareil ?\nPremier appareillage \u00e0 budget minimum, quotidien calme, besoin du Bluetooth universel.\n\nVerdict expert\n7.5/10. Le Lumity 30 donne acc\u00e8s \u00e0 l\u2019\u00e9cosyst\u00e8me Phonak au prix le plus bas. La gestion du bruit est basique mais la connectivit\u00e9 universelle est un vrai avantage \u00e0 ce tarif.\n\nEn une phrase : le Phonak le moins cher avec le Bluetooth universel.",
+  "pointsForts": [
+    "Bluetooth Classic universel inclus \u2014 exceptionnel \u00e0 ce prix",
+    "Prix le plus accessible de la gamme Phonak actuelle : d\u00e8s 900\u20ac",
+    "G\u00e9n\u00e9ration Lumity fiable, myPhonak compl\u00e8te",
+    "Disponible en rechargeable et pile 312 + bobine T en option (RT)"
+  ],
+  "pointsFaibles": [
+    "8 canaux \u2014 gestion du bruit tr\u00e8s basique, r\u00e9serv\u00e9 aux quotidiens calmes",
+    "Pas de StereoZoom \u2014 pas de focalisation directionnelle en milieu bruyant",
+    "Autonomie rechargeable 16-24h \u2014 la plus courte de la gamme actuelle"
+  ],
+  "noteExpert": 7.5,
+  "enAvant": false,
+  "legacy": false,
+  "metaTitle": "Phonak Aud\u00e9o Lumity 30 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak Lumity entr\u00e9e de gamme. BT universel, 8 canaux. D\u00e8s 900\u20ac. Le Phonak le moins cher. Avis audioproth\u00e9siste DE."
 }

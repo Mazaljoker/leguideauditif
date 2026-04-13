@@ -1,22 +1,34 @@
 {
+  "slug": "phonak-audeo-lumity-50",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Audéo Lumity",
+  "modele": "Aud\u00e9o Lumity",
   "formeType": "RIC",
-  "formesDisponibles": "RIC R|RIC RT|RIC RL|RIC 312|Slim",
-  "puce": "AutoSense OS 5.0",
+  "formesDisponibles": "RIC R|RIC RT|RIC 312",
+  "puce": "PRISM",
+  "niveau": "50",
+  "niveauRaw": "L50",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1100,
+      "max": 1350
+    }
+  },
   "annee": 2022,
   "specs": {
-    "canaux": 20,
-    "bandes": 20,
-    "batterie": "Li-ion|312",
-    "autonomie": "16-18",
+    "canaux": 12,
+    "bandes": 12,
+    "batterie": "Li-ion rechargeable ou pile 312",
+    "autonomie": "16-24",
     "ip": "IP68",
-    "plageAdaptation": "Mild to profound"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re"
   },
   "connectivite": {
-    "bluetooth": "BLE 4.2",
+    "bluetooth": "Bluetooth Classic + BLE",
     "auracast": false,
     "application": "myPhonak",
     "mainLibre": true
@@ -26,33 +38,29 @@
     "bobineT": true,
     "acouphenes": true,
     "antiFeedback": "WhistleBlock",
-    "micDirectionnels": "StereoZoom 2.0"
+    "micDirectionnels": "StereoZoom + SmartSpeech Technology"
   },
-  "couleurs": 11,
-  "sourceUrl": "HearingTracker",
+  "couleurs": 9,
+  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.webp",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-lumity",
   "venduEnEurope": true,
-  "slug": "phonak-audeo-lumity-50",
-  "niveau": "50",
-  "niveauRaw": "L50",
-  "niveauPosition": 2,
-  "rac0": false,
-  "prix": {
-    "usd": {
-      "min": 3131
-    }
-  },
-  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.png",
-  "descriptionCourte": "Avis expert sur les appareils auditifs Phonak Audéo Lumity (2022-2026). Technologie AutoSense 5.0, 5 formats (rechargeable, piles, waterproof, slim), Bluetooth universel. Comparaison vs Infinio, tarifs, remboursement Sécu.",
-  "pointsForts": [
-    "Travaillez en bruitée",
-    "Voyagez",
-    "Êtes musicien/audiophile",
-    "Avez perte légère à modérée",
-    "Fréquentez l'église",
-    "Craignez l'esthétique"
-  ],
-  "noteExpert": 8,
-  "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Audéo Lumity 50 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2022 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce AutoSense OS 5.0, le Audéo Lumity beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. Le traitement du signal s'effectue sur 20 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE 4.2 permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Audéo Lumity est rechargeable (batterie Li-ion|312), offrant jusqu'a 16-18 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 11 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Audéo Lumity integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen WhistleBlock, des microphones directionnels StereoZoom 2.0. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8/10. Avis expert sur les appareils auditifs Phonak Audéo Lumity (2022-2026). Technologie AutoSense 5.0, 5 formats (rechargeable, piles, waterproof, slim), Bluetooth universel. Comparaison vs Infinio, tarifs, remboursement Sécu."
+  "descriptionCourte": "RIC Phonak Lumity milieu de gamme. SmartSpeech, BT universel. 12 canaux. Generation \u00e9prouv\u00e9e, bon rapport qualit\u00e9/prix pour un quotidien calme \u00e0 mod\u00e9r\u00e9.",
+  "descriptionComplete": "Le Lumity 50, c\u2019est le Phonak pour les quotidiens tranquilles. La connectivit\u00e9 Bluetooth universelle est l\u00e0, le streaming est bon, et le prix est devenu tr\u00e8s accessible depuis l\u2019Infinio.\n\nCe que fait cet appareil\nLe Lumity 50 embarque la SmartSpeech Technology sur 12 canaux. Le StereoZoom standard est pr\u00e9sent mais sans la version 2.0 du 70. Dans le calme, les r\u00e9sultats sont tr\u00e8s satisfaisants. Dans le bruit mod\u00e9r\u00e9, c\u2019est correct. En bruit intense, les niveaux sup\u00e9rieurs font mieux.\n\nLe Bluetooth Classic universel est inclus \u2014 streaming avec tous les appareils. L\u2019app myPhonak fonctionne de la m\u00eame mani\u00e8re.\n\nEn pratique, sur le terrain\nJ\u2019ai adapt\u00e9 le Lumity 50 sur des patients en premier appareillage ou avec un budget serr\u00e9. Pour une vie quotidienne calme \u2014 maison, courses, conversations \u00e0 deux \u2014 c\u2019est tout \u00e0 fait suffisant. Le Bluetooth universel fait la diff\u00e9rence par rapport \u00e0 la concurrence \u00e0 ce prix.\n\nPour qui est fait cet appareil ?\nId\u00e9al pour un premier appareillage Phonak \u00e0 prix ma\u00eetris\u00e9, un quotidien plut\u00f4t calme, et le besoin du Bluetooth universel.\n\nVerdict expert\n7.8/10. Le Lumity 50 est un solide appareil d\u2019entr\u00e9e de gamme Phonak avec une connectivit\u00e9 compl\u00e8te. Le prix actuel en fait un tr\u00e8s bon choix pour qui n\u2019a pas besoin des performances maximales dans le bruit.\n\nEn une phrase : la connectivit\u00e9 Phonak universelle \u00e0 prix d\u2019entr\u00e9e sur g\u00e9n\u00e9ration \u00e9prouv\u00e9e.",
+  "pointsForts": [
+    "Bluetooth Classic universel inclus \u2014 rare \u00e0 ce prix",
+    "G\u00e9n\u00e9ration Lumity \u00e9prouv\u00e9e, fiabilit\u00e9 confirm\u00e9e",
+    "Disponible en rechargeable et pile 312",
+    "Prix tr\u00e8s accessible depuis l\u2019Infinio"
+  ],
+  "pointsFaibles": [
+    "12 canaux \u2014 gestion du bruit basique dans les environnements complexes",
+    "Autonomie rechargeable 16-24h \u2014 inf\u00e9rieure \u00e0 l\u2019Infinio",
+    "StereoZoom standard sans version 2.0"
+  ],
+  "noteExpert": 7.8,
+  "enAvant": false,
+  "legacy": false,
+  "metaTitle": "Phonak Aud\u00e9o Lumity 50 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak Lumity milieu de gamme. BT universel, 12 canaux. De 1 100 \u00e0 1 350\u20ac. Prix en baisse. Avis audioproth\u00e9siste DE."
 }
