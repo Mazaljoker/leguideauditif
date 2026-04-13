@@ -49,14 +49,16 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     const { error: updateError } = await supabase
       .from('centres_auditifs')
       .update({
+        plan: 'rpps',
         claim_status: 'rejected',
+        claimed: false,
         claimed_by_email: null,
         claimed_by_name: null,
         claimed_by_adeli: null,
         claimed_at: null,
       })
       .eq('slug', centreSlug)
-      .eq('claim_status', 'pending');
+      .in('claim_status', ['pending', 'approved']);
 
     if (updateError) {
       return new Response(
