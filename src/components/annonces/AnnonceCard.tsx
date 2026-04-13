@@ -7,6 +7,7 @@ const CATEGORIE_COLORS: Record<AnnonceCategorie, string> = {
   emploi: 'bg-emerald-100 text-emerald-800',
   remplacement: 'bg-purple-100 text-purple-800',
   materiel: 'bg-amber-100 text-amber-800',
+  services: 'bg-teal-100 text-teal-800',
 };
 
 function formatPrix(annonce: Annonce): string {

@@ -188,6 +188,7 @@ const AnnonceForm: FC<AnnonceFormProps> = ({ categorie: initialCategorie }) => {
           <option value="emploi">Emploi & Recrutement</option>
           <option value="remplacement">Remplacement</option>
           <option value="materiel">Materiel professionnel</option>
+          <option value="services">Services professionnels</option>
         </select>
       </div>
 

@@ -1,6 +1,6 @@
 // --- Catégories et sous-catégories ---
 
-export type AnnonceCategorie = 'cession' | 'emploi' | 'remplacement' | 'materiel';
+export type AnnonceCategorie = 'cession' | 'emploi' | 'remplacement' | 'materiel' | 'services';
 
 export type SousCategorieCession =
   | 'fonds_commerce'
@@ -33,11 +33,21 @@ export type SousCategorieMateriel =
   | 'informatique'
   | 'autre';
 
+export type SousCategorieServices =
+  | 'marketing_digital'
+  | 'gestion_reseaux_sociaux'
+  | 'formation'
+  | 'conseil'
+  | 'comptabilite'
+  | 'juridique'
+  | 'autre';
+
 export type AnnonceSousCategorie =
   | SousCategorieCession
   | SousCategorieEmploi
   | SousCategorieRemplacement
-  | SousCategorieMateriel;
+  | SousCategorieMateriel
+  | SousCategorieServices;
 
 export type AnnoncePrixType =
   | 'fixe'
@@ -206,6 +216,11 @@ export const CATEGORIES_META: Record<AnnonceCategorie, {
     description: 'Acheter ou vendre du materiel',
     icon: 'lucide:wrench',
   },
+  services: {
+    label: 'Services professionnels',
+    description: 'Marketing, gestion, conseil pour votre centre',
+    icon: 'lucide:handshake',
+  },
 };
 
 export const SOUS_CATEGORIES: Record<AnnonceCategorie, { value: string; label: string }[]> = {
@@ -238,6 +253,15 @@ export const SOUS_CATEGORIES: Record<AnnonceCategorie, { value: string; label: s
     { value: 'otoscope', label: 'Otoscope' },
     { value: 'mobilier', label: 'Mobilier' },
     { value: 'informatique', label: 'Informatique' },
+    { value: 'autre', label: 'Autre' },
+  ],
+  services: [
+    { value: 'marketing_digital', label: 'Marketing digital' },
+    { value: 'gestion_reseaux_sociaux', label: 'Gestion reseaux sociaux' },
+    { value: 'formation', label: 'Formation' },
+    { value: 'conseil', label: 'Conseil' },
+    { value: 'comptabilite', label: 'Comptabilite' },
+    { value: 'juridique', label: 'Juridique' },
     { value: 'autre', label: 'Autre' },
   ],
 };
