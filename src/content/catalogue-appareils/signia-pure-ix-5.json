@@ -1,19 +1,32 @@
 {
+  "slug": "signia-pure-ix-5",
   "marque": "signia",
   "marqueLabel": "Signia",
   "groupe": "ws-audiology",
   "modele": "Pure Charge&Go IX",
   "formeType": "RIC",
-  "formesDisponibles": "RIC",
+  "formesDisponibles": "RIC|RIC T",
   "puce": "IX Platform",
+  "niveau": "5",
+  "niveauRaw": "5IX",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1150,
+      "max": 1290
+    }
+  },
   "annee": 2023,
   "specs": {
-    "canaux": 48,
-    "bandes": 20,
-    "batterie": "Li-ion",
-    "autonomie": "39",
+    "canaux": 32,
+    "bandes": 16,
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "34-39",
     "ip": "IP68",
-    "plageAdaptation": "Mild to severe"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re",
+    "poids": "2.1g"
   },
   "connectivite": {
     "bluetooth": "BLE LE Audio",
@@ -25,31 +38,31 @@
     "rechargeable": true,
     "bobineT": false,
     "acouphenes": true,
-    "micDirectionnels": "OVP 2.0|Split processing"
+    "antiFeedback": "Feedback Canceller IX",
+    "micDirectionnels": "OVP 2.0 + Split Processing + Augmented Focus"
   },
-  "sourceUrl": "HearingTracker",
-  "venduEnEurope": true,
-  "slug": "signia-pure-ix-5",
-  "niveau": "5",
-  "niveauRaw": "5IX",
-  "niveauPosition": 3,
-  "rac0": false,
+  "couleurs": 10,
   "image": "/images/appareils/aide-auditive-signia-pure-ix-3.jpg",
-  "descriptionCourte": "Le Signia Pure Charge&Go IX 5 est un appareil auditif RIC avance equipe de la puce IX Platform, lance en 2023 par Signia (groupe WS Audiology). Rechargeable avec 39h d'autonomie. Connectivite BLE LE Audio.",
+  "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
+  "descriptionCourte": "RIC Signia milieu de gamme IX, le compromis le plus \u00e9quilibr\u00e9 de la s\u00e9rie. OVP 2.0, 32 canaux, 39h d\u2019autonomie. Pour qui veut la technologie IX sans le prix maximum.",
+  "descriptionComplete": "Si je devais recommander un seul niveau dans la gamme Pure IX \u00e0 un patient qui h\u00e9site, ce serait probablement celui-ci. Le niveau 5, c\u2019est le compromis que je trouve le plus sens\u00e9 pour la majorit\u00e9 des profils.\n\nCe que fait cet appareil\nLe Pure Charge&Go IX 5 tourne sur la m\u00eame puce IX que le niveau 7, avec l\u2019OVP 2.0 pour le traitement de la propre voix. La diff\u00e9rence avec le 7 se joue sur le nombre de canaux (32 contre 48) et la pr\u00e9sence de l\u2019Augmented Focus \u2014 un algorithme de focalisation sur la parole qui am\u00e9liore les situations de groupe. Le 5 en b\u00e9n\u00e9ficie d\u00e9j\u00e0, ce qui le distingue nettement du niveau 3.\n\nDans le calme, la diff\u00e9rence avec le 7 est quasi imperceptible. Conversations, t\u00e9l\u00e9vision, t\u00e9l\u00e9phone \u2014 vous n\u2019entendrez pas la diff\u00e9rence. L\u00e0 o\u00f9 le 7 prend un l\u00e9ger avantage, c\u2019est dans les situations les plus complexes : un grand repas de famille avec fond musical, une terrasse de caf\u00e9 en ville. Le 5 s\u2019en sort bien dans ces conditions, mais le 7 affine un peu plus le filtrage. Pour la majorit\u00e9 des patients, cette diff\u00e9rence ne justifie pas le surco\u00fbt de 200 \u00e0 400\u20ac.\n\nLa gestion du larsen est identique au niveau 7 \u2014 Signia ne bride pas son anti-feedback selon les niveaux, et c\u2019est une tr\u00e8s bonne chose. Le streaming est \u00e9galement au m\u00eame niveau : correct pour les appels et les podcasts.\n\nEn pratique, sur le terrain\nUne patiente de 72 ans, retrait\u00e9e, perte mod\u00e9r\u00e9e bilat\u00e9rale. Elle h\u00e9sitait entre le 5 et le 7. Je lui ai propos\u00e9 de tester les deux pendant la p\u00e9riode d\u2019essai. Au bout de trois semaines, elle n\u2019a pas perçu de diff\u00e9rence notable dans son quotidien \u2014 essentiellement de la lecture, de la t\u00e9l\u00e9, des conversations avec ses enfants et petits-enfants. Elle a gard\u00e9 le 5 et \u00e9conomis\u00e9 pr\u00e8s de 500\u20ac sur la paire.\n\nCe n\u2019est pas toujours le cas. Pour un patient tr\u00e8s actif socialement, je recommande le 7 d\u2019embl\u00e9e. Mais pour une vie quotidienne standard, le 5 est l\u2019\u00e9quilibre intelligent.\n\nD\u00e9tail pratique : comme pour toute la gamme, le chargeur standard demande un minimum de dext\u00e9rit\u00e9 pour y placer les appareils. Les accessoires sont interchangeables entre les niveaux 3, 5 et 7.\n\nPour qui est fait cet appareil ?\nLe niveau 5 est id\u00e9al si votre quotidien m\u00e9lange calme et situations mod\u00e9r\u00e9ment bruyantes \u2014 ce qui correspond \u00e0 la grande majorit\u00e9 des patients. C\u2019est aussi le bon choix si vous h\u00e9sitez entre le 3 et le 7 sans savoir ou vous situer.\n\nSi votre vie sociale est tr\u00e8s active avec des restaurants, des r\u00e9unions ou des conf\u00e9rences fr\u00e9quentes, le niveau 7 ou un autre mod\u00e8le comme l\u2019Oticon Intent m\u00e9rite d\u2019\u00eatre test\u00e9 en parall\u00e8le.\n\nPar rapport \u00e0 la concurrence\nLe Pure IX 5 co\u00fbte 200 \u00e0 300\u20ac de plus que le niveau 3, et 200 \u00e0 400\u20ac de moins que le niveau 7. Pour cette diff\u00e9rence, vous gagnez l\u2019Augmented Focus et une r\u00e9solution de r\u00e9glage nettement sup\u00e9rieure au 3.\n\nFace \u00e0 un Phonak Audeo Infinio 50 ou un Oticon Intent 2 dans la m\u00eame gamme de prix, le Pure IX 5 se distingue par le naturel de la propre voix (OVP 2.0) et la gestion du larsen. C\u2019est un match tr\u00e8s serr\u00e9 \u00e0 ce niveau de prix \u2014 le choix se fera souvent en essayant les deux avec votre audioproth\u00e9siste.\n\nVerdict expert\n8.2/10. Le Signia Pure Charge&Go IX 5 est le niveau que je recommande le plus souvent dans cette gamme. Il offre 90% des performances du niveau 7 pour un budget nettement plus accessible. L\u2019Augmented Focus et les 32 canaux suffisent largement pour la majorit\u00e9 des situations du quotidien. C\u2019est le choix raisonnable \u2014 et en audioproth\u00e8se, le choix raisonnable est souvent le meilleur.\n\nEn une phrase : le niveau IX que je recommande le plus souvent \u2014 90% du 7 pour 200 \u00e0 400\u20ac de moins.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce IX Platform",
-    "Rechargeable (39h)",
-    "Bluetooth BLE LE Audio",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes"
+    "Augmented Focus inclus \u2014 le vrai saut technologique par rapport au niveau 3, avec une focalisation sur la parole en situation de groupe",
+    "Rapport qualit\u00e9/prix le plus \u00e9quilibr\u00e9 de la gamme Pure IX \u2014 90% des performances du 7 pour 200 \u00e0 400\u20ac de moins",
+    "M\u00eame anti-larsen et m\u00eame autonomie (34-39h) que le niveau 7 \u2014 aucun compromis sur ces fondamentaux",
+    "OVP 2.0 pour un naturel de voix propre que peu de concurrents \u00e9galent \u00e0 ce prix",
+    "Accessoires et chargeur interchangeables avec les niveaux 3 et 7"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de bobine T (boucle magnetique)"
+    "32 canaux au lieu de 48 \u2014 dans les situations les plus complexes (grand restaurant, conf\u00e9rence), le niveau 7 affine un peu mieux le filtrage",
+    "Pas de bobine T sur ce mod\u00e8le \u2014 version Pure T IX disponible si n\u00e9cessaire",
+    "Streaming musical dans la moyenne \u2014 correct pour appels et podcasts, Phonak fait l\u00e9g\u00e8rement mieux pour les m\u00e9lomanes"
   ],
-  "noteExpert": 7.5,
+  "noteExpert": 8.2,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
-  "descriptionComplete": "Le Signia Pure Charge&Go IX 5 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Pure Charge&Go IX beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. Le traitement du signal s'effectue sur 48 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Pure Charge&Go IX est rechargeable (batterie Li-ion), offrant jusqu'a 39 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Pure Charge&Go IX integre egalement un generateur de bruit pour le soulagement des acouphenes, des microphones directionnels OVP 2.0 et Split processing. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.5/10. Le Signia Pure Charge&Go IX 5 est un appareil auditif RIC avance equipe de la puce IX Platform, lance en 2023 par Signia (groupe WS Audiology). Rechargeable avec 39h d'autonomie. Connectivite BLE LE Audio."
+  "legacy": false,
+  "metaTitle": "Signia Pure Charge&Go 5 IX : prix, avis et fiche",
+  "metaDescription": "RIC Signia milieu de gamme IX. 32 canaux, OVP 2.0, Augmented Focus. De 1 150 \u00e0 1 290\u20ac. Le meilleur rapport qualit\u00e9/prix de la s\u00e9rie."
 }
