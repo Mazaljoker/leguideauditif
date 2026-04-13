@@ -1,0 +1,68 @@
+{
+  "slug": "marque-modele-niveau",
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Pure Charge&Go",
+  "formeType": "RIC",
+  "formesDisponibles": null,
+  "puce": "IX Platform",
+  "niveau": "7",
+  "niveauRaw": "7IX",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": null,
+      "min": 1500,
+      "max": 2000
+    }
+  },
+  "annee": 2023,
+  "specs": {
+    "canaux": null,
+    "bandes": null,
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "24-28",
+    "ip": "IP68",
+    "reductionBruit": null,
+    "plageAdaptation": null,
+    "poids": null
+  },
+  "connectivite": {
+    "bluetooth": "BLE",
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": null,
+    "micDirectionnels": null,
+    "capteursSante": null
+  },
+  "couleurs": null,
+  "image": null,
+  "sourceUrl": null,
+  "venduEnEurope": true,
+  "descriptionCourte": "max 200 caracteres — verdict + profil cible",
+  "descriptionComplete": "800-1500 mots — 6 blocs (accroche terrain, performances, pratique, pour qui, positionnement, verdict)",
+  "pointsForts": [
+    "Point specifique, verifie, differenciant",
+    "Minimum 4 items"
+  ],
+  "pointsFaibles": [
+    "Point honnete, contextualise, factuel",
+    "Minimum 3 items"
+  ],
+  "noteExpert": null,
+  "enAvant": false,
+  "legacy": false,
+  "legacyReason": null,
+  "ficheTechniquePdf": null,
+  "metaTitle": "max 60 chars — [Marque] [Modele] [Niveau] : prix, avis et fiche",
+  "metaDescription": "max 155 chars — verdict + profil + fourchette prix"
+}

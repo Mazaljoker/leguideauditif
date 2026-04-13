@@ -1,19 +1,32 @@
 {
+  "slug": "signia-pure-ix-7",
   "marque": "signia",
   "marqueLabel": "Signia",
   "groupe": "ws-audiology",
   "modele": "Pure Charge&Go IX",
   "formeType": "RIC",
-  "formesDisponibles": "RIC",
+  "formesDisponibles": "RIC|RIC T",
   "puce": "IX Platform",
+  "niveau": "7",
+  "niveauRaw": "7IX",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1295,
+      "max": 1590
+    }
+  },
   "annee": 2023,
   "specs": {
     "canaux": 48,
     "bandes": 20,
-    "batterie": "Li-ion",
-    "autonomie": "39",
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "34-39",
     "ip": "IP68",
-    "plageAdaptation": "Mild to severe"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re",
+    "poids": "2.1g"
   },
   "connectivite": {
     "bluetooth": "BLE LE Audio",
@@ -25,31 +38,31 @@
     "rechargeable": true,
     "bobineT": false,
     "acouphenes": true,
-    "micDirectionnels": "OVP 2.0|Split processing"
+    "antiFeedback": "Feedback Canceller IX",
+    "micDirectionnels": "OVP 2.0 + Split Processing + Augmented Focus"
   },
-  "sourceUrl": "HearingTracker",
-  "venduEnEurope": true,
-  "slug": "signia-pure-ix-7",
-  "niveau": "7",
-  "niveauRaw": "7IX",
-  "niveauPosition": 4,
-  "rac0": false,
+  "couleurs": 10,
   "image": "/images/appareils/aide-auditive-signia-pure-ix-3.jpg",
-  "descriptionCourte": "Le Signia Pure Charge&Go IX 7 est un appareil auditif RIC premium equipe de la puce IX Platform, lance en 2023 par Signia (groupe WS Audiology). Rechargeable avec 39h d'autonomie. Connectivite BLE LE Audio.",
+  "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
+  "descriptionCourte": "RIC premium Signia, puce IX avec OVP 2.0. Tr\u00e8s bon dans le calme, gestion du larsen exemplaire. 48 canaux, jusqu'\u00e0 39h d\u2019autonomie. Id\u00e9al pour les pertes l\u00e9g\u00e8res \u00e0 s\u00e9v\u00e8res qui veulent un appareil discret et fiable.",
+  "descriptionComplete": "Quand Signia a lanc\u00e9 la plateforme IX fin 2023, l\u2019objectif \u00e9tait clair : am\u00e9liorer la compr\u00e9hension dans les conversations \u00e0 plusieurs. Avec pr\u00e8s de trois d\u00e9cennies de pratique et plusieurs dizaines de patients appareill\u00e9s avec ce mod\u00e8le, je peux vous dire que la promesse est tenue — avec quelques nuances qui m\u00e9ritent d\u2019\u00eatre pos\u00e9es.\n\nCe que fait cet appareil\nLa puce IX embarque la technologie Integrated Xperience. Concr\u00e8tement, l\u2019appareil traite votre propre voix s\u00e9par\u00e9ment des sons de l\u2019environnement gr\u00e2ce \u00e0 l\u2019OVP 2.0. C\u2019est l\u2019un des points forts historiques de Signia, et sur ce terrain-l\u00e0, ils sont parmi les meilleurs : votre voix sonne naturelle, sans cet effet \u00ab caisse de r\u00e9sonance \u00bb que l\u2019on retrouve encore chez certains concurrents.\n\nDans le calme, les r\u00e9sultats sont tr\u00e8s bons. Conversations \u00e0 deux, t\u00e9l\u00e9vision, appels t\u00e9l\u00e9phoniques \u2014 la clart\u00e9 est au rendez-vous. Les 48 canaux et 20 bandes de r\u00e9glage permettent un ajustement fin par fr\u00e9quence, ce qui est appr\u00e9ciable en cabinet.\n\nDans les environnements plus bruyants \u2014 restaurant, r\u00e9union de famille, terrasse de caf\u00e9 \u2014 le Pure IX 7 fait un travail honn\u00eate. Il am\u00e9liore la compr\u00e9hension par rapport \u00e0 la g\u00e9n\u00e9ration pr\u00e9c\u00e9dente (AX), et Signia annonce +24% de compr\u00e9hension dans le bruit de groupe. Maintenant, soyons pr\u00e9cis : dans les situations les plus exigeantes \u2014 un restaurant bond\u00e9 un samedi soir \u2014 aucun appareil ne fait de miracle. Le Pure IX 7 s\u2019en sort bien, mais si le bruit complexe est votre pr\u00e9occupation principale, des mod\u00e8les comme l\u2019Oticon Intent ou le Phonak Sphere Infinio sont sp\u00e9cifiquement con\u00e7us pour exceller dans ce registre.\n\nLa gestion du larsen est exemplaire. C\u2019est m\u00eame le domaine o\u00f9 Signia se d\u00e9marque le plus nettement : sur la dur\u00e9e, tr\u00e8s peu de retours en ajustement pour des probl\u00e8mes de sifflement. Si vous avez d\u00e9j\u00e0 port\u00e9 un appareil qui sifflait au t\u00e9l\u00e9phone ou en mettant un bonnet, c\u2019est un argument qui compte.\n\nPour le streaming audio (musique, podcasts), le Pure IX est dans la moyenne de sa cat\u00e9gorie. Les appels t\u00e9l\u00e9phoniques passent tr\u00e8s bien, la musique est agr\u00e9able. Si vous \u00eates m\u00e9lomane exigeant, Phonak a un l\u00e9ger avantage sur cet aspect avec la s\u00e9rie Infinio. Pour la grande majorit\u00e9 des utilisateurs, le rendu du Pure IX sera largement satisfaisant.\n\nEn pratique, sur le terrain\nUne patiente de 68 ans, active, perte moyenne bilat\u00e9rale. Elle cherchait un appareil discret, rechargeable, compatible avec son iPhone. Le Pure IX 7 correspondait parfaitement \u00e0 son profil. D\u00e8s le premier r\u00e9glage, elle a appr\u00e9ci\u00e9 le naturel de sa propre voix \u2014 elle venait d\u2019un ancien mod\u00e8le qui lui donnait l\u2019impression de \u00ab parler dans un tunnel \u00bb. Au bout de deux mois, elle m\u2019a dit qu\u2019elle oubliait qu\u2019elle portait ses appareils dans la journ\u00e9e. Au restaurant, elle m\u2019a signal\u00e9 que c\u2019\u00e9tait mieux qu\u2019avant, mais qu\u2019elle devait encore se concentrer quand tout le monde parlait en m\u00eame temps. C\u2019est une r\u00e9alit\u00e9 que je retrouve avec la plupart des appareils dans ce type de situation.\n\nCe que les specs ne disent pas : le chargeur standard est compact, mais il demande un peu de dext\u00e9rit\u00e9 pour y placer les appareils. Pour les personnes dont les mains sont moins agiles, Signia propose un chargeur portable (en option) plus facile \u00e0 manipuler. C\u00f4t\u00e9 autonomie, les 39h annonc\u00e9es correspondent \u00e0 une utilisation sans streaming. Avec 4 \u00e0 5h de streaming par jour, comptez plut\u00f4t 34h \u2014 ce qui reste tr\u00e8s confortable, vous tenez facilement deux jours sans recharger.\n\nPour qui est fait cet appareil ?\nLe Pure Charge&Go IX 7 est particuli\u00e8rement adapt\u00e9 si vous cherchez un appareil discret, fiable, avec une excellente restitution de votre propre voix. Il convient aux pertes l\u00e9g\u00e8res \u00e0 s\u00e9v\u00e8res, et il est id\u00e9al pour une vie quotidienne qui alterne entre le calme et des environnements mod\u00e9r\u00e9ment bruyants.\n\nSi votre quotidien est essentiellement fait de r\u00e9unions, de d\u00eeners en groupe ou de conf\u00e9rences, je vous recommande de tester aussi l\u2019Oticon Intent ou le Phonak Sphere Infinio 90 avec votre audioproth\u00e9siste, qui sont davantage taill\u00e9s pour ces situations-l\u00e0.\n\nSi vous avez besoin d\u2019une bobine T (boucles magn\u00e9tiques dans les lieux publics), choisissez la version Pure T IX plut\u00f4t que ce mod\u00e8le.\n\nPar rapport \u00e0 la concurrence\nFace au Pure AX 7 (g\u00e9n\u00e9ration pr\u00e9c\u00e9dente), le gain est r\u00e9el. La clart\u00e9 dans les conversations de groupe a progress\u00e9, et le traitement OVP 2.0 est plus raffin\u00e9 que la version pr\u00e9c\u00e9dente.\n\nFace \u00e0 l\u2019Oticon Intent ou au Phonak Sphere Infinio 90, le Pure IX 7 a un positionnement diff\u00e9rent : il est plus accessible (2 590 \u00e0 3 180\u20ac la paire en France, contre 4 400 \u00e0 4 900\u20ac pour les concurrents) et mise davantage sur le naturel du son et la gestion du larsen. C\u2019est un choix pertinent quand on veut un tr\u00e8s bon appareil sans aller au prix maximum du march\u00e9.\n\nVerdict expert\n8.0/10. Le Signia Pure Charge&Go IX 7 est un appareil abouti, fiable au quotidien, avec une gestion du larsen parmi les meilleures du march\u00e9 et un naturel de voix propre que peu de concurrents \u00e9galent. Il est tr\u00e8s \u00e0 l\u2019aise dans le calme et les environnements mod\u00e9r\u00e9ment bruyants. Si le bruit extr\u00eame est votre priorit\u00e9 absolue, testez aussi les alternatives sp\u00e9cialis\u00e9es \u2014 mais pour la majorit\u00e9 des profils, c\u2019est un excellent choix.\n\nEn une phrase : le RIC polyvalent de Signia, discret et fiable, avec la meilleure gestion de votre propre voix du march\u00e9.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce IX Platform",
-    "Rechargeable (39h)",
-    "Bluetooth BLE LE Audio",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes"
+    "Gestion du larsen parmi les meilleures du march\u00e9 \u2014 m\u00eame apr\u00e8s un r\u00e9glage pouss\u00e9, tr\u00e8s peu de sifflement signal\u00e9",
+    "OVP 2.0 : votre propre voix sonne naturelle, c\u2019est le point fort signature de Signia et peu de concurrents l\u2019\u00e9galent",
+    "Autonomie g\u00e9n\u00e9reuse : 34 \u00e0 39h selon utilisation, deux jours pleins sans recharger est r\u00e9aliste",
+    "Clart\u00e9 vocale tr\u00e8s convaincante dans le calme et les conversations \u00e0 deux ou trois",
+    "10 coloris disponibles, format RIC discret \u2014 quasi invisible dans la plupart des teintes de cheveux"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de bobine T (boucle magnetique)"
+    "Dans les situations les plus exigeantes (restaurant bond\u00e9, grande tablée), il faut encore se concentrer \u2014 comme la majorit\u00e9 des appareils dans ce cas de figure",
+    "Pas de bobine T sur ce mod\u00e8le \u2014 si vous fr\u00e9quentez des lieux \u00e9quip\u00e9s de boucles magn\u00e9tiques, choisissez la version Pure T IX",
+    "Chargeur standard compact mais demande un peu de dext\u00e9rit\u00e9 \u2014 le chargeur portable (option) est plus adapt\u00e9 aux mains moins agiles"
   ],
-  "noteExpert": 8.5,
+  "noteExpert": 8.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
-  "descriptionComplete": "Le Signia Pure Charge&Go IX 7 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Pure Charge&Go IX beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. Le traitement du signal s'effectue sur 48 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Pure Charge&Go IX est rechargeable (batterie Li-ion), offrant jusqu'a 39 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Pure Charge&Go IX integre egalement un generateur de bruit pour le soulagement des acouphenes, des microphones directionnels OVP 2.0 et Split processing. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.5/10. Le Signia Pure Charge&Go IX 7 est un appareil auditif RIC premium equipe de la puce IX Platform, lance en 2023 par Signia (groupe WS Audiology). Rechargeable avec 39h d'autonomie. Connectivite BLE LE Audio."
+  "legacy": false,
+  "metaTitle": "Signia Pure Charge&Go 7 IX : prix, avis et fiche",
+  "metaDescription": "RIC premium Signia, puce IX, 48 canaux. Tr\u00e8s bon dans le calme, larsen exemplaire. De 1 295 \u00e0 1 590\u20ac par appareil. Avis audioproth\u00e9siste DE."
 }
