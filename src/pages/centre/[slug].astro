@@ -196,18 +196,6 @@ if (typedCentre.marques?.length > 0) {
         <CentreHeader centre={typedCentre} />
         <CentreInfoGrid centre={typedCentre} />
 
-        {typedCentre.photo_url && (
-          <section class="mb-6">
-            <img
-              src={typedCentre.photo_url}
-              alt={`Photo du centre ${typedCentre.nom}`}
-              class="w-full rounded-xl object-cover"
-              style="max-height: 400px;"
-              loading="lazy"
-            />
-          </section>
-        )}
-
         <CentreSpecialties centre={typedCentre} />
         <CentreBrands centre={typedCentre} />
         <CentreCompleteness centre={typedCentre} />
@@ -236,18 +224,6 @@ if (typedCentre.marques?.length > 0) {
       <>
         <CentreHeader centre={typedCentre} />
         <CentreInfoGrid centre={typedCentre} />
-
-        {typedCentre.photo_url && (
-          <section class="mb-6">
-            <img
-              src={typedCentre.photo_url}
-              alt={`Photo du centre ${typedCentre.nom}`}
-              class="w-full rounded-xl object-cover"
-              style="max-height: 400px;"
-              loading="lazy"
-            />
-          </section>
-        )}
 
         <CentreSpecialties centre={typedCentre} />
         <CentreBrands centre={typedCentre} />
