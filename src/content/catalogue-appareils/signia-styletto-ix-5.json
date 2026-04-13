@@ -1,4 +1,5 @@
 {
+  "slug": "signia-styletto-ix-5",
   "marque": "signia",
   "marqueLabel": "Signia",
   "groupe": "ws-audiology",
@@ -6,15 +7,24 @@
   "formeType": "Slim RIC",
   "formesDisponibles": "Slim RIC",
   "puce": "IX Platform",
+  "niveau": "5",
+  "niveauRaw": "5IX",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1782
+    }
+  },
   "annee": 2024,
   "specs": {
-    "canaux": 48,
-    "bandes": 20,
-    "batterie": "Li-ion",
-    "autonomie": "20",
+    "canaux": 32,
+    "bandes": 16,
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "19-20",
     "ip": "IP68",
-    "reductionBruit": 5,
-    "plageAdaptation": "Mild to severe"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re"
   },
   "connectivite": {
     "bluetooth": "BLE LE Audio",
@@ -26,30 +36,31 @@
     "rechargeable": true,
     "bobineT": false,
     "acouphenes": true,
-    "antiFeedback": "Yes",
-    "micDirectionnels": "RealTime Conversation"
+    "antiFeedback": "Feedback Canceller IX",
+    "micDirectionnels": "OVP 2.0 + Split Processing + Augmented Focus"
   },
   "couleurs": 8,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "signia-styletto-ix-5",
-  "niveau": "5",
-  "niveauRaw": "5IX",
-  "niveauPosition": 3,
-  "classe": "2",
-  "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1782
-    },
-    "usd": {
-      "min": 3098
-    }
-  },
   "image": "/images/appareils/aide-auditive-signia-styletto-ix.webp",
-  "descriptionCourte": "Découvrez le Styletto IX de Signia : appareil auditif rechargeable Slim RIC haute technologie, design élégant, et performance audio A-grade. Avis expert, prix, alternatives.",
-  "noteExpert": 7.9,
-  "enAvant": false,
+  "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/styletto-ix/",
+  "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-styletto-ix-fiche-technique.pdf",
-  "descriptionComplete": "Le Signia Styletto IX 5 est une aide auditive de type Slim RIC au design ultra-fin et elegant, pensé pour ceux qui privilegient l'esthetique. Lance en 2024 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Styletto IX beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. Le traitement du signal s'effectue sur 48 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Styletto IX est rechargeable (batterie Li-ion), offrant jusqu'a 20 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Styletto IX integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen Yes, des microphones directionnels RealTime Conversation. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 782 euros par appareil (soit ~3 564 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.9/10. Découvrez le Styletto IX de Signia : appareil auditif rechargeable Slim RIC haute technologie, design élégant, et performance audio A-grade. Avis expert, prix, alternatives."
+  "descriptionCourte": "Slim RIC Signia milieu de gamme IX avec Augmented Focus. 32 canaux, OVP 2.0, 20h d\u2019autonomie. Le meilleur compromis de la gamme Styletto \u2014 design + performance \u00e9quilibr\u00e9e.",
+  "descriptionComplete": "Le Styletto IX 5, c\u2019est le Styletto que je recommande le plus souvent. Pas le plus cher, pas le plus basique \u2014 celui qui donne le meilleur \u00e9quilibre entre le design unique de la gamme et une performance sonore qui couvre la grande majorit\u00e9 des situations.\n\nCe que fait cet appareil\nComme tous les Styletto IX, le niveau 5 partage le m\u00eame bo\u00eetier Slim RIC \u00e9l\u00e9gant. La diff\u00e9rence avec le 3 est significative : le 5 embarque l\u2019Augmented Focus, l\u2019algorithme de focalisation sur la parole dans les conversations de groupe. C\u2019est le vrai saut technologique dans la gamme Styletto.\n\nAvec 32 canaux et 16 bandes, le traitement du signal est nettement plus fin que sur le 3 (24/12). L\u2019OVP 2.0 est identique \u00e0 tous les niveaux. L\u2019anti-larsen aussi.\n\nDans le calme, les performances sont excellentes \u2014 pas de diff\u00e9rence perceptible avec le 7. Dans le bruit, l\u2019Augmented Focus fait un vrai travail de focalisation. Le 7 affine un peu plus dans les situations les plus exigeantes, mais pour un d\u00eener en famille ou une conversation \u00e0 trois dans un environnement anim\u00e9, le 5 est largement \u00e0 la hauteur.\n\nEn pratique, sur le terrain\nLe profil type du patient Styletto 5 : quelqu\u2019un qui a compris qu\u2019il avait besoin d\u2019un appareil, qui ne veut pas d\u2019un contour classique, et qui vit dans un environnement mix \u2014 du calme, des conversations en groupe r\u00e9guli\u00e8res, un peu de streaming. Une patiente architecte de 55 ans correspondait exactement \u00e0 ce profil : r\u00e9unions professionnelles, d\u00e9jeuners clients, mais aussi du travail de bureau concentr\u00e9. Le Styletto 5 couvrait toutes ces situations sans faillir.\n\nM\u00eame autonomie que le reste de la gamme : 20h, recharge le soir. Le chargeur portable est une option appr\u00e9ciable pour les d\u00e9placements professionnels.\n\nPour qui est fait cet appareil ?\nLe Styletto IX 5 est le choix intelligent si vous voulez le design Styletto avec des performances compl\u00e8tes pour un quotidien vari\u00e9. L\u2019Augmented Focus fait la diff\u00e9rence par rapport au 3, et l\u2019\u00e9cart avec le 7 est subtil dans la plupart des situations.\n\nSi votre budget le permet et que vous \u00eates dans des environnements tr\u00e8s exigeants (grandes r\u00e9unions, conf\u00e9rences), le 7 apportera un cran de plus. Sinon, le 5 est le point d\u2019\u00e9quilibre.\n\nPar rapport \u00e0 la concurrence\nFace au Styletto 3 (+166\u20ac), le gain de l\u2019Augmented Focus justifie pleinement le surcout. Face au 7 (-167\u20ac), la question est : en avez-vous vraiment besoin ? Pour la majorit\u00e9, non.\n\nFace au Pure IX 5 (m\u00eame puce, ~1 200\u20ac), le surcout du Styletto est d\u2019environ 500\u20ac \u2014 c\u2019est le prix du design. Les performances sonores sont \u00e9quivalentes.\n\nVerdict expert\n8.3/10. Le Styletto IX 5 combine tout ce qui fait l\u2019attrait de cette gamme : un design sans \u00e9quivalent sur le march\u00e9, l\u2019Augmented Focus pour les conversations de groupe, et un prix raisonnable pour un Slim RIC premium. C\u2019est le Styletto que je propose en premier aux patients qui veulent ce format.\n\nEn une phrase : le Styletto le plus recommand\u00e9 \u2014 design unique + Augmented Focus au juste prix.",
+  "pointsForts": [
+    "Design Slim RIC unique \u2014 m\u00eame \u00e9l\u00e9gance que le niveau 7",
+    "Augmented Focus inclus \u2014 le vrai saut par rapport au niveau 3 pour les conversations de groupe",
+    "OVP 2.0 et anti-larsen identiques au 7 \u2014 aucun compromis sur le traitement de la voix",
+    "Meilleur rapport design/performance/prix de la gamme Styletto",
+    "8 coloris \u00e9l\u00e9gants"
+  ],
+  "pointsFaibles": [
+    "32 canaux au lieu de 48 \u2014 diff\u00e9rence perceptible uniquement dans les situations les plus exigeantes",
+    "Autonomie 20h \u2014 recharge quotidienne comme toute la gamme Styletto",
+    "Pas de bobine T \u2014 si besoin, se tourner vers le Pure T IX ou BCT"
+  ],
+  "noteExpert": 8.3,
+  "enAvant": false,
+  "legacy": false,
+  "metaTitle": "Signia Styletto IX 5 : prix, avis et fiche compl\u00e8te",
+  "metaDescription": "Slim RIC Signia milieu de gamme IX. Augmented Focus, 32 canaux. Environ 1 782\u20ac. Le meilleur rapport design/prix. Avis audioproth\u00e9siste DE."
 }

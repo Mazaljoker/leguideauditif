@@ -1,4 +1,5 @@
 {
+  "slug": "signia-styletto-ix-3",
   "marque": "signia",
   "marqueLabel": "Signia",
   "groupe": "ws-audiology",
@@ -6,15 +7,24 @@
   "formeType": "Slim RIC",
   "formesDisponibles": "Slim RIC",
   "puce": "IX Platform",
+  "niveau": "3",
+  "niveauRaw": "3IX",
+  "niveauPosition": 2,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "unitaire": 1616
+    }
+  },
   "annee": 2024,
   "specs": {
-    "canaux": 48,
-    "bandes": 20,
-    "batterie": "Li-ion",
-    "autonomie": "20",
+    "canaux": 24,
+    "bandes": 12,
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "19-20",
     "ip": "IP68",
-    "reductionBruit": 5,
-    "plageAdaptation": "Mild to severe"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re"
   },
   "connectivite": {
     "bluetooth": "BLE LE Audio",
@@ -26,30 +36,30 @@
     "rechargeable": true,
     "bobineT": false,
     "acouphenes": true,
-    "antiFeedback": "Yes",
-    "micDirectionnels": "RealTime Conversation"
+    "antiFeedback": "Feedback Canceller IX",
+    "micDirectionnels": "OVP 2.0 + Split Processing"
   },
   "couleurs": 8,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "signia-styletto-ix-3",
-  "niveau": "3",
-  "niveauRaw": "3IX",
-  "niveauPosition": 2,
-  "classe": "2",
-  "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1616
-    },
-    "usd": {
-      "min": 2898
-    }
-  },
   "image": "/images/appareils/aide-auditive-signia-styletto-ix.webp",
-  "descriptionCourte": "Découvrez le Styletto IX de Signia : appareil auditif rechargeable Slim RIC haute technologie, design élégant, et performance audio A-grade. Avis expert, prix, alternatives.",
-  "noteExpert": 7.6,
-  "enAvant": false,
+  "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/styletto-ix/",
+  "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-styletto-ix-fiche-technique.pdf",
-  "descriptionComplete": "Le Signia Styletto IX 3 est une aide auditive de type Slim RIC au design ultra-fin et elegant, pensé pour ceux qui privilegient l'esthetique. Lance en 2024 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Styletto IX beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. Le traitement du signal s'effectue sur 48 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Styletto IX est rechargeable (batterie Li-ion), offrant jusqu'a 20 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Styletto IX integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen Yes, des microphones directionnels RealTime Conversation. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 616 euros par appareil (soit ~3 232 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.6/10. Découvrez le Styletto IX de Signia : appareil auditif rechargeable Slim RIC haute technologie, design élégant, et performance audio A-grade. Avis expert, prix, alternatives."
+  "descriptionCourte": "Slim RIC Signia d\u2019entr\u00e9e de gamme IX au design unique. 24 canaux, OVP 2.0, 20h d\u2019autonomie. Le design Styletto \u00e0 prix plus accessible pour qui privil\u00e9gie l\u2019esth\u00e9tique.",
+  "descriptionComplete": "Si le design du Styletto vous pla\u00eet mais que le budget du niveau 7 vous freine, le 3 m\u00e9rite votre attention. M\u00eame bo\u00eetier Slim RIC, m\u00eame \u00e9l\u00e9gance, m\u00eame OVP 2.0 \u2014 seul le traitement du signal diff\u00e8re.\n\nCe que fait cet appareil\nLe Styletto IX 3 partage le m\u00eame design ultra-fin que le niveau 7. La diff\u00e9rence se joue sous le capot : 24 canaux et 12 bandes au lieu de 48 et 20. Pas d\u2019Augmented Focus non plus \u2014 la focalisation sur la parole en groupe est moins raffin\u00e9e.\n\nDans le calme, vous ne percevrez quasi aucune diff\u00e9rence avec le 7. Conversations, t\u00e9l\u00e9phone, t\u00e9l\u00e9vision \u2014 la clart\u00e9 est au rendez-vous. L\u2019OVP 2.0 traite votre propre voix de la m\u00eame mani\u00e8re. L\u2019anti-larsen est identique.\n\nDans les environnements bruyants, le 3 demande un peu plus d\u2019effort de concentration qu\u2019un 5 ou un 7. C\u2019est la contrepartie du prix \u2014 pas un d\u00e9faut de l\u2019appareil.\n\nL\u2019autonomie est la m\u00eame que sur tous les Styletto : environ 20h par charge. Recharge quotidienne le soir.\n\nEn pratique, sur le terrain\nJ\u2019ai propos\u00e9 le Styletto IX 3 \u00e0 des patients qui voulaient absolument ce format mais trouvaient le 7 trop cher. La r\u00e9action la plus fr\u00e9quente : satisfaction sur le design et le calme, interrogation sur le bruit. Un patient de 62 ans m\u2019a dit : \u00ab Dans le calme, c\u2019est parfait. En terrasse de caf\u00e9, je dois me concentrer un peu plus. \u00bb C\u2019est coh\u00e9rent avec un niveau 3.\n\nPour qui est fait cet appareil ?\nLe Styletto IX 3 est id\u00e9al si l\u2019esth\u00e9tique est votre premier crit\u00e8re de choix, que votre quotidien est plut\u00f4t calme, et que votre budget est contenu. C\u2019est aussi un bon point d\u2019entr\u00e9e pour tester le format Slim RIC sans investir au maximum.\n\nSi le bruit est fr\u00e9quent dans votre quotidien, le niveau 5 avec l\u2019Augmented Focus sera plus confortable. Et si le design n\u2019est pas prioritaire, le Pure IX 3 offre les m\u00eames performances pour moins cher avec deux fois plus d\u2019autonomie.\n\nPar rapport \u00e0 la concurrence\nPas de concurrent direct dans ce format \u00e0 ce prix. Le Styletto reste unique. Face au Pure IX 3 (~1 000\u20ac), vous payez 600\u20ac de plus essentiellement pour le design \u2014 le moteur sonore est comparable.\n\nVerdict expert\n7.8/10. Le Styletto IX 3 donne acc\u00e8s au design le plus \u00e9l\u00e9gant du march\u00e9 sans atteindre le prix maximum. Performance honn\u00eate dans le calme, contrepartie dans le bruit comme tout niveau d\u2019entr\u00e9e de gamme. Un choix qui se d\u00e9fend pour qui ne veut pas d\u2019un appareil classique.\n\nEn une phrase : le design Styletto \u00e0 prix d\u2019entr\u00e9e \u2014 pour ceux qui ne veulent pas ressembler \u00e0 un porteur d\u2019appareil.",
+  "pointsForts": [
+    "M\u00eame design Slim RIC unique que le niveau 7 \u2014 format plat et \u00e9l\u00e9gant",
+    "OVP 2.0 et anti-larsen identiques au niveau 7 \u2014 pas de compromis sur ces fondamentaux",
+    "8 coloris pour s\u2019adapter \u00e0 votre style",
+    "Prix le plus accessible de la gamme Styletto IX"
+  ],
+  "pointsFaibles": [
+    "24 canaux \u2014 gestion du bruit moins fine que les niveaux 5 et 7",
+    "Pas d\u2019Augmented Focus \u2014 la focalisation en groupe est basique",
+    "Autonomie 20h \u2014 recharge quotidienne obligatoire, et moins de marge que le Pure (34-39h)"
+  ],
+  "noteExpert": 7.8,
+  "enAvant": false,
+  "legacy": false,
+  "metaTitle": "Signia Styletto IX 3 : prix, avis et fiche compl\u00e8te",
+  "metaDescription": "Slim RIC Signia entr\u00e9e de gamme IX. Design unique, 24 canaux, OVP 2.0. Environ 1 616\u20ac. Avis audioproth\u00e9siste DE."
 }

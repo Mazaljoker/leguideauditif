@@ -1,4 +1,5 @@
 {
+  "slug": "signia-styletto-ix-7",
   "marque": "signia",
   "marqueLabel": "Signia",
   "groupe": "ws-audiology",
@@ -6,33 +7,6 @@
   "formeType": "Slim RIC",
   "formesDisponibles": "Slim RIC",
   "puce": "IX Platform",
-  "annee": 2024,
-  "specs": {
-    "canaux": 48,
-    "bandes": 20,
-    "batterie": "Li-ion",
-    "autonomie": "20",
-    "ip": "IP68",
-    "reductionBruit": 5,
-    "plageAdaptation": "Mild to severe"
-  },
-  "connectivite": {
-    "bluetooth": "BLE LE Audio",
-    "auracast": false,
-    "application": "Signia App",
-    "mainLibre": true
-  },
-  "fonctionnalites": {
-    "rechargeable": true,
-    "bobineT": false,
-    "acouphenes": true,
-    "antiFeedback": "Yes",
-    "micDirectionnels": "RealTime Conversation"
-  },
-  "couleurs": 8,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "signia-styletto-ix-7",
   "niveau": "7",
   "niveauRaw": "7IX",
   "niveauPosition": 4,
@@ -46,10 +20,51 @@
       "min": 3298
     }
   },
+  "annee": 2024,
+  "specs": {
+    "canaux": 48,
+    "bandes": 20,
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "19-20",
+    "ip": "IP68",
+    "reductionBruit": 5,
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": false,
+    "application": "Signia App",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": "Feedback Canceller IX",
+    "micDirectionnels": "OVP 2.0 + Split Processing + Augmented Focus"
+  },
+  "couleurs": 8,
   "image": "/images/appareils/aide-auditive-signia-styletto-ix.webp",
-  "descriptionCourte": "Découvrez le Styletto IX de Signia : appareil auditif rechargeable Slim RIC haute technologie, design élégant, et performance audio A-grade. Avis expert, prix, alternatives.",
-  "noteExpert": 8.2,
-  "enAvant": false,
+  "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/styletto-ix/",
+  "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-styletto-ix-fiche-technique.pdf",
-  "descriptionComplete": "Le Signia Styletto IX 7 est une aide auditive de type Slim RIC au design ultra-fin et elegant, pensé pour ceux qui privilegient l'esthetique. Lance en 2024 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Styletto IX beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. Le traitement du signal s'effectue sur 48 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Styletto IX est rechargeable (batterie Li-ion), offrant jusqu'a 20 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Styletto IX integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen Yes, des microphones directionnels RealTime Conversation. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 949 euros par appareil (soit ~3 898 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.2/10. Découvrez le Styletto IX de Signia : appareil auditif rechargeable Slim RIC haute technologie, design élégant, et performance audio A-grade. Avis expert, prix, alternatives."
+  "descriptionCourte": "Slim RIC premium Signia au design ultra-fin. M\u00eame puce IX que le Pure, format qui ne ressemble pas \u00e0 un appareil auditif. 48 canaux, 20h d\u2019autonomie. Pour qui veut la technologie IX dans le bo\u00eetier le plus \u00e9l\u00e9gant du march\u00e9.",
+  "descriptionComplete": "Le Styletto, c\u2019est l\u2019appareil que les patients remarquent en vitrine. Quand Signia l\u2019a lanc\u00e9 il y a quelques ann\u00e9es, c\u2019\u00e9tait le premier Slim RIC du march\u00e9 \u2014 un format plat, anguleux, qui ne ressemble \u00e0 aucun autre appareil auditif. Avec la version IX lanc\u00e9e en 2024, la question n\u2019est plus seulement \u00ab est-ce que c\u2019est beau \u00bb mais \u00ab est-ce que la performance suit \u00bb. R\u00e9ponse courte : oui, avec une contrepartie.\n\nCe que fait cet appareil\nLe Styletto IX 7 embarque exactement la m\u00eame puce et les m\u00eames algorithmes que le Pure IX 7 : 48 canaux, 20 bandes, OVP 2.0, Augmented Focus. Le moteur est identique. Ce qui change, c\u2019est le bo\u00eetier et la batterie.\n\nDans le calme, pas de diff\u00e9rence avec le Pure : conversations fluides, t\u00e9l\u00e9phone clair, t\u00e9l\u00e9vision confortable. Dans le bruit, m\u00eame constat \u2014 l\u2019Augmented Focus fonctionne de la m\u00eame mani\u00e8re. La gestion du larsen est tout aussi exemplaire. Et la propre voix sonne naturelle gr\u00e2ce \u00e0 l\u2019OVP 2.0.\n\nL\u00e0 o\u00f9 il y a une contrepartie, c\u2019est l\u2019autonomie. Le format Slim RIC impose une batterie plus petite : 20 heures par charge, contre 34-39h pour le Pure. En pratique, \u00e7a signifie que vous rechargez tous les soirs au lieu de tous les deux jours. Pour la grande majorit\u00e9 des patients, ce n\u2019est pas un probl\u00e8me \u2014 vous posez vos appareils le soir, vous les retrouvez charg\u00e9s le matin. Mais si vous avez des journ\u00e9es de 16h+ avec beaucoup de streaming, c\u2019est un point \u00e0 consid\u00e9rer.\n\nEn pratique, sur le terrain\nUne patiente de 58 ans, cadre en activit\u00e9, perte l\u00e9g\u00e8re bilat\u00e9rale. Son premier mot en voyant le Styletto : \u00ab Enfin quelque chose que je peux porter sans avoir l\u2019impression d\u2019\u00eatre appareill\u00e9e. \u00bb C\u2019est exactement le profil pour lequel cet appareil a \u00e9t\u00e9 con\u00e7u. Elle portait ses appareils 14h par jour, faisait 2h de streaming, et n\u2019a jamais eu de probl\u00e8me d\u2019autonomie.\n\nUn autre patient, 67 ans, retrait\u00e9 actif, m\u2019a dit au bout d\u2019un mois que ses amis ne voyaient m\u00eame pas qu\u2019il portait des appareils. Le design plat se fondait dans sa coiffure. Par contre, il a not\u00e9 que le bo\u00eetier \u00e9tait moins facile \u00e0 manipuler que le Pure pour le placer dans le chargeur \u2014 la forme fine demande un geste un peu plus pr\u00e9cis.\n\nCe qu\u2019il faut savoir aussi : le Styletto n\u2019a pas de version T (bobine T). Si vous avez besoin des boucles magn\u00e9tiques, c\u2019est le Pure T IX ou le BCT qu\u2019il vous faut.\n\nPour qui est fait cet appareil ?\nLe Styletto IX 7 est fait pour les personnes qui refuseraient un appareil auditif classique pour des raisons esth\u00e9tiques. Actifs, cadres, personnes encore en activit\u00e9 professionnelle \u2014 tous ceux pour qui l\u2019apparence de l\u2019appareil est un crit\u00e8re de d\u00e9cision. Il convient aux pertes l\u00e9g\u00e8res \u00e0 mod\u00e9r\u00e9es essentiellement.\n\nSi l\u2019autonomie est votre priorit\u00e9 (longues journ\u00e9es, voyages sans acc\u00e8s facile \u00e0 une prise), le Pure IX 7 est plus s\u00fbr avec ses 34-39h. Et si la dext\u00e9rit\u00e9 manuelle est un sujet, le Pure est plus facile \u00e0 manipuler.\n\nPar rapport \u00e0 la concurrence\nLe Styletto est unique sur le march\u00e9 dans ce format. Aucun concurrent ne propose un Slim RIC avec ce niveau de finesse. Le format le plus proche serait le Phonak Slim Lumity, mais sur une plateforme de g\u00e9n\u00e9ration pr\u00e9c\u00e9dente.\n\nFace au Pure IX 7 (m\u00eame prix, m\u00eame puce), c\u2019est un choix de forme, pas de performance. Vous gagnez le design, vous perdez de l\u2019autonomie. C\u2019est aussi simple que \u00e7a.\n\nVerdict expert\n8.3/10. Le Signia Styletto IX 7 prouve qu\u2019on peut avoir un design avant-gardiste sans sacrifier la performance sonore. M\u00eame puce, m\u00eame anti-larsen, m\u00eame OVP 2.0 que le Pure. La seule contrepartie est l\u2019autonomie r\u00e9duite \u00e0 20h \u2014 largement suffisante pour une journ\u00e9e standard. Pour les patients qui h\u00e9sitaient \u00e0 s\u2019appareiller \u00e0 cause de l\u2019esth\u00e9tique, c\u2019est l\u2019appareil qui fait tomber la derni\u00e8re barri\u00e8re.\n\nEn une phrase : toute la technologie IX dans le bo\u00eetier le plus \u00e9l\u00e9gant du march\u00e9.",
+  "pointsForts": [
+    "Design Slim RIC unique sur le march\u00e9 \u2014 format plat et anguleux qui ne ressemble pas \u00e0 un appareil auditif classique",
+    "M\u00eame puce IX que le Pure : 48 canaux, OVP 2.0, Augmented Focus, anti-larsen exemplaire",
+    "8 coloris \u00e9l\u00e9gants \u2014 se fond dans la coiffure, quasi invisible de profil",
+    "Performance sonore identique au Pure IX 7 \u2014 aucun compromis sur le traitement du signal",
+    "Chargeur compact et \u00e9l\u00e9gant, coh\u00e9rent avec le design de l\u2019appareil"
+  ],
+  "pointsFaibles": [
+    "Autonomie r\u00e9duite \u00e0 20h par charge \u2014 recharge quotidienne obligatoire, contre tous les 2 jours pour le Pure",
+    "Pas de bobine T \u2014 si vous fr\u00e9quentez des lieux avec boucles magn\u00e9tiques, le Pure T IX ou BCT est n\u00e9cessaire",
+    "Manipulation un peu plus d\u00e9licate que le Pure pour le placement dans le chargeur \u2014 la forme fine demande de la pr\u00e9cision"
+  ],
+  "noteExpert": 8.3,
+  "enAvant": false,
+  "legacy": false,
+  "metaTitle": "Signia Styletto IX 7 : prix, avis et fiche compl\u00e8te",
+  "metaDescription": "Slim RIC Signia, puce IX, 48 canaux. Design ultra-fin prim\u00e9. Environ 1 949\u20ac par appareil. Avis d\u2019audioproth\u00e9siste DE."
 }
