@@ -179,8 +179,11 @@ HearLink = a verifier.
 ### Hansaton — 2 fiches, plateforme Sonova
 A verifier.
 
-### Audio Service — 2 fiches, plateforme WS Audiology
-A verifier.
+### Audio Service — 2 fiches, plateforme WS Audiology (vérifié 2026-04-13)
+| Fichier | Statut | Notes |
+|---------|--------|-------|
+| audio-service-ida-bt-g5 | LEGACY | Génération G5 (2020), 3 générations en retard (G5→G6→G7→G8) — REWORKED |
+| audio-service-mood-r-g7 | LEGACY | Génération G7 (2021), remplacé par G8. Distribution France limitée — REWORKED |
 
 ## RESUME
 
