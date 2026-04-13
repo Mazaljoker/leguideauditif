@@ -4,46 +4,61 @@
   "groupe": "sonova",
   "modele": "Stride Vivante",
   "formeType": "BTE",
-  "formesDisponibles": "V-PR|V-M|SP|V-UP",
+  "formesDisponibles": "V-PR|V-M|V-SP|V-UP",
+  "puce": "Integra OS",
   "annee": 2023,
   "specs": {
-    "batterie": "Li-ion|312|13|675",
+    "batterie": "Li-ion (V-PR)|675 (V-SP/V-UP)|312 (V-M)",
+    "autonomie": "18",
+    "ip": "IP68",
     "plageAdaptation": "Mild to profound"
   },
   "connectivite": {
-    "bluetooth": "BLE",
+    "bluetooth": "Bluetooth LE",
     "auracast": false,
-    "application": "Remote Plus",
+    "application": "Unitron Remote Plus",
     "mainLibre": false
   },
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
-    "acouphenes": true
+    "acouphenes": true,
+    "micDirectionnels": "AutoFocus 360"
   },
   "couleurs": 6,
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.unitron.com/us/en_us/platforms/vivante.html",
   "venduEnEurope": true,
   "slug": "unitron-stride-vivante-5",
   "niveau": "5",
   "niveauRaw": "5",
   "niveauPosition": 3,
+  "classe": "2",
   "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1100,
+      "max": 1500
+    }
+  },
   "image": "/images/appareils/aide-auditive-unitron-stride-vivante-3.png",
-  "descriptionCourte": "Le Unitron Stride Vivante 5 est un appareil auditif BTE avance, lance en 2023 par Unitron (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "metaTitle": "Unitron Stride Vivante 5 : prix, avis, fiche",
+  "metaDescription": "BTE standard Unitron, AutoFocus 360 inclus. Note 6.4/10. Prix : 1 100 à 1 500 €. BTE accessible pour les pertes modérées à profondes.",
+  "descriptionCourte": "BTE standard de la gamme Vivante. AutoFocus 360 mais sans HyperFocus. Choix accessible en BTE pour porteurs en environnements calmes à modérément bruyants.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Rechargeable",
-    "Bluetooth BLE",
-    "Generateur de bruit pour acouphenes",
-    "Application Remote Plus",
-    "6 coloris disponibles"
+    "Quatre formats BTE identiques aux niveaux supérieurs — V-UP pour pertes profondes, V-M pour discrétion maximale en BTE",
+    "AutoFocus 360 avec adaptation automatique aux environnements — correct dans le calme et le bruit modéré",
+    "FLEX:TRIAL : test au niveau 9 puis ajustement — vous savez exactement ce que vous gagnez ou perdez",
+    "Bobine T, générateur d'acouphènes, IP68 — même équipement hardware que les niveaux 7 et 9",
+    "Prix accessible pour un BTE Sonova avec Bluetooth LE et recharge"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille"
+    "Pas de HyperFocus — directionalité standard qui limite la compréhension en groupe dans le bruit",
+    "BTE visible derrière l'oreille — la discrétion n'est pas le point fort, même en version V-M",
+    "Traitement du bruit limité : conversations à deux correctes, groupes au-delà de trois personnes dans le bruit rapidement fatigants",
+    "Écosystème Unitron restreint — pas de Roger pour les environnements professionnels exigeants"
   ],
-  "noteExpert": 7.4,
+  "noteExpert": 6.4,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/unitron-moxi-vivante-rs-fiche-technique.pdf",
-  "descriptionComplete": "Le Unitron Stride Vivante 5 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2023 par Unitron (groupe Sonova), FLEX:TRIAL permettant l'essai avant achat, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nle Stride Vivante beneficie de la technologie Integra OS. Upgrade de niveau en cabinet, technologie Phonak a prix accessible. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Remote Plus permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Stride Vivante est rechargeable (batterie Li-ion|312|13|675). Un chargeur est fourni avec l'appareil. Disponible en 6 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Stride Vivante integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.4/10. Le Unitron Stride Vivante 5 est un appareil auditif BTE avance, lance en 2023 par Unitron (groupe Sonova). Rechargeable. Connectivite BLE."
+  "descriptionComplete": "Le choix d'un BTE standard répond souvent à une équation simple : le patient a besoin de puissance, mais son budget est limité. Le Stride Vivante 5 remplit ce contrat — puissance Sonova, Bluetooth, recharge, à un tarif contenu. Sans prétendre exceller dans le bruit.\n\n## Ce que fait le Stride Vivante 5\n\nMême boîtier que les niveaux 7 et 9 dans les quatre formats : V-PR rechargeable, V-M mini, V-SP super puissant, V-UP ultra puissant. Même Bluetooth LE, même IP68, même bobine T. Même générateur d'acouphènes. Le hardware ne bouge pas d'un niveau à l'autre — seul le logiciel change.\n\nAutoFocus 360 est présent, mais en version standard. La classification des environnements fonctionne, les transitions entre scènes d'écoute se font de manière acceptable. Ce qui manque, c'est HyperFocus : la concentration directionnelle qui fait la différence dans le bruit. Résultat, en conversation à deux dans un lieu calme à modérément bruyant, tout va bien. Dès qu'un troisième interlocuteur entre dans la conversation avec du bruit de fond, la clarté diminue.\n\n## En pratique — le BTE pour les pertes sévères au quotidien\n\nLes patients porteurs de BTE super puissant ou ultra puissant ont souvent une relation différente au bruit. Avec une perte sévère à profonde, les situations de cocktail party sont déjà difficiles quel que soit l'appareil — même les flagships des Big Six ne font pas de miracle au-delà d'un certain seuil de perte. Ce que ces patients cherchent d'abord, c'est une amplification stable et confortable dans leur environnement quotidien : les voix de la famille, la télévision, les rendez-vous médicaux.\n\nPour ce profil, le niveau 5 peut suffire. La plateforme Sonova que je connais via les Phonak délivre une amplification propre et stable sur les pertes sévères. Les piles 675 du V-SP et du V-UP tiennent 5 à 7 jours. Le V-PR rechargeable convient aux pertes modérées à sévères — au-delà, les formats à piles sont préférables pour la puissance de sortie.\n\n## Pour qui ? Pas pour qui ?\n\nProfil type : porteur de BTE avec une perte modérée à profonde, vie principalement calme — domicile, famille, sorties occasionnelles. Premier équipement en BTE ou renouvellement pour un patient satisfait de son BTE précédent mais souhaitant le Bluetooth et la recharge.\n\nPas pour vous si vous avez une vie sociale active dans le bruit. Le niveau 7 et son HyperFocus apportent une amélioration réelle pour 300 € de plus par appareil. Pas non plus si votre perte est légère à modérée — un Moxi Vivante RIC sera plus discret et mieux adapté.\n\n## Face au Stride Vivante 7 et aux alternatives\n\nL'écart avec le niveau 7 : HyperFocus. Pour environ 300 € par appareil, vous gagnez la directionalité renforcée. Si vous sortez régulièrement dans le bruit, c'est un investissement qui se justifie. Si votre vie est calme, le 5 fait le travail.\n\nFace aux BTE de classe 1 (reste à charge zéro), le Stride Vivante 5 apporte le Bluetooth LE, la recharge sur le V-PR, et un traitement du signal plus évolué. Pour un porteur de BTE super puissant, cette différence de traitement du signal peut faire la différence sur la clarté vocale au quotidien — mais le coût supplémentaire est à peser.\n\n## Verdict expert\n\nNote : 6,4/10. Le Stride Vivante 5 est un BTE honnête : puissance Sonova sur quatre formats, Bluetooth, recharge, IP68. Mais l'absence de HyperFocus le cantonne aux environnements calmes à modérément bruyants. Pour un porteur de BTE dont la vie est principalement calme, c'est un choix correct au bon prix. Pour les environnements plus exigeants, le niveau 7 vaut les 300 € supplémentaires.\n\nAppareil de classe 2. Prix constaté : 1 100 à 1 500 € par appareil, variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }

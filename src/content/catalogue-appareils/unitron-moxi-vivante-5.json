@@ -5,37 +5,60 @@
   "modele": "Moxi Vivante",
   "formeType": "RIC",
   "formesDisponibles": "V-R|V-RT|V-RS|V-312",
-  "puce": "ERA + Integra OS",
+  "puce": "Integra OS",
   "annee": 2023,
   "specs": {
-    "autonomie": "BLE",
-    "ip": "Yes (V-RT)",
+    "batterie": "Li-ion",
+    "autonomie": "18",
+    "ip": "IP68",
     "plageAdaptation": "Mild to profound"
   },
   "connectivite": {
-    "bluetooth": "No",
+    "bluetooth": "Bluetooth LE",
     "auracast": false,
-    "application": "Remote Plus",
+    "application": "Unitron Remote Plus",
     "mainLibre": true
   },
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
     "acouphenes": false,
-    "micDirectionnels": "HyperFocus|AutoFocus 360"
+    "micDirectionnels": "AutoFocus 360"
   },
   "couleurs": 6,
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.unitron.com/us/en_us/platforms/vivante.html",
   "venduEnEurope": true,
   "slug": "unitron-moxi-vivante-5",
   "niveau": "5",
   "niveauRaw": "5",
   "niveauPosition": 3,
+  "classe": "2",
   "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1100,
+      "max": 1500
+    }
+  },
   "image": "/images/appareils/aide-auditive-unitron-moxi-vivante.png",
-  "descriptionCourte": "Découvrez l'Unitron Moxi Vivante, appareil auditif RIC haut de gamme lancé en 2023. Specs, technologies Integra OS, FLEX:TRIAL, prix, avis expert Franck-Olivier.",
-  "noteExpert": 7.5,
+  "metaTitle": "Unitron Moxi Vivante 5 : prix, avis et fiche",
+  "metaDescription": "RIC standard Unitron avec AutoFocus 360. Note 6.6/10. Prix : 1 100 à 1 500 €. Bon choix pour premier équipement en classe 2.",
+  "descriptionCourte": "RIC standard de la gamme Vivante, AutoFocus 360 inclus mais sans HyperFocus. Choix accessible en classe 2 pour porteurs en environnement calme à modérément bruyant.",
+  "pointsForts": [
+    "AutoFocus 360 avec classification automatique des environnements — gestion correcte du calme au bruit modéré",
+    "Même hardware que les niveaux 7 et 9 : IP68, Bluetooth LE, mains libres, recharge 18 heures",
+    "FLEX:TRIAL : essai au niveau 9 pendant la période d'essai, puis ajustement au 5 si suffisant pour votre quotidien",
+    "Prix accessible pour une plateforme Sonova — environ 600 € de moins par appareil que le niveau 9",
+    "Quatre déclinaisons RIC (V-R, V-RT, V-RS, V-312) identiques aux niveaux supérieurs"
+  ],
+  "pointsFaibles": [
+    "Pas de HyperFocus — concentration directionnelle limitée dans le bruit, ce qui se ressent en restaurant ou en réunion",
+    "Réduction du bruit standard : conversations fluides à deux, mais les groupes de plus de quatre dans le bruit deviennent difficiles",
+    "Même limitation d'écosystème Unitron — pas de Roger, pas de TV Connector",
+    "En classe 2, le reste à charge reste significatif même à ce niveau de prix"
+  ],
+  "noteExpert": 6.6,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/unitron-moxi-vivante-rs-fiche-technique.pdf",
-  "descriptionComplete": "Le Unitron Moxi Vivante 5 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par Unitron (groupe Sonova), FLEX:TRIAL permettant l'essai avant achat, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce ERA + Integra OS, le Moxi Vivante beneficie de la technologie Integra OS. Upgrade de niveau en cabinet, technologie Phonak a prix accessible. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite No permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Remote Plus permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Moxi Vivante est rechargeable (batterie lithium-ion), offrant jusqu'a BLE heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification Yes (V-RT) garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 6 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Moxi Vivante integre egalement une bobine telephonique (T-coil) pour les boucles magnetiques, des microphones directionnels HyperFocus et AutoFocus 360. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.5/10. Découvrez l'Unitron Moxi Vivante, appareil auditif RIC haut de gamme lancé en 2023. Specs, technologies Integra OS, FLEX:TRIAL, prix, avis expert Franck-Olivier."
+  "descriptionComplete": "Le premier appareillage est un moment charnière. Le patient découvre ce que la technologie peut lui apporter — et ce qu'elle ne peut pas faire. Le Moxi Vivante 5 se positionne exactement sur ce créneau : un appareil Sonova solide, accessible, qui ne promet pas la lune mais délivre l'essentiel correctement.\n\n## Ce que fait le Moxi Vivante 5\n\nMême boîtier que les niveaux 7 et 9 — V-R, V-RT avec bobine T, V-RS slim ou V-312 à piles —, même Bluetooth LE avec appels mains libres, même IP68, même autonomie de 18 heures. Le hardware est identique. Ce qui change, c'est le logiciel.\n\nAutoFocus 360 est présent, avec la classification des environnements sonores et l'adaptation automatique des réglages. Mais pas de HyperFocus. Concrètement, la différence se manifeste dans le bruit : la directionalité reste standard. Vous entendez bien votre interlocuteur en face de vous dans un café calme. Dès que le niveau de bruit monte — restaurant animé, grande tablée familiale —, la distinction entre la voix et le bruit de fond devient plus floue qu'avec un niveau 7.\n\nDans le calme, les performances sont très proches des niveaux supérieurs. Les voix sont claires, les sons environnants naturels. C'est dans la complexité sonore que les écarts se creusent.\n\n## En pratique — le test du FLEX:TRIAL\n\nLe vrai avantage d'Unitron à ce niveau de gamme, c'est la certitude. Avec le FLEX:TRIAL, votre audioprothésiste active le niveau 9 pendant les premières semaines. Vous vivez avec. Puis il passe au niveau 5. Si vous constatez une gêne notable dans vos situations quotidiennes, vous remontez — au 7 ou au 9. Si la différence est marginale dans votre vie, vous restez au 5 et vous économisez.\n\nSur la plateforme Sonova que je connais via Phonak, les patients dont le quotidien est calme à modérément bruyant — domicile, promenades, conversations en petit comité, TV — ne ressentent généralement pas de manque au niveau standard. La différence ne devient perceptible que dans les situations de bruit soutenu.\n\n## Pour qui ? Pas pour qui ?\n\nProfil type : premier appareillage ou renouvellement pour un porteur à la vie calme. Conversations principalement à domicile, en cabinet médical, avec la famille en petit groupe. Utilisation du téléphone pour les appels. Pas de sorties fréquentes dans des environnements bruyants.\n\nPas pour vous si vous sortez régulièrement au restaurant, si vous participez à des réunions ou des activités de groupe dans le bruit. L'absence de HyperFocus devient alors une vraie limite. Dans ce cas, le niveau 7 — premier palier avec HyperFocus — est un investissement qui se justifie.\n\n## Face au Vivante 7 et aux alternatives\n\nL'écart avec le Vivante 7 tient en un mot : HyperFocus. Pour environ 300 € de plus par appareil, vous obtenez la directionalité renforcée qui fait la différence dans le bruit. Si votre budget est serré mais que vous fréquentez des lieux bruyants, le 7 vaut l'investissement.\n\nFace aux appareils de classe 1 (reste à charge zéro), le Vivante 5 offre un traitement du bruit nettement supérieur, un streaming Bluetooth et une application de réglage. L'écart de prix — 1 100 à 1 500 € contre 0 € de reste à charge — achète un réel gain de confort au quotidien, mais c'est un choix que chaque patient doit peser selon son budget.\n\n## Verdict expert\n\nNote : 6,6/10. Le Moxi Vivante 5 est un appareil honnête : plateforme Sonova solide, hardware identique aux niveaux supérieurs, mais traitement du bruit limité par l'absence de HyperFocus. C'est le choix rationnel pour un porteur à la vie calme qui veut la fiabilité Sonova sans le tarif premium. Le FLEX:TRIAL permet de vérifier objectivement que ce niveau suffit à votre quotidien avant de vous engager.\n\nAppareil de classe 2. Prix constaté : 1 100 à 1 500 € par appareil, variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }

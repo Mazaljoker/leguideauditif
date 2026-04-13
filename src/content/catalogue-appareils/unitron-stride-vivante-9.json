@@ -4,46 +4,61 @@
   "groupe": "sonova",
   "modele": "Stride Vivante",
   "formeType": "BTE",
-  "formesDisponibles": "V-PR|V-M|SP|V-UP",
+  "formesDisponibles": "V-PR|V-M|V-SP|V-UP",
+  "puce": "Integra OS",
   "annee": 2023,
   "specs": {
-    "batterie": "Li-ion|312|13|675",
+    "batterie": "Li-ion (V-PR)|675 (V-SP/V-UP)|312 (V-M)",
+    "autonomie": "18",
+    "ip": "IP68",
     "plageAdaptation": "Mild to profound"
   },
   "connectivite": {
-    "bluetooth": "BLE",
+    "bluetooth": "Bluetooth LE",
     "auracast": false,
-    "application": "Remote Plus",
+    "application": "Unitron Remote Plus",
     "mainLibre": false
   },
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
-    "acouphenes": true
+    "acouphenes": true,
+    "micDirectionnels": "HyperFocus|AutoFocus 360"
   },
   "couleurs": 6,
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.unitron.com/us/en_us/platforms/vivante.html",
   "venduEnEurope": true,
   "slug": "unitron-stride-vivante-9",
   "niveau": "9",
   "niveauRaw": "9",
   "niveauPosition": 5,
+  "classe": "2",
   "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1700,
+      "max": 2200
+    }
+  },
   "image": "/images/appareils/aide-auditive-unitron-stride-vivante-3.png",
-  "descriptionCourte": "Le Unitron Stride Vivante 9 est un appareil auditif BTE excellence, lance en 2023 par Unitron (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "metaTitle": "Unitron Stride Vivante 9 : prix, avis, fiche",
+  "metaDescription": "BTE premium Unitron, Integra OS complet. Note 7.0/10. Prix : 1 700 à 2 200 €. Quatre formats BTE pour pertes légères à profondes.",
+  "descriptionCourte": "BTE premium de la gamme Vivante avec HyperFocus complet et quatre formats : V-PR rechargeable, V-M mini, V-SP super puissant, V-UP ultra puissant. Pour pertes légères à profondes.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Rechargeable",
-    "Bluetooth BLE",
-    "Generateur de bruit pour acouphenes",
-    "Application Remote Plus",
-    "6 coloris disponibles"
+    "Quatre formats BTE couvrant toutes les puissances — du mini V-M discret au V-UP ultra puissant pour pertes profondes",
+    "HyperFocus et AutoFocus 360 complets : même traitement du signal que le Moxi Vivante 9 en format RIC",
+    "V-PR rechargeable avec 18 heures d'autonomie — V-SP et V-UP en piles 675 pour les pertes nécessitant un maximum de puissance",
+    "FLEX:TRIAL disponible : test au niveau 9 puis ajustement si un niveau inférieur suffit",
+    "Bobine T intégrée sur tous les formats — compatible boucles magnétiques en lieux publics"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille"
+    "BTE visible derrière l'oreille — pour les porteurs soucieux de la discrétion, le Moxi RIC sera préférable si la puissance n'est pas nécessaire",
+    "Pas de mains libres pour les appels sur les formats V-SP et V-UP — le téléphone doit être porté à l'oreille",
+    "Écosystème d'accessoires Unitron limité — pas de Roger Direct pour les environnements professionnels bruyants",
+    "Plateforme Vivante précédée par Smile (2025) chez Unitron"
   ],
-  "noteExpert": 8.9,
+  "noteExpert": 7.0,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/unitron-moxi-vivante-rs-fiche-technique.pdf",
-  "descriptionComplete": "Le Unitron Stride Vivante 9 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2023 par Unitron (groupe Sonova), FLEX:TRIAL permettant l'essai avant achat, cet appareil se positionne en niveau Excellence, le summum de la gamme avec toutes les fonctionnalites debloquees.\n\nTechnologie et traitement du son\nle Stride Vivante beneficie de la technologie Integra OS. Upgrade de niveau en cabinet, technologie Phonak a prix accessible. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Remote Plus permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Stride Vivante est rechargeable (batterie Li-ion|312|13|675). Un chargeur est fourni avec l'appareil. Disponible en 6 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Stride Vivante integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.9/10. Le Unitron Stride Vivante 9 est un appareil auditif BTE excellence, lance en 2023 par Unitron (groupe Sonova). Rechargeable. Connectivite BLE."
+  "descriptionComplete": "Le BTE a une réputation injuste auprès de certains patients : trop visible, trop gros, dépassé. C'est faux. Pour les pertes sévères à profondes, le contour d'oreille classique reste le format le plus adapté — plus de puissance, plus de robustesse, et souvent plus de confort que les RIC poussés à leur limite. Le Stride Vivante 9 décline la meilleure technologie Unitron dans quatre formats BTE couvrant toute la gamme de puissance.\n\n## Ce que fait le Stride Vivante 9\n\nMême Integra OS que le Moxi Vivante 9 — AutoFocus 360 avec huit scènes d'écoute, HyperFocus pour la concentration directionnelle dans le bruit. La différence, c'est la déclinaison en puissance. Le Stride V-PR (Power Rechargeable) est rechargeable Li-ion avec 18 heures d'autonomie. Le V-M (Mini) est le plus discret de la gamme BTE. Le V-SP (Super Power) et le V-UP (Ultra Power) fonctionnent sur piles 675 pour alimenter les écouteurs les plus puissants — ceux qui compensent des pertes profondes que les RIC ne couvrent pas.\n\nDans le calme, les performances sont excellentes pour un BTE : voix claires, amplification puissante mais sans distorsion sur les pertes sévères. Le générateur d'acouphènes est intégré sur tous les formats. Bobine T disponible partout — un vrai plus pour les boucles magnétiques des lieux publics, souvent négligées par les fabricants qui privilégient le Bluetooth.\n\nDans le bruit, HyperFocus apporte le même bénéfice que sur le Moxi : meilleure compréhension de l'interlocuteur face à vous en situation modérément bruyante. La limite du BTE par rapport au RIC : la position du microphone, plus éloignée du conduit auditif, peut capter davantage de bruit de vent en extérieur.\n\n## En pratique — la plateforme Sonova en version puissante\n\nCe que je retiens de la plateforme Sonova en BTE, c'est la fiabilité. Les Phonak Naída que j'ai adaptées pendant des années partagent le même ADN que le Stride Vivante — et les retours SAV étaient corrects. Le V-SP et le V-UP utilisent des piles 675, ce qui signifie une autonomie confortable de 5 à 7 jours selon l'amplification et le streaming. Pas de surprise en fin de journée.\n\nLe format V-M mérite qu'on s'y arrête. C'est le plus petit BTE de la gamme Unitron sur la plateforme Vivante — conçu pour les patients qui ont besoin d'un contour d'oreille mais veulent limiter la visibilité. Sur piles 312, l'autonomie est de 3 à 5 jours. Pour une perte modérée à sévère, c'est un compromis intéressant entre puissance et discrétion.\n\n## Pour qui ? Pas pour qui ?\n\nLe Stride Vivante 9 s'adresse à trois profils distincts selon le format. Le V-SP et le V-UP conviennent aux pertes sévères à profondes pour lesquelles un RIC ne suffit pas — c'est le terrain naturel du BTE. Le V-PR rechargeable convient aux porteurs qui préfèrent le contour classique par habitude ou pour la manipulation (plus facile à mettre et retirer qu'un RIC pour certains seniors). Le V-M convient à ceux qui veulent un BTE discret pour une perte modérée à sévère.\n\nPas pour vous si votre perte est légère à modérée et que la discrétion est votre priorité absolue — le Moxi Vivante RIC sera nettement moins visible. Pas non plus si vous cherchez les appels mains libres sur les formats V-SP/V-UP — cette fonction est réservée au V-PR.\n\n## Face à la concurrence\n\nPar rapport au Stride Discover Next (génération 2020), le Vivante apporte HyperFocus, un traitement du bruit amélioré et le Bluetooth LE. Le gain en confort d'écoute est significatif.\n\nFace au Phonak Naída Lumity, même plateforme Sonova, prix Unitron inférieur mais écosystème Phonak plus complet — notamment le Roger Direct, indispensable en milieu professionnel bruyant. Si vous n'avez pas besoin du Roger, le Stride Vivante offre une alternative crédible à moindre coût. Face à l'Oticon Xceed pour les pertes profondes, l'Oticon a l'avantage du réseau DNN et du traitement 360° ouvert, mais le Stride Vivante répond avec HyperFocus et FLEX:TRIAL.\n\n## Verdict expert\n\nNote : 7,0/10. Le Stride Vivante 9 est une alternative Sonova solide pour les pertes sévères à profondes, avec quatre formats BTE couvrant tous les besoins de puissance. HyperFocus et AutoFocus 360 complets, FLEX:TRIAL pour vérifier le bon niveau, et un prix plus accessible que le Phonak Naída. La limite reste l'écosystème d'accessoires et l'absence de Roger Direct.\n\nAppareil de classe 2. Prix constaté : 1 700 à 2 200 € par appareil, variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }
