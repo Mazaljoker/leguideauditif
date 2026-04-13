@@ -197,8 +197,27 @@ const { data: recentClaims } = await supabase
                 {c.a_propos && (
                   <p class="text-xs text-gris-texte font-sans mb-3">{c.a_propos}</p>
                 )}
-                <div class="flex gap-3 pt-3 border-t border-gris-clair">
+                <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-gris-clair">
                   <a href={`/centre/${c.slug}/`} target="_blank" class="text-xs text-orange font-sans font-medium hover:underline">Voir la fiche</a>
+                  {c.claim_status === 'approved' && c.plan !== 'premium' && (
+                    <button
+                      type="button"
+                      class="admin-premium rounded px-2 py-1 text-xs bg-orange text-blanc font-sans font-medium hover:bg-orange-hover cursor-pointer"
+                      data-slug={c.slug}
+                    >
+                      Offrir Premium
+                    </button>
+                  )}
+                  {c.plan === 'premium' && (
+                    <span class="text-xs text-[#0F6E56] font-sans font-medium">Premium actif</span>
+                  )}
+                  <div id={`premium-link-${c.slug}`} class="hidden w-full mt-2">
+                    <div class="flex gap-2">
+                      <input type="text" readonly class="flex-1 rounded border border-gris-clair px-2 py-1 text-xs font-mono bg-creme" />
+                      <button type="button" class="copy-link rounded px-2 py-1 text-xs bg-marine text-blanc font-sans cursor-pointer hover:bg-marine/80">Copier</button>
+                    </div>
+                    <p class="text-[10px] text-gris-texte font-sans mt-1">Envoyez ce lien au client — 1 clic = Premium active</p>
+                  </div>
                   {c.claim_status === 'approved' && (
                     <button
                       type="button"
@@ -218,6 +237,48 @@ const { data: recentClaims } = await supabase
   </section>
 
   <script>
+    // --- Offrir Premium ---
+    document.querySelectorAll('.admin-premium').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const slug = btn.getAttribute('data-slug');
+        btn.textContent = 'Generation...';
+
+        try {
+          const res = await fetch('/api/admin/generate-premium-link', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ centreSlug: slug }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error);
+
+          const container = document.getElementById('premium-link-' + slug);
+          if (container) {
+            const input = container.querySelector('input');
+            if (input) input.value = data.link;
+            container.classList.remove('hidden');
+          }
+          btn.textContent = 'Lien genere';
+          btn.setAttribute('disabled', 'true');
+        } catch (err) {
+          alert(err instanceof Error ? err.message : 'Erreur');
+          btn.textContent = 'Offrir Premium';
+        }
+      });
+    });
+
+    // --- Copier le lien premium ---
+    document.querySelectorAll('.copy-link').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const input = btn.parentElement?.querySelector('input');
+        if (input) {
+          navigator.clipboard.writeText(input.value);
+          btn.textContent = 'Copie !';
+          setTimeout(() => { btn.textContent = 'Copier'; }, 2000);
+        }
+      });
+    });
+
     // --- Revoquer un claim approuve ---
     document.querySelectorAll('.admin-revoke').forEach((btn) => {
       btn.addEventListener('click', async () => {
