@@ -211,6 +211,60 @@ const breadcrumbs = [
         <p class="text-xs text-gris-texte font-sans mt-1">500 caract&egrave;res max</p>
       </div>
 
+      {typedCentre.plan === 'premium' && (
+        <div class="mt-5">
+          <label class="block text-sm font-medium text-marine font-sans mb-2">
+            R&eacute;seaux sociaux <span class="text-xs text-gris-texte font-normal">(Premium)</span>
+          </label>
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div>
+              <label for="rs-facebook" class="block text-xs text-gris-texte font-sans mb-1">Facebook</label>
+              <input
+                id="rs-facebook"
+                name="rs_facebook"
+                type="url"
+                value={typedCentre.reseaux_sociaux?.facebook || ''}
+                placeholder="https://facebook.com/votre-page"
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+              />
+            </div>
+            <div>
+              <label for="rs-instagram" class="block text-xs text-gris-texte font-sans mb-1">Instagram</label>
+              <input
+                id="rs-instagram"
+                name="rs_instagram"
+                type="url"
+                value={typedCentre.reseaux_sociaux?.instagram || ''}
+                placeholder="https://instagram.com/votre-compte"
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+              />
+            </div>
+            <div>
+              <label for="rs-google" class="block text-xs text-gris-texte font-sans mb-1">Google Business</label>
+              <input
+                id="rs-google"
+                name="rs_google"
+                type="url"
+                value={typedCentre.reseaux_sociaux?.google || ''}
+                placeholder="https://g.page/votre-centre"
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+              />
+            </div>
+            <div>
+              <label for="rs-linkedin" class="block text-xs text-gris-texte font-sans mb-1">LinkedIn</label>
+              <input
+                id="rs-linkedin"
+                name="rs_linkedin"
+                type="url"
+                value={typedCentre.reseaux_sociaux?.linkedin || ''}
+                placeholder="https://linkedin.com/company/..."
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       <div id="edit-error" class="hidden mt-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
       <div id="edit-success" class="hidden mt-4 rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-700 font-sans"></div>
 
@@ -308,6 +362,17 @@ const breadcrumbs = [
       var specialites = formData.getAll('specialites');
       var marques = formData.getAll('marques');
 
+      // Reseaux sociaux (seulement si les champs existent = premium)
+      var reseaux = {};
+      var rsFb = formData.get('rs_facebook');
+      var rsIg = formData.get('rs_instagram');
+      var rsGo = formData.get('rs_google');
+      var rsLi = formData.get('rs_linkedin');
+      if (rsFb) reseaux.facebook = rsFb;
+      if (rsIg) reseaux.instagram = rsIg;
+      if (rsGo) reseaux.google = rsGo;
+      if (rsLi) reseaux.linkedin = rsLi;
+
       var payload = {
         centreSlug: centreSlug,
         nom: formData.get('nom'),
@@ -318,6 +383,7 @@ const breadcrumbs = [
         specialites: specialites,
         marques: marques,
       };
+      if (Object.keys(reseaux).length > 0) payload.reseaux_sociaux = reseaux;
 
       try {
         var res = await fetch('/api/centre-update', {
