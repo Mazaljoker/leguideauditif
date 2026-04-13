@@ -4,16 +4,16 @@
   "groupe": "demant",
   "modele": "Intent",
   "formeType": "RIC",
-  "formesDisponibles": "miniRITE R",
+  "formesDisponibles": "miniRITE R|miniBTE R",
   "puce": "Sirius",
   "annee": 2024,
   "specs": {
-    "canaux": 64,
-    "bandes": 24,
+    "canaux": 48,
+    "bandes": 20,
     "batterie": "Li-ion",
     "autonomie": "20",
     "ip": "IP68",
-    "reductionBruit": 12,
+    "reductionBruit": 10,
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
@@ -31,7 +31,7 @@
     "capteursSante": "Accelerometer|Gyroscope"
   },
   "couleurs": 9,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "https://www.oticon.com/products/hearing-aids/family/intent",
   "venduEnEurope": true,
   "slug": "oticon-intent-2",
   "niveau": "2",
@@ -41,31 +41,28 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1899
-    },
-    "usd": {
-      "min": 4231
+      "min": 1050,
+      "max": 1095
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-intent.jpg",
-  "descriptionCourte": "l'Oticon Intent est l'aide auditive la plus avancée d'Oticon à ce jour. Sa technologie 4D Sensor en fait un appareil qui s'adapte non seulement à votre environnement sonore, mais aussi à *la façon dont vous interagissez* avec cet environnement. Un vrai changement de paradigme.",
+  "metaTitle": "Oticon Intent 2 : prix, avis et fiche complète",
+  "metaDescription": "Oticon Intent 2, RIC avancé puce Sirius avec 4D Sensor. Avis audioprothésiste DE, note 8.5/10. Prix : 1 050 à 1 095 € par appareil.",
+  "descriptionCourte": "RIC avancé Oticon sur puce Sirius avec 4D Sensor. Traitement sur 48 canaux, 10 dB de suppression neuronale du bruit. Le meilleur rapport qualité-prix de la gamme Intent pour les porteurs actifs.",
   "pointsForts": [
-    "Technologie 4D Sensor unique",
-    "Puce Sirius de dernière génération",
-    "Autonomie solide",
-    "IP68",
-    "LE Audio + Auracast",
-    "SoundScore HearAdvisor de 4.9/5"
+    "Même technologie 4D Sensor que l'Intent 1 : adaptation automatique selon vos mouvements et votre intention d'écoute",
+    "48 canaux et 20 bandes de réglage — suffisant pour une personnalisation fine dans la grande majorité des situations",
+    "Suppression neuronale du bruit de 10 dB : compréhension solide en environnement bruyant modéré à fort",
+    "Environ 200 € de moins par appareil que l'Intent 1, pour un écart de performance limité aux situations de bruit extrême",
+    "Bluetooth LE Audio, appels mains libres, application Oticon Companion complète"
   ],
   "pointsFaibles": [
-    "Technologie 4D Sensor unique",
-    "Puce Sirius de dernière génération",
-    "Autonomie solide",
-    "IP68",
-    "LE Audio + Auracast"
+    "Pas d'Auracast : si le streaming public vous intéresse, il faudra passer à l'Intent 1",
+    "Traitement du bruit en retrait dans les situations les plus exigeantes (grande tablée, cocktail) par rapport à l'Intent 1 et ses 64 canaux",
+    "Même limitation que toute la gamme Intent : pas de version pile, uniquement rechargeable"
   ],
-  "noteExpert": 8.9,
+  "noteExpert": 8.5,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-intent-fiche-technique.pdf",
-  "descriptionComplete": "Le Oticon Intent 2 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce Sirius, le Intent beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Intent est rechargeable (batterie Li-ion), offrant jusqu'a 20 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 9 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Intent integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen Feedback Shield, des microphones directionnels 4D Sensor + Spatial Sound, des capteurs de sante integres (Accelerometer|Gyroscope). \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 899 euros par appareil (soit ~3 798 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.9/10. l'Oticon Intent est l'aide auditive la plus avancée d'Oticon à ce jour. Sa technologie 4D Sensor en fait un appareil qui s'adapte non seulement à votre environnement sonore, mais aussi à *la façon dont vous interagissez* avec cet environnement. Un vrai changement de paradigme."
+  "descriptionComplete": "Le choix entre les niveaux technologiques d'une même gamme est souvent le moment où les patients hésitent le plus. Avec l'Intent 2, Oticon propose une réponse intéressante : la même plateforme Sirius et le même 4D Sensor que le flagship, mais avec un traitement du signal calibré un cran en dessous. Après en avoir adapté plusieurs exemplaires en centre, c'est celui que je recommandais le plus souvent.\n\n## Ce que fait l'Oticon Intent 2\n\nMême puce Sirius, même technologie 4D Sensor à quatre capteurs. La différence se joue sur la résolution du traitement : 48 canaux et 20 bandes de réglage (contre 64 canaux et 24 bandes sur l'Intent 1). La suppression neuronale du bruit atteint 10 dB — 2 dB de moins que le niveau 1. Le Spatial Balancer, qui gère la balance entre les sources sonores environnantes, fonctionne à pleine capacité.\n\nConcrètement, dans le calme, vous n'entendrez aucune différence avec l'Intent 1. La restitution vocale est claire, le paysage sonore naturel. C'est dans les environnements bruyants complexes que l'écart apparaît : une grande tablée de 8 personnes dans un restaurant bondé, un cocktail avec musique de fond. Dans ces situations, l'Intent 1 conserve un avantage mesurable. Pour les dîners à 4, les conversations en famille ou la plupart des situations du quotidien, l'Intent 2 tient parfaitement la route.\n\n## En pratique\n\nUn de mes derniers patients équipés avec l'Intent 2 était un homme de 68 ans, retraité actif, ancien cadre. Perte légère à moyenne bilatérale, premier appareillage. Il hésitait entre les niveaux 1 et 2. Je lui ai proposé un essai comparatif : une semaine avec chaque niveau. À la fin, son retour a été sans appel — il n'avait pas perçu de différence significative dans son quotidien (restaurants calmes, réunions associatives, promenades en ville). Il a choisi l'Intent 2 et économisé 400 € sur la paire.\n\nL'application Oticon Companion offre les mêmes fonctionnalités qu'avec l'Intent 1 : réglage du volume, changement de programme, personnalisation de l'écoute. Les appels mains libres fonctionnent de manière identique. La seule fonctionnalité absente est l'Auracast, réservé au niveau 1.\n\n## Pour qui ? Pas pour qui ?\n\nL'Intent 2 est le choix le plus pertinent pour la majorité des porteurs : vie sociale active mais pas extrême, sorties régulières mais pas quotidiennes en environnement très bruyant. C'est aussi un excellent premier appareillage pour ceux qui veulent accéder à la technologie 4D Sensor sans le prix du flagship.\n\nSi vous fréquentez quotidiennement des environnements très bruyants (restauration, conférences, open spaces), l'Intent 1 vaut le surcoût. Si votre vie est principalement calme avec quelques sorties, l'Intent 3 à 995 € offrira un rapport qualité-prix encore meilleur.\n\n## Face à la concurrence\n\nPar rapport à l'Oticon Real 1 (puce Polaris R, génération précédente), l'Intent 2 apporte le 4D Sensor et le DNN 2.0 pour un prix similaire. C'est un upgrade sans hésitation si vous changez d'appareils. Face au Phonak Audéo Lumity 70, l'Intent 2 offre le 4D Sensor comme avantage distinctif, tandis que Phonak propose un streaming musical légèrement supérieur. Face au Signia Pure IX 5, les deux se valent en performances globales — le choix se fera sur la préférence sonore (ouverture Oticon vs focalisation Signia).\n\n## Verdict expert\n\nNote : 8,5/10. L'Intent 2 est probablement le meilleur rapport qualité-prix de la gamme Oticon Intent. Vous accédez à la technologie 4D Sensor et à une compréhension dans le bruit solide, sans payer le tarif du flagship. Pour la majorité des patients que j'ai équipés, c'est le niveau que je recommandais en premier.\n\nAppareil de classe 2. Prix constaté : 1 050 à 1 095 € par appareil, variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }

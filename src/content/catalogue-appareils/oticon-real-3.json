@@ -30,37 +30,38 @@
     "micDirectionnels": "MoreSound Intelligence 2.0"
   },
   "couleurs": 9,
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "https://www.oticon.com/products/hearing-aids/family/real",
   "venduEnEurope": true,
   "slug": "oticon-real-3",
   "niveau": "3",
   "niveauRaw": "3",
   "niveauPosition": 2,
+  "classe": "2",
   "rac0": false,
   "prix": {
-    "usd": {
-      "min": 2931
+    "eur": {
+      "min": 995,
+      "max": 1045
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-real.png",
-  "descriptionCourte": "l'Oticon Real est l'aide auditive qui a introduit le Wind & Handling Stabilizer et le SuddenSound Stabilizer chez Oticon — deux technologies qui rendent le son du quotidien plus naturel et moins fatigant. Proposé en 4 formats (dont 2 à piles), il offre une flexibilité que l'Intent ne propose pas, à un prix plus accessible.",
+  "metaTitle": "Oticon Real 3 : prix, avis et fiche complète",
+  "metaDescription": "Oticon Real 3, RIC milieu de gamme puce Polaris R. 64 canaux, Wind Stabilizer. Avis audioprothésiste DE, note 7.8/10. Dès 995 €.",
+  "descriptionCourte": "RIC milieu de gamme Oticon sur puce Polaris R. 64 canaux comme les niveaux supérieurs, Wind Stabilizer et SuddenSound Stabilizer inclus. Entrée accessible dans la gamme Real pour les budgets maîtrisés.",
   "pointsForts": [
-    "4 formats disponibles",
-    "Wind & Handling Stabilizer",
-    "SuddenSound Stabilizer",
-    "64 canaux sur les 3 niveaux",
-    "IP68",
-    "Prix plus accessible"
+    "Toujours 64 canaux et 24 bandes : même résolution de traitement que le Real 1, ce qui est exceptionnel pour un milieu de gamme",
+    "Wind & Handling Stabilizer et SuddenSound Stabilizer inclus — les deux fonctions clés de la gamme Real ne sont pas réservées au premium",
+    "Prix sous la barre des 1 050 € par appareil : entrée accessible dans la gamme Real",
+    "4 formats disponibles dont piles 312 : le plus de choix possible à ce niveau de prix chez Oticon"
   ],
   "pointsFaibles": [
-    "4 formats disponibles",
-    "Wind & Handling Stabilizer",
-    "SuddenSound Stabilizer",
-    "64 canaux sur les 3 niveaux",
-    "IP68"
+    "Algorithmes de traitement avancé du bruit les plus limités de la gamme Real — écart notable en situation très bruyante",
+    "Technologie Polaris R (2023) dépassée par la puce Sirius de l'Intent au même prix",
+    "Pas de Bluetooth LE Audio ni d'Auracast — connectivité d'ancienne génération",
+    "Pour 50 € de moins, l'Intent 3 offre le 4D Sensor sur puce Sirius — difficile à justifier pour un nouvel achat"
   ],
-  "noteExpert": 8.2,
+  "noteExpert": 7.8,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-real-datasheet.pdf",
-  "descriptionComplete": "Le Oticon Real 3 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce Polaris R, le Real beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE 5.0 permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Real est rechargeable (batterie Li-ion|312), offrant jusqu'a 16-22 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 9 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Real integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen Feedback Shield, des microphones directionnels MoreSound Intelligence 2.0. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.2/10. l'Oticon Real est l'aide auditive qui a introduit le Wind & Handling Stabilizer et le SuddenSound Stabilizer chez Oticon — deux technologies qui rendent le son du quotidien plus naturel et moins fatigant. Proposé en 4 formats (dont 2 à piles), il offre une flexibilité que l'Intent ne propose pas, à un prix plus accessible."
+  "descriptionComplete": "En tant qu'audioprothésiste, j'ai toujours apprécié qu'Oticon conserve les 64 canaux sur tous les niveaux de ses gammes. Le Real 3 en profite pleinement : à moins de 1 050 € par appareil, vous obtenez la même résolution de traitement que le flagship. Ce n'est pas anodin quand on sait que d'autres fabricants divisent les canaux par deux sur leurs niveaux d'entrée.\n\n## Ce que fait l'Oticon Real 3\n\nMême puce Polaris R que les Real 1 et 2, mêmes 64 canaux et 24 bandes. Le Wind & Handling Stabilizer et le SuddenSound Stabilizer sont présents — ce sont des atouts matériels communs à toute la gamme. La différence réside dans le niveau de sophistication des algorithmes de réduction du bruit : en situation très bruyante, le Real 3 offre moins de séparation parole/bruit que les niveaux supérieurs.\n\nDans le calme, la qualité sonore est très proche des autres niveaux. Les conversations à deux ou en petit groupe sont claires et confortables. Le Wind Stabilizer fonctionne de manière identique — si votre priorité est la gestion du vent, vous l'obtenez pleinement au niveau 3. En revanche, dans un restaurant bruyant ou une réunion de famille nombreuse, le Real 3 demandera davantage d'effort d'écoute que les niveaux supérieurs.\n\n## En pratique\n\nUne de mes patientes, 75 ans, veuve vivant seule, cherchait un appareil pour ses conversations quotidiennes avec ses voisines, la télévision, et ses promenades dans le parc avec son chien. Budget limité. Perte légère à moyenne bilatérale. Le Real 3 en miniRITE T (avec bobine pour la messe du dimanche) correspondait exactement à ses besoins.\n\nAprès trois mois, elle était satisfaite sur tous les fronts : les conversations étaient claires, la télévision confortable, et surtout — les promenades venteuses avec le chien n'étaient plus un calvaire. « Avant, je baissais le volume dehors et je n'entendais plus rien en rentrant. Maintenant, c'est stable. » Le Wind Stabilizer au niveau 3 fait le même travail qu'au niveau 1 pour ce type de situation.\n\n## Pour qui ? Pas pour qui ?\n\nLe Real 3 convient aux porteurs au quotidien calme à modéré, qui passent du temps en extérieur (le Wind Stabilizer fait la différence), et qui n'ont pas besoin du traitement du bruit le plus poussé. C'est aussi un bon choix pour les porteurs qui ont besoin de la bobine T ou d'une version à piles.\n\nCependant, pour un nouvel appareillage en 2025-2026, l'Intent 3 offre la technologie 4D Sensor et la puce Sirius pour un prix quasiment identique. Le Real 3 reste pertinent pour les porteurs déjà équipés qui veulent remplacer un appareil à pile usé, ou qui tiennent spécifiquement à un format miniBTE T non disponible dans la gamme Intent.\n\n## Face à la concurrence\n\nFace à l'Intent 3 au même prix, le Real 3 perd sur la technologie (pas de 4D Sensor, pas de LE Audio) mais gagne sur la polyvalence des formats. Pour un nouvel achat, l'Intent 3 est objectivement supérieur. Face au Phonak Audéo Lumity 30, le Real 3 a l'avantage des 64 canaux et du Wind Stabilizer. Face au Signia Pure IX 3, les performances sont comparables avec des philosophies sonores différentes.\n\n## Verdict expert\n\nNote : 7,8/10. Le Real 3 est un appareil honnête qui bénéficie de la politique d'Oticon de ne pas dégrader les canaux entre les niveaux. Les stabilisateurs de vent et de sons brusques au niveau 3 sont un vrai avantage pour les porteurs d'extérieur. Cependant, face à l'Intent 3 au même prix, sa recommandation pour un nouvel achat est devenue plus limitée.\n\nAppareil de classe 2. Prix constaté : 995 à 1 045 € par appareil, variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }

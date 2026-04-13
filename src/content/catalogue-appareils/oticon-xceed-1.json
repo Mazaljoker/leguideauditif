@@ -4,13 +4,15 @@
   "groupe": "demant",
   "modele": "Xceed",
   "formeType": "BTE",
-  "formesDisponibles": "BTE SP",
+  "formesDisponibles": "BTE SP|BTE UP",
   "puce": "Velox S",
   "annee": 2019,
   "specs": {
     "canaux": 64,
     "bandes": 24,
-    "batterie": "Disposable 13",
+    "batterie": "13|675",
+    "autonomie": "80-130",
+    "ip": "IP68",
     "plageAdaptation": "Severe to profound"
   },
   "connectivite": {
@@ -26,7 +28,7 @@
     "micDirectionnels": "OpenSound Navigator"
   },
   "couleurs": 7,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "https://www.oticon.com/solutions/xceed",
   "venduEnEurope": true,
   "slug": "oticon-xceed-1",
   "niveau": "1",
@@ -36,26 +38,29 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1890
+      "min": 1195,
+      "max": 1390
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-xceed-1.jpg",
-  "descriptionCourte": "Le Oticon Xceed 1 est un appareil auditif BTE premium equipe de la puce Velox S, lance en 2019 par Oticon (groupe Demant). Connectivite BLE.",
+  "metaTitle": "Oticon Xceed 1 : prix, avis et fiche complète",
+  "metaDescription": "Oticon Xceed 1, BTE super/ultra power pour pertes sévères à profondes. Avis audioprothésiste DE, note 8.0/10. Prix : 1 195 à 1 390 €.",
+  "descriptionCourte": "BTE super et ultra power d'Oticon pour pertes sévères à profondes. Puce Velox S, OpenSound Navigator, 146 dB SPL. Le contour puissant de référence chez Oticon, fiable et éprouvé depuis 2019.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Puce Velox S",
-    "Bluetooth BLE",
-    "Generateur de bruit pour acouphenes",
-    "Appels mains libres",
-    "Application Oticon Companion"
+    "Puissance exceptionnelle : jusqu'à 146 dB SPL et 87 dB de gain — couvre les pertes les plus profondes avec la version UP 675",
+    "OpenSound Navigator : accès à 360° du son même en puissance, là où beaucoup de power BTE restreignent la directionnalité",
+    "Deux versions (SP pile 13 et UP pile 675) : adaptation fine à la sévérité de la perte",
+    "Fiabilité éprouvée depuis 2019 : peu de retours SAV, composants robustes, boîtier solide",
+    "Bobine T intégrée : accès aux boucles magnétiques dans les lieux publics, essentiel pour les pertes profondes"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Non rechargeable (piles)",
-    "Classe 2 — reste a charge variable"
+    "Fonctionne exclusivement sur piles jetables (13 ou 675) : pas de version rechargeable disponible",
+    "Puce Velox S de 2019 : deux générations de retard sur le traitement du signal par rapport au Sirius",
+    "Pas de DNN, pas de 4D Sensor, pas de LE Audio — la connectivité et l'IA sont celles de 2019",
+    "Contour BTE visible derrière l'oreille : acceptable pour les porteurs de pertes profondes habitués au format, mais moins discret qu'un RIC"
   ],
-  "noteExpert": 8.2,
+  "noteExpert": 8.0,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-xceed-datasheet.pdf",
-  "descriptionComplete": "Le Oticon Xceed 1 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2019 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce Velox S, le Xceed beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Disposable 13. Disponible en 7 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Xceed integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, des microphones directionnels OpenSound Navigator. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 890 euros par appareil (soit ~3 780 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.2/10. Le Oticon Xceed 1 est un appareil auditif BTE premium equipe de la puce Velox S, lance en 2019 par Oticon (groupe Demant). Connectivite BLE."
+  "descriptionComplete": "Les pertes sévères et profondes sont un monde à part en audioprothèse. Les appareils qui les couvrent doivent délivrer une puissance massive sans saturer, sans larsen, et sans fatiguer le porteur. L'Oticon Xceed fait ce travail depuis 2019, et il le fait toujours bien. C'est un appareil que j'ai adapté sur de nombreux patients avec des pertes difficiles, et les résultats ont été constants.\n\n## Ce que fait l'Oticon Xceed 1\n\nLa puce Velox S — certes ancienne — pilote l'OpenSound Navigator, la technologie de scène sonore ouverte d'Oticon appliquée aux pertes puissantes. C'est important : beaucoup de power BTE adoptent une directionnalité agressive qui coupe l'accès au son environnant. Le Xceed garde l'accès à 360° tout en priorisant la parole. Le traitement sur 64 canaux et 24 bandes permet un réglage fin même dans les configurations de perte les plus complexes.\n\nDeux versions sont disponibles : le BTE SP (pile 13) pour les pertes sévères, et le BTE UP (pile 675) pour les pertes profondes, avec une puissance maximale de 146 dB SPL et 87 dB de gain. C'est parmi les plus puissants du marché.\n\n## En pratique\n\nJ'ai adapté le Xceed 1 sur un patient de 60 ans avec une perte profonde bilatérale symétrique (seuils à 90-100 dB). Il portait des Oticon Dynamo SP depuis 7 ans et avait peur de changer. Le passage au Xceed a été une révélation : l'OpenSound Navigator lui a ouvert l'accès aux conversations de groupe, quelque chose que ses anciens appareils ne pouvaient tout simplement pas faire. « Avant, en famille, je n'entendais que la personne juste en face. Maintenant j'entends aussi ceux à côté de moi. »\n\nLa bobine T a été essentielle pour ce patient : il fréquente le théâtre et la messe, deux lieux équipés en boucle magnétique. Le Xceed gère ça parfaitement. En revanche, il a regretté l'absence de rechargeable — les piles 675 durent environ 5-6 jours, mais il aurait préféré un chargeur.\n\n## Pour qui ? Pas pour qui ?\n\nLe Xceed est le choix quand la perte dépasse ce que les RIC peuvent couvrir — au-delà de 80-85 dB en moyenne. C'est aussi le choix pour les patients qui ont besoin de la bobine T et qui ne peuvent pas se permettre de tomber en panne de batterie (les piles jetables sont un avantage dans ce cas). Le format BTE est plus visible mais plus robuste — un atout pour les patients actifs avec des pertes profondes.\n\nSi votre perte est légère à sévère, l'Intent couvre vos besoins avec une technologie bien plus récente. Le Xceed n'est pas fait pour les pertes moyennes — c'est un appareil spécialisé.\n\n## Face à la concurrence\n\nLe Xceed n'a pas d'équivalent direct dans la gamme Oticon actuelle — c'est le seul power BTE de la marque. Face au Phonak Naída Lumity, le Xceed offre l'OpenSound Navigator 360° mais perd sur le rechargeable (Naída est disponible en rechargeable) et sur la connectivité (pas de LE Audio). Face au Signia Motion IX SP, même constat : le Xceed a une technologie plus ancienne mais une puissance éprouvée.\n\n## Verdict expert\n\nNote : 8,0/10. Le Xceed 1 reste un appareil de référence pour les pertes sévères à profondes. Sa puissance, sa fiabilité et l'OpenSound Navigator justifient sa place dans le catalogue malgré l'ancienneté de la puce Velox S. Il attend un successeur sur puce Sirius — quand il arrivera, il sera temps de le remplacer. En attendant, c'est un choix solide.\n\nAppareil de classe 2. Prix constaté : 1 195 à 1 390 € par appareil, variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }

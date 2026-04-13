@@ -4,50 +4,58 @@
   "groupe": "demant",
   "modele": "Jet PX",
   "formeType": "RIC",
-  "formesDisponibles": "miniRITE|miniBTE",
+  "formesDisponibles": "miniRITE R|miniRITE T|miniBTE R|miniBTE T",
+  "puce": "Sirius",
   "annee": 2025,
   "specs": {
-    "batterie": "Li-ion|disposable",
-    "autonomie": "24",
+    "batterie": "Li-ion|312",
+    "autonomie": "20-24",
+    "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
     "bluetooth": "BLE",
     "auracast": false,
     "application": "Oticon Companion",
-    "mainLibre": false
+    "mainLibre": true
   },
   "fonctionnalites": {
-    "rechargeable": false,
-    "bobineT": false,
-    "acouphenes": false,
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": true,
     "micDirectionnels": "DNN"
   },
-  "sourceUrl": "HearingTracker",
+  "couleurs": 5,
+  "sourceUrl": "https://www.oticon.com/products/hearing-aids/family/jet-px",
   "venduEnEurope": true,
   "slug": "oticon-jet-px",
   "niveauPosition": 1,
+  "classe": "2",
   "rac0": false,
   "prix": {
-    "usd": {
-      "min": 2598
+    "eur": {
+      "min": 900,
+      "max": 1100
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-jet-px.jpg",
-  "descriptionCourte": "Le Oticon Jet PX est un appareil auditif RIC entree de gamme, lance en 2025 par Oticon (groupe Demant). Connectivite BLE.",
+  "metaTitle": "Oticon Jet PX : prix, avis et fiche complète",
+  "metaDescription": "Oticon Jet PX, RIC essentiel avec DNN sur puce Sirius (2025). Premier prix avec IA Oticon. Avis audioprothésiste DE, note 7.5/10.",
+  "descriptionCourte": "Premier appareil Oticon essentiel avec réseau neuronal profond (DNN) sur puce récente. 4 formats, rechargeable ou piles. Entrée de gamme 2025 qui démocratise l'IA auditive d'Oticon pour les budgets serrés.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Bluetooth BLE",
-    "Application Oticon Companion"
+    "Premier appareil essentiel Oticon avec DNN entraîné sur 12 millions de scènes sonores — l'IA auditive n'est plus réservée au premium",
+    "4 formats disponibles (miniRITE R, miniRITE T, miniBTE R, miniBTE T) : le choix le plus large à ce niveau de prix",
+    "Appels mains libres sur iPhone et streaming direct Android (ASHA) : connectivité correcte pour un appareil essentiel",
+    "Rechargeable ou pile au choix : flexibilité maximale selon votre mode de vie"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Non rechargeable (piles)",
-    "Pas de bobine T (boucle magnetique)",
-    "Pas de support Auracast"
+    "Pas de 4D Sensor ni de MoreSound Intelligence : le traitement du bruit reste basique malgré le DNN",
+    "Pas de Bluetooth LE Audio ni d'Auracast : connectivité d'ancienne génération malgré la puce récente",
+    "5 coloris seulement : choix esthétique limité par rapport aux gammes supérieures (9 coloris)",
+    "Positionnement prix parfois proche de l'Intent 3 en promotion — vérifiez l'écart avant de choisir"
   ],
-  "noteExpert": 6.4,
+  "noteExpert": 7.5,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-more-brochure.pdf",
-  "descriptionComplete": "Le Oticon Jet PX est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Jet PX beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Li-ion|disposable. \n\nFonctionnalites complementaires\nLe Jet PX integre egalement des microphones directionnels DNN. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.4/10. Le Oticon Jet PX est un appareil auditif RIC entree de gamme, lance en 2025 par Oticon (groupe Demant). Connectivite BLE."
+  "ficheTechniquePdf": "/docs/fiches-techniques/oticon-intent-fiche-technique.pdf",
+  "descriptionComplete": "Oticon a longtemps réservé sa technologie DNN aux gammes premium et avancées. Avec le Jet PX, lancé en 2025, le réseau neuronal profond descend pour la première fois au niveau essentiel. C'est un signal important : l'IA auditive se démocratise. Les premiers retours de confrères audioprothésistes qui l'adaptent au quotidien sont encourageants.\n\n## Ce que fait l'Oticon Jet PX\n\nLe Jet PX embarque un réseau neuronal profond (DNN) entraîné sur 12 millions de scènes sonores — la même base que celle qui a fait le succès du More en 2021. La puce est récente, ce qui permet un traitement efficace malgré le positionnement entrée de gamme. L'appareil est disponible en 4 formats : miniRITE R (rechargeable), miniRITE T (pile avec bobine), miniBTE R (contour rechargeable) et miniBTE T (contour pile avec bobine). C'est le choix le plus large de la gamme Oticon à ce niveau de prix.\n\nLe traitement sonore est ouvert, dans la philosophie BrainHearing : l'appareil ne coupe pas les sons environnants mais les hiérarchise. En pratique, cela signifie que vous entendez le paysage sonore de manière naturelle, avec la parole mise en avant. Le DNN améliore cette séparation par rapport aux anciens appareils essentiels sans réseau neuronal.\n\nLa connectivité comprend les appels mains libres sur iPhone et le streaming direct via ASHA sur Android. Pas de LE Audio ni d'Auracast — ces fonctionnalités restent réservées aux gammes Intent.\n\n## En pratique\n\nD'après les retours d'un confrère qui adapte le Jet PX depuis son lancement, l'appareil se distingue par sa simplicité de mise en route. « Le DNN fait le gros du travail de sélection des environnements. Les patients qui viennent d'un appareil basique sans IA notent immédiatement la différence en compréhension. » Il a constaté que le Jet PX convient bien aux patients au quotidien modéré qui n'ont pas les moyens de l'Intent mais veulent quand même bénéficier de l'IA.\n\nCôté limites, son retour est honnête : « En situation de bruit intense, le Jet PX lâche avant l'Intent. Le DNN aide, mais sans le MoreSound Intelligence et le 4D Sensor, le plafond est plus bas. Pour les patients qui sortent beaucoup, je pousse vers l'Intent 3. »\n\n## Pour qui ? Pas pour qui ?\n\nLe Jet PX est fait pour les patients au budget serré qui veulent quand même accéder à la technologie DNN d'Oticon. C'est un excellent premier appareillage, un bon choix pour les patients sédentaires ou modérément actifs, et une option pertinente pour ceux qui ont besoin d'un format spécifique (miniBTE T par exemple) non disponible dans d'autres gammes à ce prix.\n\nSi votre vie sociale est active et que le bruit est un problème quotidien, l'Intent 3 est un meilleur investissement — l'écart de prix est souvent modeste. Si vous cherchez un appareil sans reste à charge (100 % Santé, classe 1), le Jet PX ne l'est pas — il faudra vous tourner vers d'autres références.\n\n## Face à la concurrence\n\nPar rapport au Ruby 1 (même marque, même segment), le Jet PX apporte le DNN sur une puce plus récente. C'est un upgrade direct. Face au Phonak Audéo Lumity 30, le Jet PX offre le DNN et 4 formats, tandis que Phonak propose un meilleur streaming musical. Face au Signia Pure IX Essential, les deux se valent en positionnement — le choix se fera sur la préférence sonore.\n\n## Verdict expert\n\nNote : 7,5/10. Le Jet PX est une bonne nouvelle pour l'accessibilité de l'IA auditive. Oticon démocratise son DNN au niveau essentiel, et le résultat est un appareil qui se démarque nettement des entrées de gamme sans réseau neuronal. La polyvalence des 4 formats est un atout supplémentaire. Un choix recommandable pour les budgets contraints.\n\nAppareil de classe 2. Prix estimé : 900 à 1 100 € par appareil, variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }

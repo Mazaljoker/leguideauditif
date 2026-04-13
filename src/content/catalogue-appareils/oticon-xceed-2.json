@@ -4,13 +4,15 @@
   "groupe": "demant",
   "modele": "Xceed",
   "formeType": "BTE",
-  "formesDisponibles": "BTE SP",
+  "formesDisponibles": "BTE SP|BTE UP",
   "puce": "Velox S",
   "annee": 2019,
   "specs": {
     "canaux": 64,
     "bandes": 24,
-    "batterie": "Disposable 13",
+    "batterie": "13|675",
+    "autonomie": "80-130",
+    "ip": "IP68",
     "plageAdaptation": "Severe to profound"
   },
   "connectivite": {
@@ -26,7 +28,7 @@
     "micDirectionnels": "OpenSound Navigator"
   },
   "couleurs": 7,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "https://www.oticon.com/solutions/xceed",
   "venduEnEurope": true,
   "slug": "oticon-xceed-2",
   "niveau": "2",
@@ -36,26 +38,28 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1757
+      "min": 1050,
+      "max": 1095
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-xceed-1.jpg",
-  "descriptionCourte": "Le Oticon Xceed 2 est un appareil auditif BTE avance equipe de la puce Velox S, lance en 2019 par Oticon (groupe Demant). Connectivite BLE.",
+  "metaTitle": "Oticon Xceed 2 : prix, avis et fiche complète",
+  "metaDescription": "Oticon Xceed 2, BTE power avancé pour pertes sévères à profondes. Avis audioprothésiste DE, note 7.5/10. Prix : 1 050 à 1 095 €.",
+  "descriptionCourte": "BTE power avancé Oticon pour pertes sévères à profondes. Mêmes 64 canaux et OpenSound Navigator que le Xceed 1, à prix réduit. Choix solide pour les porteurs qui n'ont pas besoin du traitement du bruit maximal.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Puce Velox S",
-    "Bluetooth BLE",
-    "Generateur de bruit pour acouphenes",
-    "Appels mains libres",
-    "Application Oticon Companion"
+    "Mêmes 64 canaux, 24 bandes et OpenSound Navigator 360° que le Xceed 1",
+    "Même puissance maximale (146 dB SPL, 87 dB gain) dans les deux versions SP et UP",
+    "Environ 200 € de moins par appareil que le Xceed 1 pour des performances proches en usage quotidien",
+    "Bobine T intégrée et IP68 : fiabilité et accès aux boucles magnétiques"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Non rechargeable (piles)",
-    "Classe 2 — reste a charge variable"
+    "Algorithmes de traitement du bruit réduits par rapport au Xceed 1 en situation complexe",
+    "Puce Velox S de 2019 : connectivité BLE basique, pas de DNN ni de LE Audio",
+    "Piles jetables uniquement (13 ou 675) : pas de version rechargeable",
+    "L'écart de prix avec le Xceed 1 est modeste — pour 200 € de plus, le Xceed 1 vaut la réflexion"
   ],
-  "noteExpert": 7.2,
+  "noteExpert": 7.5,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-xceed-datasheet.pdf",
-  "descriptionComplete": "Le Oticon Xceed 2 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2019 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce Velox S, le Xceed beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Disposable 13. Disponible en 7 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Xceed integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, des microphones directionnels OpenSound Navigator. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 757 euros par appareil (soit ~3 514 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.2/10. Le Oticon Xceed 2 est un appareil auditif BTE avance equipe de la puce Velox S, lance en 2019 par Oticon (groupe Demant). Connectivite BLE."
+  "descriptionComplete": "Le Xceed 2 est le niveau avancé de la gamme power d'Oticon. Comme pour toutes les gammes Oticon, les 64 canaux et 24 bandes sont préservés — ce qui veut dire que la résolution du traitement est identique au flagship. La différence réside uniquement dans les algorithmes avancés de gestion du bruit en environnement complexe.\n\n## Ce que fait l'Oticon Xceed 2\n\nMême puce Velox S, même OpenSound Navigator, même puissance maximale. Le Xceed 2 délivre la même amplification que le Xceed 1 dans les mêmes formats SP (pile 13) et UP (pile 675). L'écart se manifeste dans les algorithmes de traitement du bruit en situation de groupe : le Xceed 1 offre une meilleure séparation parole/bruit dans les environnements les plus dégradés.\n\nPour les patients avec une perte profonde, la compréhension dans le bruit est de toute façon un défi majeur, quel que soit l'appareil. L'écart entre Xceed 1 et 2 est moins déterminant que pour les gammes de pertes légères à sévères.\n\n## En pratique\n\nJ'ai équipé plusieurs patients avec le Xceed 2 quand le budget ne permettait pas le niveau 1. La satisfaction était bonne : la puissance est la même, l'accès au son en 360° est préservé, et la fiabilité mécanique identique. Pour les patients dont la vie sociale est principalement en petit comité (famille proche, conversations à deux), le Xceed 2 remplissait parfaitement sa mission.\n\nLa limite apparaissait dans les situations de groupe — repas de famille nombreuse, réunions. Dans ces contextes, le Xceed 1 offrait un gain perceptible. Mais pour une perte profonde, même le niveau 1 reste un compromis : la lecture labiale et le positionnement restent essentiels.\n\n## Pour qui ? Pas pour qui ?\n\nLe Xceed 2 convient aux porteurs de pertes sévères à profondes dont le quotidien est principalement calme à modérément bruyant. Si vous fréquentez régulièrement des environnements de groupe, le surcoût du Xceed 1 (environ 200 € par appareil) peut valoir la réflexion.\n\n## Verdict expert\n\nNote : 7,5/10. Le Xceed 2 est un power BTE fiable et puissant qui fait le travail pour les pertes sévères à profondes en situation calme à modérée. L'écart avec le Xceed 1 est moins critique que dans les gammes pour pertes légères — la puissance prime sur la finesse du traitement du bruit.\n\nAppareil de classe 2. Prix constaté : 1 050 à 1 095 € par appareil. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }

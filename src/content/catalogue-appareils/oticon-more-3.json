@@ -26,7 +26,7 @@
     "micDirectionnels": "MoreSound Intelligence"
   },
   "couleurs": 8,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "https://www.oticon.com/products/hearing-aids/family/more",
   "venduEnEurope": true,
   "slug": "oticon-more-3",
   "niveau": "3",
@@ -36,26 +36,30 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1552
+      "min": 850,
+      "max": 1000
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-more-1.png",
-  "descriptionCourte": "Le Oticon More 3 est un appareil auditif RIC milieu de gamme equipe de la puce Polaris, lance en 2021 par Oticon (groupe Demant). Rechargeable. Connectivite BLE.",
+  "metaTitle": "Oticon More 3 : prix, avis et fiche complète",
+  "metaDescription": "Oticon More 3, RIC milieu de gamme puce Polaris (2021). Remplacé par l'Intent 3. Avis audioprothésiste DE, note 7.0/10.",
+  "descriptionCourte": "RIC milieu de gamme Oticon de 2021 sur puce Polaris avec DNN. Remplacé par l'Intent 3. 64 canaux préservés au niveau 3 — un avantage Oticon, même en fin de vie commerciale.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce Polaris",
-    "Rechargeable",
-    "Bluetooth BLE",
-    "Generateur de bruit pour acouphenes",
-    "Application Oticon Companion"
+    "64 canaux et 24 bandes préservés au niveau 3 : même résolution de traitement que le More 1",
+    "Réseau neuronal profond DNN avec MoreSound Intelligence pour un son ouvert et naturel",
+    "Prix très accessible en fin de stock : souvent sous les 1 000 € par appareil",
+    "Fiabilité confirmée après 4+ ans de commercialisation"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Classe 2 — reste a charge variable",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Algorithmes de traitement du bruit les plus limités de la gamme More — les environnements bruyants sont difficiles",
+    "Pas de Wind Stabilizer, pas de SuddenSound Stabilizer, pas de 4D Sensor — trois générations de technologies manquantes",
+    "Bluetooth BLE classique sans mains libres ni LE Audio",
+    "L'Intent 3 à prix comparable offre une technologie nettement supérieure — le More 3 n'a plus d'argument commercial"
   ],
-  "noteExpert": 6.9,
+  "noteExpert": 7.0,
   "enAvant": false,
+  "legacy": true,
+  "legacyReason": "Remplacé par l'Oticon Intent 3 (2024). Puce Polaris première génération, trois générations de technologies en retard.",
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-more-brochure.pdf",
-  "descriptionComplete": "Le Oticon More 3 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce Polaris, le More beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe More est rechargeable (batterie Li-ion|312). Un chargeur est fourni avec l'appareil. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe More integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, des microphones directionnels MoreSound Intelligence. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 552 euros par appareil (soit ~3 104 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.9/10. Le Oticon More 3 est un appareil auditif RIC milieu de gamme equipe de la puce Polaris, lance en 2021 par Oticon (groupe Demant). Rechargeable. Connectivite BLE."
+  "descriptionComplete": "Le More 3 était le point d'entrée de la gamme More en 2021. Comme tous les appareils Oticon, il conservait les 64 canaux du flagship — un avantage réel par rapport aux concurrents qui réduisaient la résolution au niveau d'entrée. Aujourd'hui en fin de vie commerciale, il reste porté par des patients qui n'ont pas encore renouvelé.\n\n## Ce que fait l'Oticon More 3\n\nPuce Polaris, réseau neuronal profond DNN, MoreSound Intelligence. Le traitement est identique en résolution (64 canaux, 24 bandes) mais les algorithmes avancés de gestion du bruit sont les plus limités de la gamme. Dans le calme, le More 3 offre une écoute naturelle et confortable. Dès que le bruit augmente — restaurant, famille nombreuse — l'effort d'écoute devient nettement supérieur à ce que proposent les niveaux 1 et 2.\n\nLa connectivité est minimale pour un appareil premium : BLE classique, pas de mains libres, pas de streaming Auracast. L'application Oticon Companion permet les réglages de base.\n\n## En pratique\n\nLe More 3 a bien fonctionné pour les patients au quotidien calme : domicile, conversations en petit comité, télévision. Pour ce profil d'utilisation, le DNN apportait un gain de naturel par rapport aux appareils sans réseau neuronal de l'époque. Mais dès que les patients essayaient un Real 3 ou un Intent 3, la différence était nette — surtout en extérieur avec le Wind Stabilizer, et en situation bruyante avec les algorithmes plus récents.\n\n## Pour qui aujourd'hui ?\n\nLe More 3 n'a plus d'argument face aux gammes actuelles. Si vous le portez et qu'il fonctionne, il reste un appareil correct pour un usage calme. Mais pour tout renouvellement, l'Intent 3 offre le 4D Sensor, le LE Audio et les stabilisateurs pour un prix équivalent ou inférieur.\n\n## Verdict expert\n\nNote : 7,0/10 (pour sa génération). Appareil correct qui a rempli son rôle d'entrée de gamme premium. Aujourd'hui dépassé technologiquement. Pour un nouvel achat, l'Intent 3 est le choix évident.\n\nAppareil de classe 2. Prix constaté (fin de stock) : 850 à 1 000 € par appareil. Remboursement Sécurité sociale : 240 € par appareil."
 }

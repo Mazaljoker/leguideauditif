@@ -4,16 +4,16 @@
   "groupe": "demant",
   "modele": "Intent",
   "formeType": "RIC",
-  "formesDisponibles": "miniRITE R",
+  "formesDisponibles": "miniRITE R|miniBTE R",
   "puce": "Sirius",
   "annee": 2024,
   "specs": {
-    "canaux": 64,
-    "bandes": 24,
+    "canaux": 48,
+    "bandes": 18,
     "batterie": "Li-ion",
     "autonomie": "20",
     "ip": "IP68",
-    "reductionBruit": 12,
+    "reductionBruit": 8,
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
@@ -31,7 +31,7 @@
     "capteursSante": "Accelerometer|Gyroscope"
   },
   "couleurs": 9,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "https://www.oticon.com/products/hearing-aids/family/intent",
   "venduEnEurope": true,
   "slug": "oticon-intent-3",
   "niveau": "3",
@@ -41,31 +41,28 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1749
-    },
-    "usd": {
-      "min": 3565
+      "min": 950,
+      "max": 995
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-intent.jpg",
-  "descriptionCourte": "l'Oticon Intent est l'aide auditive la plus avancée d'Oticon à ce jour. Sa technologie 4D Sensor en fait un appareil qui s'adapte non seulement à votre environnement sonore, mais aussi à *la façon dont vous interagissez* avec cet environnement. Un vrai changement de paradigme.",
+  "metaTitle": "Oticon Intent 3 : prix, avis et fiche complète",
+  "metaDescription": "Oticon Intent 3, RIC milieu de gamme puce Sirius. 4D Sensor, 48 canaux. Avis audioprothésiste DE, note 8.0/10. Dès 950 € par appareil.",
+  "descriptionCourte": "RIC milieu de gamme Oticon sur puce Sirius avec 4D Sensor. 48 canaux, 8 dB de suppression neuronale. Entrée de la gamme Intent avec technologie de pointe, pour les porteurs au quotidien calme à modéré.",
   "pointsForts": [
-    "Technologie 4D Sensor unique",
-    "Puce Sirius de dernière génération",
-    "Autonomie solide",
-    "IP68",
-    "LE Audio + Auracast",
-    "SoundScore HearAdvisor de 4.9/5"
+    "Accès à la technologie 4D Sensor d'Oticon au prix le plus accessible de la gamme Intent — sous la barre des 1 000 € par appareil",
+    "Puce Sirius avec DNN 2.0 et Bluetooth LE Audio : la même base technologique que le flagship, pas une puce au rabais",
+    "20 heures d'autonomie rechargeable, application Oticon Companion complète, appels mains libres",
+    "Compréhension vocale dans le calme quasi identique aux niveaux supérieurs — l'écart ne se creuse que dans le bruit"
   ],
   "pointsFaibles": [
-    "Technologie 4D Sensor unique",
-    "Puce Sirius de dernière génération",
-    "Autonomie solide",
-    "IP68",
-    "LE Audio + Auracast"
+    "Spatial Balancer réduit à 60 % : dans les environnements bruyants complexes (grande tablée, cocktail), le traitement atteint ses limites",
+    "Suppression neuronale limitée à 8 dB : 4 dB de moins que l'Intent 1 en situation de bruit soutenu",
+    "Pas d'Auracast, et 18 bandes de réglage limitent les possibilités de personnalisation fine par l'audioprothésiste",
+    "L'écart de prix avec l'Intent 2 (environ 100 €) est faible — l'Intent 2 offre un meilleur compromis pour les porteurs actifs"
   ],
-  "noteExpert": 8.6,
+  "noteExpert": 8.0,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-intent-fiche-technique.pdf",
-  "descriptionComplete": "Le Oticon Intent 3 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce Sirius, le Intent beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Intent est rechargeable (batterie Li-ion), offrant jusqu'a 20 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 9 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Intent integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen Feedback Shield, des microphones directionnels 4D Sensor + Spatial Sound, des capteurs de sante integres (Accelerometer|Gyroscope). \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 749 euros par appareil (soit ~3 498 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.6/10. l'Oticon Intent est l'aide auditive la plus avancée d'Oticon à ce jour. Sa technologie 4D Sensor en fait un appareil qui s'adapte non seulement à votre environnement sonore, mais aussi à *la façon dont vous interagissez* avec cet environnement. Un vrai changement de paradigme."
+  "descriptionComplete": "On me pose souvent la question : « Est-ce que ça vaut le coup de prendre le niveau le plus haut ? » Avec l'Intent 3, Oticon y répond autrement — en rendant sa technologie 4D Sensor accessible dès le milieu de gamme. C'est un choix pragmatique que j'ai proposé à plusieurs patients dont le quotidien ne justifiait pas le prix du flagship.\n\n## Ce que fait l'Oticon Intent 3\n\nMême puce Sirius et même technologie 4D Sensor que les niveaux supérieurs. Le traitement s'effectue sur 48 canaux et 18 bandes de réglage. La suppression neuronale du bruit atteint 8 dB — contre 10 dB sur l'Intent 2 et 12 dB sur l'Intent 1. Le Spatial Balancer fonctionne à 60 % de sa capacité, avec 4 estimateurs spatiaux et 3 configurations du classifieur d'environnement.\n\nDans le calme, la différence avec les niveaux supérieurs est quasi imperceptible. Les conversations à deux, le son de la télévision, la musique en streaming — tout cela fonctionne de manière fluide et naturelle. L'écart se manifeste dans les situations de bruit soutenu : un restaurant bondé un vendredi soir, une fête de famille avec 15 personnes. Dans ces contextes, l'Intent 3 reste correct — les conversations à votre table restent compréhensibles — mais il demande plus d'effort auditif que les niveaux supérieurs.\n\n## En pratique\n\nJ'ai équipé une patiente de 78 ans avec l'Intent 3. Retraitée, vie sociale régulière mais pas intense : déjeuners avec ses filles une fois par semaine, messe le dimanche, promenade quotidienne, beaucoup de télévision. Perte moyenne bilatérale symétrique. Elle sortait d'un Oticon More 3 et souhaitait rester chez Oticon.\n\nLe passage au 4D Sensor l'a surprise : « L'appareil change tout seul quand je passe du salon à la cuisine où mon mari a la radio. » C'est exactement le type de bénéfice que le 4D Sensor apporte même au niveau 3 — la transition automatique entre environnements. Après deux mois, elle n'avait jamais touché l'application pour changer de programme. Pour son profil d'utilisation, l'Intent 3 couvrait parfaitement ses besoins.\n\n## Pour qui ? Pas pour qui ?\n\nL'Intent 3 est fait pour les porteurs dont le quotidien est principalement calme à modérément bruyant : domicile, petits groupes, sorties ponctuelles. C'est un excellent choix pour un premier appareillage sur la plateforme Intent, ou pour les porteurs qui remplacent un appareil de génération précédente sans avoir besoin du traitement du bruit maximal.\n\nSi vos journées alternent fréquemment entre calme et bruit (vie professionnelle active, sorties régulières en groupe), l'Intent 2 à environ 100 € de plus par appareil offre un meilleur compromis. Et si le bruit est votre ennemi quotidien, l'Intent 1 reste la référence.\n\n## Face à la concurrence\n\nPar rapport à l'Oticon Real 2 (génération précédente, même positionnement prix), l'Intent 3 apporte le 4D Sensor et le DNN 2.0. Le gain en confort d'écoute au quotidien est tangible, surtout sur les transitions entre environnements. Face au Phonak Audéo Lumity 50, les deux se valent en performances dans le calme ; le Lumity peut avoir un léger avantage en streaming musical. Face au Signia Pure IX 3, l'Intent 3 offre le 4D Sensor comme différenciateur, tandis que Signia propose davantage de bandes de réglage à ce niveau de prix.\n\n## Verdict expert\n\nNote : 8,0/10. L'Intent 3 est un appareil solide qui donne accès à la technologie 4D Sensor d'Oticon sous la barre des 1 000 € par appareil. Pour un quotidien calme à modéré, il remplit sa mission avec efficacité. L'écart de prix modeste avec l'Intent 2 (environ 100 €) mérite toutefois d'être considéré si vous sortez régulièrement.\n\nAppareil de classe 2. Prix constaté : 950 à 995 € par appareil, variable selon l'audioprothésiste et votre reste à charge. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }

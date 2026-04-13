@@ -26,7 +26,7 @@
     "micDirectionnels": "MoreSound Intelligence"
   },
   "couleurs": 8,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "https://www.oticon.com/products/hearing-aids/family/more",
   "venduEnEurope": true,
   "slug": "oticon-more-2",
   "niveau": "2",
@@ -36,25 +36,30 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1706
+      "min": 950,
+      "max": 1100
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-more-1.png",
-  "descriptionCourte": "Le Oticon More 2 est un appareil auditif RIC avance equipe de la puce Polaris, lance en 2021 par Oticon (groupe Demant). Rechargeable. Connectivite BLE.",
+  "metaTitle": "Oticon More 2 : prix, avis et fiche complète",
+  "metaDescription": "Oticon More 2, RIC avancé puce Polaris (2021). Remplacé par l'Intent. Avis audioprothésiste DE, note 7.5/10. Bon rapport qualité/prix legacy.",
+  "descriptionCourte": "RIC avancé Oticon de 2021 sur puce Polaris avec DNN. Remplacé par l'Intent 2, mais encore disponible en fin de stock. 64 canaux, bon rapport qualité-prix pour sa génération.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce Polaris",
-    "Rechargeable",
-    "Bluetooth BLE",
-    "Generateur de bruit pour acouphenes",
-    "Application Oticon Companion"
+    "Mêmes 64 canaux et 24 bandes que le More 1 : résolution de traitement identique au premium",
+    "Réseau neuronal profond (DNN) entraîné sur 12 millions de scènes sonores",
+    "Prix en fin de stock attractif par rapport aux gammes actuelles",
+    "Bonne fiabilité mécanique confirmée après plusieurs années de recul"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Classe 2 — reste a charge variable"
+    "Pas de Wind Stabilizer ni de SuddenSound Stabilizer — irritants en extérieur non traités",
+    "Bluetooth BLE classique sans mains libres : il faut tenir le téléphone pour les appels",
+    "Algorithmes de traitement du bruit en retrait par rapport au More 1 dans les environnements complexes",
+    "Deux générations de retard : l'Intent 2 au même prix offre le 4D Sensor et le LE Audio"
   ],
-  "noteExpert": 7.4,
+  "noteExpert": 7.5,
   "enAvant": false,
+  "legacy": true,
+  "legacyReason": "Remplacé par l'Oticon Intent 2 (2024). Puce Polaris première génération, pas de 4D Sensor ni de LE Audio.",
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-more-brochure.pdf",
-  "descriptionComplete": "Le Oticon More 2 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce Polaris, le More beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe More est rechargeable (batterie Li-ion|312). Un chargeur est fourni avec l'appareil. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe More integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, des microphones directionnels MoreSound Intelligence. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 706 euros par appareil (soit ~3 412 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.4/10. Le Oticon More 2 est un appareil auditif RIC avance equipe de la puce Polaris, lance en 2021 par Oticon (groupe Demant). Rechargeable. Connectivite BLE."
+  "descriptionComplete": "Le More 2 partage avec le More 1 la même particularité Oticon : les 64 canaux et 24 bandes sont préservés au niveau avancé. En 2021, c'était un argument de poids face à la concurrence qui réduisait les canaux dès le deuxième niveau. Aujourd'hui, l'appareil est en fin de vie commerciale, mais il reste porté par de nombreux patients.\n\n## Ce que fait l'Oticon More 2\n\nMême puce Polaris et même réseau neuronal profond que le More 1. Le MoreSound Intelligence traite l'environnement sonore de manière ouverte, sans focalisation artificielle. La différence avec le More 1 se situe sur les algorithmes avancés de traitement du bruit en environnement complexe — en pratique, un écart perceptible uniquement dans les situations de bruit intense.\n\nLe streaming fonctionne via BLE classique vers les smartphones compatibles. Pas de mains libres — pour les appels, vous devez tenir votre téléphone comme avec n'importe quel kit Bluetooth basique. C'est la limite de la connectivité de cette génération.\n\n## En pratique\n\nLe More 2 a été mon choix fréquent pour les patients au budget intermédiaire entre 2021 et 2023. Il offrait un très bon compromis : les mêmes 64 canaux que le premium, un DNN efficace, et un prix plus accessible. Les retours à long terme confirment sa fiabilité — peu de pannes, composants durables.\n\nLa principale frustration remontée par les patients : le vent. Sans Wind Stabilizer, les promenades et activités extérieures restent un point faible. C'est le premier gain que les patients notent quand ils passent au Real ou à l'Intent.\n\n## Pour qui aujourd'hui ?\n\nLe More 2 n'est plus recommandé en premier choix. Si vous le portez et qu'il fonctionne, continuez — il n'y a pas d'urgence médicale à changer un appareil qui remplit sa fonction. Le passage à l'Intent 2 ou 3 se justifie quand vous êtes prêt à renouveler, pour bénéficier du 4D Sensor, du LE Audio et des stabilisateurs.\n\n## Verdict expert\n\nNote : 7,5/10 (pour sa génération). Appareil fiable et honnête qui a bien servi sa génération. Pour un nouvel achat en 2025-2026, l'Intent 2 ou 3 sont des choix nettement supérieurs au même prix.\n\nAppareil de classe 2. Prix constaté (fin de stock) : 950 à 1 100 € par appareil. Remboursement Sécurité sociale : 240 € par appareil."
 }

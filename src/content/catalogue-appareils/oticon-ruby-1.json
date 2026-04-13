@@ -9,6 +9,8 @@
   "annee": 2020,
   "specs": {
     "batterie": "Li-ion|312",
+    "autonomie": "16-20",
+    "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
@@ -21,10 +23,11 @@
     "rechargeable": true,
     "bobineT": false,
     "acouphenes": false,
+    "antiFeedback": "SuperShield",
     "micDirectionnels": "SuperShield FB"
   },
   "couleurs": 5,
-  "sourceUrl": "MySecondEar",
+  "sourceUrl": "https://www.oticon.com/products/223009/oticon-ruby-minirite-r",
   "venduEnEurope": true,
   "slug": "oticon-ruby-1",
   "niveau": "1",
@@ -34,25 +37,28 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1390
+      "min": 1050,
+      "max": 1390
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-ruby-1.jpg",
-  "descriptionCourte": "Le Oticon Ruby 1 est un appareil auditif RIC premium equipe de la puce Polaris, lance en 2020 par Oticon (groupe Demant). Rechargeable. Connectivite BLE.",
+  "metaTitle": "Oticon Ruby 1 : prix, avis et fiche complète",
+  "metaDescription": "Oticon Ruby 1, RIC entrée de gamme puce Polaris. SuperShield anti-larsen. Avis audioprothésiste DE, note 7.5/10. Prix : 1 050 à 1 390 €.",
+  "descriptionCourte": "RIC entrée de gamme Oticon sur puce Polaris avec gestion anti-larsen SuperShield. Rechargeable ou pile 312. Appareil fiable pour les premiers appareillages avec un budget maîtrisé, pertes légères à sévères.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce Polaris",
-    "Rechargeable",
-    "Bluetooth BLE",
-    "Application Oticon Companion"
+    "Système anti-larsen SuperShield efficace : réduit le sifflement avant qu'il ne se produise, un vrai confort au quotidien",
+    "Rechargeable en miniRITE R avec autonomie d'une journée complète — ou version pile 312 pour plus de flexibilité",
+    "Puce Polaris avec traitement sonore BrainHearing : même base technologique que le More, à prix réduit",
+    "3 formats disponibles (miniRITE R, miniRITE T, miniBTE T) : choix entre rechargeable, bobine, ou contour classique"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable"
+    "Pas de réseau neuronal profond (DNN) : le traitement du bruit est moins sophistiqué que sur le More ou l'Intent",
+    "Pas de générateur d'acouphènes intégré — si vous souffrez d'acouphènes, orientez-vous vers le Real ou l'Intent",
+    "Bluetooth BLE basique sans mains libres : les appels nécessitent de tenir le téléphone",
+    "5 coloris seulement contre 8-9 sur les gammes supérieures — choix esthétique limité"
   ],
-  "noteExpert": 8.4,
+  "noteExpert": 7.5,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-more-brochure.pdf",
-  "descriptionComplete": "Le Oticon Ruby 1 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2020 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce Polaris, le Ruby beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Ruby est rechargeable (batterie Li-ion|312). Un chargeur est fourni avec l'appareil. Disponible en 5 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Ruby integre egalement des microphones directionnels SuperShield FB. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 390 euros par appareil (soit ~2 780 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.4/10. Le Oticon Ruby 1 est un appareil auditif RIC premium equipe de la puce Polaris, lance en 2020 par Oticon (groupe Demant). Rechargeable. Connectivite BLE."
+  "descriptionComplete": "Le Ruby est l'appareil qu'Oticon propose aux patients qui veulent accéder à la marque sans le budget des gammes premium. Lancé en 2020 sur la puce Polaris, il a été conçu pour les premiers appareillages et les budgets contraints. Son point fort inattendu : le système anti-larsen SuperShield, qui a convaincu beaucoup de patients déçus par le sifflement de leurs précédents appareils.\n\n## Ce que fait l'Oticon Ruby 1\n\nLa puce Polaris (première génération) pilote un traitement sonore BrainHearing simplifié — sans le réseau neuronal profond DNN que l'on trouve sur le More et les gammes supérieures. Le son est ouvert et naturel, dans la philosophie Oticon, mais le traitement du bruit est moins raffiné. La grande particularité du Ruby est le SuperShield : un système anti-larsen qui détecte et supprime le sifflement avant qu'il ne se produise. En pratique, cela signifie moins de gêne quand vous mettez un chapeau, décrochez le téléphone, ou serrez quelqu'un dans vos bras.\n\nLe Ruby est disponible en version rechargeable (miniRITE R, batterie Li-ion) et en version pile (miniRITE T avec bobine, miniBTE T). L'autonomie rechargeable couvre une journée complète. Le streaming audio fonctionne via BLE classique — pas de mains libres.\n\n## En pratique\n\nJ'ai souvent proposé le Ruby 1 aux patients de plus de 75 ans qui venaient pour un premier appareillage et ne voulaient pas investir dans un appareil premium. C'est un appareil simple, fiable, facile à manipuler. Le SuperShield faisait une vraie différence : les patients qui avaient abandonné un précédent appareil à cause du sifflement retrouvaient confiance.\n\nUne patiente de 80 ans, équipée en Ruby 1 miniRITE R, m'a dit après un mois : « C'est la première fois que mes enfants ne me disent pas que mes appareils sifflent quand je les embrasse. » Anecdotique mais révélateur. Pour son quotidien — télévision, conversations à domicile, téléphone — le Ruby 1 suffisait largement.\n\nEn revanche, en situation bruyante (restaurant, fête de famille), le Ruby 1 montre ses limites. Sans DNN, la séparation parole/bruit est basique. Les patients actifs socialement ont intérêt à monter en gamme.\n\n## Pour qui ? Pas pour qui ?\n\nLe Ruby 1 convient aux premiers appareillages avec un quotidien principalement calme, aux patients qui privilégient la simplicité et le budget, et à ceux qui ont eu des problèmes de larsen par le passé. C'est aussi une option pour les patients qui veulent un appareil Oticon à piles en miniBTE T.\n\nSi vous sortez régulièrement en milieu bruyant, l'Intent 3 ou le Real 3 au même prix offrent un traitement du bruit nettement supérieur. Si vous souffrez d'acouphènes, le Ruby n'intègre pas de générateur de bruit — passez au Real ou à l'Intent.\n\n## Face à la concurrence\n\nPar rapport à l'Intent 3 (même fourchette de prix), le Ruby 1 perd sur le traitement du bruit mais offre le SuperShield comme atout anti-larsen. Face au Phonak Audéo Lumity 30, le Ruby est en retrait sur la connectivité et le traitement du bruit. Face aux appareils de classe 1 (100 % Santé), le Ruby 1 offre un meilleur traitement sonore mais avec un reste à charge.\n\n## Verdict expert\n\nNote : 7,5/10. Le Ruby 1 est un appareil honnête pour un premier appareillage ou un budget contraint. Le SuperShield est un vrai différenciateur pour les patients sensibles au larsen. Mais face aux gammes actuelles au même prix, il reste technologiquement limité. Pour un nouvel achat en 2025-2026, vérifiez si l'Intent 3 ne couvre pas mieux vos besoins.\n\nAppareil de classe 2. Prix constaté : 1 050 à 1 390 € par appareil, variable selon l'audioprothésiste. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }

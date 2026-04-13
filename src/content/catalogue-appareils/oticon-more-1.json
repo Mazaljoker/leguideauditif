@@ -26,7 +26,7 @@
     "micDirectionnels": "MoreSound Intelligence"
   },
   "couleurs": 8,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "https://www.oticon.com/products/hearing-aids/family/more",
   "venduEnEurope": true,
   "slug": "oticon-more-1",
   "niveau": "1",
@@ -36,25 +36,30 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1859
+      "min": 1100,
+      "max": 1300
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-more-1.png",
-  "descriptionCourte": "Le Oticon More 1 est un appareil auditif RIC premium equipe de la puce Polaris, lance en 2021 par Oticon (groupe Demant). Rechargeable. Connectivite BLE.",
+  "metaTitle": "Oticon More 1 : prix, avis et fiche complète",
+  "metaDescription": "Oticon More 1, RIC premium puce Polaris (2021). Remplacé par l'Intent. Avis audioprothésiste DE, note 8.0/10. Encore porté par de nombreux patients.",
+  "descriptionCourte": "RIC premium Oticon de 2021 sur puce Polaris avec DNN et MoreSound Intelligence. Remplacé par l'Intent, mais encore porté par des milliers de patients. Solide en compréhension vocale, connectivité BLE basique.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce Polaris",
-    "Rechargeable",
-    "Bluetooth BLE",
-    "Generateur de bruit pour acouphenes",
-    "Application Oticon Companion"
+    "Premier appareil Oticon avec réseau neuronal profond (DNN) entraîné sur 12 millions de scènes sonores — une vraie rupture en 2021",
+    "64 canaux et 24 bandes de réglage : même résolution que les gammes actuelles Real et Intent",
+    "Compréhension de la parole dans le bruit très solide pour sa génération, au-dessus de la moyenne en mesures de laboratoire",
+    "Version pile 312 disponible en miniRITE T : autonomie supérieure pour les voyageurs"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Classe 2 — reste a charge variable"
+    "Pas de Wind Stabilizer ni de SuddenSound Stabilizer : le vent et les sons brusques restent un irritant",
+    "Bluetooth BLE classique sans mains libres ni LE Audio — deux générations de retard en connectivité",
+    "Remplacé par le Real puis l'Intent : plus proposé en première intention par les audioprothésistes",
+    "Streaming musical limité par rapport à la concurrence Phonak de la même époque (Paradise 90)"
   ],
-  "noteExpert": 8.4,
+  "noteExpert": 8.0,
   "enAvant": false,
+  "legacy": true,
+  "legacyReason": "Remplacé par l'Oticon Intent (2024). Génération précédente (puce Polaris vs Sirius), pas de 4D Sensor ni de LE Audio.",
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-more-brochure.pdf",
-  "descriptionComplete": "Le Oticon More 1 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce Polaris, le More beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe More est rechargeable (batterie Li-ion|312). Un chargeur est fourni avec l'appareil. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe More integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, des microphones directionnels MoreSound Intelligence. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 859 euros par appareil (soit ~3 718 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.4/10. Le Oticon More 1 est un appareil auditif RIC premium equipe de la puce Polaris, lance en 2021 par Oticon (groupe Demant). Rechargeable. Connectivite BLE."
+  "descriptionComplete": "L'Oticon More a été un appareil marquant dans l'histoire d'Oticon. C'est le premier à avoir embarqué un réseau neuronal profond (DNN) entraîné sur 12 millions de scènes sonores réelles. Quand il est sorti en 2021, c'était une vraie avancée. J'en ai adapté des dizaines, et il reste porté par de nombreux patients aujourd'hui — ce qui dit beaucoup sur sa fiabilité.\n\n## Ce que fait l'Oticon More 1\n\nLa puce Polaris (première génération, pas la Polaris R du Real) pilote le MoreSound Intelligence — la première version de la technologie de scène sonore ouverte d'Oticon. Le DNN analyse en continu l'environnement et ajuste le traitement pour préserver l'accès à l'ensemble du paysage sonore, plutôt que de focaliser artificiellement sur une seule direction. Le traitement s'effectue sur 64 canaux et 24 bandes.\n\nDans le calme, le More 1 offre une restitution naturelle et agréable. Dans le bruit, les mesures de laboratoire le placent au-dessus de la moyenne de sa génération, avec une compréhension de la parole solide en situation de restaurant ou de réunion. Le streaming audio fonctionne via BLE classique — pas de mains libres, pas de LE Audio.\n\n## En pratique\n\nJ'ai suivi de nombreux patients équipés avec le More 1 pendant plus de deux ans. L'appareil vieillit bien mécaniquement — les retours SAV sont rares, les composants tiennent. La qualité sonore ne se dégrade pas avec le temps si l'entretien est fait régulièrement.\n\nCe que les patients regrettent le plus quand ils passent au Real ou à l'Intent : le Wind Stabilizer. Le More ne l'a pas, et les promeneurs le ressentent. Pour les patients sédentaires ou principalement en intérieur, le passage au Real n'apporte pas un gain aussi flagrant.\n\n## Pour qui ? Pas pour qui ?\n\nLe More 1 n'est plus recommandé en premier choix — l'Intent le remplace à tous les niveaux. Mais si vous portez un More 1 qui fonctionne bien, il n'y a pas d'urgence à changer. L'appareil reste performant pour son usage quotidien. Le passage au Real ou à l'Intent se justifie si vous voulez le Wind Stabilizer, le 4D Sensor, ou une meilleure connectivité.\n\n## Verdict expert\n\nNote : 8,0/10 (pour sa génération). L'Oticon More 1 a été le meilleur appareil Oticon de 2021-2022. Il reste fiable et efficace pour les patients qui le portent. Pour un nouvel achat, orientez-vous vers l'Intent.\n\nAppareil de classe 2. Prix constaté (occasion/fin de stock) : 1 100 à 1 300 € par appareil. Remboursement Sécurité sociale : 240 € par appareil."
 }

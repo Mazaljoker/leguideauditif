@@ -4,13 +4,15 @@
   "groupe": "demant",
   "modele": "Xceed",
   "formeType": "BTE",
-  "formesDisponibles": "BTE SP",
+  "formesDisponibles": "BTE SP|BTE UP",
   "puce": "Velox S",
   "annee": 2019,
   "specs": {
     "canaux": 64,
     "bandes": 24,
-    "batterie": "Disposable 13",
+    "batterie": "13|675",
+    "autonomie": "80-130",
+    "ip": "IP68",
     "plageAdaptation": "Severe to profound"
   },
   "connectivite": {
@@ -26,7 +28,7 @@
     "micDirectionnels": "OpenSound Navigator"
   },
   "couleurs": 7,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "https://www.oticon.com/solutions/xceed",
   "venduEnEurope": true,
   "slug": "oticon-xceed-3",
   "niveau": "3",
@@ -36,27 +38,28 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1623
+      "min": 950,
+      "max": 1050
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-xceed-1.jpg",
-  "descriptionCourte": "Le Oticon Xceed 3 est un appareil auditif BTE milieu de gamme equipe de la puce Velox S, lance en 2019 par Oticon (groupe Demant). Connectivite BLE.",
+  "metaTitle": "Oticon Xceed 3 : prix, avis et fiche complète",
+  "metaDescription": "Oticon Xceed 3, BTE power milieu de gamme pour pertes sévères à profondes. Avis audioprothésiste DE, note 7.0/10. Dès 950 € par appareil.",
+  "descriptionCourte": "BTE power milieu de gamme Oticon pour pertes sévères à profondes. 64 canaux préservés, OpenSound Navigator, même puissance que le Xceed 1. Entrée économique dans la gamme power Oticon.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Puce Velox S",
-    "Bluetooth BLE",
-    "Generateur de bruit pour acouphenes",
-    "Appels mains libres",
-    "Application Oticon Companion"
+    "Même puissance maximale et mêmes 64 canaux que le Xceed 1 — Oticon ne réduit pas la puissance entre les niveaux",
+    "OpenSound Navigator préservé : accès 360° au son, même au niveau 3",
+    "Prix le plus accessible de la gamme Xceed : sous la barre des 1 050 € par appareil",
+    "Bobine T, IP68, 7 coloris : l'essentiel est là pour un usage quotidien fiable"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Non rechargeable (piles)",
-    "Classe 2 — reste a charge variable",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Algorithmes de traitement du bruit les plus limités de la gamme Xceed — situations de groupe difficiles",
+    "Puce Velox S de 2019 : technologie datée, pas de DNN ni de connectivité moderne",
+    "Piles jetables uniquement : ni rechargeable en 13 ni en 675",
+    "Pour une perte sévère (pas profonde), l'Intent 3 RIC offre une technologie bien plus récente au même prix"
   ],
-  "noteExpert": 6.7,
+  "noteExpert": 7.0,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-xceed-datasheet.pdf",
-  "descriptionComplete": "Le Oticon Xceed 3 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2019 par Oticon (groupe Demant), approche centree sur le cerveau pour une ecoute naturelle, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce Velox S, le Xceed beneficie de la technologie BrainHearing avec reseau neuronal profond (DNN). Traitement sonore 360 degres, MoreSound Intelligence. Le traitement du signal s'effectue sur 64 canaux et 24 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application Oticon Companion permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Disposable 13. Disponible en 7 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Xceed integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, des microphones directionnels OpenSound Navigator. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 623 euros par appareil (soit ~3 246 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.7/10. Le Oticon Xceed 3 est un appareil auditif BTE milieu de gamme equipe de la puce Velox S, lance en 2019 par Oticon (groupe Demant). Connectivite BLE."
+  "descriptionComplete": "Le Xceed 3 est l'entrée de gamme de la série power d'Oticon. Pour les patients avec des pertes profondes et un budget contraint, c'est souvent la seule option chez Oticon — et elle a le mérite de conserver les 64 canaux et la puissance maximale de la gamme. Mais la technologie de 2019 commence à peser face à la concurrence.\n\n## Ce que fait l'Oticon Xceed 3\n\nMême puce Velox S, même puissance (146 dB SPL, 87 dB gain), mêmes 64 canaux et 24 bandes. L'OpenSound Navigator est présent mais avec les algorithmes les plus basiques de la gamme. Dans le calme, la restitution est correcte — les voix sont amplifiées de manière claire et les réglages sur 24 bandes permettent une personnalisation adaptée à chaque profil de perte.\n\nDans le bruit, le Xceed 3 atteint ses limites plus rapidement que les niveaux supérieurs. Pour les patients avec une perte profonde, ces limites sont toutefois relatives : la compréhension dans le bruit est un défi majeur quel que soit l'appareil, et la différence entre les niveaux est moins marquée que pour les pertes légères.\n\n## En pratique\n\nJ'ai proposé le Xceed 3 aux patients dont le budget ne permettait ni le niveau 1 ni le niveau 2. La plupart avaient une vie sociale limitée — domicile, famille proche, rendez-vous médicaux. Pour ce profil, le Xceed 3 faisait le travail : les conversations en face à face étaient nettement améliorées, la télévision redevenait accessible, et la puissance ne manquait pas.\n\nLe point de vigilance : les patients actifs socialement, même avec une perte profonde, gagnent à investir dans le Xceed 1 ou 2. L'écart de traitement du bruit fait une différence perceptible en groupe.\n\n## Pour qui ? Pas pour qui ?\n\nLe Xceed 3 convient aux porteurs de pertes profondes avec un quotidien principalement calme et un budget contraint. Si votre perte est sévère (mais pas profonde) et que vous pouvez porter un RIC, l'Intent 3 au même prix offre une technologie bien plus moderne. Le Xceed 3 ne se justifie que quand la puissance est la priorité absolue.\n\n## Verdict expert\n\nNote : 7,0/10. Le Xceed 3 fait le travail de base pour les pertes profondes avec un budget serré. La puissance est là, la fiabilité aussi. Mais la technologie de 2019 et les algorithmes limités en font un choix par défaut plutôt qu'un choix enthousiaste. Oticon gagnerait à lancer un successeur sur puce Sirius.\n\nAppareil de classe 2. Prix constaté : 950 à 1 050 € par appareil. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."
 }
