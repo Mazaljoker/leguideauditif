@@ -8,47 +8,61 @@
   "puce": "IX Platform",
   "annee": 2025,
   "specs": {
-    "canaux": 48,
-    "bandes": 20,
-    "batterie": "Li-ion",
-    "autonomie": "36",
+    "canaux": 32,
+    "bandes": 16,
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "36-54",
     "ip": "IP68",
-    "plageAdaptation": "Mild to severe"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re",
+    "poids": "2.3g"
   },
   "connectivite": {
-    "bluetooth": "BT Classic + BLE",
+    "bluetooth": "Bluetooth Classic + BLE LE Audio",
     "auracast": false,
     "application": "Signia App",
-    "mainLibre": false
+    "mainLibre": true
   },
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
-    "acouphenes": true
+    "acouphenes": true,
+    "antiFeedback": "Feedback Canceller IX",
+    "micDirectionnels": "OVP 2.0 + Split Processing + Augmented Focus"
   },
-  "sourceUrl": "HearingTracker",
+  "couleurs": 10,
+  "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/bluetooth-connectivity-transformed/",
   "venduEnEurope": true,
   "slug": "signia-pure-ix-bct-5",
   "niveau": "5",
   "niveauRaw": "5IX",
   "niveauPosition": 3,
+  "classe": "2",
   "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1150,
+      "max": 1300
+    }
+  },
   "image": "/images/appareils/aide-auditive-signia-pure-ix-bct-3.jpg",
-  "descriptionCourte": "Le Signia Pure Charge&Go IX BCT 5 est un appareil auditif RIC avance equipe de la puce IX Platform, lance en 2025 par Signia (groupe WS Audiology). Rechargeable avec 36h d'autonomie. Connectivite BT Classic + BLE.",
+  "descriptionCourte": "RIC Signia milieu de gamme BCT avec Bluetooth Classic + bobine T. 32 canaux, Augmented Focus, jusqu\u2019\u00e0 54h. Le compromis \u00e9quilibr\u00e9 entre connectivit\u00e9 totale et budget.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce IX Platform",
-    "Rechargeable (36h)",
-    "Bluetooth BT Classic + BLE",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes"
+    "Bluetooth Classic + BLE + bobine T \u2014 connectivit\u00e9 la plus compl\u00e8te \u00e0 ce prix",
+    "Augmented Focus inclus \u2014 vrai saut par rapport au BCT 3 pour les conversations de groupe",
+    "OVP 2.0 et anti-larsen exemplaire, identiques au niveau 7",
+    "Autonomie g\u00e9n\u00e9reuse : 36 \u00e0 54h selon utilisation du streaming",
+    "Rapport qualit\u00e9/prix le plus \u00e9quilibr\u00e9 de la gamme BCT"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de support Auracast"
+    "32 canaux \u2014 le niveau 7 affine mieux dans les situations les plus exigeantes",
+    "L\u00e9g\u00e8rement plus volumineux que le Pure IX standard",
+    "Streaming musical dans la moyenne \u2014 correct pour appels, Phonak l\u00e9g\u00e8rement meilleur pour la musique"
   ],
-  "noteExpert": 7.7,
+  "noteExpert": 8.2,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
-  "descriptionComplete": "Le Signia Pure Charge&Go IX BCT 5 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Pure Charge&Go IX BCT beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. Le traitement du signal s'effectue sur 48 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BT Classic + BLE permet le streaming audio direct depuis votre smartphone. L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Pure Charge&Go IX BCT est rechargeable (batterie Li-ion), offrant jusqu'a 36 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Pure Charge&Go IX BCT integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.7/10. Le Signia Pure Charge&Go IX BCT 5 est un appareil auditif RIC avance equipe de la puce IX Platform, lance en 2025 par Signia (groupe WS Audiology). Rechargeable avec 36h d'autonomie. Connectivite BT Classic + BLE."
+  "metaTitle": "Signia Pure C&G BCT 5 IX : prix, avis et fiche",
+  "metaDescription": "RIC Signia milieu de gamme, Bluetooth Classic + bobine T. 32 canaux, Augmented Focus. De 1 150 \u00e0 1 300\u20ac. Avis audioproth\u00e9siste DE.",
+  "descriptionComplete": "Si vous avez lu la fiche du BCT 7 et trouv\u00e9 le prix trop \u00e9lev\u00e9, celle-ci est pour vous. Le BCT IX 5 embarque l\u2019essentiel de la connectivit\u00e9 universelle Signia \u2014 Bluetooth Classic, BLE et bobine T \u2014 avec l\u2019Augmented Focus en plus, pour 200 \u00e0 300\u20ac de moins que le niveau 7.\n\nCe que fait cet appareil\nComme tous les BCT, le niveau 5 fonctionne en Bluetooth Classic. Vous streamez depuis n\u2019importe quel appareil Bluetooth \u2014 votre smartphone, m\u00eame s\u2019il a dix ans, votre t\u00e9l\u00e9viseur, votre ordinateur. Pas besoin d\u2019accessoire interm\u00e9diaire ni de compatibilit\u00e9 sp\u00e9cifique. La bobine T est \u00e9galement pr\u00e9sente pour les lieux \u00e9quip\u00e9s de boucles magn\u00e9tiques.\n\nLe traitement du son tourne sur 32 canaux et 16 bandes avec l\u2019Augmented Focus \u2014 c\u2019est l\u00e0 que le niveau 5 se d\u00e9marque vraiment du 3. L\u2019Augmented Focus isole la voix de votre interlocuteur dans les situations de groupe, ce qui fait une diff\u00e9rence perceptible lors des repas en famille ou des conversations \u00e0 plusieurs.\n\nL\u2019OVP 2.0 est identique \u00e0 tous les niveaux IX : votre propre voix sonne naturelle. L\u2019anti-larsen est au m\u00eame niveau que le 7 \u2014 Signia ne bride pas cette fonctionnalit\u00e9.\n\nEn pratique\nLes confr\u00e8res qui adaptent cette gamme depuis d\u00e9but 2025 placent souvent le BCT 5 comme le \u00ab sweet spot \u00bb de la s\u00e9rie BCT : vous gagnez l\u2019Augmented Focus par rapport au 3, et la diff\u00e9rence avec le 7 ne se ressent que dans les situations les plus exigeantes. Pour la plupart des quotidiens, le 5 couvre largement les besoins.\n\nL\u2019autonomie est confortable : 36h avec du streaming, jusqu\u2019\u00e0 54h en utilisation classique. Vous chargez tous les deux jours sans y penser. La charge rapide (30 minutes pour 5h) est un filet de s\u00e9curit\u00e9 appr\u00e9ciable.\n\nPour qui est fait cet appareil ?\nId\u00e9al si vous avez besoin de la connectivit\u00e9 Bluetooth universelle (ancien t\u00e9l\u00e9phone, streaming TV) et de la bobine T, avec une vie sociale qui inclut des conversations de groupe r\u00e9guli\u00e8res. C\u2019est le compromis intelligent entre le 3 (trop basique pour le bruit) et le 7 (premium dont le surcout ne se justifie pas toujours).\n\nSi votre smartphone est r\u00e9cent et compatible BLE, et que vous n\u2019avez pas besoin de bobine T, regardez plut\u00f4t le Pure IX 5 standard \u2014 m\u00eames performances sonores sans le surcout du BT Classic.\n\nPar rapport \u00e0 la concurrence\nLe BCT IX 5 n\u2019a pas d\u2019\u00e9quivalent direct chez la concurrence \u00e0 ce prix. Phonak propose le Bluetooth Classic sur l\u2019Audeo Infinio mais \u00e0 un prix sup\u00e9rieur, et sans bobine T int\u00e9gr\u00e9e sur tous les mod\u00e8les. C\u2019est un positionnement malin de Signia qui r\u00e9pond \u00e0 un vrai besoin patient.\n\nVerdict expert\n8.2/10. Le BCT IX 5 est le niveau que je conseillerais le plus souvent dans la gamme BCT. L\u2019Augmented Focus fait une diff\u00e9rence r\u00e9elle par rapport au 3, et le surcout par rapport au 7 est difficile \u00e0 justifier pour la majorit\u00e9 des profils. Connectivit\u00e9 totale, performance \u00e9quilibr\u00e9e, prix ma\u00eetris\u00e9.\n\nEn une phrase : le meilleur rapport connectivit\u00e9/performance/prix de la gamme BCT.",
+  "legacy": false
 }

@@ -1,54 +1,68 @@
 {
+  "slug": "signia-pure-ix-bct-7",
   "marque": "signia",
   "marqueLabel": "Signia",
   "groupe": "ws-audiology",
-  "modele": "Pure Charge&Go IX BCT",
+  "modele": "Pure Charge&Go BCT IX",
   "formeType": "RIC",
   "formesDisponibles": "RIC",
   "puce": "IX Platform",
+  "niveau": "7",
+  "niveauRaw": "7IX",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1345,
+      "max": 1590
+    }
+  },
   "annee": 2025,
   "specs": {
     "canaux": 48,
     "bandes": 20,
-    "batterie": "Li-ion",
-    "autonomie": "36",
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "36-54",
     "ip": "IP68",
-    "plageAdaptation": "Mild to severe"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re",
+    "poids": "2.3g"
   },
   "connectivite": {
-    "bluetooth": "BT Classic + BLE",
+    "bluetooth": "Bluetooth Classic + BLE LE Audio",
     "auracast": false,
     "application": "Signia App",
-    "mainLibre": false
+    "mainLibre": true
   },
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
-    "acouphenes": true
+    "acouphenes": true,
+    "antiFeedback": "Feedback Canceller IX",
+    "micDirectionnels": "OVP 2.0 + Split Processing + Augmented Focus"
   },
-  "sourceUrl": "HearingTracker",
-  "venduEnEurope": true,
-  "slug": "signia-pure-ix-bct-7",
-  "niveau": "7",
-  "niveauRaw": "7IX",
-  "niveauPosition": 4,
-  "rac0": false,
+  "couleurs": 10,
   "image": "/images/appareils/aide-auditive-signia-pure-ix-bct-3.jpg",
-  "descriptionCourte": "Le Signia Pure Charge&Go IX BCT 7 est un appareil auditif RIC premium equipe de la puce IX Platform, lance en 2025 par Signia (groupe WS Audiology). Rechargeable avec 36h d'autonomie. Connectivite BT Classic + BLE.",
+  "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/bluetooth-connectivity-transformed/",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
+  "descriptionCourte": "RIC premium Signia avec Bluetooth Classic universel + bobine T. 48 canaux, jusqu\u2019\u00e0 54h d\u2019autonomie. Le Pure IX 7 version connectivit\u00e9 totale \u2014 compatible avec 99% des appareils du march\u00e9.",
+  "descriptionComplete": "Pendant des ann\u00e9es, l\u2019un des reproches les plus fr\u00e9quents que j\u2019entendais sur les aides auditives Signia tenait en une phrase : \u00ab Mon t\u00e9l\u00e9phone n\u2019est pas compatible. \u00bb Avec le BCT IX, Signia a r\u00e9gl\u00e9 le probl\u00e8me. D\u2019apr\u00e8s les premiers retours de confr\u00e8res qui l\u2019adaptent depuis d\u00e9but 2025, c\u2019est le mod\u00e8le qui a le moins de soucis de connexion tous t\u00e9l\u00e9phones confondus.\n\nCe que fait cet appareil\nLe BCT \u2014 Bluetooth Connectivity Transformed \u2014 ajoute le Bluetooth Classic \u00e0 la puce IX. Concr\u00e8tement, cela signifie que le streaming audio fonctionne avec 99% des appareils du march\u00e9 : smartphones iOS et Android bien s\u00fbr, mais aussi les t\u00e9l\u00e9phones \u00e0 clapet, les tablettes, les ordinateurs portables, les t\u00e9l\u00e9viseurs connect\u00e9s. C\u2019est un vrai gain par rapport au Pure IX standard qui ne fonctionne qu\u2019en BLE (Bluetooth Low Energy) et n\u00e9cessite un appareil compatible.\n\nC\u00f4t\u00e9 son, c\u2019est le m\u00eame moteur que le Pure IX 7 : 48 canaux, 20 bandes, OVP 2.0 pour le naturel de la propre voix, Augmented Focus pour les conversations de groupe. La qualit\u00e9 audio ne change pas \u2014 on ajoute de la connectivit\u00e9, on ne retire rien.\n\nL\u2019autre ajout cl\u00e9 : la bobine T (t\u00e9l\u00e9bobine). Pour les patients qui fr\u00e9quentent des lieux \u00e9quip\u00e9s de boucles magn\u00e9tiques \u2014 certains th\u00e9\u00e2tres, \u00e9glises, guichets de service public \u2014 c\u2019est indispensable. Le Pure IX standard n\u2019a pas de bobine T, ce qui obligeait \u00e0 choisir entre la technologie IX et l\u2019acc\u00e8s aux boucles. Avec le BCT, vous avez les deux.\n\nL\u2019autonomie est l\u00e9g\u00e8rement diff\u00e9rente : 36h avec 5h de streaming Bluetooth Classic, et jusqu\u2019\u00e0 54h sans streaming du tout. Le Bluetooth Classic consomme un peu plus que le BLE, mais la diff\u00e9rence reste g\u00e9rable \u2014 vous tenez confortablement deux jours.\n\nEn pratique\nUn confr\u00e8re audioproth\u00e9siste partenaire qui travaille avec le BCT IX depuis f\u00e9vrier 2025 m\u2019a confirm\u00e9 deux choses. Premi\u00e8rement, la connexion Bluetooth est nettement plus stable qu\u2019avec le BLE seul \u2014 moins de d\u00e9connexions, appairage plus rapide. Deuxi\u00e8mement, l\u2019appareil est l\u00e9g\u00e8rement plus grand que le Pure IX standard \u2014 la diff\u00e9rence est minimale, mais elle existe. Pour un patient qui recherche le RIC le plus petit possible, le Pure IX standard reste plus discret.\n\nLa charge rapide est un point fort pratique : 30 minutes de charge donnent 5 heures d\u2019utilisation. Utile quand vous avez oubli\u00e9 de charger la veille.\n\nPour qui est fait cet appareil ?\nLe BCT IX 7 est fait pour vous si vous avez un t\u00e9l\u00e9phone qui n\u2019est pas compatible BLE (t\u00e9l\u00e9phone \u00e0 touches, ancien smartphone), si vous voulez streamer depuis votre t\u00e9l\u00e9vision ou votre ordinateur sans accessoire suppl\u00e9mentaire, ou si vous fr\u00e9quentez des lieux \u00e9quip\u00e9s de boucles magn\u00e9tiques.\n\nSi votre smartphone est r\u00e9cent (iPhone ou Android des 3 derni\u00e8res ann\u00e9es), que vous n\u2019avez pas besoin de bobine T, et que la taille minimale compte pour vous, le Pure IX 7 standard suffira \u2014 inutile de payer plus pour une connectivit\u00e9 dont vous n\u2019aurez pas l\u2019usage.\n\nPar rapport \u00e0 la concurrence\nLe BCT IX est le seul RIC Signia \u00e0 proposer Bluetooth Classic + BLE + bobine T dans le m\u00eame bo\u00eetier. C\u2019est un positionnement unique chez Signia \u2014 la connectivit\u00e9 la plus compl\u00e8te de la gamme. Face au Phonak Audeo Infinio (qui propose aussi le Bluetooth Classic via la technologie Roger), le BCT IX est plus accessible et int\u00e8gre nativement le BT Classic sans accessoire.\n\nFace au Pure IX 7 standard (+50 \u00e0 100\u20ac), vous gagnez le Bluetooth Classic et la bobine T. La question est simple : en avez-vous besoin ?\n\nVerdict expert\n8.3/10. Le Signia Pure Charge&Go BCT IX 7 reprend tout ce qui fait la force du Pure IX 7 \u2014 OVP 2.0, anti-larsen exemplaire, 48 canaux \u2014 et y ajoute la connectivit\u00e9 la plus universelle du march\u00e9 Signia. La bobine T est un vrai plus pour les patients concern\u00e9s. C\u2019est le mod\u00e8le \u00e0 choisir si la compatibilit\u00e9 avec tous vos appareils est une priorit\u00e9.\n\nEn une phrase : le Pure IX 7 avec la connectivit\u00e9 totale \u2014 Bluetooth Classic, BLE et bobine T r\u00e9unis.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce IX Platform",
-    "Rechargeable (36h)",
-    "Bluetooth BT Classic + BLE",
-    "Etanche IP68",
-    "Generateur de bruit pour acouphenes"
+    "Bluetooth Classic + BLE \u2014 compatible avec 99% des appareils : smartphones, tablettes, t\u00e9l\u00e9viseurs, ordinateurs, t\u00e9l\u00e9phones \u00e0 touches",
+    "Bobine T int\u00e9gr\u00e9e \u2014 acc\u00e8s aux boucles magn\u00e9tiques dans les lieux publics \u00e9quip\u00e9s",
+    "M\u00eame moteur que le Pure IX 7 : 48 canaux, OVP 2.0, Augmented Focus, anti-larsen exemplaire",
+    "Autonomie jusqu\u2019\u00e0 54h sans streaming \u2014 charge rapide 30 min pour 5h d\u2019utilisation",
+    "Connexion BT Classic plus stable et appairage plus rapide qu\u2019en BLE seul"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de support Auracast"
+    "L\u00e9g\u00e8rement plus volumineux que le Pure IX standard \u2014 diff\u00e9rence minimale mais existante",
+    "Pas d\u2019Auracast \u2014 la norme LE Audio de nouvelle g\u00e9n\u00e9ration n\u2019est pas encore support\u00e9e",
+    "Surcout de 50 \u00e0 100\u20ac par rapport au Pure IX 7 \u2014 inutile si vous n\u2019avez pas besoin du BT Classic ou de la bobine T"
   ],
-  "noteExpert": 8.7,
+  "noteExpert": 8.3,
   "enAvant": true,
-  "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
-  "descriptionComplete": "Le Signia Pure Charge&Go IX BCT 7 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Pure Charge&Go IX BCT beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. Le traitement du signal s'effectue sur 48 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BT Classic + BLE permet le streaming audio direct depuis votre smartphone. L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Pure Charge&Go IX BCT est rechargeable (batterie Li-ion), offrant jusqu'a 36 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Pure Charge&Go IX BCT integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.7/10. Le Signia Pure Charge&Go IX BCT 7 est un appareil auditif RIC premium equipe de la puce IX Platform, lance en 2025 par Signia (groupe WS Audiology). Rechargeable avec 36h d'autonomie. Connectivite BT Classic + BLE."
+  "legacy": false,
+  "metaTitle": "Signia Pure C&G BCT 7 IX : prix, avis et fiche",
+  "metaDescription": "RIC premium Signia, Bluetooth Classic universel + bobine T. 48 canaux, jusqu\u2019\u00e0 54h. De 1 345 \u00e0 1 590\u20ac. Avis audioproth\u00e9siste DE."
 }
