@@ -8,6 +8,9 @@ interface Props {
 }
 
 const { plan, viewCount, leadCount = 0 } = Astro.props;
+
+// Ne pas afficher les stats Premium si tout est a zero
+const hasStats = viewCount > 0 || leadCount > 0;
 ---
 
 {plan === 'rpps' ? (
@@ -32,7 +35,7 @@ const { plan, viewCount, leadCount = 0 } = Astro.props;
       Passez en premium pour voir le detail (clics, demandes, sources)
     </p>
   </section>
-) : (
+) : hasStats ? (
   <section class="grid grid-cols-3 gap-3 mb-6" aria-label="Statistiques du centre">
     <div class="rounded-lg bg-[#E1F5EE] p-4 text-center">
       <p class="text-xl font-medium text-[#085041] font-sans">{viewCount}</p>
@@ -47,4 +50,4 @@ const { plan, viewCount, leadCount = 0 } = Astro.props;
       <p class="text-[10px] text-[#633806] font-sans mt-1">demandes de devis</p>
     </div>
   </section>
-)}
+) : null}
