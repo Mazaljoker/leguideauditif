@@ -7,7 +7,9 @@
   "formesDisponibles": "RIC R|RIC 312",
   "annee": 2021,
   "specs": {
+    "canaux": 16,
     "batterie": "Li-ion|312",
+    "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
@@ -22,7 +24,7 @@
     "antiFeedback": "Motion sensor"
   },
   "couleurs": 10,
-  "sourceUrl": "MySecondEar",
+  "sourceUrl": "https://www.audioservice.com/en/hearing-aids/ric-hearing-aids/r-li-7/",
   "venduEnEurope": true,
   "slug": "audio-service-mood-r-g7",
   "niveauPosition": 1,
@@ -49,8 +51,7 @@
   ],
   "noteExpert": 6.2,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
   "descriptionComplete": "Le Audio Service Mood R G7 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Audio Service (groupe WS Audiology), marque pro allemande specialisee ITE, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Mood R G7 beneficie de la technologie plateforme Signia. Forte expertise en intra-auriculaires sur-mesure. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE ASHA permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Li-ion|312. Disponible en 10 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Mood R G7 integre egalement un systeme anti-larsen Motion sensor. \n\nPrix et remboursement\nLe prix indicatif est d'environ 990 euros par appareil (soit ~1 980 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.2/10. Le Audio Service Mood R G7 est un appareil auditif RIC entree de gamme, lance en 2021 par Audio Service (groupe WS Audiology). Connectivite BLE ASHA.",
   "legacy": true,
-  "legacyReason": "Distribution France non confirmee — Audio Service G7 principalement distribue en Allemagne/Autriche/Suisse"
+  "legacyReason": "Génération G7 (2021), remplacé par la plateforme G8 actuelle. Distribution France limitée — Audio Service principalement distribué en Allemagne/Autriche/Suisse"
 }
