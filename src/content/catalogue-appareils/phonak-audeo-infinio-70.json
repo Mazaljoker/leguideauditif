@@ -1,23 +1,35 @@
 {
+  "slug": "phonak-audeo-infinio-70",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Audéo Infinio Ultra Sphere",
+  "modele": "Aud\u00e9o Infinio",
   "formeType": "RIC",
-  "formesDisponibles": "RIC R",
-  "puce": "ERA + DEEPSONIC",
+  "formesDisponibles": "RIC R|RIC RT",
+  "puce": "DEEPSONIC",
+  "niveau": "70",
+  "niveauRaw": "I70",
+  "niveauPosition": 4,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1800,
+      "max": 1999
+    }
+  },
   "annee": 2024,
   "specs": {
     "canaux": 20,
     "bandes": 20,
-    "batterie": "Li-ion",
-    "autonomie": "56 (quiet) 10-11 (Spheric)",
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "28-56",
     "ip": "IP68",
-    "plageAdaptation": "Mild to profound"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 profonde"
   },
   "connectivite": {
-    "bluetooth": "BLE + A2DP",
-    "auracast": false,
+    "bluetooth": "Bluetooth Classic + BLE LE Audio",
+    "auracast": true,
     "application": "myPhonak",
     "mainLibre": true
   },
@@ -26,44 +38,30 @@
     "bobineT": false,
     "acouphenes": true,
     "antiFeedback": "WhistleBlock",
-    "micDirectionnels": "StereoZoom 2.0|UltraZoom"
+    "micDirectionnels": "StereoZoom 2.0 + UltraZoom + SmartSpeech Technology"
   },
   "couleurs": 11,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-audeo-infinio-70",
-  "niveau": "70",
-  "niveauRaw": "I70",
-  "niveauPosition": 3,
-  "classe": "2",
-  "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1999
-    },
-    "usd": {
-      "min": 3898
-    }
-  },
   "image": "/images/appareils/aide-auditive-phonak-audeo-infinio.avif",
-  "descriptionCourte": "le Phonak Audéo Infinio Sphere — version avec IA — est actuellement l'appareil auditif le plus performant dans le bruit que j'aie jamais testé. L'autonomie de batterie (jusqu'à 56 heures en mode calme) et la connectivité Bluetooth universelle en font un vrai game-changer pour les patients actifs et les utilisateurs Android.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-infinio",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
+  "descriptionCourte": "RIC Phonak avanc\u00e9 sur puce DEEPSONIC. SmartSpeech Technology, Bluetooth universel, Auracast. Jusqu\u2019\u00e0 56h d\u2019autonomie. Excellent dans le calme et le bruit mod\u00e9r\u00e9, sans le surcout du Sphere.",
+  "descriptionComplete": "Le niveau 70, c\u2019est le Phonak que je recommande souvent aux patients actifs qui n\u2019ont pas besoin du Spheric Speech Clarity du 90. Avec la puce DEEPSONIC et la SmartSpeech Technology, il offre d\u00e9j\u00e0 un traitement du bruit tr\u00e8s abouti.\n\nCe que fait cet appareil\nL\u2019Infinio 70 partage la m\u00eame puce DEEPSONIC que le 90, mais sans la couche IA Spheric Speech Clarity 2.0 d\u00e9di\u00e9e aux situations de bruit extr\u00eame. Il embarque la SmartSpeech Technology avec StereoZoom 2.0 et UltraZoom, qui g\u00e8rent tr\u00e8s bien les environnements mod\u00e9r\u00e9ment bruyants \u2014 conversations \u00e0 3-4 dans un caf\u00e9, repas en famille, march\u00e9.\n\nDans le calme, la diff\u00e9rence avec le 90 est imperceptible. Le streaming musical est identique \u2014 c\u2019est le m\u00eame codec Bluetooth. La connectivit\u00e9 est la m\u00eame : Bluetooth Classic universel, BLE, Auracast, myPhonak. Pas de compromis sur la connectivit\u00e9.\n\nL\u2019autonomie sans Spheric est g\u00e9n\u00e9reuse : 28 \u00e0 56h selon le streaming. Le AutoSense OS adapte automatiquement les programmes.\n\nEn pratique, sur le terrain\nUn patient de 69 ans h\u00e9sitait entre le 70 et le 90. Sa vie sociale : d\u00e9jeuners avec ses enfants, march\u00e9 le dimanche, t\u00e9l\u00e9 le soir. Je lui ai propos\u00e9 de tester les deux. Au bout de trois semaines, il ne percevait pas de diff\u00e9rence dans son quotidien. Il a gard\u00e9 le 70 et \u00e9conomis\u00e9 600\u20ac sur la paire.\n\nPour les patients dont la vie sociale inclut r\u00e9guli\u00e8rement des grandes tabl\u00e9es ou des conf\u00e9rences, le 90 avec Spheric apporte un vrai plus. Mais pour un quotidien standard, le 70 est la valeur s\u00fbre.\n\nPour qui est fait cet appareil ?\nL\u2019Infinio 70 est id\u00e9al pour une vie active avec des situations bruyantes mod\u00e9r\u00e9es. C\u2019est aussi le bon choix si vous venez d\u2019une Lumity 70 ou 90 et voulez passer \u00e0 la g\u00e9n\u00e9ration suivante sans exploser le budget.\n\nSi le bruit extr\u00eame est votre combat quotidien, le 90 avec Spheric vaut le surcout. Si votre quotidien est essentiellement calme, le 50 suffit.\n\nPar rapport \u00e0 la concurrence\nFace au Signia Pure IX 7 (m\u00eame gamme de prix), le Phonak 70 a l\u2019avantage du streaming musical et du Bluetooth Classic natif. Le Signia r\u00e9pond avec l\u2019OVP 2.0 pour la propre voix. Match serr\u00e9 \u00e0 ce niveau de prix.\n\nVerdict expert\n8.8/10. L\u2019Infinio 70 est le meilleur rapport performance/prix de la gamme Infinio. Il offre 90% de l\u2019exp\u00e9rience du 90 pour 300 \u00e0 500\u20ac de moins. La connectivit\u00e9 est identique, le streaming aussi. Seul le Spheric manque \u2014 et pour la majorit\u00e9 des quotidiens, il n\u2019est pas indispensable.\n\nEn une phrase : le Phonak Infinio le plus recommand\u00e9 \u2014 90% du flagship pour 300\u20ac de moins.",
   "pointsForts": [
-    "Spheric Speech Clarity unique sur 2e puce dédiée",
-    "Autonomie exceptionnelle",
-    "Bluetooth universaliste",
-    "11 coloris",
-    "Roger intégré",
-    "IP68"
+    "M\u00eame puce DEEPSONIC et m\u00eame connectivit\u00e9 que le 90 (BT Classic, BLE, Auracast, myPhonak)",
+    "Streaming musical Phonak de tr\u00e8s haute qualit\u00e9 \u2014 identique au 90",
+    "SmartSpeech Technology avec StereoZoom 2.0 \u2014 tr\u00e8s bon dans le bruit mod\u00e9r\u00e9",
+    "Autonomie g\u00e9n\u00e9reuse : 28 \u00e0 56h selon utilisation",
+    "Meilleur rapport performance/prix de la gamme Infinio"
   ],
   "pointsFaibles": [
-    "Spheric Speech Clarity unique sur 2e puce dédiée",
-    "Autonomie exceptionnelle",
-    "Bluetooth universaliste",
-    "11 coloris",
-    "Roger intégré"
+    "Pas de Spheric Speech Clarity 2.0 \u2014 en bruit extr\u00eame, le 90 fait mieux",
+    "Naturel de la propre voix en retrait par rapport au Signia OVP 2.0",
+    "Prix encore \u00e9lev\u00e9 (1 800-1 999\u20ac) \u2014 le niveau 50 offre un bon compromis pour les budgets serr\u00e9s"
   ],
-  "noteExpert": 9.1,
+  "noteExpert": 8.8,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Audéo Infinio Ultra Sphere 70 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce ERA + DEEPSONIC, le Audéo Infinio Ultra Sphere beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. Le traitement du signal s'effectue sur 20 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE + A2DP permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Audéo Infinio Ultra Sphere est rechargeable (batterie Li-ion), offrant jusqu'a 56 (quiet) 10-11 (Spheric) heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 11 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Audéo Infinio Ultra Sphere integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen WhistleBlock, des microphones directionnels StereoZoom 2.0 et UltraZoom. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 999 euros par appareil (soit ~3 998 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 9.1/10. le Phonak Audéo Infinio Sphere — version avec IA — est actuellement l'appareil auditif le plus performant dans le bruit que j'aie jamais testé. L'autonomie de batterie (jusqu'à 56 heures en mode calme) et la connectivité Bluetooth universelle en font un vrai game-changer pour les patients actifs et les utilisateurs Android."
+  "legacy": false,
+  "metaTitle": "Phonak Aud\u00e9o Infinio 70 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak avanc\u00e9, puce DEEPSONIC, BT universel + Auracast. De 1 800 \u00e0 1 999\u20ac. Meilleur rapport qualit\u00e9/prix Infinio. Avis audioproth\u00e9siste DE."
 }

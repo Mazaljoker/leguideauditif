@@ -1,23 +1,35 @@
 {
+  "slug": "phonak-audeo-infinio-50",
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Audéo Infinio Ultra Sphere",
+  "modele": "Aud\u00e9o Infinio",
   "formeType": "RIC",
-  "formesDisponibles": "RIC R",
-  "puce": "ERA + DEEPSONIC",
+  "formesDisponibles": "RIC R|RIC RT",
+  "puce": "DEEPSONIC",
+  "niveau": "50",
+  "niveauRaw": "I50",
+  "niveauPosition": 3,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1500,
+      "max": 1699
+    }
+  },
   "annee": 2024,
   "specs": {
-    "canaux": 20,
-    "bandes": 20,
-    "batterie": "Li-ion",
-    "autonomie": "56 (quiet) 10-11 (Spheric)",
+    "canaux": 16,
+    "bandes": 16,
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "28-56",
     "ip": "IP68",
-    "plageAdaptation": "Mild to profound"
+    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 profonde"
   },
   "connectivite": {
-    "bluetooth": "BLE + A2DP",
-    "auracast": false,
+    "bluetooth": "Bluetooth Classic + BLE LE Audio",
+    "auracast": true,
     "application": "myPhonak",
     "mainLibre": true
   },
@@ -26,44 +38,30 @@
     "bobineT": false,
     "acouphenes": true,
     "antiFeedback": "WhistleBlock",
-    "micDirectionnels": "StereoZoom 2.0|UltraZoom"
+    "micDirectionnels": "StereoZoom + SmartSpeech Technology"
   },
   "couleurs": 11,
-  "sourceUrl": "HearingTracker+MySecondEar",
-  "venduEnEurope": true,
-  "slug": "phonak-audeo-infinio-50",
-  "niveau": "50",
-  "niveauRaw": "I50",
-  "niveauPosition": 2,
-  "classe": "2",
-  "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1699
-    },
-    "usd": {
-      "min": 3198
-    }
-  },
   "image": "/images/appareils/aide-auditive-phonak-audeo-infinio.avif",
-  "descriptionCourte": "le Phonak Audéo Infinio Sphere — version avec IA — est actuellement l'appareil auditif le plus performant dans le bruit que j'aie jamais testé. L'autonomie de batterie (jusqu'à 56 heures en mode calme) et la connectivité Bluetooth universelle en font un vrai game-changer pour les patients actifs et les utilisateurs Android.",
+  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-infinio",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
+  "descriptionCourte": "RIC Phonak milieu de gamme Infinio. Puce DEEPSONIC, Bluetooth universel, Auracast. 16 canaux, jusqu\u2019\u00e0 56h. Le compromis \u00e9quilibr\u00e9 de la gamme pour un quotidien vari\u00e9.",
+  "descriptionComplete": "Le niveau 50, c\u2019est l\u2019Infinio pour les patients qui veulent la connectivit\u00e9 compl\u00e8te Phonak \u2014 Bluetooth Classic, Auracast, myPhonak \u2014 sans payer le prix du 70 ou du 90.\n\nCe que fait cet appareil\nL\u2019Infinio 50 partage la m\u00eame connectivit\u00e9 que toute la gamme : Bluetooth Classic universel, BLE LE Audio, Auracast. C\u2019est le m\u00eame app, le m\u00eame streaming, les m\u00eames accessoires. La diff\u00e9rence est dans le traitement du son : 16 canaux au lieu de 20, et des algorithmes de gestion du bruit simplifi\u00e9s par rapport au 70.\n\nDans le calme, les performances sont tr\u00e8s satisfaisantes. Le streaming musical est aussi bon que sur le 90 \u2014 m\u00eame codec, m\u00eame qualit\u00e9 Bluetooth. C\u2019est dans les environnements complexes que l\u2019\u00e9cart se creuse avec les niveaux sup\u00e9rieurs : le StereoZoom du 50 est efficace mais moins pr\u00e9cis que le StereoZoom 2.0 du 70.\n\nL\u2019autonomie reste g\u00e9n\u00e9reuse : 28 \u00e0 56h selon l\u2019utilisation du streaming.\n\nEn pratique, sur le terrain\nJ\u2019ai adapt\u00e9 l\u2019Infinio 50 sur des patients dont le quotidien alterne entre le calme et des situations mod\u00e9r\u00e9ment bruyantes. Un retrait\u00e9 de 73 ans, vie tranquille, promenades, repas en famille le dimanche. Il ne voyait pas la diff\u00e9rence avec le 70 lors de l\u2019essai comparatif. En revanche, sa femme, plus active socialement, a imm\u00e9diatement not\u00e9 un gain avec le 70 lors des d\u00eeners en groupe. Le 50 est le bon choix quand le quotidien n\u2019est pas domin\u00e9 par le bruit.\n\nPour qui est fait cet appareil ?\nL\u2019Infinio 50 convient aux patients dont la vie quotidienne est plut\u00f4t calme \u00e0 mod\u00e9r\u00e9e, qui veulent la connectivit\u00e9 compl\u00e8te Phonak et un streaming de qualit\u00e9. C\u2019est aussi un tr\u00e8s bon choix pour un premier appareillage Phonak \u00e0 budget ma\u00eetris\u00e9.\n\nSi le bruit est fr\u00e9quent, le 70 apporte un confort suppl\u00e9mentaire mesurable.\n\nPar rapport \u00e0 la concurrence\nFace au Signia Pure IX 5 (m\u00eame gamme de prix), le Phonak 50 a l\u2019avantage du streaming et du Bluetooth Classic. Le Signia r\u00e9pond avec l\u2019OVP 2.0. Les deux sont d\u2019excellents choix \u00e0 ce prix.\n\nVerdict expert\n8.3/10. L\u2019Infinio 50 est un solide milieu de gamme avec la meilleure connectivit\u00e9 de sa cat\u00e9gorie. Le streaming et le Bluetooth universel sont au niveau du 90 \u2014 c\u2019est la gestion du bruit qui diff\u00e8re. Pour un quotidien standard, c\u2019est parfaitement suffisant.\n\nEn une phrase : toute la connectivit\u00e9 Phonak au prix milieu de gamme.",
   "pointsForts": [
-    "Spheric Speech Clarity unique sur 2e puce dédiée",
-    "Autonomie exceptionnelle",
-    "Bluetooth universaliste",
-    "11 coloris",
-    "Roger intégré",
-    "IP68"
+    "M\u00eame connectivit\u00e9 compl\u00e8te que le 90 : Bluetooth Classic, BLE, Auracast, myPhonak",
+    "Streaming musical identique au 90 \u2014 m\u00eame codec, m\u00eame qualit\u00e9",
+    "Autonomie g\u00e9n\u00e9reuse : 28 \u00e0 56h selon utilisation",
+    "Prix accessible pour la gamme Infinio : 1 500 \u00e0 1 699\u20ac",
+    "11 coloris, IP68, AutoSense OS"
   ],
   "pointsFaibles": [
-    "Spheric Speech Clarity unique sur 2e puce dédiée",
-    "Autonomie exceptionnelle",
-    "Bluetooth universaliste",
-    "11 coloris",
-    "Roger intégré"
+    "16 canaux \u2014 gestion du bruit moins fine que le 70 (20 canaux) dans les environnements complexes",
+    "StereoZoom standard \u2014 pas de StereoZoom 2.0 ni de Spheric",
+    "Naturel de la propre voix en retrait par rapport \u00e0 Signia"
   ],
-  "noteExpert": 8.8,
+  "noteExpert": 8.3,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
-  "descriptionComplete": "Le Phonak Audéo Infinio Ultra Sphere 50 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Phonak (groupe Sonova), leader mondial en innovation auditive, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce ERA + DEEPSONIC, le Audéo Infinio Ultra Sphere beneficie de la technologie AutoSense OS. Connectivite Bluetooth universelle (iOS et Android), technologie Roger integree. Le traitement du signal s'effectue sur 20 canaux et 20 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE + A2DP permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. L'application myPhonak permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Audéo Infinio Ultra Sphere est rechargeable (batterie Li-ion), offrant jusqu'a 56 (quiet) 10-11 (Spheric) heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 11 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Audéo Infinio Ultra Sphere integre egalement un generateur de bruit pour le soulagement des acouphenes, un systeme anti-larsen WhistleBlock, des microphones directionnels StereoZoom 2.0 et UltraZoom. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 699 euros par appareil (soit ~3 398 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.8/10. le Phonak Audéo Infinio Sphere — version avec IA — est actuellement l'appareil auditif le plus performant dans le bruit que j'aie jamais testé. L'autonomie de batterie (jusqu'à 56 heures en mode calme) et la connectivité Bluetooth universelle en font un vrai game-changer pour les patients actifs et les utilisateurs Android."
+  "legacy": false,
+  "metaTitle": "Phonak Aud\u00e9o Infinio 50 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak milieu de gamme, puce DEEPSONIC, BT universel. De 1 500 \u00e0 1 699\u20ac. Connectivit\u00e9 compl\u00e8te \u00e0 prix accessible. Avis audioproth\u00e9siste DE."
 }
