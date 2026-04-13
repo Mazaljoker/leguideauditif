@@ -5,10 +5,11 @@
   "modele": "Nexia",
   "formeType": "RIC",
   "formesDisponibles": "microRIE|RIE 61|RIE 62|BTE 77|BTE 88|ITE|ITC|CIC",
+  "puce": "GN 2.0",
   "annee": 2023,
   "specs": {
-    "canaux": 17,
-    "bandes": 17,
+    "canaux": 12,
+    "bandes": 12,
     "batterie": "Li-ion|312|13",
     "autonomie": "24-30",
     "ip": "IP68",
@@ -23,25 +24,44 @@
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
-    "acouphenes": true
+    "acouphenes": true,
+    "antiFeedback": "DFS Ultra II",
+    "micDirectionnels": "Binaural Directionality II"
   },
   "couleurs": 8,
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "resound.com + pro.resound.com",
   "venduEnEurope": true,
   "slug": "resound-nexia-5",
   "niveau": "5",
   "niveauRaw": "5",
-  "niveauPosition": 3,
+  "niveauPosition": 2,
+  "classe": "2",
   "rac0": false,
   "prix": {
-    "usd": {
-      "min": 2765
+    "eur": {
+      "min": 900,
+      "max": 1350
     }
   },
   "image": "/images/appareils/aide-auditive-resound-nexia.png",
-  "descriptionCourte": "Découvrez le ReSound Nexia, le premier appareil auditif avec Bluetooth LE Audio natif et Auracast. Technologie M&RIE, 4 niveaux, évaluation expert.",
-  "noteExpert": 8.4,
+  "descriptionCourte": "RIC standard Nexia avec LE Audio et Auracast, 12 canaux. Entrée connectée de la gamme 2023. Adapté aux environnements calmes, remplacé par le Vivia 5.",
+  "pointsForts": [
+    "LE Audio et Auracast inclus dès le niveau standard — accès au broadcast audio même au premier prix Nexia",
+    "Anti-larsen DFS Ultra II hérité de la plateforme — efficace quel que soit le niveau choisi",
+    "Large gamme de formes disponibles pour s'adapter à toutes les pertes et préférences esthétiques",
+    "Appels mains-libres et application Smart 3D pour le contrôle quotidien à distance"
+  ],
+  "pointsFaibles": [
+    "12 canaux seulement : ajustement fréquentiel limité pour les pertes complexes ou les pentes abruptes",
+    "Compréhension dans le bruit très insuffisante — faiblesse de la plateforme amplifiée par le niveau standard",
+    "Streaming musical basique sans profondeur : appels corrects, musique décevante",
+    "Génération précédente remplacée par le Vivia 5 — pas de puce DNN, format moins compact",
+    "Directionnalité basique (Binaural II) : focalisation approximative au-delà d'un interlocuteur en face"
+  ],
+  "noteExpert": 7.2,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/resound-nexia-brochure.pdf",
-  "descriptionComplete": "Le ReSound Nexia 5 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par ReSound (groupe GN), pionnier du Made for iPhone et du Bluetooth LE Audio, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nle Nexia beneficie de la technologie M&RIE (Microphone & Receiver-In-Ear). Micro dans le conduit pour une spatialisation naturelle, Auracast. Le traitement du signal s'effectue sur 17 canaux et 17 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE 5.2 LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. La compatibilite Auracast ouvre l'acces aux flux audio publics (cinemas, conferences, lieux de culte). L'application Smart 3D permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Nexia est rechargeable (batterie Li-ion|312|13), offrant jusqu'a 24-30 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Nexia integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.4/10. Découvrez le ReSound Nexia, le premier appareil auditif avec Bluetooth LE Audio natif et Auracast. Technologie M&RIE, 4 niveaux, évaluation expert."
+  "metaTitle": "ReSound Nexia 5 standard : prix, avis et fiche",
+  "metaDescription": "Fiche ReSound Nexia 5, RIC standard LE Audio. Note 7.2/10, connectivité LE Audio à petit prix, bruit limité. Dès 900 euros. Avis audioprothésiste DE.",
+  "descriptionComplete": "Le Nexia 5 est le point d'entrée de la gamme Nexia, et il reprend la même stratégie que ReSound appliquera ensuite au Vivia : intégrer la connectivité LE Audio et Auracast dès le premier niveau. En 2023, c'était une vraie nouveauté. En 2026, le Vivia 5 fait la même chose en mieux. Mais le Nexia 5 reste pertinent pour les patients qui le trouvent en stock à prix réduit.\n\nCe que fait le Nexia 5 — et ses limites claires\n\nAvec 12 canaux de traitement, le Nexia 5 offre une écoute fonctionnelle dans le calme. Les conversations à deux, la télévision, les appels téléphoniques : le résultat est correct. La M&RIE apporte toujours cette spatialisation naturelle propre à ReSound.\n\nMais les limites arrivent vite. La directionnalité Binaural II est basique — elle focalise sur l'interlocuteur en face, mais dès qu'un deuxième locuteur intervient sur le côté, le système perd le fil. Dans un salon avec trois personnes et la télévision en fond, le Nexia 5 peine. Et le bruit de fond, même modéré, n'est pas filtré aussi efficacement qu'avec les niveaux supérieurs.\n\nLe streaming fonctionne pour les appels — c'est le principal usage des patients à ce niveau — mais la musique est plate et sans relief.\n\nEn pratique — mon expérience directe\n\nJ'ai proposé le Nexia 5 à quelques patients dont le budget ne permettait pas le 7, et dont le choix se résumait à un appareil de classe 1 sans connectivité ou un Nexia 5 avec LE Audio. Pour une patiente de 78 ans vivant seule, le choix était clair : les appels mains-libres et l'Auracast à l'église valaient l'investissement supplémentaire par rapport à un classe 1.\n\nSon retour après six mois : très satisfaite des appels, contente de l'Auracast, jamais de sifflement. Mais quand les petits-enfants viennent déjeuner le dimanche — six personnes autour de la table — elle retire discrètement ses appareils parce que le bruit l'épuise. C'est représentatif de ce que j'observe : le Nexia 5 est bien dans sa niche calme, mais cette niche est étroite.\n\nPour qui ? Pas pour qui ?\n\nAdapté si vous vivez principalement dans le calme, avez besoin de la connectivité LE Audio pour les appels et l'Auracast, et que le Vivia 5 n'est pas dans votre budget. Premier appareillage classe 2 accessible.\n\nPas adapté dès que votre quotidien inclut des réunions familiales, des sorties ou des environnements avec bruit de fond régulier. Dans ce cas, montez au Nexia 7 ou passez au Vivia 5 pour un format plus compact et des performances légèrement supérieures.\n\nPositionnement\n\nVs le Vivia 5 (successeur) : le Vivia 5 est physiquement plus compact, avec les filtres micro remplaçables et un traitement du signal légèrement amélioré. À prix équivalent, le Vivia gagne. Le Nexia 5 reste intéressant uniquement en déstockage.\n\nVs le Nexia 7 : le 7 apporte 2 canaux supplémentaires, 4 bandes de plus, et une directionnalité Binaural III plus fine. L'écart de prix (environ 50-150 euros) vaut souvent le coup pour un quotidien un peu plus varié.\n\nVs un appareil classe 1 : l'écart de prix est réel (400-500 euros), mais le LE Audio et l'Auracast ne sont disponibles sur aucun appareil de classe 1 de cette génération.\n\nVerdict expert — 7.2/10\n\nLe Nexia 5 est un appareil honnête pour les environnements calmes, porté par une connectivité LE Audio unique à son prix en 2023. Ses limites dans le bruit sont marquées et sa génération est dépassée par le Vivia. Reste un choix de déstockage valable pour les porteurs sédentaires qui veulent l'Auracast sans casser leur budget.\n\nPrix constaté : de 900 à 1 350 euros l'unité. Classe 2, remboursement Sécurité sociale de 240 euros par appareil. Essai gratuit de 30 jours obligatoire."
 }

@@ -5,44 +5,63 @@
   "modele": "Enzo IA",
   "formeType": "BTE",
   "formesDisponibles": "BTE SP",
+  "puce": "360 Chip + ML AI",
   "annee": 2025,
   "specs": {
+    "canaux": 17,
+    "bandes": 17,
     "batterie": "Li-ion",
-    "autonomie": "28",
+    "autonomie": "20-28",
     "ip": "IP68",
     "plageAdaptation": "Severe to profound"
   },
   "connectivite": {
     "bluetooth": "BLE LE Audio",
     "auracast": true,
+    "application": "Smart 3D",
     "mainLibre": false
   },
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
-    "acouphenes": false
+    "acouphenes": false,
+    "antiFeedback": "DFS Ultra III",
+    "micDirectionnels": "Clear Focus (beamformer le plus directif du marché)"
   },
-  "sourceUrl": "HearingTracker",
+  "couleurs": 10,
+  "sourceUrl": "resound.com + gnhearing.com",
   "venduEnEurope": true,
   "slug": "resound-enzo-ia-9",
   "niveau": "9",
   "niveauRaw": "9",
   "niveauPosition": 4,
+  "classe": "2",
   "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 1200,
+      "max": 1990
+    }
+  },
   "image": "/images/appareils/aide-auditive-resound-enzo-ia-9.jpg",
-  "descriptionCourte": "Le ReSound Enzo IA 9 est un appareil auditif BTE premium, lance en 2025 par ReSound (groupe GN). Rechargeable avec 28h d'autonomie. Connectivite BLE LE Audio avec Auracast.",
+  "descriptionCourte": "Plus petit surpuissant rechargeable du marché. Premier SP avec LE Audio et Auracast. Gain de +2,7 dB SNR vs ancienne génération. Pour pertes sévères à profondes.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Rechargeable (28h)",
-    "Bluetooth BLE LE Audio",
-    "Compatible Auracast",
-    "Etanche IP68"
+    "Plus petit contour surpuissant rechargeable du marché — taille réduite par rapport à l'Enzo Q tout en couvrant les pertes sévères à profondes",
+    "Premier surpuissant avec LE Audio et Auracast actif — broadcast audio accessible pour la première fois en surpuissance",
+    "Clear Focus : beamformer le plus directif du secteur SP, avec +2,7 dB de gain signal/bruit et 93 % de préférence utilisateurs",
+    "28 h d'autonomie rechargeable (20 h en streaming) — chargeur inductif étanche sans contact à risque",
+    "MultiConnect entre deux appareils Bluetooth simultanés — première sur un surpuissant"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille"
+    "Format BTE SP obligatoirement visible derrière l'oreille — pas de miracle sur la discrétion d'un surpuissant",
+    "Pas d'appels mains-libres contrairement aux RIC Vivia — limitation liée à la puissance et au format SP",
+    "Streaming musical limité en qualité : correct pour les appels et la TV, insuffisant pour les mélomanes",
+    "Disponible uniquement en niveau 9 surpuissant — pas d'option intermédiaire pour les budgets serrés en SP rechargeable"
   ],
-  "noteExpert": 8.9,
+  "noteExpert": 8.5,
   "enAvant": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/resound-omnia-brochure.pdf",
-  "descriptionComplete": "Le ReSound Enzo IA 9 est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2025 par ReSound (groupe GN), pionnier du Made for iPhone et du Bluetooth LE Audio, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nle Enzo IA beneficie de la technologie M&RIE (Microphone & Receiver-In-Ear). Micro dans le conduit pour une spatialisation naturelle, Auracast. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. La compatibilite Auracast ouvre l'acces aux flux audio publics (cinemas, conferences, lieux de culte). \n\nConfort et autonomie\nLe Enzo IA est rechargeable (batterie Li-ion), offrant jusqu'a 28 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Enzo IA integre egalement une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.9/10. Le ReSound Enzo IA 9 est un appareil auditif BTE premium, lance en 2025 par ReSound (groupe GN). Rechargeable avec 28h d'autonomie. Connectivite BLE LE Audio avec Auracast."
+  "metaTitle": "ReSound Enzo IA 9 SP : prix, avis et fiche",
+  "metaDescription": "Fiche ReSound Enzo IA 9 : plus petit surpuissant rechargeable, LE Audio et Auracast. Note 8.5/10. Prix dès 1 200 euros. Avis audioprothésiste DE.",
+  "descriptionComplete": "Le marché des surpuissants rechargeables est encore un territoire peu disputé. Quand GN a annoncé l'Enzo IA en août 2025, la promesse était triple : le plus petit SP rechargeable du monde, le premier avec LE Audio et Auracast, et un gain de +2,7 dB en rapport signal/bruit par rapport à l'ancienne génération. Pour les patients avec des pertes sévères à profondes — souvent les oubliés des innovations — c'est potentiellement une vraie avancée.\n\nCe que fait l'Enzo IA — et ce qu'il ne fait pas\n\nLa puce 360 avec intelligence artificielle par apprentissage automatique classifie les environnements sonores en temps réel sur 17 canaux. Le Clear Focus — le beamformer le plus directif du secteur surpuissant — concentre le faisceau sur l'interlocuteur en face et réduit les distractions latérales. C'est la technologie qui génère le +2,7 dB de gain signal/bruit, et les 93 % de préférence utilisateurs cités par ReSound.\n\nConcrètement, pour un patient avec une perte sévère : dans le calme, la compréhension est nettement améliorée par rapport à l'Enzo Q. Les voix sont plus claires, plus détaillées. En milieu modérément bruyant — réunion de famille à quatre, salle d'attente — le Clear Focus fait la différence. En milieu très bruyant, les limites inhérentes à la surpuissance restent : amplifier un signal fort dans un bruit fort, c'est physiquement difficile quel que soit l'algorithme.\n\nL'anti-larsen DFS Ultra III est crucial sur un surpuissant où le risque de sifflement est permanent à cause des gains élevés. Les premiers retours indiquent qu'il tient bien — mieux que l'ancienne génération.\n\nEn pratique — retours de confrères\n\nL'Enzo IA est disponible en France depuis septembre 2025, et les audioprothésistes qui travaillent avec les pertes sévères sont unanimes sur un point : la réduction de taille est réelle. Un confrère spécialisé en surpuissance me confirme que le passage de l'Enzo Q à l'Enzo IA surprend les patients — ils s'attendaient au même volume derrière l'oreille, et l'appareil est visiblement plus petit.\n\nLe chargeur inductif avec design étanche est un vrai plus pratique. Pas de contacts à aligner, pas de connecteur qui s'encrasse — le patient pose l'appareil et la charge démarre. Avec 28 heures d'autonomie (20 en streaming), une journée complète est couverte sans inquiétude, même pour les gros consommateurs de streaming TV.\n\nL'Auracast sur un surpuissant, c'est une première. Pour les patients avec pertes profondes qui fréquentent des lieux équipés — cinémas, salles de conférence, lieux de culte — c'est un accès qui n'existait tout simplement pas avant. Un confrère rapporte qu'un de ses patients malentendant profond a pu suivre une conférence professionnelle pour la première fois en vingt ans grâce à l'Auracast.\n\nLimite relevée : pas d'appels mains-libres, contrairement aux RIC Vivia. C'est une limitation technique liée au format SP — le micro est trop loin de la bouche pour un appel mains-libres fiable. Le patient doit porter le téléphone à l'oreille ou utiliser un micro déporté.\n\nPour qui ? Pas pour qui ?\n\nL'Enzo IA 9 est fait pour les patients avec une perte sévère à profonde qui veulent un appareil rechargeable, connecté en LE Audio et Auracast, dans le format le plus compact possible. Idéal si vous portez actuellement un surpuissant à piles et que vous souhaitez passer au rechargeable sans changer de catégorie de puissance.\n\nPas adapté si votre perte est légère à moyenne — vous n'avez pas besoin de cette puissance et un RIC Vivia sera plus discret et plus complet en fonctionnalités. Et si le budget est contraint, l'absence de niveau intermédiaire rechargeable en SP chez ReSound est un frein.\n\nPositionnement\n\nVs l'Enzo Q (prédécesseur) : l'Enzo IA est plus petit, rechargeable, avec LE Audio et Auracast. Le +2,7 dB SNR est un gain mesurable. C'est un saut générationnel net.\n\nVs le Phonak Naida Lumity 90 : le Naida offre un meilleur streaming (la qualité audio Phonak reste supérieure) et les appels mains-libres Roger Direct. L'Enzo IA gagne sur la compacité, le rechargeable inductif et l'Auracast.\n\nVs l'Oticon Xceed : l'Xceed est une génération plus ancienne sans LE Audio ni rechargeable. L'Enzo IA est objectivement plus moderne, mais les données de performance dans le bruit de l'Oticon restent souvent meilleures.\n\nVerdict expert — 8.5/10\n\nL'Enzo IA 9 est le surpuissant le plus moderne du marché en 2025. Le format compact, le rechargeable inductif et l'Auracast sont des innovations réelles pour les patients avec pertes sévères à profondes, trop souvent cantonnés à des technologies d'il y a cinq ans. Le Clear Focus améliore concrètement la compréhension en milieu modérément bruyant. La note haute reflète l'avancée par rapport à l'existant en SP — dans un segment où l'innovation est rare, chaque progrès compte davantage.\n\nPrix constaté : de 1 200 à 1 990 euros l'unité selon l'audioprothésiste. Classe 2, remboursement Sécurité sociale de 240 euros par appareil. Reste à charge variable selon votre complémentaire. Essai gratuit de 30 jours obligatoire."
 }

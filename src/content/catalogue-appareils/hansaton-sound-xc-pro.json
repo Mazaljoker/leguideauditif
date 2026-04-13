@@ -5,10 +5,11 @@
   "modele": "Sound XC Pro",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC 312",
-  "annee": 2021,
+  "puce": "Excite Pro",
+  "annee": 2020,
   "specs": {
     "batterie": "Li-ion|312",
-    "plageAdaptation": "Mild to severe"
+    "plageAdaptation": "Légère à sévère"
   },
   "connectivite": {
     "bluetooth": "BLE",
@@ -21,7 +22,7 @@
     "acouphenes": false
   },
   "couleurs": 8,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "hansaton.com",
   "venduEnEurope": true,
   "slug": "hansaton-sound-xc-pro",
   "niveauPosition": 1,
@@ -29,28 +30,30 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1190,
-      "max": 2390
+      "min": 890,
+      "max": 1400
     }
   },
   "image": "/images/appareils/aide-auditive-hansaton-sound-xc-pro.jpg",
-  "descriptionCourte": "Le Hansaton Sound XC Pro est un appareil auditif RIC entree de gamme, lance en 2021 par Hansaton (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "metaTitle": "Hansaton Sound XC Pro : fiche appareil legacy",
+  "metaDescription": "RIC entrée de gamme Hansaton sur plateforme Excite Pro (2020). Remplacé par le Sound Stratos. Encore porté par certains patients.",
+  "descriptionCourte": "RIC entrée de gamme sur plateforme Excite Pro (groupe Sonova, 2020). Bluetooth BLE, version rechargeable disponible. Remplacé par le Sound Stratos (puce PRISM, 2021).",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Rechargeable",
-    "Bluetooth BLE",
-    "8 coloris disponibles"
+    "Version rechargeable Li-ion disponible — autonomie correcte pour une journée",
+    "Bluetooth BLE pour streaming audio depuis smartphone",
+    "8 coloris pour s'adapter à différentes carnations",
+    "Tarif accessible pour une entrée en classe 2"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Plateforme Excite Pro désormais remplacée par PRISM (Stratos) puis ERA (Essenz) — deux générations de retard",
+    "Pas de mains libres Bluetooth — nécessite de décrocher le téléphone",
+    "Pas de bobine T pour les boucles magnétiques",
+    "Application compagnon basique avec peu de réglages accessibles"
   ],
-  "noteExpert": 6.4,
+  "noteExpert": 6.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
-  "descriptionComplete": "Le Hansaton Sound XC Pro est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Hansaton (groupe Sonova), technologie Phonak a prix accessible, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Sound XC Pro beneficie de la technologie plateforme Phonak. Distribution selective en Europe, interface simplifiee. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nLe Sound XC Pro est rechargeable (batterie Li-ion|312). Un chargeur est fourni avec l'appareil. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 190 euros par appareil (soit ~2 380 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.4/10. Le Hansaton Sound XC Pro est un appareil auditif RIC entree de gamme, lance en 2021 par Hansaton (groupe Sonova). Rechargeable. Connectivite BLE.",
+  "ficheTechniquePdf": "",
+  "descriptionComplete": "Le Hansaton Sound XC Pro est un RIC entrée de gamme lancé en 2020 sur la plateforme Excite Pro du groupe Sonova. Cette génération a été remplacée par le Sound Stratos (puce PRISM, 2021), lui-même désormais suivi par le Hansaton Essenz (puce ERA, 2025).\n\nSi vous portez encore un Sound XC Pro et qu'il fonctionne bien, pas de raison de changer dans l'immédiat — un appareil auditif bien réglé et bien entretenu dure 5 à 7 ans. Mais si vous envisagez un renouvellement, le Stratos ou l'Essenz apporteront des améliorations sensibles en connectivité (Bluetooth mains libres, Tap Control) et en traitement du signal dans le bruit.\n\nPrix constaté à l'époque : de 890 à 1 400 € par appareil. Classe 2 — reste à charge variable selon votre complémentaire santé.",
   "legacy": true,
-  "legacyReason": "Plateforme Excite Pro (2020) remplacee par Stratos"
+  "legacyReason": "Plateforme Excite Pro (2020) remplacée par Sound Stratos (PRISM, 2021) puis Essenz (ERA, 2025)"
 }

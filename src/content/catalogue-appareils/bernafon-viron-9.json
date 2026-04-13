@@ -5,23 +5,25 @@
   "modele": "Viron",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC 312",
+  "puce": "DECS",
   "annee": 2019,
   "specs": {
     "batterie": "Li-ion|312",
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
-    "bluetooth": "BLE",
+    "bluetooth": "2.4 GHz BLE + NFMI",
     "auracast": false,
+    "application": "Bernafon EasyControl-A",
     "mainLibre": false
   },
   "fonctionnalites": {
-    "rechargeable": false,
-    "bobineT": false,
+    "rechargeable": true,
+    "bobineT": true,
     "acouphenes": false
   },
   "couleurs": 5,
-  "sourceUrl": "MySecondEar",
+  "sourceUrl": "bernafon.com",
   "venduEnEurope": true,
   "slug": "bernafon-viron-9",
   "niveau": "9",
@@ -31,25 +33,15 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1790
+      "min": 1500,
+      "max": 1800
     }
   },
   "image": "/images/appareils/aide-auditive-bernafon-viron-1.png",
-  "descriptionCourte": "Le Bernafon Viron 9 est un appareil auditif RIC excellence, lance en 2019 par Bernafon (groupe Demant). Connectivite BLE.",
-  "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Bluetooth BLE"
-  ],
-  "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Non rechargeable (piles)",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable"
-  ],
-  "noteExpert": 8.7,
+  "descriptionCourte": "Bernafon Viron 9 : niveau Excellence de la gamme Viron (2019), plateforme DECS Demant. Remplacé par Alpha puis Encanta.",
+  "noteExpert": 7.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/bernafon-alpha-product-info.pdf",
-  "descriptionComplete": "Le Bernafon Viron 9 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2019 par Bernafon (groupe Demant), approche hybride combinant traitement classique et IA, cet appareil se positionne en niveau Excellence, le summum de la gamme avec toutes les fonctionnalites debloquees.\n\nTechnologie et traitement du son\nle Viron beneficie de la technologie Hybrid Technology. Plateforme Demant a un positionnement prix intermediaire. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Li-ion|312. Disponible en 5 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 790 euros par appareil (soit ~3 580 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.7/10. Le Bernafon Viron 9 est un appareil auditif RIC excellence, lance en 2019 par Bernafon (groupe Demant). Connectivite BLE.",
   "legacy": true,
-  "legacyReason": "Generation Viron (2019) remplacee par Alpha"
+  "legacyReason": "Remplacé par Alpha (2021) puis Alpha XT (2023) puis Encanta (2024)",
+  "ficheTechniquePdf": "/docs/fiches-techniques/bernafon-viron-product-info.pdf"
 }

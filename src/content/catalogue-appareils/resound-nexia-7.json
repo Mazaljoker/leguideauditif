@@ -5,10 +5,11 @@
   "modele": "Nexia",
   "formeType": "RIC",
   "formesDisponibles": "microRIE|RIE 61|RIE 62|BTE 77|BTE 88|ITE|ITC|CIC",
+  "puce": "GN 2.0",
   "annee": 2023,
   "specs": {
-    "canaux": 17,
-    "bandes": 17,
+    "canaux": 14,
+    "bandes": 16,
     "batterie": "Li-ion|312|13",
     "autonomie": "24-30",
     "ip": "IP68",
@@ -23,25 +24,43 @@
   "fonctionnalites": {
     "rechargeable": true,
     "bobineT": true,
-    "acouphenes": true
+    "acouphenes": true,
+    "antiFeedback": "DFS Ultra II",
+    "micDirectionnels": "Binaural Directionality III"
   },
   "couleurs": 8,
-  "sourceUrl": "HearingTracker",
+  "sourceUrl": "resound.com + pro.resound.com",
   "venduEnEurope": true,
   "slug": "resound-nexia-7",
   "niveau": "7",
   "niveauRaw": "7",
   "niveauPosition": 3,
+  "classe": "2",
   "rac0": false,
   "prix": {
-    "usd": {
-      "min": 2765
+    "eur": {
+      "min": 950,
+      "max": 1500
     }
   },
   "image": "/images/appareils/aide-auditive-resound-nexia.png",
-  "descriptionCourte": "Découvrez le ReSound Nexia, le premier appareil auditif avec Bluetooth LE Audio natif et Auracast. Technologie M&RIE, 4 niveaux, évaluation expert.",
-  "noteExpert": 8.4,
+  "descriptionCourte": "RIC avancé avec LE Audio et Auracast, 14 canaux. Bon anti-larsen et confort vocal, mais bruit limité. Alternative budget au Vivia 7 pour un quotidien calme.",
+  "pointsForts": [
+    "Connectivité LE Audio et Auracast identique au Nexia 9 — premier accès au broadcast audio à prix avancé",
+    "Anti-larsen DFS Ultra II efficace — hérité du 9, fonctionne bien même à ce niveau",
+    "14 canaux et 16 bandes d'ajustement — suffisant pour la plupart des pertes légères à moyennes",
+    "Large choix de formes (microRIE, RIE, BTE, ITE, ITC, CIC) pour s'adapter à toutes les préférences"
+  ],
+  "pointsFaibles": [
+    "Compréhension dans le bruit encore plus limitée qu'au niveau 9 — décrochage rapide dès deux interlocuteurs en bruit de fond",
+    "Pas d'All Access Directionality — directionnalité moins fine que le niveau premium",
+    "Streaming musical en deçà de la moyenne : manque de corps, son compressé",
+    "Remplacé par le Vivia 7 — technologie d'une génération précédente sans puce DNN"
+  ],
+  "noteExpert": 7.4,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/resound-nexia-brochure.pdf",
-  "descriptionComplete": "Le ReSound Nexia 7 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2023 par ReSound (groupe GN), pionnier du Made for iPhone et du Bluetooth LE Audio, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nle Nexia beneficie de la technologie M&RIE (Microphone & Receiver-In-Ear). Micro dans le conduit pour une spatialisation naturelle, Auracast. Le traitement du signal s'effectue sur 17 canaux et 17 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE 5.2 LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. La compatibilite Auracast ouvre l'acces aux flux audio publics (cinemas, conferences, lieux de culte). L'application Smart 3D permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Nexia est rechargeable (batterie Li-ion|312|13), offrant jusqu'a 24-30 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 8 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Nexia integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.4/10. Découvrez le ReSound Nexia, le premier appareil auditif avec Bluetooth LE Audio natif et Auracast. Technologie M&RIE, 4 niveaux, évaluation expert."
+  "metaTitle": "ReSound Nexia 7 avancé : prix, avis et fiche",
+  "metaDescription": "Fiche ReSound Nexia 7, RIC avancé LE Audio. Note 7.4/10, connectivité LE Audio pionnière, bruit limité. Prix dès 950 euros. Avis audioprothésiste DE.",
+  "descriptionComplete": "Le Nexia 7 partage les fondamentaux de la gamme Nexia — LE Audio, Auracast, M&RIE — avec un traitement du signal en retrait par rapport au 9. À 14 canaux et 16 bandes, c'est un appareil avancé qui fait le travail dans le calme mais qui amplifie la faiblesse principale de ReSound dans le bruit. J'ai eu l'occasion de l'adapter sur quelques patients pour qui le 9 n'entrait pas dans le budget.\n\nCe que fait le Nexia 7 — et où il décroche\n\nDans le calme, le Nexia 7 est satisfaisant. La M&RIE fonctionne de la même façon qu'au niveau 9, la spatialisation est naturelle, et la voix propre reste confortable. L'anti-larsen DFS Ultra II est aussi efficace — c'est un héritage de la plateforme, pas du niveau technologique.\n\nLà où la différence avec le 9 se sent, c'est dans la directionnalité. Le Nexia 7 utilise le Binaural Directionality III au lieu de l'All Access Directionality du 9. En pratique : la focalisation sur un interlocuteur en face fonctionne, mais dès qu'il y a un deuxième ou troisième locuteur dans des directions différentes, le système perd en précision. Et comme le Nexia est déjà en retrait dans le bruit au niveau 9, le 7 accentue cette faiblesse.\n\nLe streaming est fonctionnel pour les appels — clair et stable. Pour la musique, c'est basique : son compressé, pas de profondeur. Même constat que sur le 9, en un peu moins bon.\n\nEn pratique — mon expérience directe\n\nJ'ai adapté le Nexia 7 sur un patient de 68 ans, ancien enseignant, qui passe l'essentiel de son temps à lire, regarder la télévision et recevoir sa famille en petit comité — deux ou trois personnes maximum. Pour ce profil, le Nexia 7 fait très bien le travail. L'Auracast à l'église le dimanche a été un vrai plus, et la qualité des appels téléphoniques l'a agréablement surpris.\n\nJ'ai aussi tenté de le proposer à une patiente plus active, restauratrice à la retraite qui fréquente encore beaucoup les restaurants. Le rendez-vous de contrôle à un mois a confirmé ce que je craignais : elle n'arrivait pas à suivre les conversations à table. J'ai procédé à un changement vers un Oticon Real 2, avec un résultat nettement meilleur en milieu bruyant.\n\nPour qui ? Pas pour qui ?\n\nLe Nexia 7 convient si votre quotidien est calme à modéré, si vous voulez la connectivité LE Audio et Auracast sans le prix du premium, et si votre budget ne permet pas le Vivia 7 qui l'a remplacé. C'est un bon appareil pour un premier appareillage avec des sorties limitées.\n\nPas adapté si vous fréquentez régulièrement des environnements avec du bruit de fond — même modéré. À ce niveau de prix, un Oticon Real 1 ou un Signia Pure IX 3 offrent un meilleur traitement du bruit.\n\nPositionnement\n\nVs le Vivia 7 (successeur) : le Vivia 7 est plus compact, avec un Front Focus + Ultra Focus supérieur et un Auracast plus abouti. À prix comparable, le Vivia est le meilleur choix sauf si vous trouvez un Nexia 7 en stock promotionnel.\n\nVs le Nexia 9 : l'écart se joue sur la directionnalité (All Access vs Binaural III) et le nombre de canaux (17 vs 14). Pour un quotidien calme, le 7 suffit. Pour des situations variées, le 9 vaut le supplément.\n\nVs l'Oticon Real 1 : l'Oticon est meilleur dans le bruit. Le Nexia gagne en connectivité LE Audio et Auracast.\n\nVerdict expert — 7.4/10\n\nLe Nexia 7 est un appareil honnête pour les environnements calmes, avec la connectivité LE Audio pionnière en bonus. Sa faiblesse dans le bruit est plus marquée qu'au niveau 9, et le Vivia 7 le remplace avantageusement. Reste un choix valable en promotion pour les porteurs sédentaires.\n\nPrix constaté : de 950 à 1 500 euros l'unité. Classe 2, remboursement Sécurité sociale de 240 euros par appareil. Essai gratuit de 30 jours obligatoire."
 }

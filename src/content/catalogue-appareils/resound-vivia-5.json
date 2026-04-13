@@ -5,13 +5,13 @@
   "modele": "Vivia",
   "formeType": "RIC",
   "formesDisponibles": "microRIE 60|RIE 61|RIE 62",
-  "puce": "Dual-chip AI + DNN",
+  "puce": "360 Chip",
   "annee": 2025,
   "specs": {
-    "canaux": 17,
-    "bandes": 17,
+    "canaux": 10,
+    "bandes": 10,
     "batterie": "Li-ion|312|13",
-    "autonomie": "24-30",
+    "autonomie": "20-30",
     "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
@@ -26,41 +26,41 @@
     "bobineT": true,
     "acouphenes": true,
     "antiFeedback": "DFS Ultra III",
-    "micDirectionnels": "4-mic binaural beamformer"
+    "micDirectionnels": "Front Focus + 360 All-Around"
   },
   "couleurs": 10,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "resound.com + pro.resound.com",
   "venduEnEurope": true,
   "slug": "resound-vivia-5",
   "niveau": "5",
   "niveauRaw": "5",
-  "niveauPosition": 3,
+  "niveauPosition": 2,
   "classe": "2",
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1740
-    },
-    "usd": {
-      "min": 2998
+      "min": 900,
+      "max": 1490
     }
   },
   "image": "/images/appareils/aide-auditive-resound-vivia-4.jpg",
-  "descriptionCourte": "Le ReSound Vivia 5 est un appareil auditif RIC avance equipe de la puce Dual-chip AI + DNN, lance en 2025 par ReSound (groupe GN). Rechargeable avec 24-30h d'autonomie. Connectivite BLE LE Audio avec Auracast.",
+  "descriptionCourte": "RIC standard de la gamme Vivia avec Auracast et LE Audio intégrés. Entrée dans l'univers connecté ReSound à prix contenu. Adapté aux environnements calmes.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce Dual-chip AI + DNN",
-    "Rechargeable (24-30h)",
-    "Bluetooth BLE LE Audio",
-    "Compatible Auracast",
-    "Etanche IP68"
+    "Connectivité Auracast et LE Audio même au niveau standard — broadcast audio accessible dès le premier prix Vivia",
+    "Format microRIE ultra-compact identique aux niveaux supérieurs, jusqu'à 30 h d'autonomie",
+    "Appels mains-libres et MultiConnect inclus — pas réservés aux niveaux premium",
+    "Nanocoating + IP68 : même robustesse que le flagship pour un budget maîtrisé"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Classe 2 — reste a charge variable"
+    "10 canaux de traitement seulement — ajustement fréquentiel moins précis pour les pertes complexes ou asymétriques",
+    "Pas de DNN, pas d'Intelligent Focus, pas d'Ultra Focus — traitement du bruit basique au-delà de deux interlocuteurs",
+    "Noise Tracker II en version allégée : réduction du bruit moins réactive que les niveaux 7 et 9",
+    "Streaming musical basique sans Streaming Bass Boost — les mélomanes seront frustrés"
   ],
-  "noteExpert": 7.9,
+  "noteExpert": 7.6,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/resound-omnia-brochure.pdf",
-  "descriptionComplete": "Le ReSound Vivia 5 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par ReSound (groupe GN), pionnier du Made for iPhone et du Bluetooth LE Audio, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce Dual-chip AI + DNN, le Vivia beneficie de la technologie M&RIE (Microphone & Receiver-In-Ear). Micro dans le conduit pour une spatialisation naturelle, Auracast. Le traitement du signal s'effectue sur 17 canaux et 17 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. La compatibilite Auracast ouvre l'acces aux flux audio publics (cinemas, conferences, lieux de culte). L'application Smart 3D permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Vivia est rechargeable (batterie Li-ion|312|13), offrant jusqu'a 24-30 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 10 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Vivia integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen DFS Ultra III, des microphones directionnels 4-mic binaural beamformer. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 740 euros par appareil (soit ~3 480 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.9/10. Le ReSound Vivia 5 est un appareil auditif RIC avance equipe de la puce Dual-chip AI + DNN, lance en 2025 par ReSound (groupe GN). Rechargeable avec 24-30h d'autonomie. Connectivite BLE LE Audio avec Auracast."
+  "metaTitle": "ReSound Vivia 5 standard : prix, avis et fiche",
+  "metaDescription": "Fiche ReSound Vivia 5, RIC standard avec Auracast. Note 7.6/10, connectivité premium à prix accessible. Dès 900 euros. Avis audioprothésiste DE.",
+  "descriptionComplete": "Le Vivia 5 est l'entrée de gamme de la famille Vivia, et c'est là que la stratégie de GN devient intéressante. Là où la plupart des fabricants réservent leurs meilleures fonctions connectivité aux niveaux premium, ReSound intègre l'Auracast et le LE Audio dès le niveau 5. Concrètement : un patient avec un budget serré peut accéder au broadcast audio et aux appels mains-libres — ce que ni Signia ni Oticon ne proposent à ce prix.\n\nCe que fait le Vivia 5 — et ses limites\n\nAvec 10 canaux de traitement, le Vivia 5 offre une écoute claire dans le calme. Le système 360 All-Around maintient une conscience de l'environnement sonore, et le Front Focus permet de focaliser sur un interlocuteur face à vous. Pour une conversation à deux dans un salon, au téléphone, ou devant la télévision, le résultat est tout à fait satisfaisant.\n\nLes limites apparaissent vite dès que l'environnement se complique. Sans Ultra Focus, sans DNN et avec une version allégée du Noise Tracker II, le Vivia 5 décroche dans un restaurant même modérément bruyant. C'est honnête pour un niveau standard, mais il faut le savoir : ce n'est pas un appareil pour les sorties en groupe.\n\nLe streaming est fonctionnel — appels clairs, podcasts audibles — mais sans le Streaming Bass Boost du niveau 7. La musique sonne plate, et c'est d'autant plus dommage que la connectivité par ailleurs est excellente.\n\nEn pratique — retours de confrères\n\nLes confrères qui adaptent le Vivia 5 le décrivent comme un appareil de premier équipement idéal pour les patients connectés à petit budget. Un collègue audioprothésiste rapporte qu'il le propose systématiquement aux patients qui hésitent entre un appareil de classe 1 sans connectivité et un premier pas en classe 2 : l'argument Auracast à ce prix fait la différence.\n\nLa prise en main est identique aux autres Vivia — même format compact, mêmes filtres remplaçables, même application Smart 3D. Le patient ne se sent pas pénalisé sur l'ergonomie parce qu'il a choisi le niveau d'entrée.\n\nLimite relevée : les patients actifs qui l'essaient en espérant les performances du 9 sont systématiquement déçus dans le bruit. Le 5 fonctionne bien dans son créneau — environnements calmes à légèrement bruyants — mais pas au-delà.\n\nPour qui ? Pas pour qui ?\n\nIdéal pour un premier appareillage, une perte légère à moyenne, un quotidien principalement à domicile ou en environnement calme. Vous profitez de l'Auracast et des appels mains-libres sans exploser le budget. Adapté aux patients connectés qui veulent un smartphone couplé à leurs appareils mais dont la vie sociale ne nécessite pas un traitement du bruit élaboré.\n\nPas adapté si vous sortez souvent, fréquentez des restaurants, ou avez une vie sociale active avec des groupes de plus de trois personnes. Dans ce cas, le Vivia 7 ou 9 s'impose, ou bien regardez du côté d'un Oticon Real 1 pour un meilleur traitement du bruit à prix équivalent.\n\nPositionnement\n\nVs le Vivia 7 : le 7 apporte Ultra Focus, Streaming Bass Boost et 4 canaux supplémentaires pour environ 150-250 euros de plus. Si votre quotidien inclut des situations modérément bruyantes, le 7 est un meilleur investissement.\n\nVs le Nexia 5 (prédécesseur) : le Vivia 5 est physiquement plus compact, l'Auracast est enfin fonctionnel, et les filtres micro sont remplaçables. À prix équivalent, le Vivia 5 est le meilleur choix.\n\nVs un appareil classe 1 : l'écart de prix est réel, mais l'Auracast et les appels mains-libres ne sont disponibles dans aucun appareil de classe 1. C'est un vrai saut en connectivité.\n\nVerdict expert — 7.6/10\n\nLe Vivia 5 est la porte d'entrée la plus connectée du marché à ce prix. L'Auracast, le LE Audio et les appels mains-libres dès le niveau standard, c'est unique chez ReSound. Ses limites dans le bruit sont celles d'un niveau d'entrée — attendues et honnêtes. Pour un porteur calme et connecté, c'est un excellent premier appareil en classe 2.\n\nPrix constaté : de 900 à 1 490 euros l'unité selon l'audioprothésiste. Classe 2, remboursement Sécurité sociale de 240 euros par appareil. Reste à charge variable selon votre complémentaire. Essai gratuit de 30 jours obligatoire."
 }

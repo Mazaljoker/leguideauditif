@@ -27,21 +27,23 @@
   "niveauPosition": 2,
   "rac0": false,
   "image": "/images/appareils/aide-auditive-resound-savi-61.jpg",
-  "descriptionCourte": "Le ReSound Savi 61 est un appareil auditif RIC milieu de gamme, lance en 2025 par ReSound (groupe GN). Connectivite BLE LE Audio avec Auracast.",
+  "descriptionCourte": "Le ReSound Savi 61 est un appareil auditif RIC milieu de gamme, lancé en 2025 par ReSound (groupe GN). Connectivité BLE LE Audio avec Auracast.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
+    "Discret, léger, son naturel grâce à l'écouteur dans le conduit",
     "Bluetooth BLE LE Audio",
     "Compatible Auracast",
-    "Etanche IP68"
+    "Étanche IP68"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
+    "Écouteur exposé au cérumen, nécessitant un entretien régulier",
     "Non rechargeable (piles)",
-    "Pas de bobine T (boucle magnetique)",
-    "Fonctionnalites reduites par rapport aux niveaux superieurs"
+    "Pas de bobine T (boucle magnétique)",
+    "Fonctionnalités réduites par rapport aux niveaux supérieurs"
   ],
   "noteExpert": 7.2,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/resound-nexia-brochure.pdf",
-  "descriptionComplete": "Le ReSound Savi 61 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par ReSound (groupe GN), pionnier du Made for iPhone et du Bluetooth LE Audio, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nle Savi beneficie de la technologie M&RIE (Microphone & Receiver-In-Ear). Micro dans le conduit pour une spatialisation naturelle, Auracast. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. La compatibilite Auracast ouvre l'acces aux flux audio publics (cinemas, conferences, lieux de culte). \n\nConfort et autonomie\nCet appareil fonctionne avec des piles . La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.2/10. Le ReSound Savi 61 est un appareil auditif RIC milieu de gamme, lance en 2025 par ReSound (groupe GN). Connectivite BLE LE Audio avec Auracast."
+  "descriptionComplete": "Le ReSound Savi 61 est une aide auditive de type contour à écouteur déporté (RIC). Lancé en 2025, ce modèle fait partie de la gamme essentielle ReSound Savi. Cette fiche est en attente de réécriture complète.",
+  "legacy": true,
+  "legacyReason": "Slug incorrect — « 61 » désigne la forme RIE 61, pas un niveau technologique. Le produit Savi existe mais nécessite des fiches par niveau, pas par forme."
 }

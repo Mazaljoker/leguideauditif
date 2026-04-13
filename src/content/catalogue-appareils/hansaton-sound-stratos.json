@@ -4,49 +4,59 @@
   "groupe": "sonova",
   "modele": "Sound Stratos",
   "formeType": "RIC",
-  "formesDisponibles": "RIC R",
+  "formesDisponibles": "RIC R|RIC RT|RIC 312",
+  "puce": "PRISM",
   "annee": 2021,
   "specs": {
-    "batterie": "Li-ion",
-    "plageAdaptation": "Mild to moderate"
+    "batterie": "Li-ion|312",
+    "plageAdaptation": "Légère à sévère",
+    "ip": "IP68"
   },
   "connectivite": {
     "bluetooth": "BLE",
     "auracast": false,
-    "mainLibre": false
+    "application": "Hansaton stream remote",
+    "mainLibre": true
   },
   "fonctionnalites": {
-    "rechargeable": false,
-    "bobineT": false,
-    "acouphenes": false
+    "rechargeable": true,
+    "bobineT": true,
+    "acouphenes": false,
+    "antiFeedback": "Feedback Canceller dynamique",
+    "micDirectionnels": "Dynamic SpeechBeam binaural 360°"
   },
-  "couleurs": 5,
-  "sourceUrl": "MySecondEar",
+  "couleurs": 8,
+  "sourceUrl": "hansaton.com",
   "venduEnEurope": true,
   "slug": "hansaton-sound-stratos",
-  "niveauPosition": 1,
+  "niveauPosition": 2,
   "classe": "2",
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1290,
-      "max": 2490
+      "min": 950,
+      "max": 1500
     }
   },
   "image": "/images/appareils/aide-auditive-hansaton-sound-stratos.jpg",
-  "descriptionCourte": "Le Hansaton Sound Stratos est un appareil auditif RIC entree de gamme, lance en 2021 par Hansaton (groupe Sonova). Connectivite BLE.",
+  "metaTitle": "Hansaton Sound Stratos RIC : prix, avis et fiche",
+  "metaDescription": "RIC milieu de gamme sur puce PRISM Sonova. Correct dans le calme, Bluetooth mains libres, rechargeable. De 950 à 1 500 € par appareil.",
+  "descriptionCourte": "RIC milieu de gamme sur puce PRISM (groupe Sonova). Bluetooth mains libres, Tap Control et recharge Li-ion. Solide dans le calme, plus limité en environnement bruyant. Pour les porteurs cherchant un appareil connecté à prix contenu.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Bluetooth BLE"
+    "Bluetooth mains libres avec Tap Control — double-tap pour décrocher, pratique pour les seniors actifs",
+    "Trois déclinaisons (rechargeable, rechargeable + bobine T, piles 312) qui couvrent différents besoins",
+    "Dynamic SpeechBeam binaural 360° — focalisation vocale correcte en petit groupe",
+    "Tarif nettement inférieur aux flagships Phonak pour un traitement du signal issu de la même maison",
+    "8 coloris disponibles, boîtier compact et léger"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Non rechargeable (piles)",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable"
+    "Performances dans le bruit en retrait par rapport aux générations Phonak Lumity et Infinio — conversations à plus de 3 personnes dans un restaurant restent difficiles",
+    "Application Hansaton stream remote basique comparée à myPhonak — moins de réglages fins accessibles",
+    "Pas d'Auracast ni de LE Audio — connectivité limitée aux standards BLE classiques",
+    "Puce PRISM (2021) désormais deux générations derrière la plateforme ERA actuelle du groupe Sonova"
   ],
-  "noteExpert": 6.2,
+  "noteExpert": 7.0,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
-  "descriptionComplete": "Le Hansaton Sound Stratos est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Hansaton (groupe Sonova), technologie Phonak a prix accessible, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Sound Stratos beneficie de la technologie plateforme Phonak. Distribution selective en Europe, interface simplifiee. La plage d'adaptation couvre les pertes legeres a moyennes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Li-ion. Disponible en 5 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 290 euros par appareil (soit ~2 580 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.2/10. Le Hansaton Sound Stratos est un appareil auditif RIC entree de gamme, lance en 2021 par Hansaton (groupe Sonova). Connectivite BLE."
+  "ficheTechniquePdf": "",
+  "descriptionComplete": "Hansaton, c'est la marque que peu de patients connaissent mais que beaucoup d'audioprothésistes apprécient en coulisse. Filiale du groupe Sonova — le même qui fabrique les Phonak — Hansaton propose des appareils qui partagent le moteur technologique de leur grande sœur, avec un positionnement tarifaire plus accessible et une distribution plus discrète.\n\nLe Sound Stratos, lancé en 2021, repose sur la puce PRISM. Pour situer : c'est l'équivalent de la génération Phonak Paradise dans l'écosystème Sonova. Le traitement du signal est éprouvé, même s'il n'intègre pas les avancées des plateformes plus récentes (Lumity, puis Infinio avec la puce ERA).\n\nCe que fait cet appareil\n\nLe Stratos embarque la technologie HearIntelligence avec Dynamic SpeechBeam, un système de focalisation vocale binaurale à 360°. Concrètement, dans une conversation à deux ou trois dans un environnement calme à modérément bruyant, vous comprendrez vos interlocuteurs sans effort particulier. La réduction de bruit intelligente fait un travail correct pour atténuer les bruits de fond constants — ventilation, circulation lointaine.\n\nMais dans un restaurant un samedi soir ? Ou lors d'un repas de famille animé à 8 personnes ? Le Stratos montre ses limites. La génération PRISM n'a pas la finesse de séparation vocale des puces plus récentes. Ce n'est pas un défaut en soi — c'est le positionnement : un appareil milieu de gamme de 2021 ne rivalise pas avec un flagship de 2024 dans les situations acoustiques les plus exigeantes.\n\nCôté streaming, le Bluetooth mains libres fonctionne bien pour les appels téléphoniques. La fonction Tap Control est un vrai plus au quotidien : un double-tap sur l'oreille pour décrocher ou raccrocher, sans sortir le téléphone. Pour la musique, le rendu est correct sans être audiophile — largement suffisant pour la radio ou un podcast.\n\nEn pratique — ce que la plateforme Sonova m'apprend\n\nJe connais très bien la plateforme Sonova via les Phonak que j'ai adaptés pendant des années. Le traitement du signal PRISM, c'est celui que j'ai vu tourner sur des centaines de patients avec les Phonak Paradise. Le moteur de réduction de bruit est fiable et prévisible, l'adaptation initiale se passe bien, et les patients s'y habituent vite.\n\nLa vraie différence entre un Hansaton Stratos et un Phonak de même génération ? L'application compagnon. L'app Hansaton stream remote est fonctionnelle mais plus basique que myPhonak : réglage du volume, changement de programme, pas beaucoup plus. Pour un patient qui ne veut pas passer sa vie dans une application, c'est amplement suffisant. Pour celui qui aime affiner ses réglages — un peu frustrant.\n\nLa version rechargeable (AQ sound ST R) offre une journée complète d'autonomie en usage mixte. La version RT ajoute la bobine T pour les boucles magnétiques — utile dans certains lieux publics, théâtres, guichets. La version piles 312 conviendra à ceux qui préfèrent l'autonomie des piles jetables ou qui n'ont pas envie de gérer un chargeur.\n\nPour qui ? Pas pour qui ?\n\nLe Hansaton Sound Stratos est fait pour vous si vous cherchez un appareil connecté, Bluetooth mains libres, à un tarif inférieur aux grandes marques — et que votre quotidien se passe majoritairement dans des environnements calmes à modérément bruyants. Conversations en famille, télévision, promenades, appels téléphoniques.\n\nIl n'est pas fait pour vous si vous êtes très actif socialement — restaurants fréquents, réunions professionnelles en open space, clubs associatifs bruyants. Dans ces cas, une plateforme plus récente (Phonak Infinio, Signia IX, Oticon Intent) vous apportera une compréhension vocale nettement supérieure dans le bruit.\n\nPerte sévère : la plage d'adaptation couvre jusqu'aux pertes sévères, mais pour une surdité profonde, un BTE power type Phonak Naída sera plus adapté.\n\nPositionnement face à la concurrence\n\nFace au Phonak Audéo Paradise (même génération Sonova) : le Stratos offre un traitement du signal comparable à un tarif inférieur, avec une app moins complète. Budget serré et pas besoin de réglages fins via l'application ? Le Stratos est le choix rationnel.\n\nLe Hansaton Essenz (successeur, puce ERA, 2025) apporte la génération actuelle avec HearIntelligence 6.0, une connectivité étendue (portée doublée, 8 appareils appairés) et un traitement IA plus avancé. Si votre budget le permet, l'Essenz est objectivement supérieur.\n\nEt par rapport aux entrées de gamme classe 1 (100 % Santé) ? Le Stratos reste un cran au-dessus côté traitement du signal et connectivité. L'écart de prix est justifié si le Bluetooth mains libres compte pour vous.\n\nVerdict expert — 7,0/10\n\nLe Hansaton Sound Stratos est un appareil honnête. La plateforme PRISM est éprouvée et fiable, le Bluetooth mains libres avec Tap Control est un vrai confort au quotidien, et le tarif est attractif pour du Sonova. Ses limites sont celles de sa génération : dans le bruit intense, il décroche. Mais pour un porteur au mode de vie calme à modéré qui veut un appareil connecté sans se ruiner, c'est un choix solide.\n\nPrix constaté : de 950 à 1 500 € par appareil selon le niveau technologique et l'audioprothésiste. Classe 2 — le reste à charge dépend de votre complémentaire santé. Essai de 30 jours obligatoire avant tout achat définitif."
 }

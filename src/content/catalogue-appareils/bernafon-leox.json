@@ -5,24 +5,28 @@
   "modele": "Leox",
   "formeType": "BTE",
   "formesDisponibles": "BTE SP|BTE UP",
-  "annee": 2021,
+  "puce": "DECS",
+  "annee": 2019,
   "specs": {
-    "batterie": "Disposable 13|675",
+    "batterie": "13 (SP)|675 (UP)",
     "ip": "IP68",
     "plageAdaptation": "Severe to profound"
   },
   "connectivite": {
-    "bluetooth": "BLE",
+    "bluetooth": "MFi (2.4 GHz)",
     "auracast": false,
+    "application": "Bernafon EasyControl-A",
     "mainLibre": false
   },
   "fonctionnalites": {
     "rechargeable": false,
-    "bobineT": false,
-    "acouphenes": false
+    "bobineT": true,
+    "acouphenes": false,
+    "antiFeedback": "Dynamic Feedback Canceller",
+    "micDirectionnels": "Dynamic Directionality"
   },
   "couleurs": 6,
-  "sourceUrl": "MySecondEar",
+  "sourceUrl": "bernafon.com",
   "venduEnEurope": true,
   "slug": "bernafon-leox",
   "niveauPosition": 1,
@@ -30,26 +34,29 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1190,
-      "max": 1590
+      "min": 950,
+      "max": 1250
     }
   },
   "image": "/images/appareils/aide-auditive-bernafon-leox.jpg",
-  "descriptionCourte": "Le Bernafon Leox est un appareil auditif BTE entree de gamme, lance en 2021 par Bernafon (groupe Demant). Connectivite BLE.",
+  "descriptionCourte": "BTE surpuissant Demant pour pertes sévères à profondes. SP (pile 13, 143 dB) ou UP (pile 675, 146 dB). Robuste, télécoil, MFi. Adapté aux enfants et jeunes adultes.",
   "pointsForts": [
-    "Puissant, robuste, adapte aux pertes severes a profondes",
-    "Bluetooth BLE",
-    "Etanche IP68",
-    "6 coloris disponibles"
+    "Puissance exceptionnelle : 143 dB (SP) à 146 dB (UP), parmi les sorties les plus élevées du marché pour les pertes profondes",
+    "Robustesse certifiée IP68 — conçu pour résister à l'usage intensif des enfants et adolescents",
+    "Télécoil intégré pour les boucles magnétiques en classe, en réunion ou au guichet",
+    "Compatibilité systèmes FM et Roger pour les environnements scolaires",
+    "Autonomie confortable grâce aux piles 13 ou 675 — plusieurs jours d'utilisation sans changement"
   ],
   "pointsFaibles": [
-    "Plus visible derriere l'oreille",
-    "Non rechargeable (piles)",
-    "Pas de bobine T (boucle magnetique)",
-    "Classe 2 — reste a charge variable"
+    "Non rechargeable — piles jetables uniquement, ce qui implique un coût récurrent et une manipulation régulière",
+    "Connectivité limitée au MFi : le streaming Android nécessite l'accessoire SoundClip-A en supplément",
+    "Format BTE volumineux — visible derrière l'oreille, ce qui peut gêner les adolescents soucieux de discrétion",
+    "Plateforme DECS de 2019 — le traitement du signal accuse son âge face aux puces actuelles (Polaris, IX, ERA)"
   ],
-  "noteExpert": 6.3,
+  "noteExpert": 6.2,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/bernafon-alpha-product-info.pdf",
-  "descriptionComplete": "Le Bernafon Leox est une aide auditive de type contour d'oreille classique (BTE), robuste et puissant, adapte aux pertes severes a profondes. Lance en 2021 par Bernafon (groupe Demant), approche hybride combinant traitement classique et IA, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Leox beneficie de la technologie Hybrid Technology. Plateforme Demant a un positionnement prix intermediaire. La plage d'adaptation couvre les pertes Severe a profondes. \n\nConnectivite\nLa connectivite BLE permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles Disposable 13|675. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 6 coloris pour s'adapter a votre teint et style. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 190 euros par appareil (soit ~2 380 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.3/10. Le Bernafon Leox est un appareil auditif BTE entree de gamme, lance en 2021 par Bernafon (groupe Demant). Connectivite BLE."
+  "ficheTechniquePdf": "/docs/fiches-techniques/bernafon-leox-product-info.pdf",
+  "descriptionComplete": "Dans le segment des aides auditives surpuissantes, le choix se réduit vite. Très vite. Le Bernafon Leox fait partie des rares appareils capables de couvrir des pertes allant jusqu'au fond du spectre — sévères à profondes — avec une sortie maximale de 146 dB en version Ultra Power. C'est un contour classique, assumé, pensé pour la robustesse et la puissance brute.\n\nCe que fait le Leox — et ce qu'il ne fait pas\n\nLe Leox tourne sur la plateforme DECS (Dynamic Environment Control System) de Bernafon, sortie en 2019. Le traitement du signal analyse l'environnement sonore en continu et ajuste amplification, directivité et réduction de bruit sans que vous ayez à toucher quoi que ce soit. Deux versions : le Super Power (pile 13, 143 dB de sortie) pour les pertes sévères, et l'Ultra Power (pile 675, 146 dB) pour les pertes profondes. Chaque version existe en deux niveaux technologiques — Leox 3 pour les fonctions essentielles, Leox 7 pour le Dynamic Amplification Control, la gestion binaurale du bruit et l'extension dynamique de la plage.\n\nDans le calme, le Leox fait son travail. La voix est amplifiée avec une clarté correcte pour le niveau de perte visé. Dans le bruit, les limites apparaissent. Le DECS gère les transitions d'environnement, mais sans la finesse des algorithmes DNN qu'on trouve aujourd'hui sur un Oticon Intent ou un Signia IX. Conversation à deux dans un salon ? Confortable. Dîner familial bruyant à huit autour de la table ? Il faudra compter sur la lecture labiale et le positionnement — comme avec la plupart des surpuissants de cette génération.\n\nCôté streaming : MFi pour les appareils Apple, ça marche. Pour Android, il faut passer par le SoundClip-A, un accessoire porté autour du cou qui fait le pont Bluetooth. Fonctionnel, mais c'est un câble de plus à gérer.\n\nEn pratique — ce que la plateforme Demant nous apprend\n\nJe connais bien l'écosystème Demant à travers Oticon, et j'ai adapté des contours surpuissants Bernafon sur des patients avec des pertes profondes bilatérales. Le Leox a un avantage que les chiffres ne montrent pas : sa solidité mécanique. Un ado de 14 ans qui fait du sport et oublie ses appareils dans sa poche de pantalon — vous avez besoin d'un appareil qui encaisse. L'IP68 n'est pas qu'un argument marketing ici. C'est une nécessité clinique.\n\nLa télécoil, pour cette population, c'est un vrai atout. En milieu scolaire avec boucle magnétique ou système FM Roger, le Leox se connecte directement. Pas d'accessoire supplémentaire. Ce genre de détail change concrètement la scolarité d'un enfant malentendant.\n\nLe point qui revient en consultation : les piles. Avec une 675 en version UP, l'autonomie est généreuse — 7 à 10 jours selon l'usage. Mais pour des parents qui gèrent déjà beaucoup au quotidien, le rechargeable aurait simplifié les choses. Bernafon n'a pas proposé cette option sur le Leox. Dommage.\n\nPour qui ? Pas pour qui ?\n\nLe Leox est fait pour les patients qui ont besoin de puissance avant tout. Profil idéal : un enfant ou jeune adulte scolarisé, actif, qui a besoin d'un appareil solide compatible avec les systèmes FM. Ça fonctionne aussi pour les adultes avec des pertes profondes installées qui cherchent un contour fiable à prix raisonnable.\n\nPas adapté aux pertes légères à modérées — un RIC sera plus discret, mieux connecté, moins cher. Pas non plus pour ceux qui veulent du streaming Android natif sans accessoire. Et si la discrétion est votre priorité absolue, un BTE surpuissant n'est pas le bon format. Mais à ce niveau de perte, soyons honnêtes : les alternatives discrètes manquent souvent de puissance.\n\nAlternative à regarder : l'Oticon Xceed (même groupe Demant, plateforme plus récente, meilleure connectivité) ou le Phonak Naída Lumity (Sonova, streaming universel, rechargeable).\n\nFace à la concurrence\n\nPar rapport au Bernafon Juna (aujourd'hui discontinué), le Leox apporte le DECS, la connectivité MFi et l'IP68. Un vrai saut. Face à l'Oticon Xceed du même groupe Demant, le Leox est moins cher mais la connectivité et le traitement du signal sont en retrait. Le Naída Lumity de Phonak propose le rechargeable, le streaming universel et la plateforme PRISM — mais à un prix supérieur.\n\nLe Leox se positionne comme l'option solide et accessible du segment surpuissant. Pas la plus technologique. La plus résistante pour le prix.\n\nVerdict expert\n\nNote : 6.2/10. Le Leox remplit son contrat de puissance et de robustesse pour les pertes sévères à profondes, avec un prix maîtrisé (950 à 1 250 euros par appareil, prix constaté, variable selon l'audioprothésiste et votre reste à charge). Sa plateforme DECS de 2019 commence à dater face aux puces actuelles, et l'absence de rechargeable pèse au quotidien. Pour un enfant scolarisé avec boucle magnétique, c'est un choix qui tient. Pour un adulte qui veut la meilleure technologie en surpuissant, orientez-vous plutôt vers l'Oticon Xceed ou le Naída Lumity.",
+  "metaTitle": "Bernafon Leox SP/UP : prix, avis et fiche complète",
+  "metaDescription": "BTE surpuissant Bernafon pour pertes sévères à profondes. 143-146 dB, IP68, télécoil, MFi. De 950 à 1 250 euros. Avis audioprothésiste."
 }

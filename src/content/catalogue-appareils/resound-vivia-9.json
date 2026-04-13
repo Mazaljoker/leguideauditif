@@ -5,13 +5,13 @@
   "modele": "Vivia",
   "formeType": "RIC",
   "formesDisponibles": "microRIE 60|RIE 61|RIE 62",
-  "puce": "Dual-chip AI + DNN",
+  "puce": "Dual-chip 360 + DNN",
   "annee": 2025,
   "specs": {
     "canaux": 17,
     "bandes": 17,
     "batterie": "Li-ion|312|13",
-    "autonomie": "24-30",
+    "autonomie": "20-30",
     "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
@@ -26,10 +26,10 @@
     "bobineT": true,
     "acouphenes": true,
     "antiFeedback": "DFS Ultra III",
-    "micDirectionnels": "4-mic binaural beamformer"
+    "micDirectionnels": "Intelligent Focus + Clear Focus (4-mic binaural)"
   },
   "couleurs": 10,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "resound.com + pro.resound.com",
   "venduEnEurope": true,
   "slug": "resound-vivia-9",
   "niveau": "9",
@@ -39,28 +39,30 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1990
-    },
-    "usd": {
-      "min": 3198
+      "min": 1200,
+      "max": 1990
     }
   },
   "image": "/images/appareils/aide-auditive-resound-vivia-4.jpg",
-  "descriptionCourte": "Le ReSound Vivia 9 est un appareil auditif RIC premium equipe de la puce Dual-chip AI + DNN, lance en 2025 par ReSound (groupe GN). Rechargeable avec 24-30h d'autonomie. Connectivite BLE LE Audio avec Auracast.",
+  "descriptionCourte": "RIC premium à double puce IA + DNN, connectivité Auracast pionnière et format ultra-compact. Champion de la connectivité, à tester en milieu bruyant avant de trancher.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce Dual-chip AI + DNN",
-    "Rechargeable (24-30h)",
-    "Bluetooth BLE LE Audio",
-    "Compatible Auracast",
-    "Etanche IP68"
+    "Connectivité Auracast active — premier du marché à proposer le broadcast audio fonctionnel (cinémas, conférences, lieux de culte)",
+    "Double puce 360 + DNN dédiée au traitement du bruit, entraînée sur 13,5 millions de phrases — exclusif au niveau 9",
+    "Plus petit RIC rechargeable du marché avec jusqu'à 30 h d'autonomie (20 h en streaming ou avec Intelligent Focus)",
+    "MultiConnect : commutation fluide entre deux appareils Bluetooth simultanément, appels mains-libres intégrés",
+    "Filtres micro remplaçables par le patient — maintenance simplifiée sans retour au fabricant",
+    "Nanocoating intérieur et extérieur + IP68 — robustesse renforcée contre humidité et cérumen"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Classe 2 — reste a charge variable"
+    "Compréhension dans le bruit en retrait face à l'Oticon Intent et au Phonak Sphere Infinio — les grands groupes en restaurant restent un défi",
+    "Streaming musical manquant de corps et de basses par rapport aux Phonak — correct pour les appels, limité pour la musique",
+    "Puce DNN réservée au niveau 9 rechargeable uniquement — les niveaux inférieurs et les modèles à piles n'en bénéficient pas",
+    "Prix élevé en classe 2 pour des performances en bruit qui ne dominent pas le segment premium"
   ],
-  "noteExpert": 8.9,
+  "noteExpert": 8.2,
   "enAvant": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/resound-omnia-brochure.pdf",
-  "descriptionComplete": "Le ReSound Vivia 9 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par ReSound (groupe GN), pionnier du Made for iPhone et du Bluetooth LE Audio, cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce Dual-chip AI + DNN, le Vivia beneficie de la technologie M&RIE (Microphone & Receiver-In-Ear). Micro dans le conduit pour une spatialisation naturelle, Auracast. Le traitement du signal s'effectue sur 17 canaux et 17 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. La compatibilite Auracast ouvre l'acces aux flux audio publics (cinemas, conferences, lieux de culte). L'application Smart 3D permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Vivia est rechargeable (batterie Li-ion|312|13), offrant jusqu'a 24-30 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 10 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Vivia integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen DFS Ultra III, des microphones directionnels 4-mic binaural beamformer. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 990 euros par appareil (soit ~3 980 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 8.9/10. Le ReSound Vivia 9 est un appareil auditif RIC premium equipe de la puce Dual-chip AI + DNN, lance en 2025 par ReSound (groupe GN). Rechargeable avec 24-30h d'autonomie. Connectivite BLE LE Audio avec Auracast."
+  "metaTitle": "ReSound Vivia 9 : prix, avis expert et fiche",
+  "metaDescription": "Fiche ReSound Vivia 9 : RIC premium IA, Auracast actif. Note 8.2/10, connectivité pionnière. Prix dès 1 200 euros. Avis audioprothésiste DE.",
+  "descriptionComplete": "GN a toujours eu une longueur d'avance sur la connectivité. C'est la marque qui a inventé le Made for iPhone en 2014, lancé le premier Bluetooth LE Audio du marché avec le Nexia en 2023, et qui propose aujourd'hui avec le Vivia 9 la première connexion Auracast réellement active du secteur. La question que tout audioprothésiste se pose : est-ce que le traitement du bruit a enfin rattrapé la connectivité ?\n\nCe que fait le Vivia 9 — et ce qu'il ne fait pas\n\nLa double puce est la vraie nouveauté. Le processeur 360 gère le traitement du signal sur 17 canaux, pendant qu'un second processeur DNN — entraîné sur 13,5 millions de phrases et 3,9 millions de paramètres — se consacre exclusivement à la réduction du bruit via l'Intelligent Noise Tracker. En termes concrets : dans le calme, vous comprendrez vos interlocuteurs avec une clarté remarquable. La technologie M&RIE (micro placé dans le conduit auditif) apporte une spatialisation naturelle que peu de concurrents égalent — vous localisez les sons comme avec vos oreilles.\n\nEn milieu bruyant, le constat est plus nuancé. L'Intelligent Focus, exclusif au niveau 9, identifie et isole la parole du bruit ambiant. L'amélioration par rapport au Nexia est réelle. Mais dans un restaurant un samedi soir, avec quatre ou cinq conversations croisées, le Vivia reste en retrait face à un Oticon Intent ou un Phonak Sphere Infinio 90. C'est le point faible historique de ReSound, et le DNN réduit l'écart sans le combler complètement.\n\nCôté streaming, les appels mains-libres sont clairs et fiables. En revanche, la musique manque de basses et de richesse — si vous êtes mélomane, vous noterez la différence avec un Phonak.\n\nEn pratique — retours de confrères\n\nLe Vivia 9 est disponible depuis début 2025, et les premiers retours de confrères qui l'adaptent au quotidien convergent sur un point : la connectivité tient ses promesses. Un collègue installé près d'un cinéma équipé Auracast confirme que ses patients en Vivia 9 sont les premiers à profiter du son diffusé directement dans leurs appareils, sans accessoire intermédiaire. Le MultiConnect — deux appareils Bluetooth connectés simultanément — fonctionne de manière fluide, sans les déconnexions qu'on observe parfois chez la concurrence.\n\nLe format microRIE est objectivement le plus petit RIC rechargeable du marché. Ce n'est pas qu'un argument de brochure : à l'adaptation, la différence de taille se voit. Les filtres micro remplaçables simplifient la maintenance — un avantage concret pour les patients qui redoutent les pannes liées au cérumen. Avec 30 heures d'autonomie (20 heures en utilisation intensive avec streaming ou Intelligent Focus), la batterie tient une journée complète sans inquiétude.\n\nCe que les confrères pointent comme limite : au-delà de quatre personnes dans un environnement bruyant, l'Intelligent Focus atteint ses limites. Le streaming musical reste en deçà de la concurrence Phonak.\n\nPour qui ? Pas pour qui ?\n\nLe Vivia 9 est fait pour vous si vous menez une vie active et connectée. Vous utilisez un smartphone au quotidien, vous fréquentez des lieux équipés Auracast (cinémas, salles de conférence, lieux de culte), et vous valorisez la discrétion. Idéal pour une perte légère à sévère, un mode de vie urbain, et des conversations principalement en petit comité.\n\nCe n'est pas le bon choix si votre priorité absolue est la compréhension dans le bruit extrême — grands dîners de famille, restaurants bondés, réunions à huit. Dans ce cas, orientez-vous vers un Oticon Intent 4 ou un Phonak Sphere Infinio 90 qui dominent ce terrain. Et si le streaming musical est central dans votre quotidien, le Phonak reste la référence.\n\nPositionnement face à la concurrence\n\nVs le Nexia 9 (prédécesseur) : le Vivia apporte la double puce DNN, l'Intelligent Focus, un format plus compact et l'Auracast enfin fonctionnel. Le progrès est notable, mais le saut est moins spectaculaire que celui de Signia entre l'AX et l'IX.\n\nVs l'Oticon Intent 4 : l'Intent domine en compréhension dans le bruit — c'est la référence du marché. Mais le Vivia a l'avantage sur la connectivité (Auracast actif, MultiConnect) et la discrétion (format plus compact). C'est un choix entre priorité bruit vs priorité connectivité.\n\nVs le Signia Pure IX 7 : le Signia offre un meilleur anti-larsen et un confort de voix propre supérieur. Le Vivia gagne sur la connectivité Auracast et le format compact.\n\nVerdict expert — 8.2/10\n\nLe ReSound Vivia 9 est le meilleur appareil connecté du marché en 2025. Aucun concurrent ne propose l'Auracast actif, le MultiConnect aussi fluide, ou un RIC rechargeable aussi compact. La double puce IA améliore le traitement du bruit par rapport au Nexia. Mais ReSound reste un cran en dessous d'Oticon et Phonak en milieu bruyant, et le streaming musical n'est pas à la hauteur du prix premium. Pour un porteur connecté avec une vie sociale modérément bruyante : excellent choix. Pour les environnements très bruyants : testez d'abord, comparez ensuite.\n\nPrix constaté : de 1 200 à 1 990 euros l'unité selon l'audioprothésiste et la forme choisie. Classe 2, le remboursement Sécurité sociale est de 240 euros par appareil. Le reste à charge dépend de votre complémentaire santé. Un essai gratuit de 30 jours est obligatoire avant tout achat définitif."
 }

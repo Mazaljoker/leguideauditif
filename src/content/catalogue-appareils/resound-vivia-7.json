@@ -5,13 +5,13 @@
   "modele": "Vivia",
   "formeType": "RIC",
   "formesDisponibles": "microRIE 60|RIE 61|RIE 62",
-  "puce": "Dual-chip AI + DNN",
+  "puce": "360 Chip",
   "annee": 2025,
   "specs": {
-    "canaux": 17,
-    "bandes": 17,
+    "canaux": 14,
+    "bandes": 14,
     "batterie": "Li-ion|312|13",
-    "autonomie": "24-30",
+    "autonomie": "20-30",
     "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
@@ -26,10 +26,10 @@
     "bobineT": true,
     "acouphenes": true,
     "antiFeedback": "DFS Ultra III",
-    "micDirectionnels": "4-mic binaural beamformer"
+    "micDirectionnels": "Front Focus + Ultra Focus (4-mic binaural)"
   },
   "couleurs": 10,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "resound.com + pro.resound.com",
   "venduEnEurope": true,
   "slug": "resound-vivia-7",
   "niveau": "7",
@@ -39,28 +39,29 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1740
-    },
-    "usd": {
-      "min": 2998
+      "min": 1050,
+      "max": 1740
     }
   },
   "image": "/images/appareils/aide-auditive-resound-vivia-4.jpg",
-  "descriptionCourte": "Le ReSound Vivia 7 est un appareil auditif RIC avance equipe de la puce Dual-chip AI + DNN, lance en 2025 par ReSound (groupe GN). Rechargeable avec 24-30h d'autonomie. Connectivite BLE LE Audio avec Auracast.",
+  "descriptionCourte": "RIC avancé sur plateforme Vivia avec Auracast et LE Audio. Même format compact que le 9, sans la puce DNN. Bon compromis connectivité-budget pour les environnements calmes à modérés.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Puce Dual-chip AI + DNN",
-    "Rechargeable (24-30h)",
-    "Bluetooth BLE LE Audio",
-    "Compatible Auracast",
-    "Etanche IP68"
+    "Connectivité Auracast et LE Audio identique au niveau 9 — broadcast audio fonctionnel dans les lieux équipés",
+    "Format microRIE ultra-compact partagé avec le 9, jusqu'à 30 h d'autonomie rechargeable",
+    "Front Focus + Ultra Focus : focalisation directionnelle efficace en conversation à deux ou trois",
+    "Streaming Bass Boost pour un son plus riche en streaming par rapport au niveau 5",
+    "Appels mains-libres intégrés avec MultiConnect deux appareils simultanés"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Classe 2 — reste a charge variable"
+    "Pas de puce DNN ni d'Intelligent Focus — traitement du bruit sensiblement inférieur au niveau 9 dans les environnements complexes",
+    "14 canaux vs 17 au niveau 9 : ajustement fréquentiel moins fin pour les pertes asymétriques ou complexes",
+    "Streaming musical correct mais sans la profondeur d'un Phonak Audéo Lumity 70",
+    "Performances dans le bruit limitées au-delà de trois interlocuteurs — faiblesse héritée de la plateforme ReSound"
   ],
   "noteExpert": 7.9,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/resound-omnia-brochure.pdf",
-  "descriptionComplete": "Le ReSound Vivia 7 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2025 par ReSound (groupe GN), pionnier du Made for iPhone et du Bluetooth LE Audio, cet appareil se positionne en niveau Avance, avec des algorithmes de traitement du bruit plus sophistiques.\n\nTechnologie et traitement du son\nEquipe de la puce Dual-chip AI + DNN, le Vivia beneficie de la technologie M&RIE (Microphone & Receiver-In-Ear). Micro dans le conduit pour une spatialisation naturelle, Auracast. Le traitement du signal s'effectue sur 17 canaux et 17 bandes, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. La compatibilite Auracast ouvre l'acces aux flux audio publics (cinemas, conferences, lieux de culte). L'application Smart 3D permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Vivia est rechargeable (batterie Li-ion|312|13), offrant jusqu'a 24-30 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 10 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Vivia integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques, un systeme anti-larsen DFS Ultra III, des microphones directionnels 4-mic binaural beamformer. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 740 euros par appareil (soit ~3 480 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 7.9/10. Le ReSound Vivia 7 est un appareil auditif RIC avance equipe de la puce Dual-chip AI + DNN, lance en 2025 par ReSound (groupe GN). Rechargeable avec 24-30h d'autonomie. Connectivite BLE LE Audio avec Auracast."
+  "metaTitle": "ReSound Vivia 7 avancé : prix, avis et fiche",
+  "metaDescription": "Fiche ReSound Vivia 7, RIC avancé avec Auracast. Note 7.9/10, connectivité premium sans puce DNN. Prix dès 1 050 euros. Avis audioprothésiste DE.",
+  "descriptionComplete": "Tous les Vivia ne se valent pas, et la différence entre le 9 et le 7 est plus importante qu'un simple écart de canaux. Le Vivia 7 partage le même boîtier compact, la même connectivité Auracast et le même LE Audio que le flagship — mais il tourne sur la puce 360 seule, sans le processeur DNN dédié au bruit. C'est un choix assumé de GN : concentrer l'innovation IA sur le haut de gamme et proposer un niveau avancé solide pour les porteurs dont le quotidien est moins bruyant.\n\nCe que fait le Vivia 7 — et où il décroche\n\nAvec 14 canaux de traitement et le système Front Focus + Ultra Focus, le Vivia 7 focalise correctement sur l'interlocuteur face à vous. Dans le calme ou en bruit modéré — conversation à deux au salon, réunion à quatre au bureau — la compréhension est claire et le confort d'écoute satisfaisant. La technologie M&RIE apporte la même spatialisation naturelle que le 9.\n\nLà où le décrochage se fait sentir, c'est dans les environnements complexes. Sans l'Intelligent Focus et sans le DNN, le Vivia 7 perd en précision dès qu'il y a plus de trois sources sonores concurrentes. Un dîner en famille à six avec la télévision en fond : c'est là que vous sentirez la différence avec le 9. Et comme cette faiblesse se cumule avec le point faible historique de ReSound dans le bruit, le résultat est plus marqué que l'écart entre un Signia IX 7 et un IX 5, par exemple.\n\nLe Streaming Bass Boost améliore la qualité audio en streaming par rapport au 5 — les appels et podcasts sont agréables. La musique reste en deçà d'un Phonak, mais c'est le cas de toute la gamme ReSound.\n\nEn pratique — retours de confrères\n\nD'après les retours de collègues audioprothésistes, le Vivia 7 trouve naturellement sa place chez les patients retraités avec un quotidien calme à modéré. Un confrère me rapporte qu'il l'oriente systématiquement vers des patients sédentaires qui regardent la télévision, reçoivent de la famille en petit comité et passent des appels — sans fréquenter régulièrement des environnements très bruyants.\n\nLe point fort unanime : l'Auracast fonctionne aussi bien sur le 7 que sur le 9. Les patients équipés n'ont pas besoin de payer le premium du 9 pour profiter du broadcast audio au cinéma ou à l'église. C'est un argument de vente réel quand le budget est contraint.\n\nLa maintenance avec les filtres remplaçables est identique au 9 — même facilité, même format compact.\n\nPour qui ? Pas pour qui ?\n\nIdéal si votre quotidien se passe principalement dans le calme ou en bruit modéré : domicile, conversations en petit groupe, promenades, rendez-vous médicaux. Vous profitez pleinement de la connectivité Auracast et du format compact sans payer le supplément de la puce DNN.\n\nPas adapté si vous sortez régulièrement au restaurant, participez à des réunions animées ou avez besoin de comprendre dans un brouhaha. Dans ce cas, le surcoût du Vivia 9 avec sa puce DNN se justifie — ou bien orientez-vous vers un Oticon Intent 2 qui offre de meilleures performances dans le bruit à un prix comparable.\n\nPositionnement\n\nVs le Vivia 9 : même connectivité, même format, mais sans DNN ni Intelligent Focus. L'écart de prix (environ 200-300 euros) reflète un vrai écart de performance en milieu bruyant. Pour un quotidien calme, le 7 suffit. Pour un quotidien bruyant, le 9 fait la différence.\n\nVs le Vivia 5 : le 7 apporte Ultra Focus, Streaming Bass Boost et 4 canaux supplémentaires. L'écart est sensible en situation modérément bruyante et en qualité de streaming.\n\nVs l'Oticon Real 2 : l'Oticon est meilleur dans le bruit, le Vivia gagne en connectivité (Auracast, mains-libres, MultiConnect) et en compacité.\n\nVerdict expert — 7.9/10\n\nLe Vivia 7 est un bon RIC avancé dont la force est sa connectivité identique au flagship : Auracast actif, LE Audio, MultiConnect. Pour les porteurs dont le quotidien ne requiert pas la puce DNN — retraités calmes, travailleurs à domicile, usages principalement en petit comité — c'est un excellent rapport connectivité-prix. Ses limites dans le bruit restent le point faible de la plateforme ReSound, amplifiées ici par l'absence de DNN.\n\nPrix constaté : de 1 050 à 1 740 euros l'unité selon l'audioprothésiste. Classe 2, remboursement Sécurité sociale de 240 euros par appareil. Reste à charge variable selon votre complémentaire. Essai gratuit de 30 jours obligatoire."
 }

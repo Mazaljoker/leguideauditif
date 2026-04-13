@@ -8,21 +8,24 @@
   "puce": "Hybrid",
   "annee": 2021,
   "specs": {
-    "autonomie": "BLE",
+    "batterie": "Li-ion|312",
+    "autonomie": "24",
+    "ip": "IP68",
     "plageAdaptation": "Mild to severe"
   },
   "connectivite": {
-    "bluetooth": "No",
+    "bluetooth": "2.4 GHz BLE + NFMI",
     "auracast": false,
+    "application": "Bernafon EasyControl-A",
     "mainLibre": false
   },
   "fonctionnalites": {
-    "rechargeable": false,
+    "rechargeable": true,
     "bobineT": true,
     "acouphenes": false
   },
   "couleurs": 10,
-  "sourceUrl": "HearingTracker+MySecondEar",
+  "sourceUrl": "bernafon.com",
   "venduEnEurope": true,
   "slug": "bernafon-alpha-3",
   "niveau": "3",
@@ -32,13 +35,15 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1315
+      "min": 890,
+      "max": 1100
     }
   },
   "image": "/images/appareils/aide-auditive-bernafon-alpha.jpg",
-  "descriptionCourte": "Découvrez le Bernafon Alpha, appareil auditif RIC lancé en 2021 avec Hybrid Technology. Specs, modèles, prix, avis expert Franck-Olivier.",
+  "descriptionCourte": "Bernafon Alpha 3 : milieu de gamme de la gamme Alpha (2021), Hybrid Technology, plateforme Demant. Remplacé par Alpha XT puis Encanta.",
   "noteExpert": 6.9,
   "enAvant": false,
-  "ficheTechniquePdf": "/docs/fiches-techniques/bernafon-alpha-product-info.pdf",
-  "descriptionComplete": "Le Bernafon Alpha 3 est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Bernafon (groupe Demant), approche hybride combinant traitement classique et IA, cet appareil se positionne en milieu de gamme Confort, offrant un bon equilibre entre performance et budget.\n\nTechnologie et traitement du son\nEquipe de la puce Hybrid, le Alpha beneficie de la technologie Hybrid Technology. Plateforme Demant a un positionnement prix intermediaire. La plage d'adaptation couvre les pertes legeres a severes. \n\nConnectivite\nLa connectivite No permet le streaming audio direct depuis votre smartphone. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles . Disponible en 10 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Alpha integre egalement une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 315 euros par appareil (soit ~2 630 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.9/10. Découvrez le Bernafon Alpha, appareil auditif RIC lancé en 2021 avec Hybrid Technology. Specs, modèles, prix, avis expert Franck-Olivier."
+  "legacy": true,
+  "legacyReason": "Remplacé par Alpha XT (2023) puis Encanta (2024)",
+  "ficheTechniquePdf": "/docs/fiches-techniques/bernafon-alpha-product-info.pdf"
 }
