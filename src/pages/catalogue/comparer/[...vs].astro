@@ -1,0 +1,175 @@
+---
+/**
+ * /catalogue/comparer/[slugA]-vs-[slugB]/ — Pages 1v1 programmatiques
+ * Génère des comparaisons SEO entre les top produits
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AuthorBox from '../../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
+import { getCollection } from 'astro:content';
+import { formatPrice, getProductPrice, FORME_TYPE_LABELS } from '../../../lib/catalogue-utils';
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('catalogueAppareils');
+  const active = allProducts.map(p => p.data).filter(p => !p.legacy && p.noteExpert);
+
+  // Top products by noteExpert (max 25 to keep combinations manageable)
+  const top = active.sort((a, b) => (b.noteExpert ?? 0) - (a.noteExpert ?? 0)).slice(0, 25);
+
+  const paths: { params: { vs: string }; props: { productA: typeof top[0]; productB: typeof top[0] } }[] = [];
+  const seen = new Set<string>();
+
+  for (let i = 0; i < top.length; i++) {
+    for (let j = i + 1; j < top.length; j++) {
+      const a = top[i];
+      const b = top[j];
+      // Only compare products of similar type or price range
+      const sameType = a.formeType === b.formeType;
+      const priceA = getProductPrice(a) ?? 0;
+      const priceB = getProductPrice(b) ?? 0;
+      const similarPrice = priceA && priceB && Math.abs(priceA - priceB) < 800;
+      const sameBrand = a.marque === b.marque;
+
+      if (sameType || similarPrice || sameBrand) {
+        // Canonical order: alphabetical
+        const [first, second] = [a, b].sort((x, y) => x.slug.localeCompare(y.slug));
+        const key = `${first.slug}-vs-${second.slug}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          paths.push({ params: { vs: key }, props: { productA: first, productB: second } });
+        }
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { productA, productB } = Astro.props;
+const nameA = `${productA.marqueLabel} ${productA.modele}${productA.niveau ? ' ' + productA.niveau : ''}`;
+const nameB = `${productB.marqueLabel} ${productB.modele}${productB.niveau ? ' ' + productB.niveau : ''}`;
+const priceA = getProductPrice(productA);
+const priceB = getProductPrice(productB);
+
+const title = `${nameA} vs ${nameB} — Comparatif 2026`;
+const description = `Comparaison détaillée ${nameA} contre ${nameB} : prix, specs, connectivité, note expert. Par un audioprothésiste DE.`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  name: title,
+  description,
+  author: { '@type': 'Person', '@id': 'https://leguideauditif.fr/#author', name: 'Franck-Olivier Chabbat' },
+};
+
+// Helper to determine winner per row
+function winner(a: string | number | boolean | undefined, b: string | number | boolean | undefined, higherBetter = true): 'a' | 'b' | 'tie' {
+  if (a === b || a === undefined || b === undefined) return 'tie';
+  if (typeof a === 'number' && typeof b === 'number') return higherBetter ? (a > b ? 'a' : 'b') : (a < b ? 'a' : 'b');
+  if (typeof a === 'boolean') return a ? 'a' : 'b';
+  return 'tie';
+}
+
+const rows = [
+  { label: 'Note expert', a: productA.noteExpert ? `${productA.noteExpert}/10` : '—', b: productB.noteExpert ? `${productB.noteExpert}/10` : '—', win: winner(productA.noteExpert, productB.noteExpert) },
+  { label: 'Prix', a: priceA ? formatPrice(priceA) : 'Sur devis', b: priceB ? formatPrice(priceB) : 'Sur devis', win: winner(priceA, priceB, false) },
+  { label: 'Classe', a: productA.classe === '1' ? 'Classe 1' : productA.classe === '2' ? 'Classe 2' : '—', b: productB.classe === '1' ? 'Classe 1' : productB.classe === '2' ? 'Classe 2' : '—', win: 'tie' as const },
+  { label: 'Type', a: FORME_TYPE_LABELS[productA.formeType] || productA.formeType, b: FORME_TYPE_LABELS[productB.formeType] || productB.formeType, win: 'tie' as const },
+  { label: 'Puce', a: productA.puce || '—', b: productB.puce || '—', win: 'tie' as const },
+  { label: 'Année', a: String(productA.annee), b: String(productB.annee), win: winner(productA.annee, productB.annee) },
+  { label: 'Canaux', a: productA.specs?.canaux ? String(productA.specs.canaux) : '—', b: productB.specs?.canaux ? String(productB.specs.canaux) : '—', win: winner(productA.specs?.canaux, productB.specs?.canaux) },
+  { label: 'Bluetooth', a: productA.connectivite?.bluetooth || '—', b: productB.connectivite?.bluetooth || '—', win: 'tie' as const },
+  { label: 'Auracast', a: productA.connectivite?.auracast ? 'Oui' : 'Non', b: productB.connectivite?.auracast ? 'Oui' : 'Non', win: winner(productA.connectivite?.auracast, productB.connectivite?.auracast) },
+  { label: 'Rechargeable', a: productA.fonctionnalites?.rechargeable ? 'Oui' : 'Non', b: productB.fonctionnalites?.rechargeable ? 'Oui' : 'Non', win: winner(productA.fonctionnalites?.rechargeable, productB.fonctionnalites?.rechargeable) },
+  { label: 'Acouphènes', a: productA.fonctionnalites?.acouphenes ? 'Oui' : 'Non', b: productB.fonctionnalites?.acouphenes ? 'Oui' : 'Non', win: winner(productA.fonctionnalites?.acouphenes, productB.fonctionnalites?.acouphenes) },
+  { label: 'Étanchéité', a: productA.specs?.ip || '—', b: productB.specs?.ip || '—', win: 'tie' as const },
+];
+
+const winsA = rows.filter(r => r.win === 'a').length;
+const winsB = rows.filter(r => r.win === 'b').length;
+const verdictWinner = winsA > winsB ? 'a' : winsB > winsA ? 'b' : 'tie';
+---
+
+<BaseLayout title={title} description={description} schema={schema}
+  canonical={`/catalogue/comparer/${productA.slug}-vs-${productB.slug}/`}>
+  <Breadcrumbs items={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Catalogue', href: '/catalogue/' },
+    { label: 'Comparer', href: '/catalogue/comparer/' },
+    { label: `${nameA} vs ${nameB}` }
+  ]} />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="font-sans text-2xl sm:text-3xl font-extrabold text-marine mb-6 text-center">
+      {nameA} <span class="text-orange">vs</span> {nameB}
+    </h1>
+
+    <!-- Product headers -->
+    <div class="grid grid-cols-2 gap-4 mb-6">
+      {[productA, productB].map((p, idx) => (
+        <div class="bg-blanc rounded-xl p-4 text-center shadow-sm">
+          {p.image && <img src={p.image} alt={idx === 0 ? nameA : nameB} class="h-24 mx-auto mb-2 object-contain" loading="lazy" />}
+          <a href={`/catalogue/appareils/${p.slug}/`} class="font-sans text-sm font-bold text-marine no-underline hover:text-orange">
+            {idx === 0 ? nameA : nameB}
+          </a>
+          {p.noteExpert && <div class="mt-1"><span class="px-2 py-0.5 rounded-full text-xs font-bold bg-marine text-blanc">{p.noteExpert}/10</span></div>}
+        </div>
+      ))}
+    </div>
+
+    <!-- Verdict -->
+    <div class="bg-creme rounded-xl p-5 mb-6 text-center">
+      {verdictWinner === 'a' && (
+        <p class="font-sans text-base font-bold text-marine">
+          Le <span class="text-orange">{nameA}</span> l'emporte sur {winsA} critères contre {winsB}
+        </p>
+      )}
+      {verdictWinner === 'b' && (
+        <p class="font-sans text-base font-bold text-marine">
+          Le <span class="text-orange">{nameB}</span> l'emporte sur {winsB} critères contre {winsA}
+        </p>
+      )}
+      {verdictWinner === 'tie' && (
+        <p class="font-sans text-base font-bold text-marine">
+          Match nul — {winsA} critères chacun
+        </p>
+      )}
+    </div>
+
+    <!-- Comparison table -->
+    <div class="bg-blanc rounded-2xl shadow-sm overflow-hidden mb-8">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-gray-200">
+            <th class="p-3 text-left text-xs font-semibold text-gris uppercase w-32">Critère</th>
+            <th class="p-3 text-center text-xs font-bold text-marine">{productA.marqueLabel}</th>
+            <th class="p-3 text-center text-xs font-bold text-marine">{productB.marqueLabel}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map(row => (
+            <tr class="border-b border-gray-100">
+              <td class="p-3 font-medium text-gris text-xs">{row.label}</td>
+              <td class={`p-3 text-center ${row.win === 'a' ? 'text-orange font-bold' : 'text-marine'}`}>{row.a}</td>
+              <td class={`p-3 text-center ${row.win === 'b' ? 'text-orange font-bold' : 'text-marine'}`}>{row.b}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTAs -->
+    <div class="grid grid-cols-2 gap-4 mb-8">
+      <a href={`/devis/?appareil=${productA.slug}`} class="text-center bg-orange text-blanc px-6 py-3 rounded-xl font-semibold no-underline hover:bg-orange-dark transition-colors">
+        Devis {productA.marqueLabel} &rarr;
+      </a>
+      <a href={`/devis/?appareil=${productB.slug}`} class="text-center bg-orange text-blanc px-6 py-3 rounded-xl font-semibold no-underline hover:bg-orange-dark transition-colors">
+        Devis {productB.marqueLabel} &rarr;
+      </a>
+    </div>
+
+    <AuthorBox />
+    <HealthDisclaimer />
+  </div>
+</BaseLayout>

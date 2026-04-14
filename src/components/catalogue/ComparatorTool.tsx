@@ -156,78 +156,7 @@ export default function ComparatorTool({ products }: Props) {
 
       {/* Tableau comparatif */}
       {selectedProducts.length >= 2 ? (
-        <div className="bg-white rounded-2xl shadow-sm overflow-x-auto mb-8">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b-2 border-gray-200">
-                <th className="p-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider w-40">
-                  Caractéristique
-                </th>
-                {selectedProducts.map(p => (
-                  <th key={p.slug} className="p-4 text-center">
-                    <a href={`/catalogue/appareils/${p.slug}/`} className="text-[#1B2E4A] font-bold hover:text-[#D97B3D] no-underline">
-                      {p.marqueLabel} {p.modele}
-                    </a>
-                    {p.niveau && <div className="text-xs text-[#D97B3D] font-semibold">{p.niveau}</div>}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              <CompareRow label="Prix" values={selectedProducts.map(p => {
-                const price = getPrice(p);
-                return price ? formatPrice(price) : 'Sur devis';
-              })} />
-              <CompareRow label="Classe" values={selectedProducts.map(p =>
-                p.classe === '1' ? '✓ Classe 1 (RAC 0€)' : p.classe === '2' ? 'Classe 2' : '—'
-              )} highlightBest={vals => vals.map(v => v.includes('Classe 1'))} />
-              <CompareRow label="Type" values={selectedProducts.map(p => FORME_TYPE_SHORT[p.formeType] || p.formeType)} />
-              <CompareRow label="Niveau" values={selectedProducts.map(p => NIVEAU_LABELS[p.niveauPosition] || '—')} />
-              <CompareRow label="Puce" values={selectedProducts.map(p => p.puce || '—')} />
-              <CompareRow label="Année" values={selectedProducts.map(p => String(p.annee))}
-                highlightBest={vals => vals.map(v => v === String(Math.max(...vals.map(Number))))} />
-              <CompareRow label="Canaux" values={selectedProducts.map(p => p.specs?.canaux ? String(p.specs.canaux) : '—')}
-                highlightBest={vals => vals.map(v => v !== '—' && Number(v) === Math.max(...vals.filter(x => x !== '—').map(Number)))} />
-              <CompareRow label="Bluetooth" values={selectedProducts.map(p => p.connectivite?.bluetooth || '—')} />
-              <CompareRow label="Auracast" values={selectedProducts.map(p =>
-                p.connectivite?.auracast === true ? 'Oui ✓' : p.connectivite?.auracast === false ? 'Non' : '—'
-              )} highlightBest={vals => vals.map(v => v.includes('Oui'))} />
-              <CompareRow label="Rechargeable" values={selectedProducts.map(p =>
-                p.fonctionnalites?.rechargeable === true ? 'Oui ✓' : p.fonctionnalites?.rechargeable === false ? 'Non' : '—'
-              )} highlightBest={vals => vals.map(v => v.includes('Oui'))} />
-              <CompareRow label="Autonomie" values={selectedProducts.map(p =>
-                p.specs?.autonomie ? `${p.specs.autonomie}h` : '—'
-              )} />
-              <CompareRow label="Étanchéité" values={selectedProducts.map(p => p.specs?.ip || '—')} />
-              <CompareRow label="Acouphènes" values={selectedProducts.map(p =>
-                p.fonctionnalites?.acouphenes === true ? 'Oui ✓' : p.fonctionnalites?.acouphenes === false ? 'Non' : '—'
-              )} highlightBest={vals => vals.map(v => v.includes('Oui'))} />
-              <CompareRow label="Mains libres" values={selectedProducts.map(p =>
-                p.connectivite?.mainLibre === true ? 'Oui ✓' : p.connectivite?.mainLibre === false ? 'Non' : '—'
-              )} highlightBest={vals => vals.map(v => v.includes('Oui'))} />
-              <CompareRow label="Application" values={selectedProducts.map(p => p.connectivite?.application || '—')} />
-              <CompareRow label="Bobine T" values={selectedProducts.map(p =>
-                p.fonctionnalites?.bobineT === true ? 'Oui ✓' : p.fonctionnalites?.bobineT === false ? 'Non' : '—'
-              )} />
-              <CompareRow label="Couleurs" values={selectedProducts.map(p => p.couleurs ? `${p.couleurs} coloris` : '—')} />
-            </tbody>
-          </table>
-
-          {/* CTAs */}
-          <div className="border-t-2 border-gray-200 p-4">
-            <div className="grid gap-3" style={{ gridTemplateColumns: `10rem repeat(${selectedProducts.length}, 1fr)` }}>
-              <div></div>
-              {selectedProducts.map(p => (
-                <div key={p.slug} className="text-center">
-                  <a href={`/devis/?appareil=${p.slug}`}
-                    className="inline-block bg-[#D97B3D] text-white px-5 py-2.5 rounded-lg text-sm font-semibold no-underline hover:bg-[#c46a2e] transition-colors">
-                    Devis gratuit →
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <CompareTable products={selectedProducts} />
       ) : selectedProducts.length === 1 ? (
         <div className="bg-white rounded-2xl p-8 text-center shadow-sm mb-8">
           <p className="text-lg font-semibold text-[#1B2E4A] mb-2">Ajoutez un deuxième appareil pour comparer</p>
@@ -235,7 +164,7 @@ export default function ComparatorTool({ products }: Props) {
         </div>
       ) : (
         <div className="bg-white rounded-2xl p-8 text-center shadow-sm mb-8">
-          <p className="text-5xl mb-4">⚖️</p>
+          <svg className="w-12 h-12 mx-auto mb-4 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m16 16 2 2 4-4"/><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/><path d="m7.5 4.27 9 5.15"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
           <p className="text-lg font-semibold text-[#1B2E4A] mb-2">Sélectionnez 2 ou 3 appareils à comparer</p>
           <p className="text-gray-500 mb-6">Utilisez la barre de recherche ci-dessus ou ajoutez des appareils depuis le catalogue</p>
           <a href="/catalogue/"
@@ -244,6 +173,106 @@ export default function ComparatorTool({ products }: Props) {
           </a>
         </div>
       )}
+    </div>
+  );
+}
+
+function CompareTable({ products }: { products: Product[] }) {
+  const [diffOnly, setDiffOnly] = useState(false);
+
+  const rows: { label: string; section: string; values: string[]; best?: (vals: string[]) => boolean[] }[] = [
+    // Général
+    { label: 'Prix', section: 'Général', values: products.map(p => { const pr = getPrice(p); return pr ? formatPrice(pr) : 'Sur devis'; }) },
+    { label: 'Classe', section: 'Général', values: products.map(p => p.classe === '1' ? 'Classe 1 (RAC 0)' : p.classe === '2' ? 'Classe 2' : '\u2014'), best: vals => vals.map(v => v.includes('Classe 1')) },
+    { label: 'Type', section: 'Général', values: products.map(p => FORME_TYPE_SHORT[p.formeType] || p.formeType) },
+    { label: 'Niveau', section: 'Général', values: products.map(p => NIVEAU_LABELS[p.niveauPosition] || '\u2014') },
+    { label: 'Puce', section: 'Général', values: products.map(p => p.puce || '\u2014') },
+    { label: 'Année', section: 'Général', values: products.map(p => String(p.annee)), best: vals => vals.map(v => v === String(Math.max(...vals.map(Number)))) },
+    // Son
+    { label: 'Canaux', section: 'Son', values: products.map(p => p.specs?.canaux ? String(p.specs.canaux) : '\u2014'), best: vals => vals.map(v => v !== '\u2014' && Number(v) === Math.max(...vals.filter(x => x !== '\u2014').map(Number))) },
+    { label: 'Réd. bruit', section: 'Son', values: products.map(p => p.specs?.reductionBruit ? `${p.specs.reductionBruit} dB` : '\u2014') },
+    { label: 'Anti-Larsen', section: 'Son', values: products.map(p => p.fonctionnalites?.antiFeedback || '\u2014') },
+    { label: 'Micros dir.', section: 'Son', values: products.map(p => p.fonctionnalites?.micDirectionnels || '\u2014') },
+    // Connectivité
+    { label: 'Bluetooth', section: 'Connectivité', values: products.map(p => p.connectivite?.bluetooth || '\u2014') },
+    { label: 'Auracast', section: 'Connectivité', values: products.map(p => p.connectivite?.auracast ? 'Oui' : 'Non'), best: vals => vals.map(v => v === 'Oui') },
+    { label: 'Mains libres', section: 'Connectivité', values: products.map(p => p.connectivite?.mainLibre ? 'Oui' : 'Non'), best: vals => vals.map(v => v === 'Oui') },
+    { label: 'Application', section: 'Connectivité', values: products.map(p => p.connectivite?.application || '\u2014') },
+    // Confort & Batterie
+    { label: 'Rechargeable', section: 'Confort & Batterie', values: products.map(p => p.fonctionnalites?.rechargeable ? 'Oui' : 'Non'), best: vals => vals.map(v => v === 'Oui') },
+    { label: 'Autonomie', section: 'Confort & Batterie', values: products.map(p => p.specs?.autonomie ? `${p.specs.autonomie}h` : '\u2014') },
+    { label: 'Étanchéité', section: 'Confort & Batterie', values: products.map(p => p.specs?.ip || '\u2014') },
+    { label: 'Acouphènes', section: 'Confort & Batterie', values: products.map(p => p.fonctionnalites?.acouphenes ? 'Oui' : 'Non'), best: vals => vals.map(v => v === 'Oui') },
+    { label: 'Bobine T', section: 'Confort & Batterie', values: products.map(p => p.fonctionnalites?.bobineT ? 'Oui' : 'Non') },
+    { label: 'Coloris', section: 'Confort & Batterie', values: products.map(p => p.couleurs ? `${p.couleurs}` : '\u2014') },
+  ];
+
+  const filteredRows = diffOnly ? rows.filter(r => new Set(r.values).size > 1) : rows;
+  const sections = [...new Set(filteredRows.map(r => r.section))];
+
+  return (
+    <div className="bg-white rounded-2xl shadow-sm overflow-x-auto mb-8">
+      {/* Sticky header */}
+      <div className="sticky top-0 z-10 bg-white border-b-2 border-gray-200">
+        <div className="flex">
+          <div className="w-40 shrink-0 p-3 flex items-center">
+            <label className="flex items-center gap-2 text-xs text-gray-500 cursor-pointer">
+              <input type="checkbox" checked={diffOnly} onChange={e => setDiffOnly(e.target.checked)} className="accent-[#D97B3D]" />
+              Différences
+            </label>
+          </div>
+          {products.map(p => (
+            <div key={p.slug} className="flex-1 p-3 text-center min-w-[140px]">
+              {p.image && <img src={p.image} alt="" className="h-12 mx-auto mb-1 object-contain" />}
+              <a href={`/catalogue/appareils/${p.slug}/`} className="text-xs font-bold text-[#1B2E4A] hover:text-[#D97B3D] no-underline block">
+                {p.marqueLabel} {p.modele}
+              </a>
+              {p.niveau && <div className="text-[10px] text-[#D97B3D] font-semibold">{p.niveau}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Grouped rows */}
+      <table className="w-full text-sm">
+        <tbody>
+          {sections.map(section => (
+            <>
+              <tr key={`section-${section}`}>
+                <td colSpan={products.length + 1} className="px-4 pt-4 pb-2 text-xs font-bold uppercase tracking-wider text-[#D97B3D] bg-gray-50/50">
+                  {section}
+                </td>
+              </tr>
+              {filteredRows.filter(r => r.section === section).map(row => {
+                const bests = row.best ? row.best(row.values) : row.values.map(() => false);
+                return (
+                  <tr key={row.label} className="border-b border-gray-100 hover:bg-gray-50/30">
+                    <td className="p-3 w-40 font-medium text-gray-500 text-xs">{row.label}</td>
+                    {row.values.map((v, i) => (
+                      <td key={i} className={`p-3 text-center text-sm min-w-[140px] ${bests[i] ? 'text-[#D97B3D] font-bold' : 'text-[#1B2E4A]'}`}>
+                        {v}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </>
+          ))}
+        </tbody>
+      </table>
+
+      {/* CTAs */}
+      <div className="border-t-2 border-gray-200 p-4 flex gap-3">
+        <div className="w-40 shrink-0" />
+        {products.map(p => (
+          <div key={p.slug} className="flex-1 text-center">
+            <a href={`/devis/?appareil=${p.slug}`}
+              className="inline-block bg-[#D97B3D] text-white px-5 py-2.5 rounded-lg text-sm font-semibold no-underline hover:bg-[#c46a2e] transition-colors">
+              Devis gratuit &rarr;
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
