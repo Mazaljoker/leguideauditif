@@ -1,8 +1,8 @@
 /**
- * Grille de catalogue interactive avec filtres côté client
+ * Grille de catalogue interactive avec filtres, tri flagship et pagination "Charger plus"
  * React component (client:load) pour le filtrage dynamique
  */
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 
 interface Product {
   slug: string;
@@ -31,6 +31,8 @@ interface Props {
   products: Product[];
 }
 
+const PAGE_SIZE = 18;
+
 const BRAND_OPTIONS = [
   { value: '', label: 'Toutes les marques' },
   { value: 'phonak', label: 'Phonak' }, { value: 'signia', label: 'Signia' },
@@ -47,6 +49,7 @@ const TYPE_OPTIONS = [
   { value: 'BTE', label: 'BTE — Contour classique' },
   { value: 'ITE', label: 'ITE — Intra-auriculaire' },
   { value: 'CIC', label: 'CIC — Dans le conduit' },
+  { value: 'IIC', label: 'IIC — Invisible' },
   { value: 'Slim RIC', label: 'Slim RIC — Ultra-discret' },
 ];
 
@@ -59,8 +62,24 @@ const BUDGET_OPTIONS = [
   { value: '2000+', label: 'Plus de 2 000€' },
 ];
 
+const NOTE_OPTIONS = [
+  { value: '', label: 'Toutes les notes' },
+  { value: '9', label: '9+ — Excellence' },
+  { value: '8', label: '8+ — Très bien' },
+  { value: '7', label: '7+ — Bien' },
+];
+
+const YEAR_OPTIONS = [
+  { value: '', label: 'Toutes les années' },
+  { value: '2026', label: '2026' },
+  { value: '2025', label: '2025' },
+  { value: '2024', label: '2024' },
+  { value: '2023-', label: '2023 et avant' },
+];
+
 const SORT_OPTIONS = [
   { value: 'flagship', label: 'Flagships d\'abord' },
+  { value: 'note-desc', label: 'Meilleures notes' },
   { value: 'year-desc', label: 'Plus récents' },
   { value: 'price-asc', label: 'Prix croissant' },
   { value: 'price-desc', label: 'Prix décroissant' },
@@ -89,9 +108,15 @@ export default function CatalogueGrid({ products }: Props) {
   const [brand, setBrand] = useState('');
   const [type, setType] = useState('');
   const [budget, setBudget] = useState('');
+  const [note, setNote] = useState('');
+  const [year, setYear] = useState('');
   const [sort, setSort] = useState('flagship');
   const [rechargeable, setRechargeable] = useState(false);
   const [acouphenes, setAcouphenes] = useState(false);
+  const [bluetooth, setBluetooth] = useState(false);
+  const [auracast, setAuracast] = useState(false);
+  const [showMore, setShowMore] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const filtered = useMemo(() => {
     let result = products;
@@ -100,6 +125,23 @@ export default function CatalogueGrid({ products }: Props) {
     if (type) result = result.filter(p => p.formeType === type);
     if (rechargeable) result = result.filter(p => p.fonctionnalites?.rechargeable);
     if (acouphenes) result = result.filter(p => p.fonctionnalites?.acouphenes);
+    if (bluetooth) result = result.filter(p => p.connectivite?.bluetooth);
+    if (auracast) result = result.filter(p => p.connectivite?.auracast);
+
+    if (note) {
+      const minNote = parseInt(note);
+      result = result.filter(p => (p.noteExpert ?? 0) >= minNote);
+    }
+
+    if (year) {
+      if (year.endsWith('-')) {
+        const maxYear = parseInt(year);
+        result = result.filter(p => p.annee <= maxYear);
+      } else {
+        const targetYear = parseInt(year);
+        result = result.filter(p => p.annee === targetYear);
+      }
+    }
 
     if (budget === 'classe1') {
       result = result.filter(p => p.classe === '1' || p.rac0);
@@ -115,7 +157,6 @@ export default function CatalogueGrid({ products }: Props) {
 
     // Sort
     if (sort === 'flagship') {
-      // Identify flagship per brand: highest noteExpert or enAvant
       const bestByBrand: Record<string, number> = {};
       for (const p of result) {
         const score = p.noteExpert ?? 0;
@@ -138,6 +179,7 @@ export default function CatalogueGrid({ products }: Props) {
     } else {
       result = [...result].sort((a, b) => {
         switch (sort) {
+          case 'note-desc': return (b.noteExpert ?? 0) - (a.noteExpert ?? 0);
           case 'price-asc': return (getPrice(a) ?? Infinity) - (getPrice(b) ?? Infinity);
           case 'price-desc': return (getPrice(b) ?? 0) - (getPrice(a) ?? 0);
           case 'year-desc': return (b.annee ?? 0) - (a.annee ?? 0);
@@ -148,41 +190,57 @@ export default function CatalogueGrid({ products }: Props) {
     }
 
     return result;
-  }, [products, brand, type, budget, sort, rechargeable, acouphenes]);
+  }, [products, brand, type, budget, note, year, sort, rechargeable, acouphenes, bluetooth, auracast]);
 
-  const resetFilters = () => {
-    setBrand(''); setType(''); setBudget(''); setSort('flagship');
-    setRechargeable(false); setAcouphenes(false);
-  };
+  // Reset visible count when filters change
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
 
-  const hasFilters = brand || type || budget || rechargeable || acouphenes;
+  const resetFilters = useCallback(() => {
+    setBrand(''); setType(''); setBudget(''); setNote(''); setYear('');
+    setSort('flagship'); setRechargeable(false); setAcouphenes(false);
+    setBluetooth(false); setAuracast(false); setVisibleCount(PAGE_SIZE);
+  }, []);
+
+  const loadMore = useCallback(() => {
+    setVisibleCount(prev => prev + PAGE_SIZE);
+  }, []);
+
+  const hasFilters = brand || type || budget || note || year || rechargeable || acouphenes || bluetooth || auracast;
+
+  // Count active filters
+  const activeCount = [brand, type, budget, note, year].filter(Boolean).length
+    + [rechargeable, acouphenes, bluetooth, auracast].filter(Boolean).length;
 
   return (
     <div>
       {/* Filter bar */}
       <div className="bg-white rounded-2xl p-5 mb-6 shadow-sm">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 items-end">
-          <FilterSelect label="Budget" value={budget} options={BUDGET_OPTIONS} onChange={setBudget} />
-          <FilterSelect label="Marque" value={brand} options={BRAND_OPTIONS} onChange={setBrand} />
-          <FilterSelect label="Type" value={type} options={TYPE_OPTIONS} onChange={setType} />
-          <FilterSelect label="Trier par" value={sort} options={SORT_OPTIONS} onChange={setSort} />
-          <div className="flex flex-col gap-2">
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={rechargeable} onChange={e => setRechargeable(e.target.checked)}
-                className="w-4 h-4 accent-[#D97B3D] rounded" />
-              <span className="text-sm font-medium text-[#1B2E4A]">Rechargeable</span>
-            </label>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={acouphenes} onChange={e => setAcouphenes(e.target.checked)}
-                className="w-4 h-4 accent-[#D97B3D] rounded" />
-              <span className="text-sm font-medium text-[#1B2E4A]">Acouphenes</span>
-            </label>
-          </div>
+        {/* Row 1: Selects */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-3">
+          <FilterSelect label="Budget" value={budget} options={BUDGET_OPTIONS} onChange={(v) => { setBudget(v); setVisibleCount(PAGE_SIZE); }} />
+          <FilterSelect label="Marque" value={brand} options={BRAND_OPTIONS} onChange={(v) => { setBrand(v); setVisibleCount(PAGE_SIZE); }} />
+          <FilterSelect label="Type" value={type} options={TYPE_OPTIONS} onChange={(v) => { setType(v); setVisibleCount(PAGE_SIZE); }} />
+          <FilterSelect label="Note expert" value={note} options={NOTE_OPTIONS} onChange={(v) => { setNote(v); setVisibleCount(PAGE_SIZE); }} />
+          <FilterSelect label="Année" value={year} options={YEAR_OPTIONS} onChange={(v) => { setYear(v); setVisibleCount(PAGE_SIZE); }} />
+          <FilterSelect label="Trier par" value={sort} options={SORT_OPTIONS} onChange={(v) => { setSort(v); setVisibleCount(PAGE_SIZE); }} />
+        </div>
+
+        {/* Row 2: Toggles + filters expand */}
+        <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-gray-100">
+          <Toggle label="Rechargeable" checked={rechargeable} onChange={(v) => { setRechargeable(v); setVisibleCount(PAGE_SIZE); }} />
+          <Toggle label="Bluetooth" checked={bluetooth} onChange={(v) => { setBluetooth(v); setVisibleCount(PAGE_SIZE); }} />
+          <Toggle label="Auracast / LE Audio" checked={auracast} onChange={(v) => { setAuracast(v); setVisibleCount(PAGE_SIZE); }} />
+          <Toggle label="Acouphènes" checked={acouphenes} onChange={(v) => { setAcouphenes(v); setVisibleCount(PAGE_SIZE); }} />
+
           {hasFilters && (
-            <button onClick={resetFilters}
-              className="text-sm text-gray-500 border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50">
-              Réinitialiser
-            </button>
+            <>
+              <span className="text-xs text-gray-400 mx-1">|</span>
+              <button onClick={resetFilters}
+                className="text-sm text-[#D97B3D] font-medium hover:underline cursor-pointer">
+                Réinitialiser ({activeCount})
+              </button>
+            </>
           )}
         </div>
       </div>
@@ -190,14 +248,28 @@ export default function CatalogueGrid({ products }: Props) {
       {/* Results count */}
       <p className="text-sm text-gray-500 mb-4 font-sans">
         {filtered.length} appareil{filtered.length > 1 ? 's' : ''} trouvé{filtered.length > 1 ? 's' : ''}
+        {hasMore && <span> — {visible.length} affichés</span>}
       </p>
 
       {/* Product grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filtered.map(product => (
+        {visible.map(product => (
           <ProductCardReact key={product.slug} product={product} />
         ))}
       </div>
+
+      {/* Load more */}
+      {hasMore && (
+        <div className="text-center mt-8">
+          <button type="button" onClick={loadMore}
+            className="inline-flex items-center gap-2 bg-white border-2 border-[#1B2E4A] text-[#1B2E4A] px-8 py-3 rounded-xl text-base font-semibold hover:bg-[#1B2E4A] hover:text-white transition-colors cursor-pointer">
+            Charger plus d'appareils
+            <span className="text-sm font-normal opacity-70">
+              ({Math.min(PAGE_SIZE, filtered.length - visibleCount)} suivants)
+            </span>
+          </button>
+        </div>
+      )}
 
       {filtered.length === 0 && (
         <div className="text-center py-16">
@@ -205,7 +277,7 @@ export default function CatalogueGrid({ products }: Props) {
           <p className="text-lg font-semibold text-[#1B2E4A] mb-2">Aucun appareil ne correspond à vos critères</p>
           <p className="text-gray-500 mb-4">Essayez d'élargir vos filtres</p>
           <button onClick={resetFilters}
-            className="bg-[#D97B3D] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#c46a2e] transition-colors">
+            className="bg-[#D97B3D] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#c46a2e] transition-colors cursor-pointer">
             Voir tous les appareils
           </button>
         </div>
@@ -223,10 +295,29 @@ function FilterSelect({ label, value, options, onChange }: {
     <div className="flex flex-col gap-1">
       <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{label}</label>
       <select value={value} onChange={e => onChange(e.target.value)}
-        className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm bg-white text-[#1B2E4A] focus:ring-2 focus:ring-[#D97B3D] focus:border-transparent">
+        className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm bg-white text-[#1B2E4A] focus:ring-2 focus:ring-[#D97B3D] focus:border-transparent cursor-pointer">
         {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
       </select>
     </div>
+  );
+}
+
+function Toggle({ label, checked, onChange }: {
+  label: string; checked: boolean; onChange: (v: boolean) => void;
+}) {
+  return (
+    <label className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-sm font-medium cursor-pointer transition-colors ${
+      checked
+        ? 'bg-[#D97B3D]/10 border-[#D97B3D] text-[#D97B3D]'
+        : 'bg-white border-gray-300 text-[#1B2E4A] hover:border-gray-400'
+    }`}>
+      <input type="checkbox" checked={checked} onChange={e => onChange(e.target.checked)}
+        className="sr-only" />
+      {checked && (
+        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+      )}
+      {label}
+    </label>
   );
 }
 
@@ -240,7 +331,7 @@ function ProductCardReact({ product }: { product: Product }) {
     <article className={`rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow relative group ${product.legacy ? 'bg-gray-100 opacity-75' : 'bg-white'}`}>
       {product.legacy ? (
         <span className="absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-bold bg-gray-300 text-gray-700">
-          Arrete
+          Arrêté
         </span>
       ) : product.classe ? (
         <span className={`absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-bold ${
@@ -249,15 +340,22 @@ function ProductCardReact({ product }: { product: Product }) {
           {classe1 ? 'Classe 1 — RAC 0\u00A0\u20AC' : 'Classe 2'}
         </span>
       ) : null}
-      {niveauLabel && (
-        <span className="absolute top-3 right-3 z-10 px-3 py-1 rounded-full text-xs font-semibold bg-orange-100 text-[#D97B3D]">
-          {niveauLabel}
-        </span>
-      )}
+      <div className="absolute top-3 right-3 z-10 flex flex-col gap-1 items-end">
+        {niveauLabel && (
+          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-orange-100 text-[#D97B3D]">
+            {niveauLabel}
+          </span>
+        )}
+        {product.noteExpert && (
+          <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-[#1B2E4A] text-white">
+            {product.noteExpert}/10
+          </span>
+        )}
+      </div>
 
       <a href={`/catalogue/appareils/${product.slug}/`} className={`block h-44 flex items-center justify-center no-underline ${product.legacy ? 'bg-gray-200/50 grayscale' : 'bg-gray-50'}`}>
         {product.image ? (
-          <img src={product.image} alt={`${product.marqueLabel} ${product.modele}`} className="w-full h-full object-contain p-4" loading="lazy" />
+          <img src={product.image} alt={`${product.marqueLabel} ${product.modele}`} className="w-full h-full object-contain p-4" loading="lazy" width="300" height="300" />
         ) : (
           <span className="text-5xl opacity-20 font-serif" aria-hidden="true">?</span>
         )}
@@ -276,7 +374,7 @@ function ProductCardReact({ product }: { product: Product }) {
         <div className="flex flex-wrap gap-1.5 mb-3">
           <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">{typeShort}</span>
           {product.specs?.canaux && (
-            <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">{product.specs.canaux} canaux</span>
+            <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">{product.specs.canaux} can.</span>
           )}
           {product.fonctionnalites?.rechargeable && (
             <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">Rech.</span>
@@ -284,6 +382,10 @@ function ProductCardReact({ product }: { product: Product }) {
           {product.connectivite?.bluetooth && (
             <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-[#1B2E4A]">BT</span>
           )}
+          {product.connectivite?.auracast && (
+            <span className="px-2 py-0.5 rounded bg-blue-50 text-xs text-blue-700 font-semibold">LE Audio</span>
+          )}
+          <span className="px-2 py-0.5 rounded bg-gray-100 text-xs text-gray-500">{product.annee}</span>
         </div>
 
         <div className="flex items-end justify-between pt-3 border-t border-gray-200">
