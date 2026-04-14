@@ -1,0 +1,27 @@
+{
+  "slug": "unitron-integra-os",
+  "nom": "Integra OS",
+  "marque": "unitron",
+  "marqueLabel": "Unitron",
+  "groupe": "sonova",
+  "annee": 2023,
+  "generation": 2,
+  "innovationCle": "Système d'exploitation Integra — adaptation automatique en temps réel",
+  "description": "Integra OS est le système d'exploitation de la plateforme Vivante d'Unitron (groupe Sonova). Il gère l'adaptation automatique aux environnements sonores et le passage fluide entre les programmes. Sa particularité : l'utilisateur peut ajuster le niveau de traitement directement depuis l'application.",
+  "specs": {
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "unitron-moxi-vivante-3",
+    "unitron-moxi-vivante-5",
+    "unitron-moxi-vivante-7",
+    "unitron-moxi-vivante-9",
+    "unitron-stride-vivante-3",
+    "unitron-stride-vivante-5",
+    "unitron-stride-vivante-7",
+    "unitron-stride-vivante-9"
+  ]
+}

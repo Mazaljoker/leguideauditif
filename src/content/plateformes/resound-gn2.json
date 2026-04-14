@@ -1,0 +1,25 @@
+{
+  "slug": "resound-gn2",
+  "nom": "GN 2.0",
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "annee": 2023,
+  "generation": 3,
+  "predecesseur": "resound-360",
+  "successeur": "resound-360-dnn",
+  "innovationCle": "Bluetooth LE Audio et Auracast — streaming audio universel",
+  "description": "La puce GN 2.0 de ReSound est la première du groupe GN à supporter nativement le Bluetooth LE Audio et l'Auracast. Elle équipe la gamme Nexia et permet le streaming audio depuis des lieux publics (aéroports, cinémas, conférences) directement dans les appareils auditifs.",
+  "specs": {
+    "canaux": 17,
+    "connectivite": "Bluetooth LE Audio + Auracast",
+    "dnn": false,
+    "auracast": true,
+    "capteursSante": false
+  },
+  "produits": [
+    "resound-nexia-5",
+    "resound-nexia-7",
+    "resound-nexia-9"
+  ]
+}

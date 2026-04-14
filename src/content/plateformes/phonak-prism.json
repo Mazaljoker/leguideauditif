@@ -1,0 +1,29 @@
+{
+  "slug": "phonak-prism",
+  "nom": "PRISM",
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "annee": 2023,
+  "generation": 2,
+  "successeur": "phonak-era",
+  "innovationCle": "SmartSpeech Technology — traitement intelligent de la parole dans le bruit",
+  "description": "La puce PRISM équipe toute la gamme Lumity de Phonak. Sa technologie SmartSpeech analyse l'environnement sonore et optimise automatiquement les réglages pour améliorer la compréhension de la parole, notamment en milieu bruyant.",
+  "specs": {
+    "canaux": 20,
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "phonak-audeo-lumity-30",
+    "phonak-audeo-lumity-50",
+    "phonak-audeo-lumity-70",
+    "phonak-audeo-lumity-90",
+    "phonak-naida-lumity-30",
+    "phonak-naida-lumity-50",
+    "phonak-naida-lumity-70",
+    "phonak-naida-lumity-90"
+  ]
+}

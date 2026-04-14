@@ -1,0 +1,24 @@
+{
+  "slug": "starkey-neuro-processor",
+  "nom": "Neuro Processor",
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "annee": 2023,
+  "generation": 1,
+  "successeur": "starkey-g2-neuro",
+  "innovationCle": "Premier processeur auditif avec réseau neuronal embarqué (Starkey)",
+  "description": "Le Neuro Processor est la première puce de Starkey à intégrer un réseau neuronal. Il équipe la gamme Genesis AI et a été entraîné sur des millions d'environnements sonores pour optimiser le traitement de la parole.",
+  "specs": {
+    "canaux": 60,
+    "connectivite": "Bluetooth Classic",
+    "dnn": true,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "starkey-genesis-ai-16",
+    "starkey-genesis-ai-20",
+    "starkey-genesis-ai-24"
+  ]
+}

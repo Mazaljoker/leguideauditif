@@ -1,0 +1,21 @@
+{
+  "slug": "rexton-ix",
+  "nom": "IX Platform",
+  "marque": "rexton",
+  "marqueLabel": "Rexton",
+  "groupe": "ws-audiology",
+  "annee": 2024,
+  "generation": 2,
+  "innovationCle": "Multi-Voice Focus — focalisation sur plusieurs interlocuteurs simultanément",
+  "description": "La plateforme IX de Rexton (groupe WS Audiology, même groupe que Signia) introduit le Multi-Voice Focus : au lieu de se concentrer sur un seul locuteur, l'appareil peut suivre et clarifier plusieurs voix en même temps. Idéal pour les conversations de groupe.",
+  "specs": {
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "rexton-reach-r-li-t",
+    "rexton-reach"
+  ]
+}

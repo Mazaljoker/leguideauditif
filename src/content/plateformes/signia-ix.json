@@ -1,0 +1,34 @@
+{
+  "slug": "signia-ix",
+  "nom": "IX Platform",
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "annee": 2025,
+  "generation": 2,
+  "predecesseur": "signia-ax",
+  "innovationCle": "Integrated Xperience — double processeur avec séparation parole/environnement",
+  "description": "La plateforme IX (Integrated Xperience) de Signia est la plus complète du groupe WS Audiology. Elle utilise un double processeur qui sépare le traitement de la parole et celui de l'environnement sonore, pour une clarté optimale dans toutes les situations. C'est la plateforme la plus polyvalente avec 13 modèles différents.",
+  "specs": {
+    "canaux": 48,
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "signia-active-pro-ix",
+    "signia-insio-ix",
+    "signia-motion-ix",
+    "signia-pure-ix-3",
+    "signia-pure-ix-5",
+    "signia-pure-ix-7",
+    "signia-pure-ix-bct-3",
+    "signia-pure-ix-bct-5",
+    "signia-pure-ix-bct-7",
+    "signia-silk-ix",
+    "signia-styletto-ix-3",
+    "signia-styletto-ix-5",
+    "signia-styletto-ix-7"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "phonak-era",
+  "nom": "ERA",
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "annee": 2025,
+  "generation": 3,
+  "predecesseur": "phonak-prism",
+  "successeur": "phonak-deepsonic",
+  "innovationCle": "Puce ultra-miniaturisée pour intra-auriculaires rechargeables",
+  "description": "La puce ERA de Phonak est optimisée pour les appareils intra-auriculaires. Elle équipe les Virto Infinio, les plus petits appareils rechargeables du marché. Elle partage les technologies IA de la plateforme DEEPSONIC mais dans un facteur de forme miniature.",
+  "specs": {
+    "canaux": 20,
+    "connectivite": "Bluetooth LE Audio + Auracast",
+    "dnn": false,
+    "auracast": true,
+    "capteursSante": false
+  },
+  "produits": [
+    "phonak-virto-infinio-r",
+    "phonak-virto-infinio-titanium"
+  ]
+}

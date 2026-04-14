@@ -1,0 +1,23 @@
+{
+  "slug": "resound-360",
+  "nom": "360 Chip",
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "annee": 2025,
+  "generation": 2,
+  "successeur": "resound-gn2",
+  "innovationCle": "Traitement sonore à 360° avec M&RIE (microphone dans l'oreille)",
+  "description": "La puce 360 Chip de ReSound a introduit le traitement panoramique du son. Combinée au M&RIE (Microphone & Receiver In Ear), elle utilise la forme naturelle de votre oreille pour localiser les sons, comme le ferait une oreille saine.",
+  "specs": {
+    "canaux": 14,
+    "connectivite": "Bluetooth LE Audio + Auracast",
+    "dnn": false,
+    "auracast": true,
+    "capteursSante": false
+  },
+  "produits": [
+    "resound-vivia-5",
+    "resound-vivia-7"
+  ]
+}

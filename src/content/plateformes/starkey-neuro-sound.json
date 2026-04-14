@@ -1,0 +1,20 @@
+{
+  "slug": "starkey-neuro-sound",
+  "nom": "Neuro Sound Technology",
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "annee": 2024,
+  "generation": 1,
+  "innovationCle": "Technologie sonore neurale pour appareils sur mesure",
+  "description": "Neuro Sound Technology est la plateforme de Starkey dédiée aux appareils sur mesure (Signature Series). Elle optimise le traitement sonore pour les formats intra-auriculaires personnalisés.",
+  "specs": {
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "starkey-signature-series"
+  ]
+}

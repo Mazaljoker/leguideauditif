@@ -1,0 +1,22 @@
+{
+  "slug": "philips-soundmap",
+  "nom": "SoundMap (Demant)",
+  "marque": "philips",
+  "marqueLabel": "Philips",
+  "groupe": "demant",
+  "annee": 2022,
+  "generation": 1,
+  "innovationCle": "SoundMap — cartographie sonore développée par Demant pour Philips",
+  "description": "SoundMap est la technologie développée par le groupe Demant (maison mère d'Oticon) pour la marque Philips HearLink. Elle offre un traitement sonore fiable à un prix contenu, principalement distribué dans les réseaux Costco et les grandes enseignes.",
+  "specs": {
+    "canaux": 16,
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "philips-hearlink-ido",
+    "philips-hearlink-power-hdo"
+  ]
+}

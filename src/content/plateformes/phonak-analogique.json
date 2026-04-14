@@ -1,0 +1,20 @@
+{
+  "slug": "phonak-analogique",
+  "nom": "Analogique programmable numériquement",
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "annee": 2024,
+  "generation": 0,
+  "innovationCle": "Technologie analogique programmable — le seul appareil invisible 100% dans l'oreille",
+  "description": "Le Phonak Lyric utilise une technologie unique : analogique mais programmable numériquement. C'est le seul appareil auditif qui se porte 24h/24 pendant plusieurs mois sans jamais être retiré. Il est inséré profondément dans le conduit auditif par l'audioprothésiste.",
+  "specs": {
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "phonak-lyric-4"
+  ]
+}

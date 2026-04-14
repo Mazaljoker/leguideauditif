@@ -47,6 +47,10 @@ const title = (fullName + titleSuffix).length > 60
 const description = `${fullName} : ${FORME_TYPE_LABELS[product.formeType] || product.formeType}, ${product.puce || ''}. ${price ? formatPrice(price) + ' par appareil.' : ''} Fiche complète par un audioprothésiste DE.`;
 const schema = productJsonLd(product);
 
+// Find platform page for this product's chip
+const allPlatforms = await getCollection('plateformes');
+const productPlatform = product.puce ? allPlatforms.find(p => p.data.produits.includes(product.slug))?.data : null;
+
 // Build gallery: gallery array first, then main image as fallback
 const galleryImages: string[] = [];
 if (product.gallery?.length) {
@@ -111,10 +115,17 @@ if (product.gallery?.length) {
 
         <p class="font-sans text-gris-texte">
           {FORME_TYPE_LABELS[product.formeType] || product.formeType}
-          {product.puce ? ` · Puce ${product.puce}` : ''}
           {product.specs?.canaux ? ` · ${product.specs.canaux} canaux` : ''}
           {product.specs?.ip ? ` · ${product.specs.ip}` : ''}
         </p>
+
+        {productPlatform && (
+          <a href={`/catalogue/plateformes/${productPlatform.slug}/`}
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-50 text-purple-700 text-sm font-medium no-underline hover:bg-purple-100 transition-colors mt-1">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+            Puce {productPlatform.nom}
+          </a>
+        )}
 
         {product.descriptionCourte && (
           <p class="font-serif text-base text-marine leading-relaxed">{product.descriptionCourte}</p>

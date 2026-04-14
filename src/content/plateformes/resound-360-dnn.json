@@ -1,0 +1,22 @@
+{
+  "slug": "resound-360-dnn",
+  "nom": "Dual-chip 360 + DNN",
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "annee": 2025,
+  "generation": 4,
+  "predecesseur": "resound-gn2",
+  "innovationCle": "Double puce 360° avec réseau neuronal — le haut de gamme ReSound",
+  "description": "La configuration Dual-chip 360 + DNN est le sommet technologique de ReSound. Elle combine deux puces 360° avec un réseau neuronal profond pour un traitement ultra-précis des environnements complexes. Elle équipe uniquement le Vivia 9, le flagship ReSound.",
+  "specs": {
+    "canaux": 17,
+    "connectivite": "Bluetooth LE Audio + Auracast",
+    "dnn": true,
+    "auracast": true,
+    "capteursSante": false
+  },
+  "produits": [
+    "resound-vivia-9"
+  ]
+}

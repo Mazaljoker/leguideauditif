@@ -1,0 +1,20 @@
+{
+  "slug": "bernafon-decs",
+  "nom": "DECS",
+  "marque": "bernafon",
+  "marqueLabel": "Bernafon",
+  "groupe": "demant",
+  "annee": 2019,
+  "generation": 1,
+  "innovationCle": "DECS — système de compression dynamique adaptatif",
+  "description": "DECS (Dynamic Environmental Compensation System) est la technologie propriétaire de Bernafon. Elle analyse en continu l'environnement et ajuste la compression dynamique en temps réel, pour un rendu sonore plus naturel que les systèmes de compression classiques.",
+  "specs": {
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "bernafon-leox"
+  ]
+}

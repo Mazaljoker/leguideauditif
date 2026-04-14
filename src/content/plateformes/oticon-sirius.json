@@ -1,0 +1,26 @@
+{
+  "slug": "oticon-sirius",
+  "nom": "Sirius",
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "annee": 2026,
+  "generation": 4,
+  "predecesseur": "oticon-polaris-r",
+  "innovationCle": "Puce 4D Sensor avec DNN 2.0 embarqué — la première puce auditive qui détecte les intentions de l'utilisateur en temps réel",
+  "description": "La puce Sirius d'Oticon est la plus avancée du groupe Demant. Elle embarque un réseau neuronal profond (DNN 2.0) entraîné sur 12 millions de scènes sonores réelles, et des capteurs 4D qui adaptent le traitement audio selon les mouvements de la tête et du corps. C'est la première puce à pouvoir détecter si vous écoutez activement une conversation ou si vous vous déplacez dans la rue.",
+  "specs": {
+    "canaux": 64,
+    "connectivite": "Bluetooth LE Audio + Auracast",
+    "dnn": true,
+    "auracast": true,
+    "capteursSante": true
+  },
+  "produits": [
+    "oticon-intent-1",
+    "oticon-intent-2",
+    "oticon-intent-3",
+    "oticon-jet-px",
+    "oticon-zeal"
+  ]
+}

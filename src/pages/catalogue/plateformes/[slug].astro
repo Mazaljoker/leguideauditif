@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AuthorBox from '../../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
+import ProductCard from '../../../components/catalogue/ProductCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPlatforms = await getCollection('plateformes');
+  return allPlatforms.map(p => ({ params: { slug: p.data.slug }, props: { platform: p.data } }));
+}
+
+const { platform } = Astro.props;
+
+// Get all products using this platform
+const allProducts = await getCollection('catalogueAppareils');
+const products = allProducts
+  .map(p => p.data)
+  .filter(p => platform.produits.includes(p.slug))
+  .sort((a, b) => (b.noteExpert ?? 0) - (a.noteExpert ?? 0));
+
+// Get predecessor and successor platforms
+const allPlatforms = await getCollection('plateformes');
+const allPlatData = allPlatforms.map(p => p.data);
+const predecessor = platform.predecesseur ? allPlatData.find(p => p.slug === platform.predecesseur) : null;
+const successor = platform.successeur ? allPlatData.find(p => p.slug === platform.successeur) : null;
+
+const title = platform.metaTitle || `${platform.nom} (${platform.marqueLabel}) — Plateforme technologique`;
+const description = platform.metaDescription || `${platform.nom} : ${platform.innovationCle}. ${products.length} appareils disponibles. Fiche par un audioprothésiste DE.`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  name: `Plateforme ${platform.nom} — ${platform.marqueLabel}`,
+  description: platform.description,
+  datePublished: `${platform.annee}-01-01`,
+  author: {
+    '@type': 'Person',
+    '@id': 'https://leguideauditif.fr/#author',
+    name: 'Franck-Olivier Chabbat',
+    jobTitle: 'Audioprothésiste DE',
+  },
+};
+---
+
+<BaseLayout title={title} description={description} canonical={`/catalogue/plateformes/${platform.slug}/`} schema={schema}>
+  <Breadcrumbs items={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Catalogue', href: '/catalogue/' },
+    { label: 'Plateformes', href: '/catalogue/plateformes/' },
+    { label: `${platform.marqueLabel} ${platform.nom}` }
+  ]} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Hero -->
+    <div class="bg-blanc rounded-2xl p-6 sm:p-8 mb-8 shadow-sm">
+      <div class="flex items-center gap-3 flex-wrap mb-3">
+        <span class="font-sans text-lg font-bold text-orange">{platform.marqueLabel}</span>
+        <span class="px-2.5 py-1 rounded bg-marine/10 font-sans text-xs font-semibold text-marine">
+          Génération {platform.generation}
+        </span>
+        <span class="px-2.5 py-1 rounded bg-orange/10 font-sans text-xs font-semibold text-orange">
+          {platform.annee}
+        </span>
+        {!platform.successeur && (
+          <span class="px-2.5 py-1 rounded bg-emerald-100 font-sans text-xs font-bold text-emerald-700">
+            Plateforme actuelle
+          </span>
+        )}
+      </div>
+
+      <h1 class="font-sans text-2xl sm:text-3xl font-extrabold text-marine mb-4">
+        {platform.nom}
+      </h1>
+
+      <p class="font-sans text-lg text-orange font-semibold mb-4">
+        {platform.innovationCle}
+      </p>
+
+      <p class="font-serif text-base text-marine leading-relaxed max-w-3xl">
+        {platform.description}
+      </p>
+    </div>
+
+    <!-- Specs grid -->
+    {platform.specs && (
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+        {platform.specs.canaux && (
+          <div class="bg-blanc rounded-xl p-4 text-center shadow-sm">
+            <div class="text-2xl font-bold text-marine">{platform.specs.canaux}</div>
+            <div class="text-xs text-gris">canaux max</div>
+          </div>
+        )}
+        {platform.specs.connectivite && (
+          <div class="bg-blanc rounded-xl p-4 text-center shadow-sm">
+            <div class="text-sm font-bold text-marine">{platform.specs.connectivite}</div>
+            <div class="text-xs text-gris">connectivité</div>
+          </div>
+        )}
+        {platform.specs.dnn && (
+          <div class="bg-purple-50 rounded-xl p-4 text-center shadow-sm">
+            <div class="text-sm font-bold text-purple-700">DNN / IA</div>
+            <div class="text-xs text-purple-600">réseau neuronal</div>
+          </div>
+        )}
+        {platform.specs.auracast && (
+          <div class="bg-blue-50 rounded-xl p-4 text-center shadow-sm">
+            <div class="text-sm font-bold text-blue-700">Auracast</div>
+            <div class="text-xs text-blue-600">streaming public</div>
+          </div>
+        )}
+        {platform.specs.capteursSante && (
+          <div class="bg-emerald-50 rounded-xl p-4 text-center shadow-sm">
+            <div class="text-sm font-bold text-emerald-700">Capteurs santé</div>
+            <div class="text-xs text-emerald-600">détection chutes</div>
+          </div>
+        )}
+        <div class="bg-blanc rounded-xl p-4 text-center shadow-sm">
+          <div class="text-2xl font-bold text-marine">{products.length}</div>
+          <div class="text-xs text-gris">appareils</div>
+        </div>
+      </div>
+    )}
+
+    <!-- Timeline: predecessor → current → successor -->
+    {(predecessor || successor) && (
+      <div class="bg-creme rounded-2xl p-6 mb-8">
+        <h2 class="font-sans text-lg font-bold text-marine mb-4">Évolution de la plateforme</h2>
+        <div class="flex items-center gap-3 flex-wrap">
+          {predecessor && (
+            <>
+              <a href={`/catalogue/plateformes/${predecessor.slug}/`}
+                class="px-4 py-2 rounded-lg bg-blanc border border-creme-dark text-sm font-medium text-gris no-underline hover:border-orange transition-colors">
+                {predecessor.nom} ({predecessor.annee})
+              </a>
+              <span class="text-gris" aria-hidden="true">&rarr;</span>
+            </>
+          )}
+          <span class="px-4 py-2 rounded-lg bg-orange text-blanc text-sm font-bold">
+            {platform.nom} ({platform.annee})
+          </span>
+          {successor && (
+            <>
+              <span class="text-gris" aria-hidden="true">&rarr;</span>
+              <a href={`/catalogue/plateformes/${successor.slug}/`}
+                class="px-4 py-2 rounded-lg bg-blanc border border-creme-dark text-sm font-medium text-gris no-underline hover:border-orange transition-colors">
+                {successor.nom} ({successor.annee})
+              </a>
+            </>
+          )}
+        </div>
+      </div>
+    )}
+
+    <!-- Products using this platform -->
+    <h2 class="font-sans text-xl font-bold text-marine mb-4">
+      Appareils équipés de la puce {platform.nom}
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+      {products.map(product => (
+        <ProductCard product={product} />
+      ))}
+    </div>
+
+    {products.length === 0 && (
+      <p class="text-gris text-center py-8">Aucun appareil actif utilise cette plateforme actuellement.</p>
+    )}
+
+    <AuthorBox />
+    <HealthDisclaimer />
+  </div>
+</BaseLayout>

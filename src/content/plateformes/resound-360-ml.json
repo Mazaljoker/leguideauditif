@@ -1,0 +1,21 @@
+{
+  "slug": "resound-360-ml",
+  "nom": "360 Chip + ML AI",
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "annee": 2025,
+  "generation": 3,
+  "innovationCle": "Puce 360° enrichie par apprentissage machine pour les pertes sévères",
+  "description": "Version de la puce 360 enrichie par intelligence artificielle, spécialement optimisée pour les pertes auditives sévères à profondes. Elle équipe l'Enzo IA 9, l'appareil surpuissant de ReSound.",
+  "specs": {
+    "canaux": 17,
+    "connectivite": "Bluetooth LE Audio + Auracast",
+    "dnn": false,
+    "auracast": true,
+    "capteursSante": false
+  },
+  "produits": [
+    "resound-enzo-ia-9"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "oticon-polaris-r",
+  "nom": "Polaris R",
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "annee": 2023,
+  "generation": 3,
+  "predecesseur": "oticon-polaris",
+  "successeur": "oticon-sirius",
+  "innovationCle": "DNN embarqué première génération — traitement des scènes sonores par réseau neuronal",
+  "description": "La puce Polaris R est la deuxième génération de la plateforme Polaris d'Oticon. Elle introduit le premier DNN (Deep Neural Network) embarqué directement dans la puce, permettant un traitement en temps réel des environnements sonores complexes sans dépendre du smartphone.",
+  "specs": {
+    "canaux": 64,
+    "connectivite": "Bluetooth Classic",
+    "dnn": true,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "oticon-real-1",
+    "oticon-real-2",
+    "oticon-real-3"
+  ]
+}

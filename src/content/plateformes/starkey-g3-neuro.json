@@ -1,0 +1,24 @@
+{
+  "slug": "starkey-g3-neuro",
+  "nom": "G3 Neuro",
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "annee": 2025,
+  "generation": 3,
+  "predecesseur": "starkey-g2-neuro",
+  "innovationCle": "Processeur neuronal 3e génération — détection de chutes et capteurs santé intégrés",
+  "description": "Le G3 Neuro est le processeur le plus avancé de Starkey. Il équipe la gamme Omega AI et intègre des capteurs de santé (détection de chutes, suivi d'activité physique, compteur de pas). C'est le seul processeur auditif capable d'alerter un proche en cas de chute.",
+  "specs": {
+    "canaux": 64,
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": true
+  },
+  "produits": [
+    "starkey-omega-ai-16",
+    "starkey-omega-ai-20",
+    "starkey-omega-ai-24"
+  ]
+}

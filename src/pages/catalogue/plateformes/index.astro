@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+
+const allPlatforms = await getCollection('plateformes');
+const platforms = allPlatforms.map(p => p.data).sort((a, b) => b.annee - a.annee);
+
+// Group by marque
+const byMarque: Record<string, typeof platforms> = {};
+for (const p of platforms) {
+  if (!byMarque[p.marqueLabel]) byMarque[p.marqueLabel] = [];
+  byMarque[p.marqueLabel].push(p);
+}
+// Sort each group by generation desc
+for (const key of Object.keys(byMarque)) {
+  byMarque[key].sort((a, b) => b.generation - a.generation);
+}
+
+const title = 'Plateformes technologiques — Puces et chipsets des aides auditives';
+const description = 'Comprenez la puce derrière chaque aide auditive : Oticon Sirius, Phonak DEEPSONIC, Signia IX, ReSound GN 2.0, Starkey G3 Neuro, Widex W1. Guide par un audioprothésiste DE.';
+---
+
+<BaseLayout title={title} description={description} canonical="/catalogue/plateformes/">
+  <Breadcrumbs items={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Catalogue', href: '/catalogue/' },
+    { label: 'Plateformes technologiques' }
+  ]} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Hero -->
+    <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 sm:p-12 mb-10 relative overflow-hidden">
+      <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-orange/10" aria-hidden="true"></div>
+      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">Plateformes technologiques</h1>
+      <p class="text-lg opacity-90 max-w-2xl leading-relaxed">
+        Chaque aide auditive fonctionne grâce à une puce électronique. Comme les processeurs de smartphones, ces puces évoluent à chaque génération. Comprendre la plateforme, c'est comprendre ce que votre appareil peut réellement faire.
+      </p>
+    </div>
+
+    <!-- Platforms grouped by brand -->
+    {Object.entries(byMarque).map(([marqueLabel, marqueData]) => (
+      <section class="mb-12">
+        <h2 class="font-sans text-2xl font-bold text-marine mb-6 flex items-center gap-3">
+          {marqueLabel}
+          <span class="text-sm font-normal text-gris bg-creme px-3 py-1 rounded-full">
+            {marqueData.length} plateforme{marqueData.length > 1 ? 's' : ''}
+          </span>
+        </h2>
+
+        <!-- Timeline -->
+        <div class="flex flex-wrap gap-4">
+          {marqueData.map((platform, idx) => (
+            <a href={`/catalogue/plateformes/${platform.slug}/`}
+              class="flex-1 min-w-[280px] max-w-md bg-blanc rounded-xl border-2 border-creme-dark hover:border-orange transition-colors p-5 no-underline group relative">
+
+              {/* Generation badge */}
+              {idx === 0 && (
+                <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-bold bg-orange/10 text-orange">
+                  Actuelle
+                </span>
+              )}
+              {idx > 0 && (
+                <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gris">
+                  Gén. précédente
+                </span>
+              )}
+
+              <div class="text-xs font-bold uppercase tracking-wider text-orange mb-2">
+                {platform.marqueLabel} &middot; {platform.annee}
+              </div>
+              <h3 class="font-sans text-lg font-bold text-marine mb-2 group-hover:text-orange transition-colors">
+                {platform.nom}
+              </h3>
+              <p class="text-sm text-gris-texte leading-relaxed mb-3">
+                {platform.innovationCle}
+              </p>
+
+              {/* Tech badges */}
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                {platform.specs?.dnn && (
+                  <span class="px-2 py-0.5 rounded bg-purple-50 text-purple-700 text-xs font-semibold">DNN / IA</span>
+                )}
+                {platform.specs?.auracast && (
+                  <span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 text-xs font-semibold">Auracast</span>
+                )}
+                {platform.specs?.capteursSante && (
+                  <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 text-xs font-semibold">Capteurs santé</span>
+                )}
+                {platform.specs?.canaux && (
+                  <span class="px-2 py-0.5 rounded bg-gray-100 text-marine text-xs">{platform.specs.canaux} canaux</span>
+                )}
+              </div>
+
+              <div class="text-xs text-orange font-semibold">
+                {platform.produits.length} appareil{platform.produits.length > 1 ? 's' : ''} &rarr;
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>

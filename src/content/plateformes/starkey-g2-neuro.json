@@ -1,0 +1,25 @@
+{
+  "slug": "starkey-g2-neuro",
+  "nom": "G2 Neuro",
+  "marque": "starkey",
+  "marqueLabel": "Starkey",
+  "groupe": "starkey",
+  "annee": 2024,
+  "generation": 2,
+  "predecesseur": "starkey-neuro-processor",
+  "successeur": "starkey-g3-neuro",
+  "innovationCle": "Edge AI — traitement IA embarqué en bordure de réseau",
+  "description": "Le G2 Neuro équipe la gamme Edge AI de Starkey. Il introduit le traitement IA « edge computing » directement dans l'appareil, sans nécessiter de connexion au cloud. L'adaptation sonore se fait en temps réel, localement.",
+  "specs": {
+    "canaux": 64,
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "starkey-edge-ai-16",
+    "starkey-edge-ai-20",
+    "starkey-edge-ai-24"
+  ]
+}

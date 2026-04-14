@@ -198,4 +198,33 @@ const catalogueAppareils = defineCollection({
   }),
 });
 
-export const collections = { guides, comparatifs, catalogueAppareils };
+const plateformes = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/plateformes' }),
+  schema: z.object({
+    slug: z.string(),
+    nom: z.string(),
+    marque: z.string(),
+    marqueLabel: z.string(),
+    groupe: z.string(),
+    annee: z.number(),
+    generation: z.number(),
+    predecesseur: z.string().optional(),
+    successeur: z.string().optional(),
+    innovationCle: z.string(),
+    description: z.string(),
+    specs: z.object({
+      processeur: z.string().optional(),
+      canaux: z.number().optional(),
+      connectivite: z.string().optional(),
+      dnn: z.boolean().default(false),
+      auracast: z.boolean().default(false),
+      capteursSante: z.boolean().default(false),
+    }).optional(),
+    produits: z.array(z.string()),
+    image: z.string().optional(),
+    metaTitle: z.string().optional(),
+    metaDescription: z.string().optional(),
+  }),
+});
+
+export const collections = { guides, comparatifs, catalogueAppareils, plateformes };

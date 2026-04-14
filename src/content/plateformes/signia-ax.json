@@ -1,0 +1,18 @@
+{
+  "slug": "signia-ax",
+  "nom": "AX Platform",
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "",
+  "annee": 2020,
+  "generation": 1,
+  "successeur": "signia-ix",
+  "innovationCle": "Augmented Xperience — premier double processeur Signia",
+  "description": "La plateforme AX (Augmented Xperience) a introduit le concept de double processeur chez Signia. La parole et le bruit ambiant sont traités par des processeurs distincts, permettant de valoriser la voix sans couper l'environnement.",
+  "specs": {
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": []
+}

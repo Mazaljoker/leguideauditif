@@ -1,0 +1,25 @@
+{
+  "slug": "phonak-deepsonic",
+  "nom": "DEEPSONIC",
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "annee": 2024,
+  "generation": 4,
+  "predecesseur": "phonak-era",
+  "innovationCle": "Première puce auditive avec IA en apprentissage continu et Bluetooth LE Audio natif",
+  "description": "DEEPSONIC est la puce la plus avancée de Phonak (groupe Sonova). Elle est au cœur de la gamme Audéo Infinio. Son architecture embarque une IA capable d'apprentissage continu qui s'affine en permanence à partir des préférences de l'utilisateur. Elle supporte nativement le Bluetooth LE Audio et l'Auracast.",
+  "specs": {
+    "canaux": 20,
+    "connectivite": "Bluetooth LE Audio + Auracast",
+    "dnn": false,
+    "auracast": true,
+    "capteursSante": false
+  },
+  "produits": [
+    "phonak-audeo-infinio-30",
+    "phonak-audeo-infinio-50",
+    "phonak-audeo-infinio-70",
+    "phonak-audeo-infinio-90"
+  ]
+}

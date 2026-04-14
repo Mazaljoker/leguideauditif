@@ -1,0 +1,24 @@
+{
+  "slug": "oticon-velox-s",
+  "nom": "Velox S",
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "annee": 2019,
+  "generation": 1,
+  "successeur": "oticon-polaris",
+  "innovationCle": "OpenSound OS — premier système de traitement sonore ouvert à 360°",
+  "description": "La puce Velox S est la base de la gamme Oticon Xceed, conçue pour les pertes auditives sévères à profondes. Elle utilise le système OpenSound OS qui traite l'environnement sonore à 360° au lieu de se concentrer uniquement sur la direction frontale.",
+  "specs": {
+    "canaux": 64,
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "oticon-xceed-1",
+    "oticon-xceed-2",
+    "oticon-xceed-3"
+  ]
+}

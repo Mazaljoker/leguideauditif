@@ -1,0 +1,22 @@
+{
+  "slug": "oticon-polaris",
+  "nom": "Polaris",
+  "marque": "oticon",
+  "marqueLabel": "Oticon",
+  "groupe": "demant",
+  "annee": 2020,
+  "generation": 2,
+  "predecesseur": "oticon-velox-s",
+  "successeur": "oticon-polaris-r",
+  "innovationCle": "OpenSound Navigator — traitement panoramique 360° des sons",
+  "description": "La puce Polaris est le cœur de la gamme Oticon More. Elle améliore l'OpenSound Navigator introduit sur la plateforme précédente, avec un traitement sonore à 360° qui hiérarchise les sources sonores sans fermer le champ auditif.",
+  "specs": {
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "oticon-ruby-1"
+  ]
+}

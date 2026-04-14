@@ -1,0 +1,24 @@
+{
+  "slug": "widex-w1",
+  "nom": "W1",
+  "marque": "widex",
+  "marqueLabel": "Widex",
+  "groupe": "ws-audiology",
+  "annee": 2025,
+  "generation": 2,
+  "predecesseur": "widex-puresound",
+  "innovationCle": "Puce W1 — zéro retard de traitement (0,5 ms), le son le plus naturel du marché",
+  "description": "La puce W1 de Widex est au cœur de la gamme Allure. Sa particularité : un temps de traitement de seulement 0,5 milliseconde, le plus rapide de l'industrie. Ce « zéro retard » produit un son perçu comme parfaitement naturel, sans l'effet « robot » que certains patients reprochent aux autres marques.",
+  "specs": {
+    "canaux": 15,
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "widex-allure-220",
+    "widex-allure-330",
+    "widex-allure-440"
+  ]
+}

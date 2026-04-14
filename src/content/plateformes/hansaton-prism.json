@@ -1,0 +1,20 @@
+{
+  "slug": "hansaton-prism",
+  "nom": "PRISM",
+  "marque": "hansaton",
+  "marqueLabel": "Hansaton",
+  "groupe": "sonova",
+  "annee": 2021,
+  "generation": 1,
+  "innovationCle": "Plateforme PRISM partagée avec Phonak — technologie Sonova accessible",
+  "description": "Hansaton utilise la plateforme PRISM du groupe Sonova (la même technologie que Phonak Lumity) dans un positionnement plus accessible. Le Sound Stratos offre les technologies SmartSpeech à un prix d'entrée.",
+  "specs": {
+    "connectivite": "Bluetooth Classic",
+    "dnn": false,
+    "auracast": false,
+    "capteursSante": false
+  },
+  "produits": [
+    "hansaton-sound-stratos"
+  ]
+}
