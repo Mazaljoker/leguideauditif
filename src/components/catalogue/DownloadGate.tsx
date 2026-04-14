@@ -46,6 +46,13 @@ export default function DownloadGate({ pdfUrl, productName, productSlug }: Props
       }
 
       setSuccess(true);
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'download_fiche_produit', {
+          event_category: 'conversion',
+          event_label: productSlug,
+          product_name: productName,
+        });
+      }
       // Declencher le telechargement
       const link = document.createElement('a');
       link.href = pdfUrl;

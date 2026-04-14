@@ -7,3 +7,10 @@ declare namespace App {
     user: User | null;
   }
 }
+
+declare global {
+  interface Window {
+    gtag: (...args: [string, ...unknown[]]) => void;
+    dataLayer: unknown[];
+  }
+}

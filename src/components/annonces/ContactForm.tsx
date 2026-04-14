@@ -49,6 +49,12 @@ const ContactForm: FC<ContactFormProps> = ({ annonceId }) => {
 
     setLoading(false);
     setSubmitted(true);
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'contact_annonce', {
+        event_category: 'conversion',
+        event_label: annonceId,
+      });
+    }
   };
 
   if (submitted) {

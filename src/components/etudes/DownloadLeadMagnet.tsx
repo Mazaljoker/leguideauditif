@@ -26,6 +26,12 @@ export default function DownloadLeadMagnet() {
       });
 
       setDone(true);
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'download_etude', {
+          event_category: 'conversion',
+          event_label: 'deserts-auditifs-2026',
+        });
+      }
       window.open(DOWNLOAD_URL, '_blank');
     } catch (_err) {
       setError('Une erreur est survenue. Le fichier reste accessible ci-dessous.');

@@ -34,6 +34,13 @@ const LeadForm: FC<LeadFormProps> = ({ centreSlug, centreName, variant = 'claime
       setError('Une erreur est survenue. Veuillez réessayer.');
     } else {
       setSubmitted(true);
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'conversion',
+          event_label: centreSlug ? `centre/${centreSlug}` : 'homepage',
+          value: 1,
+        });
+      }
     }
   };
 

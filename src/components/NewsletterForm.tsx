@@ -27,6 +27,14 @@ export default function NewsletterForm() {
     } else {
       setStatus('success');
     }
+
+    if (status !== 'error' && typeof window.gtag === 'function') {
+      window.gtag('event', 'sign_up', {
+        event_category: 'conversion',
+        event_label: 'newsletter',
+        method: 'email',
+      });
+    }
   };
 
   if (status === 'success') {

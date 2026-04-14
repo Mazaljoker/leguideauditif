@@ -71,6 +71,12 @@ const AlerteForm: FC = () => {
     }
 
     setSuccess('Alerte creee. Vous serez notifie des nouvelles annonces correspondantes.');
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'alerte_annonce', {
+        event_category: 'engagement',
+        event_label: categorie,
+      });
+    }
     setCategorie('');
     setSousCategorie('');
     setDepartement('');
