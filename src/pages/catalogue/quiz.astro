@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
+import QuizAuditif from '../../components/catalogue/QuizAuditif.tsx';
+import { getCollection } from 'astro:content';
+
+const allProducts = await getCollection('catalogueAppareils');
+const products = allProducts.map(p => p.data);
+
+const title = 'Trouvez votre aide auditive — Quiz en 5 questions';
+const description = 'Répondez à 5 questions simples et obtenez 3 recommandations personnalisées. Outil gratuit par un audioprothésiste DE, 28 ans d\'expérience.';
+---
+
+<BaseLayout title={title} description={description} canonical="/catalogue/quiz/">
+  <Breadcrumbs items={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Catalogue', href: '/catalogue/' },
+    { label: 'Quiz — Trouvez votre appareil' }
+  ]} />
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="text-center mb-8">
+      <h1 class="font-sans text-2xl sm:text-3xl font-extrabold text-marine mb-3">
+        Trouvez l'aide auditive qui vous convient
+      </h1>
+      <p class="font-sans text-gris-texte text-lg max-w-xl mx-auto">
+        5 questions simples pour vous orienter vers l'appareil adapté à votre situation. Résultat immédiat.
+      </p>
+    </div>
+
+    <QuizAuditif client:load products={products} />
+
+    <div class="mt-12">
+      <AuthorBox />
+      <HealthDisclaimer />
+    </div>
+  </div>
+</BaseLayout>
