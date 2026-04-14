@@ -160,7 +160,16 @@ export const POST: APIRoute = async ({ request }) => {
       sendEmail({
         to: email,
         subject: 'Votre demande de revendication a bien \u00e9t\u00e9 re\u00e7ue',
-        html: claimConfirmationEmail({ prenom, nom, centreNom: centre.nom, centreSlug }),
+        html: claimConfirmationEmail({
+          prenom, nom, centreNom: centre.nom, centreSlug,
+          siteWeb: siteWeb || null,
+          tel: tel || null,
+          horaires: horaires || null,
+          specialites: cleanSpecialites,
+          marques: cleanMarques,
+          photo: !!photoUrl,
+          aPropos: a_propos || null,
+        }),
         replyTo: 'franck@leguideauditif.fr',
       }),
       sendAdminNotification(

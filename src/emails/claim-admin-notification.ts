@@ -27,10 +27,10 @@ export function claimAdminNotificationEmail({ prenom, nom, email, adeli, centreN
     <p>V\u00e9rifiez le num\u00e9ro ADELI/SIRET puis cliquez sur un bouton :</p>
     <div style="text-align:center;margin:24px 0;">
       <a href="${approveUrl}" class="btn" style="margin-right:12px;">Approuver</a>
-      <a href="${rejectUrl}" class="btn" style="background-color:#A32D2D;">Rejeter</a>
+      <a href="${rejectUrl}" class="btn btn-danger">Rejeter</a>
     </div>
-    <p style="font-size:13px;color:#6B7B8D;">Ces liens sont s\u00e9curis\u00e9s par un token HMAC. Ils fonctionnent sans connexion.</p>
-    <a href="https://leguideauditif.fr/centre/${centreSlug}/" style="font-size:14px;color:#D97B3D;">Voir la fiche</a>
+    <p class="text-muted">Ces liens sont s\u00e9curis\u00e9s par un token HMAC. Ils fonctionnent sans connexion.</p>
+    <a href="https://leguideauditif.fr/centre/${centreSlug}/" class="text-orange" style="font-size:14px;">Voir la fiche</a>
     `
   );
 }

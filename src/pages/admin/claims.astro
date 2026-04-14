@@ -174,7 +174,7 @@ const { data: recentClaims } = await supabase
                   <div><span class="text-gris-texte">Email :</span> <a href={`mailto:${c.claimed_by_email}`} class="text-orange hover:underline">{c.claimed_by_email}</a></div>
                   <div><span class="text-gris-texte">RPPS/SIRET :</span> <span class="text-marine">{c.claimed_by_adeli}</span></div>
                   {c.tel && <div><span class="text-gris-texte">Tel :</span> <span class="text-marine">{c.tel}</span></div>}
-                  {c.site_web && <div><span class="text-gris-texte">Site :</span> <a href={c.site_web} target="_blank" rel="noopener" class="text-orange hover:underline">{c.site_web}</a></div>}
+                  <div><span class="text-gris-texte">Site :</span> {c.site_web ? <a href={c.site_web} target="_blank" rel="noopener" class="text-orange hover:underline">{c.site_web}</a> : <span class="text-gris-texte italic">Non renseigné</span>}</div>
                   {c.horaires && <div><span class="text-gris-texte">Horaires :</span> <span class="text-marine">{c.horaires}</span></div>}
                   <div><span class="text-gris-texte">Date :</span> <span class="text-marine">{c.claimed_at ? new Date(c.claimed_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'}</span></div>
                 </div>

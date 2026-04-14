@@ -31,7 +31,7 @@ export function paymentAdminNotificationEmail({ produit, montant, annonceId, use
       <p><strong>Annonce :</strong> ${annonceId}</p>
       <p><strong>User ID :</strong> ${userId}</p>
     </div>
-    ${requiresAction ? '<p style="color: #D97B3D; font-weight: bold;">Action manuelle requise — Pack Cession Accompagné : contacter le client sous 24h.</p>' : ''}
+    ${requiresAction ? '<p class="text-alert">Action manuelle requise — Pack Cession Accompagn\u00e9 : contacter le client sous 24h.</p>' : ''}
     `
   );
 }
