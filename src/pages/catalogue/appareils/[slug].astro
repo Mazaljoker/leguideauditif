@@ -8,6 +8,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AuthorBox from '../../../components/AuthorBox.astro';
 import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
 import ProductCard from '../../../components/catalogue/ProductCard.astro';
+import ProductGallery from '../../../components/catalogue/ProductGallery.tsx';
 import DownloadGate from '../../../components/catalogue/DownloadGate.tsx';
 import { getCollection } from 'astro:content';
 import {
@@ -45,6 +46,14 @@ const title = (fullName + titleSuffix).length > 60
   : `${fullName}${titleSuffix}`;
 const description = `${fullName} : ${FORME_TYPE_LABELS[product.formeType] || product.formeType}, ${product.puce || ''}. ${price ? formatPrice(price) + ' par appareil.' : ''} Fiche complète par un audioprothésiste DE.`;
 const schema = productJsonLd(product);
+
+// Build gallery: gallery array first, then main image as fallback
+const galleryImages: string[] = [];
+if (product.gallery?.length) {
+  galleryImages.push(...product.gallery);
+} else if (product.image) {
+  galleryImages.push(product.image);
+}
 ---
 
 <BaseLayout title={title} description={description} canonical={`/catalogue/appareils/${product.slug}/`} schema={schema}>
@@ -74,14 +83,8 @@ const schema = productJsonLd(product);
 
     {/* Hero produit */}
     <div class="bg-blanc rounded-2xl p-6 sm:p-8 mb-6 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-8">
-      {/* Image */}
-      <div class="bg-gris-clair/30 rounded-xl h-72 md:h-96 flex items-center justify-center">
-        {product.image ? (
-          <img src={product.image} alt={fullName} class="w-full h-full object-contain p-8" />
-        ) : (
-          <span class="text-8xl opacity-15" aria-hidden="true">?</span>
-        )}
-      </div>
+      {/* Galerie produit */}
+      <ProductGallery client:load images={galleryImages} alt={fullName} />
 
       {/* Info */}
       <div class="flex flex-col gap-4">

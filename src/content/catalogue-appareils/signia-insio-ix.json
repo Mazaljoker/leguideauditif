@@ -22,7 +22,7 @@
     "bandes": 20,
     "batterie": "Li-ion rechargeable (CIC) ou piles zinc-air (ITC/ITE)",
     "autonomie": "24-28",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re (selon taille)"
+    "plageAdaptation": "Légère à sévère (selon taille)"
   },
   "connectivite": {
     "bluetooth": "BLE LE Audio (ITC/ITE)",
@@ -37,27 +37,31 @@
     "antiFeedback": "Feedback Canceller IX",
     "micDirectionnels": "OVP 2.0"
   },
-  "image": "/images/appareils/aide-auditive-signia-insio-ix.webp",
+  "image": "/images/appareils/aide-auditive-signia-insio-ix-1.webp",
   "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/insio-ix/",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-insio-ix-fiche-technique.pdf",
-  "descriptionCourte": "Gamme sur mesure Signia avec puce IX. Du IIC invisible au ITE complet, fabriqu\u00e9 sur empreinte. 48 canaux, OVP 2.0. Pour qui pr\u00e9f\u00e8re un intra-auriculaire adapt\u00e9 \u00e0 sa morphologie.",
-  "descriptionComplete": "L\u2019intra-auriculaire sur mesure, c\u2019est la solution pour les patients qui ne veulent rien derri\u00e8re l\u2019oreille ET dont le conduit ne convient pas au Silk instant-fit. L\u2019Insio IX est fabriqu\u00e9 sur empreinte de votre conduit auditif \u2014 il \u00e9pouse parfaitement votre anatomie.\n\nCe que fait cet appareil\nL\u2019Insio IX est une gamme compl\u00e8te d\u2019intra-auriculaires sur mesure, disponible en quatre tailles : IIC (invisible-in-canal, le plus petit), CIC (completely-in-canal), ITC (in-the-canal) et ITE (in-the-ear, le plus grand). Tous partagent la puce IX Platform avec 48 canaux et l\u2019OVP 2.0.\n\nLe choix de la taille d\u00e9pend de votre perte auditive et de votre anatomie : plus la perte est importante, plus l\u2019appareil doit \u00eatre grand pour loger un \u00e9couteur puissant. L\u2019IIC et le CIC conviennent aux pertes l\u00e9g\u00e8res \u00e0 mod\u00e9r\u00e9es. L\u2019ITC et l\u2019ITE couvrent les pertes mod\u00e9r\u00e9es \u00e0 s\u00e9v\u00e8res.\n\nLa version CIC est disponible en rechargeable (Insio Charge&Go IX), les versions ITC et ITE fonctionnent sur piles zinc-air. Le Bluetooth LE Audio est disponible sur les ITC et ITE, pas sur les IIC et CIC (taille trop r\u00e9duite).\n\nDans le calme, les r\u00e9sultats sont tr\u00e8s bons sur toutes les tailles. Dans le bruit, les ITC et ITE avec double micro s\u2019en sortent mieux que les IIC et CIC mono-micro. C\u2019est une r\u00e9alit\u00e9 physique li\u00e9e \u00e0 la taille.\n\nEn pratique, sur le terrain\nL\u2019Insio demande une empreinte du conduit auditif et 2 \u00e0 3 semaines de fabrication. Ce n\u2019est pas du pr\u00eat-\u00e0-porter comme le Silk \u2014 c\u2019est du sur-mesure. L\u2019avantage : le maintien est parfait, pas de risque de glissement. L\u2019appareil \u00e9pouse votre oreille.\n\nJ\u2019ai appareill\u00e9 des patients avec l\u2019Insio qui ne supportaient pas les contours derri\u00e8re l\u2019oreille \u2014 par choix esth\u00e9tique ou parce qu\u2019ils portent des lunettes et que le contour g\u00eanait. L\u2019intra r\u00e8gle ce probl\u00e8me.\n\nCe qu\u2019il faut savoir : l\u2019entretien est important. L\u2019appareil est dans le conduit, expos\u00e9 au c\u00e9rumen. Un nettoyage quotidien et un suivi r\u00e9gulier chez l\u2019audioproth\u00e9siste sont essentiels pour la long\u00e9vit\u00e9.\n\nPour qui est fait cet appareil ?\nL\u2019Insio IX est id\u00e9al pour les personnes qui refusent le format contour, qui veulent un appareil parfaitement adapt\u00e9 \u00e0 leur anatomie, et qui acceptent le d\u00e9lai de fabrication sur mesure. C\u2019est aussi un bon choix pour les porteurs de lunettes.\n\nPas adapt\u00e9 si vous voulez un essai imm\u00e9diat (le Silk est fait pour \u00e7a), si vous avez des probl\u00e8mes de c\u00e9rumen importants (l\u2019entretien sera contraignant), ou si vous avez besoin de Bluetooth sur un format IIC/CIC.\n\nPar rapport \u00e0 la concurrence\nFace au Silk IX (instant-fit CIC), l\u2019Insio offre un maintien sur mesure et plus de choix de tailles, mais n\u00e9cessite des empreintes. Face aux intras sur mesure de la concurrence (Phonak Virto, Starkey custom), l\u2019Insio IX b\u00e9n\u00e9ficie de l\u2019OVP 2.0 qui est un avantage r\u00e9el pour le naturel de la propre voix.\n\nVerdict expert\n7.8/10. L\u2019Insio IX est la gamme intra sur mesure la plus compl\u00e8te de Signia \u2014 quatre formats, puce IX, OVP 2.0. Pour les patients qui pr\u00e9f\u00e8rent l\u2019intra au contour, c\u2019est un choix solide avec la technologie actuelle. La fabrication sur mesure et l\u2019entretien du conduit sont les seules contreparties.\n\nEn une phrase : l\u2019intra sur mesure Signia, du IIC invisible au ITE complet, avec la puce IX.",
+  "descriptionCourte": "Gamme sur mesure Signia avec puce IX. Du IIC invisible au ITE complet, fabriqué sur empreinte. 48 canaux, OVP 2.0. Pour qui préfère un intra-auriculaire adapté à sa morphologie.",
+  "descriptionComplete": "L’intra-auriculaire sur mesure, c’est la solution pour les patients qui ne veulent rien derrière l’oreille ET dont le conduit ne convient pas au Silk instant-fit. L’Insio IX est fabriqué sur empreinte de votre conduit auditif — il épouse parfaitement votre anatomie.\n\nCe que fait cet appareil\nL’Insio IX est une gamme complète d’intra-auriculaires sur mesure, disponible en quatre tailles : IIC (invisible-in-canal, le plus petit), CIC (completely-in-canal), ITC (in-the-canal) et ITE (in-the-ear, le plus grand). Tous partagent la puce IX Platform avec 48 canaux et l’OVP 2.0.\n\nLe choix de la taille dépend de votre perte auditive et de votre anatomie : plus la perte est importante, plus l’appareil doit être grand pour loger un écouteur puissant. L’IIC et le CIC conviennent aux pertes légères à modérées. L’ITC et l’ITE couvrent les pertes modérées à sévères.\n\nLa version CIC est disponible en rechargeable (Insio Charge&Go IX), les versions ITC et ITE fonctionnent sur piles zinc-air. Le Bluetooth LE Audio est disponible sur les ITC et ITE, pas sur les IIC et CIC (taille trop réduite).\n\nDans le calme, les résultats sont très bons sur toutes les tailles. Dans le bruit, les ITC et ITE avec double micro s’en sortent mieux que les IIC et CIC mono-micro. C’est une réalité physique liée à la taille.\n\nEn pratique, sur le terrain\nL’Insio demande une empreinte du conduit auditif et 2 à 3 semaines de fabrication. Ce n’est pas du prêt-à-porter comme le Silk — c’est du sur-mesure. L’avantage : le maintien est parfait, pas de risque de glissement. L’appareil épouse votre oreille.\n\nJ’ai appareillé des patients avec l’Insio qui ne supportaient pas les contours derrière l’oreille — par choix esthétique ou parce qu’ils portent des lunettes et que le contour gênait. L’intra règle ce problème.\n\nCe qu’il faut savoir : l’entretien est important. L’appareil est dans le conduit, exposé au cérumen. Un nettoyage quotidien et un suivi régulier chez l’audioprothésiste sont essentiels pour la longévité.\n\nPour qui est fait cet appareil ?\nL’Insio IX est idéal pour les personnes qui refusent le format contour, qui veulent un appareil parfaitement adapté à leur anatomie, et qui acceptent le délai de fabrication sur mesure. C’est aussi un bon choix pour les porteurs de lunettes.\n\nPas adapté si vous voulez un essai immédiat (le Silk est fait pour ça), si vous avez des problèmes de cérumen importants (l’entretien sera contraignant), ou si vous avez besoin de Bluetooth sur un format IIC/CIC.\n\nPar rapport à la concurrence\nFace au Silk IX (instant-fit CIC), l’Insio offre un maintien sur mesure et plus de choix de tailles, mais nécessite des empreintes. Face aux intras sur mesure de la concurrence (Phonak Virto, Starkey custom), l’Insio IX bénéficie de l’OVP 2.0 qui est un avantage réel pour le naturel de la propre voix.\n\nVerdict expert\n7.8/10. L’Insio IX est la gamme intra sur mesure la plus complète de Signia — quatre formats, puce IX, OVP 2.0. Pour les patients qui préfèrent l’intra au contour, c’est un choix solide avec la technologie actuelle. La fabrication sur mesure et l’entretien du conduit sont les seules contreparties.\n\nEn une phrase : l’intra sur mesure Signia, du IIC invisible au ITE complet, avec la puce IX.",
   "pointsForts": [
-    "Gamme compl\u00e8te de 4 tailles (IIC, CIC, ITC, ITE) \u2014 s\u2019adapte \u00e0 tous les conduits et toutes les pertes",
-    "Fabrication sur empreinte \u2014 maintien parfait, \u00e9pouse votre anatomie",
-    "Puce IX : 48 canaux, OVP 2.0, anti-larsen \u2014 m\u00eame moteur que le Pure et le Styletto",
+    "Gamme complète de 4 tailles (IIC, CIC, ITC, ITE) — s’adapte à tous les conduits et toutes les pertes",
+    "Fabrication sur empreinte — maintien parfait, épouse votre anatomie",
+    "Puce IX : 48 canaux, OVP 2.0, anti-larsen — même moteur que le Pure et le Styletto",
     "Version CIC rechargeable (Insio Charge&Go IX)",
-    "Pas de g\u00eane avec les lunettes \u2014 rien derri\u00e8re l\u2019oreille"
+    "Pas de gêne avec les lunettes — rien derrière l’oreille"
   ],
   "pointsFaibles": [
-    "D\u00e9lai de fabrication 2-3 semaines \u2014 pas d\u2019essai imm\u00e9diat comme le Silk instant-fit",
-    "Entretien quotidien indispensable \u2014 expos\u00e9 au c\u00e9rumen dans le conduit",
-    "Pas de Bluetooth sur les formats IIC et CIC \u2014 taille trop r\u00e9duite"
+    "Délai de fabrication 2-3 semaines — pas d’essai immédiat comme le Silk instant-fit",
+    "Entretien quotidien indispensable — exposé au cérumen dans le conduit",
+    "Pas de Bluetooth sur les formats IIC et CIC — taille trop réduite"
   ],
   "noteExpert": 7.8,
   "enAvant": false,
   "legacy": false,
-  "metaTitle": "Signia Insio IX : prix, avis et fiche compl\u00e8te",
-  "metaDescription": "Intra sur mesure Signia, puce IX, 48 canaux. Du IIC invisible au ITE. De 1 300 \u00e0 1 900\u20ac. Avis audioproth\u00e9siste DE."
+  "metaTitle": "Signia Insio IX : prix, avis et fiche complète",
+  "metaDescription": "Intra sur mesure Signia, puce IX, 48 canaux. Du IIC invisible au ITE. De 1 300 à 1 900€. Avis audioprothésiste DE.",
+  "gallery": [
+    "/images/appareils/aide-auditive-signia-insio-ix-1.webp",
+    "/images/appareils/aide-auditive-signia-insio-ix-2.webp"
+  ]
 }

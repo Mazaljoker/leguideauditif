@@ -3,7 +3,7 @@
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Aud\u00e9o Infinio",
+  "modele": "Audéo Infinio",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT",
   "puce": "DEEPSONIC",
@@ -25,7 +25,7 @@
     "batterie": "Li-ion rechargeable",
     "autonomie": "28-56",
     "ip": "IP68",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re"
+    "plageAdaptation": "Légère à sévère"
   },
   "connectivite": {
     "bluetooth": "Bluetooth Classic + BLE LE Audio",
@@ -41,27 +41,33 @@
     "micDirectionnels": "SmartSpeech Technology"
   },
   "couleurs": 11,
-  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio.avif",
+  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
   "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-infinio",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
-  "descriptionCourte": "RIC Phonak entr\u00e9e de gamme Infinio. Puce DEEPSONIC, Bluetooth universel. 12 canaux, jusqu\u2019\u00e0 56h d\u2019autonomie. L\u2019acc\u00e8s \u00e0 la plateforme Infinio au prix le plus accessible.",
-  "descriptionComplete": "L\u2019Infinio 30, c\u2019est l\u2019entr\u00e9e dans la plateforme la plus r\u00e9cente de Phonak. M\u00eame puce DEEPSONIC que le 90, m\u00eame Bluetooth universel, m\u00eame app myPhonak \u2014 mais avec un traitement du signal plus basique.\n\nCe que fait cet appareil\nLe niveau 30 dispose de 12 canaux et 12 bandes \u2014 c\u2019est suffisant pour les pertes l\u00e9g\u00e8res \u00e0 mod\u00e9r\u00e9es dans un quotidien plut\u00f4t calme. La SmartSpeech Technology est pr\u00e9sente mais sans les algorithmes avanc\u00e9s de zoom directionnel (StereoZoom/UltraZoom) des niveaux sup\u00e9rieurs.\n\nL\u2019atout majeur du 30 : il conserve la connectivit\u00e9 Bluetooth Classic universelle. Votre streaming fonctionne avec n\u2019importe quel appareil Bluetooth \u2014 c\u2019est un avantage que la concurrence ne propose pas toujours \u00e0 ce prix. Le streaming musical est bon \u2014 m\u00eame codec que le 90.\n\nDans le calme, les r\u00e9sultats sont tr\u00e8s satisfaisants. Dans le bruit, le 30 atteint ses limites plus rapidement que les niveaux sup\u00e9rieurs \u2014 c\u2019est la contrepartie du prix.\n\nL\u2019autonomie est la m\u00eame que toute la gamme : 28 \u00e0 56h selon le streaming.\n\nEn pratique, sur le terrain\nJ\u2019ai adapt\u00e9 l\u2019Infinio 30 sur des patients en premier appareillage avec des attentes simples : entendre la t\u00e9l\u00e9, comprendre les conversations \u00e0 deux, passer des appels. Pour ce profil, c\u2019est largement suffisant. Un patient de 75 ans m\u2019a dit : \u00ab Je voulais juste entendre ma femme sans lui demander de r\u00e9p\u00e9ter. \u00bb Le 30 r\u00e9pond exactement \u00e0 ce besoin.\n\nCe qui fait la diff\u00e9rence avec les niveaux d\u2019entr\u00e9e des autres marques : le Bluetooth universel. Pas besoin de v\u00e9rifier la compatibilit\u00e9 de votre t\u00e9l\u00e9phone. \u00c7a fonctionne.\n\nPour qui est fait cet appareil ?\nL\u2019Infinio 30 est id\u00e9al pour un premier appareillage en environnement calme, pour les patients qui veulent la connectivit\u00e9 Phonak sans le budget premium, ou pour ceux qui privil\u00e9gient la simplicit\u00e9.\n\nSi le bruit est r\u00e9gulier dans votre quotidien, le niveau 50 apporte un gain perceptible. Et si le budget le permet, le 70 est le sweet spot de la gamme.\n\nPar rapport \u00e0 la concurrence\nFace au Signia Pure IX 3 (m\u00eame gamme de prix), le Phonak 30 a le Bluetooth Classic universel. Le Signia a l\u2019OVP 2.0 pour la propre voix. Le choix d\u00e9pend de votre priorit\u00e9 : connectivit\u00e9 totale (Phonak) ou naturel du son (Signia).\n\nVerdict expert\n7.8/10. L\u2019Infinio 30 donne acc\u00e8s \u00e0 la plateforme Infinio et au Bluetooth universel pour moins de 1 400\u20ac. C\u2019est le point d\u2019entr\u00e9e le plus intelligent chez Phonak. La gestion du bruit est basique, mais pour un quotidien calme, c\u2019est tout ce qu\u2019il faut.\n\nEn une phrase : la connectivit\u00e9 universelle Phonak au prix le plus accessible.",
+  "descriptionCourte": "RIC Phonak entrée de gamme Infinio. Puce DEEPSONIC, Bluetooth universel. 12 canaux, jusqu’à 56h d’autonomie. L’accès à la plateforme Infinio au prix le plus accessible.",
+  "descriptionComplete": "L’Infinio 30, c’est l’entrée dans la plateforme la plus récente de Phonak. Même puce DEEPSONIC que le 90, même Bluetooth universel, même app myPhonak — mais avec un traitement du signal plus basique.\n\nCe que fait cet appareil\nLe niveau 30 dispose de 12 canaux et 12 bandes — c’est suffisant pour les pertes légères à modérées dans un quotidien plutôt calme. La SmartSpeech Technology est présente mais sans les algorithmes avancés de zoom directionnel (StereoZoom/UltraZoom) des niveaux supérieurs.\n\nL’atout majeur du 30 : il conserve la connectivité Bluetooth Classic universelle. Votre streaming fonctionne avec n’importe quel appareil Bluetooth — c’est un avantage que la concurrence ne propose pas toujours à ce prix. Le streaming musical est bon — même codec que le 90.\n\nDans le calme, les résultats sont très satisfaisants. Dans le bruit, le 30 atteint ses limites plus rapidement que les niveaux supérieurs — c’est la contrepartie du prix.\n\nL’autonomie est la même que toute la gamme : 28 à 56h selon le streaming.\n\nEn pratique, sur le terrain\nJ’ai adapté l’Infinio 30 sur des patients en premier appareillage avec des attentes simples : entendre la télé, comprendre les conversations à deux, passer des appels. Pour ce profil, c’est largement suffisant. Un patient de 75 ans m’a dit : « Je voulais juste entendre ma femme sans lui demander de répéter. » Le 30 répond exactement à ce besoin.\n\nCe qui fait la différence avec les niveaux d’entrée des autres marques : le Bluetooth universel. Pas besoin de vérifier la compatibilité de votre téléphone. Ça fonctionne.\n\nPour qui est fait cet appareil ?\nL’Infinio 30 est idéal pour un premier appareillage en environnement calme, pour les patients qui veulent la connectivité Phonak sans le budget premium, ou pour ceux qui privilégient la simplicité.\n\nSi le bruit est régulier dans votre quotidien, le niveau 50 apporte un gain perceptible. Et si le budget le permet, le 70 est le sweet spot de la gamme.\n\nPar rapport à la concurrence\nFace au Signia Pure IX 3 (même gamme de prix), le Phonak 30 a le Bluetooth Classic universel. Le Signia a l’OVP 2.0 pour la propre voix. Le choix dépend de votre priorité : connectivité totale (Phonak) ou naturel du son (Signia).\n\nVerdict expert\n7.8/10. L’Infinio 30 donne accès à la plateforme Infinio et au Bluetooth universel pour moins de 1 400€. C’est le point d’entrée le plus intelligent chez Phonak. La gestion du bruit est basique, mais pour un quotidien calme, c’est tout ce qu’il faut.\n\nEn une phrase : la connectivité universelle Phonak au prix le plus accessible.",
   "pointsForts": [
-    "Bluetooth Classic universel \u2014 streaming avec tous les appareils, rare \u00e0 ce prix",
-    "M\u00eame puce DEEPSONIC et m\u00eame app myPhonak que le 90",
-    "Streaming musical de qualit\u00e9 \u2014 m\u00eame codec que le 90",
-    "Autonomie g\u00e9n\u00e9reuse : 28 \u00e0 56h selon utilisation",
-    "Prix d\u2019entr\u00e9e de gamme Infinio : 1 200 \u00e0 1 399\u20ac"
+    "Bluetooth Classic universel — streaming avec tous les appareils, rare à ce prix",
+    "Même puce DEEPSONIC et même app myPhonak que le 90",
+    "Streaming musical de qualité — même codec que le 90",
+    "Autonomie généreuse : 28 à 56h selon utilisation",
+    "Prix d’entrée de gamme Infinio : 1 200 à 1 399€"
   ],
   "pointsFaibles": [
-    "12 canaux \u2014 gestion du bruit basique, limit\u00e9e dans les environnements complexes",
-    "Pas de StereoZoom ni UltraZoom \u2014 les algorithmes de focalisation sont r\u00e9serv\u00e9s aux niveaux 50+",
-    "Pas d\u2019Auracast sur le niveau 30"
+    "12 canaux — gestion du bruit basique, limitée dans les environnements complexes",
+    "Pas de StereoZoom ni UltraZoom — les algorithmes de focalisation sont réservés aux niveaux 50+",
+    "Pas d’Auracast sur le niveau 30"
   ],
   "noteExpert": 7.8,
   "enAvant": false,
   "legacy": false,
-  "metaTitle": "Phonak Aud\u00e9o Infinio 30 : prix, avis et fiche",
-  "metaDescription": "RIC Phonak entr\u00e9e de gamme Infinio. BT universel, puce DEEPSONIC. De 1 200 \u00e0 1 399\u20ac. Avis d\u2019audioproth\u00e9siste DE."
+  "metaTitle": "Phonak Audéo Infinio 30 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak entrée de gamme Infinio. BT universel, puce DEEPSONIC. De 1 200 à 1 399€. Avis d’audioprothésiste DE.",
+  "gallery": [
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-2.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-3.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-4.webp"
+  ]
 }

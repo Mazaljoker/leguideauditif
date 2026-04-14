@@ -3,7 +3,7 @@
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Aud\u00e9o Infinio",
+  "modele": "Audéo Infinio",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT",
   "puce": "DEEPSONIC",
@@ -25,7 +25,7 @@
     "batterie": "Li-ion rechargeable",
     "autonomie": "28-56",
     "ip": "IP68",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 profonde"
+    "plageAdaptation": "Légère à profonde"
   },
   "connectivite": {
     "bluetooth": "Bluetooth Classic + BLE LE Audio",
@@ -41,27 +41,33 @@
     "micDirectionnels": "StereoZoom 2.0 + UltraZoom + SmartSpeech Technology"
   },
   "couleurs": 11,
-  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio.avif",
+  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
   "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-infinio",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
-  "descriptionCourte": "RIC Phonak avanc\u00e9 sur puce DEEPSONIC. SmartSpeech Technology, Bluetooth universel, Auracast. Jusqu\u2019\u00e0 56h d\u2019autonomie. Excellent dans le calme et le bruit mod\u00e9r\u00e9, sans le surcout du Sphere.",
-  "descriptionComplete": "Le niveau 70, c\u2019est le Phonak que je recommande souvent aux patients actifs qui n\u2019ont pas besoin du Spheric Speech Clarity du 90. Avec la puce DEEPSONIC et la SmartSpeech Technology, il offre d\u00e9j\u00e0 un traitement du bruit tr\u00e8s abouti.\n\nCe que fait cet appareil\nL\u2019Infinio 70 partage la m\u00eame puce DEEPSONIC que le 90, mais sans la couche IA Spheric Speech Clarity 2.0 d\u00e9di\u00e9e aux situations de bruit extr\u00eame. Il embarque la SmartSpeech Technology avec StereoZoom 2.0 et UltraZoom, qui g\u00e8rent tr\u00e8s bien les environnements mod\u00e9r\u00e9ment bruyants \u2014 conversations \u00e0 3-4 dans un caf\u00e9, repas en famille, march\u00e9.\n\nDans le calme, la diff\u00e9rence avec le 90 est imperceptible. Le streaming musical est identique \u2014 c\u2019est le m\u00eame codec Bluetooth. La connectivit\u00e9 est la m\u00eame : Bluetooth Classic universel, BLE, Auracast, myPhonak. Pas de compromis sur la connectivit\u00e9.\n\nL\u2019autonomie sans Spheric est g\u00e9n\u00e9reuse : 28 \u00e0 56h selon le streaming. Le AutoSense OS adapte automatiquement les programmes.\n\nEn pratique, sur le terrain\nUn patient de 69 ans h\u00e9sitait entre le 70 et le 90. Sa vie sociale : d\u00e9jeuners avec ses enfants, march\u00e9 le dimanche, t\u00e9l\u00e9 le soir. Je lui ai propos\u00e9 de tester les deux. Au bout de trois semaines, il ne percevait pas de diff\u00e9rence dans son quotidien. Il a gard\u00e9 le 70 et \u00e9conomis\u00e9 600\u20ac sur la paire.\n\nPour les patients dont la vie sociale inclut r\u00e9guli\u00e8rement des grandes tabl\u00e9es ou des conf\u00e9rences, le 90 avec Spheric apporte un vrai plus. Mais pour un quotidien standard, le 70 est la valeur s\u00fbre.\n\nPour qui est fait cet appareil ?\nL\u2019Infinio 70 est id\u00e9al pour une vie active avec des situations bruyantes mod\u00e9r\u00e9es. C\u2019est aussi le bon choix si vous venez d\u2019une Lumity 70 ou 90 et voulez passer \u00e0 la g\u00e9n\u00e9ration suivante sans exploser le budget.\n\nSi le bruit extr\u00eame est votre combat quotidien, le 90 avec Spheric vaut le surcout. Si votre quotidien est essentiellement calme, le 50 suffit.\n\nPar rapport \u00e0 la concurrence\nFace au Signia Pure IX 7 (m\u00eame gamme de prix), le Phonak 70 a l\u2019avantage du streaming musical et du Bluetooth Classic natif. Le Signia r\u00e9pond avec l\u2019OVP 2.0 pour la propre voix. Match serr\u00e9 \u00e0 ce niveau de prix.\n\nVerdict expert\n8.8/10. L\u2019Infinio 70 est le meilleur rapport performance/prix de la gamme Infinio. Il offre 90% de l\u2019exp\u00e9rience du 90 pour 300 \u00e0 500\u20ac de moins. La connectivit\u00e9 est identique, le streaming aussi. Seul le Spheric manque \u2014 et pour la majorit\u00e9 des quotidiens, il n\u2019est pas indispensable.\n\nEn une phrase : le Phonak Infinio le plus recommand\u00e9 \u2014 90% du flagship pour 300\u20ac de moins.",
+  "descriptionCourte": "RIC Phonak avancé sur puce DEEPSONIC. SmartSpeech Technology, Bluetooth universel, Auracast. Jusqu’à 56h d’autonomie. Excellent dans le calme et le bruit modéré, sans le surcout du Sphere.",
+  "descriptionComplete": "Le niveau 70, c’est le Phonak que je recommande souvent aux patients actifs qui n’ont pas besoin du Spheric Speech Clarity du 90. Avec la puce DEEPSONIC et la SmartSpeech Technology, il offre déjà un traitement du bruit très abouti.\n\nCe que fait cet appareil\nL’Infinio 70 partage la même puce DEEPSONIC que le 90, mais sans la couche IA Spheric Speech Clarity 2.0 dédiée aux situations de bruit extrême. Il embarque la SmartSpeech Technology avec StereoZoom 2.0 et UltraZoom, qui gèrent très bien les environnements modérément bruyants — conversations à 3-4 dans un café, repas en famille, marché.\n\nDans le calme, la différence avec le 90 est imperceptible. Le streaming musical est identique — c’est le même codec Bluetooth. La connectivité est la même : Bluetooth Classic universel, BLE, Auracast, myPhonak. Pas de compromis sur la connectivité.\n\nL’autonomie sans Spheric est généreuse : 28 à 56h selon le streaming. Le AutoSense OS adapte automatiquement les programmes.\n\nEn pratique, sur le terrain\nUn patient de 69 ans hésitait entre le 70 et le 90. Sa vie sociale : déjeuners avec ses enfants, marché le dimanche, télé le soir. Je lui ai proposé de tester les deux. Au bout de trois semaines, il ne percevait pas de différence dans son quotidien. Il a gardé le 70 et économisé 600€ sur la paire.\n\nPour les patients dont la vie sociale inclut régulièrement des grandes tablées ou des conférences, le 90 avec Spheric apporte un vrai plus. Mais pour un quotidien standard, le 70 est la valeur sûre.\n\nPour qui est fait cet appareil ?\nL’Infinio 70 est idéal pour une vie active avec des situations bruyantes modérées. C’est aussi le bon choix si vous venez d’une Lumity 70 ou 90 et voulez passer à la génération suivante sans exploser le budget.\n\nSi le bruit extrême est votre combat quotidien, le 90 avec Spheric vaut le surcout. Si votre quotidien est essentiellement calme, le 50 suffit.\n\nPar rapport à la concurrence\nFace au Signia Pure IX 7 (même gamme de prix), le Phonak 70 a l’avantage du streaming musical et du Bluetooth Classic natif. Le Signia répond avec l’OVP 2.0 pour la propre voix. Match serré à ce niveau de prix.\n\nVerdict expert\n8.8/10. L’Infinio 70 est le meilleur rapport performance/prix de la gamme Infinio. Il offre 90% de l’expérience du 90 pour 300 à 500€ de moins. La connectivité est identique, le streaming aussi. Seul le Spheric manque — et pour la majorité des quotidiens, il n’est pas indispensable.\n\nEn une phrase : le Phonak Infinio le plus recommandé — 90% du flagship pour 300€ de moins.",
   "pointsForts": [
-    "M\u00eame puce DEEPSONIC et m\u00eame connectivit\u00e9 que le 90 (BT Classic, BLE, Auracast, myPhonak)",
-    "Streaming musical Phonak de tr\u00e8s haute qualit\u00e9 \u2014 identique au 90",
-    "SmartSpeech Technology avec StereoZoom 2.0 \u2014 tr\u00e8s bon dans le bruit mod\u00e9r\u00e9",
-    "Autonomie g\u00e9n\u00e9reuse : 28 \u00e0 56h selon utilisation",
+    "Même puce DEEPSONIC et même connectivité que le 90 (BT Classic, BLE, Auracast, myPhonak)",
+    "Streaming musical Phonak de très haute qualité — identique au 90",
+    "SmartSpeech Technology avec StereoZoom 2.0 — très bon dans le bruit modéré",
+    "Autonomie généreuse : 28 à 56h selon utilisation",
     "Meilleur rapport performance/prix de la gamme Infinio"
   ],
   "pointsFaibles": [
-    "Pas de Spheric Speech Clarity 2.0 \u2014 en bruit extr\u00eame, le 90 fait mieux",
+    "Pas de Spheric Speech Clarity 2.0 — en bruit extrême, le 90 fait mieux",
     "Naturel de la propre voix en retrait par rapport au Signia OVP 2.0",
-    "Prix encore \u00e9lev\u00e9 (1 800-1 999\u20ac) \u2014 le niveau 50 offre un bon compromis pour les budgets serr\u00e9s"
+    "Prix encore élevé (1 800-1 999€) — le niveau 50 offre un bon compromis pour les budgets serrés"
   ],
   "noteExpert": 8.8,
   "enAvant": false,
   "legacy": false,
-  "metaTitle": "Phonak Aud\u00e9o Infinio 70 : prix, avis et fiche",
-  "metaDescription": "RIC Phonak avanc\u00e9, puce DEEPSONIC, BT universel + Auracast. De 1 800 \u00e0 1 999\u20ac. Meilleur rapport qualit\u00e9/prix Infinio. Avis audioproth\u00e9siste DE."
+  "metaTitle": "Phonak Audéo Infinio 70 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak avancé, puce DEEPSONIC, BT universel + Auracast. De 1 800 à 1 999€. Meilleur rapport qualité/prix Infinio. Avis audioprothésiste DE.",
+  "gallery": [
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-2.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-3.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-4.webp"
+  ]
 }

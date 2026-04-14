@@ -3,7 +3,7 @@
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Aud\u00e9o Infinio",
+  "modele": "Audéo Infinio",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT",
   "puce": "DEEPSONIC",
@@ -25,7 +25,7 @@
     "batterie": "Li-ion rechargeable",
     "autonomie": "24-56",
     "ip": "IP68",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 profonde"
+    "plageAdaptation": "Légère à profonde"
   },
   "connectivite": {
     "bluetooth": "Bluetooth Classic + BLE LE Audio",
@@ -42,27 +42,33 @@
     "capteursSante": "AutoSense OS 6.0 + capteurs mouvement"
   },
   "couleurs": 11,
-  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio.avif",
+  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
   "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-sphere",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
-  "descriptionCourte": "Flagship Phonak avec double puce DEEPSONIC + IA d\u00e9di\u00e9e. Spheric Speech Clarity 2.0, Bluetooth universel, Auracast. Jusqu\u2019\u00e0 56h d\u2019autonomie. Le RIC de r\u00e9f\u00e9rence pour la compr\u00e9hension dans le bruit.",
-  "descriptionComplete": "Le Phonak Aud\u00e9o Infinio 90, c\u2019est l\u2019appareil que le march\u00e9 attendait depuis la Lumity. Phonak a mis deux puces dans le m\u00eame bo\u00eetier : la puce ERA pour le traitement classique, et la puce DEEPSONIC d\u00e9di\u00e9e \u00e0 l\u2019IA de s\u00e9paration parole/bruit. Apr\u00e8s avoir appareill\u00e9 de nombreux patients avec la gamme Lumity, puis les premiers Infinio, je peux vous dire que le saut est r\u00e9el dans le bruit.\n\nCe que fait cet appareil\nLa technologie phare s\u2019appelle Spheric Speech Clarity 2.0. Concr\u00e8tement, l\u2019IA int\u00e9gr\u00e9e dans la puce DEEPSONIC extrait, am\u00e9liore et int\u00e8gre la parole en temps r\u00e9el, m\u00eame quand plusieurs personnes parlent simultan\u00e9ment. Dans le calme, les r\u00e9sultats sont excellents \u2014 clart\u00e9 vocale tr\u00e8s pr\u00e9cise. Mais c\u2019est dans le bruit que l\u2019Infinio 90 se distingue vraiment : conversations \u00e0 plusieurs dans un restaurant, r\u00e9unions de groupe, march\u00e9s \u2014 le gain de compr\u00e9hension par rapport \u00e0 la g\u00e9n\u00e9ration Lumity est net.\n\nLa connectivit\u00e9 est la plus compl\u00e8te du march\u00e9 : Bluetooth Classic (streaming universel avec tous les t\u00e9l\u00e9phones), BLE LE Audio, et Auracast pour capter les flux audio dans les lieux publics \u00e9quip\u00e9s. Le streaming musical est particuli\u00e8rement bon \u2014 c\u2019est le point fort historique de Phonak.\n\nL\u2019autonomie varie selon le mode : jusqu\u2019\u00e0 56h en mode calme, environ 24h avec Spheric Speech Clarity actif en permanence. En utilisation mixte, comptez 30-36h \u2014 largement assez pour deux jours.\n\nEn pratique, sur le terrain\nUne patiente de 66 ans, active, qui multipliait les d\u00eeners en groupe et les conf\u00e9rences. Avec la Lumity 90, elle \u00e9tait d\u00e9j\u00e0 satisfaite. Avec l\u2019Infinio 90, elle m\u2019a dit : \u00ab C\u2019est comme si quelqu\u2019un avait baiss\u00e9 le volume du bruit autour de moi. \u00bb C\u2019est l\u2019effet du Spheric. Ce n\u2019est pas parfait \u2014 dans un brouhaha extr\u00eame, l\u2019effort de concentration reste n\u00e9cessaire. Mais le confort dans les situations bruyantes est clairement sup\u00e9rieur \u00e0 tout ce que j\u2019ai adapt\u00e9 avant.\n\nLe point qui surprend : l\u2019AutoSense OS 6.0 g\u00e8re les transitions entre environnements de mani\u00e8re tr\u00e8s fluide. Passer de la rue \u00e0 un caf\u00e9, puis prendre un appel t\u00e9l\u00e9phonique \u2014 l\u2019appareil s\u2019adapte sans intervention manuelle.\n\nL\u2019app myPhonak est l\u2019une des meilleures du march\u00e9 : compl\u00e8te, stable, intuitive. Roger int\u00e9gr\u00e9 en option pour les conf\u00e9rences.\n\nPour qui est fait cet appareil ?\nL\u2019Infinio 90 est le choix naturel si la compr\u00e9hension dans le bruit est votre priorit\u00e9 num\u00e9ro un. Vie sociale active, restaurants, r\u00e9unions professionnelles, conf\u00e9rences \u2014 c\u2019est l\u00e0 qu\u2019il excelle. Il couvre les pertes l\u00e9g\u00e8res \u00e0 profondes.\n\nSi votre quotidien est essentiellement calme, le niveau 70 ou 50 vous offrira 90% de l\u2019exp\u00e9rience pour un budget inf\u00e9rieur. Et si le naturel de la propre voix est votre crit\u00e8re principal, Signia (OVP 2.0) fait l\u00e9g\u00e8rement mieux sur cet aspect.\n\nPar rapport \u00e0 la concurrence\nFace \u00e0 l\u2019Oticon Intent (le rival direct), l\u2019Infinio 90 a l\u2019avantage du Spheric Speech Clarity et du streaming musical sup\u00e9rieur. L\u2019Intent r\u00e9pond avec les capteurs 4D d\u2019intention utilisateur. Ce sont les deux meilleurs RIC du march\u00e9 \u2014 le choix se fait en essayant les deux.\n\nFace \u00e0 la Lumity 90 (g\u00e9n\u00e9ration pr\u00e9c\u00e9dente), le gain dans le bruit est significatif. Si vous \u00eates sur Lumity et satisfait dans le calme, l\u2019upgrade vaut le coup surtout si le bruit est un probl\u00e8me.\n\nVerdict expert\n9.2/10. Le Phonak Aud\u00e9o Infinio 90 est le meilleur appareil Phonak jamais produit et l\u2019un des meilleurs RIC du march\u00e9. Le Spheric Speech Clarity 2.0 apporte un gain r\u00e9el et mesurable dans le bruit, la connectivit\u00e9 est la plus compl\u00e8te disponible, et l\u2019autonomie en mode calme (56h) est exceptionnelle. Le prix est \u00e9lev\u00e9 mais justifi\u00e9 par les performances.\n\nEn une phrase : la r\u00e9f\u00e9rence du march\u00e9 pour comprendre dans le bruit, avec la connectivit\u00e9 la plus compl\u00e8te.",
+  "descriptionCourte": "Flagship Phonak avec double puce DEEPSONIC + IA dédiée. Spheric Speech Clarity 2.0, Bluetooth universel, Auracast. Jusqu’à 56h d’autonomie. Le RIC de référence pour la compréhension dans le bruit.",
+  "descriptionComplete": "Le Phonak Audéo Infinio 90, c’est l’appareil que le marché attendait depuis la Lumity. Phonak a mis deux puces dans le même boîtier : la puce ERA pour le traitement classique, et la puce DEEPSONIC dédiée à l’IA de séparation parole/bruit. Après avoir appareillé de nombreux patients avec la gamme Lumity, puis les premiers Infinio, je peux vous dire que le saut est réel dans le bruit.\n\nCe que fait cet appareil\nLa technologie phare s’appelle Spheric Speech Clarity 2.0. Concrètement, l’IA intégrée dans la puce DEEPSONIC extrait, améliore et intègre la parole en temps réel, même quand plusieurs personnes parlent simultanément. Dans le calme, les résultats sont excellents — clarté vocale très précise. Mais c’est dans le bruit que l’Infinio 90 se distingue vraiment : conversations à plusieurs dans un restaurant, réunions de groupe, marchés — le gain de compréhension par rapport à la génération Lumity est net.\n\nLa connectivité est la plus complète du marché : Bluetooth Classic (streaming universel avec tous les téléphones), BLE LE Audio, et Auracast pour capter les flux audio dans les lieux publics équipés. Le streaming musical est particulièrement bon — c’est le point fort historique de Phonak.\n\nL’autonomie varie selon le mode : jusqu’à 56h en mode calme, environ 24h avec Spheric Speech Clarity actif en permanence. En utilisation mixte, comptez 30-36h — largement assez pour deux jours.\n\nEn pratique, sur le terrain\nUne patiente de 66 ans, active, qui multipliait les dîners en groupe et les conférences. Avec la Lumity 90, elle était déjà satisfaite. Avec l’Infinio 90, elle m’a dit : « C’est comme si quelqu’un avait baissé le volume du bruit autour de moi. » C’est l’effet du Spheric. Ce n’est pas parfait — dans un brouhaha extrême, l’effort de concentration reste nécessaire. Mais le confort dans les situations bruyantes est clairement supérieur à tout ce que j’ai adapté avant.\n\nLe point qui surprend : l’AutoSense OS 6.0 gère les transitions entre environnements de manière très fluide. Passer de la rue à un café, puis prendre un appel téléphonique — l’appareil s’adapte sans intervention manuelle.\n\nL’app myPhonak est l’une des meilleures du marché : complète, stable, intuitive. Roger intégré en option pour les conférences.\n\nPour qui est fait cet appareil ?\nL’Infinio 90 est le choix naturel si la compréhension dans le bruit est votre priorité numéro un. Vie sociale active, restaurants, réunions professionnelles, conférences — c’est là qu’il excelle. Il couvre les pertes légères à profondes.\n\nSi votre quotidien est essentiellement calme, le niveau 70 ou 50 vous offrira 90% de l’expérience pour un budget inférieur. Et si le naturel de la propre voix est votre critère principal, Signia (OVP 2.0) fait légèrement mieux sur cet aspect.\n\nPar rapport à la concurrence\nFace à l’Oticon Intent (le rival direct), l’Infinio 90 a l’avantage du Spheric Speech Clarity et du streaming musical supérieur. L’Intent répond avec les capteurs 4D d’intention utilisateur. Ce sont les deux meilleurs RIC du marché — le choix se fait en essayant les deux.\n\nFace à la Lumity 90 (génération précédente), le gain dans le bruit est significatif. Si vous êtes sur Lumity et satisfait dans le calme, l’upgrade vaut le coup surtout si le bruit est un problème.\n\nVerdict expert\n9.2/10. Le Phonak Audéo Infinio 90 est le meilleur appareil Phonak jamais produit et l’un des meilleurs RIC du marché. Le Spheric Speech Clarity 2.0 apporte un gain réel et mesurable dans le bruit, la connectivité est la plus complète disponible, et l’autonomie en mode calme (56h) est exceptionnelle. Le prix est élevé mais justifié par les performances.\n\nEn une phrase : la référence du marché pour comprendre dans le bruit, avec la connectivité la plus complète.",
   "pointsForts": [
-    "Spheric Speech Clarity 2.0 sur puce DEEPSONIC d\u00e9di\u00e9e \u2014 le meilleur traitement IA parole/bruit du march\u00e9",
-    "Connectivit\u00e9 la plus compl\u00e8te : Bluetooth Classic + BLE + Auracast + Roger int\u00e9gr\u00e9",
-    "Streaming musical de tr\u00e8s haute qualit\u00e9 \u2014 point fort historique de Phonak",
-    "Autonomie variable : 24h (Spheric actif) \u00e0 56h (mode calme) selon utilisation",
+    "Spheric Speech Clarity 2.0 sur puce DEEPSONIC dédiée — le meilleur traitement IA parole/bruit du marché",
+    "Connectivité la plus complète : Bluetooth Classic + BLE + Auracast + Roger intégré",
+    "Streaming musical de très haute qualité — point fort historique de Phonak",
+    "Autonomie variable : 24h (Spheric actif) à 56h (mode calme) selon utilisation",
     "AutoSense OS 6.0 : transitions fluides entre environnements sans intervention"
   ],
   "pointsFaibles": [
-    "Prix parmi les plus \u00e9lev\u00e9s du march\u00e9 \u2014 de 2 100 \u00e0 2 299\u20ac par appareil",
-    "Naturel de la propre voix en retrait par rapport au Signia OVP 2.0 \u2014 certains patients trouvent leur voix un peu modifi\u00e9e",
-    "Autonomie r\u00e9duite \u00e0 ~24h en mode Spheric intensif \u2014 recharge quotidienne n\u00e9cessaire dans ce cas"
+    "Prix parmi les plus élevés du marché — de 2 100 à 2 299€ par appareil",
+    "Naturel de la propre voix en retrait par rapport au Signia OVP 2.0 — certains patients trouvent leur voix un peu modifiée",
+    "Autonomie réduite à ~24h en mode Spheric intensif — recharge quotidienne nécessaire dans ce cas"
   ],
   "noteExpert": 9.2,
   "enAvant": true,
   "legacy": false,
-  "metaTitle": "Phonak Aud\u00e9o Infinio 90 : prix, avis et fiche",
-  "metaDescription": "Flagship Phonak, double puce DEEPSONIC + IA. Spheric Speech Clarity 2.0. De 2 100 \u00e0 2 299\u20ac. Meilleur dans le bruit. Avis audioproth\u00e9siste DE."
+  "metaTitle": "Phonak Audéo Infinio 90 : prix, avis et fiche",
+  "metaDescription": "Flagship Phonak, double puce DEEPSONIC + IA. Spheric Speech Clarity 2.0. De 2 100 à 2 299€. Meilleur dans le bruit. Avis audioprothésiste DE.",
+  "gallery": [
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-2.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-3.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-4.webp"
+  ]
 }

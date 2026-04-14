@@ -175,6 +175,7 @@ const catalogueAppareils = defineCollection({
     // ── Meta ──
     couleurs: z.number().optional(),
     image: z.string().optional(),
+    gallery: z.array(z.string()).optional(),
     sourceUrl: z.string().optional(),
     venduEnEurope: z.boolean().default(true),
 

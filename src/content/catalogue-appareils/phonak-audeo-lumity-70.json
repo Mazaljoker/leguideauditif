@@ -63,5 +63,11 @@
   "legacy": false,
   "metaTitle": "Phonak Audéo Lumity 70 : prix, avis et fiche",
   "metaDescription": "RIC Phonak Lumity, StereoZoom 2.0, BT universel. De 1 300 à 1 600€. Génération éprouvée, prix attractif. Avis audioprothésiste DE.",
-  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.webp"
+  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity-1.webp",
+  "gallery": [
+    "/images/appareils/aide-auditive-phonak-audeo-lumity-1.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-lumity-2.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-lumity-3.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-lumity-4.webp"
+  ]
 }

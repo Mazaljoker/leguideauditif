@@ -24,7 +24,7 @@
     "batterie": "Li-ion rechargeable",
     "autonomie": "19-20",
     "ip": "IP68",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re"
+    "plageAdaptation": "Légère à sévère"
   },
   "connectivite": {
     "bluetooth": "BLE LE Audio",
@@ -40,26 +40,30 @@
     "micDirectionnels": "OVP 2.0 + Split Processing"
   },
   "couleurs": 8,
-  "image": "/images/appareils/aide-auditive-signia-styletto-ix.webp",
+  "image": "/images/appareils/aide-auditive-signia-styletto-ix-1.webp",
   "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/styletto-ix/",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-styletto-ix-fiche-technique.pdf",
-  "descriptionCourte": "Slim RIC Signia d\u2019entr\u00e9e de gamme IX au design unique. 24 canaux, OVP 2.0, 20h d\u2019autonomie. Le design Styletto \u00e0 prix plus accessible pour qui privil\u00e9gie l\u2019esth\u00e9tique.",
-  "descriptionComplete": "Si le design du Styletto vous pla\u00eet mais que le budget du niveau 7 vous freine, le 3 m\u00e9rite votre attention. M\u00eame bo\u00eetier Slim RIC, m\u00eame \u00e9l\u00e9gance, m\u00eame OVP 2.0 \u2014 seul le traitement du signal diff\u00e8re.\n\nCe que fait cet appareil\nLe Styletto IX 3 partage le m\u00eame design ultra-fin que le niveau 7. La diff\u00e9rence se joue sous le capot : 24 canaux et 12 bandes au lieu de 48 et 20. Pas d\u2019Augmented Focus non plus \u2014 la focalisation sur la parole en groupe est moins raffin\u00e9e.\n\nDans le calme, vous ne percevrez quasi aucune diff\u00e9rence avec le 7. Conversations, t\u00e9l\u00e9phone, t\u00e9l\u00e9vision \u2014 la clart\u00e9 est au rendez-vous. L\u2019OVP 2.0 traite votre propre voix de la m\u00eame mani\u00e8re. L\u2019anti-larsen est identique.\n\nDans les environnements bruyants, le 3 demande un peu plus d\u2019effort de concentration qu\u2019un 5 ou un 7. C\u2019est la contrepartie du prix \u2014 pas un d\u00e9faut de l\u2019appareil.\n\nL\u2019autonomie est la m\u00eame que sur tous les Styletto : environ 20h par charge. Recharge quotidienne le soir.\n\nEn pratique, sur le terrain\nJ\u2019ai propos\u00e9 le Styletto IX 3 \u00e0 des patients qui voulaient absolument ce format mais trouvaient le 7 trop cher. La r\u00e9action la plus fr\u00e9quente : satisfaction sur le design et le calme, interrogation sur le bruit. Un patient de 62 ans m\u2019a dit : \u00ab Dans le calme, c\u2019est parfait. En terrasse de caf\u00e9, je dois me concentrer un peu plus. \u00bb C\u2019est coh\u00e9rent avec un niveau 3.\n\nPour qui est fait cet appareil ?\nLe Styletto IX 3 est id\u00e9al si l\u2019esth\u00e9tique est votre premier crit\u00e8re de choix, que votre quotidien est plut\u00f4t calme, et que votre budget est contenu. C\u2019est aussi un bon point d\u2019entr\u00e9e pour tester le format Slim RIC sans investir au maximum.\n\nSi le bruit est fr\u00e9quent dans votre quotidien, le niveau 5 avec l\u2019Augmented Focus sera plus confortable. Et si le design n\u2019est pas prioritaire, le Pure IX 3 offre les m\u00eames performances pour moins cher avec deux fois plus d\u2019autonomie.\n\nPar rapport \u00e0 la concurrence\nPas de concurrent direct dans ce format \u00e0 ce prix. Le Styletto reste unique. Face au Pure IX 3 (~1 000\u20ac), vous payez 600\u20ac de plus essentiellement pour le design \u2014 le moteur sonore est comparable.\n\nVerdict expert\n7.8/10. Le Styletto IX 3 donne acc\u00e8s au design le plus \u00e9l\u00e9gant du march\u00e9 sans atteindre le prix maximum. Performance honn\u00eate dans le calme, contrepartie dans le bruit comme tout niveau d\u2019entr\u00e9e de gamme. Un choix qui se d\u00e9fend pour qui ne veut pas d\u2019un appareil classique.\n\nEn une phrase : le design Styletto \u00e0 prix d\u2019entr\u00e9e \u2014 pour ceux qui ne veulent pas ressembler \u00e0 un porteur d\u2019appareil.",
+  "descriptionCourte": "Slim RIC Signia d’entrée de gamme IX au design unique. 24 canaux, OVP 2.0, 20h d’autonomie. Le design Styletto à prix plus accessible pour qui privilégie l’esthétique.",
+  "descriptionComplete": "Si le design du Styletto vous plaît mais que le budget du niveau 7 vous freine, le 3 mérite votre attention. Même boîtier Slim RIC, même élégance, même OVP 2.0 — seul le traitement du signal diffère.\n\nCe que fait cet appareil\nLe Styletto IX 3 partage le même design ultra-fin que le niveau 7. La différence se joue sous le capot : 24 canaux et 12 bandes au lieu de 48 et 20. Pas d’Augmented Focus non plus — la focalisation sur la parole en groupe est moins raffinée.\n\nDans le calme, vous ne percevrez quasi aucune différence avec le 7. Conversations, téléphone, télévision — la clarté est au rendez-vous. L’OVP 2.0 traite votre propre voix de la même manière. L’anti-larsen est identique.\n\nDans les environnements bruyants, le 3 demande un peu plus d’effort de concentration qu’un 5 ou un 7. C’est la contrepartie du prix — pas un défaut de l’appareil.\n\nL’autonomie est la même que sur tous les Styletto : environ 20h par charge. Recharge quotidienne le soir.\n\nEn pratique, sur le terrain\nJ’ai proposé le Styletto IX 3 à des patients qui voulaient absolument ce format mais trouvaient le 7 trop cher. La réaction la plus fréquente : satisfaction sur le design et le calme, interrogation sur le bruit. Un patient de 62 ans m’a dit : « Dans le calme, c’est parfait. En terrasse de café, je dois me concentrer un peu plus. » C’est cohérent avec un niveau 3.\n\nPour qui est fait cet appareil ?\nLe Styletto IX 3 est idéal si l’esthétique est votre premier critère de choix, que votre quotidien est plutôt calme, et que votre budget est contenu. C’est aussi un bon point d’entrée pour tester le format Slim RIC sans investir au maximum.\n\nSi le bruit est fréquent dans votre quotidien, le niveau 5 avec l’Augmented Focus sera plus confortable. Et si le design n’est pas prioritaire, le Pure IX 3 offre les mêmes performances pour moins cher avec deux fois plus d’autonomie.\n\nPar rapport à la concurrence\nPas de concurrent direct dans ce format à ce prix. Le Styletto reste unique. Face au Pure IX 3 (~1 000€), vous payez 600€ de plus essentiellement pour le design — le moteur sonore est comparable.\n\nVerdict expert\n7.8/10. Le Styletto IX 3 donne accès au design le plus élégant du marché sans atteindre le prix maximum. Performance honnête dans le calme, contrepartie dans le bruit comme tout niveau d’entrée de gamme. Un choix qui se défend pour qui ne veut pas d’un appareil classique.\n\nEn une phrase : le design Styletto à prix d’entrée — pour ceux qui ne veulent pas ressembler à un porteur d’appareil.",
   "pointsForts": [
-    "M\u00eame design Slim RIC unique que le niveau 7 \u2014 format plat et \u00e9l\u00e9gant",
-    "OVP 2.0 et anti-larsen identiques au niveau 7 \u2014 pas de compromis sur ces fondamentaux",
-    "8 coloris pour s\u2019adapter \u00e0 votre style",
+    "Même design Slim RIC unique que le niveau 7 — format plat et élégant",
+    "OVP 2.0 et anti-larsen identiques au niveau 7 — pas de compromis sur ces fondamentaux",
+    "8 coloris pour s’adapter à votre style",
     "Prix le plus accessible de la gamme Styletto IX"
   ],
   "pointsFaibles": [
-    "24 canaux \u2014 gestion du bruit moins fine que les niveaux 5 et 7",
-    "Pas d\u2019Augmented Focus \u2014 la focalisation en groupe est basique",
-    "Autonomie 20h \u2014 recharge quotidienne obligatoire, et moins de marge que le Pure (34-39h)"
+    "24 canaux — gestion du bruit moins fine que les niveaux 5 et 7",
+    "Pas d’Augmented Focus — la focalisation en groupe est basique",
+    "Autonomie 20h — recharge quotidienne obligatoire, et moins de marge que le Pure (34-39h)"
   ],
   "noteExpert": 7.8,
   "enAvant": false,
   "legacy": false,
-  "metaTitle": "Signia Styletto IX 3 : prix, avis et fiche compl\u00e8te",
-  "metaDescription": "Slim RIC Signia entr\u00e9e de gamme IX. Design unique, 24 canaux, OVP 2.0. Environ 1 616\u20ac. Avis audioproth\u00e9siste DE."
+  "metaTitle": "Signia Styletto IX 3 : prix, avis et fiche complète",
+  "metaDescription": "Slim RIC Signia entrée de gamme IX. Design unique, 24 canaux, OVP 2.0. Environ 1 616€. Avis audioprothésiste DE.",
+  "gallery": [
+    "/images/appareils/aide-auditive-signia-styletto-ix-1.webp",
+    "/images/appareils/aide-auditive-signia-styletto-ix-2.webp"
+  ]
 }

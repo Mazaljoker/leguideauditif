@@ -24,7 +24,7 @@
     "bobineT": true,
     "acouphenes": true
   },
-  "image": "/images/appareils/aide-auditive-signia-pure-charge-go-ix.webp",
+  "image": "/images/appareils/aide-auditive-signia-pure-chargeandgo-ix-1.webp",
   "venduEnEurope": true,
   "slug": "signia-pure-chargeandgo-ix",
   "niveauPosition": 4,
@@ -43,5 +43,11 @@
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
   "descriptionComplete": "Le Signia Pure Charge&Go IX est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2024 par Signia (groupe WS Audiology), pionnier du traitement de la propre voix (OVP), cet appareil se positionne en niveau Premium, offrant le meilleur traitement du signal et les technologies les plus recentes.\n\nTechnologie et traitement du son\nEquipe de la puce IX Platform, le Pure Charge&Go IX beneficie de la technologie Integrated Xperience (IX). Traitement separe de la voix du porteur et de l'environnement, design Slim RIC. Le traitement du signal s'effectue sur 48 canaux, permettant un ajustement fin de l'amplification par frequence. La plage d'adaptation couvre les pertes legeres a profondes. \n\nConnectivite\nLa connectivite BLE LE Audio permet le streaming audio direct depuis votre smartphone. Les appels telephoniques se passent en mains libres, directement dans les appareils. La compatibilite Auracast ouvre l'acces aux flux audio publics (cinemas, conferences, lieux de culte). L'application Signia App permet de regler le volume, changer de programme et personnaliser l'ecoute depuis votre telephone. \n\nConfort et autonomie\nLe Pure Charge&Go IX est rechargeable (batterie Li-ion), offrant jusqu'a 39 heures d'autonomie par charge. Un chargeur est fourni avec l'appareil. La certification IP68 garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. \n\nFonctionnalites complementaires\nLe Pure Charge&Go IX integre egalement un generateur de bruit pour le soulagement des acouphenes, une bobine telephonique (T-coil) pour les boucles magnetiques. \n\nPrix et remboursement\nLe prix indicatif est d'environ 1 400 euros par appareil (soit ~2 800 euros la paire). Classe 2, le remboursement Securite sociale est de 240 euros par appareil. Le reste a charge depend de votre complementaire sante. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 9/10. Découvrez la Signia Pure Charge&Go IX, l'appareillage RIC rechargeable avec technologie Integrated Xperience pour une meilleure compréhension en conversation. Guide complet, prix, niveaux.",
   "legacy": true,
-  "legacyReason": "Doublon : gamme Pure C&G IX declinee en 3IX/5IX/7IX"
+  "legacyReason": "Doublon : gamme Pure C&G IX declinee en 3IX/5IX/7IX",
+  "gallery": [
+    "/images/appareils/aide-auditive-signia-pure-chargeandgo-ix-1.webp",
+    "/images/appareils/aide-auditive-signia-pure-chargeandgo-ix-2.webp",
+    "/images/appareils/aide-auditive-signia-pure-chargeandgo-ix-3.webp",
+    "/images/appareils/aide-auditive-signia-pure-chargeandgo-ix-4.webp"
+  ]
 }

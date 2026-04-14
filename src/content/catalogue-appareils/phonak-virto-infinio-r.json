@@ -30,7 +30,7 @@
     "capteursSante": "AutoSense OS 7.0 (18x plus d'environnements sonores)"
   },
   "couleurs": 7,
-  "image": "/images/appareils/aide-auditive-phonak-virto-infinio-r.webp",
+  "image": "/images/appareils/aide-auditive-phonak-virto-infinio-r-1.webp",
   "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio",
   "venduEnEurope": true,
   "niveauPosition": 4,
@@ -62,5 +62,11 @@
   "enAvant": false,
   "legacy": false,
   "metaTitle": "Phonak Virto Infinio R : prix, avis et fiche",
-  "metaDescription": "ITE custom rechargeable Phonak, puce ERA, Auracast, RightFit. De 1 800 à 2 300€. Avis audioprothésiste DE, 28 ans d'expérience."
+  "metaDescription": "ITE custom rechargeable Phonak, puce ERA, Auracast, RightFit. De 1 800 à 2 300€. Avis audioprothésiste DE, 28 ans d'expérience.",
+  "gallery": [
+    "/images/appareils/aide-auditive-phonak-virto-infinio-r-1.webp",
+    "/images/appareils/aide-auditive-phonak-virto-infinio-r-2.webp",
+    "/images/appareils/aide-auditive-phonak-virto-infinio-r-3.webp",
+    "/images/appareils/aide-auditive-phonak-virto-infinio-r-4.webp"
+  ]
 }
