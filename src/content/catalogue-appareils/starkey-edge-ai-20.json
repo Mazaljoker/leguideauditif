@@ -39,8 +39,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1095,
-      "max": 1290
+      "min": 1100,
+      "max": 1400
     }
   },
   "image": "/images/appareils/aide-auditive-starkey-edge-ai-16.webp",

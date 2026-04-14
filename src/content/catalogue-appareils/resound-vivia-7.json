@@ -39,8 +39,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1050,
-      "max": 1740
+      "min": 1300,
+      "max": 1600
     }
   },
   "image": "/images/appareils/aide-auditive-resound-vivia-4.webp",

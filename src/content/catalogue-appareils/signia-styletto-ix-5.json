@@ -14,7 +14,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "unitaire": 1782
+      "min": 1300,
+      "max": 1600
     }
   },
   "annee": 2024,

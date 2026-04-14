@@ -34,8 +34,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 990,
-      "max": 1390
+      "min": 950,
+      "max": 1100
     }
   },
   "image": "/images/appareils/aide-auditive-philips-hearlink-ido.webp",

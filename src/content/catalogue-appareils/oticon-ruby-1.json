@@ -37,8 +37,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1050,
-      "max": 1390
+      "min": 1500,
+      "max": 1900
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-ruby-1.webp",

@@ -14,8 +14,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 995,
-      "max": 1100
+      "min": 1100,
+      "max": 1400
     }
   },
   "annee": 2025,
@@ -25,7 +25,7 @@
     "batterie": "Li-ion rechargeable",
     "autonomie": "36-54",
     "ip": "IP68",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re",
+    "plageAdaptation": "Légère à sévère",
     "poids": "2.3g"
   },
   "connectivite": {
@@ -46,23 +46,23 @@
   "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/bluetooth-connectivity-transformed/",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/signia-pure-chargeandgo-ix-fiche.pdf",
-  "descriptionCourte": "RIC Signia entr\u00e9e de gamme avec Bluetooth Classic universel + bobine T. 24 canaux, jusqu\u2019\u00e0 54h d\u2019autonomie. L\u2019acc\u00e8s \u00e0 la connectivit\u00e9 totale \u00e0 prix accessible.",
-  "descriptionComplete": "Le BCT IX 3, c\u2019est l\u2019entr\u00e9e de gamme de la s\u00e9rie Bluetooth Classic de Signia. La m\u00eame connectivit\u00e9 universelle que le niveau 7 \u2014 Bluetooth Classic pour tous les t\u00e9l\u00e9phones, plus la bobine T \u2014 mais \u00e0 un prix nettement plus accessible.\n\nCe que fait cet appareil\nLe BCT IX 3 partage la puce IX Platform avec toute la gamme, et surtout la double connectivit\u00e9 Bluetooth Classic + BLE qui est la raison d\u2019\u00eatre de la ligne BCT. Votre streaming audio fonctionne avec n\u2019importe quel appareil Bluetooth \u2014 smartphone r\u00e9cent ou ancien, t\u00e9l\u00e9phone \u00e0 touches, tablette, ordinateur, t\u00e9l\u00e9viseur. C\u2019est un avantage concret au quotidien, surtout pour les patients qui n\u2019ont pas un smartphone dernier cri.\n\nLe traitement du son s\u2019effectue sur 24 canaux et 12 bandes \u2014 c\u2019est le m\u00eame niveau que le Pure IX 3 standard. L\u2019OVP 2.0 est pr\u00e9sent pour le naturel de votre propre voix. Dans le calme, les r\u00e9sultats sont tr\u00e8s satisfaisants. Dans le bruit, comme pour tout niveau d\u2019entr\u00e9e de gamme, il faudra un peu plus d\u2019effort de concentration qu\u2019avec les niveaux sup\u00e9rieurs.\n\nLa bobine T est un ajout important si vous fr\u00e9quentez des lieux \u00e9quip\u00e9s de boucles magn\u00e9tiques. Le Pure IX standard ne l\u2019a pas \u2014 c\u2019est l\u2019une des raisons concr\u00e8tes de choisir la version BCT.\n\nEn pratique\nD\u2019apr\u00e8s les retours de confr\u00e8res qui adaptent le BCT IX 3, le profil type du patient est quelqu\u2019un qui a un t\u00e9l\u00e9phone plus ancien et qui ne veut pas en changer. Plut\u00f4t que de forcer le patient \u00e0 acheter un nouveau smartphone pour que ses appareils fonctionnent, le BCT r\u00e8gle le probl\u00e8me \u00e0 la source. C\u2019est aussi l\u2019appareil adapt\u00e9 pour les patients qui fr\u00e9quentent des lieux de culte \u00e9quip\u00e9s en boucle magn\u00e9tique et qui veulent rester dans un budget raisonnable.\n\nL\u2019autonomie est g\u00e9n\u00e9reuse : 36h avec streaming, jusqu\u2019\u00e0 54h en utilisation passive. Vous tenez facilement deux jours entre chaque charge.\n\nPour qui est fait cet appareil ?\nLe BCT IX 3 est id\u00e9al si vous avez besoin de la compatibilit\u00e9 Bluetooth universelle et/ou de la bobine T, avec un budget ma\u00eetris\u00e9. C\u2019est le point d\u2019entr\u00e9e le moins cher de la gamme BCT.\n\nSi vous n\u2019avez pas besoin du Bluetooth Classic (votre smartphone est r\u00e9cent et compatible BLE), le Pure IX 3 standard fait exactement la m\u00eame chose pour un prix similaire. Et si le bruit est votre priorit\u00e9, les niveaux 5 ou 7 apporteront plus de confort.\n\nPar rapport \u00e0 la concurrence\nFace au Pure IX 3 standard, le BCT 3 ajoute le Bluetooth Classic et la bobine T pour un surcout minime. C\u2019est un choix pragmatique. Face \u00e0 la concurrence (Phonak, Oticon), Signia est actuellement le seul \u00e0 proposer cette combinaison BT Classic + bobine T + OVP 2.0 \u00e0 ce niveau de prix.\n\nVerdict expert\n7.8/10. Le BCT IX 3 n\u2019est pas un appareil spectaculaire, mais c\u2019est exactement ce qu\u2019il promet : la technologie IX avec une connectivit\u00e9 universelle, \u00e0 un prix d\u2019entr\u00e9e de gamme. Pour un premier appareillage avec un t\u00e9l\u00e9phone classique et un besoin de bobine T, c\u2019est difficile de trouver mieux.\n\nEn une phrase : la connectivit\u00e9 totale Signia au prix le plus accessible.",
+  "descriptionCourte": "RIC Signia entrée de gamme avec Bluetooth Classic universel + bobine T. 24 canaux, jusqu’à 54h d’autonomie. L’accès à la connectivité totale à prix accessible.",
+  "descriptionComplete": "Le BCT IX 3, c’est l’entrée de gamme de la série Bluetooth Classic de Signia. La même connectivité universelle que le niveau 7 — Bluetooth Classic pour tous les téléphones, plus la bobine T — mais à un prix nettement plus accessible.\n\nCe que fait cet appareil\nLe BCT IX 3 partage la puce IX Platform avec toute la gamme, et surtout la double connectivité Bluetooth Classic + BLE qui est la raison d’être de la ligne BCT. Votre streaming audio fonctionne avec n’importe quel appareil Bluetooth — smartphone récent ou ancien, téléphone à touches, tablette, ordinateur, téléviseur. C’est un avantage concret au quotidien, surtout pour les patients qui n’ont pas un smartphone dernier cri.\n\nLe traitement du son s’effectue sur 24 canaux et 12 bandes — c’est le même niveau que le Pure IX 3 standard. L’OVP 2.0 est présent pour le naturel de votre propre voix. Dans le calme, les résultats sont très satisfaisants. Dans le bruit, comme pour tout niveau d’entrée de gamme, il faudra un peu plus d’effort de concentration qu’avec les niveaux supérieurs.\n\nLa bobine T est un ajout important si vous fréquentez des lieux équipés de boucles magnétiques. Le Pure IX standard ne l’a pas — c’est l’une des raisons concrètes de choisir la version BCT.\n\nEn pratique\nD’après les retours de confrères qui adaptent le BCT IX 3, le profil type du patient est quelqu’un qui a un téléphone plus ancien et qui ne veut pas en changer. Plutôt que de forcer le patient à acheter un nouveau smartphone pour que ses appareils fonctionnent, le BCT règle le problème à la source. C’est aussi l’appareil adapté pour les patients qui fréquentent des lieux de culte équipés en boucle magnétique et qui veulent rester dans un budget raisonnable.\n\nL’autonomie est généreuse : 36h avec streaming, jusqu’à 54h en utilisation passive. Vous tenez facilement deux jours entre chaque charge.\n\nPour qui est fait cet appareil ?\nLe BCT IX 3 est idéal si vous avez besoin de la compatibilité Bluetooth universelle et/ou de la bobine T, avec un budget maîtrisé. C’est le point d’entrée le moins cher de la gamme BCT.\n\nSi vous n’avez pas besoin du Bluetooth Classic (votre smartphone est récent et compatible BLE), le Pure IX 3 standard fait exactement la même chose pour un prix similaire. Et si le bruit est votre priorité, les niveaux 5 ou 7 apporteront plus de confort.\n\nPar rapport à la concurrence\nFace au Pure IX 3 standard, le BCT 3 ajoute le Bluetooth Classic et la bobine T pour un surcout minime. C’est un choix pragmatique. Face à la concurrence (Phonak, Oticon), Signia est actuellement le seul à proposer cette combinaison BT Classic + bobine T + OVP 2.0 à ce niveau de prix.\n\nVerdict expert\n7.8/10. Le BCT IX 3 n’est pas un appareil spectaculaire, mais c’est exactement ce qu’il promet : la technologie IX avec une connectivité universelle, à un prix d’entrée de gamme. Pour un premier appareillage avec un téléphone classique et un besoin de bobine T, c’est difficile de trouver mieux.\n\nEn une phrase : la connectivité totale Signia au prix le plus accessible.",
   "pointsForts": [
-    "Bluetooth Classic universel \u2014 streaming avec tous les appareils Bluetooth du march\u00e9, m\u00eame anciens",
-    "Bobine T int\u00e9gr\u00e9e \u2014 acc\u00e8s aux boucles magn\u00e9tiques, absent sur le Pure IX standard",
-    "Prix d\u2019entr\u00e9e de gamme BCT : \u00e0 partir de 995\u20ac par appareil",
-    "Autonomie jusqu\u2019\u00e0 54h sans streaming \u2014 charge rapide 30 min pour 5h",
-    "OVP 2.0 et anti-larsen identiques aux niveaux sup\u00e9rieurs"
+    "Bluetooth Classic universel — streaming avec tous les appareils Bluetooth du marché, même anciens",
+    "Bobine T intégrée — accès aux boucles magnétiques, absent sur le Pure IX standard",
+    "Prix d’entrée de gamme BCT : à partir de 995€ par appareil",
+    "Autonomie jusqu’à 54h sans streaming — charge rapide 30 min pour 5h",
+    "OVP 2.0 et anti-larsen identiques aux niveaux supérieurs"
   ],
   "pointsFaibles": [
-    "24 canaux \u2014 gestion du bruit moins fine que les niveaux 5 et 7 dans les environnements complexes",
-    "L\u00e9g\u00e8rement plus volumineux que le Pure IX standard \u2014 diff\u00e9rence minime mais r\u00e9elle",
-    "Pas d\u2019Augmented Focus \u2014 r\u00e9serv\u00e9 aux niveaux 5 et 7 pour la focalisation en groupe"
+    "24 canaux — gestion du bruit moins fine que les niveaux 5 et 7 dans les environnements complexes",
+    "Légèrement plus volumineux que le Pure IX standard — différence minime mais réelle",
+    "Pas d’Augmented Focus — réservé aux niveaux 5 et 7 pour la focalisation en groupe"
   ],
   "noteExpert": 7.8,
   "enAvant": false,
   "legacy": false,
   "metaTitle": "Signia Pure C&G BCT 3 IX : prix, avis et fiche",
-  "metaDescription": "RIC Signia, Bluetooth Classic + bobine T \u00e0 prix accessible. 24 canaux, 54h autonomie. D\u00e8s 995\u20ac. Avis audioproth\u00e9siste DE."
+  "metaDescription": "RIC Signia, Bluetooth Classic + bobine T à prix accessible. 24 canaux, 54h autonomie. Dès 995€. Avis audioprothésiste DE."
 }

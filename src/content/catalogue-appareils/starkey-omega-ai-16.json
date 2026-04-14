@@ -42,9 +42,6 @@
     "eur": {
       "min": 950,
       "max": 1100
-    },
-    "usd": {
-      "min": 3398
     }
   },
   "image": "/images/appareils/aide-auditive-starkey-omega-ai-16.webp",

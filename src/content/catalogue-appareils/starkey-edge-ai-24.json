@@ -39,8 +39,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1290,
-      "max": 1490
+      "min": 1300,
+      "max": 1600
     }
   },
   "image": "/images/appareils/aide-auditive-starkey-edge-ai-16.webp",
@@ -58,7 +58,7 @@
     "Streaming musical toujours en retrait face aux Phonak et Oticon",
     "Données de performance indépendantes limitées — peu de tests labo publiés sur cette génération spécifique"
   ],
-  "noteExpert": 8.0,
+  "noteExpert": 8,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/starkey-genesis-ai-fiche-technique.pdf",
   "metaTitle": "Starkey Edge AI 24 : prix, avis expert et fiche",

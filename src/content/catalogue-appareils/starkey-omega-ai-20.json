@@ -40,11 +40,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1095,
-      "max": 1290
-    },
-    "usd": {
-      "min": 4098
+      "min": 1100,
+      "max": 1400
     }
   },
   "image": "/images/appareils/aide-auditive-starkey-omega-ai-16.webp",
@@ -62,7 +59,7 @@
     "Performances dans le bruit extrême limitées, comme l'ensemble de la gamme Omega AI",
     "Pas d'Auracast — connectivité future non garantie pour les lieux publics équipés"
   ],
-  "noteExpert": 8.0,
+  "noteExpert": 8,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/starkey-omega-ai-fiche-technique.pdf",
   "metaTitle": "Starkey Omega AI 20 : prix, avis expert et fiche",

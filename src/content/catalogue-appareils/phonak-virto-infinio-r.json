@@ -38,8 +38,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1800,
-      "max": 2300
+      "min": 1500,
+      "max": 1900
     }
   },
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-virto-infinio-datasheet.pdf",

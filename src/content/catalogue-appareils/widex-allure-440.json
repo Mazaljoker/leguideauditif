@@ -15,11 +15,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1200,
-      "max": 1500
-    },
-    "usd": {
-      "min": 1949
+      "min": 1500,
+      "max": 1900
     }
   },
   "specs": {

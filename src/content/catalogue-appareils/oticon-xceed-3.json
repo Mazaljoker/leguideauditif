@@ -38,8 +38,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 950,
-      "max": 1050
+      "min": 1100,
+      "max": 1400
     }
   },
   "image": "/images/appareils/aide-auditive-oticon-xceed-1.webp",
@@ -58,7 +58,7 @@
     "Piles jetables uniquement : ni rechargeable en 13 ni en 675",
     "Pour une perte sévère (pas profonde), l'Intent 3 RIC offre une technologie bien plus récente au même prix"
   ],
-  "noteExpert": 7.0,
+  "noteExpert": 7,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/oticon-xceed-datasheet.pdf",
   "descriptionComplete": "Le Xceed 3 est l'entrée de gamme de la série power d'Oticon. Pour les patients avec des pertes profondes et un budget contraint, c'est souvent la seule option chez Oticon — et elle a le mérite de conserver les 64 canaux et la puissance maximale de la gamme. Mais la technologie de 2019 commence à peser face à la concurrence.\n\n## Ce que fait l'Oticon Xceed 3\n\nMême puce Velox S, même puissance (146 dB SPL, 87 dB gain), mêmes 64 canaux et 24 bandes. L'OpenSound Navigator est présent mais avec les algorithmes les plus basiques de la gamme. Dans le calme, la restitution est correcte — les voix sont amplifiées de manière claire et les réglages sur 24 bandes permettent une personnalisation adaptée à chaque profil de perte.\n\nDans le bruit, le Xceed 3 atteint ses limites plus rapidement que les niveaux supérieurs. Pour les patients avec une perte profonde, ces limites sont toutefois relatives : la compréhension dans le bruit est un défi majeur quel que soit l'appareil, et la différence entre les niveaux est moins marquée que pour les pertes légères.\n\n## En pratique\n\nJ'ai proposé le Xceed 3 aux patients dont le budget ne permettait ni le niveau 1 ni le niveau 2. La plupart avaient une vie sociale limitée — domicile, famille proche, rendez-vous médicaux. Pour ce profil, le Xceed 3 faisait le travail : les conversations en face à face étaient nettement améliorées, la télévision redevenait accessible, et la puissance ne manquait pas.\n\nLe point de vigilance : les patients actifs socialement, même avec une perte profonde, gagnent à investir dans le Xceed 1 ou 2. L'écart de traitement du bruit fait une différence perceptible en groupe.\n\n## Pour qui ? Pas pour qui ?\n\nLe Xceed 3 convient aux porteurs de pertes profondes avec un quotidien principalement calme et un budget contraint. Si votre perte est sévère (mais pas profonde) et que vous pouvez porter un RIC, l'Intent 3 au même prix offre une technologie bien plus moderne. Le Xceed 3 ne se justifie que quand la puissance est la priorité absolue.\n\n## Verdict expert\n\nNote : 7,0/10. Le Xceed 3 fait le travail de base pour les pertes profondes avec un budget serré. La puissance est là, la fiabilité aussi. Mais la technologie de 2019 et les algorithmes limités en font un choix par défaut plutôt qu'un choix enthousiaste. Oticon gagnerait à lancer un successeur sur puce Sirius.\n\nAppareil de classe 2. Prix constaté : 950 à 1 050 € par appareil. Remboursement Sécurité sociale : 240 € par appareil, complété par votre mutuelle."

@@ -35,8 +35,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1600,
-      "max": 2200
+      "min": 1500,
+      "max": 1900
     }
   },
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-virto-infinio-datasheet.pdf",
@@ -56,7 +56,7 @@
     "Pertes légères à modérées uniquement — puissance insuffisante pour les pertes sévères",
     "Piles 10 (3-5 jours) — manipulation fine requise pour le changement"
   ],
-  "noteExpert": 7.0,
+  "noteExpert": 7,
   "enAvant": false,
   "legacy": false,
   "metaTitle": "Phonak Virto Infinio Titanium : prix, avis, fiche",

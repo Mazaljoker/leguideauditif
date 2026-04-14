@@ -40,11 +40,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 850,
-      "max": 995
-    },
-    "usd": {
-      "min": 2598
+      "min": 950,
+      "max": 1100
     }
   },
   "descriptionCourte": "Entrée de gamme Genesis AI 2023. Neuro Processor, capteurs santé complets, anti-larsen parfait, 51h d'autonomie. Porte d'entrée vers les capteurs santé Starkey à budget maîtrisé.",

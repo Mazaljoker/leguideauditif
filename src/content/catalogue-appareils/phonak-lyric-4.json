@@ -35,7 +35,7 @@
   "prix": {
     "eur": {
       "min": 1500,
-      "max": 2000
+      "max": 1900
     }
   },
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-product-info.pdf",

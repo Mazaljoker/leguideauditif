@@ -510,8 +510,12 @@ function Card({ product: p }: { product: Product }) {
         {/* Price + CTA */}
         <div className="flex items-end justify-between pt-2 border-t border-gray-100">
           <div>
-            {price ? (
-              <div className={`text-sm sm:text-lg font-bold ${classe1 ? 'text-emerald-600' : 'text-[#1B2E4A]'}`}>{fmtPrice(price)}</div>
+            {classe1 ? (
+              <div className="text-sm sm:text-lg font-bold text-emerald-600">950 € <span className="text-[10px] font-normal block">RAC 0€</span></div>
+            ) : p.prix?.eur?.min && p.prix?.eur?.max ? (
+              <div className="text-sm sm:text-lg font-bold text-[#1B2E4A]">{fmtPrice(p.prix.eur.min)} – {fmtPrice(p.prix.eur.max)}</div>
+            ) : price ? (
+              <div className="text-sm sm:text-lg font-bold text-[#1B2E4A]">{fmtPrice(price)}</div>
             ) : (
               <div className="text-xs text-gray-500">Sur devis</div>
             )}

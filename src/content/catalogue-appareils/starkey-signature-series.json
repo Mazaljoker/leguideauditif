@@ -34,8 +34,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1200,
-      "max": 1500
+      "min": 1500,
+      "max": 1900
     }
   },
   "image": "/images/appareils/aide-auditive-starkey-signature-series.webp",

@@ -36,12 +36,8 @@
   "slug": "rexton-reach-r-li-t",
   "prix": {
     "eur": {
-      "min": 950,
-      "max": 1490
-    },
-    "usd": {
-      "min": 750,
-      "max": 750
+      "min": 1500,
+      "max": 1900
     }
   },
   "image": "/images/appareils/aide-auditive-rexton-reach-1.webp",

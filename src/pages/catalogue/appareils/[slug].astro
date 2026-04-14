@@ -132,20 +132,38 @@ if (product.gallery?.length) {
         )}
 
         {/* Bloc prix */}
-        {price ? (
-          <div class:list={['rounded-xl p-5', classe1 ? 'bg-emerald-50 border-l-4 border-emerald-500' : 'bg-creme border-l-4 border-orange']}>
+        {classe1 ? (
+          <div class="rounded-xl p-5 bg-emerald-50 border-l-4 border-emerald-500">
+            <div class="font-sans text-3xl font-extrabold text-marine">
+              950 &euro;
+              <span class="text-sm font-normal text-gris-texte"> / appareil</span>
+            </div>
+            <div class="font-sans text-sm text-gris-texte mt-1">
+              Paire : ~1 900 &euro; · Classe 1
+            </div>
+            <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full font-sans text-xs font-bold">
+              100% Santé — Reste à charge 0 &euro;
+            </span>
+          </div>
+        ) : product.prix?.eur?.min && product.prix?.eur?.max ? (
+          <div class="rounded-xl p-5 bg-creme border-l-4 border-orange">
+            <div class="font-sans text-3xl font-extrabold text-marine">
+              {formatPrice(product.prix.eur.min)} – {formatPrice(product.prix.eur.max)}
+              <span class="text-sm font-normal text-gris-texte"> / appareil</span>
+            </div>
+            <div class="font-sans text-sm text-gris-texte mt-1">
+              Paire : ~{formatPrice(product.prix.eur.min * 2)} – {formatPrice(product.prix.eur.max * 2)} · {product.classe ? `Classe ${product.classe}` : ''}
+            </div>
+            <div class="font-sans text-xs text-gris mt-2">
+              Fourchette indicative. Le prix final dépend de votre audioprothésiste et de votre mutuelle.
+            </div>
+          </div>
+        ) : price ? (
+          <div class="rounded-xl p-5 bg-creme border-l-4 border-orange">
             <div class="font-sans text-3xl font-extrabold text-marine">
               {formatPrice(price)}
               <span class="text-sm font-normal text-gris-texte"> / appareil</span>
             </div>
-            <div class="font-sans text-sm text-gris-texte mt-1">
-              Paire : ~{formatPrice(price * 2)} · {product.classe ? `Classe ${product.classe}` : ''}
-            </div>
-            {classe1 && (
-              <span class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full font-sans text-xs font-bold">
-                100% Sante — Reste a charge 0 &euro;
-              </span>
-            )}
           </div>
         ) : (
           <div class="bg-creme rounded-xl p-5 border-l-4 border-orange">

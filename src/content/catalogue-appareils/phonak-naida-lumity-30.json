@@ -14,8 +14,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 900,
-      "max": 1300
+      "min": 950,
+      "max": 1100
     }
   },
   "annee": 2023,

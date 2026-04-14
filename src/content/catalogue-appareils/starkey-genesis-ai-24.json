@@ -40,11 +40,8 @@
   "rac0": false,
   "prix": {
     "eur": {
-      "min": 1195,
-      "max": 1390
-    },
-    "usd": {
-      "min": 2798
+      "min": 1300,
+      "max": 1600
     }
   },
   "descriptionCourte": "Premium Genesis AI 2023. Neuro Processor avec Edge Mode+, capteurs santé pionniers, 51h d'autonomie record. Un appareil à faire régler impérativement — l'amélioration après réglage est spectaculaire.",
