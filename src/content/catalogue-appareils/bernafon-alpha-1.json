@@ -43,5 +43,6 @@
   "enAvant": false,
   "legacy": true,
   "legacyReason": "Remplacé par Alpha XT (2023) puis Encanta (2024)",
-  "ficheTechniquePdf": "/docs/fiches-techniques/bernafon-alpha-product-info.pdf"
+  "ficheTechniquePdf": "/docs/fiches-techniques/bernafon-alpha-product-info.pdf",
+  "image": "/images/appareils/aide-auditive-bernafon-alpha.webp"
 }
