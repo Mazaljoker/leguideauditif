@@ -34,12 +34,6 @@
   "niveauPosition": 4,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 1100,
-      "max": 1300
-    }
-  },
   "image": "/images/appareils/aide-auditive-oticon-more-1.webp",
   "metaTitle": "Oticon More 1 : prix, avis et fiche complète",
   "metaDescription": "Oticon More 1, RIC premium puce Polaris (2021). Remplacé par l'Intent. Avis audioprothésiste DE, note 8.0/10. Encore porté par de nombreux patients.",
@@ -56,7 +50,7 @@
     "Remplacé par le Real puis l'Intent : plus proposé en première intention par les audioprothésistes",
     "Streaming musical limité par rapport à la concurrence Phonak de la même époque (Paradise 90)"
   ],
-  "noteExpert": 8.0,
+  "noteExpert": 8,
   "enAvant": false,
   "legacy": true,
   "legacyReason": "Remplacé par l'Oticon Intent (2024). Génération précédente (puce Polaris vs Sirius), pas de 4D Sensor ni de LE Audio.",

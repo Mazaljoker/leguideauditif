@@ -34,12 +34,6 @@
   "niveauPosition": 2,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 850,
-      "max": 1000
-    }
-  },
   "image": "/images/appareils/aide-auditive-oticon-more-1.webp",
   "metaTitle": "Oticon More 3 : prix, avis et fiche complète",
   "metaDescription": "Oticon More 3, RIC milieu de gamme puce Polaris (2021). Remplacé par l'Intent 3. Avis audioprothésiste DE, note 7.0/10.",
@@ -56,7 +50,7 @@
     "Bluetooth BLE classique sans mains libres ni LE Audio",
     "L'Intent 3 à prix comparable offre une technologie nettement supérieure — le More 3 n'a plus d'argument commercial"
   ],
-  "noteExpert": 7.0,
+  "noteExpert": 7,
   "enAvant": false,
   "legacy": true,
   "legacyReason": "Remplacé par l'Oticon Intent 3 (2024). Puce Polaris première génération, trois générations de technologies en retard.",

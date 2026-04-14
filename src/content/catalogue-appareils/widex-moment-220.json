@@ -35,11 +35,6 @@
   "niveauRaw": "220",
   "niveauPosition": 2,
   "rac0": false,
-  "prix": {
-    "usd": {
-      "min": 2998
-    }
-  },
   "image": "/images/appareils/aide-auditive-widex-moment-110.webp",
   "descriptionCourte": "Le Widex MOMENT 220 est un appareil auditif RIC milieu de gamme equipe de la puce PureSound, lance en 2020 par Widex (groupe WS Audiology). Rechargeable avec 29-37h d'autonomie. Connectivite BLE MFi + ASHA.",
   "pointsForts": [

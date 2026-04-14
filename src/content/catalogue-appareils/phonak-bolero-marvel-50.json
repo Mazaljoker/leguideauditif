@@ -12,12 +12,6 @@
   "niveauPosition": 2,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 900,
-      "max": 1200
-    }
-  },
   "annee": 2019,
   "specs": {
     "batterie": "Li-ion rechargeable ou pile 13/675",

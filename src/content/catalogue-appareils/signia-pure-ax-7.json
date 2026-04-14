@@ -31,11 +31,6 @@
   "niveauPosition": 3,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1340
-    }
-  },
   "image": "/images/appareils/aide-auditive-signia-pure-ax-3.webp",
   "descriptionCourte": "Le Signia Pure AX 7 est un appareil auditif RIC avance, lance en 2023 par Signia (groupe WS Audiology). Rechargeable avec 5-7 days rechargeableh d'autonomie. Connectivite BLE.",
   "pointsForts": [

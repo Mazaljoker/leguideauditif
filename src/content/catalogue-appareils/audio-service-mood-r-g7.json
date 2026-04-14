@@ -30,12 +30,6 @@
   "niveauPosition": 1,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 990,
-      "max": 2990
-    }
-  },
   "image": "/images/appareils/aide-auditive-audio-service-mood-r-g7.webp",
   "descriptionCourte": "Le Audio Service Mood R G7 est un appareil auditif RIC entree de gamme, lance en 2021 par Audio Service (groupe WS Audiology). Connectivite BLE ASHA.",
   "pointsForts": [

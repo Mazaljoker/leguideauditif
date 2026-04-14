@@ -12,12 +12,6 @@
   "niveauPosition": 1,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 700,
-      "max": 1000
-    }
-  },
   "annee": 2019,
   "specs": {
     "batterie": "Li-ion rechargeable ou pile 13/675",
@@ -56,7 +50,7 @@
     "Batteries en fin de vie après 6+ ans",
     "Classe 2 même en entrée — reste à charge"
   ],
-  "noteExpert": 5.0,
+  "noteExpert": 5,
   "enAvant": false,
   "legacy": true,
   "legacyReason": "Remplacé par aucun successeur direct. Gamme Bolero arrêtée (2019). Trois générations de retard.",

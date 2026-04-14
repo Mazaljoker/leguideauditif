@@ -29,11 +29,6 @@
   "niveauPosition": 4,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 2040
-    }
-  },
   "image": "/images/appareils/aide-auditive-unitron-stride-discover-next-3.webp",
   "descriptionCourte": "Le Unitron Stride Discover Next 7 est un appareil auditif BTE premium, lance en 2020 par Unitron (groupe Sonova). Rechargeable. Connectivite BLE.",
   "pointsForts": [

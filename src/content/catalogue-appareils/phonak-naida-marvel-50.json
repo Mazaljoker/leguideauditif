@@ -12,12 +12,6 @@
   "niveauPosition": 2,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 850,
-      "max": 1200
-    }
-  },
   "annee": 2019,
   "specs": {
     "batterie": "Pile 675 (UP) ou pile 13 (SP)",

@@ -22,12 +22,6 @@
   "niveauPosition": 1,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 1090,
-      "max": 2890
-    }
-  },
   "image": "/images/appareils/aide-auditive-audio-service-ida-bt-g5.webp",
   "descriptionCourte": "Le Audio Service Ida BT G5 est un appareil auditif ITE entree de gamme, lance en 2020 par Audio Service (groupe WS Audiology). Connectivite BLE.",
   "pointsForts": [

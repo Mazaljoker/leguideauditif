@@ -30,11 +30,6 @@
   "niveauPosition": 2,
   "classe": "1",
   "rac0": true,
-  "prix": {
-    "eur": {
-      "unitaire": 863
-    }
-  },
   "image": "/images/appareils/aide-auditive-resound-key-1.webp",
   "descriptionCourte": "Le ReSound Key 3 est un appareil auditif RIC milieu de gamme, lance en 2020 par ReSound (groupe GN). Connectivite BLE (3-4 only).",
   "pointsForts": [

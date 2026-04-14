@@ -37,14 +37,6 @@
   "niveauPosition": 2,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1490
-    },
-    "usd": {
-      "min": 2798
-    }
-  },
   "image": "/images/appareils/aide-auditive-resound-vivia-4.webp",
   "descriptionCourte": "Le ReSound Vivia 4 est un appareil auditif RIC milieu de gamme equipe de la puce Dual-chip AI + DNN, lance en 2025 par ReSound (groupe GN). Rechargeable avec 24-30h d'autonomie. Connectivite BLE LE Audio avec Auracast.",
   "pointsForts": [

@@ -14,14 +14,17 @@ import { formatPrice, isClasse1 } from '../../lib/catalogue-utils';
 const allProducts = await getCollection('catalogueAppareils');
 const products = allProducts.map(p => p.data);
 
-// Stats
+// Stats — only active (non-legacy) products
+const activeProducts = products.filter(p => !p.legacy);
 const totalProducts = products.length;
-const brands = new Set(products.map(p => p.marque)).size;
-const classe1Count = products.filter(p => isClasse1(p)).length;
-const minPrice = Math.min(...products.filter(p => p.prix?.eur?.unitaire).map(p => p.prix!.eur!.unitaire!));
+const activeCount = activeProducts.length;
+const brands = new Set(activeProducts.map(p => p.marque)).size;
+const classe1Count = activeProducts.filter(p => isClasse1(p)).length;
+const activePriced = activeProducts.filter(p => p.prix?.eur?.unitaire);
+const minPrice = activePriced.length > 0 ? Math.min(...activePriced.map(p => p.prix!.eur!.unitaire!)) : 0;
 
-const title = 'Catalogue des aides auditives 2026 — Comparez 139 modèles';
-const description = `Comparez ${totalProducts} aides auditives de ${brands} marques. Prix, caractéristiques, Classe 1 (RAC 0€). Guide indépendant par un audioprothésiste DE.`;
+const title = `Catalogue des aides auditives 2026 — Comparez ${activeCount} modèles`;
+const description = `Comparez ${activeCount} aides auditives de ${brands} marques. Prix, caractéristiques, Classe 1 (RAC 0€). Guide indépendant par un audioprothésiste DE.`;
 
 const schema = [
   {
@@ -30,7 +33,7 @@ const schema = [
     name: 'Catalogue des aides auditives 2026',
     description: description,
     url: 'https://leguideauditif.fr/catalogue/',
-    numberOfItems: totalProducts,
+    numberOfItems: activeCount,
     itemListOrder: 'https://schema.org/ItemListUnordered',
   },
   {
@@ -53,7 +56,7 @@ const schema = [
       <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-orange/10" aria-hidden="true"></div>
       <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">Catalogue des aides auditives 2026</h1>
       <p class="text-lg opacity-90 max-w-2xl leading-relaxed">
-        Comparez les {totalProducts} modèles de notre base de données. Retrouvez toutes les informations : prix, technologies, Classe 1, remboursement Sécu.
+        Comparez les {activeCount} modèles disponibles en France. Retrouvez toutes les informations : prix, technologies, Classe 1, remboursement Sécu.
       </p>
     </div>
 
@@ -63,8 +66,8 @@ const schema = [
     {/* Stats Bloc */}
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-gris-light">
       <div>
-        <div class="text-2xl font-bold text-marine">{totalProducts}</div>
-        <div class="text-sm text-gris">modèles référencés</div>
+        <div class="text-2xl font-bold text-marine">{activeCount}</div>
+        <div class="text-sm text-gris">modèles disponibles</div>
       </div>
       <div>
         <div class="text-2xl font-bold text-marine">{brands}</div>

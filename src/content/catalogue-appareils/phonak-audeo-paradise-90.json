@@ -12,12 +12,6 @@
   "niveauPosition": 4,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 1600,
-      "max": 2150
-    }
-  },
   "annee": 2020,
   "specs": {
     "canaux": 20,

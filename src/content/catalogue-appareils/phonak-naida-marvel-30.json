@@ -12,12 +12,6 @@
   "niveauPosition": 1,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 700,
-      "max": 1000
-    }
-  },
   "annee": 2019,
   "specs": {
     "batterie": "Pile 675 (UP) ou pile 13 (SP)",
@@ -57,7 +51,7 @@
     "AutoSense OS 3.0 en mode basique",
     "À renouveler prioritairement"
   ],
-  "noteExpert": 5.0,
+  "noteExpert": 5,
   "enAvant": false,
   "legacy": true,
   "legacyReason": "Remplacé par Naída Lumity (2023). Deux générations de retard.",

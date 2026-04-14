@@ -115,11 +115,14 @@ export default function CatalogueGrid({ products }: Props) {
   const [acouphenes, setAcouphenes] = useState(false);
   const [bluetooth, setBluetooth] = useState(false);
   const [auracast, setAuracast] = useState(false);
-  const [showMore, setShowMore] = useState(false);
+  const [showLegacy, setShowLegacy] = useState(false);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const filtered = useMemo(() => {
     let result = products;
+
+    // Masquer les legacy par défaut
+    if (!showLegacy) result = result.filter(p => !p.legacy);
 
     if (brand) result = result.filter(p => p.marque === brand);
     if (type) result = result.filter(p => p.formeType === type);
@@ -190,7 +193,7 @@ export default function CatalogueGrid({ products }: Props) {
     }
 
     return result;
-  }, [products, brand, type, budget, note, year, sort, rechargeable, acouphenes, bluetooth, auracast]);
+  }, [products, brand, type, budget, note, year, sort, rechargeable, acouphenes, bluetooth, auracast, showLegacy]);
 
   // Reset visible count when filters change
   const visible = filtered.slice(0, visibleCount);
@@ -199,18 +202,19 @@ export default function CatalogueGrid({ products }: Props) {
   const resetFilters = useCallback(() => {
     setBrand(''); setType(''); setBudget(''); setNote(''); setYear('');
     setSort('flagship'); setRechargeable(false); setAcouphenes(false);
-    setBluetooth(false); setAuracast(false); setVisibleCount(PAGE_SIZE);
+    setBluetooth(false); setAuracast(false); setShowLegacy(false);
+    setVisibleCount(PAGE_SIZE);
   }, []);
 
   const loadMore = useCallback(() => {
     setVisibleCount(prev => prev + PAGE_SIZE);
   }, []);
 
-  const hasFilters = brand || type || budget || note || year || rechargeable || acouphenes || bluetooth || auracast;
+  const hasFilters = brand || type || budget || note || year || rechargeable || acouphenes || bluetooth || auracast || showLegacy;
 
   // Count active filters
   const activeCount = [brand, type, budget, note, year].filter(Boolean).length
-    + [rechargeable, acouphenes, bluetooth, auracast].filter(Boolean).length;
+    + [rechargeable, acouphenes, bluetooth, auracast, showLegacy].filter(Boolean).length;
 
   return (
     <div>
@@ -232,6 +236,9 @@ export default function CatalogueGrid({ products }: Props) {
           <Toggle label="Bluetooth" checked={bluetooth} onChange={(v) => { setBluetooth(v); setVisibleCount(PAGE_SIZE); }} />
           <Toggle label="Auracast / LE Audio" checked={auracast} onChange={(v) => { setAuracast(v); setVisibleCount(PAGE_SIZE); }} />
           <Toggle label="Acouphènes" checked={acouphenes} onChange={(v) => { setAcouphenes(v); setVisibleCount(PAGE_SIZE); }} />
+
+          <span className="text-xs text-gray-300 mx-0.5">|</span>
+          <Toggle label="Inclure les arrêtés" checked={showLegacy} onChange={(v) => { setShowLegacy(v); setVisibleCount(PAGE_SIZE); }} />
 
           {hasFilters && (
             <>

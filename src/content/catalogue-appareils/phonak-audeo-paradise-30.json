@@ -12,12 +12,6 @@
   "niveauPosition": 1,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 1000,
-      "max": 1400
-    }
-  },
   "annee": 2020,
   "specs": {
     "canaux": 8,
@@ -60,7 +54,7 @@
     "Plus fabriquée — fin de vie",
     "Classe 2 même en entrée — reste à charge"
   ],
-  "noteExpert": 6.0,
+  "noteExpert": 6,
   "enAvant": false,
   "legacy": true,
   "legacyReason": "Remplacé par Audéo Infinio (2024). Deux générations de retard.",

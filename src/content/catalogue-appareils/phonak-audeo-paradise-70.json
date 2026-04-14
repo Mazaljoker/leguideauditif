@@ -12,12 +12,6 @@
   "niveauPosition": 3,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 1400,
-      "max": 1900
-    }
-  },
   "annee": 2020,
   "specs": {
     "canaux": 16,
@@ -60,7 +54,7 @@
     "Plus fabriquée — stocks limités",
     "Pas d'Auracast ni de LE Audio"
   ],
-  "noteExpert": 7.0,
+  "noteExpert": 7,
   "enAvant": false,
   "legacy": true,
   "legacyReason": "Remplacé par Audéo Infinio (2024). Deux générations de retard.",

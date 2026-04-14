@@ -30,11 +30,6 @@
   "niveauPosition": 3,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1690
-    }
-  },
   "image": "/images/appareils/aide-auditive-unitron-insera-discover-next-3.webp",
   "descriptionCourte": "Le Unitron Insera Discover Next 5 est un appareil auditif ITE avance, lance en 2020 par Unitron (groupe Sonova). Connectivite BLE (312).",
   "pointsForts": [

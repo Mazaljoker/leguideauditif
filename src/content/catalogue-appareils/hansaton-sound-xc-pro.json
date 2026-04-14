@@ -28,12 +28,6 @@
   "niveauPosition": 1,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "min": 890,
-      "max": 1400
-    }
-  },
   "image": "/images/appareils/aide-auditive-hansaton-sound-xc-pro.webp",
   "metaTitle": "Hansaton Sound XC Pro : fiche appareil legacy",
   "metaDescription": "RIC entrée de gamme Hansaton sur plateforme Excite Pro (2020). Remplacé par le Sound Stratos. Encore porté par certains patients.",
@@ -50,7 +44,7 @@
     "Pas de bobine T pour les boucles magnétiques",
     "Application compagnon basique avec peu de réglages accessibles"
   ],
-  "noteExpert": 6.0,
+  "noteExpert": 6,
   "enAvant": false,
   "ficheTechniquePdf": "",
   "descriptionComplete": "Le Hansaton Sound XC Pro est un RIC entrée de gamme lancé en 2020 sur la plateforme Excite Pro du groupe Sonova. Cette génération a été remplacée par le Sound Stratos (puce PRISM, 2021), lui-même désormais suivi par le Hansaton Essenz (puce ERA, 2025).\n\nSi vous portez encore un Sound XC Pro et qu'il fonctionne bien, pas de raison de changer dans l'immédiat — un appareil auditif bien réglé et bien entretenu dure 5 à 7 ans. Mais si vous envisagez un renouvellement, le Stratos ou l'Essenz apporteront des améliorations sensibles en connectivité (Bluetooth mains libres, Tap Control) et en traitement du signal dans le bruit.\n\nPrix constaté à l'époque : de 890 à 1 400 € par appareil. Classe 2 — reste à charge variable selon votre complémentaire santé.",

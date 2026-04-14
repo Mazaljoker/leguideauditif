@@ -31,11 +31,6 @@
   "niveauPosition": 4,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1990
-    }
-  },
   "image": "/images/appareils/aide-auditive-resound-omnia-5.webp",
   "descriptionCourte": "Le ReSound OMNIA 9 est un appareil auditif RIC premium, lance en 2022 par ReSound (groupe GN). Rechargeable. Connectivite BLE.",
   "pointsForts": [

@@ -32,11 +32,6 @@
   "niveauPosition": 3,
   "classe": "2",
   "rac0": false,
-  "prix": {
-    "eur": {
-      "unitaire": 1290
-    }
-  },
   "image": "/images/appareils/aide-auditive-oticon-ruby-1.webp",
   "descriptionCourte": "Le Oticon Ruby 2 est un appareil auditif RIC avance equipe de la puce Polaris, lance en 2020 par Oticon (groupe Demant). Rechargeable. Connectivite BLE.",
   "pointsForts": [
