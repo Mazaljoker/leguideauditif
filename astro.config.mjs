@@ -1,4 +1,5 @@
 // @ts-check
+// build-cache-bust: 2026-04-14
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
