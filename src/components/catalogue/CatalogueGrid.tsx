@@ -23,6 +23,8 @@ interface Product {
   image?: string;
   legacy?: boolean;
   legacyReason?: string;
+  enAvant?: boolean;
+  noteExpert?: number;
 }
 
 interface Props {
@@ -58,6 +60,7 @@ const BUDGET_OPTIONS = [
 ];
 
 const SORT_OPTIONS = [
+  { value: 'flagship', label: 'Flagships d\'abord' },
   { value: 'year-desc', label: 'Plus récents' },
   { value: 'price-asc', label: 'Prix croissant' },
   { value: 'price-desc', label: 'Prix décroissant' },
@@ -86,7 +89,7 @@ export default function CatalogueGrid({ products }: Props) {
   const [brand, setBrand] = useState('');
   const [type, setType] = useState('');
   const [budget, setBudget] = useState('');
-  const [sort, setSort] = useState('year-desc');
+  const [sort, setSort] = useState('flagship');
   const [rechargeable, setRechargeable] = useState(false);
   const [acouphenes, setAcouphenes] = useState(false);
 
@@ -111,21 +114,44 @@ export default function CatalogueGrid({ products }: Props) {
     }
 
     // Sort
-    result = [...result].sort((a, b) => {
-      switch (sort) {
-        case 'price-asc': return (getPrice(a) ?? Infinity) - (getPrice(b) ?? Infinity);
-        case 'price-desc': return (getPrice(b) ?? 0) - (getPrice(a) ?? 0);
-        case 'year-desc': return (b.annee ?? 0) - (a.annee ?? 0);
-        case 'name-asc': return `${a.marqueLabel} ${a.modele}`.localeCompare(`${b.marqueLabel} ${b.modele}`);
-        default: return 0;
+    if (sort === 'flagship') {
+      // Identify flagship per brand: highest noteExpert or enAvant
+      const bestByBrand: Record<string, number> = {};
+      for (const p of result) {
+        const score = p.noteExpert ?? 0;
+        if (!bestByBrand[p.marque] || score > bestByBrand[p.marque]) {
+          bestByBrand[p.marque] = score;
+        }
       }
-    });
+      const flagshipSlugs = new Set<string>();
+      for (const p of result) {
+        if (p.enAvant || (p.noteExpert ?? 0) === bestByBrand[p.marque]) {
+          flagshipSlugs.add(p.slug);
+        }
+      }
+      result = [...result].sort((a, b) => {
+        const aFlag = flagshipSlugs.has(a.slug) ? 1 : 0;
+        const bFlag = flagshipSlugs.has(b.slug) ? 1 : 0;
+        if (aFlag !== bFlag) return bFlag - aFlag;
+        return (b.noteExpert ?? 0) - (a.noteExpert ?? 0);
+      });
+    } else {
+      result = [...result].sort((a, b) => {
+        switch (sort) {
+          case 'price-asc': return (getPrice(a) ?? Infinity) - (getPrice(b) ?? Infinity);
+          case 'price-desc': return (getPrice(b) ?? 0) - (getPrice(a) ?? 0);
+          case 'year-desc': return (b.annee ?? 0) - (a.annee ?? 0);
+          case 'name-asc': return `${a.marqueLabel} ${a.modele}`.localeCompare(`${b.marqueLabel} ${b.modele}`);
+          default: return 0;
+        }
+      });
+    }
 
     return result;
   }, [products, brand, type, budget, sort, rechargeable, acouphenes]);
 
   const resetFilters = () => {
-    setBrand(''); setType(''); setBudget(''); setSort('year-desc');
+    setBrand(''); setType(''); setBudget(''); setSort('flagship');
     setRechargeable(false); setAcouphenes(false);
   };
 
