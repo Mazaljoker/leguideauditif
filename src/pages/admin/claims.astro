@@ -16,7 +16,7 @@ if (!user || user.email !== ADMIN_EMAIL) {
 // Recuperer les claims en attente
 const { data: pendingClaims } = await supabase
   .from('centres_auditifs')
-  .select('slug, nom, adresse, cp, ville, claimed_by_name, claimed_by_email, claimed_by_adeli, claimed_at, tel, horaires, specialites, marques, a_propos, photo_url')
+  .select('slug, nom, adresse, cp, ville, claimed_by_name, claimed_by_email, claimed_by_adeli, claimed_at, tel, site_web, horaires, specialites, marques, a_propos, photo_url')
   .eq('claim_status', 'pending')
   .order('claimed_at', { ascending: false });
 
@@ -173,30 +173,47 @@ const { data: recentClaims } = await supabase
                 <div class="grid gap-2 sm:grid-cols-2 text-sm font-sans mb-4">
                   <div><span class="text-gris-texte">Email :</span> <a href={`mailto:${c.claimed_by_email}`} class="text-orange hover:underline">{c.claimed_by_email}</a></div>
                   <div><span class="text-gris-texte">RPPS/SIRET :</span> <span class="text-marine">{c.claimed_by_adeli}</span></div>
-                  {c.tel && <div><span class="text-gris-texte">Tel :</span> <span class="text-marine">{c.tel}</span></div>}
+                  <div><span class="text-gris-texte">Tel :</span> {c.tel ? <span class="text-marine">{c.tel}</span> : <span class="text-gris-texte italic">Non renseigné</span>}</div>
                   <div><span class="text-gris-texte">Site :</span> {c.site_web ? <a href={c.site_web} target="_blank" rel="noopener" class="text-orange hover:underline">{c.site_web}</a> : <span class="text-gris-texte italic">Non renseigné</span>}</div>
-                  {c.horaires && <div><span class="text-gris-texte">Horaires :</span> <span class="text-marine">{c.horaires}</span></div>}
+                  <div><span class="text-gris-texte">Horaires :</span> {c.horaires ? <span class="text-marine">{c.horaires}</span> : <span class="text-gris-texte italic">Non renseigné</span>}</div>
                   <div><span class="text-gris-texte">Date :</span> <span class="text-marine">{c.claimed_at ? new Date(c.claimed_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'}</span></div>
                 </div>
-                {c.specialites && c.specialites.length > 0 && (
-                  <div class="mb-2">
-                    <span class="text-xs text-gris-texte font-sans">Specialites : </span>
-                    {c.specialites.map((s: string) => (
+                <div class="mb-2">
+                  <span class="text-xs text-gris-texte font-sans">Specialites : </span>
+                  {c.specialites && c.specialites.length > 0 ? (
+                    c.specialites.map((s: string) => (
                       <span class="inline-block rounded-full bg-[#E6F1FB] px-2 py-0.5 text-xs text-[#0C447C] font-sans mr-1">{s}</span>
-                    ))}
-                  </div>
-                )}
-                {c.marques && c.marques.length > 0 && (
-                  <div class="mb-3">
-                    <span class="text-xs text-gris-texte font-sans">Marques : </span>
-                    {c.marques.map((m: string) => (
+                    ))
+                  ) : (
+                    <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
+                  )}
+                </div>
+                <div class="mb-3">
+                  <span class="text-xs text-gris-texte font-sans">Marques : </span>
+                  {c.marques && c.marques.length > 0 ? (
+                    c.marques.map((m: string) => (
                       <span class="inline-block rounded-full bg-[#F8F5F0] px-2 py-0.5 text-xs text-marine font-sans mr-1">{m}</span>
-                    ))}
-                  </div>
-                )}
-                {c.a_propos && (
-                  <p class="text-xs text-gris-texte font-sans mb-3">{c.a_propos}</p>
-                )}
+                    ))
+                  ) : (
+                    <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
+                  )}
+                </div>
+                <div class="mb-3">
+                  <span class="text-xs text-gris-texte font-sans">Description : </span>
+                  {c.a_propos ? (
+                    <p class="text-xs text-gris-texte font-sans mt-1">{c.a_propos}</p>
+                  ) : (
+                    <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
+                  )}
+                </div>
+                <div class="mb-3">
+                  <span class="text-xs text-gris-texte font-sans">Photo : </span>
+                  {c.photo_url ? (
+                    <img src={c.photo_url} alt={`Photo ${c.nom}`} class="mt-1 rounded max-w-[200px] max-h-[120px] object-cover" />
+                  ) : (
+                    <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
+                  )}
+                </div>
                 <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-gris-clair">
                   <a href={`/centre/${c.slug}/`} target="_blank" class="text-xs text-orange font-sans font-medium hover:underline">Voir la fiche</a>
                   {c.claim_status === 'approved' && c.plan !== 'premium' && (
