@@ -14,8 +14,8 @@ export async function getStaticPaths() {
   const allProducts = await getCollection('catalogueAppareils');
   const active = allProducts.map(p => p.data).filter(p => !p.legacy && p.noteExpert);
 
-  // Top products by noteExpert (max 25 to keep combinations manageable)
-  const top = active.sort((a, b) => (b.noteExpert ?? 0) - (a.noteExpert ?? 0)).slice(0, 25);
+  // Top 10 products only — cross-brand comparisons that people actually search for
+  const top = active.sort((a, b) => (b.noteExpert ?? 0) - (a.noteExpert ?? 0)).slice(0, 10);
 
   const paths: { params: { vs: string }; props: { productA: typeof top[0]; productB: typeof top[0] } }[] = [];
   const seen = new Set<string>();
@@ -24,21 +24,15 @@ export async function getStaticPaths() {
     for (let j = i + 1; j < top.length; j++) {
       const a = top[i];
       const b = top[j];
-      // Only compare products of similar type or price range
-      const sameType = a.formeType === b.formeType;
-      const priceA = getProductPrice(a) ?? 0;
-      const priceB = getProductPrice(b) ?? 0;
-      const similarPrice = priceA && priceB && Math.abs(priceA - priceB) < 800;
-      const sameBrand = a.marque === b.marque;
+      // Only cross-brand comparisons (intra-brand = no SEO value)
+      if (a.marque === b.marque) continue;
 
-      if (sameType || similarPrice || sameBrand) {
-        // Canonical order: alphabetical
-        const [first, second] = [a, b].sort((x, y) => x.slug.localeCompare(y.slug));
-        const key = `${first.slug}-vs-${second.slug}`;
-        if (!seen.has(key)) {
-          seen.add(key);
-          paths.push({ params: { vs: key }, props: { productA: first, productB: second } });
-        }
+      // Canonical order: alphabetical
+      const [first, second] = [a, b].sort((x, y) => x.slug.localeCompare(y.slug));
+      const key = `${first.slug}-vs-${second.slug}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        paths.push({ params: { vs: key }, props: { productA: first, productB: second } });
       }
     }
   }
