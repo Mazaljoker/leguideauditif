@@ -66,7 +66,7 @@ export function claimConfirmationEmail(data: ClaimConfirmationData): string {
       </ul>
       <p style="margin:12px 0 0 0;">R\u00e9pondez \u00e0 cet email pour en savoir plus, ou d\u00e9couvrez nos formules :</p>
     </div>
-    <a href="https://leguideauditif.fr/tarifs-professionnels/" class="btn btn-marine">D\u00e9couvrir les formules Premium</a>
+    <a href="https://leguideauditif.fr/offres/" class="btn btn-marine">D\u00e9couvrir les formules Premium</a>
     <p>Si vous avez des questions, r\u00e9pondez directement \u00e0 cet email.</p>
     <p>Cordialement,<br/>Franck-Olivier Chabbat<br/>Audioproth\u00e9siste DE &mdash; LeGuideAuditif.fr</p>
     `
