@@ -39,6 +39,7 @@ const breadcrumbs = [
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
+  <meta slot="head" name="robots" content="noindex" />
   <div class="bg-creme">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs items={breadcrumbs} />

@@ -3,7 +3,7 @@
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Aud\u00e9o Lumity",
+  "modele": "Audéo Lumity",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT|RIC 312",
   "puce": "PRISM",
@@ -25,7 +25,7 @@
     "batterie": "Li-ion rechargeable ou pile 312",
     "autonomie": "16-24",
     "ip": "IP68",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re"
+    "plageAdaptation": "Légère à sévère"
   },
   "connectivite": {
     "bluetooth": "Bluetooth Classic + BLE",
@@ -41,26 +41,25 @@
     "micDirectionnels": "SmartSpeech Technology"
   },
   "couleurs": 9,
-  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.webp",
   "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-lumity",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
-  "descriptionCourte": "RIC Phonak Lumity entr\u00e9e de gamme. BT universel inclus, 8 canaux. Generation \u00e9prouv\u00e9e au prix le plus accessible de la gamme Phonak actuelle.",
-  "descriptionComplete": "Le Lumity 30, c\u2019est l\u2019entr\u00e9e de gamme Phonak avec la connectivit\u00e9 universelle. Pour moins de 1 000\u20ac par appareil, vous avez le Bluetooth Classic qui fonctionne avec tous les t\u00e9l\u00e9phones, l\u2019app myPhonak et un appareil fiable.\n\nCe que fait cet appareil\n8 canaux et 8 bandes \u2014 c\u2019est le minimum de la gamme Lumity. Dans le calme, les conversations sont claires et confortables. Dans le bruit, il faut \u00eatre honn\u00eate : c\u2019est limit\u00e9. Le Lumity 30 est fait pour un quotidien calme.\n\nL\u2019atout du 30 : le Bluetooth Classic est l\u00e0 quand m\u00eame. Et la bobine T est disponible sur la version RT. C\u2019est rare \u00e0 ce prix.\n\nEn pratique, sur le terrain\nJ\u2019ai adapt\u00e9 le Lumity 30 sur des patients avec un budget tr\u00e8s serr\u00e9 mais qui voulaient rester chez Phonak. Pour entendre la t\u00e9l\u00e9, suivre une conversation \u00e0 deux, passer des appels \u2014 mission accomplie. Pas de miracle en milieu bruyant, mais c\u2019est attendu \u00e0 ce niveau.\n\nPour qui est fait cet appareil ?\nPremier appareillage \u00e0 budget minimum, quotidien calme, besoin du Bluetooth universel.\n\nVerdict expert\n7.5/10. Le Lumity 30 donne acc\u00e8s \u00e0 l\u2019\u00e9cosyst\u00e8me Phonak au prix le plus bas. La gestion du bruit est basique mais la connectivit\u00e9 universelle est un vrai avantage \u00e0 ce tarif.\n\nEn une phrase : le Phonak le moins cher avec le Bluetooth universel.",
+  "descriptionCourte": "RIC Phonak Lumity entrée de gamme. BT universel inclus, 8 canaux. Generation éprouvée au prix le plus accessible de la gamme Phonak actuelle.",
+  "descriptionComplete": "Le Lumity 30, c’est l’entrée de gamme Phonak avec la connectivité universelle. Pour moins de 1 000€ par appareil, vous avez le Bluetooth Classic qui fonctionne avec tous les téléphones, l’app myPhonak et un appareil fiable.\n\nCe que fait cet appareil\n8 canaux et 8 bandes — c’est le minimum de la gamme Lumity. Dans le calme, les conversations sont claires et confortables. Dans le bruit, il faut être honnête : c’est limité. Le Lumity 30 est fait pour un quotidien calme.\n\nL’atout du 30 : le Bluetooth Classic est là quand même. Et la bobine T est disponible sur la version RT. C’est rare à ce prix.\n\nEn pratique, sur le terrain\nJ’ai adapté le Lumity 30 sur des patients avec un budget très serré mais qui voulaient rester chez Phonak. Pour entendre la télé, suivre une conversation à deux, passer des appels — mission accomplie. Pas de miracle en milieu bruyant, mais c’est attendu à ce niveau.\n\nPour qui est fait cet appareil ?\nPremier appareillage à budget minimum, quotidien calme, besoin du Bluetooth universel.\n\nVerdict expert\n7.5/10. Le Lumity 30 donne accès à l’écosystème Phonak au prix le plus bas. La gestion du bruit est basique mais la connectivité universelle est un vrai avantage à ce tarif.\n\nEn une phrase : le Phonak le moins cher avec le Bluetooth universel.",
   "pointsForts": [
-    "Bluetooth Classic universel inclus \u2014 exceptionnel \u00e0 ce prix",
-    "Prix le plus accessible de la gamme Phonak actuelle : d\u00e8s 900\u20ac",
-    "G\u00e9n\u00e9ration Lumity fiable, myPhonak compl\u00e8te",
+    "Bluetooth Classic universel inclus — exceptionnel à ce prix",
+    "Prix le plus accessible de la gamme Phonak actuelle : dès 900€",
+    "Génération Lumity fiable, myPhonak complète",
     "Disponible en rechargeable et pile 312 + bobine T en option (RT)"
   ],
   "pointsFaibles": [
-    "8 canaux \u2014 gestion du bruit tr\u00e8s basique, r\u00e9serv\u00e9 aux quotidiens calmes",
-    "Pas de StereoZoom \u2014 pas de focalisation directionnelle en milieu bruyant",
-    "Autonomie rechargeable 16-24h \u2014 la plus courte de la gamme actuelle"
+    "8 canaux — gestion du bruit très basique, réservé aux quotidiens calmes",
+    "Pas de StereoZoom — pas de focalisation directionnelle en milieu bruyant",
+    "Autonomie rechargeable 16-24h — la plus courte de la gamme actuelle"
   ],
   "noteExpert": 7.5,
   "enAvant": false,
   "legacy": false,
-  "metaTitle": "Phonak Aud\u00e9o Lumity 30 : prix, avis et fiche",
-  "metaDescription": "RIC Phonak Lumity entr\u00e9e de gamme. BT universel, 8 canaux. D\u00e8s 900\u20ac. Le Phonak le moins cher. Avis audioproth\u00e9siste DE."
+  "metaTitle": "Phonak Audéo Lumity 30 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak Lumity entrée de gamme. BT universel, 8 canaux. Dès 900€. Le Phonak le moins cher. Avis audioprothésiste DE."
 }

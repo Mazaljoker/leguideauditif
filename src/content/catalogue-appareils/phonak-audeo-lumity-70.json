@@ -3,7 +3,7 @@
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Aud\u00e9o Lumity",
+  "modele": "Audéo Lumity",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT|RIC 312",
   "puce": "PRISM",
@@ -25,7 +25,7 @@
     "batterie": "Li-ion rechargeable ou pile 312",
     "autonomie": "16-24",
     "ip": "IP68",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 profonde"
+    "plageAdaptation": "Légère à profonde"
   },
   "connectivite": {
     "bluetooth": "Bluetooth Classic + BLE",
@@ -41,27 +41,26 @@
     "micDirectionnels": "StereoZoom 2.0 + SmartSpeech Technology"
   },
   "couleurs": 9,
-  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.webp",
   "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-lumity",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
-  "descriptionCourte": "RIC Phonak Lumity milieu de gamme. StereoZoom 2.0, BT universel. 16 canaux. G\u00e9n\u00e9ration \u00e9prouv\u00e9e \u00e0 prix attractif depuis l\u2019Infinio.",
-  "descriptionComplete": "Le Lumity 70 est le niveau que j\u2019ai le plus adapt\u00e9 dans cette gamme. Le compromis entre performance et prix \u00e9tait d\u00e9j\u00e0 bon en 2022 \u2014 il l\u2019est encore plus maintenant que l\u2019Infinio a fait baisser les tarifs.\n\nCe que fait cet appareil\nLe Lumity 70 dispose du StereoZoom 2.0, l\u2019algorithme de zoom directionnel de Phonak qui focalise sur l\u2019interlocuteur face \u00e0 vous. C\u2019est efficace dans les conversations \u00e0 deux en milieu bruyant. Il n\u2019a pas l\u2019UltraZoom du 90 (vision 360\u00b0 du bruit), mais le StereoZoom suffit pour la grande majorit\u00e9 des situations.\n\nConnectivit\u00e9 Bluetooth Classic universelle, streaming musical de qualit\u00e9, myPhonak compl\u00e8te. 16 canaux et 16 bandes pour un r\u00e9glage pr\u00e9cis. Disponible en rechargeable et pile 312.\n\nEn pratique, sur le terrain\nLe Lumity 70 a \u00e9t\u00e9 mon \u00ab choix par d\u00e9faut \u00bb pendant deux ans. Pour un patient avec une vie sociale normale \u2014 repas en famille, sorties entre amis, t\u00e9l\u00e9phone r\u00e9gulier \u2014 il couvrait tous les besoins. J\u2019ai rarement eu des patients insatisfaits \u00e0 ce niveau.\n\nPour qui est fait cet appareil ?\nLe Lumity 70 est id\u00e9al si vous cherchez un bon Phonak \u00e0 prix raisonnable, que votre vie sociale est active mais pas extr\u00eame, et que vous voulez la connectivit\u00e9 universelle.\n\nVerdict expert\n8.2/10. Le Lumity 70 reste un tr\u00e8s bon appareil, \u00e9prouv\u00e9 sur le terrain, avec un prix d\u00e9sormais attractif. Si l\u2019Infinio est hors budget, c\u2019est l\u2019alternative Phonak la plus sens\u00e9e.\n\nEn une phrase : le cheval de bataille Phonak, fiable et \u00e9prouv\u00e9, \u00e0 prix r\u00e9vis\u00e9.",
+  "descriptionCourte": "RIC Phonak Lumity milieu de gamme. StereoZoom 2.0, BT universel. 16 canaux. Génération éprouvée à prix attractif depuis l’Infinio.",
+  "descriptionComplete": "Le Lumity 70 est le niveau que j’ai le plus adapté dans cette gamme. Le compromis entre performance et prix était déjà bon en 2022 — il l’est encore plus maintenant que l’Infinio a fait baisser les tarifs.\n\nCe que fait cet appareil\nLe Lumity 70 dispose du StereoZoom 2.0, l’algorithme de zoom directionnel de Phonak qui focalise sur l’interlocuteur face à vous. C’est efficace dans les conversations à deux en milieu bruyant. Il n’a pas l’UltraZoom du 90 (vision 360° du bruit), mais le StereoZoom suffit pour la grande majorité des situations.\n\nConnectivité Bluetooth Classic universelle, streaming musical de qualité, myPhonak complète. 16 canaux et 16 bandes pour un réglage précis. Disponible en rechargeable et pile 312.\n\nEn pratique, sur le terrain\nLe Lumity 70 a été mon « choix par défaut » pendant deux ans. Pour un patient avec une vie sociale normale — repas en famille, sorties entre amis, téléphone régulier — il couvrait tous les besoins. J’ai rarement eu des patients insatisfaits à ce niveau.\n\nPour qui est fait cet appareil ?\nLe Lumity 70 est idéal si vous cherchez un bon Phonak à prix raisonnable, que votre vie sociale est active mais pas extrême, et que vous voulez la connectivité universelle.\n\nVerdict expert\n8.2/10. Le Lumity 70 reste un très bon appareil, éprouvé sur le terrain, avec un prix désormais attractif. Si l’Infinio est hors budget, c’est l’alternative Phonak la plus sensée.\n\nEn une phrase : le cheval de bataille Phonak, fiable et éprouvé, à prix révisé.",
   "pointsForts": [
-    "StereoZoom 2.0 \u2014 focalisation efficace sur l\u2019interlocuteur en milieu bruyant",
-    "Bluetooth Classic universel + streaming musical de qualit\u00e9",
-    "G\u00e9n\u00e9ration \u00e9prouv\u00e9e, fiabilit\u00e9 confirm\u00e9e sur 3+ ans de recul",
+    "StereoZoom 2.0 — focalisation efficace sur l’interlocuteur en milieu bruyant",
+    "Bluetooth Classic universel + streaming musical de qualité",
+    "Génération éprouvée, fiabilité confirmée sur 3+ ans de recul",
     "Disponible en rechargeable et pile 312",
-    "Prix en baisse depuis l\u2019Infinio"
+    "Prix en baisse depuis l’Infinio"
   ],
   "pointsFaibles": [
-    "Pas d\u2019UltraZoom (r\u00e9serv\u00e9 au 90) \u2014 moins pr\u00e9cis dans les grands groupes",
-    "Autonomie 16-24h en rechargeable \u2014 inf\u00e9rieure \u00e0 l\u2019Infinio",
-    "G\u00e9n\u00e9ration pr\u00e9c\u00e9dente \u2014 pas de Spheric, pas d\u2019Auracast"
+    "Pas d’UltraZoom (réservé au 90) — moins précis dans les grands groupes",
+    "Autonomie 16-24h en rechargeable — inférieure à l’Infinio",
+    "Génération précédente — pas de Spheric, pas d’Auracast"
   ],
   "noteExpert": 8.2,
   "enAvant": false,
   "legacy": false,
-  "metaTitle": "Phonak Aud\u00e9o Lumity 70 : prix, avis et fiche",
-  "metaDescription": "RIC Phonak Lumity, StereoZoom 2.0, BT universel. De 1 300 \u00e0 1 600\u20ac. G\u00e9n\u00e9ration \u00e9prouv\u00e9e, prix attractif. Avis audioproth\u00e9siste DE."
+  "metaTitle": "Phonak Audéo Lumity 70 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak Lumity, StereoZoom 2.0, BT universel. De 1 300 à 1 600€. Génération éprouvée, prix attractif. Avis audioprothésiste DE."
 }

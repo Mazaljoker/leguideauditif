@@ -26,7 +26,6 @@
     "acouphenes": true,
     "capteursSante": "Détection de chute|Podomètre|Fréquence cardiaque"
   },
-  "image": "/images/appareils/aide-auditive-starkey-genesis-ai.jpg",
   "venduEnEurope": true,
   "slug": "starkey-genesis-ai",
   "niveauPosition": 4,

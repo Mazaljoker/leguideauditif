@@ -6,7 +6,7 @@ import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
 import AudiogramAnalyzer from '../../components/AudiogramAnalyzer.tsx';
 
 const title = 'Analysez votre audiogramme par IA';
-const metaDescription = 'Entrez vos seuils auditifs et obtenez une analyse gratuite : degre de perte BIAP, type de courbe, impact quotidien et recommandation d\'appareil adapte.';
+const metaDescription = 'Entrez vos seuils auditifs et obtenez une analyse gratuite : degré de perte BIAP, type de courbe, impact quotidien et recommandation d\'appareil adapté.';
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
@@ -17,23 +17,23 @@ const breadcrumbs = [
 const faq = [
   {
     question: "Qu'est-ce qu'un audiogramme ?",
-    answer: "Un audiogramme est un graphique qui represente votre capacite auditive a differentes frequences sonores. Il est realise par un ORL ou un audioprothesiste lors d'un bilan auditif. L'axe horizontal indique les frequences (graves a gauche, aigus a droite) et l'axe vertical indique l'intensite en decibels (sons faibles en haut, forts en bas).",
+    answer: "Un audiogramme est un graphique qui représente votre capacité auditive à différentes fréquences sonores. Il est réalisé par un ORL ou un audioprothésiste lors d'un bilan auditif. L'axe horizontal indique les fréquences (graves à gauche, aigus à droite) et l'axe vertical indique l'intensité en décibels (sons faibles en haut, forts en bas).",
   },
   {
     question: 'Comment lire les valeurs de mon audiogramme papier ?',
-    answer: "Sur votre audiogramme, repérez les symboles O (oreille droite, en rouge) et X (oreille gauche, en bleu). Pour chaque frequence (250, 500, 1000, 2000, 4000, 8000 Hz), notez l'intensite en decibels (dB) ou le symbole est place. C'est cette valeur que vous entrez dans notre outil.",
+    answer: "Sur votre audiogramme, repérez les symboles O (oreille droite, en rouge) et X (oreille gauche, en bleu). Pour chaque fréquence (250, 500, 1000, 2000, 4000, 8000 Hz), notez l'intensité en décibels (dB) où le symbole est placé. C'est cette valeur que vous entrez dans notre outil.",
   },
   {
     question: 'Cette analyse remplace-t-elle un bilan auditif professionnel ?',
-    answer: "Non. Cette analyse est indicative et basee sur la classification BIAP. Elle ne prend pas en compte la conduction osseuse, le reflexe stapedien, ni l'audiometrie vocale. Seul un bilan complet realise par un audioprothesiste DE ou un medecin ORL permet de determiner la solution adaptee a votre situation.",
+    answer: "Non. Cette analyse est indicative et basée sur la classification BIAP. Elle ne prend pas en compte la conduction osseuse, le réflexe stapédien, ni l'audiométrie vocale. Seul un bilan complet réalisé par un audioprothésiste DE ou un médecin ORL permet de déterminer la solution adaptée à votre situation.",
   },
   {
     question: 'Quelle est la classification BIAP utilisee ?',
-    answer: "La classification du Bureau International d'Audiophonologie (BIAP, recommandation 02/1 bis) definit les degres de perte auditive : normale (0-20 dB), legere (21-40 dB), moyenne (41-70 dB), severe (71-90 dB) et profonde (au-dela de 90 dB). La moyenne est calculee sur les frequences conversationnelles : 500, 1000, 2000 et 4000 Hz. C'est cette meme classification que votre audioprothesiste utilise au cabinet.",
+    answer: "La classification du Bureau International d'Audiophonologie (BIAP, recommandation 02/1 bis) définit les degrés de perte auditive : normale (0-20 dB), légère (21-40 dB), moyenne (41-70 dB), sévère (71-90 dB) et profonde (au-delà de 90 dB). La moyenne est calculée sur les fréquences conversationnelles : 500, 1000, 2000 et 4000 Hz. C'est cette même classification que votre audioprothésiste utilise au cabinet.",
   },
   {
     question: "Quelle est la difference entre classe 1 et classe 2 pour les appareils auditifs ?",
-    answer: "Les appareils de classe 1 (100% Sante) sont integralement rembourses : reste a charge 0 euros. Ils offrent 6 a 12 canaux de reglage et une reduction du bruit basique. Les appareils de classe 2 proposent des technologies avancees (Bluetooth, recharge, IA) avec 16 a 24 canaux, mais un reste a charge de 400 a 1 200 euros par oreille selon votre mutuelle.",
+    answer: "Les appareils de classe 1 (100% Santé) sont intégralement remboursés : reste à charge 0 euros. Ils offrent 6 à 12 canaux de réglage et une réduction du bruit basique. Les appareils de classe 2 proposent des technologies avancées (Bluetooth, recharge, IA) avec 16 à 24 canaux, mais un reste à charge de 400 à 1 200 euros par oreille selon votre mutuelle.",
   },
 ];
 

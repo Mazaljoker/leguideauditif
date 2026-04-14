@@ -20,18 +20,38 @@ const brands = new Set(products.map(p => p.marque)).size;
 const classe1Count = products.filter(p => isClasse1(p)).length;
 const minPrice = Math.min(...products.filter(p => p.prix?.eur?.unitaire).map(p => p.prix!.eur!.unitaire!));
 
-const title = 'Catalogue des aides auditives 2025 — Comparez 139 modèles';
+const title = 'Catalogue des aides auditives 2026 — Comparez 139 modèles';
 const description = `Comparez ${totalProducts} aides auditives de ${brands} marques. Prix, caractéristiques, Classe 1 (RAC 0€). Guide indépendant par un audioprothésiste DE.`;
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Catalogue des aides auditives 2026',
+    description: description,
+    url: 'https://leguideauditif.fr/catalogue/',
+    numberOfItems: totalProducts,
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://leguideauditif.fr/' },
+      { '@type': 'ListItem', position: 2, name: 'Catalogue' },
+    ],
+  },
+];
 ---
 
-<BaseLayout title={title} description={description} canonical="/catalogue/">
+<BaseLayout title={title} description={description} canonical="/catalogue/" schema={schema}>
   <Breadcrumbs items={[{ label: 'Accueil', href: '/' }, { label: 'Catalogue' }]} />
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     {/* Hero */}
     <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 sm:p-12 mb-8 relative overflow-hidden">
       <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-orange/10" aria-hidden="true"></div>
-      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">Catalogue des aides auditives 2025</h1>
+      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">Catalogue des aides auditives 2026</h1>
       <p class="text-lg opacity-90 max-w-2xl leading-relaxed">
         Comparez les {totalProducts} modèles de notre base de données. Retrouvez toutes les informations : prix, technologies, Classe 1, remboursement Sécu.
       </p>
@@ -66,11 +86,12 @@ const description = `Comparez ${totalProducts} aides auditives de ${brands} marq
       <p class="text-gris mb-6 max-w-2xl">
         Tous nos modèles sont sélectionnés et testés par un audioprothésiste diplômé d'État. Parcourez nos fiches détaillées pour trouver l'aide auditive qui vous convient.
       </p>
-      <a href="/contact" class="inline-block px-6 py-3 bg-marine text-blanc rounded-lg font-medium hover:bg-marine-dark transition">
+      <a href="/contact/" class="inline-block px-6 py-3 bg-marine text-blanc rounded-lg font-medium hover:bg-marine-dark transition">
         Contactez un audioprothésiste
       </a>
     </div>
 
     <AuthorBox />
+    <HealthDisclaimer />
   </div>
 </BaseLayout>

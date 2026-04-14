@@ -3,7 +3,7 @@
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Aud\u00e9o Lumity",
+  "modele": "Audéo Lumity",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT|RIC 312",
   "puce": "PRISM",
@@ -25,7 +25,7 @@
     "batterie": "Li-ion rechargeable ou pile 312",
     "autonomie": "16-24",
     "ip": "IP68",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 profonde"
+    "plageAdaptation": "Légère à profonde"
   },
   "connectivite": {
     "bluetooth": "Bluetooth Classic + BLE",
@@ -41,27 +41,26 @@
     "micDirectionnels": "StereoZoom 2.0 + UltraZoom + SmartSpeech Technology"
   },
   "couleurs": 9,
-  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.webp",
   "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-lumity",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
-  "descriptionCourte": "RIC Phonak g\u00e9n\u00e9ration pr\u00e9c\u00e9dente, encore vendu. SmartSpeech Technology, BT universel. 20 canaux. Prix en baisse depuis l\u2019arriv\u00e9e de l\u2019Infinio. Excellent choix pour qui n\u2019a pas besoin du Spheric.",
-  "descriptionComplete": "La Lumity, c\u2019est la g\u00e9n\u00e9ration qui a pr\u00e9c\u00e9d\u00e9 l\u2019Infinio. Lanc\u00e9e en 2022, elle reste encore vendue par de nombreux audioproth\u00e9sistes \u2014 et souvent \u00e0 un prix plus int\u00e9ressant maintenant que l\u2019Infinio est disponible. Apr\u00e8s avoir appareill\u00e9 des dizaines de patients avec cette gamme, je peux vous dire que c\u2019est un appareil abouti et fiable.\n\nCe que fait cet appareil\nLa Lumity 90 tourne sur la puce PRISM avec la SmartSpeech Technology. Elle offre le StereoZoom 2.0, l\u2019UltraZoom et le Speech Enhancer \u2014 un ensemble d\u2019algorithmes qui am\u00e9liorent la compr\u00e9hension dans le bruit de mani\u00e8re significative. Ce n\u2019est pas le Spheric de l\u2019Infinio, mais c\u2019est la g\u00e9n\u00e9ration juste avant \u2014 tr\u00e8s performante.\n\nLe Bluetooth est d\u00e9j\u00e0 universel (Classic + BLE), ce qui est un avantage sur de nombreux concurrents de cette g\u00e9n\u00e9ration. Le streaming musical est excellent. La version RT int\u00e8gre la bobine T.\n\nUn point fort de la Lumity : elle est disponible en version pile 312 (RIC 312) en plus de la version rechargeable. Certains patients pr\u00e9f\u00e8rent les piles pour leur simplicit\u00e9.\n\nEn pratique, sur le terrain\nJ\u2019ai des patients qui portent leur Lumity 90 depuis 2022 et n\u2019envisagent pas de changer. Le son est agr\u00e9able, la connectivit\u00e9 fonctionne bien, et l\u2019app myPhonak est stable. Quand on leur pr\u00e9sente l\u2019Infinio, certains trouvent la diff\u00e9rence int\u00e9ressante dans le bruit, d\u2019autres ne la per\u00e7oivent pas assez pour justifier le changement.\n\nLe vrai avantage actuel de la Lumity : le prix. Avec l\u2019arriv\u00e9e de l\u2019Infinio, les Lumity b\u00e9n\u00e9ficient souvent de tarifs n\u00e9goci\u00e9s ou de fins de stock avantageuses.\n\nPour qui est fait cet appareil ?\nLa Lumity 90 est id\u00e9ale si vous cherchez un excellent appareil Phonak \u00e0 un prix plus accessible que l\u2019Infinio, ou si vous avez besoin de la version pile 312. C\u2019est aussi un bon choix si vous \u00eates d\u00e9j\u00e0 dans l\u2019\u00e9cosyst\u00e8me Phonak et satisfait de la SmartSpeech Technology.\n\nSi le bruit extr\u00eame est votre combat et que le budget le permet, l\u2019Infinio 90 avec Spheric apporte un gain mesurable.\n\nPar rapport \u00e0 la concurrence\nFace \u00e0 l\u2019Infinio 70 (\u00e0 prix similaire), la Lumity 90 offre le niveau technologique maximum de sa g\u00e9n\u00e9ration. Le match d\u00e9pend de votre sensibilit\u00e9 au bruit : l\u2019Infinio 70 a la puce DEEPSONIC plus r\u00e9cente.\n\nVerdict expert\n8.5/10. La Lumity 90 reste un excellent appareil, abouti et fiable apr\u00e8s plusieurs ann\u00e9es de recul. Le rapport qualit\u00e9/prix est d\u2019autant meilleur que les tarifs ont baiss\u00e9 depuis l\u2019Infinio. Pour qui n\u2019a pas besoin du dernier cri, c\u2019est une valeur s\u00fbre.\n\nEn une phrase : la g\u00e9n\u00e9ration Phonak \u00e9prouv\u00e9e, fiable, et d\u00e9sormais \u00e0 un prix attractif.",
+  "descriptionCourte": "RIC Phonak génération précédente, encore vendu. SmartSpeech Technology, BT universel. 20 canaux. Prix en baisse depuis l’arrivée de l’Infinio. Excellent choix pour qui n’a pas besoin du Spheric.",
+  "descriptionComplete": "La Lumity, c’est la génération qui a précédé l’Infinio. Lancée en 2022, elle reste encore vendue par de nombreux audioprothésistes — et souvent à un prix plus intéressant maintenant que l’Infinio est disponible. Après avoir appareillé des dizaines de patients avec cette gamme, je peux vous dire que c’est un appareil abouti et fiable.\n\nCe que fait cet appareil\nLa Lumity 90 tourne sur la puce PRISM avec la SmartSpeech Technology. Elle offre le StereoZoom 2.0, l’UltraZoom et le Speech Enhancer — un ensemble d’algorithmes qui améliorent la compréhension dans le bruit de manière significative. Ce n’est pas le Spheric de l’Infinio, mais c’est la génération juste avant — très performante.\n\nLe Bluetooth est déjà universel (Classic + BLE), ce qui est un avantage sur de nombreux concurrents de cette génération. Le streaming musical est excellent. La version RT intègre la bobine T.\n\nUn point fort de la Lumity : elle est disponible en version pile 312 (RIC 312) en plus de la version rechargeable. Certains patients préfèrent les piles pour leur simplicité.\n\nEn pratique, sur le terrain\nJ’ai des patients qui portent leur Lumity 90 depuis 2022 et n’envisagent pas de changer. Le son est agréable, la connectivité fonctionne bien, et l’app myPhonak est stable. Quand on leur présente l’Infinio, certains trouvent la différence intéressante dans le bruit, d’autres ne la perçoivent pas assez pour justifier le changement.\n\nLe vrai avantage actuel de la Lumity : le prix. Avec l’arrivée de l’Infinio, les Lumity bénéficient souvent de tarifs négociés ou de fins de stock avantageuses.\n\nPour qui est fait cet appareil ?\nLa Lumity 90 est idéale si vous cherchez un excellent appareil Phonak à un prix plus accessible que l’Infinio, ou si vous avez besoin de la version pile 312. C’est aussi un bon choix si vous êtes déjà dans l’écosystème Phonak et satisfait de la SmartSpeech Technology.\n\nSi le bruit extrême est votre combat et que le budget le permet, l’Infinio 90 avec Spheric apporte un gain mesurable.\n\nPar rapport à la concurrence\nFace à l’Infinio 70 (à prix similaire), la Lumity 90 offre le niveau technologique maximum de sa génération. Le match dépend de votre sensibilité au bruit : l’Infinio 70 a la puce DEEPSONIC plus récente.\n\nVerdict expert\n8.5/10. La Lumity 90 reste un excellent appareil, abouti et fiable après plusieurs années de recul. Le rapport qualité/prix est d’autant meilleur que les tarifs ont baissé depuis l’Infinio. Pour qui n’a pas besoin du dernier cri, c’est une valeur sûre.\n\nEn une phrase : la génération Phonak éprouvée, fiable, et désormais à un prix attractif.",
   "pointsForts": [
-    "SmartSpeech Technology aboutie apr\u00e8s plusieurs ann\u00e9es de recul \u2014 fiabilit\u00e9 prouv\u00e9e",
-    "Bluetooth Classic universel d\u00e9j\u00e0 pr\u00e9sent \u2014 streaming avec tous les appareils",
-    "Disponible en rechargeable ET en pile 312 \u2014 choix selon pr\u00e9f\u00e9rence",
-    "Prix en baisse depuis l\u2019Infinio \u2014 excellent rapport qualit\u00e9/prix actuel",
-    "App myPhonak stable et compl\u00e8te, bobine T sur version RT"
+    "SmartSpeech Technology aboutie après plusieurs années de recul — fiabilité prouvée",
+    "Bluetooth Classic universel déjà présent — streaming avec tous les appareils",
+    "Disponible en rechargeable ET en pile 312 — choix selon préférence",
+    "Prix en baisse depuis l’Infinio — excellent rapport qualité/prix actuel",
+    "App myPhonak stable et complète, bobine T sur version RT"
   ],
   "pointsFaibles": [
-    "G\u00e9n\u00e9ration pr\u00e9c\u00e9dente (2022) \u2014 pas de Spheric ni de puce DEEPSONIC",
-    "Autonomie rechargeable 16-24h \u2014 inf\u00e9rieure \u00e0 l\u2019Infinio (28-56h)",
-    "Pas d\u2019Auracast \u2014 la norme LE Audio de nouvelle g\u00e9n\u00e9ration est r\u00e9serv\u00e9e \u00e0 l\u2019Infinio"
+    "Génération précédente (2022) — pas de Spheric ni de puce DEEPSONIC",
+    "Autonomie rechargeable 16-24h — inférieure à l’Infinio (28-56h)",
+    "Pas d’Auracast — la norme LE Audio de nouvelle génération est réservée à l’Infinio"
   ],
   "noteExpert": 8.5,
   "enAvant": false,
   "legacy": false,
-  "metaTitle": "Phonak Aud\u00e9o Lumity 90 : prix, avis et fiche",
-  "metaDescription": "RIC Phonak g\u00e9n\u00e9ration Lumity, SmartSpeech, BT universel. De 1 600 \u00e0 1 900\u20ac. Prix en baisse. Avis audioproth\u00e9siste DE."
+  "metaTitle": "Phonak Audéo Lumity 90 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak génération Lumity, SmartSpeech, BT universel. De 1 600 à 1 900€. Prix en baisse. Avis audioprothésiste DE."
 }

@@ -37,7 +37,7 @@ const href = productUrl(product.slug);
   {/* Image placeholder */}
   <a href={href} class="block bg-gris-clair/50 h-44 flex items-center justify-center no-underline">
     {product.image ? (
-      <img src={product.image} alt={`${product.marqueLabel} ${product.modele}`} class="w-full h-full object-contain p-4" loading="lazy" />
+      <img src={product.image} alt={`${product.marqueLabel} ${product.modele}`} class="w-full h-full object-contain p-4" loading="lazy" width="300" height="300" />
     ) : (
       <span class="text-5xl opacity-20 font-serif" aria-hidden="true">?</span>
     )}

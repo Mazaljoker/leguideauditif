@@ -89,7 +89,7 @@ const breadcrumbs = [
 
 const schema: Record<string, unknown> = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': ['LocalBusiness', 'MedicalBusiness'],
   '@id': `https://leguideauditif.fr/centre/${typedCentre.slug}/`,
   name: typedCentre.nom,
   address: {

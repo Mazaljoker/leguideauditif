@@ -3,7 +3,7 @@
   "marque": "phonak",
   "marqueLabel": "Phonak",
   "groupe": "sonova",
-  "modele": "Aud\u00e9o Lumity",
+  "modele": "Audéo Lumity",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT|RIC 312",
   "puce": "PRISM",
@@ -25,7 +25,7 @@
     "batterie": "Li-ion rechargeable ou pile 312",
     "autonomie": "16-24",
     "ip": "IP68",
-    "plageAdaptation": "L\u00e9g\u00e8re \u00e0 s\u00e9v\u00e8re"
+    "plageAdaptation": "Légère à sévère"
   },
   "connectivite": {
     "bluetooth": "Bluetooth Classic + BLE",
@@ -41,26 +41,25 @@
     "micDirectionnels": "StereoZoom + SmartSpeech Technology"
   },
   "couleurs": 9,
-  "image": "/images/appareils/aide-auditive-phonak-audeo-lumity.webp",
   "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-lumity",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-lumity-datasheet.pdf",
-  "descriptionCourte": "RIC Phonak Lumity milieu de gamme. SmartSpeech, BT universel. 12 canaux. Generation \u00e9prouv\u00e9e, bon rapport qualit\u00e9/prix pour un quotidien calme \u00e0 mod\u00e9r\u00e9.",
-  "descriptionComplete": "Le Lumity 50, c\u2019est le Phonak pour les quotidiens tranquilles. La connectivit\u00e9 Bluetooth universelle est l\u00e0, le streaming est bon, et le prix est devenu tr\u00e8s accessible depuis l\u2019Infinio.\n\nCe que fait cet appareil\nLe Lumity 50 embarque la SmartSpeech Technology sur 12 canaux. Le StereoZoom standard est pr\u00e9sent mais sans la version 2.0 du 70. Dans le calme, les r\u00e9sultats sont tr\u00e8s satisfaisants. Dans le bruit mod\u00e9r\u00e9, c\u2019est correct. En bruit intense, les niveaux sup\u00e9rieurs font mieux.\n\nLe Bluetooth Classic universel est inclus \u2014 streaming avec tous les appareils. L\u2019app myPhonak fonctionne de la m\u00eame mani\u00e8re.\n\nEn pratique, sur le terrain\nJ\u2019ai adapt\u00e9 le Lumity 50 sur des patients en premier appareillage ou avec un budget serr\u00e9. Pour une vie quotidienne calme \u2014 maison, courses, conversations \u00e0 deux \u2014 c\u2019est tout \u00e0 fait suffisant. Le Bluetooth universel fait la diff\u00e9rence par rapport \u00e0 la concurrence \u00e0 ce prix.\n\nPour qui est fait cet appareil ?\nId\u00e9al pour un premier appareillage Phonak \u00e0 prix ma\u00eetris\u00e9, un quotidien plut\u00f4t calme, et le besoin du Bluetooth universel.\n\nVerdict expert\n7.8/10. Le Lumity 50 est un solide appareil d\u2019entr\u00e9e de gamme Phonak avec une connectivit\u00e9 compl\u00e8te. Le prix actuel en fait un tr\u00e8s bon choix pour qui n\u2019a pas besoin des performances maximales dans le bruit.\n\nEn une phrase : la connectivit\u00e9 Phonak universelle \u00e0 prix d\u2019entr\u00e9e sur g\u00e9n\u00e9ration \u00e9prouv\u00e9e.",
+  "descriptionCourte": "RIC Phonak Lumity milieu de gamme. SmartSpeech, BT universel. 12 canaux. Generation éprouvée, bon rapport qualité/prix pour un quotidien calme à modéré.",
+  "descriptionComplete": "Le Lumity 50, c’est le Phonak pour les quotidiens tranquilles. La connectivité Bluetooth universelle est là, le streaming est bon, et le prix est devenu très accessible depuis l’Infinio.\n\nCe que fait cet appareil\nLe Lumity 50 embarque la SmartSpeech Technology sur 12 canaux. Le StereoZoom standard est présent mais sans la version 2.0 du 70. Dans le calme, les résultats sont très satisfaisants. Dans le bruit modéré, c’est correct. En bruit intense, les niveaux supérieurs font mieux.\n\nLe Bluetooth Classic universel est inclus — streaming avec tous les appareils. L’app myPhonak fonctionne de la même manière.\n\nEn pratique, sur le terrain\nJ’ai adapté le Lumity 50 sur des patients en premier appareillage ou avec un budget serré. Pour une vie quotidienne calme — maison, courses, conversations à deux — c’est tout à fait suffisant. Le Bluetooth universel fait la différence par rapport à la concurrence à ce prix.\n\nPour qui est fait cet appareil ?\nIdéal pour un premier appareillage Phonak à prix maîtrisé, un quotidien plutôt calme, et le besoin du Bluetooth universel.\n\nVerdict expert\n7.8/10. Le Lumity 50 est un solide appareil d’entrée de gamme Phonak avec une connectivité complète. Le prix actuel en fait un très bon choix pour qui n’a pas besoin des performances maximales dans le bruit.\n\nEn une phrase : la connectivité Phonak universelle à prix d’entrée sur génération éprouvée.",
   "pointsForts": [
-    "Bluetooth Classic universel inclus \u2014 rare \u00e0 ce prix",
-    "G\u00e9n\u00e9ration Lumity \u00e9prouv\u00e9e, fiabilit\u00e9 confirm\u00e9e",
+    "Bluetooth Classic universel inclus — rare à ce prix",
+    "Génération Lumity éprouvée, fiabilité confirmée",
     "Disponible en rechargeable et pile 312",
-    "Prix tr\u00e8s accessible depuis l\u2019Infinio"
+    "Prix très accessible depuis l’Infinio"
   ],
   "pointsFaibles": [
-    "12 canaux \u2014 gestion du bruit basique dans les environnements complexes",
-    "Autonomie rechargeable 16-24h \u2014 inf\u00e9rieure \u00e0 l\u2019Infinio",
+    "12 canaux — gestion du bruit basique dans les environnements complexes",
+    "Autonomie rechargeable 16-24h — inférieure à l’Infinio",
     "StereoZoom standard sans version 2.0"
   ],
   "noteExpert": 7.8,
   "enAvant": false,
   "legacy": false,
-  "metaTitle": "Phonak Aud\u00e9o Lumity 50 : prix, avis et fiche",
-  "metaDescription": "RIC Phonak Lumity milieu de gamme. BT universel, 12 canaux. De 1 100 \u00e0 1 350\u20ac. Prix en baisse. Avis audioproth\u00e9siste DE."
+  "metaTitle": "Phonak Audéo Lumity 50 : prix, avis et fiche",
+  "metaDescription": "RIC Phonak Lumity milieu de gamme. BT universel, 12 canaux. De 1 100 à 1 350€. Prix en baisse. Avis audioprothésiste DE."
 }
