@@ -17,7 +17,7 @@ const PRICE_MAP: Record<AnnonceProduit, { envKey: string; montant: number }> = {
 function getPriceId(produit: AnnonceProduit): string | undefined {
   const entry = PRICE_MAP[produit];
   if (!entry) return undefined;
-  return (import.meta.env as Record<string, string>)[entry.envKey];
+  return (import.meta.env as Record<string, string>)[entry.envKey]?.trim();
 }
 
 export const POST: APIRoute = async ({ request }) => {

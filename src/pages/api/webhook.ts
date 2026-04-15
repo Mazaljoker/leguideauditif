@@ -11,7 +11,7 @@ import { subscriptionCancelledEmail } from '../../emails/subscription-cancelled'
 
 export const POST: APIRoute = async ({ request }) => {
   const stripe = getStripe();
-  const webhookSecret = import.meta.env.STRIPE_WEBHOOK_SECRET || process.env.STRIPE_WEBHOOK_SECRET;
+  const webhookSecret = (import.meta.env.STRIPE_WEBHOOK_SECRET || process.env.STRIPE_WEBHOOK_SECRET || '').trim();
 
   const body = await request.text();
   const signature = request.headers.get('stripe-signature');

@@ -40,9 +40,10 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Selectionner le bon Price ID selon la formule
-    const priceId = plan === 'annual'
+    const priceId = (plan === 'annual'
       ? import.meta.env.STRIPE_PRICE_ID_ANNUAL
-      : import.meta.env.STRIPE_PRICE_ID;
+      : import.meta.env.STRIPE_PRICE_ID
+    )?.trim();
 
     // Creer la session Stripe Checkout
     const session = await stripe.checkout.sessions.create({
