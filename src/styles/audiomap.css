@@ -263,6 +263,26 @@
   text-decoration: underline;
 }
 
+/* Claimed card highlight */
+.result-card--claimed {
+  border-left: 3px solid #1B2E4A;
+}
+
+.result-badge-claimed {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1B2E4A;
+  background: rgba(27, 46, 74, 0.08);
+  border: 1px solid rgba(27, 46, 74, 0.2);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: auto;
+}
+
 /* Premium card highlight */
 .result-card--premium {
   border-left: 3px solid #D97B3D;
@@ -393,6 +413,20 @@
   text-decoration: none;
 }
 
+.popup-badge-claimed {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1B2E4A;
+  background: rgba(27, 46, 74, 0.08);
+  border: 1px solid rgba(27, 46, 74, 0.2);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+}
+
 .popup-badge-premium {
   display: inline-block;
   font-size: 0.65rem;
@@ -444,6 +478,11 @@
 .cluster-icon {
   background: transparent !important;
   border: none !important;
+}
+
+/* Claimed marker drop-shadow */
+.marker-claimed {
+  filter: drop-shadow(0 2px 4px rgba(27, 46, 74, 0.35));
 }
 
 /* Premium marker drop-shadow */

@@ -10,6 +10,8 @@ import {
 import L from 'leaflet';
 
 /* ===== Types ===== */
+type CentrePlan = 'rpps' | 'claimed' | 'premium';
+
 interface Audioprothesiste {
   id: string;
   slug: string;
@@ -27,6 +29,7 @@ interface Audioprothesiste {
   finess: string | null;
   source: string;
   is_premium: boolean;
+  plan: CentrePlan;
 }
 
 interface AudioMapProps {
@@ -39,6 +42,14 @@ const markerIconFree = new L.Icon({
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
+});
+
+const markerIconClaimed = new L.Icon({
+  iconUrl: '/images/marker-claimed.svg',
+  iconSize: [28, 45],
+  iconAnchor: [14, 45],
+  popupAnchor: [1, -37],
+  className: 'marker-claimed',
 });
 
 const markerIconPremium = new L.Icon({
@@ -56,6 +67,22 @@ const markerIconActive = new L.Icon({
   popupAnchor: [1, -46],
   className: 'marker-active',
 });
+
+/* ===== Plan priority for sorting ===== */
+const planOrder: Record<CentrePlan, number> = { premium: 2, claimed: 1, rpps: 0 };
+
+function getMarkerIcon(item: Audioprothesiste, isSelected: boolean): L.Icon {
+  if (isSelected) return markerIconActive;
+  if (item.plan === 'premium') return markerIconPremium;
+  if (item.plan === 'claimed') return markerIconClaimed;
+  return markerIconFree;
+}
+
+function getZIndexOffset(item: Audioprothesiste): number {
+  if (item.plan === 'premium') return 1000;
+  if (item.plan === 'claimed') return 500;
+  return 0;
+}
 
 /* ===== Cluster icon factory ===== */
 function createClusterIcon(count: number): L.DivIcon {
@@ -82,12 +109,9 @@ function createClusterIcon(count: number): L.DivIcon {
   });
 }
 
-/* ===== Premium sort (shared) ===== */
-function sortPremiumFirst<T extends { is_premium: boolean }>(items: T[]): T[] {
-  return [...items].sort((a, b) => {
-    if (a.is_premium !== b.is_premium) return b.is_premium ? 1 : -1;
-    return 0;
-  });
+/* ===== Sort by plan priority (premium > claimed > rpps) ===== */
+function sortByPlan<T extends { plan: CentrePlan }>(items: T[]): T[] {
+  return [...items].sort((a, b) => planOrder[b.plan] - planOrder[a.plan]);
 }
 
 /* ===== Simple clustering logic ===== */
@@ -135,10 +159,9 @@ function clusterMarkers(
   }
 
   return Array.from(clusters.values()).sort((a, b) => {
-    const aPrem = a.items.some((i) => i.is_premium);
-    const bPrem = b.items.some((i) => i.is_premium);
-    if (aPrem !== bPrem) return bPrem ? 1 : -1;
-    return 0;
+    const aMax = Math.max(...a.items.map((i) => planOrder[i.plan]));
+    const bMax = Math.max(...b.items.map((i) => planOrder[i.plan]));
+    return bMax - aMax;
   });
 }
 
@@ -352,7 +375,7 @@ function ResultsList({
     );
   }
 
-  const sorted = sortPremiumFirst(items);
+  const sorted = sortByPlan(items);
 
   return (
     <ul ref={listRef} className="results-list" role="list">
@@ -360,7 +383,7 @@ function ResultsList({
         <li
           key={item.id}
           data-id={item.id}
-          className={`result-card ${selectedId === item.id ? 'result-card--active' : ''} ${item.is_premium ? 'result-card--premium' : ''}`}
+          className={`result-card ${selectedId === item.id ? 'result-card--active' : ''} ${item.plan === 'premium' ? 'result-card--premium' : ''} ${item.plan === 'claimed' ? 'result-card--claimed' : ''}`}
           onClick={() => onSelect(item)}
           onKeyDown={(e) => e.key === 'Enter' && onSelect(item)}
           tabIndex={0}
@@ -369,15 +392,18 @@ function ResultsList({
         >
           <div className="result-card-header">
             <span className="result-enseigne">{item.enseigne}</span>
-            {item.is_premium && (
+            {item.plan === 'premium' && (
               <span className="result-badge-premium">Centre verifie</span>
+            )}
+            {item.plan === 'claimed' && (
+              <span className="result-badge-claimed">Fiche completee</span>
             )}
           </div>
           <h3 className="result-nom">{item.nom}</h3>
           <p className="result-adresse">
             {item.adresse}, {item.cp} {item.ville}
           </p>
-          {item.is_premium && item.tel ? (
+          {(item.plan === 'premium' || item.plan === 'claimed') && item.tel ? (
             <a
               href={`tel:${item.tel.replace(/\s/g, '')}`}
               className="result-tel"
@@ -385,7 +411,7 @@ function ResultsList({
             >
               {item.tel}
             </a>
-          ) : !item.is_premium ? (
+          ) : item.plan === 'rpps' ? (
             <span className="result-cta">Demander un devis gratuit</span>
           ) : null}
           <a
@@ -403,10 +429,17 @@ function ResultsList({
 
 /* ===== Popup content ===== */
 function CentrePopup({ centre }: { centre: Audioprothesiste }) {
+  const isClaimed = centre.plan === 'claimed';
+  const isPremium = centre.plan === 'premium';
+  const hasProfile = isClaimed || isPremium;
+
   return (
     <div className="popup-content">
-      {centre.is_premium && (
+      {isPremium && (
         <span className="popup-badge-premium">Centre verifie</span>
+      )}
+      {isClaimed && (
+        <span className="popup-badge-claimed">Fiche completee</span>
       )}
       <span className="popup-enseigne">{centre.enseigne}</span>
       <h3 className="popup-nom">{centre.nom}</h3>
@@ -415,7 +448,7 @@ function CentrePopup({ centre }: { centre: Audioprothesiste }) {
         <br />
         {centre.cp} {centre.ville}
       </p>
-      {centre.is_premium ? (
+      {hasProfile ? (
         <>
           {centre.tel && (
             <a
@@ -430,7 +463,7 @@ function CentrePopup({ centre }: { centre: Audioprothesiste }) {
               <strong>Horaires :</strong> {centre.horaires}
             </p>
           )}
-          {centre.site_web && (
+          {isPremium && centre.site_web && (
             <a
               href={centre.site_web}
               target="_blank"
@@ -580,14 +613,8 @@ export default function AudioMap({ data }: AudioMapProps) {
                 <Marker
                   key={cluster.items[0].id}
                   position={[cluster.lat, cluster.lng]}
-                  icon={
-                    selectedId === cluster.items[0].id
-                      ? markerIconActive
-                      : cluster.items[0].is_premium
-                        ? markerIconPremium
-                        : markerIconFree
-                  }
-                  zIndexOffset={cluster.items[0].is_premium ? 1000 : 0}
+                  icon={getMarkerIcon(cluster.items[0], selectedId === cluster.items[0].id)}
+                  zIndexOffset={getZIndexOffset(cluster.items[0])}
                   eventHandlers={{
                     click: () => handleCentreSelect(cluster.items[0]),
                   }}
