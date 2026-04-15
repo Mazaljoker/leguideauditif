@@ -1,0 +1,327 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { createServerClient } from '../../lib/supabase';
+
+// Protection admin
+const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
+const user = Astro.locals.user;
+
+if (!user || user.email !== ADMIN_EMAIL) {
+  return Astro.redirect('/auth/login/');
+}
+
+const supabase = createServerClient();
+const thirtyDaysAgo = new Date(Date.now() - 30 * 86400000).toISOString();
+
+// --- Toutes les queries en parallele ---
+const [
+  { count: totalCentres },
+  { count: claimedCentres },
+  { count: premiumCentres },
+  { count: pendingCount },
+  { count: totalLeads },
+  { count: leadsThisMonth },
+  { count: totalDownloads },
+  { count: downloadsThisMonth },
+  { count: totalPageViews },
+  { count: pageViews30d },
+  { count: annoncesActive },
+  { count: annoncesTotal },
+  { count: annoncesExpirees },
+  { count: signalements },
+  { data: paiementsData },
+  { count: totalProfiles },
+  { data: claimedData },
+  { data: pendingClaims },
+] = await Promise.all([
+  supabase.from('centres_auditifs').select('*', { count: 'exact', head: true }),
+  supabase.from('centres_auditifs').select('*', { count: 'exact', head: true }).eq('plan', 'claimed'),
+  supabase.from('centres_auditifs').select('*', { count: 'exact', head: true }).eq('plan', 'premium'),
+  supabase.from('centres_auditifs').select('*', { count: 'exact', head: true }).eq('claim_status', 'pending'),
+  supabase.from('leads').select('*', { count: 'exact', head: true }),
+  supabase.from('leads').select('*', { count: 'exact', head: true }).gte('created_at', thirtyDaysAgo),
+  supabase.from('leads_downloads').select('*', { count: 'exact', head: true }),
+  supabase.from('leads_downloads').select('*', { count: 'exact', head: true }).gte('created_at', thirtyDaysAgo),
+  supabase.from('centre_page_views').select('*', { count: 'exact', head: true }),
+  supabase.from('centre_page_views').select('*', { count: 'exact', head: true }).gte('viewed_at', thirtyDaysAgo),
+  supabase.from('annonces').select('*', { count: 'exact', head: true }).eq('statut', 'active'),
+  supabase.from('annonces').select('*', { count: 'exact', head: true }),
+  supabase.from('annonces').select('*', { count: 'exact', head: true }).eq('statut', 'expiree'),
+  supabase.from('annonces_signalements').select('*', { count: 'exact', head: true }),
+  supabase.from('annonces_paiements').select('montant').eq('statut', 'paid'),
+  supabase.from('profiles').select('*', { count: 'exact', head: true }),
+  supabase.from('centres_auditifs')
+    .select('tel, site_web, horaires, specialites, marques, a_propos, photo_url')
+    .in('plan', ['claimed', 'premium']),
+  supabase.from('centres_auditifs')
+    .select('slug, nom, cp, ville, claimed_by_name, claimed_at')
+    .eq('claim_status', 'pending')
+    .order('claimed_at', { ascending: false })
+    .limit(5),
+]);
+
+// --- Calcul completude ---
+const totalClaimed = claimedData?.length || 0;
+const textFields = ['tel', 'site_web', 'horaires', 'a_propos', 'photo_url'] as const;
+const arrayFields = ['specialites', 'marques'] as const;
+
+type FieldLabel = { key: string; label: string; count: number; pct: number };
+const completeness: FieldLabel[] = [];
+
+for (const f of textFields) {
+  const filled = claimedData?.filter((c: Record<string, unknown>) => c[f] && String(c[f]).trim() !== '').length || 0;
+  const label = f === 'tel' ? 'Téléphone' : f === 'site_web' ? 'Site web' : f === 'horaires' ? 'Horaires' : f === 'a_propos' ? 'À propos' : 'Photo';
+  completeness.push({ key: f, label, count: filled, pct: totalClaimed > 0 ? Math.round((filled / totalClaimed) * 100) : 0 });
+}
+for (const f of arrayFields) {
+  const filled = claimedData?.filter((c: Record<string, unknown>) => Array.isArray(c[f]) && (c[f] as unknown[]).length > 0).length || 0;
+  const label = f === 'specialites' ? 'Spécialités' : 'Marques';
+  completeness.push({ key: f, label, count: filled, pct: totalClaimed > 0 ? Math.round((filled / totalClaimed) * 100) : 0 });
+}
+
+// Tri par % decroissant
+completeness.sort((a, b) => b.pct - a.pct);
+
+// --- Revenu total ---
+const totalRevenue = (paiementsData || []).reduce((sum: number, p: { montant: number }) => sum + (p.montant || 0), 0) / 100;
+const revenueFormatted = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalRevenue);
+
+// --- Date du jour ---
+const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+// Helpers
+const fmt = (n: number | null) => (n ?? 0).toLocaleString('fr-FR');
+---
+
+<BaseLayout title="Admin — Tableau de bord" description="Administration LeGuideAuditif">
+  <meta slot="head" name="robots" content="noindex" />
+
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- Header -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+      <div>
+        <h1 class="font-sans text-2xl font-bold text-marine">Tableau de bord</h1>
+        <p class="text-sm text-gris-texte font-sans">Mis à jour le {today}</p>
+      </div>
+      <a
+        href="/admin/claims/"
+        class="inline-flex items-center gap-2 rounded-lg bg-marine px-4 py-2.5 text-sm font-medium text-blanc font-sans hover:bg-marine-light transition-colors"
+        style="min-height: 44px;"
+      >
+        <Icon name="lucide:shield-check" class="w-4 h-4" />
+        Gérer les claims
+        {(pendingCount ?? 0) > 0 && (
+          <span class="rounded-full bg-orange px-2 py-0.5 text-xs font-bold text-blanc ml-1">{pendingCount}</span>
+        )}
+      </a>
+    </div>
+
+    <!-- Rangee 1 : KPI principaux -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+
+      <!-- Total centres -->
+      <div class="rounded-xl border border-gris-clair bg-blanc p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-[#E6F1FB]">
+            <Icon name="lucide:building-2" class="w-5 h-5 text-[#0C447C]" />
+          </div>
+          <span class="text-sm text-gris-texte font-sans">Total centres</span>
+        </div>
+        <p class="text-2xl font-bold text-marine font-sans">{fmt(totalCentres)}</p>
+      </div>
+
+      <!-- Revendiques -->
+      <div class="rounded-xl border border-gris-clair bg-blanc p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-[#E1F5EE]">
+            <Icon name="lucide:shield-check" class="w-5 h-5 text-[#0F6E56]" />
+          </div>
+          <span class="text-sm text-gris-texte font-sans">Revendiqués</span>
+        </div>
+        <p class="text-2xl font-bold text-marine font-sans">{fmt(claimedCentres)}</p>
+        <p class="text-xs text-gris-texte font-sans mt-1">plan claimed</p>
+      </div>
+
+      <!-- Premium -->
+      <div class="rounded-xl border border-gris-clair bg-blanc p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-[#FAEEDA]">
+            <Icon name="lucide:crown" class="w-5 h-5 text-[#854F0B]" />
+          </div>
+          <span class="text-sm text-gris-texte font-sans">Premium</span>
+        </div>
+        <p class="text-2xl font-bold text-marine font-sans">{fmt(premiumCentres)}</p>
+        <p class="text-xs text-gris-texte font-sans mt-1">plan premium</p>
+      </div>
+
+      <!-- Claims en attente -->
+      <div class={`rounded-xl border p-5 ${(pendingCount ?? 0) > 0 ? 'border-orange bg-[#FFF8F3]' : 'border-gris-clair bg-blanc'}`}>
+        <div class="flex items-center gap-3 mb-3">
+          <div class={`flex items-center justify-center w-10 h-10 rounded-lg ${(pendingCount ?? 0) > 0 ? 'bg-[#FAEEDA]' : 'bg-[#F0F0F0]'}`}>
+            <Icon name="lucide:clock" class={`w-5 h-5 ${(pendingCount ?? 0) > 0 ? 'text-orange' : 'text-gris-texte'}`} />
+          </div>
+          <span class="text-sm text-gris-texte font-sans">En attente</span>
+        </div>
+        <p class={`text-2xl font-bold font-sans ${(pendingCount ?? 0) > 0 ? 'text-orange' : 'text-marine'}`}>{fmt(pendingCount)}</p>
+        <p class="text-xs text-gris-texte font-sans mt-1">claims à vérifier</p>
+      </div>
+
+    </div>
+
+    <!-- Rangee 2 : Leads & Vues -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+
+      <!-- Leads devis -->
+      <div class="rounded-xl border border-gris-clair bg-blanc p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-[#E6F1FB]">
+            <Icon name="lucide:user-plus" class="w-5 h-5 text-[#0C447C]" />
+          </div>
+          <span class="text-sm text-gris-texte font-sans">Leads devis</span>
+        </div>
+        <p class="text-2xl font-bold text-marine font-sans">{fmt(totalLeads)}</p>
+        <p class="text-xs text-gris-texte font-sans mt-1">{fmt(leadsThisMonth)} ces 30 derniers jours</p>
+      </div>
+
+      <!-- Leads fiches PDF -->
+      <div class="rounded-xl border border-gris-clair bg-blanc p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-[#F3E8FF]">
+            <Icon name="lucide:file-down" class="w-5 h-5 text-[#6B21A8]" />
+          </div>
+          <span class="text-sm text-gris-texte font-sans">Leads fiches PDF</span>
+        </div>
+        <p class="text-2xl font-bold text-marine font-sans">{fmt(totalDownloads)}</p>
+        <p class="text-xs text-gris-texte font-sans mt-1">{fmt(downloadsThisMonth)} ces 30 derniers jours</p>
+      </div>
+
+      <!-- Vues fiches -->
+      <div class="rounded-xl border border-gris-clair bg-blanc p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-[#E1F5EE]">
+            <Icon name="lucide:eye" class="w-5 h-5 text-[#0F6E56]" />
+          </div>
+          <span class="text-sm text-gris-texte font-sans">Vues fiches centres</span>
+        </div>
+        <p class="text-2xl font-bold text-marine font-sans">{fmt(totalPageViews)}</p>
+        <p class="text-xs text-gris-texte font-sans mt-1">{fmt(pageViews30d)} ces 30 derniers jours</p>
+      </div>
+
+    </div>
+
+    <!-- Rangee 3 : Completude + Annonces -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+
+      <!-- Completude des fiches -->
+      <div class="rounded-xl border border-gris-clair bg-blanc p-6">
+        <h2 class="font-sans text-lg font-bold text-marine mb-1">Complétude des fiches</h2>
+        <p class="text-sm text-gris-texte font-sans mb-5">Sur {totalClaimed} centres revendiqués / premium</p>
+
+        {totalClaimed === 0 ? (
+          <p class="text-sm text-gris-texte font-sans italic">Aucun centre revendiqué pour le moment.</p>
+        ) : (
+          <div class="space-y-4">
+            {completeness.map((field) => (
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-sm font-medium text-marine font-sans">{field.label}</span>
+                  <span class="text-xs text-gris-texte font-sans">{field.count}/{totalClaimed} ({field.pct}%)</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-gris-clair">
+                  <div
+                    class={`h-2 rounded-full transition-all ${field.pct >= 70 ? 'bg-[#0F6E56]' : field.pct >= 40 ? 'bg-orange' : 'bg-[#A32D2D]'}`}
+                    style={`width: ${field.pct}%`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- Annonces + Profils -->
+      <div class="rounded-xl border border-gris-clair bg-blanc p-6">
+        <h2 class="font-sans text-lg font-bold text-marine mb-5">Petites annonces</h2>
+
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="rounded-lg bg-creme p-4">
+            <p class="text-xs text-gris-texte font-sans mb-1">Actives</p>
+            <p class="text-xl font-bold text-marine font-sans">{fmt(annoncesActive)}</p>
+          </div>
+          <div class="rounded-lg bg-creme p-4">
+            <p class="text-xs text-gris-texte font-sans mb-1">Expirées</p>
+            <p class="text-xl font-bold text-marine font-sans">{fmt(annoncesExpirees)}</p>
+          </div>
+          <div class="rounded-lg bg-creme p-4">
+            <p class="text-xs text-gris-texte font-sans mb-1">Signalements</p>
+            <p class={`text-xl font-bold font-sans ${(signalements ?? 0) > 0 ? 'text-[#A32D2D]' : 'text-marine'}`}>{fmt(signalements)}</p>
+          </div>
+          <div class="rounded-lg bg-creme p-4">
+            <p class="text-xs text-gris-texte font-sans mb-1">Revenu total</p>
+            <p class="text-xl font-bold text-[#0F6E56] font-sans">{revenueFormatted}</p>
+          </div>
+        </div>
+
+        <div class="border-t border-gris-clair pt-4">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#E6F1FB]">
+              <Icon name="lucide:users" class="w-4 h-4 text-[#0C447C]" />
+            </div>
+            <div>
+              <p class="text-sm font-medium text-marine font-sans">{fmt(totalProfiles)} utilisateurs inscrits</p>
+              <p class="text-xs text-gris-texte font-sans">{fmt(annoncesTotal)} annonces au total</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Rangee 4 : Claims en attente (resume) -->
+    <div class="rounded-xl border border-gris-clair bg-blanc p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-sans text-lg font-bold text-marine">Claims en attente</h2>
+        <a href="/admin/claims/" class="text-sm text-orange font-sans font-medium hover:underline" style="min-height: 44px; display: inline-flex; align-items: center;">
+          Voir tout &rarr;
+        </a>
+      </div>
+
+      {(!pendingClaims || pendingClaims.length === 0) ? (
+        <div class="rounded-xl bg-[#E1F5EE] p-4 text-center">
+          <Icon name="lucide:check-circle" class="w-6 h-6 text-[#0F6E56] mx-auto mb-1" />
+          <p class="text-sm font-medium text-[#04342C] font-sans">Aucune demande en attente</p>
+        </div>
+      ) : (
+        <div class="divide-y divide-gris-clair">
+          {pendingClaims.map((claim) => (
+            <div class="flex flex-wrap items-center justify-between gap-3 py-3">
+              <div>
+                <span class="text-sm font-bold text-marine font-sans">{claim.nom}</span>
+                <span class="text-xs text-gris-texte font-sans ml-2">{claim.cp} {claim.ville}</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-xs text-gris-texte font-sans">{claim.claimed_by_name}</span>
+                <span class="text-xs text-gris-texte font-sans">
+                  {claim.claimed_at ? new Date(claim.claimed_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' }) : ''}
+                </span>
+                <span class="rounded-full bg-[#FAEEDA] px-2 py-0.5 text-xs font-medium text-[#854F0B]">En attente</span>
+              </div>
+            </div>
+          ))}
+          {(pendingCount ?? 0) > 5 && (
+            <div class="pt-3 text-center">
+              <a href="/admin/claims/" class="text-sm text-orange font-sans font-medium hover:underline">
+                + {(pendingCount ?? 0) - 5} autre(s) &rarr;
+              </a>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+
+  </section>
+</BaseLayout>
