@@ -71,13 +71,9 @@ export const POST: APIRoute = async ({ request }) => {
       JSON.stringify({ url: session.url }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
-  } catch (err: unknown) {
-    const errObj = err as Record<string, unknown>;
+  } catch (err) {
     const errMsg = err instanceof Error ? err.message : String(err);
-    const keyCheck = import.meta.env.STRIPE_SECRET_KEY
-      ? `key:${String(import.meta.env.STRIPE_SECRET_KEY).substring(0, 7)}...len=${String(import.meta.env.STRIPE_SECRET_KEY).length}`
-      : `key:MISSING(meta) process:${process.env.STRIPE_SECRET_KEY ? 'OK' : 'MISSING'}`;
-    console.error('Checkout error:', errMsg, '| type:', errObj?.type, '| code:', errObj?.code, '| key:', keyCheck);
+    console.error('Checkout error:', errMsg);
     return new Response(
       JSON.stringify({ error: 'Erreur lors de la creation de la session de paiement.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }

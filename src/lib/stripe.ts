@@ -5,6 +5,7 @@ let _stripe: Stripe | null = null;
 /**
  * Client Stripe initialisé de manière lazy pour garantir
  * que la clé est disponible au runtime en environnement serverless.
+ * Utilise le httpClient fetch au lieu de node:http pour compatibilité Vercel.
  */
 export function getStripe(): Stripe {
   if (!_stripe) {
@@ -12,7 +13,9 @@ export function getStripe(): Stripe {
     if (!key) {
       throw new Error('STRIPE_SECRET_KEY is not defined');
     }
-    _stripe = new Stripe(key);
+    _stripe = new Stripe(key, {
+      httpClient: Stripe.createFetchHttpClient(),
+    });
   }
   return _stripe;
 }
