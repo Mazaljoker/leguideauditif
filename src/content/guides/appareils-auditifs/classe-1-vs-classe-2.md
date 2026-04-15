@@ -47,7 +47,7 @@ La Classe 2 regroupe les appareils à **prix libre**, généralement entre **1 0
 
 ### Le cahier des charges Classe 1 : plus solide qu'on ne le croit
 
-Première erreur que j'entends quotidiennement en cabinet : **"Classe 1, c'est du bas de gamme."** C'est faux. Le cahier des charges réglementaire, publié au Journal officiel, impose des spécifications minimales strictes :
+Première erreur que j'entends quotidiennement en cabine : **"Classe 1, c'est du bas de gamme."** C'est faux. Le cahier des charges réglementaire, publié au Journal officiel, impose des spécifications minimales strictes :
 
 - **12 canaux de réglage** au minimum (contre 8 avant la réforme)
 - **Système antibruit** pour atténuer les sons parasites
@@ -92,7 +92,7 @@ En Classe 2, vous accédez à des fonctionnalités supplémentaires qui font une
 
 ## Comment je guide mes patients dans ce choix
 
-Voici exactement ce qui se passe dans mon cabinet quand un patient me demande conseil sur le choix de classe.
+Voici exactement ce qui se passe dans ma cabine quand un patient me demande conseil sur le choix de classe.
 
 **Première étape : je ne parle pas de classe.** Je commence par poser des questions sur le quotidien. Où vivez-vous ? Avec qui ? Allez-vous souvent au restaurant ? En réunion de famille, combien êtes-vous autour de la table ? Utilisez-vous un smartphone ? Regardez-vous la télévision seul ou en couple ? Ces réponses me disent bien plus que n'importe quel audiogramme sur le type d'appareil qui vous conviendra.
 
@@ -157,25 +157,3 @@ Après 28 ans et plus de 3 000 patients, je me permets deux avis tranchés.
 **La nuance essentielle :** votre besoin peut évoluer. Si vous démarrez en Classe 1 et que votre vie sociale change — nouveau club, bénévolat en milieu bruyant, garde régulière des petits-enfants — vous pourrez passer en Classe 2 lors du renouvellement, tous les 4 ans. Le choix d'aujourd'hui n'est pas définitif.
 
 Pour comprendre en détail les mécanismes de remboursement, consultez notre [guide complet sur le remboursement des appareils auditifs](/guides/remboursement/). Et pour tout savoir sur le dispositif 100% Santé, notre [guide dédié au 100% Santé Audition](/guides/remboursement/100-sante-audition/) détaille vos droits et les conditions précises de prise en charge.
-
-## Questions fréquentes
-
-### Quelle est la différence de prix entre Classe 1 et Classe 2 ?
-
-Un appareil Classe 1 est plafonné à 950 euros par oreille et intégralement remboursé par la Sécurité sociale et votre complémentaire (reste à charge 0 euro). Un appareil Classe 2 est à prix libre, généralement entre 1 000 et 2 200 euros par oreille, avec un reste à charge variable selon votre mutuelle.
-
-### Les appareils Classe 1 sont-ils de mauvaise qualité ?
-
-Non. Les appareils Classe 1 respectent un cahier des charges strict défini par arrêté. Ils disposent d'au minimum 12 canaux de réglage, d'un système antibruit et d'un antilarsen. Pour une perte auditive légère à modérée dans un environnement calme, ils offrent une correction tout à fait satisfaisante.
-
-### Puis-je essayer les deux classes avant de choisir ?
-
-Oui. Votre audioprothésiste est tenu de vous proposer au moins un appareil de Classe 1. Vous disposez d'une période d'essai de 30 jours minimum pendant laquelle vous pouvez comparer les deux classes dans vos conditions de vie réelles, sans engagement.
-
-### Le Bluetooth est-il disponible en Classe 1 ?
-
-Certains appareils Classe 1 proposent une connectivité Bluetooth basique via un accessoire intermédiaire. En Classe 2, le Bluetooth est généralement natif et permet une connexion directe à votre téléphone, votre télévision ou vos applications de streaming audio.
-
-### Comment savoir quelle classe me convient le mieux ?
-
-Le choix dépend de votre mode de vie, de votre degré de perte auditive et de vos besoins en connectivité. Un audioprothésiste DE pourra vous orienter après un bilan complet. La règle d'or : testez les deux classes pendant la période d'essai avant de décider.
