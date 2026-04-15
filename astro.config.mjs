@@ -11,9 +11,7 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://leguideauditif.fr',
   output: 'static',
-  adapter: vercel({
-    webAnalytics: { enabled: true },
-  }),
+  adapter: vercel(),
   integrations: [
     react(),
     sitemap({
