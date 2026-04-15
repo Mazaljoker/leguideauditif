@@ -1,19 +1,18 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import Stripe from 'stripe';
+import type Stripe from 'stripe';
+import { getStripe } from '../../lib/stripe';
 import { createServerClient } from '../../lib/supabase';
 import { sendEmail, sendAdminNotification } from '../../lib/email';
 import { paymentConfirmationEmail } from '../../emails/payment-confirmation';
 import { paymentAdminNotificationEmail } from '../../emails/payment-admin-notification';
 import { subscriptionCancelledEmail } from '../../emails/subscription-cancelled';
 
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2022-11-15' as Stripe.LatestApiVersion,
-});
-const webhookSecret = import.meta.env.STRIPE_WEBHOOK_SECRET;
-
 export const POST: APIRoute = async ({ request }) => {
+  const stripe = getStripe();
+  const webhookSecret = import.meta.env.STRIPE_WEBHOOK_SECRET || process.env.STRIPE_WEBHOOK_SECRET;
+
   const body = await request.text();
   const signature = request.headers.get('stripe-signature');
 

@@ -1,15 +1,12 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import Stripe from 'stripe';
+import { getStripe } from '../../lib/stripe';
 import { supabase } from '../../lib/supabase';
-
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2022-11-15' as Stripe.LatestApiVersion,
-});
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    const stripe = getStripe();
     const body = await request.json();
     const { centreSlug, nom, prenom, email, identifiant, plan } = body;
 

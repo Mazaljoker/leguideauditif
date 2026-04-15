@@ -1,13 +1,9 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import Stripe from 'stripe';
+import { getStripe } from '../../lib/stripe';
 import { createServerClient } from '../../lib/supabase';
 import type { AnnonceProduit } from '../../types/annonce';
-
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2022-11-15' as Stripe.LatestApiVersion,
-});
 
 const PRICE_MAP: Record<AnnonceProduit, { envKey: string; montant: number }> = {
   unlock_contacts: { envKey: 'STRIPE_PRICE_UNLOCK_CONTACTS', montant: 900 },
@@ -36,6 +32,7 @@ export const POST: APIRoute = async ({ request }) => {
   );
 
   try {
+    const stripe = getStripe();
     const body = await request.json();
     const { annonce_id, produit, user_id } = body as {
       annonce_id: string;
