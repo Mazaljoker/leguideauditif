@@ -120,6 +120,10 @@ const centresForMap = allCentres.map((c) => ({
 const title = `Audioprothésiste à ${villeName}${depInfo ? ` (${depInfo.code})` : ''}`;
 const description = `Trouvez un audioprothésiste à ${villeName}${depInfo ? `, ${depInfo.nom}` : ''}. Comparez les prix, vérifiez les diplômes, prenez rendez-vous. Annuaire indépendant rédigé par un audioprothésiste DE.`;
 
+// OG image dynamique — générée via /api/og/silo (Edge function, cachée par Vercel)
+const ogSubtitle = depInfo ? `${depInfo.nom} · ${depInfo.code}` : '';
+const ogImage = `/api/og/silo?type=ville&title=${encodeURIComponent(`Audioprothésiste à ${villeName}`)}&subtitle=${encodeURIComponent(ogSubtitle)}`;
+
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
   { label: 'Audioprothésistes', href: '/audioprothesiste/' },
@@ -179,7 +183,7 @@ const schemas = [
 ];
 ---
 
-<BaseLayout title={title} description={description} schema={schemas}>
+<BaseLayout title={title} description={description} ogImage={ogImage} schema={schemas}>
   {/* Leaflet CSS — loaded only on this page */}
   <link
     rel="stylesheet"

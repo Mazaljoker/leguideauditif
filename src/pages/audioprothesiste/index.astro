@@ -23,6 +23,9 @@ const breadcrumbs = [
 const title = 'Audioprothésistes en France : annuaire par département et ville';
 const description = 'Trouvez un audioprothésiste près de chez vous. 7 654 centres auditifs référencés dans 96 départements. Annuaire indépendant par un audioprothésiste DE.';
 
+// OG image dynamique — générée via /api/og/silo
+const ogImage = `/api/og/silo?type=hub&title=${encodeURIComponent('Audioprothésistes en France')}&subtitle=${encodeURIComponent('96 départements · Annuaire indépendant')}`;
+
 const schema = [
   {
     '@context': 'https://schema.org',
@@ -49,7 +52,7 @@ const schema = [
 ];
 ---
 
-<BaseLayout title={title} description={description} schema={schema}>
+<BaseLayout title={title} description={description} ogImage={ogImage} schema={schema}>
   <div class="bg-creme">
     <div class="max-w-[1140px] mx-auto px-5 py-4">
       <Breadcrumbs items={breadcrumbs} includeSchema={false} />
