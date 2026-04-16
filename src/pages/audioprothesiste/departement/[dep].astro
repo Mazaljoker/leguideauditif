@@ -4,6 +4,7 @@ export const prerender = false;
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import LeadForm from '../../../components/LeadForm.tsx';
+import MiniMap from '../../../components/MiniMap.tsx';
 import { supabase } from '../../../lib/supabase';
 import { DEPARTEMENTS, getDepartementBySlug, slugifyVille, formatVilleName, normalizeVilleBase, prepositionDepartement } from '../../../lib/departements';
 import type { DepartementInfo } from '../../../lib/departements';
@@ -57,6 +58,20 @@ const topVilles = villes.slice(0, 30);
 const centresCount = allCentres.length;
 const villesCount = villes.length;
 const claimedCount = allCentres.filter((c) => c.plan === 'claimed' || c.plan === 'premium').length;
+
+// Centres pour la mini-carte département (échantillon si >500 pour les perfs)
+const centresForMap = (centresCount > 500 ? allCentres.slice(0, 500) : allCentres).map((c) => ({
+  id: c.id,
+  slug: c.slug,
+  nom: c.nom,
+  adresse: c.adresse,
+  cp: c.cp,
+  ville: formatVilleName(c.ville || ''),
+  lat: c.lat,
+  lng: c.lng,
+  tel: c.tel,
+  plan: c.plan,
+}));
 
 const prep = prepositionDepartement(depInfo.nom);
 const title = `Audioprothésiste ${prep.de} (${depInfo.code})`;
@@ -125,6 +140,15 @@ const schemas = [
 ---
 
 <BaseLayout title={title} description={description} schema={schemas}>
+  {/* Leaflet CSS — loaded only on this page */}
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+    slot="head"
+  />
+
   <div class="bg-creme">
     <div class="max-w-[1140px] mx-auto px-5 py-4">
       <Breadcrumbs items={breadcrumbs} includeSchema={false} />
@@ -143,6 +167,13 @@ const schemas = [
           Annuaire indépendant basé sur les données publiques FINESS.
         </p>
       </header>
+
+      <!-- Mini-carte Leaflet -->
+      {centresForMap.length > 0 && (
+        <div class="mb-10">
+          <MiniMap client:only="react" centres={centresForMap} label={`Carte des audioprothésistes ${prep.dans}`} />
+        </div>
+      )}
 
       <!-- Contenu expert contextuel -->
       <div class="bg-blanc rounded-xl p-6 mb-10 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
