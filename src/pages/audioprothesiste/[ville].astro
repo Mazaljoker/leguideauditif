@@ -4,6 +4,7 @@ export const prerender = false;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import LeadForm from '../../components/LeadForm.tsx';
+import MiniMap from '../../components/MiniMap.tsx';
 import { supabase } from '../../lib/supabase';
 import { getDepartementByCode, slugifyVille, formatVilleName, normalizeVilleBase, prepositionDepartement } from '../../lib/departements';
 
@@ -63,9 +64,58 @@ allCentres.sort((a, b) => {
   return (a.nom || '').localeCompare(b.nom || '');
 });
 
-// Calculer le centre géographique pour la carte
-const avgLat = allCentres.reduce((sum, c) => sum + c.lat, 0) / allCentres.length;
-const avgLng = allCentres.reduce((sum, c) => sum + c.lng, 0) / allCentres.length;
+// Détecter si la ville a des arrondissements (Paris, Lyon, Marseille)
+// Détection : au moins 2 formes distinctes de la même ville de base
+const rawVilles = new Set(allCentres.map((c) => (c.ville || '').trim().toUpperCase()));
+const hasArrondissements = rawVilles.size > 1;
+
+// Helpers pour extraire le numéro d'arrondissement depuis le CP
+// Paris 75001-75020, Lyon 69001-69009, Marseille 13001-13016
+function extractArrondissementFromCp(cp: string): string | null {
+  if (!cp) return null;
+  const match = cp.match(/^(75|69|13)0?(\d{1,2})$/);
+  if (!match) return null;
+  const num = parseInt(match[2], 10);
+  if (num < 1 || num > 20) return null;
+  const prefix = match[1];
+  if (prefix === '75') return `${num}${num === 1 ? 'er' : 'e'} arrondissement`;
+  if (prefix === '69') return `Lyon ${num}${num === 1 ? 'er' : 'e'}`;
+  if (prefix === '13') return `Marseille ${num}${num === 1 ? 'er' : 'e'}`;
+  return null;
+}
+
+// Grouper les centres par arrondissement si applicable
+type ArrondissementGroup = { label: string; cp: string; centres: any[] };
+const arrondissements: ArrondissementGroup[] = [];
+if (hasArrondissements) {
+  const groups = new Map<string, ArrondissementGroup>();
+  for (const c of allCentres) {
+    const label = extractArrondissementFromCp(c.cp) || 'Non précisé';
+    const key = c.cp || 'unknown';
+    if (!groups.has(key)) {
+      groups.set(key, { label, cp: c.cp || '', centres: [] });
+    }
+    groups.get(key)!.centres.push(c);
+  }
+  // Trier par numéro d'arrondissement (via CP)
+  arrondissements.push(
+    ...Array.from(groups.values()).sort((a, b) => (a.cp || '').localeCompare(b.cp || ''))
+  );
+}
+
+// Préparer les centres pour la mini-carte (tous)
+const centresForMap = allCentres.map((c) => ({
+  id: c.id,
+  slug: c.slug,
+  nom: c.nom,
+  adresse: c.adresse,
+  cp: c.cp,
+  ville: formatVilleName(c.ville || ''),
+  lat: c.lat,
+  lng: c.lng,
+  tel: c.tel,
+  plan: c.plan,
+}));
 
 const title = `Audioprothésiste à ${villeName}${depInfo ? ` (${depInfo.code})` : ''}`;
 const description = `Trouvez un audioprothésiste à ${villeName}${depInfo ? `, ${depInfo.nom}` : ''}. Comparez les prix, vérifiez les diplômes, prenez rendez-vous. Annuaire indépendant rédigé par un audioprothésiste DE.`;
@@ -130,6 +180,15 @@ const schemas = [
 ---
 
 <BaseLayout title={title} description={description} schema={schemas}>
+  {/* Leaflet CSS — loaded only on this page */}
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+    slot="head"
+  />
+
   <div class="bg-creme">
     <div class="max-w-[1140px] mx-auto px-5 py-4">
       <Breadcrumbs items={breadcrumbs} includeSchema={false} />
@@ -153,6 +212,11 @@ const schemas = [
         </p>
       </header>
 
+      <!-- Mini-carte Leaflet -->
+      <div class="mb-10">
+        <MiniMap client:only="react" centres={centresForMap} label={`Carte des audioprothésistes à ${villeName}`} />
+      </div>
+
       <!-- Conseil expert contextuel -->
       <div class="bg-blanc rounded-xl p-6 mb-10 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
         <h2 class="font-sans text-xl font-bold text-marine mb-3">Bien choisir son audioprothésiste à {villeName}</h2>
@@ -169,39 +233,74 @@ const schemas = [
         </p>
       </div>
 
-      <!-- Liste des centres -->
+      <!-- Liste des centres : groupée par arrondissement si applicable, sinon liste simple -->
       <div class="mb-10">
         <h2 class="font-sans text-xl font-bold text-marine mb-4">
           Centres auditifs à {villeName}
         </h2>
-        <div class="space-y-3">
-          {allCentres.map((c) => (
-            <a
-              href={`/centre/${c.slug}/`}
-              class="block bg-blanc rounded-xl p-4 shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-md transition-shadow no-underline hover:no-underline"
-            >
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="font-sans text-base font-semibold text-marine">{c.nom}</h3>
-                  <p class="text-sm text-gris-texte">{c.adresse} — {c.cp} {formatVilleName(c.ville || '')}</p>
-                  {c.tel && <p class="text-sm text-orange mt-1">{c.tel}</p>}
-                </div>
-                <div class="flex flex-col items-end gap-1 shrink-0">
-                  {c.plan === 'premium' && (
-                    <span class="text-xs bg-orange/10 text-orange px-2 py-1 rounded-full font-sans font-medium">
-                      Premium
-                    </span>
-                  )}
-                  {c.plan === 'claimed' && (
-                    <span class="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-sans font-medium">
-                      Fiche vérifiée
-                    </span>
-                  )}
+
+        {hasArrondissements ? (
+          <!-- Groupée par arrondissement -->
+          <div class="space-y-8">
+            {arrondissements.map((arr) => (
+              <div>
+                <h3 class="font-sans text-lg font-semibold text-marine mb-3 border-b border-gris-clair pb-2">
+                  {arr.label} <span class="text-sm text-gris-texte font-normal">({arr.cp})</span>
+                </h3>
+                <div class="space-y-3">
+                  {arr.centres.map((c) => (
+                    <a
+                      href={`/centre/${c.slug}/`}
+                      class="block bg-blanc rounded-xl p-4 shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-md transition-shadow no-underline hover:no-underline"
+                    >
+                      <div class="flex justify-between items-start">
+                        <div>
+                          <h4 class="font-sans text-base font-semibold text-marine">{c.nom}</h4>
+                          <p class="text-sm text-gris-texte">{c.adresse} — {c.cp}</p>
+                          {c.tel && <p class="text-sm text-orange mt-1">{c.tel}</p>}
+                        </div>
+                        <div class="flex flex-col items-end gap-1 shrink-0">
+                          {c.plan === 'premium' && (
+                            <span class="text-xs bg-orange/10 text-orange px-2 py-1 rounded-full font-sans font-medium">Premium</span>
+                          )}
+                          {c.plan === 'claimed' && (
+                            <span class="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-sans font-medium">Fiche vérifiée</span>
+                          )}
+                        </div>
+                      </div>
+                    </a>
+                  ))}
                 </div>
               </div>
-            </a>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <!-- Liste simple -->
+          <div class="space-y-3">
+            {allCentres.map((c) => (
+              <a
+                href={`/centre/${c.slug}/`}
+                class="block bg-blanc rounded-xl p-4 shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-md transition-shadow no-underline hover:no-underline"
+              >
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-sans text-base font-semibold text-marine">{c.nom}</h3>
+                    <p class="text-sm text-gris-texte">{c.adresse} — {c.cp} {formatVilleName(c.ville || '')}</p>
+                    {c.tel && <p class="text-sm text-orange mt-1">{c.tel}</p>}
+                  </div>
+                  <div class="flex flex-col items-end gap-1 shrink-0">
+                    {c.plan === 'premium' && (
+                      <span class="text-xs bg-orange/10 text-orange px-2 py-1 rounded-full font-sans font-medium">Premium</span>
+                    )}
+                    {c.plan === 'claimed' && (
+                      <span class="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-sans font-medium">Fiche vérifiée</span>
+                    )}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
 
       <!-- FAQ -->
