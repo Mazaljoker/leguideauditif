@@ -28,6 +28,7 @@ export default defineConfig({
           'https://leguideauditif.fr/admin/claims/',
           'https://leguideauditif.fr/revendiquer/',
           'https://leguideauditif.fr/revendiquer-gratuit/',
+          'https://leguideauditif.fr/connexion-pro/',
         ].includes(page),
     }),
     mdx(),
