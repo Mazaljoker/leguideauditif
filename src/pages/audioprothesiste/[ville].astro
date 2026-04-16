@@ -1,0 +1,284 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import LeadForm from '../../components/LeadForm.tsx';
+import { supabase } from '../../lib/supabase';
+import { getDepartementByCode, slugifyVille } from '../../lib/departements';
+
+const { ville: villeSlug } = Astro.params;
+
+if (!villeSlug) {
+  return Astro.redirect('/audioprothesiste/');
+}
+
+// Chercher les centres dont le slug ville correspond
+// On reconstruit le nom de ville à partir des centres trouvés
+const PAGE_SIZE = 1000;
+let allCentres: any[] = [];
+let offset = 0;
+let hasMore = true;
+
+// Première passe : chercher par slug de ville
+while (hasMore) {
+  const { data: batch } = await supabase
+    .from('centres_auditifs')
+    .select('id, slug, nom, adresse, cp, ville, departement, lat, lng, tel, horaires, site_web, is_premium, plan, finess')
+    .not('lat', 'is', null)
+    .not('lng', 'is', null)
+    .range(offset, offset + PAGE_SIZE - 1);
+
+  if (batch && batch.length > 0) {
+    // Filtrer par slug de ville côté client (Supabase n'a pas de slugify)
+    const matching = batch.filter((c) => c.ville && slugifyVille(c.ville) === villeSlug);
+    allCentres = [...allCentres, ...matching];
+    offset += PAGE_SIZE;
+    hasMore = batch.length === PAGE_SIZE;
+  } else {
+    hasMore = false;
+  }
+}
+
+// Si aucun centre trouvé, 404
+if (allCentres.length === 0) {
+  return Astro.redirect('/audioprothesiste/');
+}
+
+// Extraire les infos de la ville
+const villeName = allCentres[0].ville;
+const cp = allCentres[0].cp || '';
+const depCode = cp.substring(0, 2) === '97' ? cp.substring(0, 3) : cp.substring(0, 2);
+const depInfo = getDepartementByCode(depCode);
+
+const centresCount = allCentres.length;
+const claimedCount = allCentres.filter((c) => c.plan === 'claimed' || c.plan === 'premium').length;
+
+// Trier : fiches vérifiées en premier, puis premium, puis alphabétique
+allCentres.sort((a, b) => {
+  const planOrder = { premium: 0, claimed: 1, rpps: 2 };
+  const aOrder = planOrder[a.plan as keyof typeof planOrder] ?? 3;
+  const bOrder = planOrder[b.plan as keyof typeof planOrder] ?? 3;
+  if (aOrder !== bOrder) return aOrder - bOrder;
+  return (a.nom || '').localeCompare(b.nom || '');
+});
+
+// Calculer le centre géographique pour la carte
+const avgLat = allCentres.reduce((sum, c) => sum + c.lat, 0) / allCentres.length;
+const avgLng = allCentres.reduce((sum, c) => sum + c.lng, 0) / allCentres.length;
+
+const title = `Audioprothésiste à ${villeName} : ${centresCount} centres auditifs`;
+const description = `Trouvez un audioprothésiste à ${villeName}${depInfo ? ` (${depInfo.nom})` : ''}. ${centresCount} centres référencés. Comparez les prix, prenez RDV. Annuaire indépendant.`;
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Audioprothésistes', href: '/audioprothesiste/' },
+  ...(depInfo ? [{ label: `${depInfo.nom} (${depInfo.code})`, href: `/audioprothesiste/departement/${depInfo.slug}/` }] : []),
+  { label: villeName },
+];
+
+// FAQ dynamique
+const faq = [
+  {
+    question: `Combien d'audioprothésistes y a-t-il à ${villeName} ?`,
+    answer: `Nous référençons ${centresCount} centres auditifs à ${villeName}. ${claimedCount > 0 ? `${claimedCount} d'entre eux ont vérifié et complété leur fiche sur LeGuideAuditif.fr.` : 'Les données proviennent du fichier FINESS (source publique).'}`
+  },
+  {
+    question: `Quel est le prix d'un appareil auditif à ${villeName} ?`,
+    answer: `Les prix sont identiques partout en France. En classe 1 (100 % Santé), le reste à charge est de 0 euro. En classe 2, comptez de 850 à 2 400 euros par oreille selon la gamme et l'enseigne, avant remboursement par la Sécurité sociale et votre mutuelle.`
+  },
+  {
+    question: `Comment prendre rendez-vous avec un audioprothésiste à ${villeName} ?`,
+    answer: `Cliquez sur la fiche du centre qui vous intéresse pour voir ses coordonnées et horaires. Vous pouvez aussi utiliser notre formulaire de devis gratuit : un audioprothésiste qualifié proche de ${villeName} vous rappelle sous 48 heures.`
+  },
+];
+
+// Schema.org
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url: `https://leguideauditif.fr/audioprothesiste/${villeSlug}/`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'LeGuideAuditif.fr',
+      url: 'https://leguideauditif.fr',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={schemas}>
+  <div class="bg-creme">
+    <div class="max-w-[1140px] mx-auto px-5 py-4">
+      <Breadcrumbs items={breadcrumbs} includeSchema={false} />
+    </div>
+  </div>
+
+  <section class="bg-creme py-12">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <!-- Header -->
+      <header class="mb-10">
+        <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-3">
+          Audioprothésiste à {villeName}
+        </h1>
+        <p class="text-gris-texte text-lg max-w-[700px]">
+          {centresCount} centres auditifs référencés{depInfo ? ` dans le ${depInfo.nom}` : ''}.
+          {claimedCount > 0 ? ` ${claimedCount} fiches vérifiées par les professionnels.` : ''}
+        </p>
+      </header>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+          <p class="font-sans text-2xl font-bold text-marine">{centresCount}</p>
+          <p class="text-sm text-gris-texte">centres à {villeName}</p>
+        </div>
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+          <p class="font-sans text-2xl font-bold text-marine">{claimedCount}</p>
+          <p class="text-sm text-gris-texte">fiches vérifiées</p>
+        </div>
+        {depInfo && (
+          <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+            <a href={`/audioprothesiste/departement/${depInfo.slug}/`} class="no-underline hover:no-underline">
+              <p class="font-sans text-2xl font-bold text-orange">{depInfo.nom}</p>
+              <p class="text-sm text-gris-texte">département ({depInfo.code})</p>
+            </a>
+          </div>
+        )}
+      </div>
+
+      <!-- Conseil expert contextuel -->
+      <div class="bg-blanc rounded-xl p-6 mb-10 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+        <h2 class="font-sans text-xl font-bold text-marine mb-3">Bien choisir son audioprothésiste à {villeName}</h2>
+        {centresCount <= 3 && (
+          <p class="text-gris-texte leading-relaxed mb-3">
+            Avec {centresCount} centre{centresCount > 1 ? 's' : ''} à {villeName}, le choix est limité.
+            Si aucun ne vous convient, élargissez votre recherche aux communes voisines
+            {depInfo && <Fragment> via la page <a href={`/audioprothesiste/departement/${depInfo.slug}/`} class="text-orange hover:underline">{depInfo.nom}</a></Fragment>}.
+            Vous pouvez aussi consulter un audioprothésiste en
+            <a href="/guides/audioprothesiste/teleaudiologie/" class="text-orange hover:underline">téléaudiologie</a> pour un premier avis.
+          </p>
+        )}
+        {centresCount > 3 && centresCount <= 10 && (
+          <p class="text-gris-texte leading-relaxed mb-3">
+            {villeName} dispose de {centresCount} centres auditifs, ce qui vous permet de comparer
+            au moins 2 à 3 devis — c'est le minimum que je recommande à tous mes patients.
+            Vous y trouverez probablement un mix d'enseignes nationales et d'indépendants.
+          </p>
+        )}
+        {centresCount > 10 && (
+          <p class="text-gris-texte leading-relaxed mb-3">
+            Avec {centresCount} centres, {villeName} offre un large choix. La concurrence joue en votre faveur :
+            n'hésitez pas à comparer les devis entre
+            <a href="/enseignes/amplifon/" class="text-orange hover:underline">Amplifon</a>,
+            <a href="/enseignes/audika/" class="text-orange hover:underline">Audika</a>,
+            <a href="/enseignes/afflelou/" class="text-orange hover:underline">Afflelou</a>
+            et les indépendants. Les écarts de prix en classe 2 peuvent atteindre 200 à 400 euros par oreille
+            pour le même appareil.
+          </p>
+        )}
+        <p class="text-gris-texte leading-relaxed">
+          Trois vérifications avant de signer : le diplôme d'État (ADELI/RPPS), la présence régulière
+          de l'audioprothésiste au centre, et le
+          <a href="/guides/remboursement/devis/" class="text-orange hover:underline">devis normalisé</a> obligatoire.
+        </p>
+      </div>
+
+      <!-- Liste des centres -->
+      <div class="mb-10">
+        <h2 class="font-sans text-xl font-bold text-marine mb-4">
+          Les {centresCount} centres auditifs à {villeName}
+        </h2>
+        <div class="space-y-3">
+          {allCentres.map((c) => (
+            <a
+              href={`/centre/${c.slug}/`}
+              class="block bg-blanc rounded-xl p-4 shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-md transition-shadow no-underline hover:no-underline"
+            >
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-sans text-base font-semibold text-marine">{c.nom}</h3>
+                  <p class="text-sm text-gris-texte">{c.adresse} — {c.cp} {c.ville}</p>
+                  {c.tel && <p class="text-sm text-orange mt-1">{c.tel}</p>}
+                </div>
+                <div class="flex flex-col items-end gap-1 shrink-0">
+                  {c.plan === 'premium' && (
+                    <span class="text-xs bg-orange/10 text-orange px-2 py-1 rounded-full font-sans font-medium">
+                      Premium
+                    </span>
+                  )}
+                  {c.plan === 'claimed' && (
+                    <span class="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-sans font-medium">
+                      Fiche vérifiée
+                    </span>
+                  )}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mb-10">
+        <h2 class="font-sans text-xl font-bold text-marine mb-4">Questions fréquentes</h2>
+        {faq.map((f) => (
+          <details class="bg-blanc rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
+            <summary class="px-6 py-5 font-sans text-[17px] font-semibold text-marine cursor-pointer list-none flex justify-between items-center">
+              <span>{f.question}</span>
+              <span class="text-xl transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div class="px-6 pb-5 text-gris-texte text-base leading-relaxed">{f.answer}</div>
+          </details>
+        ))}
+      </div>
+
+      <!-- LeadForm -->
+      <div class="bg-blanc rounded-2xl p-8 shadow-[0_2px_12px_rgba(27,46,74,0.06)] mb-10">
+        <h2 class="font-sans text-2xl font-bold text-marine mb-4">Devis gratuit à {villeName}</h2>
+        <p class="text-gris-texte mb-6">Un audioprothésiste qualifié proche de {villeName} vous rappelle sous 48 heures.</p>
+        <LeadForm client:visible />
+      </div>
+
+      <!-- Maillage silo -->
+      <div class="text-sm text-gris-texte space-y-2">
+        {depInfo && (
+          <p>
+            Voir aussi :
+            <a href={`/audioprothesiste/departement/${depInfo.slug}/`} class="text-orange hover:underline">
+              Tous les audioprothésistes du {depInfo.nom} ({depInfo.code})
+            </a>
+          </p>
+        )}
+        <p>Guides connexes :</p>
+        <ul class="flex flex-wrap gap-x-4 gap-y-1">
+          <li><a href="/guides/audioprothesiste/choisir/" class="text-orange hover:underline">Comment choisir son audioprothésiste</a></li>
+          <li><a href="/guides/remboursement/prix-appareil-auditif/" class="text-orange hover:underline">Prix des appareils auditifs</a></li>
+          <li><a href="/guides/remboursement/100-sante-audition/" class="text-orange hover:underline">100 % Santé Audition</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
