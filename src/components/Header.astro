@@ -3,8 +3,8 @@ import { Icon } from 'astro-icon/components';
 
 const navLinks = [
   { href: '/guides/', label: 'Guides' },
-  { href: '/catalogue/', label: 'Appareils & prix' },
-  { href: '/audioprothesiste/', label: 'Centres auditifs' },
+  { href: '/catalogue/', label: 'Appareils' },
+  { href: '/audioprothesiste/', label: 'Centres' },
   { href: '/outils/analyse-audiogramme/', label: 'Audiogramme' },
   { href: '/faq/', label: 'FAQ' },
 ];
@@ -41,7 +41,7 @@ const navLinks = [
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="text-marine font-sans text-[16px] font-medium no-underline py-1.5 border-b-2 border-transparent hover:text-orange hover:border-orange transition-all duration-200 hover:no-underline"
+          class="text-marine font-sans text-[16px] font-medium whitespace-nowrap no-underline py-1.5 border-b-2 border-transparent hover:text-orange hover:border-orange transition-all duration-200 hover:no-underline"
         >
           {link.label}
         </a>
