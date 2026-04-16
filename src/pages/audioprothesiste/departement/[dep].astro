@@ -77,6 +77,9 @@ const prep = prepositionDepartement(depInfo.nom);
 const title = `Audioprothésiste ${prep.de} (${depInfo.code})`;
 const description = `Trouvez un audioprothésiste ${prep.dans} (${depInfo.code}). Annuaire indépendant rédigé par un audioprothésiste DE, basé sur les données publiques FINESS.`;
 
+// OG image dynamique — générée via /api/og/silo (Edge function, cachée par Vercel)
+const ogImage = `/api/og/silo?type=departement&title=${encodeURIComponent(`Audioprothésiste ${prep.de}`)}&subtitle=${encodeURIComponent(`${depInfo.region} · ${depInfo.code}`)}`;
+
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
   { label: 'Audioprothésistes', href: '/audioprothesiste/' },
@@ -139,7 +142,7 @@ const schemas = [
 ];
 ---
 
-<BaseLayout title={title} description={description} schema={schemas}>
+<BaseLayout title={title} description={description} ogImage={ogImage} schema={schemas}>
   {/* Leaflet CSS — loaded only on this page */}
   <link
     rel="stylesheet"
