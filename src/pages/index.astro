@@ -79,6 +79,21 @@ const topBrands = [
   { slug: 'starkey', label: 'Starkey', groupe: 'Starkey' },
 ];
 
+const topVilles = [
+  { slug: 'paris', label: 'Paris' },
+  { slug: 'lyon', label: 'Lyon' },
+  { slug: 'marseille', label: 'Marseille' },
+  { slug: 'toulouse', label: 'Toulouse' },
+  { slug: 'bordeaux', label: 'Bordeaux' },
+  { slug: 'nice', label: 'Nice' },
+  { slug: 'nantes', label: 'Nantes' },
+  { slug: 'strasbourg', label: 'Strasbourg' },
+  { slug: 'montpellier', label: 'Montpellier' },
+  { slug: 'lille', label: 'Lille' },
+  { slug: 'rennes', label: 'Rennes' },
+  { slug: 'toulon', label: 'Toulon' },
+];
+
 const schema = [
   {
     '@context': 'https://schema.org',
@@ -220,6 +235,49 @@ const schema = [
           class="inline-flex items-center gap-2 px-8 py-3.5 bg-orange text-white font-sans text-lg font-bold rounded-xl no-underline hover:bg-orange-hover transition-colors hover:no-underline"
         >
           Explorer le catalogue complet →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5c. Annuaire audioprothésistes (silo SEO) -->
+  <section class="bg-blanc py-18">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <div class="text-center mb-10">
+        <h2 class="font-sans text-[32px] font-extrabold text-marine mb-3" data-animate>
+          Trouver un audioprothésiste près de chez vous
+        </h2>
+        <p class="text-gris-texte text-lg max-w-[640px] mx-auto" data-animate>
+          7 654 centres auditifs référencés dans 96 départements. Annuaire indépendant, sans publicité, par un audioprothésiste DE.
+        </p>
+      </div>
+
+      <!-- Grille villes phares -->
+      <h3 class="font-sans text-lg font-bold text-marine mb-4 text-center">Les grandes villes</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+        {topVilles.map((ville) => (
+          <a
+            href={`/audioprothesiste/${ville.slug}/`}
+            class="bg-creme rounded-xl px-4 py-3 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all no-underline hover:no-underline"
+          >
+            <span class="font-sans text-sm font-semibold text-marine">{ville.label}</span>
+          </a>
+        ))}
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap justify-center gap-3">
+        <a
+          href="/audioprothesiste/"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-orange text-white font-sans text-lg font-bold rounded-xl no-underline hover:bg-orange-hover transition-colors hover:no-underline"
+        >
+          Annuaire par département &rarr;
+        </a>
+        <a
+          href="/trouver-audioprothesiste/"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-blanc text-marine border border-marine font-sans text-lg font-bold rounded-xl no-underline hover:bg-marine hover:text-white transition-colors hover:no-underline"
+        >
+          Voir la carte interactive
         </a>
       </div>
     </div>
