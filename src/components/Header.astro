@@ -206,8 +206,8 @@ const navLinks = [
 
         // Import dynamique — variable pour empecher Vite de resoudre statiquement
         const pagefindPath = '/pagefind/pagefind-ui.js';
-        const { PagefindUI } = await import(/* @vite-ignore */ pagefindPath);
-        new PagefindUI({
+        await import(/* @vite-ignore */ pagefindPath);
+        new window.PagefindUI({
           element: '#pagefind-container',
           showSubResults: true,
           translations: {
