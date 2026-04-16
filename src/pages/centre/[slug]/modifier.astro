@@ -94,6 +94,21 @@ const breadcrumbs = [
         </div>
 
         <div>
+          <label for="edit-rpps" class="block text-sm font-medium text-marine font-sans mb-1">
+            N&deg; RPPS
+          </label>
+          <input
+            id="edit-rpps"
+            name="rpps"
+            type="text"
+            value={typedCentre.rpps || ''}
+            placeholder="Ex : 10001234567"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+          <p class="text-xs text-gris-texte font-sans mt-1">R&eacute;pertoire Partag&eacute; des Professionnels de Sant&eacute; (11 chiffres)</p>
+        </div>
+
+        <div>
           <label for="edit-site-web" class="block text-sm font-medium text-marine font-sans mb-1">
             Site web
           </label>
@@ -377,6 +392,7 @@ const breadcrumbs = [
         centreSlug: centreSlug,
         nom: formData.get('nom'),
         tel: formData.get('tel') || null,
+        rpps: formData.get('rpps') || null,
         site_web: formData.get('site_web') || null,
         horaires: formData.get('horaires') || null,
         a_propos: formData.get('a_propos') || null,

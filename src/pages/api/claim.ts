@@ -124,6 +124,11 @@ export const POST: APIRoute = async ({ request }) => {
       claimed_by_adeli: adeli,
     };
 
+    // Sauvegarder le RPPS si le numéro adeli ressemble à un RPPS (11 chiffres)
+    if (adeli && /^\d{11}$/.test(adeli.trim())) {
+      updateData.rpps = adeli.trim();
+    }
+
     if (centreNom && centreNom.trim()) updateData.nom = centreNom.trim();
     if (siteWeb && siteWeb.trim()) updateData.site_web = siteWeb.trim();
     if (tel) updateData.tel = tel;

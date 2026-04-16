@@ -190,5 +190,29 @@ const maskedPhone = plan === 'rpps' && centre.tel ? maskPhone(centre.tel) : null
       </div>
     )}
 
+    {/* --- RPPS (claimed / premium uniquement) --- */}
+    {plan !== 'rpps' && centre.rpps && (
+      <div class="rounded-lg bg-blanc p-4 sm:col-span-2">
+        <div class="flex items-center gap-2 mb-1">
+          <Icon name="lucide:badge-check" class={`w-4 h-4 ${plan === 'premium' ? 'text-orange' : 'text-marine/50'}`} />
+          <span class="text-xs text-gris-texte font-sans">N&deg; RPPS</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-medium text-marine font-sans font-mono tracking-wide">{centre.rpps}</span>
+          <a
+            href={`https://annuaire.sante.fr/web/site-pro/extranet/professionnel/${centre.rpps}`}
+            target="_blank"
+            rel="noopener"
+            class="text-[11px] text-[#185FA5] font-sans hover:underline"
+          >
+            V&eacute;rifier sur annuaire.sante.fr
+          </a>
+        </div>
+        <p class="text-[11px] text-gris-texte font-sans mt-1">
+          R&eacute;pertoire Partag&eacute; des Professionnels de Sant&eacute; — identit&eacute; v&eacute;rifi&eacute;e
+        </p>
+      </div>
+    )}
+
   </div>
 </section>

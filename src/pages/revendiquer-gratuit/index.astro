@@ -12,7 +12,7 @@ let centre = null;
 if (centreSlug) {
   const { data } = await supabase
     .from('centres_auditifs')
-    .select('slug, nom, adresse, cp, ville, plan, claim_status')
+    .select('slug, nom, adresse, cp, ville, plan, claim_status, siret')
     .eq('slug', centreSlug)
     .single();
   centre = data;
@@ -24,6 +24,18 @@ if (!centre) {
 
 if (centre.plan !== 'rpps' || centre.claim_status === 'pending') {
   return Astro.redirect(`/centre/${centre.slug}/`);
+}
+
+// Lookup RPPS depuis la table rpps_audioprothesistes (par SIRET du centre)
+let prefillRpps = '';
+if (centre.siret) {
+  const { data: rppsData } = await supabase
+    .from('rpps_audioprothesistes')
+    .select('rpps')
+    .eq('siret', centre.siret)
+    .limit(1)
+    .single();
+  if (rppsData?.rpps) prefillRpps = rppsData.rpps;
 }
 
 const displayVille = centre.ville || centre.cp;
@@ -152,9 +164,15 @@ const breadcrumbs = [
             name="adeli"
             type="text"
             required
+            value={prefillRpps}
             placeholder="Ex : 10001234567 ou 123 456 789 00012"
             class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
           />
+          {prefillRpps && (
+            <p class="text-xs text-gris-texte font-sans mt-1">
+              RPPS pré-rempli depuis l'annuaire national — vérifiez et corrigez si nécessaire
+            </p>
+          )}
         </div>
       </div>
 

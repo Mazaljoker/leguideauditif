@@ -18,6 +18,7 @@ export interface CentreData {
   marques: string[];
   reseaux_sociaux: Record<string, string> | null;
   a_propos: string | null;
+  rpps: string | null;
   plan: CentrePlan;
   source: string;
   finess: string | null;

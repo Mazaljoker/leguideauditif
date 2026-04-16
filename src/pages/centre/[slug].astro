@@ -105,6 +105,14 @@ const schema: Record<string, unknown> = {
 if (typedCentre.lat && typedCentre.lng) {
   schema.geo = { '@type': 'GeoCoordinates', latitude: typedCentre.lat, longitude: typedCentre.lng };
 }
+if (!isRpps && typedCentre.rpps) {
+  schema.identifier = {
+    '@type': 'PropertyValue',
+    name: 'RPPS',
+    value: typedCentre.rpps,
+    description: 'Répertoire Partagé des Professionnels de Santé',
+  };
+}
 if (!isRpps && typedCentre.tel) schema.telephone = typedCentre.tel;
 if (!isRpps && typedCentre.site_web) schema.url = typedCentre.site_web;
 if (!isRpps && typedCentre.email) schema.email = typedCentre.email;

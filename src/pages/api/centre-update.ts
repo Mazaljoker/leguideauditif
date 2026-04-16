@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro';
 import { createClient } from '@supabase/supabase-js';
 import { createServerClient } from '../../lib/supabase';
 
-const ALLOWED_FIELDS = ['nom', 'tel', 'site_web', 'horaires', 'a_propos', 'specialites', 'marques', 'reseaux_sociaux'];
+const ALLOWED_FIELDS = ['nom', 'tel', 'rpps', 'site_web', 'horaires', 'a_propos', 'specialites', 'marques', 'reseaux_sociaux'];
 
 export const POST: APIRoute = async ({ request, cookies }) => {
   try {
