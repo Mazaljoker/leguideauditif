@@ -6,8 +6,8 @@ publishDate: 2026-04-07
 updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
-image: /images/blog/appareil-acouphenes-comp/appareil-acouphenes-comp.webp
-ogImage: /images/blog/appareil-acouphenes-comp/appareil-acouphenes-comp-og.webp
+image: /images/blog/meilleur-appareil-acouphenes/meilleur-appareil-acouphenes.webp
+ogImage: /images/blog/meilleur-appareil-acouphenes/meilleur-appareil-acouphenes-og.webp
 products:
   - brand: Widex
     model: SmartRIC Moment

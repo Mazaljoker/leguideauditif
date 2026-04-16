@@ -8,8 +8,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
-image: /images/blog/acouphenes-causes/acouphenes-causes.webp
-ogImage: /images/blog/acouphenes-causes/acouphenes-causes-og.webp
+image: /images/blog/causes/causes.webp
+ogImage: /images/blog/causes/causes-og.webp
 relatedGuides:
   - acouphenes/index
 sources:

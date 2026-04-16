@@ -9,8 +9,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
-image: /images/blog/bilan-gratuit/bilan-gratuit.webp
-ogImage: /images/blog/bilan-gratuit/bilan-gratuit-og.webp
+image: /images/blog/bilan-auditif-gratuit/bilan-auditif-gratuit.webp
+ogImage: /images/blog/bilan-auditif-gratuit/bilan-auditif-gratuit-og.webp
 relatedGuides:
   - prevention/index
   - prevention/depistage-auditif

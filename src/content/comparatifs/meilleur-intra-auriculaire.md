@@ -6,8 +6,8 @@ publishDate: 2026-04-07
 updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
-image: /images/blog/intra/intra.webp
-ogImage: /images/blog/intra/intra-og.webp
+image: /images/blog/meilleur-intra-auriculaire/meilleur-intra-auriculaire.webp
+ogImage: /images/blog/meilleur-intra-auriculaire/meilleur-intra-auriculaire-og.webp
 products:
   - brand: Starkey
     model: Genesis AI CIC

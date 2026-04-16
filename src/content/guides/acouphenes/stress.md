@@ -9,8 +9,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
-image: /images/blog/acouphenes-stress/acouphenes-stress.webp
-ogImage: /images/blog/acouphenes-stress/acouphenes-stress-og.webp
+image: /images/blog/stress/stress.webp
+ogImage: /images/blog/stress/stress-og.webp
 relatedGuides:
   - acouphenes/index
   - acouphenes/traitement

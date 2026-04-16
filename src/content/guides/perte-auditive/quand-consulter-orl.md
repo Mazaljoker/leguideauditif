@@ -8,8 +8,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
-image: /images/blog/consulter-orl/consulter-orl.webp
-ogImage: /images/blog/consulter-orl/consulter-orl-og.webp
+image: /images/blog/quand-consulter-orl/quand-consulter-orl.webp
+ogImage: /images/blog/quand-consulter-orl/quand-consulter-orl-og.webp
 relatedGuides:
   - perte-auditive/index
   - perte-auditive/symptomes

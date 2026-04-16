@@ -9,8 +9,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
-image: /images/blog/types-perte/types-perte.webp
-ogImage: /images/blog/types-perte/types-perte-og.webp
+image: /images/blog/types/types.webp
+ogImage: /images/blog/types/types-og.webp
 relatedGuides:
   - perte-auditive/index
   - perte-auditive/causes

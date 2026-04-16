@@ -8,8 +8,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
-image: /images/blog/test-auditif/test-auditif.webp
-ogImage: /images/blog/test-auditif/test-auditif-og.webp
+image: /images/blog/test-auditif-en-ligne/test-auditif-en-ligne.webp
+ogImage: /images/blog/test-auditif-en-ligne/test-auditif-en-ligne-og.webp
 relatedGuides:
   - perte-auditive/index
   - perte-auditive/symptomes

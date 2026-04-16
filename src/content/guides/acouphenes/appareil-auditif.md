@@ -9,8 +9,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 9
-image: /images/blog/appareil-acouphenes/appareil-acouphenes.webp
-ogImage: /images/blog/appareil-acouphenes/appareil-acouphenes-og.webp
+image: /images/blog/appareil-auditif/appareil-auditif.webp
+ogImage: /images/blog/appareil-auditif/appareil-auditif-og.webp
 relatedGuides:
   - acouphenes/index
   - acouphenes/traitement

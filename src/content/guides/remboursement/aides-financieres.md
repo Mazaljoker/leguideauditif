@@ -9,8 +9,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 8
-image: /images/blog/aides/aides.webp
-ogImage: /images/blog/aides/aides-og.webp
+image: /images/blog/aides-financieres/aides-financieres.webp
+ogImage: /images/blog/aides-financieres/aides-financieres-og.webp
 relatedGuides:
   - remboursement/index
   - remboursement/mutuelle

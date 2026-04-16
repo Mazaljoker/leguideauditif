@@ -6,8 +6,8 @@ publishDate: 2026-04-07
 updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
-image: /images/blog/phonak-vs-signia/phonak-vs-signia.webp
-ogImage: /images/blog/phonak-vs-signia/phonak-vs-signia-og.webp
+image: /images/blog/phonak-vs-signia-vs-resound/phonak-vs-signia-vs-resound.webp
+ogImage: /images/blog/phonak-vs-signia-vs-resound/phonak-vs-signia-vs-resound-og.webp
 products:
   - brand: Phonak
     model: Audéo Lumity L90

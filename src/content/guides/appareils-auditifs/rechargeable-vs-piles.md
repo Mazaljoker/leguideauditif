@@ -9,8 +9,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 10
-image: /images/blog/rechargeable/rechargeable.webp
-ogImage: /images/blog/rechargeable/rechargeable-og.webp
+image: /images/blog/rechargeable-vs-piles/rechargeable-vs-piles.webp
+ogImage: /images/blog/rechargeable-vs-piles/rechargeable-vs-piles-og.webp
 relatedGuides:
   - appareils-auditifs/index
   - appareils-auditifs/types

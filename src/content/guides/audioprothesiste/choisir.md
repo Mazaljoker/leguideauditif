@@ -8,8 +8,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 9
-image: /images/blog/choisir-audio/choisir-audio.webp
-ogImage: /images/blog/choisir-audio/choisir-audio-og.webp
+image: /images/blog/choisir/choisir.webp
+ogImage: /images/blog/choisir/choisir-og.webp
 relatedGuides:
   - audioprothesiste/index
   - audioprothesiste/premier-rdv

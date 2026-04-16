@@ -6,8 +6,8 @@ publishDate: 2026-04-07
 updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
-image: /images/blog/classe-1/classe-1.webp
-ogImage: /images/blog/classe-1/classe-1-og.webp
+image: /images/blog/meilleur-appareil-classe-1/meilleur-appareil-classe-1.webp
+ogImage: /images/blog/meilleur-appareil-classe-1/meilleur-appareil-classe-1-og.webp
 products:
   - brand: Phonak
     model: Audéo Life L30

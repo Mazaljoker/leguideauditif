@@ -9,8 +9,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE"
 readingTime: 7
-image: /images/blog/rac-zero/rac-zero.webp
-ogImage: /images/blog/rac-zero/rac-zero-og.webp
+image: /images/blog/reste-a-charge-zero/reste-a-charge-zero.webp
+ogImage: /images/blog/reste-a-charge-zero/reste-a-charge-zero-og.webp
 relatedGuides:
   - remboursement/index
   - remboursement/100-sante-audition

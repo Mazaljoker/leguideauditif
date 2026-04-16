@@ -9,8 +9,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 9
-image: /images/blog/protections/protections.webp
-ogImage: /images/blog/protections/protections-og.webp
+image: /images/blog/protections-auditives/protections-auditives.webp
+ogImage: /images/blog/protections-auditives/protections-auditives-og.webp
 relatedGuides:
   - prevention/index
   - prevention/bruit-travail

@@ -8,8 +8,8 @@ updatedDate: 2026-04-12
 author: Franck-Olivier
 authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
 readingTime: 8
-image: /images/blog/depistage/depistage.webp
-ogImage: /images/blog/depistage/depistage-og.webp
+image: /images/blog/depistage-auditif/depistage-auditif.webp
+ogImage: /images/blog/depistage-auditif/depistage-auditif-og.webp
 relatedGuides:
   - prevention/index
   - perte-auditive/symptomes
