@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { DEPARTEMENTS } from '../../lib/departements';
+
+// Grouper les départements par région
+const regionMap = new Map<string, typeof DEPARTEMENTS>();
+for (const dep of DEPARTEMENTS) {
+  if (!regionMap.has(dep.region)) {
+    regionMap.set(dep.region, []);
+  }
+  regionMap.get(dep.region)!.push(dep);
+}
+
+// Trier les régions par nom
+const regions = Array.from(regionMap.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Audioprothésistes en France' },
+];
+
+const title = 'Audioprothésistes en France : annuaire par département et ville';
+const description = 'Trouvez un audioprothésiste près de chez vous. 7 654 centres auditifs référencés dans 96 départements. Annuaire indépendant par un audioprothésiste DE.';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url: 'https://leguideauditif.fr/audioprothesiste/',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'LeGuideAuditif.fr',
+      url: 'https://leguideauditif.fr',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <div class="bg-creme">
+    <div class="max-w-[1140px] mx-auto px-5 py-4">
+      <Breadcrumbs items={breadcrumbs} includeSchema={false} />
+    </div>
+  </div>
+
+  <section class="bg-creme py-12">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <header class="mb-10 text-center">
+        <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-4">
+          Audioprothésistes en France
+        </h1>
+        <p class="text-gris-texte text-lg max-w-[640px] mx-auto mb-4">
+          7 654 centres auditifs référencés dans 96 départements.
+          Trouvez un professionnel qualifié près de chez vous.
+        </p>
+        <a
+          href="/trouver-audioprothesiste/"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-orange text-white font-sans font-semibold rounded-md hover:bg-orange-hover transition-colors no-underline hover:no-underline"
+        >
+          Voir la carte interactive
+        </a>
+      </header>
+
+      <!-- Intro expert -->
+      <div class="max-w-[700px] mx-auto text-gris-texte text-base leading-relaxed mb-12 space-y-3">
+        <p>
+          Cet annuaire recense tous les centres audioprothésistes de France
+          à partir des données publiques FINESS. Les professionnels peuvent
+          <a href="/revendiquer-gratuit/" class="text-orange hover:underline">revendiquer leur fiche gratuitement</a>
+          pour la compléter avec leurs horaires, spécialités et photos.
+        </p>
+        <p>
+          Mon conseil : comparez toujours au moins deux devis avant de vous engager.
+          Et vérifiez que l'audioprothésiste est présent au centre au moins 4 jours par semaine
+          — le suivi dure 4 ans, autant que ce soit le même professionnel.
+        </p>
+      </div>
+
+      <!-- Départements par région -->
+      {regions.map(([region, deps]) => (
+        <div class="mb-8">
+          <h2 class="font-sans text-xl font-bold text-marine mb-3 border-b border-gris-clair pb-2">
+            {region}
+          </h2>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+            {deps.map((dep) => (
+              <a
+                href={`/audioprothesiste/departement/${dep.slug}/`}
+                class="bg-blanc rounded-lg px-4 py-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-md hover:-translate-y-0.5 transition-all no-underline hover:no-underline"
+              >
+                <span class="font-sans text-sm font-medium text-marine">{dep.nom}</span>
+                <span class="text-xs text-gris-texte ml-1">({dep.code})</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

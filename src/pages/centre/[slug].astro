@@ -21,6 +21,7 @@ import CentreStats from '../../components/centre/CentreStats.astro';
 import CentreMap from '../../components/centre/CentreMap.astro';
 
 import { supabase } from '../../lib/supabase';
+import { getDepartementByCode, slugifyVille } from '../../lib/departements';
 import type { CentreData } from '../../types/centre';
 
 const { slug } = Astro.params;
@@ -81,10 +82,18 @@ const pageDescription = isRpps
   ? `${typedCentre.nom}, audioprothésiste à ${displayVille}. Demandez un bilan auditif gratuit près de chez vous.`
   : `${typedCentre.nom}, audioprothésiste à ${displayVille}. Coordonnées, horaires et prise de rendez-vous.`;
 
+// Maillage silo : Audioprothésistes → Département → Ville → Centre
+const centreCp = typedCentre.cp || '';
+const centreDepCode = centreCp.substring(0, 2) === '97' ? centreCp.substring(0, 3) : centreCp.substring(0, 2);
+const centreDepInfo = getDepartementByCode(centreDepCode);
+const centreVilleSlug = typedCentre.ville ? slugifyVille(typedCentre.ville) : '';
+
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
-  { label: 'Trouver un audioprothésiste', href: '/trouver-audioprothesiste/' },
-  { label: `${typedCentre.nom}, ${displayVille}` },
+  { label: 'Audioprothésistes', href: '/audioprothesiste/' },
+  ...(centreDepInfo ? [{ label: centreDepInfo.nom, href: `/audioprothesiste/departement/${centreDepInfo.slug}/` }] : []),
+  ...(centreVilleSlug ? [{ label: displayVille, href: `/audioprothesiste/${centreVilleSlug}/` }] : []),
+  { label: typedCentre.nom },
 ];
 
 const schema: Record<string, unknown> = {
