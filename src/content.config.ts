@@ -227,4 +227,29 @@ const plateformes = defineCollection({
   }),
 });
 
-export const collections = { guides, comparatifs, catalogueAppareils, plateformes };
+const enseignes = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/enseignes' }),
+  schema: z.object({
+    title: z.string(),
+    metaTitle: z.string().optional(),
+    metaDescription: z.string().max(160),
+    enseigne: z.string(),
+    enseigneSlug: z.string(),
+    publishDate: z.coerce.date(),
+    updateDate: z.coerce.date().optional(),
+    author: z.string().default('Franck-Olivier'),
+    authorTitle: z.string().default('Audioprothésiste DE'),
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        }),
+      )
+      .optional(),
+    image: z.string().optional(),
+    ogImage: z.string().optional(),
+  }),
+});
+
+export const collections = { guides, comparatifs, catalogueAppareils, plateformes, enseignes };
