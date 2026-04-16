@@ -56,6 +56,20 @@ const articleSchema = {
     description: "Audioprothésiste DE, 28 ans d'expérience — Amplifon, Audika, 18 centres Afflelou, 5 ans Auzen.com, 3 000+ patients.",
     url: 'https://leguideauditif.fr/auteur/franck-olivier/',
     sameAs: ['https://www.linkedin.com/in/franck-olivier-chabbat-/'],
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'degree',
+        name: "Diplôme d'État d'audioprothésiste",
+        recognizedBy: { '@type': 'Organization', name: 'Ministère de la Santé' },
+      },
+    ],
+    identifier: {
+      '@type': 'PropertyValue',
+      propertyID: 'ADELI',
+      value: '692606494',
+      description: 'Numéro ADELI — Répertoire national des professionnels de santé',
+    },
   },
   datePublished: publishDate.toISOString(),
   ...(updateDate && { dateModified: updateDate.toISOString() }),
