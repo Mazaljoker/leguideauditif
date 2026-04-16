@@ -1,0 +1,65 @@
+---
+import { getCollection, render } from 'astro:content';
+import EnseigneLayout from '../../layouts/EnseigneLayout.astro';
+import LeadForm from '../../components/LeadForm.tsx';
+import { supabase } from '../../lib/supabase';
+
+export async function getStaticPaths() {
+  const enseignes = await getCollection('enseignes');
+  return enseignes.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const {
+  title,
+  metaTitle,
+  metaDescription,
+  enseigne,
+  enseigneSlug,
+  author,
+  authorTitle,
+  publishDate,
+  updateDate,
+  faq,
+  image,
+  ogImage,
+} = entry.data;
+
+// Compter les centres de cette enseigne en base
+let centresCount = 0;
+if (enseigneSlug) {
+  const { count } = await supabase
+    .from('centres_auditifs')
+    .select('id', { count: 'exact', head: true })
+    .ilike('nom', `%${enseigneSlug}%`);
+  centresCount = count ?? 0;
+}
+---
+
+<EnseigneLayout
+  title={title}
+  metaTitle={metaTitle}
+  metaDescription={metaDescription}
+  enseigne={enseigne}
+  author={author}
+  authorTitle={authorTitle}
+  publishDate={publishDate}
+  updateDate={updateDate}
+  headings={headings}
+  faq={faq}
+  image={image}
+  ogImage={ogImage}
+  centresCount={centresCount}
+>
+  <Content />
+
+  <section class="mt-12 bg-blanc rounded-2xl p-8 shadow-[0_2px_12px_rgba(27,46,74,0.06)]">
+    <h2 class="font-sans text-2xl font-bold text-marine mb-4">Demandez un devis gratuit</h2>
+    <p class="text-gris-texte mb-6">Comparez les offres de plusieurs audioprothésistes près de chez vous, en toute indépendance.</p>
+    <LeadForm client:visible />
+  </section>
+</EnseigneLayout>

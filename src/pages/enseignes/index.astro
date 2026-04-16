@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+
+const enseignes = await getCollection('enseignes');
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Enseignes' },
+];
+---
+
+<BaseLayout
+  title="Les enseignes d'audioprothésistes en France — LeGuideAuditif.fr"
+  description="Notre avis d'audioprothésiste DE sur les grandes enseignes : Amplifon, Audika, Afflelou, Audition Conseil, Audilab. Retour terrain après 28 ans de pratique."
+  schema={{
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+    })),
+  }}
+>
+  <div class="bg-creme">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+  <section class="bg-creme py-16">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <h1 class="font-sans text-[38px] font-extrabold text-marine text-center mb-4">Les enseignes d'audioprothésistes</h1>
+      <p class="text-center text-gris-texte text-lg mb-6 max-w-[640px] mx-auto">
+        Un regard de professionnel sur les grandes enseignes du marché.
+      </p>
+      <div class="max-w-[700px] mx-auto text-gris-texte text-base leading-relaxed mb-12 space-y-3">
+        <p>
+          En 28 ans de carrière, j'ai travaillé chez Amplifon, Audika, dans 18 centres Alain Afflelou Acousticien et 5 ans chez Auzen.com. Je connais ces enseignes de l'intérieur : leur fonctionnement, leurs gammes, leurs points forts et leurs limites.
+        </p>
+        <p>
+          Ces fiches ne sont ni sponsorisées ni influencées par les enseignes. Mon objectif : vous donner les clés pour choisir en connaissance de cause, que vous préfériez un réseau national ou un <a href="/guides/audioprothesiste/choisir/" class="text-orange hover:underline">audioprothésiste indépendant</a>.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {enseignes.map((entry) => (
+          <a
+            href={`/enseignes/${entry.id}/`}
+            class="bg-blanc rounded-xl p-6 shadow-[0_2px_8px_rgba(27,46,74,0.06)] hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline hover:no-underline"
+          >
+            <h3 class="font-sans text-lg font-bold text-marine mb-2">{entry.data.enseigne}</h3>
+            <p class="text-sm text-gris-texte leading-relaxed">{entry.data.metaDescription}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
