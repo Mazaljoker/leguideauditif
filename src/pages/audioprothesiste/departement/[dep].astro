@@ -1,0 +1,292 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import LeadForm from '../../../components/LeadForm.tsx';
+import { supabase } from '../../../lib/supabase';
+import { DEPARTEMENTS, getDepartementBySlug, slugifyVille } from '../../../lib/departements';
+import type { DepartementInfo } from '../../../lib/departements';
+
+const { dep } = Astro.params;
+const depInfo = getDepartementBySlug(dep || '');
+
+if (!depInfo) {
+  return Astro.redirect('/trouver-audioprothesiste/');
+}
+
+// Récupérer les centres du département (par code postal)
+const cpPrefix = depInfo.code.length === 3 ? depInfo.code : depInfo.code.padStart(2, '0');
+const PAGE_SIZE = 1000;
+let allCentres: any[] = [];
+let offset = 0;
+let hasMore = true;
+
+while (hasMore) {
+  const { data: batch } = await supabase
+    .from('centres_auditifs')
+    .select('id, slug, nom, adresse, cp, ville, departement, lat, lng, tel, is_premium, plan')
+    .like('cp', `${cpPrefix}%`)
+    .not('lat', 'is', null)
+    .not('lng', 'is', null)
+    .range(offset, offset + PAGE_SIZE - 1);
+
+  if (batch && batch.length > 0) {
+    allCentres = [...allCentres, ...batch];
+    offset += PAGE_SIZE;
+    hasMore = batch.length === PAGE_SIZE;
+  } else {
+    hasMore = false;
+  }
+}
+
+// Grouper par ville et compter
+const villeMap = new Map<string, { count: number; ville: string; slug: string }>();
+for (const c of allCentres) {
+  const v = c.ville || 'Autre';
+  if (!villeMap.has(v)) {
+    villeMap.set(v, { count: 0, ville: v, slug: slugifyVille(v) });
+  }
+  villeMap.get(v)!.count++;
+}
+const villes = Array.from(villeMap.values()).sort((a, b) => b.count - a.count);
+const topVilles = villes.slice(0, 30);
+
+const centresCount = allCentres.length;
+const villesCount = villes.length;
+const claimedCount = allCentres.filter((c) => c.plan === 'claimed' || c.plan === 'premium').length;
+
+// Déterminer le niveau de dotation
+const densiteLabel = centresCount < 20 ? 'sous-doté' : centresCount < 60 ? 'moyennement doté' : 'bien doté';
+const densiteColor = centresCount < 20 ? 'text-red-600' : centresCount < 60 ? 'text-orange' : 'text-green-700';
+
+const title = `Audioprothésiste ${depInfo.nom} (${depInfo.code}) : ${centresCount} centres`;
+const description = `Trouvez un audioprothésiste dans le ${depInfo.nom} (${depInfo.code}). ${centresCount} centres auditifs référencés, ${villesCount} villes couvertes. Annuaire indépendant par un audioprothésiste DE.`;
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Audioprothésistes', href: '/audioprothesiste/' },
+  { label: `${depInfo.nom} (${depInfo.code})` },
+];
+
+// FAQ dynamique
+const faq = [
+  {
+    question: `Combien d'audioprothésistes y a-t-il dans le ${depInfo.nom} ?`,
+    answer: `Nous référençons ${centresCount} centres auditifs dans le ${depInfo.nom} (${depInfo.code}), répartis dans ${villesCount} villes. ${claimedCount > 0 ? `${claimedCount} d'entre eux ont vérifié et complété leur fiche.` : 'Les données proviennent du fichier FINESS (source publique).'}`
+  },
+  {
+    question: `Comment choisir un audioprothésiste dans le ${depInfo.nom} ?`,
+    answer: `Vérifiez d'abord que le professionnel est diplômé d'État (numéro ADELI ou RPPS). Demandez la durée de présence de l'audioprothésiste dans le centre — le suivi dure 4 ans minimum. Comparez toujours au moins deux devis, dont un chez un indépendant.`
+  },
+  {
+    question: `Les appareils auditifs sont-ils remboursés dans le ${depInfo.nom} ?`,
+    answer: `Oui, le remboursement est identique partout en France. Les appareils de classe 1 (100 % Santé) sont intégralement remboursés : reste à charge zéro. Pour la classe 2, le remboursement dépend de votre mutuelle. Le département n'a aucun impact sur le tarif ou le remboursement.`
+  },
+];
+
+// Schema.org
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url: `https://leguideauditif.fr/audioprothesiste/departement/${dep}/`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'LeGuideAuditif.fr',
+      url: 'https://leguideauditif.fr',
+    },
+    about: {
+      '@type': 'MedicalSpecialty',
+      name: 'Audioprothèse',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={schemas}>
+  <div class="bg-creme">
+    <div class="max-w-[1140px] mx-auto px-5 py-4">
+      <Breadcrumbs items={breadcrumbs} includeSchema={false} />
+    </div>
+  </div>
+
+  <section class="bg-creme py-12">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <!-- Header -->
+      <header class="mb-10">
+        <h1 class="font-sans text-[32px] lg:text-[38px] font-extrabold text-marine leading-tight mb-3">
+          Audioprothésiste dans le {depInfo.nom} ({depInfo.code})
+        </h1>
+        <p class="text-gris-texte text-lg max-w-[700px]">
+          {centresCount} centres auditifs référencés dans {villesCount} villes.
+          Département <span class={densiteColor + ' font-semibold'}>{densiteLabel}</span> en audioprothésistes.
+        </p>
+      </header>
+
+      <!-- Stats rapides -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+          <p class="font-sans text-2xl font-bold text-marine">{centresCount}</p>
+          <p class="text-sm text-gris-texte">centres référencés</p>
+        </div>
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+          <p class="font-sans text-2xl font-bold text-marine">{villesCount}</p>
+          <p class="text-sm text-gris-texte">villes couvertes</p>
+        </div>
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+          <p class="font-sans text-2xl font-bold text-marine">{claimedCount}</p>
+          <p class="text-sm text-gris-texte">fiches vérifiées</p>
+        </div>
+        <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+          <p class="font-sans text-2xl font-bold text-orange">{depInfo.region}</p>
+          <p class="text-sm text-gris-texte">région</p>
+        </div>
+      </div>
+
+      <!-- Contenu expert contextuel -->
+      <div class="bg-blanc rounded-xl p-6 mb-10 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
+        <h2 class="font-sans text-xl font-bold text-marine mb-3">Trouver un audioprothésiste dans le {depInfo.nom}</h2>
+        {centresCount < 20 ? (
+          <p class="text-gris-texte leading-relaxed mb-3">
+            Le {depInfo.nom} fait partie des départements <strong class="text-red-600">sous-dotés</strong> en audioprothésistes.
+            Avec seulement {centresCount} centres pour l'ensemble du département, les délais de rendez-vous peuvent être plus longs
+            et les possibilités de comparaison limitées. Si vous êtes dans cette situation, pensez à élargir votre recherche
+            aux départements voisins ou à consulter un audioprothésiste en <a href="/guides/audioprothesiste/teleaudiologie/" class="text-orange hover:underline">téléaudiologie</a>.
+          </p>
+        ) : centresCount < 60 ? (
+          <p class="text-gris-texte leading-relaxed mb-3">
+            Le {depInfo.nom} dispose d'une couverture correcte en audioprothésistes, avec {centresCount} centres
+            répartis dans {villesCount} villes. Vous devriez pouvoir comparer au moins 2 à 3 devis sans difficulté
+            dans les principales agglomérations du département.
+          </p>
+        ) : (
+          <p class="text-gris-texte leading-relaxed mb-3">
+            Le {depInfo.nom} est <strong class="text-green-700">bien doté</strong> en audioprothésistes, avec {centresCount} centres.
+            La concurrence entre professionnels joue en votre faveur : vous avez le choix entre les grandes enseignes
+            (<a href="/enseignes/amplifon/" class="text-orange hover:underline">Amplifon</a>,
+            <a href="/enseignes/audika/" class="text-orange hover:underline">Audika</a>,
+            <a href="/enseignes/afflelou/" class="text-orange hover:underline">Afflelou</a>)
+            et des indépendants. Comparez toujours au moins deux devis.
+          </p>
+        )}
+        <p class="text-gris-texte leading-relaxed">
+          Mon conseil d'audioprothésiste : quel que soit le département, la qualité de votre appareillage dépend
+          du professionnel qui vous suit, pas de l'enseigne. Vérifiez son diplôme d'État, sa présence régulière
+          au centre, et demandez le <a href="/guides/remboursement/devis/" class="text-orange hover:underline">devis normalisé</a> (c'est obligatoire).
+        </p>
+      </div>
+
+      <!-- Villes du département (maillage silo) -->
+      <div class="mb-10">
+        <h2 class="font-sans text-xl font-bold text-marine mb-4">
+          Villes avec des audioprothésistes dans le {depInfo.nom}
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {topVilles.map((v) => (
+            <a
+              href={`/audioprothesiste/${v.slug}/`}
+              class="bg-blanc rounded-lg px-4 py-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-md hover:-translate-y-0.5 transition-all no-underline hover:no-underline flex justify-between items-center"
+            >
+              <span class="font-sans text-sm font-medium text-marine">{v.ville}</span>
+              <span class="text-xs text-gris-texte bg-creme px-2 py-0.5 rounded-full">{v.count}</span>
+            </a>
+          ))}
+        </div>
+        {villes.length > 30 && (
+          <p class="text-sm text-gris-texte mt-3">
+            Et {villes.length - 30} autres villes dans le {depInfo.nom}.
+            <a href="/trouver-audioprothesiste/" class="text-orange hover:underline">Voir la carte complète</a>
+          </p>
+        )}
+      </div>
+
+      <!-- Liste des centres (top 20) -->
+      <div class="mb-10">
+        <h2 class="font-sans text-xl font-bold text-marine mb-4">
+          Centres auditifs dans le {depInfo.nom}
+        </h2>
+        <div class="space-y-3">
+          {allCentres.slice(0, 20).map((c) => (
+            <a
+              href={`/centre/${c.slug}/`}
+              class="block bg-blanc rounded-xl p-4 shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-md transition-shadow no-underline hover:no-underline"
+            >
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-sans text-base font-semibold text-marine">{c.nom}</h3>
+                  <p class="text-sm text-gris-texte">{c.adresse} — {c.cp} {c.ville}</p>
+                  {c.tel && <p class="text-sm text-orange mt-1">{c.tel}</p>}
+                </div>
+                {(c.plan === 'claimed' || c.plan === 'premium') && (
+                  <span class="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-sans font-medium shrink-0">
+                    Fiche vérifiée
+                  </span>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+        {allCentres.length > 20 && (
+          <p class="text-sm text-gris-texte mt-4 text-center">
+            {allCentres.length - 20} autres centres dans le {depInfo.nom}.
+            <a href="/trouver-audioprothesiste/" class="text-orange hover:underline">Voir tous sur la carte</a>
+          </p>
+        )}
+      </div>
+
+      <!-- FAQ -->
+      <div class="mb-10">
+        <h2 class="font-sans text-xl font-bold text-marine mb-4">Questions fréquentes</h2>
+        {faq.map((f) => (
+          <details class="bg-blanc rounded-xl mb-3 shadow-[0_1px_4px_rgba(27,46,74,0.05)] group">
+            <summary class="px-6 py-5 font-sans text-[17px] font-semibold text-marine cursor-pointer list-none flex justify-between items-center">
+              <span>{f.question}</span>
+              <span class="text-xl transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <div class="px-6 pb-5 text-gris-texte text-base leading-relaxed">{f.answer}</div>
+          </details>
+        ))}
+      </div>
+
+      <!-- LeadForm -->
+      <div class="bg-blanc rounded-2xl p-8 shadow-[0_2px_12px_rgba(27,46,74,0.06)] mb-10">
+        <h2 class="font-sans text-2xl font-bold text-marine mb-4">Demandez un devis gratuit dans le {depInfo.nom}</h2>
+        <p class="text-gris-texte mb-6">Comparez les offres de plusieurs audioprothésistes près de chez vous, en toute indépendance.</p>
+        <LeadForm client:visible />
+      </div>
+
+      <!-- Maillage vers guides -->
+      <div class="text-sm text-gris-texte space-y-1">
+        <p>Guides connexes :</p>
+        <ul class="flex flex-wrap gap-x-4 gap-y-1">
+          <li><a href="/guides/audioprothesiste/choisir/" class="text-orange hover:underline">Comment choisir son audioprothésiste</a></li>
+          <li><a href="/guides/remboursement/prix-appareil-auditif/" class="text-orange hover:underline">Prix des appareils auditifs</a></li>
+          <li><a href="/guides/remboursement/100-sante-audition/" class="text-orange hover:underline">100 % Santé Audition</a></li>
+          <li><a href="/guides/audioprothesiste/premier-rdv/" class="text-orange hover:underline">Premier rendez-vous</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
