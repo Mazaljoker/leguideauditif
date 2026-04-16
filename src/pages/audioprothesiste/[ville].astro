@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import LeadForm from '../../components/LeadForm.tsx';
 import { supabase } from '../../lib/supabase';
-import { getDepartementByCode, slugifyVille } from '../../lib/departements';
+import { getDepartementByCode, slugifyVille, formatVilleName, normalizeVilleBase, prepositionDepartement } from '../../lib/departements';
 
 const { ville: villeSlug } = Astro.params;
 
@@ -45,8 +45,8 @@ if (allCentres.length === 0) {
   return Astro.redirect('/audioprothesiste/');
 }
 
-// Extraire les infos de la ville
-const villeName = allCentres[0].ville;
+// Extraire les infos de la ville (nom formaté, arrondissements regroupés en "Paris", "Lyon"...)
+const villeName = formatVilleName(normalizeVilleBase(allCentres[0].ville || ''));
 const cp = allCentres[0].cp || '';
 const depCode = cp.substring(0, 2) === '97' ? cp.substring(0, 3) : cp.substring(0, 2);
 const depInfo = getDepartementByCode(depCode);
@@ -67,8 +67,8 @@ allCentres.sort((a, b) => {
 const avgLat = allCentres.reduce((sum, c) => sum + c.lat, 0) / allCentres.length;
 const avgLng = allCentres.reduce((sum, c) => sum + c.lng, 0) / allCentres.length;
 
-const title = `Audioprothésiste à ${villeName} : ${centresCount} centres auditifs`;
-const description = `Trouvez un audioprothésiste à ${villeName}${depInfo ? ` (${depInfo.nom})` : ''}. ${centresCount} centres référencés. Comparez les prix, prenez RDV. Annuaire indépendant.`;
+const title = `Audioprothésiste à ${villeName}${depInfo ? ` (${depInfo.code})` : ''}`;
+const description = `Trouvez un audioprothésiste à ${villeName}${depInfo ? `, ${depInfo.nom}` : ''}. Comparez les prix, vérifiez les diplômes, prenez rendez-vous. Annuaire indépendant rédigé par un audioprothésiste DE.`;
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
@@ -80,16 +80,16 @@ const breadcrumbs = [
 // FAQ dynamique
 const faq = [
   {
-    question: `Combien d'audioprothésistes y a-t-il à ${villeName} ?`,
-    answer: `Nous référençons ${centresCount} centres auditifs à ${villeName}. ${claimedCount > 0 ? `${claimedCount} d'entre eux ont vérifié et complété leur fiche sur LeGuideAuditif.fr.` : 'Les données proviennent du fichier FINESS (source publique).'}`
+    question: `Comment trouver un audioprothésiste à ${villeName} ?`,
+    answer: `Consultez la liste ci-dessous pour voir les centres auditifs à ${villeName}. Cliquez sur une fiche pour obtenir les coordonnées et horaires. Vous pouvez aussi utiliser notre formulaire de devis gratuit : un audioprothésiste diplômé d'État proche de ${villeName} vous rappelle sous 48 heures.`
   },
   {
     question: `Quel est le prix d'un appareil auditif à ${villeName} ?`,
-    answer: `Les prix sont identiques partout en France. En classe 1 (100 % Santé), le reste à charge est de 0 euro. En classe 2, comptez de 850 à 2 400 euros par oreille selon la gamme et l'enseigne, avant remboursement par la Sécurité sociale et votre mutuelle.`
+    answer: `Les prix sont identiques partout en France. En classe 1 (100 % Santé), le reste à charge est de 0 euro. En classe 2, comptez de 850 à 2 400 euros par oreille selon la gamme, avant remboursement par la Sécurité sociale et votre mutuelle.`
   },
   {
-    question: `Comment prendre rendez-vous avec un audioprothésiste à ${villeName} ?`,
-    answer: `Cliquez sur la fiche du centre qui vous intéresse pour voir ses coordonnées et horaires. Vous pouvez aussi utiliser notre formulaire de devis gratuit : un audioprothésiste qualifié proche de ${villeName} vous rappelle sous 48 heures.`
+    question: `Quelles sont les obligations d'un audioprothésiste à ${villeName} ?`,
+    answer: `Un audioprothésiste exerçant à ${villeName} doit être diplômé d'État (numéro ADELI ou RPPS vérifiable), remettre un devis normalisé avant toute vente, et assurer un suivi sur 4 ans minimum. L'essai gratuit de 30 jours est obligatoire avant achat.`
   },
 ];
 
@@ -144,72 +144,35 @@ const schemas = [
           Audioprothésiste à {villeName}
         </h1>
         <p class="text-gris-texte text-lg max-w-[700px]">
-          {centresCount} centres auditifs référencés{depInfo ? ` dans le ${depInfo.nom}` : ''}.
-          {claimedCount > 0 ? ` ${claimedCount} fiches vérifiées par les professionnels.` : ''}
+          Centres auditifs à {villeName}{depInfo && villeName !== depInfo.nom ? ` (${depInfo.nom}, ${depInfo.code})` : depInfo ? ` (${depInfo.code})` : ''}, référencés à partir des données publiques FINESS.
+          {depInfo && villeName !== depInfo.nom && (
+            <>
+              {' '}Voir aussi <a href={`/audioprothesiste/departement/${depInfo.slug}/`} class="text-orange hover:underline">tous les audioprothésistes {prepositionDepartement(depInfo.nom).de}</a>.
+            </>
+          )}
         </p>
       </header>
-
-      <!-- Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
-        <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
-          <p class="font-sans text-2xl font-bold text-marine">{centresCount}</p>
-          <p class="text-sm text-gris-texte">centres à {villeName}</p>
-        </div>
-        <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
-          <p class="font-sans text-2xl font-bold text-marine">{claimedCount}</p>
-          <p class="text-sm text-gris-texte">fiches vérifiées</p>
-        </div>
-        {depInfo && (
-          <div class="bg-blanc rounded-xl p-5 text-center shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
-            <a href={`/audioprothesiste/departement/${depInfo.slug}/`} class="no-underline hover:no-underline">
-              <p class="font-sans text-2xl font-bold text-orange">{depInfo.nom}</p>
-              <p class="text-sm text-gris-texte">département ({depInfo.code})</p>
-            </a>
-          </div>
-        )}
-      </div>
 
       <!-- Conseil expert contextuel -->
       <div class="bg-blanc rounded-xl p-6 mb-10 shadow-[0_1px_4px_rgba(27,46,74,0.05)]">
         <h2 class="font-sans text-xl font-bold text-marine mb-3">Bien choisir son audioprothésiste à {villeName}</h2>
-        {centresCount <= 3 && (
-          <p class="text-gris-texte leading-relaxed mb-3">
-            Avec {centresCount} centre{centresCount > 1 ? 's' : ''} à {villeName}, le choix est limité.
-            Si aucun ne vous convient, élargissez votre recherche aux communes voisines
-            {depInfo && <Fragment> via la page <a href={`/audioprothesiste/departement/${depInfo.slug}/`} class="text-orange hover:underline">{depInfo.nom}</a></Fragment>}.
-            Vous pouvez aussi consulter un audioprothésiste en
-            <a href="/guides/audioprothesiste/teleaudiologie/" class="text-orange hover:underline">téléaudiologie</a> pour un premier avis.
-          </p>
-        )}
-        {centresCount > 3 && centresCount <= 10 && (
-          <p class="text-gris-texte leading-relaxed mb-3">
-            {villeName} dispose de {centresCount} centres auditifs, ce qui vous permet de comparer
-            au moins 2 à 3 devis — c'est le minimum que je recommande à tous mes patients.
-            Vous y trouverez probablement un mix d'enseignes nationales et d'indépendants.
-          </p>
-        )}
-        {centresCount > 10 && (
-          <p class="text-gris-texte leading-relaxed mb-3">
-            Avec {centresCount} centres, {villeName} offre un large choix. La concurrence joue en votre faveur :
-            n'hésitez pas à comparer les devis entre
-            <a href="/enseignes/amplifon/" class="text-orange hover:underline">Amplifon</a>,
-            <a href="/enseignes/audika/" class="text-orange hover:underline">Audika</a>,
-            <a href="/enseignes/afflelou/" class="text-orange hover:underline">Afflelou</a>
-            et les indépendants. Les écarts de prix en classe 2 peuvent atteindre 200 à 400 euros par oreille
-            pour le même appareil.
-          </p>
-        )}
+        <p class="text-gris-texte leading-relaxed mb-3">
+          Quel que soit le nombre de centres à {villeName}, ce qui compte vraiment, c'est la qualité de l'audioprothésiste
+          qui vous suivra pendant 4 ans. Les écarts de prix en classe 2 peuvent atteindre 200 à 400 euros par oreille
+          pour le même appareil — d'où l'intérêt de comparer plusieurs <a href="/devis/" class="text-orange hover:underline">devis gratuits</a>
+          avant de vous engager.
+        </p>
         <p class="text-gris-texte leading-relaxed">
-          Trois vérifications avant de signer : le diplôme d'État (ADELI/RPPS), la présence régulière
-          de l'audioprothésiste au centre, et le
-          <a href="/guides/remboursement/devis/" class="text-orange hover:underline">devis normalisé</a> obligatoire.
+          Trois vérifications avant de signer : le diplôme d'État (ADELI ou RPPS), la présence régulière
+          de l'audioprothésiste au centre (le suivi dure 4 ans), et le
+          <a href="/guides/remboursement/devis/" class="text-orange hover:underline">devis normalisé</a> obligatoire (arrêté du 14 novembre 2018).
         </p>
       </div>
 
       <!-- Liste des centres -->
       <div class="mb-10">
         <h2 class="font-sans text-xl font-bold text-marine mb-4">
-          Les {centresCount} centres auditifs à {villeName}
+          Centres auditifs à {villeName}
         </h2>
         <div class="space-y-3">
           {allCentres.map((c) => (
@@ -220,7 +183,7 @@ const schemas = [
               <div class="flex justify-between items-start">
                 <div>
                   <h3 class="font-sans text-base font-semibold text-marine">{c.nom}</h3>
-                  <p class="text-sm text-gris-texte">{c.adresse} — {c.cp} {c.ville}</p>
+                  <p class="text-sm text-gris-texte">{c.adresse} — {c.cp} {formatVilleName(c.ville || '')}</p>
                   {c.tel && <p class="text-sm text-orange mt-1">{c.tel}</p>}
                 </div>
                 <div class="flex flex-col items-end gap-1 shrink-0">

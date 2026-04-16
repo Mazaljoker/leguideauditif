@@ -124,12 +124,71 @@ export function getDepartementByCode(code: string): DepartementInfo | undefined 
   return DEPARTEMENTS.find((d) => d.code === code);
 }
 
-/** Slugify une ville pour l'URL */
+/** Slugify une ville pour l'URL — regroupe les arrondissements (Paris 15e → paris) */
 export function slugifyVille(ville: string): string {
-  return ville
+  return normalizeVilleBase(ville)
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
+}
+
+/**
+ * Supprime les suffixes d'arrondissement pour regrouper :
+ * "Paris 15e" → "Paris", "LYON 7EME" → "LYON", "MARSEILLE 01" → "MARSEILLE"
+ */
+export function normalizeVilleBase(ville: string): string {
+  return ville
+    .replace(/\s+\d+\s*(er|ère|eme|ème|e)?(\s+arr\.?(ondissement)?)?$/i, '')
+    .replace(/\s+arr\.?(ondissement)?$/i, '')
+    .trim();
+}
+
+/**
+ * Retourne la préposition française correcte pour parler d'un département.
+ * Ex: "le Rhône" → "du Rhône", "les Yvelines" → "des Yvelines", "Paris" → "de Paris".
+ * Renvoie aussi le déterminant complet pour les formulations "dans ...".
+ */
+export function prepositionDepartement(nom: string): { de: string; dans: string } {
+  // Départements sans article : Paris, Guyane, Mayotte, Martinique, Guadeloupe, La Réunion, Corse (partiel)
+  const sansArticle = ['Paris', 'Guadeloupe', 'Martinique', 'Guyane', 'Mayotte', 'La Réunion', 'Corse-du-Sud', 'Haute-Corse'];
+  if (sansArticle.includes(nom)) {
+    return { de: `de ${nom}`, dans: `à ${nom}` };
+  }
+
+  // Départements féminins pluriels (les) : Alpes-Maritimes, Hautes-Alpes, etc.
+  const pluriel = /^(Alpes-|Hautes-Alpes|Alpes-de|Ardennes|Bouches-du|Côtes-d|Deux-Sèvres|Hautes-Pyrénées|Landes|Pyrénées-|Vosges|Yvelines|Hauts-de-Seine)/;
+  if (pluriel.test(nom)) {
+    return { de: `des ${nom}`, dans: `dans les ${nom}` };
+  }
+
+  // Départements commençant par une voyelle → "d'" et "en" / "dans l'"
+  if (/^(A|E|I|O|U|Y|H[aeiouy])/i.test(nom)) {
+    return { de: `d'${nom}`, dans: `dans l'${nom}` };
+  }
+
+  // Par défaut : masculin singulier (le)
+  return { de: `du ${nom}`, dans: `dans le ${nom}` };
+}
+
+/**
+ * Affiche un nom de ville en Title Case ("PARIS" → "Paris", "LA-ROCHE-SUR-YON" → "La Roche-sur-Yon").
+ * Conserve les particules en minuscule (de, du, la, le, sur, etc.).
+ */
+export function formatVilleName(ville: string): string {
+  if (!ville) return '';
+  const particules = new Set(['de', 'du', 'des', 'la', 'le', 'les', 'sur', 'sous', 'en', 'aux', 'et', 'l', 'd']);
+
+  return ville
+    .toLowerCase()
+    .split(/(\s+|-)/)
+    .map((part, idx) => {
+      // Préserve les séparateurs (espaces, tirets)
+      if (/^\s+$/.test(part) || part === '-') return part;
+      // Particules en minuscule, sauf en première position
+      if (idx > 0 && particules.has(part)) return part;
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    })
+    .join('');
 }
