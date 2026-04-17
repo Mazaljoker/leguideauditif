@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'La réponse en 30 secondes' } = Astro.props;
+---
+
+<aside
+  class="not-prose my-8 p-6 bg-orange/10 border-l-4 border-orange rounded-r-xl shadow-sm"
+  aria-label="Réponse directe à la question"
+>
+  <h3 class="flex items-center gap-2 font-sans text-lg font-bold text-marine mb-4">
+    <Icon name="lucide:zap" class="w-5 h-5 text-orange shrink-0" aria-hidden="true" />
+    {title}
+  </h3>
+
+  <div class="font-sans text-marine text-[15px] md:text-base leading-relaxed space-y-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_p]:font-medium">
+    <slot />
+  </div>
+</aside>
