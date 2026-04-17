@@ -65,10 +65,12 @@ export function getGaClientId(): string | null {
 }
 
 // Lit le session_id GA4 depuis le cookie _ga_<MEASUREMENT_ID>.
+// Format observé : GS2.1.s1776420931$o2$g1$t... — le session_id est préfixé
+// par "s" dans les versions récentes de GA4 (octobre 2025+).
 export function getGaSessionId(measurementId: string): string | null {
   const containerId = measurementId.replace(/^G-/, '');
   const raw = readCookie(`_ga_${containerId}`);
   if (!raw) return null;
-  const match = raw.match(/^GS\d\.\d\.(\d+)/);
+  const match = raw.match(/^GS\d\.\d\.s?(\d+)/);
   return match ? match[1] : null;
 }
