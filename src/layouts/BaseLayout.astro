@@ -34,15 +34,36 @@ const props = Astro.props;
     />
     <SEOHead {...props} />
     <slot name="head" />
-    <!-- Google Analytics -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-1GHQCKDVPM"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1GHQCKDVPM');
+    <!-- Tarteaucitron CMP (CNIL-compliant) + GA4 conditionnel -->
+    <script is:inline src="https://cdntag.tarteaucitron.io/load.js"></script>
+    <script is:inline define:vars={{ measurementId: 'G-1GHQCKDVPM' }}>
+      window.tarteaucitronForceLanguage = 'fr';
+      tarteaucitron.init({
+        privacyUrl: '/politique-confidentialite/',
+        bodyPosition: 'top',
+        hashtag: '#tarteaucitron',
+        cookieName: 'tarteaucitron',
+        orientation: 'bottom',
+        groupServices: true,
+        showDetailsOnClick: true,
+        serviceDefaultState: 'wait',
+        showAlertSmall: true,
+        cookieslist: false,
+        closePopup: true,
+        showIcon: true,
+        iconPosition: 'BottomLeft',
+        DenyAllCta: true,
+        AcceptAllCta: true,
+        highPrivacy: true,
+        mandatory: true,
+        mandatoryCta: true,
+        googleConsentMode: false,
+        bingConsentMode: false,
+      });
+      tarteaucitron.user.gtagUa = measurementId;
+      (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
     </script>
-    <!-- Attribution first-touch (UTM, gclid, referrer) — capture à la 1re vue. -->
+    <!-- Attribution first-touch (UTM, gclid, referrer) — cookie first-party CNIL-exempt. -->
     <script>
       import { captureAttribution } from '../lib/tracking';
       captureAttribution();

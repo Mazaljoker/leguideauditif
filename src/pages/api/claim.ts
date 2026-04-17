@@ -195,29 +195,38 @@ export const POST: APIRoute = async ({ request, clientAddress, cookies }) => {
       console.error('Claim attribution insert error:', attrError.message);
     }
 
-    // Measurement Protocol : event serveur-à-serveur immunisé contre adblock / consent refus.
-    // Non bloquant — le claim reste valide même si GA4 est down.
-    void sendMpEvent({
-      clientId: gaClientId,
-      sessionId: gaSessionId,
-      userIpAddress: clientAddress ?? null,
-      userAgent,
-      events: [
-        {
-          name: 'revendication_success',
-          params: {
-            transaction_id: transactionId,
-            event_source: 'server',
-            centre_slug: centreSlug,
-            utm_source: attribution?.utm_source ?? '(direct)',
-            utm_medium: attribution?.utm_medium ?? '(none)',
-            utm_campaign: attribution?.utm_campaign ?? '(none)',
-            gclid: attribution?.gclid ?? undefined,
-            fbclid: attribution?.fbclid ?? undefined,
+    // Measurement Protocol serveur : ne tire QUE si l'utilisateur a consenti via Tarteaucitron.
+    // Cookie tarteaucitron format : "!gtag=true!ga=true!..." (accepté) ou "!gtag=false..." (refusé).
+    // Sans consent explicite = on ne envoie rien à Google (conformité CNIL stricte).
+    const tarteaucitronCookie = cookies.get('tarteaucitron')?.value ?? '';
+    const gtagConsented = /!gtag=true/.test(tarteaucitronCookie) || /!googletagmanager=true/.test(tarteaucitronCookie);
+
+    if (gtagConsented) {
+      // Non bloquant — le claim reste valide même si GA4 est down.
+      void sendMpEvent({
+        clientId: gaClientId,
+        sessionId: gaSessionId,
+        userIpAddress: clientAddress ?? null,
+        userAgent,
+        events: [
+          {
+            name: 'revendication_success',
+            params: {
+              transaction_id: transactionId,
+              event_source: 'server',
+              centre_slug: centreSlug,
+              utm_source: attribution?.utm_source ?? '(direct)',
+              utm_medium: attribution?.utm_medium ?? '(none)',
+              utm_campaign: attribution?.utm_campaign ?? '(none)',
+              gclid: attribution?.gclid ?? undefined,
+              fbclid: attribution?.fbclid ?? undefined,
+            },
           },
-        },
-      ],
-    });
+        ],
+      });
+    }
+    // Si consent refusé : la ligne Supabase claim_attributions est quand même écrite
+    // (cookie first-party CNIL-exempt, stats internes business).
 
     // Generer les tokens pour les liens one-click admin
     const baseUrl = 'https://leguideauditif.fr/api/admin';
