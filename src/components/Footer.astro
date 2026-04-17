@@ -3,8 +3,8 @@ import { Icon } from 'astro-icon/components';
 
 const sections = [
   {
-    id: 'comprendre',
-    title: 'Comprendre',
+    id: 'sante',
+    title: 'Santé auditive',
     links: [
       { href: '/guides/perte-auditive/', label: 'Perte auditive' },
       { href: '/guides/acouphenes/', label: 'Acouphènes' },
@@ -14,28 +14,54 @@ const sections = [
     ],
   },
   {
-    id: 'sequiper',
-    title: "S'équiper",
+    id: 'prix',
+    title: 'Prix & comparatifs',
     links: [
-      { href: '/guides/appareils-auditifs/', label: 'Appareils auditifs' },
-      { href: '/comparatifs/meilleur-appareil-auditif-2026/', label: 'Comparatifs 2026' },
-      { href: '/catalogue/', label: 'Catalogue' },
+      { href: '/guides/remboursement/100-sante-audition/', label: '100% Santé — remboursement' },
+      { href: '/comparatifs/meilleur-appareil-auditif-2026/', label: 'Comparatif 2026' },
+      { href: '/catalogue/', label: 'Catalogue appareils' },
       { href: '/guides/remboursement/', label: 'Prix & remboursement' },
-      { href: '/guides/remboursement/100-sante-audition/', label: '100% Santé' },
+      { href: '/guides/appareils-auditifs/', label: 'Appareils auditifs' },
     ],
   },
   {
     id: 'lesite',
-    title: 'Le site',
+    title: 'Le site & expertise',
     links: [
+      { href: '/auteur/franck-olivier/', label: 'L\u2019auteur — Franck-Olivier' },
       { href: '/a-propos/', label: 'À propos' },
       { href: '/contact/', label: 'Contact' },
       { href: '/faq/', label: 'FAQ' },
       { href: '/glossaire/', label: 'Glossaire' },
       { href: '/annonces/', label: 'Espace pro' },
-      { href: '/offres/', label: 'Nos offres' },
     ],
   },
+];
+
+// Annuaire local tier-2 : 20 grandes villes ≥100k habitants non présentes dans la
+// grille tier-1 de la home (/index.astro ligne 82). Chaque lien pointe vers la page
+// ville correspondante du silo /audioprothesiste/[slug]/.
+const villesTier2 = [
+  { slug: 'grenoble', label: 'Grenoble' },
+  { slug: 'le-havre', label: 'Le Havre' },
+  { slug: 'reims', label: 'Reims' },
+  { slug: 'saint-etienne', label: 'Saint-Étienne' },
+  { slug: 'tours', label: 'Tours' },
+  { slug: 'angers', label: 'Angers' },
+  { slug: 'nimes', label: 'Nîmes' },
+  { slug: 'le-mans', label: 'Le Mans' },
+  { slug: 'aix-en-provence', label: 'Aix-en-Provence' },
+  { slug: 'brest', label: 'Brest' },
+  { slug: 'clermont-ferrand', label: 'Clermont-Ferrand' },
+  { slug: 'dijon', label: 'Dijon' },
+  { slug: 'limoges', label: 'Limoges' },
+  { slug: 'villeurbanne', label: 'Villeurbanne' },
+  { slug: 'besancon', label: 'Besançon' },
+  { slug: 'orleans', label: 'Orléans' },
+  { slug: 'metz', label: 'Metz' },
+  { slug: 'mulhouse', label: 'Mulhouse' },
+  { slug: 'rouen', label: 'Rouen' },
+  { slug: 'caen', label: 'Caen' },
 ];
 
 const year = new Date().getFullYear();
@@ -138,6 +164,35 @@ const year = new Date().getFullYear();
           </div>
         </div>
       ))}
+    </div>
+
+    <!-- Annuaire local tier-2 — distribution link equity sur 20 grandes villes -->
+    <div class="border-t border-white/10 pt-6 pb-8 mb-2">
+      <p class="font-sans text-sm font-bold uppercase tracking-widest mb-3 opacity-60">
+        Trouver un audioprothésiste
+      </p>
+      <nav aria-label="Annuaire local par ville" class="font-sans text-[15px] leading-relaxed">
+        {villesTier2.map((ville, i) => (
+          <>
+            <a
+              href={`/audioprothesiste/${ville.slug}/`}
+              class="text-white opacity-80 hover:opacity-100 hover:text-orange no-underline hover:no-underline"
+            >
+              {ville.label}
+            </a>
+            {i < villesTier2.length - 1 && <span class="opacity-30 mx-2" aria-hidden="true">·</span>}
+          </>
+        ))}
+      </nav>
+      <p class="mt-4">
+        <a
+          href="/audioprothesiste/"
+          class="inline-flex items-center gap-1 font-sans text-sm text-orange hover:underline no-underline"
+        >
+          Voir tous les départements
+          <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+        </a>
+      </p>
     </div>
 
     <!-- Barre légale -->
