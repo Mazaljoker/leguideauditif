@@ -90101,5 +90101,62 @@
     "id": "audio-97438-002",
     "lat": -20.933459,
     "lng": 55.534953
+  },
+  {
+    "nom": "CARRE AUDITION",
+    "enseigne": "CARRE AUDITION",
+    "adresse": "Route DE LA SABLIERE",
+    "cp": "13011",
+    "ville": "Marseille 11e  Arrondissement",
+    "tel": "04 91 90 10 40",
+    "siret": 80285698900073,
+    "departement": "13",
+    "lat": 43.2907,
+    "lng": 5.4897,
+    "source": "rpps",
+    "id": "audio-13011-carre-sabliere"
+  },
+  {
+    "nom": "CARRE AUDITION",
+    "enseigne": "CARRE AUDITION",
+    "adresse": "Boulevard DE LA REINE JEANNE",
+    "cp": "13300",
+    "ville": "Salon-de-Provence",
+    "siret": 80285698900115,
+    "departement": "13",
+    "lat": 43.63484,
+    "lng": 5.091105,
+    "source": "rpps",
+    "id": "audio-13300-carre-reine-jeanne"
+  },
+  {
+    "nom": "ESPACE AUDITION",
+    "enseigne": "ESPACE AUDITION",
+    "adresse": "352 Avenue ANATOLE DE MONZIE",
+    "cp": "46000",
+    "ville": "Cahors",
+    "tel": "05 65 31 39 01",
+    "site_web": "https://www.espace-audition82.com/-EspaceAudition-.html",
+    "siret": 51991836100048,
+    "departement": "46",
+    "lat": 44.4554,
+    "lng": 1.4503,
+    "source": "rpps",
+    "id": "audio-46000-espace-audition"
+  },
+  {
+    "nom": "ESPACE AUDITION",
+    "enseigne": "ESPACE AUDITION",
+    "adresse": "46 Boulevard DIDIER REY",
+    "cp": "82300",
+    "ville": "Caussade",
+    "tel": "05 63 63 06 61",
+    "site_web": "https://www.espace-audition82.com/-EspaceAudition-.html",
+    "siret": 51991836100022,
+    "departement": "82",
+    "lat": 44.1609,
+    "lng": 1.5441,
+    "source": "rpps",
+    "id": "audio-82300-espace-audition"
   }
 ]
