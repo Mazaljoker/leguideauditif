@@ -48,6 +48,7 @@ import SectionHeading from '../../components/article/SectionHeading.astro';
 import SectionDivider from '../../components/article/SectionDivider.astro';
 import ArticleCTA from '../../components/article/ArticleCTA.astro';
 import AudiogramSimulator from '../../components/AudiogramSimulator.tsx';
+import LocalAnnuaireCTA from '../../components/LocalAnnuaireCTA.astro';
 
 <Callout variant="key" title="L'essentiel à retenir">
 L'audiogramme est le document central de votre parcours auditif. Comprendre ses courbes vous permet de poser les bonnes questions à votre audioprothésiste et de suivre l'évolution de votre audition dans le temps.
@@ -212,11 +213,10 @@ On me pose la question chaque semaine. Voici la réponse claire :
 
 Rien à préparer. Évitez juste de vous exposer à des bruits forts dans les 24 heures avant l'examen — pas de concert la veille.
 
-<ArticleCTA
-  title="Bilan auditif gratuit près de chez vous"
-  description="Trouvez un audioprothésiste qualifié pour un dépistage gratuit et sans engagement"
-  buttonText="Trouver un audioprothésiste"
-  buttonUrl="/trouver-audioprothesiste/"
+<LocalAnnuaireCTA
+  titre="Faites analyser votre audiogramme par un pro"
+  description="Un tracé seul ne suffit pas : seul un audioprothésiste DE peut interpréter votre audiogramme en lien avec votre gêne quotidienne. Bilan gratuit dans un centre indépendant près de chez vous."
+  villes={['Paris', 'Lyon', 'Le Havre', 'Reims']}
 />
 
 <SectionDivider />
