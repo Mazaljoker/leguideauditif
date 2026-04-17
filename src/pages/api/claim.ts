@@ -6,11 +6,13 @@ import { sendEmail, sendAdminNotification } from '../../lib/email';
 import { claimConfirmationEmail } from '../../emails/claim-confirmation';
 import { claimAdminNotificationEmail } from '../../emails/claim-admin-notification';
 import { generateAdminToken } from '../../lib/admin-token';
+import { sendMpEvent } from '../../lib/ga4-mp';
+import { ATTRIBUTION_COOKIE, parseAttribution } from '../../lib/attribution';
 
 const MAX_PHOTO_SIZE = 5 * 1024 * 1024; // 5 Mo
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, clientAddress, cookies }) => {
   try {
     const formData = await request.formData();
 
@@ -27,6 +29,21 @@ export const POST: APIRoute = async ({ request }) => {
     const specialites = formData.getAll('specialites') as string[];
     const marques = formData.getAll('marques') as string[];
     const photo = formData.get('photo') as File | null;
+
+    // Source de vérité : le cookie first-party écrit par le middleware (couche 1),
+    // le JS client (couche 2) ou la Vercel Routing Middleware (couche 3).
+    // Le FormData reste accepté comme fallback ultime si le cookie manque.
+    const attribution =
+      parseAttribution(cookies.get(ATTRIBUTION_COOKIE)?.value) ??
+      parseAttribution(formData.get('attribution') as string | null);
+    const gaClientId = (formData.get('ga_client_id') as string | null) || null;
+    const gaSessionId = (formData.get('ga_session_id') as string | null) || null;
+    const rawTxId = formData.get('transaction_id') as string | null;
+    // Valide le format UUID v4 pour rejeter tout payload malicieux.
+    const transactionId = rawTxId && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(rawTxId)
+      ? rawTxId
+      : crypto.randomUUID();
+    const userAgent = request.headers.get('user-agent');
 
     if (!centreSlug || !nom || !prenom || !email || !adeli) {
       return new Response(
@@ -150,6 +167,57 @@ export const POST: APIRoute = async ({ request }) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
+
+    // Persister l'attribution dans une table dédiée append-only.
+    // Table séparée de centres_auditifs pour garder un historique si le centre est
+    // re-claim après rejet — chaque tentative conserve sa source d'origine.
+    const { error: attrError } = await supabase.from('claim_attributions').insert({
+      centre_slug: centreSlug,
+      centre_id: centre.id,
+      claimed_by_email: email,
+      transaction_id: transactionId,
+      utm_source: attribution?.utm_source ?? null,
+      utm_medium: attribution?.utm_medium ?? null,
+      utm_campaign: attribution?.utm_campaign ?? null,
+      utm_term: attribution?.utm_term ?? null,
+      utm_content: attribution?.utm_content ?? null,
+      gclid: attribution?.gclid ?? null,
+      fbclid: attribution?.fbclid ?? null,
+      msclkid: attribution?.msclkid ?? null,
+      referrer: attribution?.referrer ?? null,
+      landing_page: attribution?.landing_page ?? null,
+      ga_client_id: gaClientId,
+      ga_session_id: gaSessionId,
+      user_agent: userAgent,
+    });
+    if (attrError) {
+      // Attribution non bloquante — on log mais on n'échoue pas le claim.
+      console.error('Claim attribution insert error:', attrError.message);
+    }
+
+    // Measurement Protocol : event serveur-à-serveur immunisé contre adblock / consent refus.
+    // Non bloquant — le claim reste valide même si GA4 est down.
+    void sendMpEvent({
+      clientId: gaClientId,
+      sessionId: gaSessionId,
+      userIpAddress: clientAddress ?? null,
+      userAgent,
+      events: [
+        {
+          name: 'revendication_success',
+          params: {
+            transaction_id: transactionId,
+            event_source: 'server',
+            centre_slug: centreSlug,
+            utm_source: attribution?.utm_source ?? '(direct)',
+            utm_medium: attribution?.utm_medium ?? '(none)',
+            utm_campaign: attribution?.utm_campaign ?? '(none)',
+            gclid: attribution?.gclid ?? undefined,
+            fbclid: attribution?.fbclid ?? undefined,
+          },
+        },
+      ],
+    });
 
     // Generer les tokens pour les liens one-click admin
     const baseUrl = 'https://leguideauditif.fr/api/admin';

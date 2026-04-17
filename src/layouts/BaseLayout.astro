@@ -42,6 +42,11 @@ const props = Astro.props;
       gtag('js', new Date());
       gtag('config', 'G-1GHQCKDVPM');
     </script>
+    <!-- Attribution first-touch (UTM, gclid, referrer) — capture à la 1re vue. -->
+    <script>
+      import { captureAttribution } from '../lib/tracking';
+      captureAttribution();
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>

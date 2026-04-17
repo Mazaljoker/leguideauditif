@@ -394,6 +394,14 @@ const breadcrumbs = [
   </section>
 
   <script>
+    import { readAttribution, getGaClientId, getGaSessionId } from '../../lib/tracking';
+
+    declare global {
+      interface Window {
+        gtag?: (...args: unknown[]) => void;
+      }
+    }
+
     const form = document.getElementById('claim-form') as HTMLFormElement;
     const submitBtn = document.getElementById('claim-submit') as HTMLButtonElement;
     const errorDiv = document.getElementById('claim-error') as HTMLDivElement;
@@ -478,6 +486,21 @@ const breadcrumbs = [
 
       const formData = new FormData(form);
 
+      // Attribution : UTM capturés au landing + identifiants GA4 côté client.
+      // Le serveur utilise ces valeurs pour (1) persister la source et (2) rejouer
+      // l'événement via Measurement Protocol — immunisé contre adblock/consent refus.
+      const attribution = readAttribution();
+      if (attribution) formData.append('attribution', JSON.stringify(attribution));
+      const gaClientId = getGaClientId();
+      if (gaClientId) formData.append('ga_client_id', gaClientId);
+      const gaSessionId = getGaSessionId('G-1GHQCKDVPM');
+      if (gaSessionId) formData.append('ga_session_id', gaSessionId);
+
+      // transaction_id partagé client/serveur → dédup dans GA4 (COUNT DISTINCT).
+      // crypto.randomUUID est dispo dans tous les navigateurs que supporte Astro 6.
+      const transactionId = crypto.randomUUID();
+      formData.append('transaction_id', transactionId);
+
       try {
         const res = await fetch('/api/claim', {
           method: 'POST',
@@ -488,6 +511,21 @@ const breadcrumbs = [
 
         if (!res.ok) {
           throw new Error(data.error || 'Une erreur est survenue.');
+        }
+
+        // Event gtag client — capte les users sans adblock avec consent OK.
+        // Doublé côté serveur via Measurement Protocol pour couverture 100%.
+        // Dédup : même transaction_id sur les deux events → COUNT DISTINCT dans GA4.
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'revendication_success', {
+            event_category: 'conversion',
+            transaction_id: transactionId,
+            event_source: 'client',
+            centre_slug: (formData.get('centreSlug') as string) || '',
+            utm_source: attribution?.utm_source || '(direct)',
+            utm_medium: attribution?.utm_medium || '(none)',
+            utm_campaign: attribution?.utm_campaign || '(none)',
+          });
         }
 
         window.location.href = data.redirectUrl;
