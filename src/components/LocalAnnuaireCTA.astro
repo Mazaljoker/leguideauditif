@@ -1,0 +1,52 @@
+---
+import { Icon } from 'astro-icon/components';
+import { slugifyVille } from '../lib/departements';
+
+interface Props {
+  titre?: string;
+  description: string;
+  villes?: string[];
+}
+
+const {
+  titre = 'Trouvez un audioprothésiste près de chez vous',
+  description,
+  villes = ['Paris', 'Lyon', 'Marseille', 'Bordeaux'],
+} = Astro.props;
+---
+
+<aside
+  class="not-prose my-8 p-6 bg-creme border border-orange/20 rounded-xl shadow-sm"
+  aria-label="Annuaire local des audioprothésistes"
+>
+  <div class="flex items-start gap-4">
+    <div class="shrink-0 mt-1 text-orange hidden sm:block">
+      <Icon name="lucide:map-pin" class="w-6 h-6" aria-hidden="true" />
+    </div>
+
+    <div class="flex-1 min-w-0">
+      <h3 class="font-sans text-lg font-bold text-marine mb-2">{titre}</h3>
+      <p class="font-sans text-gris-texte text-[15px] md:text-base mb-4 leading-relaxed">
+        {description}
+      </p>
+
+      <div class="flex flex-wrap gap-2 items-center">
+        {villes.map((ville) => (
+          <a
+            href={`/audioprothesiste/${slugifyVille(ville)}/`}
+            class="inline-flex items-center px-4 py-1.5 bg-blanc text-marine text-sm font-semibold rounded-full border border-marine/10 hover:bg-orange hover:text-blanc hover:border-orange transition-all shadow-sm no-underline hover:no-underline"
+          >
+            {ville}
+          </a>
+        ))}
+        <a
+          href="/audioprothesiste/"
+          class="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gris-texte hover:text-marine transition-colors no-underline hover:underline decoration-gris-clair underline-offset-4"
+        >
+          Voir tous les départements
+          <Icon name="lucide:arrow-right" class="w-4 h-4" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>
