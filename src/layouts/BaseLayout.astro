@@ -34,8 +34,8 @@ const props = Astro.props;
     />
     <SEOHead {...props} />
     <slot name="head" />
-    <!-- Tarteaucitron CMP (CNIL-compliant) + GA4 conditionnel -->
-    <script is:inline src="https://cdntag.tarteaucitron.io/load.js"></script>
+    <!-- Tarteaucitron CMP (CNIL-compliant, self-hosted) + GA4 conditionnel -->
+    <script is:inline src="/tarteaucitron/tarteaucitron.min.js"></script>
     <script is:inline define:vars={{ measurementId: 'G-1GHQCKDVPM' }}>
       window.tarteaucitronForceLanguage = 'fr';
       tarteaucitron.init({

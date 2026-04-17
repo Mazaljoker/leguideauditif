@@ -5,6 +5,11 @@ dist/
 .env
 .env.*
 !.env.example
+!.env.test.example
+
+# Playwright
+test-results/
+playwright-report/
 .DS_Store
 .vercel
 .env*.local
@@ -19,3 +24,6 @@ google_token.json
 .mcp.json
 .playwright-mcp/
 test-write/
+
+# Tarteaucitron self-hosted — copie auto depuis node_modules au prebuild
+public/tarteaucitron/

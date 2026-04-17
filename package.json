@@ -7,9 +7,15 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/copy-tarteaucitron.mjs",
+    "predev": "node scripts/copy-tarteaucitron.mjs",
     "build": "astro build && npx pagefind --site dist/client && cp -r dist/client/pagefind .vercel/output/static/pagefind",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:e2e:seed": "node scripts/seed-test-centre.mjs",
+    "test:e2e": "npm run test:e2e:seed && playwright test --grep-invert=@full",
+    "test:e2e:full": "npm run test:e2e:seed && playwright test",
+    "test:e2e:ui": "npm run test:e2e:seed && playwright test --ui"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
@@ -31,9 +37,12 @@
     "react-leaflet": "^5.0.0",
     "resend": "^6.10.0",
     "stripe": "^22.0.0",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.2",
+    "tarteaucitronjs": "^1.32.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "dotenv": "^17.4.2",
     "pagefind": "^1.5.0"
   },
   "overrides": {
