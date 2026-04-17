@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
-const { title, metaTitle, metaDescription, cluster, author, authorTitle, publishDate, updateDate, readingTime, sources, faq, image, ogImage, useLegacyLayout } = entry.data;
+const { title, metaTitle, metaDescription, cluster, author, authorTitle, publishDate, updateDate, readingTime, sources, faq, image, ogImage, useLegacyLayout, quickAnswer } = entry.data;
 
 /* MedicalWebPage schema pour les guides sante YMYL */
 const healthClusters = ['perte-auditive', 'acouphenes', 'prevention', 'appareils-auditifs'];
@@ -69,6 +69,7 @@ const extraSchemas = healthClusters.includes(cluster)
     image={image}
     ogImage={ogImage}
     extraSchemas={extraSchemas}
+    quickAnswer={quickAnswer}
   >
     <Content />
   </ArticleLayout>

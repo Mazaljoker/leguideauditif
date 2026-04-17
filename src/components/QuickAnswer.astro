@@ -1,11 +1,23 @@
 ---
 import { Icon } from 'astro-icon/components';
 
+interface QuickAnswerData {
+  title?: string;
+  items: Array<{ strong: string; text: string }>;
+  conclusion?: string;
+}
+
 interface Props {
+  /** Objet structuré depuis le frontmatter (pattern recommandé). */
+  data?: QuickAnswerData;
+  /** Titre alternatif si usage manuel via slot (rétrocompat). */
   title?: string;
 }
 
-const { title = 'La réponse en 30 secondes' } = Astro.props;
+const { data, title } = Astro.props;
+
+// Mode structuré (data) OU mode slot manuel. Priorité au data si fourni.
+const resolvedTitle = data?.title ?? title ?? 'La réponse en 30 secondes';
 ---
 
 <aside
@@ -14,10 +26,23 @@ const { title = 'La réponse en 30 secondes' } = Astro.props;
 >
   <h3 class="flex items-center gap-2 font-sans text-lg font-bold text-marine mb-4">
     <Icon name="lucide:zap" class="w-5 h-5 text-orange shrink-0" aria-hidden="true" />
-    {title}
+    {resolvedTitle}
   </h3>
 
-  <div class="font-sans text-marine text-[15px] md:text-base leading-relaxed space-y-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_p]:font-medium">
-    <slot />
+  <div class="font-sans text-marine text-[15px] md:text-base leading-relaxed space-y-3">
+    {data ? (
+      <>
+        <ul class="list-disc pl-5 space-y-2">
+          {data.items.map((item) => (
+            <li><strong>{item.strong}</strong> : {item.text}</li>
+          ))}
+        </ul>
+        {data.conclusion && <p class="font-medium">{data.conclusion}</p>}
+      </>
+    ) : (
+      <div class="[&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_p]:font-medium">
+        <slot />
+      </div>
+    )}
   </div>
 </aside>

@@ -43,6 +43,24 @@ const guides = defineCollection({
     ogImage: z.string().optional(),
     relatedGuides: z.array(z.string()).optional(),
     relatedComparatifs: z.array(z.string()).optional(),
+    // Encart "réponse express" affiché above-the-fold juste après l'AuthorBox.
+    // Format optimal Featured Snippet Google : 40-90 mots, h3 + ul + strong.
+    // Utiliser pour les articles transactionnels B2C à forte intention (prix, choix, comparaison).
+    quickAnswer: z
+      .object({
+        title: z.string().optional(),
+        items: z
+          .array(
+            z.object({
+              strong: z.string(),
+              text: z.string(),
+            }),
+          )
+          .min(2)
+          .max(4),
+        conclusion: z.string().optional(),
+      })
+      .optional(),
   }),
 });
 

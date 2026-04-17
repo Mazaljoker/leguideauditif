@@ -1,8 +1,9 @@
 ---
-/* ArticleHeader — Breadcrumbs + badge categorie + H1 + MetaBadges + AuthorBadge + Disclaimers */
+/* ArticleHeader — Breadcrumbs + badge categorie + H1 + MetaBadges + AuthorBadge + Disclaimers + QuickAnswer */
 import { Icon } from 'astro-icon/components';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import AffiliateDisclosure from '../AffiliateDisclosure.astro';
+import QuickAnswer from '../QuickAnswer.astro';
 
 interface BreadcrumbItem {
   label: string;
@@ -21,6 +22,11 @@ interface Props {
   showHealthDisclaimer?: boolean;
   showAffiliateDisclosure?: boolean;
   image?: string;
+  quickAnswer?: {
+    title?: string;
+    items: Array<{ strong: string; text: string }>;
+    conclusion?: string;
+  };
 }
 
 const {
@@ -35,6 +41,7 @@ const {
   showHealthDisclaimer = true,
   showAffiliateDisclosure = false,
   image,
+  quickAnswer,
 } = Astro.props;
 
 const formattedDate = publishDate.toLocaleDateString('fr-FR', {
@@ -110,6 +117,8 @@ const formattedUpdate = updateDate?.toLocaleDateString('fr-FR', {
         </p>
       </div>
     )}
+
+    {quickAnswer && <QuickAnswer data={quickAnswer} />}
   </div>
 
   <!-- Hero image -->

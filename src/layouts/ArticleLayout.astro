@@ -42,6 +42,11 @@ interface Props {
   ogImage?: string;
   showAffiliateDisclosure?: boolean;
   extraSchemas?: Record<string, unknown>[];
+  quickAnswer?: {
+    title?: string;
+    items: Array<{ strong: string; text: string }>;
+    conclusion?: string;
+  };
 }
 
 const {
@@ -63,6 +68,7 @@ const {
   ogImage,
   showAffiliateDisclosure = false,
   extraSchemas,
+  quickAnswer,
 } = Astro.props;
 
 /* --- Breadcrumbs --- */
@@ -191,6 +197,7 @@ if (extraSchemas) {
       showHealthDisclaimer={true}
       showAffiliateDisclosure={showAffiliateDisclosure}
       image={image}
+      quickAnswer={quickAnswer}
     />
 
     <div class="article-content">
