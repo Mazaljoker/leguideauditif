@@ -1,0 +1,77 @@
+{
+  "slug": "phonak-audeo-sphere-ultra-90",
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Audéo Sphere Ultra",
+  "formeType": "RIC",
+  "formesDisponibles": "RIC R",
+  "puce": "Infinio + DEEPSONIC",
+  "niveau": "90",
+  "niveauRaw": "I90 Sphere",
+  "niveauPosition": 5,
+  "classe": "2",
+  "rac0": false,
+  "prix": {
+    "eur": {
+      "min": 2100,
+      "max": 2500
+    }
+  },
+  "annee": 2024,
+  "specs": {
+    "canaux": 20,
+    "bandes": 20,
+    "batterie": "Li-ion rechargeable",
+    "autonomie": "10-56",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à profonde"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + BLE LE Audio",
+    "auracast": true,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": true,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": "WhistleBlock",
+    "micDirectionnels": "StereoZoom 2.0 + UltraZoom + Sphere (DNN dédié sur puce DEEPSONIC)",
+    "capteursSante": "AutoSense OS 6.0 + capteurs mouvement"
+  },
+  "couleurs": 11,
+  "image": "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
+  "sourceUrl": "https://www.phonak.com/en-int/hearing-devices/hearing-aids/audeo-sphere",
+  "venduEnEurope": true,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
+  "descriptionCourte": "Flagship Phonak à double puce Infinio + DEEPSONIC. IA Sphere dédiée à la parole dans le bruit. Pour patients actifs qui priorisent la compréhension au restaurant et en réunion.",
+  "descriptionComplete": "Quand Phonak a sorti la plateforme Sphere fin 2024 avec une 2e puce dédiée à l'intelligence artificielle, la profession a été sceptique : marketing ou vrai saut technologique ? Après avoir adapté cet appareil sur plusieurs patients et l'avoir testé dans mes propres oreilles, je peux répondre sans détour : c'est le plus gros gain de compréhension dans le bruit que j'aie mesuré en RIC. L'upgrade firmware de 2025 vers la version Ultra a corrigé le seul vrai défaut de la génération originale — l'autonomie en mode IA active.\n\nCe que fait cet appareil\n\nLa technologie phare repose sur une architecture à double puce, unique sur le marché en 2026. La puce Infinio gère le traitement du signal classique (directivité, réduction du bruit conventionnelle, gestion du larsen). La puce DEEPSONIC, un processeur neural dédié, fait tourner en temps réel un réseau de neurones profond qui sépare la parole du bruit ambiant — c'est la fonction Sphere. Depuis l'upgrade firmware de 2025, ce réseau a été entièrement ré-entraîné : il reconnaît 18 fois plus de scénarios sonores et tourne 30 % plus efficacement sur le plan énergétique. Phonak mesure en laboratoire une réduction de l'effort d'écoute allant jusqu'à 35 % dans le bruit.\n\nDans le calme, la clarté vocale est excellente — parmi les meilleures du marché sur les conversations à deux ou trois personnes. Dans le bruit, c'est là que l'appareil se distingue vraiment : conversations à plusieurs dans un restaurant, réunions en open space, marchés bondés. Le basculement entre mode calme et mode Sphere est perceptible physiquement : le bruit de fond s'écarte, la voix de l'interlocuteur reste centrée. Limite honnête : un brouhaha extrême — un bar à 22 heures un samedi — reste exigeant. Aucune IA n'efface complètement le bruit quand il sature la scène.\n\nLe streaming audio est un point fort historique de Phonak qui se confirme ici. Le Bluetooth Classic est universel — iPhone, Android, téléviseur, téléphones professionnels —, complété par le BLE LE Audio et l'Auracast pour capter les flux audio dans les lieux publics équipés. La qualité musicale est nettement supérieure à la moyenne du marché RIC.\n\nCe qu'il ne fait pas aussi bien : la perception de la propre voix. Certains patients la trouvent un peu occluse ou modifiée selon le couplage choisi. C'est une limite structurelle de l'architecture Phonak, compensable au réglage par un audioprothésiste compétent, mais pas totalement éliminable.\n\nEn pratique, sur le terrain\n\nJ'ai adapté ce modèle sur une patiente de 68 ans, ancienne professeure, qui animait un cercle de lecture une fois par semaine. Avec sa précédente paire, un Phonak Audéo Lumity 90 de 2022, elle suivait les échanges mais finissait la soirée épuisée. Au bout de trois semaines avec le Sphere, elle m'a dit : « Je ne fais plus d'effort pour entendre. J'écoute vraiment. » C'est exactement la traduction humaine des données labo sur la réduction d'effort d'écoute.\n\nJe l'ai aussi mis dans mes propres oreilles pour comprendre ce que mes patients allaient ressentir. Dans un centre commercial un samedi matin, le gain en rapport signal sur bruit est immédiatement perceptible. Le bruit ambiant passe au second plan, la voix de la personne en face reste claire. Ce n'est pas une impression, c'est une mesure subjective que je n'avais jamais ressentie aussi fortement avec un autre RIC.\n\nCe que les fiches techniques ne disent pas : c'est le plus gros boîtier RIC rechargeable qu'on ait aujourd'hui au catalogue. La contrepartie directe de l'intelligence artificielle embarquée — il a fallu loger une 2e puce et une batterie plus volumineuse pour la faire tourner. Pour un patient qui cherche la discrétion absolue, c'est une limite à mettre sur la table. Pour un patient qui donne la priorité à la compréhension, c'est un non-sujet.\n\nL'upgrade firmware Ultra de 2025 — gratuit pour les porteurs Sphere de 2024, appliqué en clinique — a changé la donne sur l'autonomie. Le mode IA actif, qui vidait la batterie en sept heures sur la version originale, tient désormais 10 heures en conditions soutenues et jusqu'à 16 heures en usage normal. En mode calme pur (IA désactivée), l'appareil tient toujours 56 heures. C'est une amélioration majeure obtenue sans changement de matériel.\n\nPour qui est fait cet appareil ?\n\nProfil idéal : vie sociale active — famille, restaurants, réunions professionnelles, conférences. Pertes auditives légères à profondes, y compris les pertes sévères que beaucoup de RIC premium ne couvrent pas. Utilisateurs Android qui souffrent du Bluetooth limité de plusieurs concurrents. Patients qui acceptent un boîtier légèrement plus gros pour gagner en compréhension dans le bruit.\n\nProfil à éviter : si la discrétion est votre critère principal, regardez plutôt le Signia Styletto IX pour un RIC effilé ou le Phonak Virto Infinio pour un intra sur-mesure. Si votre quotidien est essentiellement calme, le niveau 70 standard (sans Sphere) vous apporte 90 % de l'expérience pour un budget inférieur. Et si le rendu de votre propre voix est votre critère numéro un, le Signia Pure IX 7 et son algorithme Own Voice Processing 2.0 font légèrement mieux sur cet axe précis.\n\nComparaison positionnement\n\nVs Phonak Audéo Lumity 90 (2022). L'upgrade est réel. Sur le Lumity, les patients étaient déjà satisfaits dans le calme. Sur le Sphere Ultra, le saut se fait dans le bruit — et c'est là que la majorité des patients exprime un besoin non couvert. Si vous portez des Lumity depuis deux ou trois ans et que votre vie comporte beaucoup d'environnements bruyants, l'upgrade vaut l'investissement.\n\nVs Oticon Intent 1 (2024, concurrent direct). Les deux appareils sont au sommet du marché RIC 2026. L'Intent est légèrement devant sur les mesures globales de laboratoire ; le Sphere Ultra compense sur deux points — qualité du streaming musical nettement meilleure et connectivité Bluetooth Classic plus universelle. Le choix se fait à l'essai en cabine, sur vos situations d'écoute réelles.\n\nVerdict expert\n\n9/10. Le Phonak Audéo Sphere Ultra 90 est l'appareil le plus abouti que Phonak ait sorti à ce jour sur la compréhension dans le bruit, et l'un des deux RIC les plus performants du marché 2026. L'architecture double puce Infinio + DEEPSONIC apporte un gain mesurable et perçu dans le bruit, la connectivité est la plus complète disponible, et l'upgrade firmware de 2025 a corrigé le seul vrai défaut de la génération originale. La taille du boîtier et le prix restent les contreparties assumées de l'intelligence artificielle embarquée.\n\nEn une phrase : si la compréhension dans le bruit est votre priorité numéro un et que vous n'êtes pas obsédé par la discrétion maximale, c'est la référence RIC 2026. Prix constaté de 2 100 à 2 500 € par appareil, variable selon l'audioprothésiste et votre reste à charge. Classe 2 — reste à charge non nul en France. Demandez un essai en cabine pour comparer sur vos situations d'écoute réelles.",
+  "pointsForts": [
+    "Double puce Infinio + DEEPSONIC unique sur le marché 2026 — la puce neuronale dédiée permet un traitement IA de la parole dans le bruit inaccessible aux architectures à puce unique",
+    "Gain SNR perçu le plus marqué que j'aie constaté en adaptation RIC — validation terrain sur patients et test personnel dans mes propres oreilles",
+    "Connectivité la plus complète du marché : Bluetooth Classic universel (iPhone + Android + TV + téléphones pro) + BLE LE Audio + Auracast + Roger intégré en option",
+    "Upgrade firmware Ultra de 2025 appliqué gratuitement aux porteurs existants — +30 % d'efficacité du DNN, autonomie en mode IA passée de 7h à 10-16h selon usage",
+    "Plage d'adaptation très large — couvre les pertes légères à profondes, y compris les profils que beaucoup de RIC premium ne prennent pas",
+    "Streaming musical nettement au-dessus de la moyenne RIC — point fort historique Phonak qui se confirme sur cette génération"
+  ],
+  "pointsFaibles": [
+    "Plus gros boîtier RIC rechargeable du catalogue — contrepartie directe de la 2e puce et de la batterie surdimensionnée nécessaires à l'IA",
+    "Autonomie en mode IA active (10-16h) reste inférieure au mode calme (56h) — recharge quotidienne obligatoire si vous activez Sphere en permanence",
+    "Perception de la propre voix un peu modifiée chez certains patients selon le couplage — limite structurelle de l'architecture Phonak, atténuable au réglage",
+    "Pas de variante boîtier discret — uniquement RIC R au format standard, impossible à loger dans un Slim RIC ou un intra si la discrétion est un critère fort",
+    "Feedback handling légèrement moins stable après réglage poussé — à ne pas négliger si vous avez besoin d'un gain important sur les aigus"
+  ],
+  "noteExpert": 9.0,
+  "enAvant": true,
+  "legacy": false,
+  "metaTitle": "Phonak Audéo Sphere Ultra 90 : prix, avis et fiche",
+  "metaDescription": "Flagship Phonak double puce Infinio + DEEPSONIC, IA Sphere dédiée. Gain SNR référence du marché RIC. 2 100-2 500 €. Avis audioprothésiste DE.",
+  "gallery": [
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-2.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-3.webp",
+    "/images/appareils/aide-auditive-phonak-audeo-infinio-4.webp"
+  ]
+}

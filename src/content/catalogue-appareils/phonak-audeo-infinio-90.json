@@ -6,7 +6,7 @@
   "modele": "Audéo Infinio",
   "formeType": "RIC",
   "formesDisponibles": "RIC R|RIC RT",
-  "puce": "DEEPSONIC",
+  "puce": "Infinio",
   "niveau": "90",
   "niveauRaw": "I90",
   "niveauPosition": 5,
@@ -15,7 +15,7 @@
   "prix": {
     "eur": {
       "min": 1900,
-      "max": 2200
+      "max": 2100
     }
   },
   "annee": 2024,
@@ -23,7 +23,7 @@
     "canaux": 20,
     "bandes": 20,
     "batterie": "Li-ion rechargeable",
-    "autonomie": "24-56",
+    "autonomie": "28-56",
     "ip": "IP68",
     "plageAdaptation": "Légère à profonde"
   },
@@ -38,33 +38,35 @@
     "bobineT": false,
     "acouphenes": true,
     "antiFeedback": "WhistleBlock",
-    "micDirectionnels": "StereoZoom 2.0 + UltraZoom + Spheric Speech Clarity 2.0",
+    "micDirectionnels": "StereoZoom 2.0 + UltraZoom + SmartSpeech Technology",
     "capteursSante": "AutoSense OS 6.0 + capteurs mouvement"
   },
   "couleurs": 11,
   "image": "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
-  "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-sphere",
+  "sourceUrl": "https://www.phonak.com/en-int/hearing-devices/hearing-aids/audeo-infinio",
   "venduEnEurope": true,
   "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-infinio-datasheet.pdf",
-  "descriptionCourte": "Flagship Phonak avec double puce DEEPSONIC + IA dédiée. Spheric Speech Clarity 2.0, Bluetooth universel, Auracast. Jusqu’à 56h d’autonomie. Le RIC de référence pour la compréhension dans le bruit.",
-  "descriptionComplete": "Le Phonak Audéo Infinio 90, c’est l’appareil que le marché attendait depuis la Lumity. Phonak a mis deux puces dans le même boîtier : la puce ERA pour le traitement classique, et la puce DEEPSONIC dédiée à l’IA de séparation parole/bruit. Après avoir appareillé de nombreux patients avec la gamme Lumity, puis les premiers Infinio, je peux vous dire que le saut est réel dans le bruit.\n\nCe que fait cet appareil\nLa technologie phare s’appelle Spheric Speech Clarity 2.0. Concrètement, l’IA intégrée dans la puce DEEPSONIC extrait, améliore et intègre la parole en temps réel, même quand plusieurs personnes parlent simultanément. Dans le calme, les résultats sont excellents — clarté vocale très précise. Mais c’est dans le bruit que l’Infinio 90 se distingue vraiment : conversations à plusieurs dans un restaurant, réunions de groupe, marchés — le gain de compréhension par rapport à la génération Lumity est net.\n\nLa connectivité est la plus complète du marché : Bluetooth Classic (streaming universel avec tous les téléphones), BLE LE Audio, et Auracast pour capter les flux audio dans les lieux publics équipés. Le streaming musical est particulièrement bon — c’est le point fort historique de Phonak.\n\nL’autonomie varie selon le mode : jusqu’à 56h en mode calme, environ 24h avec Spheric Speech Clarity actif en permanence. En utilisation mixte, comptez 30-36h — largement assez pour deux jours.\n\nEn pratique, sur le terrain\nUne patiente de 66 ans, active, qui multipliait les dîners en groupe et les conférences. Avec la Lumity 90, elle était déjà satisfaite. Avec l’Infinio 90, elle m’a dit : « C’est comme si quelqu’un avait baissé le volume du bruit autour de moi. » C’est l’effet du Spheric. Ce n’est pas parfait — dans un brouhaha extrême, l’effort de concentration reste nécessaire. Mais le confort dans les situations bruyantes est clairement supérieur à tout ce que j’ai adapté avant.\n\nLe point qui surprend : l’AutoSense OS 6.0 gère les transitions entre environnements de manière très fluide. Passer de la rue à un café, puis prendre un appel téléphonique — l’appareil s’adapte sans intervention manuelle.\n\nL’app myPhonak est l’une des meilleures du marché : complète, stable, intuitive. Roger intégré en option pour les conférences.\n\nPour qui est fait cet appareil ?\nL’Infinio 90 est le choix naturel si la compréhension dans le bruit est votre priorité numéro un. Vie sociale active, restaurants, réunions professionnelles, conférences — c’est là qu’il excelle. Il couvre les pertes légères à profondes.\n\nSi votre quotidien est essentiellement calme, le niveau 70 ou 50 vous offrira 90% de l’expérience pour un budget inférieur. Et si le naturel de la propre voix est votre critère principal, Signia (OVP 2.0) fait légèrement mieux sur cet aspect.\n\nPar rapport à la concurrence\nFace à l’Oticon Intent (le rival direct), l’Infinio 90 a l’avantage du Spheric Speech Clarity et du streaming musical supérieur. L’Intent répond avec les capteurs 4D d’intention utilisateur. Ce sont les deux meilleurs RIC du marché — le choix se fait en essayant les deux.\n\nFace à la Lumity 90 (génération précédente), le gain dans le bruit est significatif. Si vous êtes sur Lumity et satisfait dans le calme, l’upgrade vaut le coup surtout si le bruit est un problème.\n\nVerdict expert\n9.2/10. Le Phonak Audéo Infinio 90 est le meilleur appareil Phonak jamais produit et l’un des meilleurs RIC du marché. Le Spheric Speech Clarity 2.0 apporte un gain réel et mesurable dans le bruit, la connectivité est la plus complète disponible, et l’autonomie en mode calme (56h) est exceptionnelle. Le prix est élevé mais justifié par les performances.\n\nEn une phrase : la référence du marché pour comprendre dans le bruit, avec la connectivité la plus complète.",
+  "descriptionCourte": "Flagship Phonak Infinio sans IA Sphere. Puce Infinio, 20 canaux, Bluetooth universel. Pour patients qui veulent le top du traitement classique Phonak sans le surcoût du Sphere Ultra.",
+  "descriptionComplete": "Dans la gamme Infinio, le niveau 90 standard est le choix des patients qui veulent le traitement du signal conventionnel Phonak le plus abouti — sans la 2e puce DEEPSONIC et sans l’IA Sphere du modèle Ultra. Le même boîtier, la même connectivité, les mêmes algorithmes de spatialisation, mais une architecture à puce unique qui reste très aboutie pour 95 % des situations d’écoute courantes.\n\nCe que fait cet appareil\n\nL’Infinio 90 tourne sur la puce Infinio, la génération actuelle Phonak qui a succédé à la Prism de la plateforme Lumity. Avec 20 canaux et 20 bandes, le traitement du signal est au sommet de la gamme classique : StereoZoom 2.0 pour la focalisation sur un interlocuteur face à vous, UltraZoom pour la directivité adaptative dans les groupes, et la SmartSpeech Technology qui gère finement les transitions entre environnements.\n\nDans le calme, les performances sont excellentes — clarté vocale précise, restitution naturelle. Dans le bruit modéré (restaurant tranquille, salle de réunion, voiture), le 90 fait très bien son travail grâce au StereoZoom 2.0. Là où il atteint ses limites : les environnements de bruit extrême, restaurants bondés, cocktails à plusieurs mètres de distance. C’est précisément là que l’IA Sphere du modèle Ultra fait la différence — mais aussi là que la contrepartie du Sphere (boîtier plus gros, prix supérieur de 200 à 400 €) devient discutable pour un quotidien qui n’y passe pas ses soirées.\n\nLa connectivité est la même que toute la gamme Infinio : Bluetooth Classic universel (iPhone, Android, TV, téléphones pro), BLE LE Audio, Auracast. Le streaming musical reste un point fort historique Phonak — c’est la référence du marché RIC sur cet axe. L’app myPhonak est stable et complète.\n\nEn pratique, sur le terrain\n\nJ’ai adapté cet appareil sur un patient de 71 ans, ancien ingénieur, profil curieux, qui voulait comprendre précisément ce qu’il allait gagner en passant de sa Lumity 90 à la génération suivante. Je lui ai fait essayer les deux niveaux en cabine — l’Infinio 90 standard et le Sphere Ultra 90. Dans le calme et dans le bruit modéré, il ne percevait pas de différence perceptible entre les deux. C’est à partir des environnements bruyants marqués, type brasserie à midi avec service en salle, que le Sphere Ultra prend l’avantage.\n\nCe patient a finalement gardé l’Infinio 90 standard. Son quotidien — déjeuners en famille, courses, conférences professionnelles dans des salles acoustiquement correctes — ne justifiait pas le surcoût du Sphere. Il a économisé environ 500 € sur la paire et gagné sur la discrétion du boîtier, qui reste plus compact que celui du Sphere Ultra.\n\nCe que les fiches techniques ne disent pas : la qualité de finition du boîtier est excellente, les coloris (11 disponibles) couvrent tous les tons de peau et de cheveux, et le chargeur inductif avec étui de transport est pratique en voyage. L’autonomie en mode calme atteint 56 heures, en usage mixte avec streaming régulier comptez 28 à 40 heures.\n\nPour qui est fait cet appareil ?\n\nProfil idéal : patient qui veut le top de la plateforme Infinio pour un quotidien actif mais pas dominé par les environnements de bruit extrême. Pertes légères à profondes couvertes. Budget premium mais pas flagship. Utilisateurs Android qui apprécient le Bluetooth Classic universel. Porteurs de Lumity 70 ou 90 qui veulent upgrader vers la génération actuelle.\n\nProfil à éviter : si votre quotidien comporte régulièrement des restaurants bondés, des conférences dans des salles très bruyantes, ou si la compréhension dans le bruit est votre critère numéro un, le Sphere Ultra 90 avec son IA dédiée vaut les 200 à 400 € supplémentaires. À l’inverse, si votre vie est essentiellement calme, le niveau 70 apporte 90 % de l’expérience pour environ 400 € de moins.\n\nComparaison positionnement\n\nVs Sphere Ultra 90. Même boîtier global (un peu plus compact côté Infinio 90 standard), même connectivité, même autonomie. La différence tient à la 2e puce DEEPSONIC et à l’IA Sphere du modèle Ultra, qui apportent un gain mesurable dans le bruit extrême mais restent sur-dimensionnés pour un usage modéré. Règle simple : si le bruit extrême n’est pas votre combat quotidien, l’Infinio 90 standard est le bon choix.\n\nVs Phonak Audéo Lumity 90 (2022). L’upgrade vers l’Infinio 90 est net. La nouvelle puce apporte un gain en consommation (autonomie améliorée), une meilleure gestion des transitions environnementales avec l’AutoSense OS 6.0, et l’Auracast sur tous les niveaux. Si vous portez des Lumity depuis plus de deux ans, le passage à l’Infinio 90 est pertinent.\n\nVs Signia Pure IX 7 (concurrent direct). Les deux sont au sommet du premium classique sans IA dédiée. Le Phonak Infinio 90 a l’avantage du streaming musical et du Bluetooth Classic universel. Le Signia répond avec le Own Voice Processing 2.0 pour la perception de sa propre voix. Match serré — choix à faire à l’essai selon votre priorité personnelle.\n\nVerdict expert\n\n8.8/10. L’Infinio 90 standard est un excellent RIC premium Phonak qui tient toutes ses promesses sur le traitement conventionnel du signal. La connectivité est la plus complète du marché, le streaming musical reste la référence, l’autonomie est généreuse. Le seul vrai manque par rapport au Sphere Ultra 90 est l’IA dédiée à la parole dans le bruit extrême — une absence qui ne se fait sentir que dans les situations acoustiques vraiment exigeantes.\n\nEn une phrase : le top de la plateforme Infinio classique pour les quotidiens actifs mais pas extrêmes. Prix constaté de 1 900 à 2 100 € par appareil, variable selon l’audioprothésiste et votre reste à charge. Classe 2 — reste à charge non nul en France. Si votre vie sociale inclut régulièrement des environnements de bruit soutenu, montez au Sphere Ultra 90. Sinon, l’Infinio 90 standard est la bonne réponse.",
   "pointsForts": [
-    "Spheric Speech Clarity 2.0 sur puce DEEPSONIC dédiée — le meilleur traitement IA parole/bruit du marché",
-    "Connectivité la plus complète : Bluetooth Classic + BLE + Auracast + Roger intégré",
-    "Streaming musical de très haute qualité — point fort historique de Phonak",
-    "Autonomie variable : 24h (Spheric actif) à 56h (mode calme) selon utilisation",
-    "AutoSense OS 6.0 : transitions fluides entre environnements sans intervention"
+    "Puce Infinio avec StereoZoom 2.0 et UltraZoom — top du traitement classique Phonak sans surcoût de l’IA Sphere",
+    "Connectivité la plus complète du marché : Bluetooth Classic universel + BLE LE Audio + Auracast + myPhonak",
+    "Streaming musical de référence sur le segment RIC — point fort historique Phonak",
+    "Autonomie généreuse : 28 à 56 heures selon l’utilisation du streaming",
+    "Plage d’adaptation très large — couvre les pertes légères à profondes",
+    "Boîtier plus compact que le Sphere Ultra 90 — meilleur compromis discrétion/performance pour un flagship"
   ],
   "pointsFaibles": [
-    "Prix parmi les plus élevés du marché — de 2 100 à 2 299€ par appareil",
-    "Naturel de la propre voix en retrait par rapport au Signia OVP 2.0 — certains patients trouvent leur voix un peu modifiée",
-    "Autonomie réduite à ~24h en mode Spheric intensif — recharge quotidienne nécessaire dans ce cas"
+    "Pas d’IA Sphere ni de 2e puce DEEPSONIC — pour un gain mesurable dans le bruit extrême, voir le Sphere Ultra 90",
+    "Naturel de la propre voix en retrait par rapport au Signia OVP 2.0 — compensable au réglage mais pas totalement éliminable",
+    "Écart de performance avec le niveau 70 relativement faible dans le quotidien standard — le surcoût n’est justifié que pour les patients exigeants",
+    "Pas de variante boîtier discret — uniquement RIC R ou RIC RT, impossible à loger dans un Slim RIC ou un intra"
   ],
-  "noteExpert": 9.2,
+  "noteExpert": 8.8,
   "enAvant": true,
   "legacy": false,
   "metaTitle": "Phonak Audéo Infinio 90 : prix, avis et fiche",
-  "metaDescription": "Flagship Phonak, double puce DEEPSONIC + IA. Spheric Speech Clarity 2.0. De 2 100 à 2 299€. Meilleur dans le bruit. Avis audioprothésiste DE.",
+  "metaDescription": "Flagship Phonak Infinio sans IA Sphere. Puce Infinio, 20 canaux, BT universel. 1 900-2 100 €. Avis audioprothésiste DE.",
   "gallery": [
     "/images/appareils/aide-auditive-phonak-audeo-infinio-1.webp",
     "/images/appareils/aide-auditive-phonak-audeo-infinio-2.webp",
