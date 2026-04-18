@@ -1,0 +1,646 @@
+{
+  "generated_at": "2026-04-18T13:55:41.573Z",
+  "source": "docs/data/gsc-urls-indexees-97.csv",
+  "total_urls": 97,
+  "by_type": {
+    "utilitaire": 7,
+    "centre": 49,
+    "annonce": 2,
+    "catalogue-appareil": 24,
+    "guide": 7,
+    "catalogue-marque": 3,
+    "catalogue-type": 2,
+    "catalogue-comparer": 1,
+    "comparatif": 1,
+    "home": 1
+  },
+  "centres": {
+    "total": 49,
+    "depts_distincts": 36,
+    "top_depts": [
+      [
+        "33 Gironde",
+        3
+      ],
+      [
+        "59 Nord",
+        3
+      ],
+      [
+        "31 Haute-Garonne",
+        2
+      ],
+      [
+        "85 Vendée",
+        2
+      ],
+      [
+        "81 Tarn",
+        2
+      ],
+      [
+        "78 Yvelines",
+        2
+      ],
+      [
+        "13 Bouches-du-Rhône",
+        2
+      ],
+      [
+        "49 Maine-et-Loire",
+        2
+      ],
+      [
+        "94 Val-de-Marne",
+        2
+      ],
+      [
+        "69 Rhône",
+        2
+      ]
+    ],
+    "first_letter_distribution": [
+      [
+        "a",
+        47
+      ],
+      [
+        "l",
+        1
+      ],
+      [
+        "s",
+        1
+      ]
+    ],
+    "enseigne_count": 34,
+    "independant_count": 15,
+    "enseigne_breakdown": {
+      "indépendant": 15,
+      "audika": 18,
+      "amplifon": 10,
+      "asteric-optic": 1,
+      "acuitis": 1,
+      "audilab": 1,
+      "alfa-optique": 1,
+      "afflelou": 1,
+      "entendre": 1
+    },
+    "by_crawl_date": {
+      "2026-04-13": 46,
+      "2026-04-09": 3
+    },
+    "items": [
+      {
+        "url": "https://leguideauditif.fr/centre/a2a-audio-31670-labege/",
+        "slug": "a2a-audio-31670-labege",
+        "cp": "31670",
+        "dept": "31",
+        "deptName": "Haute-Garonne",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-18000/",
+        "slug": "audika-france-18000",
+        "cp": "18000",
+        "dept": "18",
+        "deptName": "Cher",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-14120-mondeville/",
+        "slug": "amplifon-france-14120-mondeville",
+        "cp": "14120",
+        "dept": "14",
+        "deptName": "Calvados",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-72140-sille-le-guillaume/",
+        "slug": "amplifon-france-72140-sille-le-guillaume",
+        "cp": "72140",
+        "dept": "72",
+        "deptName": "Sarthe",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-63100-clermont-ferrand/",
+        "slug": "amplifon-france-63100-clermont-ferrand",
+        "cp": "63100",
+        "dept": "63",
+        "deptName": "Puy-de-Dôme",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/ab3-85110-chantonnay/",
+        "slug": "ab3-85110-chantonnay",
+        "cp": "85110",
+        "dept": "85",
+        "deptName": "Vendée",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/agsa-37260-monts/",
+        "slug": "agsa-37260-monts",
+        "cp": "37260",
+        "dept": "37",
+        "deptName": "Indre-et-Loire",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-81100/",
+        "slug": "audika-france-81100",
+        "cp": "81100",
+        "dept": "81",
+        "deptName": "Tarn",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-78300/",
+        "slug": "audika-france-78300",
+        "cp": "78300",
+        "dept": "78",
+        "deptName": "Yvelines",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-33700-merignac/",
+        "slug": "amplifon-france-33700-merignac",
+        "cp": "33700",
+        "dept": "33",
+        "deptName": "Gironde",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-42400-saint-chamond/",
+        "slug": "amplifon-france-42400-saint-chamond",
+        "cp": "42400",
+        "dept": "42",
+        "deptName": "Loire",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/asteric-optic-68790-morschwiller-le-bas/",
+        "slug": "asteric-optic-68790-morschwiller-le-bas",
+        "cp": "68790",
+        "dept": "68",
+        "deptName": "Haut-Rhin",
+        "enseigne": "asteric-optic",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/a2b-70200-roye/",
+        "slug": "a2b-70200-roye",
+        "cp": "70200",
+        "dept": "70",
+        "deptName": "Haute-Saône",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-24750/",
+        "slug": "audika-france-24750",
+        "cp": "24750",
+        "dept": "24",
+        "deptName": "Dordogne",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-alpes-74000/",
+        "slug": "audika-alpes-74000",
+        "cp": "74000",
+        "dept": "74",
+        "deptName": "Haute-Savoie",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-59100/",
+        "slug": "audika-france-59100",
+        "cp": "59100",
+        "dept": "59",
+        "deptName": "Nord",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/antaudio-06600-antibes/",
+        "slug": "antaudio-06600-antibes",
+        "cp": "06600",
+        "dept": "06",
+        "deptName": "Alpes-Maritimes",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-13012/",
+        "slug": "audika-france-13012",
+        "cp": "13012",
+        "dept": "13",
+        "deptName": "Bouches-du-Rhône",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/alexia-59190-hazebrouck/",
+        "slug": "alexia-59190-hazebrouck",
+        "cp": "59190",
+        "dept": "59",
+        "deptName": "Nord",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-49124-saint-barthelemy-d-anjou/",
+        "slug": "amplifon-france-49124-saint-barthelemy-d-anjou",
+        "cp": "49124",
+        "dept": "49",
+        "deptName": "Maine-et-Loire",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-62100/",
+        "slug": "audika-france-62100",
+        "cp": "62100",
+        "dept": "62",
+        "deptName": "Pas-de-Calais",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-31000-toulouse/",
+        "slug": "amplifon-france-31000-toulouse",
+        "cp": "31000",
+        "dept": "31",
+        "deptName": "Haute-Garonne",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/acuitis-begles-33130-begles/",
+        "slug": "acuitis-begles-33130-begles",
+        "cp": "33130",
+        "dept": "33",
+        "deptName": "Gironde",
+        "enseigne": "acuitis",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-08200-sedan/",
+        "slug": "amplifon-france-08200-sedan",
+        "cp": "08200",
+        "dept": "08",
+        "deptName": "Ardennes",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-05200/",
+        "slug": "audika-france-05200",
+        "cp": "05200",
+        "dept": "05",
+        "deptName": "Hautes-Alpes",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/a-l-s-a-13006-marseille-6e-arrondissement/",
+        "slug": "a-l-s-a-13006-marseille-6e-arrondissement",
+        "cp": "13006",
+        "dept": "13",
+        "deptName": "Bouches-du-Rhône",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audilab-jura-39500-tavaux/",
+        "slug": "audilab-jura-39500-tavaux",
+        "cp": "39500",
+        "dept": "39",
+        "deptName": "Jura",
+        "enseigne": "audilab",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-54150/",
+        "slug": "audika-france-54150",
+        "cp": "54150",
+        "dept": "54",
+        "deptName": "Meurthe-et-Moselle",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-85200/",
+        "slug": "audika-france-85200",
+        "cp": "85200",
+        "dept": "85",
+        "deptName": "Vendée",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-81600/",
+        "slug": "audika-france-81600",
+        "cp": "81600",
+        "dept": "81",
+        "deptName": "Tarn",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-94340/",
+        "slug": "audika-france-94340",
+        "cp": "94340",
+        "dept": "94",
+        "deptName": "Val-de-Marne",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-94420-le-plessis-trevise/",
+        "slug": "amplifon-france-94420-le-plessis-trevise",
+        "cp": "94420",
+        "dept": "94",
+        "deptName": "Val-de-Marne",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/aba33-33670-creon/",
+        "slug": "aba33-33670-creon",
+        "cp": "33670",
+        "dept": "33",
+        "deptName": "Gironde",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/alfa-optique-09000-foix/",
+        "slug": "alfa-optique-09000-foix",
+        "cp": "09000",
+        "dept": "09",
+        "deptName": "Ariège",
+        "enseigne": "alfa-optique",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-59280/",
+        "slug": "audika-france-59280",
+        "cp": "59280",
+        "dept": "59",
+        "deptName": "Nord",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/aud-joly-audiosolution-aurec-sur-loire-43110/",
+        "slug": "aud-joly-audiosolution-aurec-sur-loire-43110",
+        "cp": "43110",
+        "dept": "43",
+        "deptName": "Haute-Loire",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-66000/",
+        "slug": "audika-france-66000",
+        "cp": "66000",
+        "dept": "66",
+        "deptName": "Pyrénées-Orientales",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-07100/",
+        "slug": "audika-france-07100",
+        "cp": "07100",
+        "dept": "07",
+        "deptName": "Ardèche",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/argoat-audition-22600-loudeac/",
+        "slug": "argoat-audition-22600-loudeac",
+        "cp": "22600",
+        "dept": "22",
+        "deptName": "Côtes-d'Armor",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-17300/",
+        "slug": "audika-france-17300",
+        "cp": "17300",
+        "dept": "17",
+        "deptName": "Charente-Maritime",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/apfl-audiologie-50400/",
+        "slug": "apfl-audiologie-50400",
+        "cp": "50400",
+        "dept": "50",
+        "deptName": "Manche",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/aal-49000-angers-2/",
+        "slug": "aal-49000-angers-2",
+        "cp": "49000",
+        "dept": "49",
+        "deptName": "Maine-et-Loire",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audika-france-69008/",
+        "slug": "audika-france-69008",
+        "cp": "69008",
+        "dept": "69",
+        "deptName": "Rhône",
+        "enseigne": "audika",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/apt-chambourcy-78240/",
+        "slug": "apt-chambourcy-78240",
+        "cp": "78240",
+        "dept": "78",
+        "deptName": "Yvelines",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/alain-afflelou-acousticien-69700/",
+        "slug": "alain-afflelou-acousticien-69700",
+        "cp": "69700",
+        "dept": "69",
+        "deptName": "Rhône",
+        "enseigne": "afflelou",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/amplifon-france-56170-quiberon/",
+        "slug": "amplifon-france-56170-quiberon",
+        "cp": "56170",
+        "dept": "56",
+        "deptName": "Morbihan",
+        "enseigne": "amplifon",
+        "isEnseigne": true,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-13"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/audiologie-du-leman-01220/",
+        "slug": "audiologie-du-leman-01220",
+        "cp": "01220",
+        "dept": "01",
+        "deptName": "Ain",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "a",
+        "lastCrawl": "2026-04-09"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/la-maison-de-l-audition-02600/",
+        "slug": "la-maison-de-l-audition-02600",
+        "cp": "02600",
+        "dept": "02",
+        "deptName": "Aisne",
+        "enseigne": "indépendant",
+        "isEnseigne": false,
+        "firstLetter": "l",
+        "lastCrawl": "2026-04-09"
+      },
+      {
+        "url": "https://leguideauditif.fr/centre/sarl-audition-tribut-verjus-entendre-02200/",
+        "slug": "sarl-audition-tribut-verjus-entendre-02200",
+        "cp": "02200",
+        "dept": "02",
+        "deptName": "Aisne",
+        "enseigne": "entendre",
+        "isEnseigne": true,
+        "firstLetter": "s",
+        "lastCrawl": "2026-04-09"
+      }
+    ]
+  },
+  "www_residuels": [
+    "https://www.leguideauditif.fr/annonces/",
+    "https://www.leguideauditif.fr/faq/",
+    "https://www.leguideauditif.fr/revendiquer/?centre=audition-jcg-01500",
+    "https://www.leguideauditif.fr/catalogue/appareils/signia-pure-ix-5/",
+    "https://www.leguideauditif.fr/catalogue/appareils/signia-pure-ax-7/",
+    "https://www.leguideauditif.fr/catalogue/appareils/phonak-naida-marvel-70/",
+    "https://www.leguideauditif.fr/trouver-audioprothesiste/",
+    "https://www.leguideauditif.fr/catalogue/appareils/starkey-omega-ai-16/",
+    "https://www.leguideauditif.fr/mentions-legales/"
+  ]
+}

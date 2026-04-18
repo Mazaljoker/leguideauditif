@@ -8,3 +8,4 @@ Disallow: /revendiquer-gratuit/confirmation/
 
 Sitemap: https://leguideauditif.fr/sitemap-index.xml
 Sitemap: https://leguideauditif.fr/sitemap-centres.xml
+Sitemap: https://leguideauditif.fr/sitemap-pages-locales.xml
