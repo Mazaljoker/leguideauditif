@@ -21,9 +21,13 @@ google_token.json
 # Local config & tools
 .claude/__pycache__/
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
 .mcp.json
 .playwright-mcp/
 test-write/
+
+# me-snippet-pipeline outputs (reproductibles via .claude/me_snippet_pipeline.py)
+audit/
 
 # Tarteaucitron self-hosted — copie auto depuis node_modules au prebuild
 public/tarteaucitron/
