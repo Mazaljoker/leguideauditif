@@ -45,5 +45,11 @@
     "/images/appareils/aide-auditive-bernafon-alpha-2.webp",
     "/images/appareils/aide-auditive-bernafon-alpha-3.webp",
     "/images/appareils/aide-auditive-bernafon-alpha-4.webp"
-  ]
+  ],
+  "prix": {
+    "eur": {
+      "min": 950,
+      "max": 1100
+    }
+  }
 }
