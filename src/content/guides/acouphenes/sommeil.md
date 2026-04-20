@@ -3,6 +3,7 @@ title: "Acouphènes et sommeil : retrouver des nuits calmes"
 metaTitle: "Acouphènes et sommeil : 5 stratégies validées"
 metaDescription: "Acouphènes et insomnie : stratégies validées HAS pour retrouver le sommeil. Enrichissement sonore, TCC-I, hygiène du sommeil. Audioprothésiste DE."
 cluster: acouphenes
+image: /images/blog/sommeil/sommeil.webp
 isPillar: false
 publishDate: 2026-04-07
 updateDate: 2026-04-20

@@ -2,6 +2,7 @@
 title: "Prévention auditive après 60 ans : le guide terrain"
 metaDescription: "Prévention auditive seniors : dépistage, exercices, alimentation, lien cognition. Conseils terrain d'un audioprothésiste DE, 28 ans."
 cluster: prevention
+image: /images/blog/seniors/seniors.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12

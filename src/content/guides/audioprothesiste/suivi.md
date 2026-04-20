@@ -2,6 +2,7 @@
 title: "Le suivi post-appareillage : pourquoi c'est crucial"
 metaDescription: "Suivi audioprothésiste après appareillage : réglages, contrôles, fréquence. Pourquoi c'est inclus et essentiel."
 cluster: audioprothesiste
+image: /images/blog/suivi/suivi.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12

@@ -3,6 +3,7 @@ title: "Lenire : ce que vaut vraiment ce dispositif contre les acouphènes"
 metaTitle: "Lenire acouphènes 2026 : avis audioprothésiste"
 metaDescription: "Lenire (neuromodulation bimodale) contre les acouphènes : analyse des études, limites, erreurs d'attente. Audioprothésiste DE, 28 ans d'expérience."
 cluster: acouphenes
+image: /images/blog/lenire/lenire.webp
 isPillar: false
 publishDate: 2026-04-07
 updateDate: 2026-04-20

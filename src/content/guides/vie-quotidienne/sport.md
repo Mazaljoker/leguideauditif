@@ -2,6 +2,7 @@
 title: "Sport et appareil auditif : ce qu'il faut savoir"
 metaDescription: "Sport avec un appareil auditif : natation, course, vélo, ski. Conseils pratiques par un audioprothésiste DE, 28 ans."
 cluster: vie-quotidienne
+image: /images/blog/sport/sport.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12

@@ -3,6 +3,7 @@ title: "Hyperacousie : quand le bruit devient douleur"
 metaTitle: "Hyperacousie 2026 : causes, diagnostic, traitement"
 metaDescription: "Hyperacousie : causes, diagnostic, prise en charge par audioprothésiste DE. Désensibilisation, TRT, erreurs à éviter — 28 ans d'expérience terrain."
 cluster: acouphenes
+image: /images/blog/hyperacousie/hyperacousie.webp
 isPillar: false
 publishDate: 2026-04-07
 updateDate: 2026-04-20

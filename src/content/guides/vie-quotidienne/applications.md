@@ -3,6 +3,7 @@ title: "Apps smartphone pour vos appareils (myPhonak, Oticon...)"
 metaTitle: "Applications appareils auditifs : comparatif 2026"
 metaDescription: "Applications smartphone pour appareils auditifs : myPhonak, Oticon ON, Signia app. Guide comparatif."
 cluster: vie-quotidienne
+image: /images/blog/applications/applications.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12

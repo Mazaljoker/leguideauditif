@@ -3,6 +3,7 @@ title: "Travailler avec un appareil auditif : droits et conseils"
 metaTitle: "Travail et appareil auditif : droits et conseils"
 metaDescription: "Travailler avec un appareil auditif : droits du salarié, aménagements, RQTH, AGEFIPH. Guide pratique."
 cluster: vie-quotidienne
+image: /images/blog/travail/travail.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12
