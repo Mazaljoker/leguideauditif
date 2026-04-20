@@ -9,7 +9,7 @@
 | 1 | Guide pilier "appareils auditifs" (27 100 vol) | À faire | mai 2026 |
 | 2 | Reconquête FS commerciaux | **BOUCLÉE** | 2026-04-20 |
 | 3 | Guide labyrinthique | **BOUCLÉE** | 2026-04-20 |
-| 4 | Cluster 8 guides ORL YMYL | **2/8 bouclés** | voir ci-dessous |
+| 4 | Cluster 8 guides ORL YMYL | **BOUCLÉE (7 nouveaux + 2 initiaux = 9 guides)** | 2026-04-20 |
 | 5 | 8 pages enseignes | **EN ATTENTE POLITIQUE** | cf. branche `feat/enseignes` |
 | 6 | Contact francemedicale.net | À faire | J+7 |
 | 7 | 7 guides marques fabricants | À faire | juin-juillet 2026 |
@@ -28,20 +28,21 @@
 
 ## Calendrier détaillé
 
-### Sprint J+1 à J+8 — 6 guides Action 4 restants
+### Sprint J+1 à J+8 — 7 guides Action 4 ✅ BOUCLÉS 2026-04-20
 
-| Jour cible | Guide | Volume | Concurrent dominant | Cluster |
-|:---:|---|:---:|---|---|
-| J+1 | `oreille-bouchee.mdx` (consolidé avec arbre décisionnel cerumen/rhume/eau/trompe Eustache) | 14 800 | Ideal pos 1 (-41 %), Audika pos 11 | perte-auditive |
-| J+2 | `otite.mdx` (guide principal + liens vers otite-sereuse et otite-externe) | 40 500 | Audika pos 4 (-11 %), Unisson top 5 | perte-auditive |
-| J+3 | `otite-externe.mdx` | 14 800 | Audika pos 7 | perte-auditive |
-| J+4 | `trompe-eustache-bouchee.mdx` | 14 800 | Audika pos 2-8 | perte-auditive |
-| J+5 | `cerumen-nettoyage.mdx` (consolidé) | 40 000 cumulé | Amplifon pos 1-7 (-47 %), Ideal pos 1 (-41 %) | prevention |
-| J+6 | `auriculotherapie.mdx` | 14 800 | Unisson pos 2 (-31 %) | appareils-auditifs (angle thérapie liée) |
-| J+7 | `sonotone.mdx` (définition + lien appareil auditif moderne) | 8 100 | Unisson pos 1 (-31 %) | appareils-auditifs |
-| J+8 | Review + adjustments 6 guides via `me-design-checker` + schema validator | — | — | — |
+| Guide livré | Volume | Cluster | Concurrent cible |
+|---|:---:|---|---|
+| `perte-auditive/otite.mdx` | 40 500 | perte-auditive | Audika pos 4 (-11 %), Unisson top 5 |
+| `perte-auditive/oreille-bouchee.mdx` | 14 800 | perte-auditive | Ideal pos 1 (-41 %), Audika pos 11 |
+| `prevention/cerumen-nettoyage.mdx` | 40 000 cumulé | prevention | Amplifon pos 1-7 (-47 %), Ideal pos 1 (-41 %) |
+| `perte-auditive/trompe-eustache-bouchee.mdx` | 14 800 | perte-auditive | Audika pos 2-8 |
+| `perte-auditive/otite-externe.mdx` | 14 800 | perte-auditive | Audika pos 7 |
+| `acouphenes/auriculotherapie.mdx` | 14 800 | acouphenes | Unisson pos 2 (-31 %) |
+| `appareils-auditifs/sonotone.mdx` | 8 100 | appareils-auditifs | Unisson pos 1 (-31 %) |
 
-**Pipeline par guide** : brief → me-affiliate-writer → nposts-seo-humanizer → nposts-content-evaluator ≥70 → me-eeat-compliance ≥80 → nposts-seo-fixer → me-image-generator hero → me-design-checker → publish.
+**Volume cumulé** : ~148 000 recherches/mois ciblées. Avec les 2 guides déjà livrés le 20/04 matin (cristaux-oreille-interne + otite-sereuse = 29 600 vol) et le guide labyrinthique (60 500 vol), **total Action 4 + 3 = ~238 100 vol ciblés** via 10 nouveaux guides YMYL publiés en 1 journée.
+
+**Todo résiduel** : à J+8, lancer `me-design-checker` + Google Rich Results Test sur les 10 URLs pour valider rendus et schemas.
 
 ### Semaine +1 — Actions court terme
 
