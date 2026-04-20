@@ -2,6 +2,11 @@
 import { getCollection, render } from 'astro:content';
 import GuideLayout from '../../layouts/GuideLayout.astro';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import {
+  buildMedicalWebPageSchema,
+  buildPersonSchema,
+  buildMedicalOrganizationSchema,
+} from '../../utils/schema';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -15,23 +20,36 @@ const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
 const { title, metaTitle, metaDescription, cluster, author, authorTitle, publishDate, updateDate, readingTime, sources, faq, image, ogImage, useLegacyLayout, quickAnswer } = entry.data;
 
-/* MedicalWebPage schema pour les guides sante YMYL */
-const healthClusters = ['perte-auditive', 'acouphenes', 'prevention', 'appareils-auditifs'];
-const extraSchemas = healthClusters.includes(cluster)
-  ? [{
-      '@context': 'https://schema.org',
-      '@type': 'MedicalWebPage',
-      name: title,
-      about: { '@type': 'MedicalCondition', name: 'Perte auditive' },
-      lastReviewed: (updateDate || publishDate).toISOString(),
-      reviewedBy: {
-        '@type': 'Person',
-        name: 'Franck-Olivier Chabbat',
-        jobTitle: "Audioprothésiste diplômé d'État",
-        url: 'https://leguideauditif.fr/auteur/franck-olivier/',
-      },
-    }]
-  : undefined;
+/* Schemas santé YMYL étendus — tous les clusters sauf vie-quotidienne restent pertinents
+   pour MedicalWebPage. remboursement ajouté (100 % Santé, prix appareils = YMYL strict).
+   audioprothesiste ajouté (contenu expert médical). */
+const healthClusters = [
+  'perte-auditive',
+  'acouphenes',
+  'prevention',
+  'appareils-auditifs',
+  'remboursement',
+  'audioprothesiste',
+  'marques',
+];
+
+const currentUrl = new URL(Astro.url.pathname, Astro.site).href;
+const extraSchemas: Record<string, unknown>[] = [];
+
+/* Person + Organization injectés systématiquement pour renforcer E-E-A-T — unique @id réutilisable. */
+extraSchemas.push(buildPersonSchema());
+extraSchemas.push(buildMedicalOrganizationSchema());
+
+if (healthClusters.includes(cluster)) {
+  extraSchemas.push(
+    buildMedicalWebPageSchema({
+      title,
+      description: metaDescription,
+      url: currentUrl,
+      lastReviewed: updateDate || publishDate,
+    }),
+  );
+}
 ---
 
 {useLegacyLayout ? (

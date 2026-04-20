@@ -1,20 +1,34 @@
 ---
 title: "Presbyacousie : comprendre et agir face à la perte auditive liée à l'âge"
-metaTitle: "Presbyacousie : comprendre la perte auditive liée à l'âge"
-metaDescription: "Presbyacousie : mecanisme, erreurs frequentes, diagnostic et appareillage. Guide par un audioprothesiste DE, 28 ans."
+metaTitle: "Presbyacousie 2026 : diagnostic, appareillage, prix"
+metaDescription: "Presbyacousie : mécanisme, diagnostic, appareillage, erreurs fréquentes. Audioprothésiste DE, 28 ans d'expérience, 3 000+ patients appareillés."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 10
 image: /images/blog/presbyacousie/presbyacousie.webp
 ogImage: /images/blog/presbyacousie/presbyacousie-og.webp
+quickAnswer:
+  title: "Presbyacousie : l'essentiel en 3 points"
+  items:
+    - strong: "Qu'est-ce que c'est :"
+      text: "vieillissement biologique des cellules ciliées de l'oreille interne. Touche d'abord les fréquences aiguës — plainte typique : 'j'entends mais je ne comprends pas'."
+    - strong: "À quel âge :"
+      text: "premiers audiogrammes anormaux vers 50-55 ans, gêne quotidienne entre 60-65 ans. Progression de 1 à 2 dB/an sur les aigus après 65 ans."
+    - strong: "Solution :"
+      text: "appareillage binaural (les 2 oreilles) recommandé HAS. Classe 1 reste à charge 0 € suffit dans 40 % des cas — ne pas attendre, le cerveau se déshabitue."
+  conclusion: "Le vrai risque n'est pas la perte elle-même, c'est la déprivation auditive : plus vous attendez, plus l'adaptation est longue. Un bilan audioprothésiste gratuit chaque année après 60 ans est le bon rythme."
 relatedGuides:
   - perte-auditive/index
   - perte-auditive/causes
   - perte-auditive/symptomes
+  - perte-auditive/types
+  - appareils-auditifs/index
+  - appareils-auditifs/classe-1-vs-classe-2
+  - remboursement/100-sante-audition
 sources:
   - name: "INSERM - Surdités"
     url: "https://www.inserm.fr/dossier/surdites/"

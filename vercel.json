@@ -30,6 +30,11 @@
       "source": "/guides/remboursement/100-sante/",
       "destination": "/guides/remboursement/100-sante-audition/",
       "permanent": true
+    },
+    {
+      "source": "/audioprothesiste/sch-lcher/",
+      "destination": "/audioprothesiste/schoelcher/",
+      "permanent": true
     }
   ]
 }

@@ -33,7 +33,7 @@ const { data: centre, error } = await supabase
   .single();
 
 if (error || !centre) {
-  return Astro.redirect('/trouver-audioprothesiste/');
+  return new Response(null, { status: 404 });
 }
 
 const typedCentre = centre as unknown as CentreData;
@@ -43,6 +43,10 @@ const isRpps = typedCentre.plan === 'rpps';
 const isClaimed = typedCentre.plan === 'claimed';
 const isPremium = typedCentre.plan === 'premium';
 const isPendingClaim = isRpps && typedCentre.claim_status === 'pending';
+
+// Indexation : noindex sur fiches RPPS non revendiquées (thin content — FINESS brut).
+// Les fiches claimed/premium portent `a_propos` + données enrichies = indexables.
+const isThin = isRpps;
 
 // Verifier si le visiteur est le proprietaire de cette fiche
 const user = Astro.locals.user;
@@ -138,6 +142,7 @@ if (typedCentre.marques?.length > 0) {
   description={pageDescription}
   canonical={`https://leguideauditif.fr/centre/${typedCentre.slug}/`}
   schema={schema}
+  noindex={isThin}
 >
   <div class="bg-creme">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

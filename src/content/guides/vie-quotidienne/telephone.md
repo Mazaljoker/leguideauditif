@@ -3,6 +3,7 @@ title: "Téléphoner avec un appareil auditif"
 metaTitle: "Téléphone et appareil auditif : guide pratique"
 metaDescription: "Téléphoner avec un appareil auditif : Bluetooth, bobine T, astuces pratiques. Guide par un audioprothésiste DE, 28 ans."
 cluster: vie-quotidienne
+image: /images/blog/telephone/telephone.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12

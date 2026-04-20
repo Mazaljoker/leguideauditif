@@ -1,19 +1,33 @@
 ---
 title: "Bilan auditif gratuit : où le faire et à quoi vous attendre"
-metaTitle: "Bilan auditif gratuit : où et comment le faire"
-metaDescription: "Bilan auditif gratuit chez l'audioprothésiste : déroulement, durée, résultats. Conseils terrain d'un audioprothésiste DE, 28 ans."
+metaTitle: "Bilan auditif gratuit 2026 : où, comment, durée"
+metaDescription: "Bilan auditif gratuit : déroulement, durée 30-45 min, résultats. Sans ordonnance possible pour dépistage. Audioprothésiste DE, 28 ans d'expérience."
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
 image: /images/blog/bilan-auditif-gratuit/bilan-auditif-gratuit.webp
 ogImage: /images/blog/bilan-auditif-gratuit/bilan-auditif-gratuit-og.webp
+quickAnswer:
+  title: "Bilan auditif gratuit : l'essentiel en 3 points"
+  items:
+    - strong: "Où :"
+      text: "chez tout audioprothésiste DE. Entièrement gratuit sans obligation d'achat, sans ordonnance nécessaire pour un dépistage (audiométrie + otoscopie)."
+    - strong: "Durée :"
+      text: "30 à 45 minutes comprenant otoscopie (observation du conduit), audiométrie tonale (seuils d'audition par fréquence), test vocal dans le calme et/ou le bruit."
+    - strong: "Résultats :"
+      text: "explications immédiates de votre audiogramme, orientation vers ORL si perte identifiée, ou programmation d'un bilan annuel si audition normale. Aucune vente forcée."
+  conclusion: "Recommandé à partir de 50 ans tous les 2 ans, puis annuel après 60 ans. Le bilan audioprothésiste ne remplace pas la consultation ORL (obligatoire avant appareillage) mais constitue un excellent premier dépistage."
 relatedGuides:
   - prevention/index
   - prevention/depistage-auditif
+  - prevention/seniors
+  - perte-auditive/symptomes
+  - perte-auditive/presbyacousie
+  - perte-auditive/quand-consulter-orl
 sources:
   - name: "UNSAF - Accès aux soins auditifs"
     url: "https://www.unsaf.org/"

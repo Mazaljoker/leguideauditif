@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 
 const guides = await getCollection('guides');
+const totalGuides = guides.length;
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
@@ -24,59 +26,191 @@ const clusterLabels: Record<string, string> = {
   'remboursement': 'Remboursement',
   'vie-quotidienne': 'Vie quotidienne',
   'audioprothesiste': "L'audioprothésiste",
+  'marques': 'Marques et fabricants',
+};
+
+const clusterIntros: Record<string, string> = {
+  'perte-auditive': "Comprendre votre audiogramme, identifier les causes et savoir quand consulter — les bases pour reprendre la main sur votre audition.",
+  'appareils-auditifs': "Choisir le bon type (RIC, contour, intra), comprendre les classes 1 et 2, l'entretien et la connectivité Bluetooth au quotidien.",
+  'acouphenes': "Origines, traitements reconnus (TRT, thérapie sonore, Lenire) et stratégies validées pour retrouver le sommeil malgré les sifflements.",
+  'prevention': "Bruit au travail, concerts, écouteurs : tout ce qu'il faut savoir pour préserver votre capital auditif à chaque étape de la vie.",
+  'remboursement': "100% Santé, mutuelle, devis, renouvellement : le vrai parcours financier d'un appareillage en France, sans zone d'ombre.",
+  'vie-quotidienne': "Téléphone, TV, sport, voyage : les ajustements pratiques qui changent tout quand on vit avec un appareil auditif.",
+  'audioprothesiste': "Premier rendez-vous, ORL ou audio, suivi, téléaudiologie : comprendre le métier avant de choisir votre professionnel.",
+  'marques': "Phonak, Signia, Oticon, Resound : panorama des grandes marques, leurs plateformes et leurs différences réelles en cabine.",
+};
+
+// Patterns de dégradés variés pour les fallbacks (sans image)
+const fallbackGradients = [
+  'from-marine to-orange/70',
+  'from-marine via-marine/90 to-orange/60',
+  'from-[#243d5e] to-orange/75',
+  'from-marine to-[#C76B2F]',
+];
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Guides santé auditive',
+  description: `${totalGuides} guides sur l'audition rédigés par Franck-Olivier Chabbat, audioprothésiste DE avec 28 ans de clinique.`,
+  url: 'https://leguideauditif.fr/guides/',
+  inLanguage: 'fr-FR',
+  author: {
+    '@type': 'Person',
+    name: 'Franck-Olivier Chabbat',
+    jobTitle: 'Audioprothésiste DE',
+    url: 'https://leguideauditif.fr/auteur/franck-olivier/',
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: totalGuides,
+    itemListElement: guides.map((g, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://leguideauditif.fr/guides/${g.id}/`,
+      name: g.data.title,
+    })),
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+  })),
 };
 ---
 
 <BaseLayout
-  title="Tous nos guides — LeGuideAuditif.fr"
-  description="Retrouvez tous nos guides sur l'audition : perte auditive, appareils, acouphènes, remboursement, prévention et vie quotidienne."
-  schema={{
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbs.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.label,
-      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
-    })),
-  }}
+  title={`Guides audition : ${totalGuides}+ articles par audioprothésiste DE`}
+  description={`${totalGuides} guides experts sur l'audition : perte auditive, appareils, acouphènes, remboursement. Sources HAS, INSERM. Signés Franck-Olivier, 28 ans DE.`}
+  schema={[breadcrumbSchema, collectionSchema]}
 >
   <div class="bg-creme">
     <div class="max-w-[1140px] mx-auto px-5">
       <Breadcrumbs items={breadcrumbs} />
     </div>
   </div>
-  <section class="bg-creme py-16">
+
+  <!-- Hero bandeau avec image éditoriale (LCP candidate) -->
+  <section class="bg-creme pt-6 pb-12">
     <div class="max-w-[1140px] mx-auto px-5">
-      <h1 class="font-sans text-[38px] font-extrabold text-marine text-center mb-4">Nos guides</h1>
-      <p class="text-center text-gris-texte text-lg mb-6 max-w-[600px] mx-auto">
-        Tous nos contenus sur la santé auditive, rédigés par un audioprothésiste DE — 28 ans de clinique, 5 ans chez Auzen.com.
-      </p>
-      <div class="max-w-[700px] mx-auto text-gris-texte text-base leading-relaxed mb-12 space-y-3">
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] gap-8 lg:gap-10 items-center">
+        <div class="aspect-[16/9] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(27,46,74,0.12)] order-1 lg:order-1">
+          <img
+            src="/images/hero/guides-hero.webp"
+            alt="Une personne senior souriante consulte un guide d'audition sur tablette avec une audioprothésiste qui lui explique un audiogramme avec pédagogie"
+            width="684"
+            height="385"
+            fetchpriority="high"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="order-2 lg:order-2">
+          <h1 class="font-sans text-[30px] md:text-[38px] font-extrabold text-marine leading-tight mb-4">
+            Guides et conseils sur l'audition
+            <span class="block text-orange text-lg md:text-xl font-bold mt-2">
+              Par un audioprothésiste DE, 28 ans de clinique
+            </span>
+          </h1>
+          <p class="text-gris-texte text-base md:text-lg leading-relaxed mb-5">
+            {totalGuides} articles sur la santé auditive, rédigés à partir de
+            <a href="/auteur/franck-olivier/" class="text-marine font-semibold underline decoration-orange decoration-2 underline-offset-4 hover:text-orange transition-colors">
+              28 ans de consultations
+            </a>
+            et 5 ans chez Auzen.com.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:badge-check" class="w-4 h-4 text-orange" aria-hidden="true" />
+              Audioprothésiste DE
+            </span>
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:book-open" class="w-4 h-4 text-orange" aria-hidden="true" />
+              {totalGuides} guides
+            </span>
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:shield-check" class="w-4 h-4 text-orange" aria-hidden="true" />
+              Sources HAS, INSERM
+            </span>
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:users" class="w-4 h-4 text-orange" aria-hidden="true" />
+              3000+ patients
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-creme pb-16">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <div class="max-w-[780px] mx-auto text-gris-texte text-base leading-relaxed mb-12 space-y-3">
         <p>
           Ces guides sont nés de 28 ans de questions en cabine. "Combien ça coûte vraiment ?" "Est-ce que la mutuelle rembourse ?" "Mon appareil siffle, c'est normal ?" — chaque article répond à une question que mes patients m'ont posée des dizaines de fois. J'écris ce que je dis en consultation, sans jargon inutile, avec les mêmes exemples concrets.
         </p>
         <p>
-          Le contenu est organisé par thème : <strong>perte auditive</strong> (comprendre votre audiogramme), <strong>appareils</strong> (choisir le bon type), <strong>remboursement</strong> (100% Santé, mutuelle, renouvellement), <strong>acouphènes</strong>, <strong>prévention</strong> et <strong>vie quotidienne</strong> (téléphone, TV, travail, voyage). Chaque affirmation médicale est sourcée — HAS, INSERM ou études PubMed.
+          Le contenu est organisé par thème. Chaque affirmation médicale est sourcée — HAS, INSERM ou études PubMed, toujours datée de moins de trois ans quand c'est possible.
         </p>
       </div>
 
       {Object.entries(clusterLabels).map(([cluster, label]) => {
         const entries = grouped[cluster];
         if (!entries || entries.length === 0) return null;
+        const intro = clusterIntros[cluster];
         return (
-          <div class="mb-12">
-            <h2 class="font-sans text-2xl font-bold text-marine mb-6">{label}</h2>
+          <div class="mb-14">
+            <div class="mb-6">
+              <h2 class="font-sans text-2xl md:text-[28px] font-bold text-marine mb-2">{label}</h2>
+              {intro && (
+                <p class="text-gris-texte text-base leading-relaxed max-w-[820px]">{intro}</p>
+              )}
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {entries.map((guide) => (
-                <a
-                  href={`/guides/${guide.id}/`}
-                  class="bg-blanc rounded-xl p-6 shadow-[0_2px_8px_rgba(27,46,74,0.06)] hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline hover:no-underline"
-                >
-                  <h3 class="font-sans text-lg font-bold text-marine mb-2">{guide.data.title}</h3>
-                  <p class="text-sm text-gris-texte leading-relaxed">{guide.data.metaDescription}</p>
-                </a>
-              ))}
+              {entries.map((guide, idx) => {
+                const hasImage = !!guide.data.image;
+                const gradient = fallbackGradients[idx % fallbackGradients.length];
+                return (
+                  <a
+                    href={`/guides/${guide.id}/`}
+                    class="group bg-blanc rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(27,46,74,0.06)] hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline hover:no-underline flex flex-col"
+                  >
+                    <div class="aspect-[16/9] bg-creme overflow-hidden relative">
+                      {hasImage ? (
+                        <img
+                          src={guide.data.image}
+                          alt={guide.data.title}
+                          width="342"
+                          height="192"
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 360px"
+                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                        />
+                      ) : (
+                        <div class={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center group-hover:scale-105 transition-transform duration-500 ease-out`}>
+                          <Icon name="lucide:book-open" class="w-12 h-12 text-creme/80" aria-hidden="true" />
+                        </div>
+                      )}
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                      <h3 class="font-sans text-lg font-bold text-marine mb-2 leading-snug">{guide.data.title}</h3>
+                      <p class="text-sm text-gris-texte leading-relaxed flex-1">{guide.data.metaDescription}</p>
+                      {guide.data.readingTime && (
+                        <div class="mt-4 pt-3 border-t border-creme text-xs text-orange font-semibold flex items-center gap-1.5">
+                          <Icon name="lucide:clock" class="w-3.5 h-3.5" aria-hidden="true" />
+                          {guide.data.readingTime} min de lecture
+                        </div>
+                      )}
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         );

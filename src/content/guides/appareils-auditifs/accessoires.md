@@ -63,7 +63,7 @@ Le micro distant est l'accessoire que je recommande systématiquement aux patien
 
 **Le cas typique que je vois chaque semaine :** un patient de 72 ans, ancien cadre, qui évite les déjeuners d'association depuis deux ans parce qu'il ne comprend plus rien dans le brouhaha. On lui prête un Roger On pour un essai d'une semaine. Au rendez-vous suivant, la première chose qu'il dit : "j'ai redéjeuné avec mes amis jeudi". C'est exactement ce type de transformation que permet un micro distant.
 
-**Phonak Roger** reste la référence du marché. Le système utilise un protocole radio numérique distinct du Bluetooth, ce qui lui permet de fonctionner là où le Bluetooth classique décroche (grandes salles, environnements saturés en Wi-Fi). Le Roger On iN (350-450 euros) fait office de micro de table et de micro-cravate. Le Roger Select iN (400-500 euros) ajoute la possibilité de pointer la source sonore que vous souhaitez entendre -- vous orientez le boîtier vers votre interlocuteur.
+**Phonak Roger** reste la référence du marché. Le système utilise un protocole radio numérique distinct du Bluetooth, ce qui lui permet de fonctionner là où le Bluetooth classique décroche (grandes salles, environnements saturés en Wi-Fi). Le Roger On iN (350-450 euros) fait office de micro de table et de micro-cravate. Le Roger Select iN (400-500 euros) ajoute la possibilité de pointer la source sonore que vous souhaitez entendre -- vous orientez le boîtier vers votre interlocuteur. Pour un comparatif détaillé des trois modèles phares avec mes critères terrain, consultez notre [guide complet Phonak Roger](/guides/appareils-auditifs/phonak-roger/).
 
 **Les alternatives chez les autres fabricants :**
 

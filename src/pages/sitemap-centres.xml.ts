@@ -4,9 +4,12 @@ import type { APIRoute } from 'astro';
 import { supabase } from '../lib/supabase';
 
 export const GET: APIRoute = async () => {
+  // Seules les fiches claimed/premium sont exposées au sitemap : les fiches RPPS brutes
+  // sont noindex (thin content) et ne doivent pas être poussées à Google.
   const { data: centres, error } = await supabase
     .from('centres_auditifs')
-    .select('slug, updated_at')
+    .select('slug, updated_at, plan')
+    .in('plan', ['claimed', 'premium'])
     .order('slug');
 
   if (error || !centres) {

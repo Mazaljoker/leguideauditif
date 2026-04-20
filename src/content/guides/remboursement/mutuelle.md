@@ -1,18 +1,33 @@
 ---
 title: "Quelle mutuelle pour un appareil auditif en 2026 ?"
-metaDescription: "Choisir sa mutuelle pour un appareil auditif : niveaux de remboursement, comparatif, délais de carence, conseils d'audioprothésiste. Guide complet 2026."
+metaTitle: "Mutuelle appareil auditif 2026 : quoi regarder"
+metaDescription: "Mutuelle appareil auditif 2026 : niveaux de remboursement, comparatif, délais de carence, pièges à éviter. Audioprothésiste DE, 28 ans d'expérience."
 cluster: remboursement
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 8
 image: /images/blog/mutuelle/mutuelle.webp
 ogImage: /images/blog/mutuelle/mutuelle-og.webp
+quickAnswer:
+  title: "Mutuelle appareil auditif : les critères clés"
+  items:
+    - strong: "Classe 1 (100% Santé) :"
+      text: "couverte à 100 % par toute mutuelle responsable (95 % des contrats). Aucun critère particulier à vérifier — reste à charge 0 € automatique."
+    - strong: "Classe 2 (prix libre) :"
+      text: "les contrats varient énormément. Regardez le forfait audio exprimé en euros (pas en %), idéal ≥ 1 500 € par oreille par période de 4 ans."
+    - strong: "Délais de carence :"
+      text: "vérifiez-les avant souscription — 6 à 12 mois fréquents. Si vous changez de mutuelle pour bénéficier d'un meilleur remboursement, anticipez."
+  conclusion: "Évitez les mutuelles qui affichent '400 % BRSS' sans préciser le plafond en euros. Un 400 % sur base 240 € = 960 €, souvent insuffisant pour du Classe 2 premium. Le chiffre en euros brut est plus parlant."
 relatedGuides:
   - remboursement/index
   - remboursement/100-sante-audition
+  - remboursement/prix-appareil-auditif
+  - remboursement/reste-a-charge-zero
+  - remboursement/devis
+  - appareils-auditifs/classe-1-vs-classe-2
 sources:
   - name: "Ameli.fr - Complémentaire santé"
     url: "https://www.ameli.fr/assure/droits-demarches/complementaire-sante"

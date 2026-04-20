@@ -1,0 +1,205 @@
+{
+  "date": "2026-04-20T13:25:48.925072",
+  "model": "gemini-2.5-flash-image",
+  "dry_run": false,
+  "generated": [
+    {
+      "slug": "auriculotherapie",
+      "title": "Auriculothérapie : efficacité, limites et alternatives validées",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\auriculotherapie\\auriculotherapie.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\auriculotherapie\\auriculotherapie-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "phonak-roger",
+      "title": "Phonak Roger : le guide complet (On, Select, Table Mic) pour entendre dans le bruit",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\phonak-roger\\phonak-roger.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\phonak-roger\\phonak-roger-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "sonotone",
+      "title": "Sonotone : pourquoi on ne dit plus « sonotone » en 2026",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\sonotone\\sonotone.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\sonotone\\sonotone-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "oticon",
+      "title": "Oticon : le guide complet de la marque en 2026 (Intent, BrainHearing, avis)",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\oticon\\oticon.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\oticon\\oticon-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "phonak",
+      "title": "Phonak : le guide complet de la marque en 2026 (gammes, technologies, avis)",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\phonak\\phonak.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\phonak\\phonak-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "signia",
+      "title": "Signia : le guide complet de la marque en 2026 (gammes IX, technologies, avis)",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\signia\\signia.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\signia\\signia-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "cristaux-oreille-interne",
+      "title": "Cristaux dans l'oreille interne : comprendre et soigner le VPPB",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\cristaux-oreille-interne\\cristaux-oreille-interne.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\cristaux-oreille-interne\\cristaux-oreille-interne-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "labyrinthite-labyrinthique",
+      "title": "Labyrinthite et labyrinthique : tout comprendre sur l'oreille interne",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\labyrinthite-labyrinthique\\labyrinthite-labyrinthique.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\labyrinthite-labyrinthique\\labyrinthite-labyrinthique-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "oreille-bouchee",
+      "title": "Oreille bouchée : causes, solutions et quand consulter",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\oreille-bouchee\\oreille-bouchee.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\oreille-bouchee\\oreille-bouchee-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "otite-externe",
+      "title": "Otite externe : symptômes, traitement et prévention",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\otite-externe\\otite-externe.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\otite-externe\\otite-externe-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "otite-sereuse",
+      "title": "Otite séreuse chez l'adulte et l'enfant : durée, symptômes, traitement",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\otite-sereuse\\otite-sereuse.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\otite-sereuse\\otite-sereuse-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "otite",
+      "title": "Otite : types, symptômes, traitement et impact sur l'audition",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\otite\\otite.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\otite\\otite-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "trompe-eustache-bouchee",
+      "title": "Trompe d'Eustache bouchée : causes, solutions et prévention",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\trompe-eustache-bouchee\\trompe-eustache-bouchee.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\trompe-eustache-bouchee\\trompe-eustache-bouchee-og.webp"
+        }
+      ]
+    },
+    {
+      "slug": "cerumen-nettoyage",
+      "title": "Nettoyer ses oreilles sans danger : méthodes et pièges à éviter",
+      "images": [
+        {
+          "type": "hero",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\cerumen-nettoyage\\cerumen-nettoyage.webp"
+        },
+        {
+          "type": "og",
+          "path": "C:\\Users\\Franck-Olivier\\dev\\leguideauditif-claude-code\\leguideauditif\\public\\images\\blog\\cerumen-nettoyage\\cerumen-nettoyage-og.webp"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "skipped": []
+}

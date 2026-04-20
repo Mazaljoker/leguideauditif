@@ -2,6 +2,7 @@
 title: "Panne d'appareil : que faire avant d'aller chez l'audio"
 metaDescription: "Appareil auditif en panne : 5 gestes simples à essayer avant de consulter votre audioprothésiste."
 cluster: vie-quotidienne
+image: /images/blog/panne/panne.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12

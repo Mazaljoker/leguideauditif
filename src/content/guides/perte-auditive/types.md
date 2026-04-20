@@ -1,20 +1,34 @@
 ---
-title: "Transmission, perception, mixte : les différences"
-metaTitle: "Types de perte auditive : guide audioprothésiste"
-metaDescription: "Les 3 types de perte auditive : transmission, perception, mixte. Diagnostic, erreurs frequentes et cas reels."
+title: "Transmission, perception, mixte : les 3 types de perte auditive"
+metaTitle: "Types de perte auditive : transmission, perception"
+metaDescription: "Les 3 types de perte auditive : transmission, perception, mixte. Diagnostic à l'audiogramme, traitements possibles — audioprothésiste DE, 28 ans."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
 image: /images/blog/types/types.webp
 ogImage: /images/blog/types/types-og.webp
+quickAnswer:
+  title: "Quel type de perte auditive ai-je ?"
+  items:
+    - strong: "Transmission (oreille externe/moyenne) :"
+      text: "souvent traitable — bouchon de cérumen, otite, otospongiose. Diagnostic : écart conduction aérienne / osseuse à l'audiogramme. Chirurgie ou traitement médical possible."
+    - strong: "Perception (oreille interne ou nerf) :"
+      text: "irréversible, type le plus fréquent (presbyacousie, traumatismes sonores). L'appareillage auditif compense efficacement. Pas de traitement curatif."
+    - strong: "Mixte (les deux à la fois) :"
+      text: "combine les deux mécanismes, fréquent après 70 ans. Prise en charge double : chirurgie ORL éventuelle + appareillage."
+  conclusion: "Seul un audiogramme ORL distingue formellement les 3 types en comparant conduction aérienne et osseuse. Ne tentez pas d'autodiagnostic — la transmission peut cacher une pathologie traitable."
 relatedGuides:
   - perte-auditive/index
   - perte-auditive/causes
   - perte-auditive/symptomes
+  - perte-auditive/presbyacousie
+  - perte-auditive/surdite-brusque
+  - perte-auditive/oreille-bouchee
+  - appareils-auditifs/index
 sources:
   - name: "INSERM - Surdités"
     url: "https://www.inserm.fr/dossier/surdites/"

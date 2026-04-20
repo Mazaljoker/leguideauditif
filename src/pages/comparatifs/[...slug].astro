@@ -2,6 +2,14 @@
 import { getCollection, render } from 'astro:content';
 import ComparatifLayout from '../../layouts/ComparatifLayout.astro';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import {
+  buildMedicalWebPageSchema,
+  buildPersonSchema,
+  buildMedicalOrganizationSchema,
+  buildHowToSchema,
+  buildAggregateRatingSchema,
+  buildReviewSchema,
+} from '../../utils/schema';
 
 export async function getStaticPaths() {
   const comparatifs = await getCollection('comparatifs');
@@ -13,7 +21,73 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
-const { title, metaTitle, metaDescription, category, author, authorTitle, publishDate, updateDate, products, faq, image, ogImage, useLegacyLayout } = entry.data;
+const {
+  title,
+  metaTitle,
+  metaDescription,
+  category,
+  author,
+  authorTitle,
+  publishDate,
+  updateDate,
+  products,
+  faq,
+  image,
+  ogImage,
+  useLegacyLayout,
+  quickAnswer,
+  howToSteps,
+} = entry.data;
+
+const currentUrl = new URL(Astro.url.pathname, Astro.site).href;
+const extraSchemas: Record<string, unknown>[] = [];
+
+/* Person + MedicalOrganization injectés systématiquement — renforce E-E-A-T. */
+extraSchemas.push(buildPersonSchema());
+extraSchemas.push(buildMedicalOrganizationSchema());
+
+/* Comparatifs appareils-auditifs = YMYL santé (impact santé auditive directe). */
+if (category === 'appareils-auditifs') {
+  extraSchemas.push(
+    buildMedicalWebPageSchema({
+      title,
+      description: metaDescription,
+      url: currentUrl,
+      lastReviewed: updateDate || publishDate,
+    }),
+  );
+}
+
+/* HowTo schema si le frontmatter définit des étapes — éligibilité Featured Snippet "étapes". */
+if (howToSteps && howToSteps.length > 0) {
+  extraSchemas.push(
+    buildHowToSchema({
+      name: `Comment choisir : ${title}`,
+      description: metaDescription,
+      steps: howToSteps,
+    }),
+  );
+}
+
+/* AggregateRating + Reviews individuels si les produits ont un score expert. */
+if (products && products.length > 0) {
+  const scoredProducts = products.filter((p) => typeof p.score === 'number');
+  if (scoredProducts.length > 0) {
+    const agg = buildAggregateRatingSchema(scoredProducts.map((p) => p.score!));
+    if (agg) extraSchemas.push(agg);
+
+    for (const p of scoredProducts) {
+      extraSchemas.push(
+        buildReviewSchema({
+          itemName: `${p.brand} ${p.model}`,
+          itemBrand: p.brand,
+          reviewBody: p.verdict,
+          rating: p.score!,
+        }),
+      );
+    }
+  }
+}
 ---
 
 {useLegacyLayout ? (
@@ -49,6 +123,8 @@ const { title, metaTitle, metaDescription, category, author, authorTitle, publis
     faq={faq}
     image={image}
     ogImage={ogImage}
+    extraSchemas={extraSchemas}
+    quickAnswer={quickAnswer}
     showAffiliateDisclosure={true}
   >
     <Content />

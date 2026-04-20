@@ -11,7 +11,7 @@ import { getDepartementByCode, slugifyVille, formatVilleName, normalizeVilleBase
 const { ville: villeSlug } = Astro.params;
 
 if (!villeSlug) {
-  return Astro.redirect('/audioprothesiste/');
+  return new Response(null, { status: 404 });
 }
 
 // Chercher les centres dont le slug ville correspond
@@ -41,9 +41,9 @@ while (hasMore) {
   }
 }
 
-// Si aucun centre trouvé, 404
+// Si aucun centre trouvé, 404 propre (pas redirect — évite "Page avec redirection échec" en GSC)
 if (allCentres.length === 0) {
-  return Astro.redirect('/audioprothesiste/');
+  return new Response(null, { status: 404 });
 }
 
 // Extraire les infos de la ville (nom formaté, arrondissements regroupés en "Paris", "Lyon"...)
@@ -54,6 +54,10 @@ const depInfo = getDepartementByCode(depCode);
 
 const centresCount = allCentres.length;
 const claimedCount = allCentres.filter((c) => c.plan === 'claimed' || c.plan === 'premium').length;
+
+// Indexation : noindex si < 6 centres (thin content — signal qualité Google).
+// Seuil validé pour limiter l'index aux métropoles et sous-préfectures denses.
+const isThin = centresCount < 6;
 
 // Trier : fiches vérifiées en premier, puis premium, puis alphabétique
 allCentres.sort((a, b) => {
@@ -183,7 +187,7 @@ const schemas = [
 ];
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} schema={schemas}>
+<BaseLayout title={title} description={description} ogImage={ogImage} schema={schemas} noindex={isThin}>
   {/* Leaflet CSS — loaded only on this page */}
   <link
     rel="stylesheet"

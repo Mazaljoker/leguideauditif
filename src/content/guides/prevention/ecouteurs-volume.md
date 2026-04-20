@@ -2,6 +2,7 @@
 title: "Écouteurs et volume : protéger votre audition au quotidien"
 metaDescription: "Écouteurs et audition : règle 60/60, volume, casque ANC. Conseils terrain d'un audioprothésiste DE, 28 ans d'expérience."
 cluster: prevention
+image: /images/blog/ecouteurs-volume/ecouteurs-volume.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12

@@ -1,17 +1,31 @@
 ---
 title: "Lenire : ce que vaut vraiment ce dispositif contre les acouphènes"
-metaTitle: "Lenire contre les acouphènes : avis expert 2026"
-metaDescription: "Lenire (neuromodulation bimodale) contre les acouphènes : un audioprothésiste DE analyse les études, les limites et les erreurs d'attente des patients."
+metaTitle: "Lenire acouphènes 2026 : avis audioprothésiste"
+metaDescription: "Lenire (neuromodulation bimodale) contre les acouphènes : analyse des études, limites, erreurs d'attente. Audioprothésiste DE, 28 ans d'expérience."
 cluster: acouphenes
+image: /images/blog/lenire/lenire.webp
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
+quickAnswer:
+  title: "Lenire : la vérité sur ce dispositif anti-acouphènes"
+  items:
+    - strong: "Ce n'est pas une baguette magique :"
+      text: "Lenire (neuromodulation bimodale : son + stimulation linguale) réduit la gêne chez une majorité de participants dans les études cliniques — mais ne fait pas disparaître l'acouphène."
+    - strong: "Prix et accès :"
+      text: "2 000 à 3 000 euros, non remboursé, distribué dans quelques centres spécialisés en France depuis 2025. Certaines mutuelles prennent en charge partiellement."
+    - strong: "Pour qui :"
+      text: "acouphènes subjectifs chroniques (>3 mois), sans perte auditive profonde. Contre-indications : acouphènes pulsatiles, épilepsie non contrôlée, implants cochléaires."
+  conclusion: "Lenire est une option complémentaire crédible validée par l'essai TENT-A3 (Science Translational Medicine 2023). Mais si perte auditive associée, l'appareillage reste la première ligne — Lenire ne le remplace pas."
 relatedGuides:
   - acouphenes/index
   - acouphenes/traitement
+  - acouphenes/therapie-sonore
+  - acouphenes/appareil-auditif
+  - acouphenes/stress
 sources:
   - name: "Neuromod Devices - Études cliniques Lenire"
     url: "https://www.lenire.com/"

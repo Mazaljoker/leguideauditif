@@ -1,18 +1,32 @@
 ---
 title: "Acouphènes pulsatiles : une urgence à ne pas ignorer"
-metaDescription: "Acouphenes pulsatiles : causes vasculaires, erreurs frequentes, quand consulter en urgence. Guide audioprothesiste DE."
+metaTitle: "Acouphènes pulsatiles : urgence, causes, ORL"
+metaDescription: "Acouphènes pulsatiles (synchrones au pouls) : causes vasculaires, quand consulter en urgence. Audioprothésiste DE, 28 ans d'expérience terrain."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
 image: /images/blog/pulsatiles/pulsatiles.webp
 ogImage: /images/blog/pulsatiles/pulsatiles-og.webp
+quickAnswer:
+  title: "Acouphènes pulsatiles : quand consulter en urgence ?"
+  items:
+    - strong: "Définition :"
+      text: "acouphène synchrone avec votre pouls (vous l'entendez battre au rythme cardiaque). C'est le seul type d'acouphène qui correspond à un son réel mesurable."
+    - strong: "Consultez rapidement :"
+      text: "ORL sous 7 à 15 jours, ou urgences si l'acouphène pulsatile est associé à céphalées intenses, vertiges, baisse auditive brutale ou troubles visuels."
+    - strong: "Causes possibles :"
+      text: "sténoses artérielles cervicales, malformations vasculaires, hypertension intracrânienne, tumeurs du glomus — bilan vasculaire et IRM souvent nécessaires."
+  conclusion: "Les acouphènes pulsatiles sont rares (5 à 10 % des acouphènes totaux) mais justifient toujours une investigation vasculaire. N'attendez pas : le diagnostic précoce change le pronostic."
 relatedGuides:
   - acouphenes/index
   - acouphenes/causes
+  - acouphenes/traitement
+  - perte-auditive/surdite-brusque
+  - perte-auditive/quand-consulter-orl
 sources:
   - name: "HAS - Prise en charge des acouphènes chroniques (2024)"
     url: "https://www.has-sante.fr/jcms/p_3074489/fr/acouphenes-chroniques"

@@ -1,19 +1,33 @@
 ---
 title: "Bouchons et protections auditives : guide expert pour bien choisir"
-metaTitle: "Protections auditives : guide expert pour choisir"
-metaDescription: "Protections auditives : bouchons moulés, filtres, casques anti-bruit. Guide terrain par un audioprothésiste DE, 28 ans d'expérience."
+metaTitle: "Protections auditives 2026 : bouchons, moulés, SNR"
+metaDescription: "Protections auditives : bouchons moulés, filtres, casques anti-bruit. Indice SNR, cas d'usage — audioprothésiste DE, 28 ans d'expérience terrain."
 cluster: prevention
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
 image: /images/blog/protections-auditives/protections-auditives.webp
 ogImage: /images/blog/protections-auditives/protections-auditives-og.webp
+quickAnswer:
+  title: "Quelle protection auditive choisir ?"
+  items:
+    - strong: "Bouchons mousse jetables (1-3 €/paire) :"
+      text: "SNR 30-37 dB, usage ponctuel. Concert occasionnel, chantier de bricolage, voyage avion. Pas adaptés au port quotidien — hygiène limitée."
+    - strong: "Bouchons moulés sur mesure (120-250 €) :"
+      text: "faits à partir de votre empreinte par audioprothésiste. Filtres interchangeables (concert, tir, moto, travail). Durée de vie 5 ans. Le meilleur investissement si port régulier."
+    - strong: "Casques anti-bruit (30-200 €) :"
+      text: "SNR 25-35 dB, pour chantiers, aéroports, tondeuse. Plus encombrants mais mieux supportés par ceux qui n'aiment pas l'intra."
+  conclusion: "Protection indispensable dès 85 dB prolongés (tondeuse, concert, chantier). Au-dessus de 100 dB, double protection (bouchons + casque) pour les expositions longues. Votre capital auditif ne se régénère pas — les lésions cochléaires sont définitives."
 relatedGuides:
   - prevention/index
   - prevention/bruit-travail
+  - prevention/concerts-festivals
+  - prevention/ecouteurs-volume
+  - acouphenes/hyperacousie
+  - perte-auditive/causes
 sources:
   - name: "INRS - Protection individuelle contre le bruit"
     url: "https://www.inrs.fr/risques/bruit/prevention-individuelle.html"

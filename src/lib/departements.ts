@@ -124,9 +124,19 @@ export function getDepartementByCode(code: string): DepartementInfo | undefined 
   return DEPARTEMENTS.find((d) => d.code === code);
 }
 
+// Les ligatures Œ/Æ sont des caractères précomposés qui ne sont pas décomposés
+// par NFD. Sans ce mapping, "Schœlcher" → "sch-lcher" → URL cassée → 404 Google.
+const LIGATURE_MAP: Record<string, string> = {
+  'œ': 'oe',
+  'Œ': 'OE',
+  'æ': 'ae',
+  'Æ': 'AE',
+};
+
 /** Slugify une ville pour l'URL — regroupe les arrondissements (Paris 15e → paris) */
 export function slugifyVille(ville: string): string {
   return normalizeVilleBase(ville)
+    .replace(/[œŒæÆ]/g, (c) => LIGATURE_MAP[c] ?? c)
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')

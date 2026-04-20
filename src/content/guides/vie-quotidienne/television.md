@@ -3,6 +3,7 @@ title: "Regarder la TV avec un appareil auditif"
 metaTitle: "Télévision et appareil auditif : solutions son"
 metaDescription: "TV et appareil auditif : TV Connector, boucle magnétique, sous-titres. Solutions pour un son clair sans gêner l'entourage."
 cluster: vie-quotidienne
+image: /images/blog/television/television.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12

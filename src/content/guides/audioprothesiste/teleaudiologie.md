@@ -2,6 +2,7 @@
 title: "Téléaudiologie : réglages à distance en 2026"
 metaDescription: "Téléaudiologie : réglages d'appareils auditifs à distance, fonctionnement, avantages et limites en 2026."
 cluster: audioprothesiste
+image: /images/blog/teleaudiologie/teleaudiologie.webp
 isPillar: false
 publishDate: 2026-04-07
 updatedDate: 2026-04-12

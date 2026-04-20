@@ -1,19 +1,32 @@
 ---
 title: "Acouphènes et stress : le cercle vicieux décrypté par un audioprothésiste"
-metaTitle: "Acouphènes et stress : le cercle vicieux décrypté"
-metaDescription: "Acouphènes et stress : un audioprothésiste DE explique le cercle vicieux, les erreurs courantes et la méthode concrète pour reprendre le contrôle."
+metaTitle: "Acouphènes et stress : briser le cercle vicieux"
+metaDescription: "Acouphènes et stress : le cercle vicieux décrypté, erreurs courantes, méthode concrète pour reprendre le contrôle. Audioprothésiste DE, 28 ans."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 8
 image: /images/blog/stress/stress.webp
 ogImage: /images/blog/stress/stress-og.webp
+quickAnswer:
+  title: "Acouphènes et stress : comprendre et agir"
+  items:
+    - strong: "Le stress ne crée pas l'acouphène :"
+      text: "il amplifie sa perception via le système limbique. En 28 ans, je n'ai jamais vu un stress seul générer un acouphène sur une cochlée saine."
+    - strong: "Le cercle vicieux :"
+      text: "acouphène → anxiété → hypervigilance auditive → perception renforcée → plus de stress. La clé thérapeutique est d'interrompre cette boucle, pas de supprimer le son."
+    - strong: "Ce qui marche (validé HAS) :"
+      text: "TCC avec psychologue formé acouphènes (remboursée via MonParcoursPsy), enrichissement sonore calibré, activité physique régulière, pleine conscience."
+  conclusion: "Consultez un psychologue si anxiété, insomnie ou repli social persistent plus de 2 semaines. La TCC est le traitement psychologique le mieux validé selon la HAS et la méta-analyse Beukes 2024."
 relatedGuides:
   - acouphenes/index
   - acouphenes/traitement
+  - acouphenes/sommeil
+  - acouphenes/causes
+  - acouphenes/therapie-sonore
 sources:
   - name: "INSERM - Acouphènes : quand le silence devient bruit"
     url: "https://www.inserm.fr/dossier/acouphenes/"
