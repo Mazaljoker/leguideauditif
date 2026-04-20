@@ -12,7 +12,7 @@
 | 4 | Cluster 8 guides ORL YMYL | **BOUCLÉE (7 nouveaux + 2 initiaux = 9 guides)** | 2026-04-20 |
 | 5 | 8 pages enseignes | **EN ATTENTE POLITIQUE** | cf. branche `feat/enseignes` |
 | 6 | Contact francemedicale.net | À faire | J+7 |
-| 7 | 7 guides marques fabricants | **EN COURS** (3/7 : Phonak + Signia + Oticon 2026-04-20) | juin-juillet 2026 |
+| 7 | 7 guides marques fabricants | **BOUCLÉE** (7/7 publiés 2026-04-20) | 2026-04-20 |
 | 8 | Guide Roger On/Select/Table | **BOUCLÉE** | 2026-04-20 |
 | 9 | Cluster acouphènes variantes | **BOUCLÉE** (9 guides optimisés snippet-pipeline) | 2026-04-20 |
 | 9+ | Extension snippet-pipeline autres clusters | **BOUCLÉE** (10 guides : 4 perte-auditive + 3 remboursement + 3 prevention) | 2026-04-20 |
@@ -88,12 +88,16 @@
 
 Migration schema Zod effectuée 2026-04-20 : `marques` ajouté à l'enum cluster dans `src/content.config.ts`, clusterLabels mis à jour dans `src/pages/guides/index.astro` et `src/layouts/ArticleLayout.astro`, `marques` ajouté à healthClusters dans `src/pages/guides/[...slug].astro`.
 
-Guides publiés 2026-04-20 :
-- `src/content/guides/marques/phonak.mdx` (2 900 vol kw "phonak appareil auditif")
-- `src/content/guides/marques/signia.mdx` (~2 400 vol kw "signia appareil auditif")
-- `src/content/guides/marques/oticon.mdx` (~2 400 vol kw "oticon appareil auditif")
+Les 7 guides marques publiés 2026-04-20 :
+- `src/content/guides/marques/phonak.mdx` (2 900 vol kw "phonak appareil auditif") — angle leader mondial + Sphere Infinio DEEPSONIC + Roger
+- `src/content/guides/marques/signia.mdx` (~2 400 vol) — angle héritage Siemens + rendu naturel + design Styletto
+- `src/content/guides/marques/oticon.mdx` (~2 400 vol) — angle BrainHearing + Intent capteur 4D + Eriksholm
+- `src/content/guides/marques/starkey.mdx` (~1 900 vol) — angle pionnier IA Edge AI + détection de chute + capteurs santé
+- `src/content/guides/marques/widex.mdx` (~1 900 vol) — angle rendu naturel + Zen acouphènes + PureSound mélomanes
+- `src/content/guides/marques/resound.mdx` (~1 700 vol) — angle pionnier Made for iPhone + Vivia DNN + M&RIE
+- `src/content/guides/marques/bernafon.mdx` (~900 vol) — angle rapport qualité-prix + plateforme Demant partagée Oticon
 
-Guides restants (1 par semaine sur juin-juillet 2026) : starkey, widex, resound, bernafon. Structure à cloner depuis phonak.mdx/signia.mdx/oticon.mdx avec différenciation produit par marque.
+Volume cumulé ciblé : ~13 500 recherches/mois sur les 7 pages marques. Chaque guide a une différenciation éditoriale claire (pas de structure copiée/collée), des tableaux de décision croisés entre marques, et un maillage bidirectionnel avec le catalogue `/catalogue/marques/{slug}/`.
 
 **Action 8 : Guide Roger On/Select/Table** ✅ BOUCLÉE 2026-04-20
 
