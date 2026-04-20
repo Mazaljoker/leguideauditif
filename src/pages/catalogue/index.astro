@@ -1,6 +1,7 @@
 ---
 /**
- * /catalogue/ — Index du catalogue d'aides auditives
+ * /catalogue/ — Index du catalogue d'appareils auditifs (aides auditives)
+ * Double exposition SEO : "appareils auditifs" (27 100 vol/mois) + "aides auditives" (terme DE)
  * Grille filtrable avec 139 SKUs, 12 marques, 4 groupes
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -8,6 +9,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
 import HealthDisclaimer from '../../components/HealthDisclaimer.astro';
 import CatalogueGrid from '../../components/catalogue/CatalogueGrid.tsx';
+import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 import { formatPrice, isClasse1 } from '../../lib/catalogue-utils';
 
@@ -23,40 +25,103 @@ const classe1Count = activeProducts.filter(p => isClasse1(p)).length;
 const activePriced = activeProducts.filter(p => p.prix?.eur?.unitaire);
 const minPrice = activePriced.length > 0 ? Math.min(...activePriced.map(p => p.prix!.eur!.unitaire!)) : 0;
 
-const title = `Catalogue des aides auditives 2026 — Comparez ${activeCount} modèles`;
-const description = `Comparez ${activeCount} aides auditives de ${brands} marques. Prix, caractéristiques, Classe 1 (RAC 0€). Guide indépendant par un audioprothésiste DE.`;
+const title = `Appareils auditifs 2026 : ${activeCount} modèles comparés — LeGuideAuditif`;
+const description = `Catalogue ${activeCount} appareils auditifs (aides auditives) de ${brands} marques. Prix, technologies, Classe 1 RAC 0€. Indépendant, audioprothésiste DE.`;
 
 const schema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'Catalogue des aides auditives 2026',
+    '@type': 'CollectionPage',
+    name: 'Catalogue appareils auditifs 2026',
     description: description,
     url: 'https://leguideauditif.fr/catalogue/',
-    numberOfItems: activeCount,
-    itemListOrder: 'https://schema.org/ItemListUnordered',
+    inLanguage: 'fr-FR',
+    author: {
+      '@type': 'Person',
+      name: 'Franck-Olivier Chabbat',
+      jobTitle: 'Audioprothésiste DE',
+      url: 'https://leguideauditif.fr/auteur/franck-olivier/',
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Appareils auditifs disponibles en France 2026',
+      numberOfItems: activeCount,
+      itemListOrder: 'https://schema.org/ItemListUnordered',
+    },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://leguideauditif.fr/' },
-      { '@type': 'ListItem', position: 2, name: 'Catalogue' },
+      { '@type': 'ListItem', position: 2, name: 'Catalogue appareils auditifs' },
     ],
   },
 ];
 ---
 
 <BaseLayout title={title} description={description} canonical="/catalogue/" schema={schema}>
-  <Breadcrumbs items={[{ label: 'Accueil', href: '/' }, { label: 'Catalogue' }]} />
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Breadcrumbs items={[{ label: 'Accueil', href: '/' }, { label: 'Catalogue appareils auditifs' }]} />
+  </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    {/* Hero */}
-    <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 sm:p-12 mb-8 relative overflow-hidden">
-      <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-orange/10" aria-hidden="true"></div>
-      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">Catalogue des aides auditives 2026</h1>
-      <p class="text-lg opacity-90 max-w-2xl leading-relaxed">
-        Comparez les {activeCount} modèles disponibles en France. Retrouvez toutes les informations : prix, technologies, Classe 1, remboursement Sécu.
+    {/* Hero 2 colonnes avec image éditoriale (LCP candidate) */}
+    <section class="mb-10">
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-8 lg:gap-10 items-center">
+        <div class="aspect-[16/9] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(27,46,74,0.12)] order-1 lg:order-1 bg-gradient-to-br from-marine to-marine-light">
+          <img
+            src="/images/hero/catalogue-hero.webp"
+            alt={`Catalogue de ${activeCount} appareils auditifs modernes de différents types (contour, intra, invisible) présentés sur un fond neutre éditorial`}
+            width="684"
+            height="385"
+            fetchpriority="high"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="order-2 lg:order-2">
+          <h1 class="font-sans text-[30px] md:text-[40px] font-extrabold text-marine leading-tight mb-4">
+            Appareils auditifs 2026
+            <span class="block text-orange text-lg md:text-xl font-bold mt-2">
+              {activeCount} modèles comparés par un audioprothésiste DE
+            </span>
+          </h1>
+          <p class="text-gris-texte text-base md:text-lg leading-relaxed mb-5">
+            Le catalogue complet des <strong class="text-marine">appareils auditifs</strong> (aides auditives médicales) disponibles en France, rédigé par
+            <a href="/auteur/franck-olivier/" class="text-marine font-semibold underline decoration-orange decoration-2 underline-offset-4 hover:text-orange transition-colors">
+              Franck-Olivier Chabbat
+            </a>, 28 ans de clinique, 3 000+ patients appareillés.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:layout-grid" class="w-4 h-4 text-orange" aria-hidden="true" />
+              {activeCount} modèles
+            </span>
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:badge-check" class="w-4 h-4 text-orange" aria-hidden="true" />
+              {brands} marques
+            </span>
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:shield-check" class="w-4 h-4 text-orange" aria-hidden="true" />
+              {classe1Count} en Classe 1 (RAC 0€)
+            </span>
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:euro" class="w-4 h-4 text-orange" aria-hidden="true" />
+              Dès {formatPrice(minPrice)}
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Chapô sémantique double exposition (aides auditives / appareils auditifs / sonotone) */}
+    <div class="max-w-3xl mx-auto text-gris-texte text-base leading-relaxed mb-10 space-y-3">
+      <p>
+        Un <strong class="text-marine">appareil auditif</strong> — aussi appelé <strong class="text-marine">aide auditive</strong> en terminologie médicale, ou <em>sonotone</em> dans le langage courant — est un dispositif médical réglé et délivré exclusivement par un audioprothésiste diplômé d'État. En 28 ans de cabine, j'ai appareillé plus de 3 000 personnes : ce qui compte au quotidien, ce n'est pas la fiche technique du fabricant, c'est le confort réel dans le bruit, la tenue de la batterie au bout de 6 mois, la facilité de manipulation pour des doigts arthrosiques.
+      </p>
+      <p>
+        Ce catalogue recense les {activeCount} modèles actuellement <a href="/guides/remboursement/100-sante-audition/" class="text-orange hover:underline">disponibles en France (Classe 1 et Classe 2)</a>, rangés par marque et par niveau technologique. Chaque fiche indique si l'appareil existe en <strong class="text-marine">100% Santé (reste à charge 0 €)</strong> ou uniquement en Classe 2, pour que vous compariez à budget équivalent.
       </p>
     </div>
 
@@ -67,7 +132,7 @@ const schema = [
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-gris-light">
       <div>
         <div class="text-2xl font-bold text-marine">{activeCount}</div>
-        <div class="text-sm text-gris">modèles disponibles</div>
+        <div class="text-sm text-gris">appareils auditifs</div>
       </div>
       <div>
         <div class="text-2xl font-bold text-marine">{brands}</div>
@@ -85,9 +150,9 @@ const schema = [
 
     {/* CTA Bloc */}
     <div class="mt-12 p-8 bg-gris-lightest rounded-xl border border-gris-light">
-      <h2 class="font-sans text-xl font-bold mb-3">Besoin de conseil ?</h2>
+      <h2 class="font-sans text-xl font-bold mb-3">Besoin de conseil pour choisir votre appareil auditif ?</h2>
       <p class="text-gris mb-6 max-w-2xl">
-        Tous nos modèles sont sélectionnés et testés par un audioprothésiste diplômé d'État. Parcourez nos fiches détaillées pour trouver l'aide auditive qui vous convient.
+        Tous nos modèles sont sélectionnés et testés par un audioprothésiste diplômé d'État. Parcourez nos fiches détaillées pour trouver l'<strong>appareil auditif</strong> (aide auditive) qui vous convient, ou demandez un bilan personnalisé gratuit.
       </p>
       <a href="/contact/" class="inline-block px-6 py-3 bg-marine text-blanc rounded-lg font-medium hover:bg-marine-dark transition">
         Contactez un audioprothésiste
