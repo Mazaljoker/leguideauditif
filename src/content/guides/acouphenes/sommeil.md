@@ -1,16 +1,30 @@
 ---
 title: "Acouphènes et sommeil : retrouver des nuits calmes"
-metaDescription: "Acouphenes et insomnie : strategies pour retrouver le sommeil. Enrichissement sonore, TCC-I, hygiene du sommeil."
+metaTitle: "Acouphènes et sommeil : 5 stratégies validées"
+metaDescription: "Acouphènes et insomnie : stratégies validées HAS pour retrouver le sommeil. Enrichissement sonore, TCC-I, hygiène du sommeil. Audioprothésiste DE."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 8
+quickAnswer:
+  title: "Comment dormir malgré les acouphènes ?"
+  items:
+    - strong: "Enrichissement sonore :"
+      text: "générateur de bruit de chevet ou application (pluie, bruit rose, ruisseau), volume juste en dessous du sifflement. Réduit le contraste avec l'acouphène."
+    - strong: "TCC-I (thérapie cognitivo-comportementale de l'insomnie) :"
+      text: "recommandée HAS en première intention. Validée par méta-analyse JAMA 2023 pour réduire la détresse acouphénique nocturne."
+    - strong: "Ce qu'il faut éviter :"
+      text: "somnifères (ne traitent pas la cause, dépendance), et dormir avec ses appareils auditifs (hygiène + longévité)."
+  conclusion: "Les acouphènes sont plus forts la nuit parce que le silence ambiant supprime le masquage naturel. Reproduire un fond sonore modéré trompe le cerveau et permet de retrouver le sommeil sans médication."
 relatedGuides:
   - acouphenes/index
   - acouphenes/stress
+  - acouphenes/traitement
+  - acouphenes/therapie-sonore
+  - acouphenes/appareil-auditif
 sources:
   - name: "INSERM — Acouphènes : quand le silence devient bruit (2024)"
     url: "https://www.inserm.fr/dossier/acouphenes/"

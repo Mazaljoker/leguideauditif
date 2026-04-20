@@ -1,17 +1,34 @@
 ---
-title: "Acouphènes : les causes principales"
-metaDescription: "Les causes des acouphènes : bruit, âge, stress, médicaments. Comprendre pour mieux agir. Guide audioprothésiste DE 28 ans."
+title: "Acouphènes : les causes principales (bruit, âge, stress, médicaments)"
+metaTitle: "Acouphènes causes 2026 : bruit, âge, stress"
+metaDescription: "Causes des acouphènes : bruit, âge, stress, médicaments ototoxiques. Comprendre pour mieux agir — audioprothésiste DE, 28 ans d'expérience."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
 image: /images/blog/causes/causes.webp
 ogImage: /images/blog/causes/causes-og.webp
+quickAnswer:
+  title: "Quelles sont les causes des acouphènes ?"
+  items:
+    - strong: "Causes les plus fréquentes :"
+      text: "exposition au bruit (traumatisme sonore aigu ou chronique) et presbyacousie — ensemble, plus de 70 % des cas en consultation."
+    - strong: "Facteurs déclencheurs :"
+      text: "stress intense, médicaments ototoxiques (aminosides, aspirine forte dose, certains diurétiques), bouchons de cérumen, otites, traumatismes crâniens."
+    - strong: "Cas à consulter en urgence :"
+      text: "acouphènes pulsatiles (synchrones avec le pouls) ou unilatéraux d'apparition brutale — ils peuvent signaler un problème vasculaire ou neurologique."
+  conclusion: "Dans 90 % des cas plusieurs facteurs se combinent : fragilité cochléaire + déclencheur + terrain anxieux. Identifier la cause oriente le traitement — un audiogramme ORL est le premier pas."
 relatedGuides:
   - acouphenes/index
+  - acouphenes/traitement
+  - acouphenes/pulsatiles
+  - acouphenes/stress
+  - acouphenes/appareil-auditif
+  - prevention/bruit-travail
+  - perte-auditive/presbyacousie
 sources:
   - name: "INSERM - Les acouphènes"
     url: "https://www.inserm.fr/dossier/acouphenes/"

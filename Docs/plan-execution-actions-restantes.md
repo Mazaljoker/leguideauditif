@@ -14,7 +14,7 @@
 | 6 | Contact francemedicale.net | À faire | J+7 |
 | 7 | 7 guides marques fabricants | **EN COURS** (3/7 : Phonak + Signia + Oticon 2026-04-20) | juin-juillet 2026 |
 | 8 | Guide Roger On/Select/Table | **BOUCLÉE** | 2026-04-20 |
-| 9 | Cluster acouphènes variantes | À faire | J+14 à J+28 |
+| 9 | Cluster acouphènes variantes | **BOUCLÉE** (9 guides optimisés snippet-pipeline) | 2026-04-20 |
 | 10 | 20 pages locales | **PARTIEL** (branche `feat/enseignes` contient un silo local 96 dép + villes dynamiques) | à auditer |
 | 11 | BL blogs seniors (9 cibles) | À faire | juin-juillet |
 | 12 | Audit schema.org complet | **BOUCLÉE** (auto-injection layout) | 2026-04-20 |
@@ -48,7 +48,17 @@
 
 - **J+7** : Action 6 — Soumission LGA à francemedicale.net (BL triple-lien). 1 soumission + tracking Notion.
 - **J+10** : Setup Action 16 — monitoring mensuel positions concurrents via DataForSEO MCP. Cron à créer dans `.claude/scripts/monitor_concurrents.py`. Seuils d'alerte : perte concurrent >10 pts sur kw où LGA est top 20 → priorité optimisation.
-- **J+14** : Action 9 — audit cluster acouphènes existant (9 guides) via me-snippet-pipeline. Enrichissement variantes (oreille qui siffle, bourdonnement, sifflement oreille droite/gauche, pulsatile, nocturne). ~40 k vol cumulé.
+- **J+14** : Action 9 ✅ **BOUCLÉE 2026-04-20** — audit cluster acouphènes existant (9 guides) via me-snippet-pipeline.
+
+  **Optimisations appliquées** (9 guides : appareil-auditif, causes, hyperacousie, lenire, pulsatiles, sommeil, stress, therapie-sonore, traitement) :
+  - **metaTitle ajouté/optimisé** sur 8/9 guides (≤60 chars, variantes kw ciblées)
+  - **metaDescription accentuée** (fix HARD BLOCK CLAUDE.md) sur 4 guides (appareil-auditif, pulsatiles, sommeil, therapie-sonore) — correction "acouphenes" → "acouphènes", "efficacite" → "efficacité", etc.
+  - **quickAnswer ATF** injecté sur 9/9 guides (Featured Snippet éligibilité) avec 3 items + conclusion
+  - **updatedDate → updateDate** fixé (typo récurrente) + date bumpée 2026-04-20
+  - **relatedGuides étendus** (maillage interne cluster acouphènes ↔ perte-auditive ↔ appareils-auditifs)
+  - **authorTitle** homogénéisé "Audioprothésiste DE — 28 ans d'expérience"
+
+  Impact SEO attendu J+30 : Featured Snippets potentiels sur "traitement acouphènes", "causes acouphènes", "acouphènes et sommeil", "thérapie sonore", "acouphènes pulsatiles urgence". Volume cumulé ciblé ~60 k recherches/mois.
 
 ### Semaine +2 — Rollout schema final et checks
 

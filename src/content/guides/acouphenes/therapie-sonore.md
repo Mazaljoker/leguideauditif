@@ -1,20 +1,33 @@
 ---
 title: "Thérapie sonore (TRT, masquage, sons fractals) : ce qui fonctionne vraiment"
-metaTitle: "Thérapie sonore acouphènes : TRT, masquage, fractals"
-metaDescription: "Therapie sonore contre les acouphenes : TRT, masquage, sons fractals. Protocole, erreurs courantes et resultats reels."
+metaTitle: "Thérapie sonore acouphènes : TRT, masquage 2026"
+metaDescription: "Thérapie sonore contre les acouphènes : TRT, masquage, sons fractals. Protocole, erreurs courantes et résultats réels — audioprothésiste DE, 28 ans."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
 image: /images/blog/therapie-sonore/therapie-sonore.webp
 ogImage: /images/blog/therapie-sonore/therapie-sonore-og.webp
+quickAnswer:
+  title: "Thérapie sonore : ce qui marche, ce qui ne marche pas"
+  items:
+    - strong: "TRT (Tinnitus Retraining Therapy) :"
+      text: "12 à 18 mois d'accompagnement, résultats durables dans 70 à 80 % des cas — seule approche qui produit une habituation validée par Cochrane."
+    - strong: "Masquage total :"
+      text: "soulagement immédiat mais aucune habituation. Utile en dépannage, insuffisant à long terme. L'acouphène revient identique dès qu'on retire le masqueur."
+    - strong: "Sons fractals :"
+      text: "option moderne sur les appareils auditifs récents, rendu apaisant non-répétitif. Intégré sans surcoût dans la plupart des Classe 2 en 2026."
+  conclusion: "Si perte auditive associée (80 % des cas), l'appareil auditif avec masqueur intégré est la solution la plus complète. Sans perte auditive, un générateur autonome est possible mais non remboursé."
 relatedGuides:
   - acouphenes/index
   - acouphenes/traitement
   - acouphenes/stress
+  - acouphenes/appareil-auditif
+  - acouphenes/sommeil
+  - acouphenes/lenire
 sources:
   - name: "INSERM — Acouphènes : quand le silence devient bruit (2024)"
     url: "https://www.inserm.fr/dossier/acouphenes/"

@@ -1,16 +1,31 @@
 ---
 title: "Hyperacousie : quand le bruit devient douleur"
-metaDescription: "Hyperacousie : causes, diagnostic et prise en charge par un audioprothésiste DE 28 ans. Ce que le terrain m'a appris sur cette intolérance au son."
+metaTitle: "Hyperacousie 2026 : causes, diagnostic, traitement"
+metaDescription: "Hyperacousie : causes, diagnostic, prise en charge par audioprothésiste DE. Désensibilisation, TRT, erreurs à éviter — 28 ans d'expérience terrain."
 cluster: acouphenes
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
+quickAnswer:
+  title: "Hyperacousie : comprendre et soulager"
+  items:
+    - strong: "Ce n'est pas une simple sensibilité au bruit :"
+      text: "l'hyperacousie est un dysfonctionnement du traitement central du son — le cerveau augmente son gain interne et transforme des bruits ordinaires en agression physique."
+    - strong: "Lien fréquent avec les acouphènes :"
+      text: "40 % des acouphéniques présentent aussi une hyperacousie. Mécanisme commun : hyperexcitabilité du système auditif central."
+    - strong: "L'erreur à éviter :"
+      text: "porter des bouchons en permanence. La surprotection aggrave l'hyperacousie car elle renforce l'hypersensibilité cérébrale. Protection uniquement au-dessus de 85 dB."
+  conclusion: "Prise en charge validée par la HAS : désensibilisation progressive (TRT), thérapie cognitivo-comportementale, accompagnement audioprothésiste. Amélioration significative dans la majorité des cas en 6 à 18 mois."
 relatedGuides:
   - acouphenes/index
   - acouphenes/causes
+  - acouphenes/traitement
+  - acouphenes/therapie-sonore
+  - acouphenes/stress
+  - prevention/protections-auditives
 sources:
   - name: "INSERM - Hyperacousie et acouphènes"
     url: "https://www.inserm.fr/dossier/acouphenes/"
