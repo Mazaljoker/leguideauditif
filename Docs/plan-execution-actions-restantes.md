@@ -12,8 +12,8 @@
 | 4 | Cluster 8 guides ORL YMYL | **BOUCLÉE (7 nouveaux + 2 initiaux = 9 guides)** | 2026-04-20 |
 | 5 | 8 pages enseignes | **EN ATTENTE POLITIQUE** | cf. branche `feat/enseignes` |
 | 6 | Contact francemedicale.net | À faire | J+7 |
-| 7 | 7 guides marques fabricants | À faire | juin-juillet 2026 |
-| 8 | Guide Roger On/Select/Table | À faire | juin 2026 |
+| 7 | 7 guides marques fabricants | **EN COURS** (1/7 : Phonak, pilote 2026-04-20) | juin-juillet 2026 |
+| 8 | Guide Roger On/Select/Table | **BOUCLÉE** | 2026-04-20 |
 | 9 | Cluster acouphènes variantes | À faire | J+14 à J+28 |
 | 10 | 20 pages locales | **PARTIEL** (branche `feat/enseignes` contient un silo local 96 dép + villes dynamiques) | à auditer |
 | 11 | BL blogs seniors (9 cibles) | À faire | juin-juillet |
@@ -73,13 +73,17 @@
 
 ### Juin-juillet 2026 — Actions 7, 8, 11
 
-**Action 7 : 7 guides marques fabricants** (~17 k vol cumulé)
+**Action 7 : 7 guides marques fabricants** (~17 k vol cumulé) — **EN COURS**
 
-Créer nouveau cluster `src/content/guides/marques/` avec migration schema Zod (ajouter `marques` à l'enum cluster). Guides : phonak, signia, oticon, starkey, widex, resound, bernafon. 1 guide/semaine × 7 = 7 semaines.
+Migration schema Zod effectuée 2026-04-20 : `marques` ajouté à l'enum cluster dans `src/content.config.ts`, clusterLabels mis à jour dans `src/pages/guides/index.astro` et `src/layouts/ArticleLayout.astro`, `marques` ajouté à healthClusters dans `src/pages/guides/[...slug].astro`.
 
-**Action 8 : Guide Roger On/Select/Table** (accessoire Phonak, 33 100 vol Audika shop)
+Premier guide pilote publié 2026-04-20 : `src/content/guides/marques/phonak.mdx` (2 900 vol kw "phonak appareil auditif").
 
-Soit enrichir `src/content/guides/appareils-auditifs/accessoires.md` existant, soit créer `accessoires-phonak-roger.mdx` dédié. Angle éditorial (vs Audika shop commercial).
+Guides restants (1 par semaine sur juin-juillet 2026) : signia, oticon, starkey, widex, resound, bernafon. Structure à cloner depuis phonak.mdx.
+
+**Action 8 : Guide Roger On/Select/Table** ✅ BOUCLÉE 2026-04-20
+
+Publié `src/content/guides/appareils-auditifs/phonak-roger.mdx` (33 100 vol Audika shop). Angle éditorial différenciant Audika : retour terrain 28 ans, protocole d'essai cabine en 3 étapes, alternatives moins chères par marque, limites honnêtes (prix, compatibilité, consommation batterie). Cross-link depuis accessoires.md.
 
 **Action 11 : Campagne BL blogs seniors** (9 cibles)
 

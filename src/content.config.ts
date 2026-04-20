@@ -15,6 +15,7 @@ const guides = defineCollection({
       'remboursement',
       'vie-quotidienne',
       'audioprothesiste',
+      'marques',
     ]),
     isPillar: z.boolean().default(false),
     useLegacyLayout: z.boolean().default(false),
