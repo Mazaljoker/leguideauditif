@@ -12,7 +12,7 @@
 | 4 | Cluster 8 guides ORL YMYL | **BOUCLÉE (7 nouveaux + 2 initiaux = 9 guides)** | 2026-04-20 |
 | 5 | 8 pages enseignes | **EN ATTENTE POLITIQUE** | cf. branche `feat/enseignes` |
 | 6 | Contact francemedicale.net | À faire | J+7 |
-| 7 | 7 guides marques fabricants | **EN COURS** (2/7 : Phonak + Signia 2026-04-20) | juin-juillet 2026 |
+| 7 | 7 guides marques fabricants | **EN COURS** (3/7 : Phonak + Signia + Oticon 2026-04-20) | juin-juillet 2026 |
 | 8 | Guide Roger On/Select/Table | **BOUCLÉE** | 2026-04-20 |
 | 9 | Cluster acouphènes variantes | À faire | J+14 à J+28 |
 | 10 | 20 pages locales | **PARTIEL** (branche `feat/enseignes` contient un silo local 96 dép + villes dynamiques) | à auditer |
@@ -80,8 +80,9 @@ Migration schema Zod effectuée 2026-04-20 : `marques` ajouté à l'enum cluster
 Guides publiés 2026-04-20 :
 - `src/content/guides/marques/phonak.mdx` (2 900 vol kw "phonak appareil auditif")
 - `src/content/guides/marques/signia.mdx` (~2 400 vol kw "signia appareil auditif")
+- `src/content/guides/marques/oticon.mdx` (~2 400 vol kw "oticon appareil auditif")
 
-Guides restants (1 par semaine sur juin-juillet 2026) : oticon, starkey, widex, resound, bernafon. Structure à cloner depuis phonak.mdx/signia.mdx avec différenciation produit par marque.
+Guides restants (1 par semaine sur juin-juillet 2026) : starkey, widex, resound, bernafon. Structure à cloner depuis phonak.mdx/signia.mdx/oticon.mdx avec différenciation produit par marque.
 
 **Action 8 : Guide Roger On/Select/Table** ✅ BOUCLÉE 2026-04-20
 
