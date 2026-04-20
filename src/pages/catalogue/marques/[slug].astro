@@ -7,6 +7,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AuthorBox from '../../../components/AuthorBox.astro';
 import HealthDisclaimer from '../../../components/HealthDisclaimer.astro';
+import BrandLogo from '../../../components/BrandLogo.astro';
 import ProductCard from '../../../components/catalogue/ProductCard.astro';
 import { getCollection } from 'astro:content';
 import {
@@ -56,14 +57,19 @@ const description = `Comparez les ${totalProducts} aides auditives ${brandLabel}
     {/* Hero marque */}
     <div class="bg-gradient-to-br from-marine to-marine-light text-blanc rounded-2xl p-8 sm:p-12 mb-8 relative overflow-hidden">
       <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-orange/10" aria-hidden="true"></div>
-      <div class="flex items-center gap-3 mb-3">
-        <span class="px-3 py-1 rounded-full bg-blanc/20 font-sans text-sm font-semibold">
-          Groupe {groupeLabel}
-        </span>
+      <div class="flex items-start gap-5 mb-4">
+        <BrandLogo brand={brandSlug} size={80} variant="card" />
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="px-3 py-1 rounded-full bg-blanc/20 font-sans text-sm font-semibold">
+              Groupe {groupeLabel}
+            </span>
+          </div>
+          <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">
+            Appareils auditifs {brandLabel}
+          </h1>
+        </div>
       </div>
-      <h1 class="font-sans text-3xl sm:text-4xl font-extrabold mb-3">
-        Appareils auditifs {brandLabel}
-      </h1>
       <p class="text-lg opacity-90 max-w-2xl leading-relaxed">
         Découvrez les {totalProducts} aides auditives {brandLabel} disponibles en France.
         Comparez les modèles, les niveaux technologiques et les prix.

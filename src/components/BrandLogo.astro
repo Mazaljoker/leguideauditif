@@ -1,0 +1,61 @@
+---
+/**
+ * BrandLogo.astro — Affiche le logo officiel d'une marque d'appareil auditif.
+ *
+ * Les logos sont récupérés depuis `/public/images/brands/{slug}.png`.
+ * Tailles source variables (32 à 256px). Le composant normalise l'affichage
+ * via un container de taille fixe + object-contain pour conserver les proportions
+ * sans déformation.
+ *
+ * Fond blanc arrondi par défaut pour fondre dans des hero en fond sombre
+ * (palette marine LGA) ou pour délimiter les logos avec fond transparent.
+ */
+import { BRAND_LABELS } from '../lib/catalogue-utils';
+
+export interface Props {
+  /** Slug de la marque (phonak, signia, oticon, starkey, widex, resound, bernafon) */
+  brand: string;
+  /** Taille du container en pixels (affichage). Défaut 64. */
+  size?: number;
+  /** Afficher le nom de la marque à côté du logo */
+  showLabel?: boolean;
+  /** Variante visuelle : 'card' (fond blanc arrondi) | 'plain' (transparent) */
+  variant?: 'card' | 'plain';
+  /** Classes Tailwind supplémentaires sur le container racine */
+  class?: string;
+}
+
+const { brand, size = 64, showLabel = false, variant = 'card', class: className = '' } = Astro.props;
+
+const label = BRAND_LABELS[brand] || brand;
+const src = `/images/brands/${brand}.png`;
+
+/* Padding interne pour que le logo "respire" dans son container */
+const innerPadding = Math.round(size * 0.15);
+const imgSize = size - 2 * innerPadding;
+
+const containerClasses = variant === 'card'
+  ? 'bg-white rounded-xl shadow-sm border border-marine/5 flex items-center justify-center'
+  : 'flex items-center justify-center';
+---
+
+<div class:list={['inline-flex items-center gap-3', className]}>
+  <div
+    class={containerClasses}
+    style={`width: ${size}px; height: ${size}px; padding: ${innerPadding}px;`}
+    aria-hidden={showLabel ? 'true' : undefined}
+  >
+    <img
+      src={src}
+      alt={showLabel ? '' : `Logo ${label}`}
+      width={imgSize}
+      height={imgSize}
+      loading="lazy"
+      decoding="async"
+      style={`max-width: 100%; max-height: 100%; object-fit: contain;`}
+    />
+  </div>
+  {showLabel && (
+    <span class="font-sans text-base font-semibold text-marine">{label}</span>
+  )}
+</div>
