@@ -33,6 +33,18 @@ const { data: centre, error } = await supabase
   .single();
 
 if (error || !centre) {
+  // Lookup centre_redirects avant 404 : le ré-import FINESS/INSEE 2026-04 a
+  // modifié ~3 700 slugs. On émet un 301 propre plutôt que de crasher.
+  // Le top 1000 des redirects est aussi dans vercel.json (edge), ce bloc
+  // couvre les 2 719 restants via Supabase.
+  const { data: redirect } = await supabase
+    .from('centre_redirects')
+    .select('new_slug')
+    .eq('old_slug', slug)
+    .maybeSingle();
+  if (redirect?.new_slug) {
+    return Astro.redirect(`/centre/${redirect.new_slug}/`, 301);
+  }
   return new Response(null, { status: 404 });
 }
 
