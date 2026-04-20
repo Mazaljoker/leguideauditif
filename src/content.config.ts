@@ -81,6 +81,31 @@ const comparatifs = defineCollection({
     updateDate: z.coerce.date().optional(),
     author: z.string().default('Franck-Olivier'),
     authorTitle: z.string().default("Audioprothesiste DE"),
+    // Encart "réponse express" Featured Snippet (même contrat que guides)
+    quickAnswer: z
+      .object({
+        title: z.string().optional(),
+        items: z
+          .array(
+            z.object({
+              strong: z.string(),
+              text: z.string(),
+            }),
+          )
+          .min(2)
+          .max(4),
+        conclusion: z.string().optional(),
+      })
+      .optional(),
+    // Étapes HowTo schema.org pour Featured Snippet "étapes pour choisir / comparer"
+    howToSteps: z
+      .array(
+        z.object({
+          name: z.string(),
+          text: z.string(),
+        }),
+      )
+      .optional(),
     products: z
       .array(
         z.object({
@@ -96,6 +121,8 @@ const comparatifs = defineCollection({
           verdict: z.string(),
           bestFor: z.string(),
           affiliateUrl: z.string().url().optional(),
+          // Note expert Franck-Olivier /10 — alimente Review + AggregateRating schemas.
+          score: z.number().min(0).max(10).optional(),
         }),
       )
       .optional(),
