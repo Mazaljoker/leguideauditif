@@ -6,7 +6,7 @@
 
 | # | Action | Statut | Date de bouclage |
 |:---:|---|:---:|:---:|
-| 1 | Guide pilier "appareils auditifs" (27 100 vol) | À faire | mai 2026 |
+| 1 | Guide pilier "appareils auditifs" (27 100 vol) | **BOUCLÉE** | 2026-04-20 |
 | 2 | Reconquête FS commerciaux | **BOUCLÉE** | 2026-04-20 |
 | 3 | Guide labyrinthique | **BOUCLÉE** | 2026-04-20 |
 | 4 | Cluster 8 guides ORL YMYL | **BOUCLÉE (7 nouveaux + 2 initiaux = 9 guides)** | 2026-04-20 |
@@ -55,18 +55,21 @@
 - **J+21** : Action 10 audit — examiner branche `feat/enseignes` pour silo local 96 dép + villes dynamiques. Si qualité OK, merger la partie silo local sans les 3 pages enseignes (qui restent politiquement en attente).
 - **J+28** : Google Rich Results Test sur les 5 URLs modifiées le 20 avril + 6 nouveaux guides ORL. Lighthouse mobile sur les 11 URLs.
 
-### Mai 2026 — Action 1 (guide pilier)
+### Mai 2026 — Action 1 (guide pilier) ✅ BOUCLÉE 2026-04-20
 
 **Action 1 : guide pilier `/guides/appareils-auditifs/` (27 100 vol, Ideal pos 1)**
 
-Enrichir `src/content/guides/appareils-auditifs/index.mdx` existant :
-- Structure pilier 2 500-3 500 mots
-- QuickAnswer ATF
-- Maillage massif vers les 8 sous-guides du cluster + comparatif 2026 + catalogue
-- Schema MedicalWebPage + HowTo (étapes choix) + FAQPage
-- Image hero dédiée via Imagen 4
+`src/content/guides/appareils-auditifs/index.mdx` enrichi :
+- metaTitle / metaDescription optimisés 2026
+- QuickAnswer ATF 3 items (point de départ / Classe 1 vs 2 / essai 30 j)
+- FAQ étendue de 5 à 8 questions (ajout ORL, acouphènes, surdité brusque urgence)
+- Nouvelle section H2 "Symptômes ORL : ne passez pas l'étape médicale" avec 7 bullets liant vers les 9 nouveaux guides YMYL (oreille-bouchée, labyrinthite, cristaux, otite-externe, otite-séreuse, otite, trompe-eustache, cérumen-nettoyage, auriculothérapie, sonotone)
+- Section marques fabricants étendue : 7 marques (Phonak, Signia, Oticon, Starkey, Widex, ReSound, Bernafon) — teaser Action 7
+- Sources : ajout Arrêté 14 nov 2018 (Legifrance)
+- relatedGuides (12) + relatedComparatifs (4) populés
+- Schema MedicalWebPage + Person + MedicalOrganization auto-injectés via layout
 
-**Durée** : 3-4 jours. **KPI J+30** : top 20 sur "appareils auditifs".
+**KPI J+30** : top 20 sur "appareils auditifs" (27 100 vol). Monitoring via `me-snippet-monitor`.
 
 ### Juin-juillet 2026 — Actions 7, 8, 11
 
