@@ -2,6 +2,7 @@
 title: "Meilleur TV Connector 2026"
 metaDescription: "Comparatif TV Connector 2026 : Phonak, Signia, ReSound, Oticon. Prix, fonctionnalités et compatibilité."
 category: accessoires
+image: /images/blog/meilleur-tv-connector/meilleur-tv-connector.webp
 publishDate: 2026-04-07
 updatedDate: 2026-04-12
 author: Franck-Olivier

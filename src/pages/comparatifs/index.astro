@@ -1,42 +1,147 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { Icon } from 'astro-icon/components';
 import { getCollection } from 'astro:content';
 
 const comparatifs = await getCollection('comparatifs');
+const total = comparatifs.length;
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
   { label: 'Comparatifs' },
 ];
+
+const grouped = comparatifs.reduce<Record<string, typeof comparatifs>>((acc, c) => {
+  const cat = c.data.category;
+  if (!acc[cat]) acc[cat] = [];
+  acc[cat].push(c);
+  return acc;
+}, {});
+
+const categoryLabels: Record<string, string> = {
+  'appareils-auditifs': 'Appareils auditifs',
+  'protections-auditives': 'Protections auditives',
+  'accessoires': 'Accessoires',
+  'aides-ecoute': "Aides à l'écoute",
+};
+
+const categoryIntros: Record<string, string> = {
+  'appareils-auditifs': "Contour, RIC, intra, invisible — les comparatifs des modèles testés en cabine sur patients réels, avec verdict 100% Santé vs classe 2 pour que vous compariez à budget équivalent.",
+  'protections-auditives': "Bouchons moulés, mousse, filtrés musiciens, anti-bruit industriel : le bon matériel selon l'exposition sonore, validé NF EN 352.",
+  'accessoires': "TV Connector, micro distant, apps smartphone : ce qui améliore vraiment l'usage au quotidien — et ce qui ne sert à rien.",
+  'aides-ecoute': "Aides à l'écoute non-médicales (PSAP) : ce qu'elles valent vraiment face à un vrai appareil auditif DE, dans quels cas elles ont un sens.",
+};
+
+const fallbackGradients = [
+  'from-marine to-orange/70',
+  'from-marine via-marine/90 to-orange/60',
+  'from-[#243d5e] to-orange/75',
+  'from-marine to-[#C76B2F]',
+];
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Comparatifs appareils auditifs et accessoires',
+  description: `${total} comparatifs indépendants testés par Franck-Olivier Chabbat, audioprothésiste DE avec 28 ans de clinique.`,
+  url: 'https://leguideauditif.fr/comparatifs/',
+  inLanguage: 'fr-FR',
+  author: {
+    '@type': 'Person',
+    name: 'Franck-Olivier Chabbat',
+    jobTitle: 'Audioprothésiste DE',
+    url: 'https://leguideauditif.fr/auteur/franck-olivier/',
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: total,
+    itemListElement: comparatifs.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://leguideauditif.fr/comparatifs/${c.id}/`,
+      name: c.data.title,
+    })),
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
+  })),
+};
 ---
 
 <BaseLayout
-  title="Nos comparatifs indépendants — LeGuideAuditif.fr"
-  description="Comparatifs d'appareils auditifs, protections et accessoires. Tests indépendants par un audioprothésiste DE — 28 ans de clinique, 5 ans chez Auzen.com."
-  schema={{
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbs.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.label,
-      ...(item.href && { item: new URL(item.href, 'https://leguideauditif.fr').href }),
-    })),
-  }}
+  title={`Comparatifs audition : ${total} tests par audioprothésiste DE`}
+  description={`${total} comparatifs indépendants d'appareils auditifs, protections et accessoires. Testés en cabine par Franck-Olivier, 28 ans DE, 3000+ patients.`}
+  schema={[breadcrumbSchema, collectionSchema]}
 >
   <div class="bg-creme">
     <div class="max-w-[1140px] mx-auto px-5">
       <Breadcrumbs items={breadcrumbs} />
     </div>
   </div>
-  <section class="bg-creme py-16">
+
+  <!-- Hero bandeau avec image éditoriale (LCP candidate) -->
+  <section class="bg-creme pt-6 pb-12">
     <div class="max-w-[1140px] mx-auto px-5">
-      <h1 class="font-sans text-[38px] font-extrabold text-marine text-center mb-4">Nos comparatifs</h1>
-      <p class="text-center text-gris-texte text-lg mb-6 max-w-[600px] mx-auto">
-        Des comparatifs indépendants pour vous aider à choisir le bon appareil auditif.
-      </p>
-      <div class="max-w-[700px] mx-auto text-gris-texte text-base leading-relaxed mb-12 space-y-3">
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] gap-8 lg:gap-10 items-center">
+        <div class="aspect-[16/9] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(27,46,74,0.12)] order-1 lg:order-1">
+          <img
+            src="/images/hero/comparatifs-hero.webp"
+            alt="Quatre appareils auditifs modernes alignés sur un plan de travail chaleureux, avec la main d'un audioprothésiste qui en pointe un pour comparer les caractéristiques"
+            width="684"
+            height="385"
+            fetchpriority="high"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="order-2 lg:order-2">
+          <h1 class="font-sans text-[30px] md:text-[38px] font-extrabold text-marine leading-tight mb-4">
+            Comparatifs audition indépendants
+            <span class="block text-orange text-lg md:text-xl font-bold mt-2">
+              Testés en cabine par un audioprothésiste DE
+            </span>
+          </h1>
+          <p class="text-gris-texte text-base md:text-lg leading-relaxed mb-5">
+            {total} tests appareils, protections et accessoires — rédigés par
+            <a href="/auteur/franck-olivier/" class="text-marine font-semibold underline decoration-orange decoration-2 underline-offset-4 hover:text-orange transition-colors">
+              Franck-Olivier Chabbat
+            </a>, 3 000+ patients appareillés.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:test-tube" class="w-4 h-4 text-orange" aria-hidden="true" />
+              Testé en cabine
+            </span>
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:scale" class="w-4 h-4 text-orange" aria-hidden="true" />
+              Indépendant
+            </span>
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:shield-check" class="w-4 h-4 text-orange" aria-hidden="true" />
+              Classe 1 / Classe 2
+            </span>
+            <span class="inline-flex items-center gap-2 bg-blanc border border-marine/10 rounded-full px-3 py-1.5 text-sm text-marine font-medium">
+              <Icon name="lucide:users" class="w-4 h-4 text-orange" aria-hidden="true" />
+              3000+ patients
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-creme pb-16">
+    <div class="max-w-[1140px] mx-auto px-5">
+      <div class="max-w-[780px] mx-auto text-gris-texte text-base leading-relaxed mb-12 space-y-3">
         <p>
           Chaque comparatif est rédigé après essai en cabine ou retour patient documenté. En 28 ans, j'ai appareillé plus de 3 000 personnes — ce qui compte au quotidien, ce n'est pas la fiche technique du fabricant, c'est le confort réel dans le bruit, la tenue de la batterie au bout de 6 mois, la facilité de manipulation pour des doigts arthrosiques.
         </p>
@@ -44,20 +149,64 @@ const breadcrumbs = [
           Nos tests couvrent les <a href="/catalogue/" class="text-orange hover:underline">appareils auditifs</a> contour, intra-auriculaire et invisible, mais aussi les accessoires (TV Connector, micro distant) et les protections auditives. Chaque verdict indique si un modèle existe en <a href="/guides/remboursement/100-sante-audition/" class="text-orange hover:underline">classe 1 (reste à charge zéro)</a> ou en classe 2, pour que vous puissiez comparer à budget équivalent.
         </p>
         <p>
-          Un doute sur le modèle qui vous conviendrait ? <a href="/devis/" class="text-orange hover:underline">Demandez un devis gratuit</a> — un audioprothésiste diplômé d'État proche de chez vous vous rappelle sous 48h pour un bilan personnalisé.
+          Un doute sur le modèle qui vous conviendrait ? <a href="/devis/" class="text-orange hover:underline">Demandez un devis gratuit</a> — un audioprothésiste diplômé d'État proche de chez vous vous rappelle sous 48 h pour un bilan personnalisé.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {comparatifs.map((entry) => (
-          <a
-            href={`/comparatifs/${entry.id}/`}
-            class="bg-blanc rounded-xl p-6 shadow-[0_2px_8px_rgba(27,46,74,0.06)] hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline hover:no-underline"
-          >
-            <h3 class="font-sans text-lg font-bold text-marine mb-2">{entry.data.title}</h3>
-            <p class="text-sm text-gris-texte leading-relaxed">{entry.data.metaDescription}</p>
-          </a>
-        ))}
-      </div>
+
+      {Object.entries(categoryLabels).map(([cat, label]) => {
+        const entries = grouped[cat];
+        if (!entries || entries.length === 0) return null;
+        const intro = categoryIntros[cat];
+        return (
+          <div class="mb-14">
+            <div class="mb-6">
+              <h2 class="font-sans text-2xl md:text-[28px] font-bold text-marine mb-2">{label}</h2>
+              {intro && (
+                <p class="text-gris-texte text-base leading-relaxed max-w-[820px]">{intro}</p>
+              )}
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {entries.map((entry, idx) => {
+                const hasImage = !!entry.data.image;
+                const gradient = fallbackGradients[idx % fallbackGradients.length];
+                return (
+                  <a
+                    href={`/comparatifs/${entry.id}/`}
+                    class="group bg-blanc rounded-xl overflow-hidden shadow-[0_2px_8px_rgba(27,46,74,0.06)] hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline hover:no-underline flex flex-col"
+                  >
+                    <div class="aspect-[16/9] bg-creme overflow-hidden relative">
+                      {hasImage ? (
+                        <img
+                          src={entry.data.image}
+                          alt={entry.data.title}
+                          width="342"
+                          height="192"
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 360px"
+                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                        />
+                      ) : (
+                        <div class={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center group-hover:scale-105 transition-transform duration-500 ease-out`}>
+                          <Icon name="lucide:scale" class="w-12 h-12 text-creme/80" aria-hidden="true" />
+                        </div>
+                      )}
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                      <h3 class="font-sans text-lg font-bold text-marine mb-2 leading-snug">{entry.data.title}</h3>
+                      <p class="text-sm text-gris-texte leading-relaxed flex-1">{entry.data.metaDescription}</p>
+                      <div class="mt-4 pt-3 border-t border-creme text-xs text-orange font-semibold flex items-center gap-1.5">
+                        <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" aria-hidden="true" />
+                        Voir le comparatif
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
     </div>
   </section>
 </BaseLayout>
