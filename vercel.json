@@ -2,7 +2,12 @@
   "redirects": [
     {
       "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.leguideauditif.fr" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.leguideauditif.fr"
+        }
+      ],
       "destination": "https://leguideauditif.fr/:path",
       "permanent": true
     },
@@ -34,6 +39,5006 @@
     {
       "source": "/audioprothesiste/sch-lcher/",
       "destination": "/audioprothesiste/schoelcher/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/2-jf-optic-audio-66700/",
+      "destination": "/centre/krys-optique-et-auditions-argeles-sur-mer-66700-045550/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/2b-audio-43100/",
+      "destination": "/centre/2b-audio-brioude-43100-133a5b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/2g-audition-lille-62840/",
+      "destination": "/centre/2g-audition-lille-laventie-62840-20ca8a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/3-a-audition-69740/",
+      "destination": "/centre/nd-genas-nd-307c35/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/4a-eurl-74600/",
+      "destination": "/centre/4a-eurl-annecy-74000-46f232/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/4l-audio-alain-afflelou-acousticien-44210/",
+      "destination": "/centre/alain-afflelou-acousticien-pornic-44210-98b4c2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/4l-audio-alain-afflelou-acousticien-44600/",
+      "destination": "/centre/alain-afflelou-acousticien-saint-nazaire-44600-365ad0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/a-l-ecoute-75006/",
+      "destination": "/centre/a-l-ecoute-paris-75006-3846ea/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/a-votre-ecoute-94130/",
+      "destination": "/centre/a-votre-ecoute-nogent-sur-marne-94130-f52f47/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aag-audition-59100/",
+      "destination": "/centre/aag-audition-roubaix-59100-f56ac7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ab-audition-54180/",
+      "destination": "/centre/ab-audition-mundolsheim-67450-6c7c12/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ab-audition-67550/",
+      "destination": "/centre/ab-audition-vendenheim-67550-80bf24/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aba33-33500/",
+      "destination": "/centre/aba33-libourne-33500-3bf4c0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ac-optique-37000/",
+      "destination": "/centre/ac-optique-tours-37000-ea0ca6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acacia-93800/",
+      "destination": "/centre/acacia-epinay-sur-seine-93800-fe86a7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/accent-optique-67520/",
+      "destination": "/centre/audio-optique-marlenheim-67520-c21987/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acdy-92800/",
+      "destination": "/centre/acdy-puteaux-92800-e68421/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acdy-ideal-audition-92700/",
+      "destination": "/centre/acdy-colombes-92700-3ce6a5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acdy-ideal-audition-95100/",
+      "destination": "/centre/acdy-argenteuil-95100-74795c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ace-lab-44115/",
+      "destination": "/centre/ace-lab-basse-goulaine-44115-4e52ee/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ace-lab-44130/",
+      "destination": "/centre/ace-lab-blain-44130-cc4ca8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ace-lab-44250/",
+      "destination": "/centre/ace-lab-saint-brevin-les-pins-44250-d97999/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acousticia-56000/",
+      "destination": "/centre/alain-afflelou-acousticien-vannes-56000-568a6c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acousticia-a-afflelou-acousticien-56000/",
+      "destination": "/centre/acousticia-vannes-56000-ded46e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustika-97220/",
+      "destination": "/centre/cap-sur-l-audition-la-trinite-97220-c8c6ab/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-audiologys-75001/",
+      "destination": "/centre/acoustique-audiologys-l-audition-comme-vous-l-entendez-audiologys-audiologys-com-paris-75001-79a450/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-et-audition-75014/",
+      "destination": "/centre/acoustique-et-audition-paris-75014-7f483e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-medical-pro-53000/",
+      "destination": "/centre/entendre-laval-53000-7ac1ae/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-medical-pro-53000-2/",
+      "destination": "/centre/acoustique-medical-pro-laval-53000-1f8501/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-medical-thizy-69240/",
+      "destination": "/centre/acoustique-medical-thizy-thizy-les-bourgs-69240-798561/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-medicale-du-littoral-62200/",
+      "destination": "/centre/acoustique-medicale-du-littoral-boulogne-sur-mer-62200-6e6961/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-medicale-du-littoral-62480/",
+      "destination": "/centre/acoustique-medicale-du-littoral-le-portel-62480-3658fd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-medicale-du-littoral-62630/",
+      "destination": "/centre/fiolleau-etaples-62630-bdc018/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-medicale-schwartz-67000/",
+      "destination": "/centre/acoustique-medicale-schwartz-strasbourg-67000-d2886d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-sante-13110/",
+      "destination": "/centre/acoustique-sante-port-de-bouc-13110-d59d53/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-surdite-wernert-42700/",
+      "destination": "/centre/acoustique-surdite-wernert-firminy-42700-4be871/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-surdite-wernert-sas-42110/",
+      "destination": "/centre/acoustique-surdite-wernert-feurs-42110-30a8ee/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-surdite-wernert-sas-42340/",
+      "destination": "/centre/acoustique-surdite-wernert-veauche-42340-de2ff8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/action-audition-sarl-44410/",
+      "destination": "/centre/2a-store-herbignac-44410-d108f0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/actual-audition-92600/",
+      "destination": "/centre/actual-audition-asnieres-sur-seine-92600-0c73ab/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-06700/",
+      "destination": "/centre/societe-de-developpement-optique-et-audition-saint-laurent-du-var-06700-c96829/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-france-06000-nice/",
+      "destination": "/centre/acuitis-france-nice-06000-4369f7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-france-42100-saint-etienne/",
+      "destination": "/centre/acuitis-saint-etienne-42000-3cf0d7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-france-69002-lyon-2e-arrondissement/",
+      "destination": "/centre/acuitis-france-lyon-69002-b246d5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-france-75006-paris-6e-arrondissement/",
+      "destination": "/centre/acuitis-france-paris-75006-468c47/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-france-75007-paris-7e-arrondissement/",
+      "destination": "/centre/acuitis-paris-75007-6a116f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-france-75013-paris-13e-arrondissement/",
+      "destination": "/centre/acuitis-france-paris-75013-e421f3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-france-75017-paris-17e-arrondissement/",
+      "destination": "/centre/acuitis-france-paris-75017-f0567f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-marseille-bonneveine-13008/",
+      "destination": "/centre/acuitis-marseille-bonneveine-marseille-13008-8304e1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-nimes-30000/",
+      "destination": "/centre/kyokan-nimes-30000-4baa77/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-oparinor-93600/",
+      "destination": "/centre/acuitis-aulnay-sous-bois-93600-2c96f7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-so-ouest-92300/",
+      "destination": "/centre/acuitis-levallois-perret-92300-d2ebc4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acuitis-strasbourg-67000/",
+      "destination": "/centre/acuitis-strasbourg-67000-e6f7df/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ad-audio-22700/",
+      "destination": "/centre/ad-audio-saint-quay-perros-22700-957cb7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/adb-25300/",
+      "destination": "/centre/audika-pontarlier-25300-efdf13/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/adb-39200/",
+      "destination": "/centre/audika-saint-claude-39200-d205b2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/adb-39300/",
+      "destination": "/centre/audika-champagnole-39300-b4349b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aesio-sante-centre-audition-ecouter-voir-26200/",
+      "destination": "/centre/aesio-sante-sud-rhone-alpes-montelimar-26200-2f483b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aesio-sante-ecouter-voir-07200/",
+      "destination": "/centre/audition-mutualiste-aubenas-07200-854bdf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/agathe-audition-33160/",
+      "destination": "/centre/agathe-audition-saint-medard-en-jalles-33160-797951/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aide-audition-chatelain-49100/",
+      "destination": "/centre/aac-aide-audition-chatelain-angers-49100-c07c63/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ak-44240/",
+      "destination": "/centre/attentiv-la-chapelle-sur-erdre-44240-e01e2d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ak-attentiv-audition-44360/",
+      "destination": "/centre/ak-saint-etienne-de-montluc-44360-9aa9b3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/akerib-audition-92500/",
+      "destination": "/centre/atol-rueil-malmaison-92500-b8fe2c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/al-audition-69100/",
+      "destination": "/centre/al-audition-villeurbanne-69100-fcb583/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-affelou-acousticien-08000/",
+      "destination": "/centre/la-sagesse-charleville-mezieres-08000-b49790/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-04200/",
+      "destination": "/centre/alain-afflelou-acousticien-peipin-04200-8bc03b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-38150/",
+      "destination": "/centre/alain-afflelou-acousticien-salaise-sur-sanne-38150-b075bf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-44310/",
+      "destination": "/centre/alain-affelou-acousticien-saint-philbert-de-grand-lieu-44310-031c35/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-51350/",
+      "destination": "/centre/la-sagesse-cormontreuil-51350-1e037a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-77100/",
+      "destination": "/centre/goudson-meaux-77100-dcf584/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-77340/",
+      "destination": "/centre/js-pontault-pontault-combault-77340-04f658/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-82000/",
+      "destination": "/centre/a2a-audio-montauban-82000-9f385d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-84100/",
+      "destination": "/centre/correction-auditive-provence-orange-84100-58196a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-87200/",
+      "destination": "/centre/alain-afflelou-acousticien-saint-junien-87200-afa7dd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-sas-mr-audio-07430/",
+      "destination": "/centre/alain-afflelou-acousticien-davezieux-07430-b8027a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-osny-95520/",
+      "destination": "/centre/aa-osny-osny-95520-ccdedd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-ralph-b-75020/",
+      "destination": "/centre/alain-afflelou-paris-75020-8e98cc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/albatre-audition-76200/",
+      "destination": "/centre/albatre-audition-dieppe-76200-b1ef19/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alice-audition-30000/",
+      "destination": "/centre/alice-audition-nimes-30000-7b4b4f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/allex-audition-26400/",
+      "destination": "/centre/allex-audition-eurre-26400-032e71/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/allo63-63780/",
+      "destination": "/centre/allo63-saint-georges-de-mons-63780-d5fb5b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alp-audition-38520/",
+      "destination": "/centre/alp-audition-le-bourg-d-oisans-38520-132b0e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alre-audition-56400/",
+      "destination": "/centre/alre-audition-auray-56400-36139d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amellis-mutuelles-rss-ecouter-voir-39300/",
+      "destination": "/centre/amellis-mutuelles-rss-champagnole-39300-cd075b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-01000-bourg-en-bresse/",
+      "destination": "/centre/amplifon-bourg-en-bresse-01000-e4320b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-01100-oyonnax/",
+      "destination": "/centre/amplifon-france-oyonnax-01100-92d27a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-01110-plateau-d-hauteville/",
+      "destination": "/centre/amplifon-plateau-d-hauteville-01110-3f16e1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-01200-valserhone/",
+      "destination": "/centre/amplifon-france-valserhone-01200-705c62/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-01630-saint-genis-pouilly/",
+      "destination": "/centre/amplifon-france-saint-genis-pouilly-01630-dee162/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-03120-lapalisse/",
+      "destination": "/centre/amplifon-france-lapalisse-03120-def075/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-05200-embrun/",
+      "destination": "/centre/amplifon-embrun-05200-32a7f6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-06300-nice/",
+      "destination": "/centre/amplifon-nice-06300-44397e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-06800-cagnes-sur-mer/",
+      "destination": "/centre/amplifon-cagnes-sur-mer-06800-7e62fa/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-07000-privas/",
+      "destination": "/centre/amplifon-privas-07000-33c7d4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-07400-le-teil/",
+      "destination": "/centre/amplifon-le-teil-07400-4acf26/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-08200-sedan/",
+      "destination": "/centre/amplifon-sedan-08200-f3c4d7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-10000-troyes/",
+      "destination": "/centre/amplifon-france-troyes-10000-9bfbd8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-10300-sainte-savine/",
+      "destination": "/centre/amplifon-sainte-savine-10300-c2d6da/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-11150-bram/",
+      "destination": "/centre/amplifon-bram-11150-1bfc5f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-11300-limoux/",
+      "destination": "/centre/amplifon-france-limoux-11300-6e6961/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-11400-castelnaudary/",
+      "destination": "/centre/amplifon-castelnaudary-11400-c95189/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-12100-millau/",
+      "destination": "/centre/amplifon-france-millau-12100-6c21ff/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-13005-marseille-5e-arrondissement/",
+      "destination": "/centre/amplifon-marseille-13005-ffb502/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-13400-aubagne/",
+      "destination": "/centre/amplifon-aubagne-13400-d6a2d6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-14000-caen/",
+      "destination": "/centre/amplifon-france-caen-14000-4b1e6f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-14120-mondeville/",
+      "destination": "/centre/amplifon-mondeville-14120-1b9ec8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-14150-ouistreham/",
+      "destination": "/centre/amplifon-ouistreham-14150-d172af/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-14200-herouville-saint-clair/",
+      "destination": "/centre/amplifon-herouville-saint-clair-14200-c3080b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-14760-bretteville-sur-odon/",
+      "destination": "/centre/amplifon-bretteville-sur-odon-14760-f7b678/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-16300-barbezieux-saint-hilaire/",
+      "destination": "/centre/amplifon-france-barbezieux-saint-hilaire-16300-069d6c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-17000-la-rochelle/",
+      "destination": "/centre/amplifon-la-rochelle-17000-c7c3aa/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-17140-lagord/",
+      "destination": "/centre/amplifon-lagord-17140-c5fabd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-17200-royan/",
+      "destination": "/centre/amplifon-royan-17200-911fef/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-18000-bourges/",
+      "destination": "/centre/amplifon-france-bourges-18000-e5da64/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-21000-dijon/",
+      "destination": "/centre/amplifon-dijon-21000-ac1eb1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-21000-dijon-2/",
+      "destination": "/centre/amplifon-france-dijon-21000-94a8a6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-21110-varanges/",
+      "destination": "/centre/amplifon-genlis-21110-c1d571/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-21130-auxonne/",
+      "destination": "/centre/amplifon-france-auxonne-21130-970288/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-21140-semur-en-auxois/",
+      "destination": "/centre/amplifon-semur-en-auxois-21140-9175c3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-21800-quetigny/",
+      "destination": "/centre/amplifon-quetigny-21800-036fb2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-22400-lamballe-armor/",
+      "destination": "/centre/amplifon-france-lamballe-armor-22400-4cc273/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-25000-besancon/",
+      "destination": "/centre/amplifon-france-besancon-25000-f322d5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-25150-pont-de-roide-vermondans/",
+      "destination": "/centre/amplifon-pont-de-roide-vermondans-25150-52c260/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-25200-montbeliard/",
+      "destination": "/centre/amplifon-montbeliard-25200-a88126/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-26000-valence/",
+      "destination": "/centre/amplifon-france-valence-26000-8aa003/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-26100-romans-sur-isere/",
+      "destination": "/centre/amplifon-france-romans-sur-isere-26100-809a82/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-27200-vernon/",
+      "destination": "/centre/amplifon-vernon-27200-2c3d33/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-27400-louviers/",
+      "destination": "/centre/amplifon-france-louviers-27400-75a5d1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-28000-chartres/",
+      "destination": "/centre/amplifon-chartres-28000-7a3418/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-28190-courville-sur-eure/",
+      "destination": "/centre/amplifon-courville-sur-eure-28190-740c93/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-29000-quimper/",
+      "destination": "/centre/amplifon-france-quimper-29000-395912/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-29170-saint-evarzec/",
+      "destination": "/centre/amplifon-france-fouesnant-29170-499b1d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-30100-ales/",
+      "destination": "/centre/amplifon-ales-30100-0b3282/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-31000-toulouse/",
+      "destination": "/centre/amplifon-france-toulouse-31000-c73aca/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-31170-tournefeuille/",
+      "destination": "/centre/amplifon-tournefeuille-31170-dab3fb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-31350-boulogne-sur-gesse/",
+      "destination": "/centre/amplifon-boulogne-sur-gesse-31350-612203/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-31800-saint-gaudens/",
+      "destination": "/centre/amplifon-saint-gaudens-31800-d82496/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-33000-bordeaux/",
+      "destination": "/centre/amplifon-france-bordeaux-33000-244b52/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-33120-arcachon/",
+      "destination": "/centre/amplifon-arcachon-33120-c5a8c9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-33200-bordeaux/",
+      "destination": "/centre/amplifon-france-bordeaux-33200-789978/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-33260-la-teste-de-buch/",
+      "destination": "/centre/amplifon-la-teste-de-buch-33260-712e1f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-33540-sauveterre-de-guyenne/",
+      "destination": "/centre/amplifon-sauveterre-de-guyenne-33540-2debde/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-33700-merignac/",
+      "destination": "/centre/amplifon-france-merignac-33700-446e20/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-33800-bordeaux/",
+      "destination": "/centre/amplifon-france-bordeaux-33800-18ce37/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-35000-rennes/",
+      "destination": "/centre/amplifon-france-rennes-35000-7c1255/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-35000-rennes-2/",
+      "destination": "/centre/amplifon-rennes-35000-c7184e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-35250-saint-aubin-d-aubigne/",
+      "destination": "/centre/amplifon-saint-aubin-d-aubigne-35250-afbae6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-35760-saint-gregoire/",
+      "destination": "/centre/amplifon-saint-gregoire-35760-b291f2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-36300-le-blanc/",
+      "destination": "/centre/amplifon-france-le-blanc-36300-ade4bc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-38110-la-tour-du-pin/",
+      "destination": "/centre/amplifon-france-la-tour-du-pin-38110-ca6919/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-38160-saint-marcellin/",
+      "destination": "/centre/amplifon-saint-marcellin-38160-4040b3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-38530-pontcharra/",
+      "destination": "/centre/amplifon-france-pontcharra-38530-bdd1e4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-39000-lons-le-saunier/",
+      "destination": "/centre/amplifon-lons-le-saunier-39000-cb4d2c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-39600-arbois/",
+      "destination": "/centre/amplifon-france-arbois-39600-63aa2d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-40000-mont-de-marsan/",
+      "destination": "/centre/amplifon-france-mont-de-marsan-40000-44f243/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-40200-mimizan/",
+      "destination": "/centre/amplifon-mimizan-40200-4945d9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-40390-saint-martin-de-seignanx/",
+      "destination": "/centre/amplifon-saint-martin-de-seignanx-40390-67a293/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-42100-saint-etienne/",
+      "destination": "/centre/amplifon-saint-etienne-42100-a02e43/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-42300-roanne/",
+      "destination": "/centre/amplifon-france-roanne-42300-0e93cb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-42370-renaison/",
+      "destination": "/centre/amplifon-renaison-42370-d05b27/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-42400-saint-chamond/",
+      "destination": "/centre/amplifon-france-saint-chamond-42400-465b0b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-42600-montbrison/",
+      "destination": "/centre/amplifon-montbrison-42600-1e1568/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-43000-le-puy-en-velay/",
+      "destination": "/centre/amplifon-france-le-puy-en-velay-43000-5312e1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44000-nantes/",
+      "destination": "/centre/amplifon-france-nantes-44000-e2a97c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44000-nantes-2/",
+      "destination": "/centre/amplifon-nantes-44000-3a9e99/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44115-basse-goulaine/",
+      "destination": "/centre/amplifon-basse-goulaine-44115-e53a7c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44150-ancenis-saint-gereon/",
+      "destination": "/centre/amplifon-ancenis-saint-gereon-44150-2780e7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44200-nantes/",
+      "destination": "/centre/amplifon-nantes-44200-bf802c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44220-coueron/",
+      "destination": "/centre/amplifon-coueron-44220-d35cdd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44300-nantes/",
+      "destination": "/centre/amplifon-france-nantes-44300-f64144/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44500-la-baule-escoublac/",
+      "destination": "/centre/amplifon-la-baule-escoublac-44500-abea83/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44700-orvault/",
+      "destination": "/centre/amplifon-orvault-44700-3253bd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-44980-sainte-luce-sur-loire/",
+      "destination": "/centre/amplifon-sainte-luce-sur-loire-44980-7869fa/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-47200-marmande/",
+      "destination": "/centre/amplifon-marmande-47200-7eadaf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-47520-le-passage/",
+      "destination": "/centre/amplifon-le-passage-47520-79e11f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-49124-saint-barthelemy-d-anjou/",
+      "destination": "/centre/amplifon-saint-barthelemy-d-anjou-49124-9796b5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-49160-longue-jumelles/",
+      "destination": "/centre/amplifon-longue-jumelles-49160-157e42/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-50100-cherbourg-en-cotentin/",
+      "destination": "/centre/amplifon-cherbourg-en-cotentin-50100-52e63e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-51200-epernay/",
+      "destination": "/centre/amplifon-france-epernay-51200-adaf4d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-52200-saints-geosmes/",
+      "destination": "/centre/amplifon-saints-geosmes-52200-9b2c1e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-54000-nancy/",
+      "destination": "/centre/amplifon-france-nancy-54000-fea52e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-54100-nancy/",
+      "destination": "/centre/amplifon-nancy-54100-8a17d0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-54150-val-de-briey/",
+      "destination": "/centre/amplifon-val-de-briey-54150-a22725/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-54190-villerupt/",
+      "destination": "/centre/amplifon-villerupt-54190-382038/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-56000-vannes/",
+      "destination": "/centre/amplifon-vannes-56000-78b7e7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-56100-lorient/",
+      "destination": "/centre/amplifon-lorient-56100-f05907/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-56170-quiberon/",
+      "destination": "/centre/amplifon-quiberon-56170-0589ee/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-57700-hayange/",
+      "destination": "/centre/amplifon-france-hayange-57700-9c0936/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-58000-nevers/",
+      "destination": "/centre/amplifon-france-nevers-58000-fd13ec/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-58200-cosne-cours-sur-loire/",
+      "destination": "/centre/amplifon-cosne-cours-sur-loire-58200-29ffce/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-58300-decize/",
+      "destination": "/centre/amplifon-france-decize-58300-349108/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-59140-dunkerque/",
+      "destination": "/centre/amplifon-dunkerque-59140-4c84e7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-61100-flers/",
+      "destination": "/centre/amplifon-flers-61100-6e0418/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-61100-flers-2/",
+      "destination": "/centre/amplifon-flers-61100-1fa3d7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-61200-argentan/",
+      "destination": "/centre/amplifon-france-argentan-61200-24e4bf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-61500-sees/",
+      "destination": "/centre/amplifon-sees-61500-d73ff3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-63100-clermont-ferrand/",
+      "destination": "/centre/amplifon-france-clermont-ferrand-63100-825120/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-63200-riom/",
+      "destination": "/centre/amplifon-france-riom-63200-9b5d83/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-63430-pont-du-chateau/",
+      "destination": "/centre/amplifon-pont-du-chateau-63430-5a7030/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-63500-issoire/",
+      "destination": "/centre/amplifon-france-issoire-63500-538743/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-63600-ambert/",
+      "destination": "/centre/amplifon-france-ambert-63600-874860/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-66000-perpignan/",
+      "destination": "/centre/amplifon-perpignan-66000-4a0ffe/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-66130-ille-sur-tet/",
+      "destination": "/centre/amplifon-france-ille-sur-tet-66130-32f0be/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-66240-saint-esteve/",
+      "destination": "/centre/amplifon-saint-esteve-66240-d29079/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-66330-cabestany/",
+      "destination": "/centre/amplifon-cabestany-66330-869e06/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-66690-saint-andre/",
+      "destination": "/centre/amplifon-saint-andre-66690-7f6104/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67000-strasbourg/",
+      "destination": "/centre/amplifon-france-strasbourg-67000-b81953/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67000-strasbourg-2/",
+      "destination": "/centre/amplifon-france-strasbourg-67000-745bed/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67000-strasbourg-3/",
+      "destination": "/centre/amplifon-strasbourg-67000-f9fbcf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67150-erstein/",
+      "destination": "/centre/amplifon-erstein-67150-85c860/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67170-brumath/",
+      "destination": "/centre/amplifon-brumath-67170-198eb1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67240-bischwiller/",
+      "destination": "/centre/amplifon-bischwiller-67240-2197a0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67250-soultz-sous-forets/",
+      "destination": "/centre/amplifon-soultz-sous-forets-67250-e8d8b0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67400-illkirch-graffenstaden/",
+      "destination": "/centre/amplifon-france-illkirch-graffenstaden-67400-4b0428/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67600-selestat/",
+      "destination": "/centre/amplifon-selestat-67600-0563a9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-67700-saverne/",
+      "destination": "/centre/amplifon-france-saverne-67700-6e0182/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-68310/",
+      "destination": "/centre/amplifon-wittelsheim-68310-5f8987/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69002-lyon-2e-arrondissement/",
+      "destination": "/centre/amplifon-lyon-69002-ce8259/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69003-lyon-3e-arrondissement/",
+      "destination": "/centre/amplifon-lyon-69003-2249e3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69004-lyon-4e-arrondissement/",
+      "destination": "/centre/amplifon-france-lyon-69004-7e9cfe/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69006-lyon-6e-arrondissement/",
+      "destination": "/centre/amplifon-france-lyon-69006-ad82f7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69008-lyon-8e-arrondissement/",
+      "destination": "/centre/amplifon-lyon-69008-6f6ca1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69100-villeurbanne/",
+      "destination": "/centre/amplifon-villeurbanne-69100-549910/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69120-vaulx-en-velin/",
+      "destination": "/centre/amplifon-vaulx-en-velin-69120-415c14/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69160-tassin-la-demi-lune/",
+      "destination": "/centre/amplifon-tassin-la-demi-lune-69160-304a09/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69170-tarare/",
+      "destination": "/centre/amplifon-france-tarare-69170-435d0e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69210-l-arbresle/",
+      "destination": "/centre/amplifon-l-arbresle-69210-ed2e83/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69250-neuville-sur-saone/",
+      "destination": "/centre/amplifon-neuville-sur-saone-69250-8e85e8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69290-craponne/",
+      "destination": "/centre/amplifon-craponne-69290-fc997d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69290-craponne-2/",
+      "destination": "/centre/amplifon-craponne-69290-ab87e3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69300-caluire-et-cuire/",
+      "destination": "/centre/amplifon-caluire-et-cuire-69300-aed5a7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69500-bron/",
+      "destination": "/centre/amplifon-france-bron-69500-8d6169/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-69740-genas/",
+      "destination": "/centre/amplifon-genas-69740-767394/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-70100-arc-les-gray/",
+      "destination": "/centre/amplifon-arc-les-gray-70100-7ab2c6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-71000-macon/",
+      "destination": "/centre/amplifon-macon-71000-c29d2e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-71500-louhans/",
+      "destination": "/centre/amplifon-louhans-71500-7100ce/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-72000-le-mans/",
+      "destination": "/centre/amplifon-le-mans-72000-69bdd4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-72140-sille-le-guillaume/",
+      "destination": "/centre/amplifon-sille-le-guillaume-72140-9ca9e9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-72190-coulaines/",
+      "destination": "/centre/amplifon-france-coulaines-72190-f5e647/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-73000-chambery/",
+      "destination": "/centre/amplifon-chambery-73000-6bc7a1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-74100-annemasse/",
+      "destination": "/centre/amplifon-france-annemasse-74100-0f7572/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-74140-douvaine/",
+      "destination": "/centre/amplifon-douvaine-74140-c3bb78/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-74150-rumilly/",
+      "destination": "/centre/amplifon-rumilly-74150-1293f1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-74300-cluses/",
+      "destination": "/centre/amplifon-france-cluses-74300-151356/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-74500-publier/",
+      "destination": "/centre/amplifon-publier-74500-44e57f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75005-paris-5e-arrondissement/",
+      "destination": "/centre/amplifon-france-paris-75005-c9280d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75007-paris-7e-arrondissement/",
+      "destination": "/centre/amplifon-paris-75007-a2edd0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75008-paris-8e-arrondissement/",
+      "destination": "/centre/amplifon-paris-75008-0e88f3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75009-paris-9e-arrondissement/",
+      "destination": "/centre/amplifon-paris-75009-89022b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75011-paris-11e-arrondissement/",
+      "destination": "/centre/amplifon-france-paris-75011-a72f82/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75012-paris-12e-arrondissement/",
+      "destination": "/centre/amplifon-paris-75012-cc53e0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75014-paris-14e-arrondissement/",
+      "destination": "/centre/amplifon-france-paris-75014-daa9d1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75014-paris-14e-arrondissement-2/",
+      "destination": "/centre/amplifon-france-paris-75014-10b530/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75015-paris-15e-arrondissement/",
+      "destination": "/centre/amplifon-paris-75015-876878/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75015-paris-15e-arrondissement-2/",
+      "destination": "/centre/amplifon-paris-75015-2561e9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75015-paris-15e-arrondissement-3/",
+      "destination": "/centre/amplifon-france-paris-75015-6b3150/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75016-paris-16e-arrondissement/",
+      "destination": "/centre/amplifon-france-paris-75016-559312/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75017-paris-17e-arrondissement/",
+      "destination": "/centre/amplifon-france-paris-75017-da980b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75018-paris-18e-arrondissement/",
+      "destination": "/centre/amplifon-france-paris-75018-9a3c71/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75019-paris-19e-arrondissement/",
+      "destination": "/centre/amplifon-france-paris-75019-5974ab/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-75116-paris-16e-arrondissement/",
+      "destination": "/centre/amplifon-paris-75016-0d1d4e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-76170-lillebonne/",
+      "destination": "/centre/amplifon-lillebonne-76170-d5ceac/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-76210-bolbec/",
+      "destination": "/centre/amplifon-france-bolbec-76210-84235f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-76600-le-havre/",
+      "destination": "/centre/amplifon-france-le-havre-76600-9b5897/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-76700-harfleur/",
+      "destination": "/centre/amplifon-harfleur-76700-931661/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-77000-melun/",
+      "destination": "/centre/amplifon-france-melun-77000-a22b2f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-77140-nemours/",
+      "destination": "/centre/amplifon-france-nemours-77140-660195/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-78180-montigny-le-bretonneux/",
+      "destination": "/centre/amplifon-montigny-le-bretonneux-78180-4b469b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-81500-lavaur/",
+      "destination": "/centre/amplifon-france-lavaur-81500-70de13/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-83110-sanary-sur-mer/",
+      "destination": "/centre/amplifon-france-sanary-sur-mer-83110-07fbe3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-83500-la-seyne-sur-mer/",
+      "destination": "/centre/amplifon-france-la-seyne-sur-mer-83500-e93294/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-84100-orange/",
+      "destination": "/centre/amplifon-france-orange-84100-61fe1a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-84110-vaison-la-romaine/",
+      "destination": "/centre/amplifon-france-vaison-la-romaine-84110-0b2680/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-85000-la-roche-sur-yon/",
+      "destination": "/centre/amplifon-la-roche-sur-yon-85000-87d015/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-85300-challans/",
+      "destination": "/centre/amplifon-challans-85300-879b0a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-85360-la-tranche-sur-mer/",
+      "destination": "/centre/amplifon-la-tranche-sur-mer-85360-0b9e5c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-86000-poitiers/",
+      "destination": "/centre/audition-bourraud-poitiers-86000-261ad0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-86360-chasseneuil-du-poitou/",
+      "destination": "/centre/amplifon-chasseneuil-du-poitou-86360-3c8a02/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-87000-limoges/",
+      "destination": "/centre/amplifon-france-limoges-87000-e83f1f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-88100-saint-die-des-vosges/",
+      "destination": "/centre/amplifon-france-saint-die-des-vosges-88100-c7bd9e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-88100-saint-die-des-vosges-2/",
+      "destination": "/centre/amplifon-saint-die-des-vosges-88100-eb4989/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-89000-auxerre/",
+      "destination": "/centre/amplifon-france-auxerre-89000-bc6d6d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-89100-sens/",
+      "destination": "/centre/amplifon-france-sens-89100-583c0a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-89200-avallon/",
+      "destination": "/centre/amplifon-france-avallon-89200-c1c913/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-89400-migennes/",
+      "destination": "/centre/amplifon-migennes-89400-44761a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-89700-tonnerre/",
+      "destination": "/centre/amplifon-tonnerre-89700-79270e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-90000-belfort/",
+      "destination": "/centre/amplifon-france-belfort-90000-79b36f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-91290-arpajon/",
+      "destination": "/centre/amplifon-arpajon-91290-623175/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-92100-boulogne-billancourt/",
+      "destination": "/centre/amplifon-boulogne-billancourt-92100-66dc64/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-92120-montrouge/",
+      "destination": "/centre/amplifon-france-montrouge-92120-74e5e5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-92130-issy-les-moulineaux/",
+      "destination": "/centre/amplifon-issy-les-moulineaux-92130-31cadc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-92140-clamart/",
+      "destination": "/centre/amplifon-clamart-92140-cb0781/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-92150-suresnes/",
+      "destination": "/centre/amplifon-suresnes-92150-82a36f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-92200-neuilly-sur-seine/",
+      "destination": "/centre/amplifon-france-neuilly-sur-seine-92200-123ac1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-92340-bourg-la-reine/",
+      "destination": "/centre/amplifon-bourg-la-reine-92340-a39037/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-93110-rosny-sous-bois/",
+      "destination": "/centre/amplifon-rosny-sous-bois-93110-5ff364/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-93140-bondy/",
+      "destination": "/centre/amplifon-bondy-93140-288f0f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-93190-livry-gargan/",
+      "destination": "/centre/amplifon-livry-gargan-93190-4049e8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-93220-gagny/",
+      "destination": "/centre/amplifon-gagny-93220-b4abc6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-93260-les-lilas/",
+      "destination": "/centre/amplifon-les-lilas-93260-15e2aa/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-93300-aubervilliers/",
+      "destination": "/centre/amplifon-aubervilliers-93300-9e236e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-94110-arcueil/",
+      "destination": "/centre/amplifon-france-arcueil-94110-773702/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-94210-saint-maur-des-fosses/",
+      "destination": "/centre/amplifon-france-saint-maur-des-fosses-94210-e69aaf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-94270-le-kremlin-bicetre/",
+      "destination": "/centre/amplifon-france-le-kremlin-bicetre-94270-9a092c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-94420-le-plessis-trevise/",
+      "destination": "/centre/amplifon-le-plessis-trevise-94420-e97c8e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-95120-ermont/",
+      "destination": "/centre/amplifon-ermont-95120-ac63ae/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-95200-sarcelles/",
+      "destination": "/centre/amplifon-sarcelles-95200-276cf2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-95300-pontoise/",
+      "destination": "/centre/amplifon-pontoise-95300-734231/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/amplifon-france-95400-arnouville/",
+      "destination": "/centre/amplifon-arnouville-95400-460f08/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ams-audition-13008/",
+      "destination": "/centre/ams-audition-marseille-13008-a62ec9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ams-audition-3e-13003/",
+      "destination": "/centre/ams-audition-marseille-13003-7b0fd5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/anfoptic-sarl-35170/",
+      "destination": "/centre/alain-afflelou-acousticien-bruz-35170-94c7bb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/anfoptic-sarl-alain-afflelou-56800/",
+      "destination": "/centre/alain-afflelou-ploermel-56800-e13dfc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/antaudio-06600/",
+      "destination": "/centre/antaudio-antibes-06600-7f7b29/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/antigone-audition-34000/",
+      "destination": "/centre/antigone-audition-montpellier-34000-50da01/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/antoine-durouchez-audition-80090/",
+      "destination": "/centre/antoine-durouchez-audition-amiens-80090-5864a8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apfl-audiologie-50400/",
+      "destination": "/centre/apfl-audiologie-granville-50400-202f8f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-argenteuil-95100/",
+      "destination": "/centre/audio-pour-tous-argenteuil-95100-ef83cb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-cergy-95000/",
+      "destination": "/centre/audio-pour-tous-cergy-95000-bbb241/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-chambourcy-78240/",
+      "destination": "/centre/audio-pour-tous-chambourcy-78240-28ec5c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-creteil-94000/",
+      "destination": "/centre/audio-pour-tous-creteil-94000-a575bd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-ermont-95120/",
+      "destination": "/centre/apt-ermont-ermont-95120-4e4fac/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-flins-78410/",
+      "destination": "/centre/audio-pour-tous-flins-sur-seine-78410-28db39/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-grenoble-gp-38100/",
+      "destination": "/centre/audio-pour-tous-grenoble-38100-c61d7b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-lille-v2-59650/",
+      "destination": "/centre/audio-pour-tous-villeneuve-d-ascq-59491-099784/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-maurepas-78310/",
+      "destination": "/centre/audio-pour-tous-maurepas-78310-19ff23/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-melun-77190/",
+      "destination": "/centre/audio-pour-tous-villiers-en-biere-77190-e64419/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-paris-13-75013/",
+      "destination": "/centre/audio-pour-tous-paris-75013-c0bc80/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-perigueux-24000/",
+      "destination": "/centre/audio-pour-tous-perigueux-24000-7a6c59/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-toulouse-so-31650/",
+      "destination": "/centre/audio-pour-tous-st-orens-de-gameville-31650-36a0ee/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-val-d-yerres-91800/",
+      "destination": "/centre/audio-pour-tous-boussy-saint-antoine-91800-8b1133/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aptr-vivason-25000/",
+      "destination": "/centre/vivason-besancon-25000-d46dc4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aptr-vivason-71100/",
+      "destination": "/centre/vivason-chalon-sur-saone-71100-a30e59/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aquitaine-audition-sarl-caudio-1-33720/",
+      "destination": "/centre/aquitaine-audition-cerons-33720-faa144/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aquitaine-audition-sarl-caudio-40-40600/",
+      "destination": "/centre/caudio-40-biscarrosse-40600-c5f18e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ar-audition-59200/",
+      "destination": "/centre/ar-audition-tourcoing-59200-7999be/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/arden-optic-les-opticiens-perceval-08000/",
+      "destination": "/centre/arden-optic-charleville-mezieres-08000-b9501a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/argoat-audition-alain-afflelou-acoustic-22400/",
+      "destination": "/centre/alain-afflelou-acousticien-lamballe-armor-22400-3027d5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ari-01700/",
+      "destination": "/centre/ari-miribel-01700-c9b62c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ari-38110/",
+      "destination": "/centre/audissimo-la-tour-du-pin-38110-520d86/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ariel-audition-94500/",
+      "destination": "/centre/ariel-audition-champigny-sur-marne-94500-b29800/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/armor-audition-29400/",
+      "destination": "/centre/armor-audition-landivisiau-29400-c4289f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/artho-surdioptic-76600/",
+      "destination": "/centre/audition-conseil-le-havre-76600-c56c1e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/as-audio-master-audition-75020/",
+      "destination": "/centre/as-audio-paris-75020-980422/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/asnieres-audition-92600/",
+      "destination": "/centre/asnieres-audition-asnieres-sur-seine-92600-de161d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/asteric-optic-optical-center-68100/",
+      "destination": "/centre/optical-center-illzach-68110-be8b7d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/asteric-optic-optical-center-68260/",
+      "destination": "/centre/optical-center-kingersheim-68260-082320/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/atelier-auditif-34725/",
+      "destination": "/centre/amplifon-saint-andre-de-sangonis-34725-82d1bb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/atelier-de-l-audition-97354/",
+      "destination": "/centre/atelier-de-l-audition-remire-montjoly-97354-f609cd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/athena-sas-17000/",
+      "destination": "/centre/athena-la-rochelle-17000-4fdc1b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/atlantic-surdite-44110/",
+      "destination": "/centre/atlantic-surdite-chateaubriant-44110-776e7d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/atlantic-surdite-44160/",
+      "destination": "/centre/atlantic-surdite-pontchateau-44160-1e77e5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/atlantic-surdite-entendre-piron-44170/",
+      "destination": "/centre/atlantic-surdite-nozay-44170-b753d4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/atlantique-audio-la-rochelle-17000/",
+      "destination": "/centre/audio-2000-la-rochelle-17000-f5a6ed/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/atol-optique-marechal-01190/",
+      "destination": "/centre/optique-marechal-pont-de-vaux-01190-c449c9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/attentiv-sarl-n2gk-le-loroux-bottereau-44430/",
+      "destination": "/centre/attentiv-le-loroux-bottereau-44430-1c8f0d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/atv-65410/",
+      "destination": "/centre/atv-sarrancolin-65410-c9d6c2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aubel-moisselles-sarl-95570/",
+      "destination": "/centre/aubel-moisselles-moisselles-95570-a66de6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/auchan-optique-59115/",
+      "destination": "/centre/auchan-leers-59115-501cfe/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aud-conseil-labs-aud-conseil-estaque-13016/",
+      "destination": "/centre/audition-conseil-labs-marseille-13016-f51330/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aud-ear-77600/",
+      "destination": "/centre/audiolife-chanteloup-en-brie-77600-a376fc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audi-art-95300/",
+      "destination": "/centre/audi-art-pontoise-95300-bd46de/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audi-mutualiste-ecouter-voir-lannemezan-65300/",
+      "destination": "/centre/ecouter-voir-audition-mutualiste-lannemezan-65300-963e42/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audi-son-sas-92200/",
+      "destination": "/centre/audi-son-neuilly-sur-seine-92200-ab81d4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audial-mondial-audition-95200/",
+      "destination": "/centre/mondial-audition-sarcelles-95200-80d77f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audialex-75015/",
+      "destination": "/centre/audialex-paris-75015-38f23b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiam-les-ateliers-de-l-audition-78340/",
+      "destination": "/centre/les-ateliers-de-l-audition-les-clayes-les-clayes-sous-bois-78340-7b3211/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiazur-centre-auditif-m-de-nicolo-06000/",
+      "destination": "/centre/audiazur-nice-06000-24e9d1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiciens-d-exception-noisy-le-sec-93130/",
+      "destination": "/centre/audiciens-d-exception-noisy-le-sec-93130-9fc1ff/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiclair-38500/",
+      "destination": "/centre/audiclair-voiron-38500-6bc5bd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audience-93600/",
+      "destination": "/centre/audience-aulnay-sous-bois-93600-c6067e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiens-63210/",
+      "destination": "/centre/audiens-rochefort-montagne-63210-4f9c7e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audientia-30420/",
+      "destination": "/centre/audientia-calvisson-30420-c6c149/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-06000/",
+      "destination": "/centre/audika-nice-06000-85c256/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-93700/",
+      "destination": "/centre/audika-drancy-93700-6de411/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-73100/",
+      "destination": "/centre/audika-aix-les-bains-73100-5071ce/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-73200/",
+      "destination": "/centre/audika-albertville-73200-0d6f1d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-73300/",
+      "destination": "/centre/audika-saint-jean-de-maurienne-73300-9243f4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-73600/",
+      "destination": "/centre/audika-moutiers-73600-e65cf5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-74000/",
+      "destination": "/centre/audika-alpes-annecy-74000-6391b9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-74000-2/",
+      "destination": "/centre/audika-alpes-annecy-74000-c4eb81/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-74100/",
+      "destination": "/centre/audika-annemasse-74100-b25143/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-74160/",
+      "destination": "/centre/audika-saint-julien-en-genevois-74160-e58f79/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-74300/",
+      "destination": "/centre/audika-alpes-cluses-74300-9d23a5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-74410/",
+      "destination": "/centre/audika-saint-jorioz-74410-4dbb7e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-74700/",
+      "destination": "/centre/audika-sallanches-74700-1e02b8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-92230/",
+      "destination": "/centre/audika-bonneville-74130-1298a7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-02200/",
+      "destination": "/centre/audika-soissons-02200-75fde3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-02400/",
+      "destination": "/centre/audika-chateau-thierry-02400-cfe6dc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-03000/",
+      "destination": "/centre/audika-moulins-03000-4b454f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-03100/",
+      "destination": "/centre/audika-montlucon-03100-6ba84a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-03200/",
+      "destination": "/centre/audika-vichy-03200-8d30f2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-04000/",
+      "destination": "/centre/audika-digne-les-bains-04000-c3ced5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-05000/",
+      "destination": "/centre/audika-gap-05000-b95ab0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-05200/",
+      "destination": "/centre/audika-embrun-05200-2c510f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06000/",
+      "destination": "/centre/audika-nice-06000-40dffe/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06130/",
+      "destination": "/centre/audika-grasse-06130-b445bb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06140/",
+      "destination": "/centre/audika-vence-06140-99e339/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06150/",
+      "destination": "/centre/audika-cannes-06150-ea1106/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06190/",
+      "destination": "/centre/audika-roquebrune-cap-martin-06190-395ccf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06200/",
+      "destination": "/centre/audika-nice-06200-fc2c68/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06210/",
+      "destination": "/centre/audika-mandelieu-la-napoule-06210-e7f0d7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06250/",
+      "destination": "/centre/audika-mougins-06250-68b545/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06600/",
+      "destination": "/centre/audika-antibes-06600-cba6a1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-06800/",
+      "destination": "/centre/audika-cagnes-sur-mer-06800-3092bc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-07100/",
+      "destination": "/centre/sogeca-annonay-07100-3c7ba8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-08000/",
+      "destination": "/centre/audika-charleville-mezieres-08000-61aefe/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-08200/",
+      "destination": "/centre/audika-sedan-08200-9c7401/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-09200/",
+      "destination": "/centre/audika-saint-girons-09200-a45fe8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-10000/",
+      "destination": "/centre/sogeca-troyes-10000-184d21/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-11000/",
+      "destination": "/centre/audika-carcassonne-11000-369e5c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-13001/",
+      "destination": "/centre/audika-marseille-13001-927bc0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-13008/",
+      "destination": "/centre/audika-marseille-13008-89b410/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-13009/",
+      "destination": "/centre/audika-marseille-13009-989ad9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-13380/",
+      "destination": "/centre/audika-plan-de-cuques-13380-e76538/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-13400/",
+      "destination": "/centre/audika-aubagne-13400-cc6a37/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-13400-2/",
+      "destination": "/centre/audika-aubagne-13400-5f4cbe/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-14000/",
+      "destination": "/centre/audika-caen-14000-2284df/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-14100/",
+      "destination": "/centre/audika-lisieux-14100-590b71/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-17000/",
+      "destination": "/centre/audika-la-rochelle-17000-9c1069/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-17200/",
+      "destination": "/centre/sogeca-royan-17200-df0f29/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-17300/",
+      "destination": "/centre/audika-rochefort-17300-4c2aea/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-17700/",
+      "destination": "/centre/audika-surgeres-17700-0f5188/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-18000/",
+      "destination": "/centre/audika-bourges-18000-f53fc8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-18600/",
+      "destination": "/centre/audika-sancoins-18600-4b82cf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-19200/",
+      "destination": "/centre/audika-ussel-19200-90dcf3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-21200/",
+      "destination": "/centre/audika-beaune-21200-c5030e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-22300/",
+      "destination": "/centre/audika-lannion-22300-eeb955/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-22500/",
+      "destination": "/centre/audika-paimpol-22500-d656e7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-22600/",
+      "destination": "/centre/audika-loudeac-22600-69a1a8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-23000/",
+      "destination": "/centre/audika-gueret-23000-4d6273/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-24000/",
+      "destination": "/centre/audika-perigueux-24000-6348a9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-24100/",
+      "destination": "/centre/audika-bergerac-24100-da3be5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-24200/",
+      "destination": "/centre/audika-sarlat-la-caneda-24200-2196ae/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-24750/",
+      "destination": "/centre/audika-boulazac-isle-manoire-24330-8d870b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-25000/",
+      "destination": "/centre/audika-besancon-25000-6c4de5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-26000/",
+      "destination": "/centre/sogeca-valence-26000-7faf7c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-28000/",
+      "destination": "/centre/audika-chartres-28000-66daa3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-28200/",
+      "destination": "/centre/audika-chateaudun-28200-0e23bf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-29000/",
+      "destination": "/centre/audika-quimper-29000-67c3ea/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-29140/",
+      "destination": "/centre/audika-rosporden-29140-9edf30/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-29200/",
+      "destination": "/centre/audika-brest-29200-acbd75/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-29520/",
+      "destination": "/centre/audika-chateauneuf-du-faou-29520-dc05ca/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-29800/",
+      "destination": "/centre/audika-landerneau-29800-5e3539/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-29910/",
+      "destination": "/centre/audika-tregunc-29910-45e1c7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-30100/",
+      "destination": "/centre/audika-ales-30100-e356a8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-31000/",
+      "destination": "/centre/audika-toulouse-31000-02a81a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-31000-2/",
+      "destination": "/centre/audika-toulouse-31000-71874d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-31240/",
+      "destination": "/centre/audika-l-union-31240-575d40/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-31250/",
+      "destination": "/centre/audika-revel-31250-f0dab1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-31270/",
+      "destination": "/centre/audika-villeneuve-tolosane-31270-d9587f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-31650/",
+      "destination": "/centre/audika-saint-orens-de-gameville-31650-d1dba5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-32000/",
+      "destination": "/centre/sogeca-auch-32000-e00499/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-33000/",
+      "destination": "/centre/audika-bordeaux-33000-72973d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-33500/",
+      "destination": "/centre/audika-libourne-33500-4378d7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-33740/",
+      "destination": "/centre/audika-ares-33740-b9b629/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-34070/",
+      "destination": "/centre/audika-montpellier-34070-3d6376/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-34140/",
+      "destination": "/centre/audika-meze-34140-4e655b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-34190/",
+      "destination": "/centre/audika-ganges-34190-ed1bd8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-34200/",
+      "destination": "/centre/audika-sete-34200-a58a3f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-34600/",
+      "destination": "/centre/audika-bedarieux-34600-c92fb2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-34800/",
+      "destination": "/centre/audika-clermont-l-herault-34800-c03ed6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-35400/",
+      "destination": "/centre/sogeca-saint-malo-35400-1effa8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-37000/",
+      "destination": "/centre/audika-tours-37000-8766da/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-38000/",
+      "destination": "/centre/sogeca-grenoble-38000-01128b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-38220/",
+      "destination": "/centre/audika-vizille-38220-dd0590/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-38300-tramole/",
+      "destination": "/centre/audika-bourgoin-jallieu-38300-06f57e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-38400/",
+      "destination": "/centre/audika-saint-martin-d-heres-38400-575069/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-38500/",
+      "destination": "/centre/audika-voiron-38500-57dc1c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-39100/",
+      "destination": "/centre/audika-dole-39100-60a966/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-40100/",
+      "destination": "/centre/audika-dax-40100-9a3e90/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-40800/",
+      "destination": "/centre/audika-aire-sur-l-adour-40800-5527d0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-41200/",
+      "destination": "/centre/audika-romorantin-lanthenay-41200-109d7e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-42110/",
+      "destination": "/centre/audika-feurs-42110-d2a020/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-42160/",
+      "destination": "/centre/audika-andrezieux-boutheon-42160-45951d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-42300/",
+      "destination": "/centre/audika-roanne-42300-5a6bf9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-43100/",
+      "destination": "/centre/audika-brioude-43100-2474f3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-44000/",
+      "destination": "/centre/audika-nantes-44000-2c10f5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-44600/",
+      "destination": "/centre/audika-saint-nazaire-44600-3be5a9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-45000/",
+      "destination": "/centre/audika-orleans-45000-9561cf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-45190/",
+      "destination": "/centre/audika-beaugency-45190-adb1c7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-45200/",
+      "destination": "/centre/audika-montargis-45200-1dc097/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-48200/",
+      "destination": "/centre/audika-saint-chely-d-apcher-48200-93dab7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-50000/",
+      "destination": "/centre/audika-saint-lo-50000-256ffa/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-51000/",
+      "destination": "/centre/audika-chalons-en-champagne-51000-600f94/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-51100/",
+      "destination": "/centre/audika-reims-51100-dc03bc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-52000/",
+      "destination": "/centre/audika-chaumont-52000-008333/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-54000/",
+      "destination": "/centre/audika-nancy-54000-3a60cb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-54130/",
+      "destination": "/centre/sogeca-saint-max-54130-7cc147/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-54150/",
+      "destination": "/centre/audika-val-de-briey-54150-beeecd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-55000/",
+      "destination": "/centre/sogeca-bar-le-duc-55000-f47b4a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-56000-2/",
+      "destination": "/centre/audika-vannes-56000-cf7077/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-56100/",
+      "destination": "/centre/sogeca-lorient-56100-cf2e04/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-57000/",
+      "destination": "/centre/sogeca-metz-57000-2a59e0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-57230/",
+      "destination": "/centre/audika-bitche-57230-dcfb4e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-57300/",
+      "destination": "/centre/audika-hagondange-57300-1b5718/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-57800/",
+      "destination": "/centre/audika-freyming-merlebach-57800-cd104c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-58000/",
+      "destination": "/centre/audika-nevers-58000-4dd361/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-58500/",
+      "destination": "/centre/audika-clamecy-58500-ec540f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59100/",
+      "destination": "/centre/audika-roubaix-59100-5ea289/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59113/",
+      "destination": "/centre/audika-seclin-59113-555d9a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59120/",
+      "destination": "/centre/audika-loos-59120-c655f8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59190/",
+      "destination": "/centre/audika-hazebrouck-59190-537fdf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59200/",
+      "destination": "/centre/audika-tourcoing-59200-c00c63/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59220/",
+      "destination": "/centre/audika-denain-59220-cde97c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59280/",
+      "destination": "/centre/audika-armentieres-59280-5a866f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59300/",
+      "destination": "/centre/audika-valenciennes-59300-09715c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59360/",
+      "destination": "/centre/audika-le-cateau-cambresis-59360-6cfc3b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59400/",
+      "destination": "/centre/sogeca-cambrai-59400-56b14e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59610/",
+      "destination": "/centre/audika-fourmies-59610-228058/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-59620/",
+      "destination": "/centre/audika-aulnoye-aymeries-59620-86a134/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-60130/",
+      "destination": "/centre/audika-saint-just-en-chaussee-60130-ece577/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-61200/",
+      "destination": "/centre/audika-argentan-61200-8cee9a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-62000/",
+      "destination": "/centre/audika-arras-62000-cc3694/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-62100/",
+      "destination": "/centre/audika-calais-62100-0ad485/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-62300/",
+      "destination": "/centre/audika-lens-62300-5d7d20/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-62800/",
+      "destination": "/centre/audika-lievin-62800-b4d969/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-63200/",
+      "destination": "/centre/sogeca-riom-63200-4af6a9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-63300/",
+      "destination": "/centre/audika-thiers-63300-254c25/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-63400/",
+      "destination": "/centre/audika-chamalieres-63400-029f96/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-63800/",
+      "destination": "/centre/audika-cournon-d-auvergne-63800-6eb845/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-64130/",
+      "destination": "/centre/audika-mauleon-licharre-64130-4e13c4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-64140/",
+      "destination": "/centre/audika-billere-64140-ab79df/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-64400/",
+      "destination": "/centre/audika-oloron-sainte-marie-64400-20f2e4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-64500/",
+      "destination": "/centre/audika-saint-jean-de-luz-64500-3676ac/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-65000/",
+      "destination": "/centre/audika-tarbes-65000-7471e4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-65100/",
+      "destination": "/centre/audika-lourdes-65100-6970d1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-66000/",
+      "destination": "/centre/audika-perpignan-66000-1e292c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-66300/",
+      "destination": "/centre/audika-thuir-66300-761474/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-66400/",
+      "destination": "/centre/audika-ceret-66400-e563cc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-66600/",
+      "destination": "/centre/audika-rivesaltes-66600-b4aad0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-67300/",
+      "destination": "/centre/audika-schiltigheim-67300-470678/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-67340/",
+      "destination": "/centre/audika-ingwiller-67340-b67d19/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-68120/",
+      "destination": "/centre/audika-pfastatt-68120-70c872/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-69006/",
+      "destination": "/centre/audika-lyon-69006-2321f6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-69008/",
+      "destination": "/centre/audika-lyon-69008-a558cf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-69400/",
+      "destination": "/centre/audika-villefranche-sur-saone-69400-30b15c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-69500/",
+      "destination": "/centre/audika-bron-69500-12030f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-69700/",
+      "destination": "/centre/audika-givors-69700-2dc2e7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-70000/",
+      "destination": "/centre/audika-vesoul-70000-5521dd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-71000/",
+      "destination": "/centre/audika-macon-71000-867ad1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-71100/",
+      "destination": "/centre/audika-chalon-sur-saone-71100-886733/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-71200/",
+      "destination": "/centre/audika-le-creusot-71200-721caa/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-71300/",
+      "destination": "/centre/audika-montceau-les-mines-71300-843c47/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-71500/",
+      "destination": "/centre/sogeca-louhans-71500-fdbc03/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-72000/",
+      "destination": "/centre/audika-le-mans-72000-c843a8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75003/",
+      "destination": "/centre/audika-paris-75003-62c547/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75005/",
+      "destination": "/centre/audika-paris-75005-bfe4c9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75006/",
+      "destination": "/centre/audika-paris-75006-b664f0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75008/",
+      "destination": "/centre/sogeca-paris-75008-cb6306/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75011/",
+      "destination": "/centre/sogeca-paris-75011-8c372d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75014/",
+      "destination": "/centre/sogeca-paris-75014-eb6258/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75015/",
+      "destination": "/centre/audika-paris-75015-7f5956/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75015-2/",
+      "destination": "/centre/audika-paris-75015-c43485/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75016/",
+      "destination": "/centre/audika-paris-75016-148a6d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75016-2/",
+      "destination": "/centre/audika-paris-75016-75144b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75017/",
+      "destination": "/centre/audika-paris-75017-599d34/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-75018/",
+      "destination": "/centre/audika-paris-75018-c8bef8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-76190/",
+      "destination": "/centre/audika-yvetot-76190-972472/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-77000/",
+      "destination": "/centre/audika-melun-77000-290c31/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-77100/",
+      "destination": "/centre/audika-meaux-77100-d9a106/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-77300/",
+      "destination": "/centre/audika-fontainebleau-77300-15426a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-77400/",
+      "destination": "/centre/audika-lagny-sur-marne-77400-509ec5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-77410/",
+      "destination": "/centre/audika-claye-souilly-77410-5c143c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-78000/",
+      "destination": "/centre/audika-versailles-78000-344cbb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-78120/",
+      "destination": "/centre/sogeca-rambouillet-78120-c28059/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-78200/",
+      "destination": "/centre/audika-mantes-la-jolie-78200-a28803/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-78300/",
+      "destination": "/centre/audika-poissy-78300-a79641/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-78370/",
+      "destination": "/centre/sogeca-plaisir-78370-07a139/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-78800/",
+      "destination": "/centre/audika-houilles-78800-28f13c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-79000/",
+      "destination": "/centre/audika-niort-79000-cc476f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-79300/",
+      "destination": "/centre/audika-bressuire-79300-f3b924/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-80100/",
+      "destination": "/centre/audika-abbeville-80100-0ce51e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-81000/",
+      "destination": "/centre/audika-albi-81000-e2e29b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-81100/",
+      "destination": "/centre/audika-castres-81100-c1874a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-81200/",
+      "destination": "/centre/audika-mazamet-81200-f8f86c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-81600/",
+      "destination": "/centre/audika-gaillac-81600-6853b2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-82000/",
+      "destination": "/centre/audika-montauban-82000-b67b9c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-83300/",
+      "destination": "/centre/audika-draguignan-83300-63be83/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-83550/",
+      "destination": "/centre/audika-vidauban-83550-a2d6ba/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-83700/",
+      "destination": "/centre/audika-saint-raphael-83700-ffaa2a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-84000/",
+      "destination": "/centre/audika-avignon-84000-8b3eaa/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-84100/",
+      "destination": "/centre/audika-orange-84100-1fd060/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-84120/",
+      "destination": "/centre/audika-pertuis-84120-fe9094/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-84200/",
+      "destination": "/centre/audika-carpentras-84200-487a95/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-84300/",
+      "destination": "/centre/audika-cavaillon-84300-3c5a92/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-85000/",
+      "destination": "/centre/audika-la-roche-sur-yon-85000-2c9d19/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-85200/",
+      "destination": "/centre/audika-fontenay-le-comte-85200-416b20/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-85600/",
+      "destination": "/centre/audika-montaigu-vendee-85600-2ef38a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-88000/",
+      "destination": "/centre/audika-epinal-88000-8cc661/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-88100/",
+      "destination": "/centre/sogeca-saint-die-des-vosges-88100-47487a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-88300/",
+      "destination": "/centre/audika-neufchateau-88300-9a05ab/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-91120/",
+      "destination": "/centre/audika-palaiseau-91120-107bf5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-91230/",
+      "destination": "/centre/audika-montgeron-91230-8bba24/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-91700/",
+      "destination": "/centre/audika-sainte-genevieve-des-bois-91700-23fb7d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-92130/",
+      "destination": "/centre/audika-issy-les-moulineaux-92130-ca3aae/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-92200/",
+      "destination": "/centre/audika-neuilly-sur-seine-92200-2e061b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-92210/",
+      "destination": "/centre/audika-saint-cloud-92210-5c1a5a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-92310/",
+      "destination": "/centre/audika-sevres-92310-99a73a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-92500/",
+      "destination": "/centre/audika-rueil-malmaison-92500-92d7ee/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-93100/",
+      "destination": "/centre/audika-montreuil-93100-94dcb6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-93110/",
+      "destination": "/centre/audika-rosny-sous-bois-93110-72915a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-93200/",
+      "destination": "/centre/audika-saint-denis-93200-77e54c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-93600/",
+      "destination": "/centre/audika-aulnay-sous-bois-93600-ba81a8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-94000/",
+      "destination": "/centre/audika-creteil-94000-fa0f5e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-94270/",
+      "destination": "/centre/audika-le-kremlin-bicetre-94270-afdac9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-94340/",
+      "destination": "/centre/audika-joinville-le-pont-94340-bd806b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-94600/",
+      "destination": "/centre/audika-choisy-le-roi-94600-17dcc2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-95300/",
+      "destination": "/centre/audika-pontoise-95300-70b4a8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-61000/",
+      "destination": "/centre/audilab-pays-de-la-loire-alencon-61000-09d9bc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-72600/",
+      "destination": "/centre/audilab-mamers-72600-48bd2a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-73000/",
+      "destination": "/centre/audilab-chambery-73000-55b96c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-amtp-14160/",
+      "destination": "/centre/audilab-dives-sur-mer-14160-2feca4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-antares-72100/",
+      "destination": "/centre/audilab-le-mans-72000-141d51/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-ardeche-correction-auditive-roux-07200/",
+      "destination": "/centre/correction-auditive-roux-aubenas-07200-6be2be/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-armor-22000/",
+      "destination": "/centre/audilab-armor-saint-brieuc-22000-6ca483/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-armor-22100/",
+      "destination": "/centre/audilabaudiop-dinan-22100-31c523/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-armor-22190/",
+      "destination": "/centre/audilab-plerin-22190-d808a4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-armor-22700/",
+      "destination": "/centre/audilab-armor-perros-guirec-22700-7e7637/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-bagnolais-83600/",
+      "destination": "/centre/audilab-bagnols-en-foret-83600-a43542/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-bordelais-33170/",
+      "destination": "/centre/audilab-gradignan-33170-14b4bb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-bordelais-33980/",
+      "destination": "/centre/audilab-audenge-33980-2199c3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-bourges-audilab-18000/",
+      "destination": "/centre/audilab-bourges-18000-558111/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-bretagne-ouest-29100/",
+      "destination": "/centre/audilab-bretagne-ouest-douarnenez-29100-345e89/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-bretagne-ouest-29160/",
+      "destination": "/centre/audilab-crozon-29160-200d44/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-cantal-15130/",
+      "destination": "/centre/audilab-arpajon-sur-cere-15130-636421/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-carcassonne-11000/",
+      "destination": "/centre/audilab-carcassonne-11000-349803/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-charente-audilab-17200/",
+      "destination": "/centre/audilab-charente-royan-17200-1815d7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-correze-19100/",
+      "destination": "/centre/audilab-brive-la-gaillarde-19100-95385b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-jura-audilab-gandelin-39100/",
+      "destination": "/centre/audilab-jura-dole-39100-311b83/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-limousin-sarl-23000/",
+      "destination": "/centre/audilab-gueret-23000-6358fc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-m-g-03100/",
+      "destination": "/centre/audilab-montlucon-03100-2fe19e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-marseille-13014/",
+      "destination": "/centre/audilab-marseille-13014-ef252d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-marseille-audilab-13009/",
+      "destination": "/centre/audilab-marseille-13009-1f7c48/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-meinelly-24130/",
+      "destination": "/centre/audilab-mauguio-34130-9f140f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-meinelly-30220/",
+      "destination": "/centre/audilab-aigues-mortes-30220-d43170/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-meinelly-34000/",
+      "destination": "/centre/audilab-meinelly-montpellier-34000-4e043a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-meinelly-34080/",
+      "destination": "/centre/audilab-meinelly-montpellier-34080-e288d9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-meinelly-34090/",
+      "destination": "/centre/audilab-meinelly-montpellier-34090-62fb20/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-meinelly-34270/",
+      "destination": "/centre/audilab-meinelly-saint-mathieu-de-treviers-34270-bda90e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-meinelly-34280/",
+      "destination": "/centre/audilab-meinelly-la-grande-motte-34280-abc190/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-meinelly-audilab-34000/",
+      "destination": "/centre/audilab-montpellier-34000-ef369d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-mg-03600/",
+      "destination": "/centre/audilab-m-g-commentry-03600-95f4db/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-mg-audilab-18200/",
+      "destination": "/centre/audilab-saint-amand-montrond-18200-bf68cf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-montauban-82600/",
+      "destination": "/centre/audilab-montauban-verdun-sur-garonne-82600-3c7e9b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-montauban-82700/",
+      "destination": "/centre/audilab-montauban-montech-82700-c936ac/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-montauban-audilab-grenade-31330/",
+      "destination": "/centre/audilab-montauban-grenade-31330-4262cd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-morbihan-56190/",
+      "destination": "/centre/audilab-muzillac-56190-8eeee8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-morbihan-56400/",
+      "destination": "/centre/audilab-morbihan-auray-56400-2fb465/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-morbihan-audilab-56330/",
+      "destination": "/centre/audilab-morbihan-pluvigner-56330-5ceba0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-morbihan-audilab-56340/",
+      "destination": "/centre/audilab-morbihan-carnac-56340-711fcc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-morbihan-audilab-56660/",
+      "destination": "/centre/audilab-saint-jean-brevelay-56660-8f84f1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-morbihan-audilab-vannes-56000/",
+      "destination": "/centre/audilab-vannes-56000-960fb5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-morbihan-pontivy-56300/",
+      "destination": "/centre/audilab-pontivy-56300-a5977c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-nantes-44000/",
+      "destination": "/centre/audilab-pays-de-la-loire-nantes-44000-33eb4b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-ouest-herault-34340/",
+      "destination": "/centre/audilab-ouest-herault-marseillan-34340-2a872d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-ouest-herault-audilab-12100/",
+      "destination": "/centre/audilab-ouest-herault-millau-12100-71836f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-ouest-herault-audilab-34120/",
+      "destination": "/centre/audilab-ouest-herault-pezenas-34120-603b62/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-44000/",
+      "destination": "/centre/audilab-pays-de-la-loire-nantes-44000-f2ae8d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-44130/",
+      "destination": "/centre/audilab-pays-de-la-loire-blain-44130-68b79b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-44330/",
+      "destination": "/centre/audilab-vallet-44330-bbacbb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-44350/",
+      "destination": "/centre/audilab-guerande-44350-640f87/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-44470/",
+      "destination": "/centre/audilab-pays-de-la-loire-carquefou-44470-fbaf79/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-44680/",
+      "destination": "/centre/audilab-pays-de-la-loire-sainte-pazanne-44680-d44374/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-44800/",
+      "destination": "/centre/audilab-pays-de-la-loire-saint-herblain-44800-aa0841/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-49000/",
+      "destination": "/centre/audilab-angers-49100-137bb4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-49300/",
+      "destination": "/centre/audilab-cholet-49300-e2d132/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-72300/",
+      "destination": "/centre/audilab-sable-sur-sarthe-72300-bb1861/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-44200/",
+      "destination": "/centre/audilab-nantes-44200-90e052/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-44310/",
+      "destination": "/centre/audilab-saint-philbert-de-grand-lieu-44310-61498d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-44330/",
+      "destination": "/centre/audilab-vallet-44330-41dbe9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-44400/",
+      "destination": "/centre/audilab-reze-44400-5d4f58/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-49250/",
+      "destination": "/centre/audilab-beaufort-en-anjou-49250-694f31/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-49400/",
+      "destination": "/centre/audilab-saumur-49400-1243bd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-49500/",
+      "destination": "/centre/audilab-segre-en-anjou-bleu-49500-614c2c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-49800/",
+      "destination": "/centre/audilab-trelaze-49800-c7ff68/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-53000/",
+      "destination": "/centre/audilab-laval-53000-425c2e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-53600/",
+      "destination": "/centre/audilab-evron-53600-5d2224/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-72400/",
+      "destination": "/centre/audilab-pays-de-la-loire-la-ferte-bernard-72400-68aa24/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-la-loire-audilab-72800/",
+      "destination": "/centre/audilab-le-lude-72800-0df8ff/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-savoie-73100/",
+      "destination": "/centre/audilab-aix-les-bains-73100-6809fb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-savoie-audilab-74000/",
+      "destination": "/centre/audilab-pays-de-savoie-annecy-74000-a347a5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-pays-de-savoie-audilab-74600/",
+      "destination": "/centre/audilab-pays-de-savoie-annecy-74000-affd20/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-poitiers-79360/",
+      "destination": "/centre/audilab-beauvoir-sur-niort-79360-fa8db2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-poitiers-86000-2/",
+      "destination": "/centre/audilab-poitiers-86000-cf8c2c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-poitiers-86100/",
+      "destination": "/centre/audilab-poitiers-chatellerault-86100-15caa4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-poitiers-86190/",
+      "destination": "/centre/audilab-poitiers-vouille-86190-475f97/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-poitiers-86600/",
+      "destination": "/centre/audilab-poitiers-lusignan-86600-943311/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-quimper-audilab-29120/",
+      "destination": "/centre/audilab-quimper-pont-l-abbe-29120-95ca0d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-quimperle-56320/",
+      "destination": "/centre/audilab-le-faouet-56320-b80d32/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-rennes-emeraude-35430/",
+      "destination": "/centre/audilab-rennes-emeraude-saint-jouan-des-guerets-35430-13637f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-seine-maritime-76000/",
+      "destination": "/centre/audilab-seine-maritime-rouen-76000-6dea75/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-seine-maritime-76300/",
+      "destination": "/centre/audilab-seine-maritime-sotteville-les-rouen-76300-4d8a06/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-sud-vaucluse-84270/",
+      "destination": "/centre/audilab-vedene-84270-36a58f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-sud-vaucluse-84380/",
+      "destination": "/centre/audilab-mazan-84380-8e6641/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-sud-vaucluse-audilab-84200/",
+      "destination": "/centre/audilab-carpentras-84200-a62a0d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-37000/",
+      "destination": "/centre/audilab-tours-37000-dd0e0d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-37600/",
+      "destination": "/centre/audilab-loches-37600-1bd986/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-audilab-36700/",
+      "destination": "/centre/audilab-chatillon-sur-indre-36700-0e229f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-audilab-37140/",
+      "destination": "/centre/audilab-touraine-bourgueil-37140-d1149c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-audilab-37170/",
+      "destination": "/centre/audilab-touraine-chambray-les-tours-37170-248b09/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-audilab-37300/",
+      "destination": "/centre/audilab-joue-les-tours-37300-230b29/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-audilab-37400/",
+      "destination": "/centre/audilab-amboise-37400-4ec813/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-audilab-72500/",
+      "destination": "/centre/audilab-montval-sur-loir-72500-de849e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-montlouis-37270/",
+      "destination": "/centre/audilab-touraine-montlouis-sur-loire-37270-918d60/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-richelieu-37120/",
+      "destination": "/centre/audilab-richelieu-37120-6425a7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-sarl-37000/",
+      "destination": "/centre/audilab-tours-37000-640d22/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-st-pierre-des-corps-37700/",
+      "destination": "/centre/audilab-saint-pierre-des-corps-37700-34c39a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-tours-centre-37000/",
+      "destination": "/centre/audilab-touraine-tours-37000-b11e70/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-touraine-tours-nord-37100/",
+      "destination": "/centre/audilab-tours-37100-652fe7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-28000-chartres/",
+      "destination": "/centre/audilab-val-de-france-chartres-28000-f99ed4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-28130/",
+      "destination": "/centre/audilab-val-de-france-maintenon-28130-95a91f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-28160/",
+      "destination": "/centre/audilab-brou-28160-f8ad5e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-28200/",
+      "destination": "/centre/audilab-saint-denis-lanneray-28200-af8e26/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-41000/",
+      "destination": "/centre/audilab-val-de-france-blois-41000-41d524/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-41000-2/",
+      "destination": "/centre/audilab-blois-41000-f4b8bb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-41100/",
+      "destination": "/centre/audilab-val-de-france-vendome-41100-134db4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-41100-vendome/",
+      "destination": "/centre/audilab-vendome-41100-9e1fa5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-41140/",
+      "destination": "/centre/audilab-val-de-france-noyers-sur-cher-41140-52060e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-41200/",
+      "destination": "/centre/audilab-romorantin-lanthenay-41200-37207b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-41400-montrichard-val-de-cher/",
+      "destination": "/centre/audilab-montrichard-val-de-cher-41400-6b7dc8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-41800-montoire-sur-le-loir/",
+      "destination": "/centre/audilab-montoire-sur-le-loir-41800-0c090e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-45000/",
+      "destination": "/centre/audilab-orleans-45000-fda2f4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-45160-olivet/",
+      "destination": "/centre/audilab-val-de-france-olivet-45160-2e815c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-45380/",
+      "destination": "/centre/audilab-val-de-france-la-chapelle-saint-mesmin-45380-70e869/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-45770-saran/",
+      "destination": "/centre/audilab-val-de-france-saran-45770-e61e97/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-audilab-41260/",
+      "destination": "/centre/audilab-la-chaussee-saint-victor-41260-5796b5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-audilab-45750/",
+      "destination": "/centre/audilab-val-de-france-saint-pryve-saint-mesmin-45750-469a14/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-val-de-france-romorantin-nord-41200/",
+      "destination": "/centre/audilab-romorantin-lanthenay-41200-a1619b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-vendee-audilab-85100/",
+      "destination": "/centre/audilab-les-sables-d-olonne-85100-aa8c88/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-vendee-audilab-85160/",
+      "destination": "/centre/audilab-vendee-saint-jean-de-monts-85160-d9c69d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-vendee-audilab-85330/",
+      "destination": "/centre/audilab-noirmoutier-en-l-ile-85330-3f45eb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-vendee-audilab-85340/",
+      "destination": "/centre/audilab-vendee-les-sables-d-olonne-85100-2ea87d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-vendee-audilab-85800/",
+      "destination": "/centre/audilab-saint-gilles-croix-de-vie-85800-3d167b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilas-95880/",
+      "destination": "/centre/audilas-enghien-les-bains-95880-9c6eb0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiloire-entendre-37130/",
+      "destination": "/centre/entendre-langeais-37130-4f978e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiloire-entendre-37330/",
+      "destination": "/centre/amplifon-chateau-la-valliere-37330-5bd149/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilya-94240/",
+      "destination": "/centre/audilya-l-hay-les-roses-94240-1ebd29/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilys-olsa-51100/",
+      "destination": "/centre/audilys-reims-51100-9e9ffb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audimax-entendre-53700/",
+      "destination": "/centre/audimax-villaines-la-juhel-53700-d91090/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audimaz-13008/",
+      "destination": "/centre/universelle-audition-marseille-13008-be4849/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audinova-83000/",
+      "destination": "/centre/audinova-audio-toulon-83000-643bc5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-18-75018/",
+      "destination": "/centre/audio-ornano-paris-75018-34adc4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-2000-bassin-d-arcachon-33980/",
+      "destination": "/centre/audio-2000-bassin-d-arcachon-audenge-33980-849fae/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-2000-clermont-distribution-33140/",
+      "destination": "/centre/clermont-distribution-villenave-d-ornon-33140-d8f588/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-2000-rameau-75018/",
+      "destination": "/centre/nd-paris-nd-eb66d4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-2b-50170/",
+      "destination": "/centre/audio-2b-pontorson-50170-eb6919/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-a-59280/",
+      "destination": "/centre/audio-a-armentieres-59280-0b28a7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-c-62220/",
+      "destination": "/centre/audio-c-carvin-62220-660f4a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-caudry-59580/",
+      "destination": "/centre/audio-caudry-aniche-59580-f834e0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-cite-aurillac-audition-15000/",
+      "destination": "/centre/aurillac-audition-aurillac-15000-0b3557/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-conseil-33160/",
+      "destination": "/centre/audio-conseil-saint-medard-en-jalles-33160-e659ab/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-conseil-33200/",
+      "destination": "/centre/audio-conseil-bordeaux-33200-b4cffe/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-conseil-33700/",
+      "destination": "/centre/audio-conseil-merignac-33700-e5a0ed/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-d-21800/",
+      "destination": "/centre/audio-d-quetigny-21800-67ae3c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-des-princes-75016/",
+      "destination": "/centre/audio-des-princes-paris-75016-66f8f0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-estaires-audiodell-estaires-59940/",
+      "destination": "/centre/audio-estaires-estaires-59940-09ccba/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-family-alain-afflelou-acousticien-94130/",
+      "destination": "/centre/afflelou-acousticien-nogent-sur-marne-94130-dcdd52/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-france-paris-0014/",
+      "destination": "/centre/audio-france-paris-75015-9f9829/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-kb-78160/",
+      "destination": "/centre/audio-kb-marly-le-roi-78160-719409/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-le-passage-47520/",
+      "destination": "/centre/sas-audio-le-passage-le-passage-47520-362dfb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-lens-62300/",
+      "destination": "/centre/audio-douchy-lens-62300-906b96/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-lens-mf-npdc-ssam-62300/",
+      "destination": "/centre/mutualite-francaise-aisne-nord-pas-de-calais-lens-62300-8b4a2f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-lln-59390/",
+      "destination": "/centre/audio-lln-lys-lez-lannoy-59390-900179/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-m-592krys-audition-la-bassee-59480/",
+      "destination": "/centre/audio-m-la-bassee-59480-16292a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-millau-12100/",
+      "destination": "/centre/audio-millau-millau-12100-78c28e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-montfermeil-93370/",
+      "destination": "/centre/audiview-montfermeil-93370-42a446/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-morel-alain-afflelou-acousticien-29800/",
+      "destination": "/centre/alain-afflelou-acousticien-landerneau-29800-5333c1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-plus-78200/",
+      "destination": "/centre/audio-plus-paris-mantes-la-jolie-78200-5fa240/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-pour-tous-91140/",
+      "destination": "/centre/audio-pour-tous-villebon-sur-yvette-91140-19f1b3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-pour-tous-91940/",
+      "destination": "/centre/audio-pour-tous-les-ulis-91940-eed909/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-rbbx-59100/",
+      "destination": "/centre/rbbx-roubaix-59100-25a503/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-reunion-alain-afflelou-97440/",
+      "destination": "/centre/alain-afflelou-acousticien-saint-andre-97440-8027f4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-soa-95310/",
+      "destination": "/centre/audiview-saint-ouen-l-aumone-95310-88b3a6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-t-t-audilab-54380/",
+      "destination": "/centre/audilab-dieulouard-54380-3cf487/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-tt-audilab-54000/",
+      "destination": "/centre/audilab-nancy-54000-bb7046/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-vaux-le-penil-77000/",
+      "destination": "/centre/audio-vaux-le-penil-vaux-le-penil-77000-58947f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audio-w-sarl-59150/",
+      "destination": "/centre/audio-w-wattrelos-59150-30a6df/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiocare-rsh-vivason-95520/",
+      "destination": "/centre/audiocare-rsh-osny-95520-2cfdc3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiocentre-audition-bartoli-13002/",
+      "destination": "/centre/audiocentre-marseille-13002-ae884d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiocentre-eurl-audition-durif-13105/",
+      "destination": "/centre/audio-centre-mimet-13105-d09e5f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiodell-59850/",
+      "destination": "/centre/audiodell-nieppe-59850-b5c330/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiogab-ideal-audition-95520/",
+      "destination": "/centre/audiogab-osny-95520-094beb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiolandes-audio-2000-40230/",
+      "destination": "/centre/audio-2000-saint-vincent-de-tyrosse-40230-6d4d71/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiolandes-audio-2000-40380/",
+      "destination": "/centre/audio-2000-montfort-en-chalosse-40380-f16441/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiologie-du-leman-01220/",
+      "destination": "/centre/audiologie-du-leman-divonne-les-bains-01220-ac751b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiologie-francois-marquer-aud-marquer-50300/",
+      "destination": "/centre/audiologie-francois-marquer-avranches-50300-ddada1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiolook-audition-92110/",
+      "destination": "/centre/audiolook-audition-clichy-92110-5e6845/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiomed-94300/",
+      "destination": "/centre/leader-audition-vincennes-94300-5b6c11/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audionat-75012/",
+      "destination": "/centre/audionat-paris-75012-d0bbcf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audionet-56400/",
+      "destination": "/centre/audionet-auray-56400-d6e4ce/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audionet-56600/",
+      "destination": "/centre/audionet-lanester-56600-ccf0d3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiooptique-75018/",
+      "destination": "/centre/audiooptique-paris-75018-c54e46/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioprotech-34170/",
+      "destination": "/centre/audioprotech-castelnau-le-lez-34170-f1f110/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioprothese-belissent-39140/",
+      "destination": "/centre/audioprothese-belissent-bletterans-39140-2a6759/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioprothese-verin-audition-benoit-80000/",
+      "destination": "/centre/audition-benoit-amiens-80000-67f9f2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioprothesiste-wingles-62410/",
+      "destination": "/centre/wingles-audition-wingles-62410-3e61dd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioproxi-79370/",
+      "destination": "/centre/audioproxi-aigondigne-79370-ec37cc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioptique-brivadoise-audio-2000-15100/",
+      "destination": "/centre/audio-2000-saint-flour-15100-968f5a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioptique-conseils-24290/",
+      "destination": "/centre/audioptique-conseils-montignac-lascaux-24290-1fb69d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioptique-conseils-24750/",
+      "destination": "/centre/audioptique-conseils-champcevinel-24750-4a20d5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioptique-conseils-33720/",
+      "destination": "/centre/audioptique-conseils-podensac-33720-2dfdc5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioptique-conseils-47500/",
+      "destination": "/centre/groupe-audioptique-conseils-montayral-47500-30d7a2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioptique-conseils-audition-conseil-24100/",
+      "destination": "/centre/audioptique-conseils-bergerac-24100-cd528d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioptique-conseils-audition-conseil-47550/",
+      "destination": "/centre/audition-conseil-boe-47550-c88c07/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiorel-oi-97470/",
+      "destination": "/centre/audition-de-l-est-saint-benoit-97470-38c6d3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiosante-57130/",
+      "destination": "/centre/sonova-audiological-care-france-sas-ars-sur-moselle-57130-981765/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiosante-84000/",
+      "destination": "/centre/audition-sante-avignon-84000-2dda7b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiosky-37000/",
+      "destination": "/centre/audiosky-tours-37000-a61344/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiosolution-63670/",
+      "destination": "/centre/2b-audio-thiers-63300-514189/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiosono-95230/",
+      "destination": "/centre/nodolico-soisy-sous-montmorency-95230-6a4b2c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioval-vbg-acoustc-69530/",
+      "destination": "/centre/vbg-acoustic-brignais-69530-94165a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiovalor-17000/",
+      "destination": "/centre/audiovalor-la-rochelle-17000-898dff/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiovalor-17137/",
+      "destination": "/centre/audiovalor-marsilly-17137-67340f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiovalor-audilab-17300/",
+      "destination": "/centre/audilab-rochefort-17300-fc77aa/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiovalor-sas-17000/",
+      "destination": "/centre/audilab-la-rochelle-17000-103558/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiovision-93200/",
+      "destination": "/centre/audio-vision-saint-denis-93200-9a2b76/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audioze-sonance-audition-grasse-06130/",
+      "destination": "/centre/audioze-grasse-06130-70c88d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiozen-31650/",
+      "destination": "/centre/audiozen-saint-orens-de-gameville-31650-debcc8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audisens-69330/",
+      "destination": "/centre/audisens-meyzieu-69330-1d64b8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audisens-chabrol-75010/",
+      "destination": "/centre/laudisens-chabrol-paris-75010-9ba650/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audisolla-sasu-75011/",
+      "destination": "/centre/audisolla-paris-75011-647fd7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audison-plan-de-cuques-sarl-13380/",
+      "destination": "/centre/audison-plan-de-cuques-plan-de-cuques-13380-3cc9a8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audissey-lesigny-77150/",
+      "destination": "/centre/audissey-lesigny-lesigny-77150-0e9c43/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-01-01100/",
+      "destination": "/centre/audition-01-oyonnax-01100-32e855/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-2cc-57580/",
+      "destination": "/centre/audition-2-cc-remilly-57580-096082/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-33-33460/",
+      "destination": "/centre/audition-33-arsac-33460-ad1ba4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-42-42000/",
+      "destination": "/centre/audition-42-saint-etienne-42000-1b92a0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-44-44260/",
+      "destination": "/centre/audition-44-savenay-44260-f51fd3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-770-31300/",
+      "destination": "/centre/audition770-toulouse-31300-153251/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-a2m-entendre-55200/",
+      "destination": "/centre/audition-a2m-commercy-55200-2fc8e9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-absolue-sas-audition-du-trapeze-92100/",
+      "destination": "/centre/audition-du-trapeze-boulogne-billancourt-92100-94433a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-al-34540/",
+      "destination": "/centre/audition-al-balaruc-le-vieux-34540-25d27a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-am-10700/",
+      "destination": "/centre/audition-am-arcis-sur-aube-10700-214d9e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-annemasse-audition-pglm-74100/",
+      "destination": "/centre/audition-annemasse-annemasse-74100-9d1460/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-aveyronnaise-12360/",
+      "destination": "/centre/audition-aveyronnaise-camares-12360-b4a51c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bahuaud-31780/",
+      "destination": "/centre/audition-bahuaud-castelginest-31780-13c7a1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bahuaud-audition-conseil-31130/",
+      "destination": "/centre/audition-bahuaud-quint-fonsegrives-31130-511b56/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bahuaud-audition-conseil-31240/",
+      "destination": "/centre/audition-bahuaud-l-union-31240-929aca/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bahuaud-audition-conseil-31810/",
+      "destination": "/centre/audition-bahuaud-vernet-31810-a460da/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bain-de-bretagne-35470/",
+      "destination": "/centre/audition-bain-de-bretagne-bain-de-bretagne-35470-c070b7/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-barloy-80800/",
+      "destination": "/centre/audition-barloy-corbie-80800-43735a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-beraha-33600/",
+      "destination": "/centre/audition-beraha-pessac-33600-df90b9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-berntheisel-entendre-57200/",
+      "destination": "/centre/so-mad-sgms-sarreguemines-57200-f456e1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bertoux-16700/",
+      "destination": "/centre/entendre-ruffec-16700-e4a8d6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bethune-ecouter-voir-62400/",
+      "destination": "/centre/mutualite-francaise-aisne-nord-pas-de-calais-bethune-62400-ccafc3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-blanc-et-pierret-triumvirat-30100/",
+      "destination": "/centre/audition-blanc-et-pierret-ales-30100-7c0460/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bonnefoy-43240/",
+      "destination": "/centre/audio-solution-saint-just-malmont-43240-ba4e95/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bouancheau-sonance-audition-85170/",
+      "destination": "/centre/audition-bouancheau-le-poire-sur-vie-85170-f3d043/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bouancheau-sonance-audition-85290/",
+      "destination": "/centre/audition-bouancheau-mortagne-sur-sevre-85290-916e2e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-boulay-57220/",
+      "destination": "/centre/entendre-boulay-moselle-57220-2241a9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bourran-12000/",
+      "destination": "/centre/audition-bourran-rodez-12000-1940ff/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-breumont-56100/",
+      "destination": "/centre/audition-dreumont-lorient-56100-fe26ce/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bribes-herand-34150/",
+      "destination": "/centre/auditions-bribes-herand-gignac-34150-e5d8ab/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-bribes-herand-34250/",
+      "destination": "/centre/audition-bribes-herand-palavas-les-flots-34250-6f4eaa/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-brosset-85400/",
+      "destination": "/centre/audition-brosset-lucon-85400-6c4ea3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-caladoise-69400/",
+      "destination": "/centre/l-audition-caladoise-villefranche-sur-saone-69400-7651e5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-carnot-02400/",
+      "destination": "/centre/audition-gouesnard-chateau-thierry-02400-279c60/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-center-78600/",
+      "destination": "/centre/audition-center-maisons-laffitte-78600-601784/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-center-93110/",
+      "destination": "/centre/audition-center-rosny-sous-bois-93110-fd1e43/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-cevenole-30160/",
+      "destination": "/centre/audition-cevenole-besseges-30160-0aeee2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-chaudiron-13140/",
+      "destination": "/centre/audition-chaudiron-miramas-13140-87e029/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-chaudiron-13300/",
+      "destination": "/centre/centre-de-correction-auditive-salon-de-provence-13300-69d9f5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-cheval-moison-35480/",
+      "destination": "/centre/audition-cheval-moison-guipry-messac-35480-cc4fab/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-chevert-55100/",
+      "destination": "/centre/audition-chevert-verdun-55100-758948/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-clarisse-hassler-57000/",
+      "destination": "/centre/audition-clarisse-hassler-metz-57000-928428/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-confort-33000/",
+      "destination": "/centre/audition-confort-bordeaux-33000-ffb57f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-confort-33370/",
+      "destination": "/centre/laboratoire-paramedical-cheroux-artigues-pres-bordeaux-33370-18c18b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-confort-83510/",
+      "destination": "/centre/audition-confort-lorgues-83510-cb7970/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-confort-galland-metzinger-83440/",
+      "destination": "/centre/audition-confort-callian-83440-fb4397/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-confort-sante-42153/",
+      "destination": "/centre/agh-audition-riorges-42153-dd7451/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-09600/",
+      "destination": "/centre/audition-conseil-laroque-d-olmes-09600-c87813/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-11100/",
+      "destination": "/centre/audition-conseil-narbonne-11100-897ecd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-13100/",
+      "destination": "/centre/audition-conseil-aix-en-provence-13100-94d74e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-13100-2/",
+      "destination": "/centre/audition-conseil-labs-aix-en-provence-13100-8a19f8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-13120/",
+      "destination": "/centre/audition-conseil-gardanne-13120-740496/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-13300/",
+      "destination": "/centre/audition-conseil-salon-de-provence-13300-183970/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-13770/",
+      "destination": "/centre/audition-conseil-venelles-13770-9b795a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-30000/",
+      "destination": "/centre/audition-blanc-et-pierret-nimes-30000-5ba230/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-30200/",
+      "destination": "/centre/laboratoire-de-correction-auditive-de-bagnols-sur-ceze-bagnols-sur-ceze-30200-969dba/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-30900/",
+      "destination": "/centre/audition-blanc-et-pierret-nimes-30900-316475/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-33150/",
+      "destination": "/centre/laboratoire-de-correction-auditive-bordeaux-rive-droite-cenon-33150-8bc0a3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-33340/",
+      "destination": "/centre/laboratoire-de-correction-auditive-bordeaux-rive-gauche-lesparre-medoc-33340-051cb2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-35310/",
+      "destination": "/centre/audition-conseil-breal-sous-montfort-35310-9a41a4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-49300/",
+      "destination": "/centre/audition-conseil-cholet-49300-79df40/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-49300-2/",
+      "destination": "/centre/audition-conseil-cholet-49300-e2cf42/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-57100/",
+      "destination": "/centre/audition-conseil-thionville-57100-47072c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-59279/",
+      "destination": "/centre/audition-conseil-loon-plage-59279-7cde91/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-67160/",
+      "destination": "/centre/audition-conseil-wissembourg-67160-2ccb62/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-67240/",
+      "destination": "/centre/audition-conseil-bischwiller-67240-661569/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-69120/",
+      "destination": "/centre/laboratoire-de-correction-auditive-de-rillieux-vaulx-en-velin-69120-8f335c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-69700/",
+      "destination": "/centre/audition-conseil-givors-69700-4aca98/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-83000/",
+      "destination": "/centre/labo-correction-auditive-de-toulon-toulon-83000-aa5b96/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-83120/",
+      "destination": "/centre/audition-conseil-sainte-maxime-83120-aec0db/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-83140/",
+      "destination": "/centre/labo-correction-auditive-de-toulon-six-fours-les-plages-83140-8067bb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-83200/",
+      "destination": "/centre/audition-conseil-toulon-83200-f4803c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-83400/",
+      "destination": "/centre/labo-correction-auditive-de-toulon-hyeres-83400-8b4a8a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-83500/",
+      "destination": "/centre/audition-conseil-la-seyne-sur-mer-83500-f4844a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-83500-2/",
+      "destination": "/centre/labo-correction-auditive-de-toulon-la-seyne-sur-mer-83500-d2c939/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-ales-nimes-30900/",
+      "destination": "/centre/audition-conseil-nimes-30900-492f77/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-ales-quinet-30100/",
+      "destination": "/centre/audition-conseil-ales-30100-3b12a2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-antibes-06600/",
+      "destination": "/centre/audition-conseil-antibes-06600-0e1a4a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-avignon-st-roch-84000/",
+      "destination": "/centre/audition-conseil-avignon-84000-811d63/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-cavaillon-84300/",
+      "destination": "/centre/audition-conseil-cavaillon-84300-0599a1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-dreano-56140/",
+      "destination": "/centre/audition-conseil-dreano-malestroit-56140-2fbdd2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-dreano-56150/",
+      "destination": "/centre/audition-conseil-dreano-baud-56150-4839b3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-dreano-56230/",
+      "destination": "/centre/audition-conseil-dreano-questembert-56230-ea0397/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-istres-13800/",
+      "destination": "/centre/audition-conseil-istres-13118-134be5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-labs-aud-conseil-prony-75017/",
+      "destination": "/centre/audition-conseil-paris-75017-0767e2/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-labs-le-luc-83340/",
+      "destination": "/centre/audition-conseil-le-luc-83340-10d23f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-labs-martigues-13500/",
+      "destination": "/centre/audition-conseil-martigues-13117-3fac4a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-lca-de-l-ozon-38540/",
+      "destination": "/centre/audition-conseil-heyrieux-38540-da7623/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-marseille-endoume-13007/",
+      "destination": "/centre/audition-conseil-marseille-13007-b2d2c9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-orange-84100/",
+      "destination": "/centre/audition-conseil-orange-84100-0d533a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-velaux-13880/",
+      "destination": "/centre/audition-conseil-velaux-13880-41b7bc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-vitrolles-13127/",
+      "destination": "/centre/audition-conseil-vitrolles-13127-140237/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-xb3-21250/",
+      "destination": "/centre/audition-conseil-seurre-21250-caa9e9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseil-xb3-71210/",
+      "destination": "/centre/audition-conseil-montchanin-71210-a847f8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-conseils-47300/",
+      "destination": "/centre/audioptique-conseils-villeneuve-sur-lot-47300-273798/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-consult-sarl-78470/",
+      "destination": "/centre/audition-consult-saint-remy-les-chevreuse-78470-f9c510/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-cornu-69100/",
+      "destination": "/centre/audition-cornu-villeurbanne-69100-28b272/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-cornu-69200/",
+      "destination": "/centre/audition-cornu-venissieux-69200-755f33/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-cottin-andriot-25480/",
+      "destination": "/centre/audition-cottin-andriot-ecole-valentin-25480-5c3323/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-craponne-69290/",
+      "destination": "/centre/audition-craponne-craponne-69290-af1212/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-de-la-gare-95110/",
+      "destination": "/centre/nc-audition-sannois-95110-14bb1e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-de-puysegur-eurl-34470/",
+      "destination": "/centre/audition-bribes-herand-perols-34470-dc0170/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-des-combrailles-63380/",
+      "destination": "/centre/audition-des-combrailles-pontaumur-63380-3f84db/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-des-hauts-cantons-34600/",
+      "destination": "/centre/l-audition-des-hauts-cantons-bedarieux-34600-c82ec6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-du-golfe-56400/",
+      "destination": "/centre/audition-du-golfe-auray-56400-884ea3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-du-golfe-sarl-56400/",
+      "destination": "/centre/audition-du-golfe-auray-56400-d722e9/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-du-moulin-17137/",
+      "destination": "/centre/audition-du-moulin-nieul-sur-mer-17137-508917/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-du-rocher-audition-confort-83700/",
+      "destination": "/centre/audition-confort-saint-raphael-83700-ee4dd0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-du-rocher-sarl-83520/",
+      "destination": "/centre/audition-du-rocher-roquebrune-sur-argens-83520-3ef20d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-dubost-34570/",
+      "destination": "/centre/audition-dubost-pignan-34570-1107d3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-dubost-34800/",
+      "destination": "/centre/audition-dubost-clermont-l-herault-34800-940ec8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-elodie-milachon-89300/",
+      "destination": "/centre/audition-elodie-milachon-joigny-89300-d7cffc/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-experf-03000/",
+      "destination": "/centre/audition-expert-moulins-03000-43dbbb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-expert-66000/",
+      "destination": "/centre/audition-expert-perpignan-66000-98be78/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-fabien-riff-70100/",
+      "destination": "/centre/frj-audition-gray-70100-d7ddee/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-fabienne-hery-49000/",
+      "destination": "/centre/audition-fabienne-hery-angers-49000-82bdf8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-fabre-toulouse-31300/",
+      "destination": "/centre/audition-fabre-toulouse-31300-a02470/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-firmis-31500/",
+      "destination": "/centre/audition-firmis-toulouse-31500-642371/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-fleurence-54600/",
+      "destination": "/centre/audition-fleurence-villers-les-nancy-54600-48ed70/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-foulon-34500/",
+      "destination": "/centre/audition-du-biterrois-beziers-34500-daa1e3/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-francaise-entendre-57000/",
+      "destination": "/centre/audition-francaise-metz-57000-661333/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-france-35135-chantepie/",
+      "destination": "/centre/audition-france-chantepie-35135-5383b1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-francilienne-entendre-91220/",
+      "destination": "/centre/entendre-bretigny-sur-orge-91220-30ee8f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-franck-lefevre-35510/",
+      "destination": "/centre/audition-frank-lefevre-cesson-sevigne-35510-ac566d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-giner-associes-84170/",
+      "destination": "/centre/audition-giner-associes-monteux-84170-2d714b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-golbey-88190/",
+      "destination": "/centre/audition-golbey-golbey-88190-8b478b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-golfe-juan-vallauris-06220/",
+      "destination": "/centre/audition-golfe-juan-vallauris-vallauris-06220-90f57e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-gradignan-33170/",
+      "destination": "/centre/correction-auditive-bondonny-gradignan-33170-d78daf/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-griveaux-50220/",
+      "destination": "/centre/audition-griveaux-ducey-les-cheris-50220-ea0a5e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-gueugnon-71130/",
+      "destination": "/centre/audition-gueugnon-gueugnon-71130-8a37ea/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-guidel-56520/",
+      "destination": "/centre/audition-guidel-guidel-56520-19e3a0/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-gulmanelli-entendre-68300/",
+      "destination": "/centre/entendre-saint-louis-68300-8fae40/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-gutleben-68290/",
+      "destination": "/centre/sarl-audition-gutleben-masevaux-niederbruck-68290-afc2cd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-haeberle-savoie-ahs-73190/",
+      "destination": "/centre/audition-haeberle-savoie-a-h-s-challes-les-eaux-73190-81a738/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-heraultaise-34660/",
+      "destination": "/centre/audition-bribes-herand-cournonterral-34660-631936/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-jacquemart-26100/",
+      "destination": "/centre/audition-jacquemart-romans-sur-isere-26100-ab3cf6/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-jacquemart-26300/",
+      "destination": "/centre/audition-jacquemart-chatuzange-le-goubet-26300-f6c28b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-jcg-01500/",
+      "destination": "/centre/audition-jcg-amberieu-en-bugey-01500-01a46f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-jegu-manuella-22800/",
+      "destination": "/centre/audition-jegu-manuella-quintin-22800-cda011/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-jessy-galmiche-entendre-60800/",
+      "destination": "/centre/entendre-crepy-en-valois-60800-2036b1/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-joly-audiosolution-yssingeaux-43200/",
+      "destination": "/centre/audiosolution-yssingeaux-43200-9603ea/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-julie-34800/",
+      "destination": "/centre/alain-afflelou-acousticien-clermont-l-herault-34800-f3ab72/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-julie-bimier-49620/",
+      "destination": "/centre/audition-julie-bimier-mauges-sur-loire-49620-afb470/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-labbey-audilab-56100/",
+      "destination": "/centre/audilab-pays-de-lorient-lorient-56100-ec1748/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-labbey-audilab-56240/",
+      "destination": "/centre/audilab-plouay-56240-cc5571/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-labbey-audilab-56260/",
+      "destination": "/centre/audilab-pays-de-lorient-larmor-plage-56260-e8facd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-labbey-audilab-56270/",
+      "destination": "/centre/audilab-ploemeur-56270-24711d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-labbey-audilab-56520/",
+      "destination": "/centre/audilab-guidel-56520-b27906/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-langlet-24650/",
+      "destination": "/centre/audition-langlet-chancelade-24650-5f42cd/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-langlet-24750/",
+      "destination": "/centre/audition-langlet-boulazac-isle-manoire-24330-07ee70/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-larcher-30129/",
+      "destination": "/centre/audition-larcher-manduel-30129-93cb08/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-larcher-30210/",
+      "destination": "/centre/audition-larcher-remoulins-30210-1f1fc4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-laura-jan-35000/",
+      "destination": "/centre/audition-laura-jan-rennes-35000-9c8ea8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-laura-jan-sonance-audition-35200/",
+      "destination": "/centre/audition-laura-jan-rennes-35000-98d46a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-leblan-51100/",
+      "destination": "/centre/audition-leblan-reims-51100-4d455d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-littoral-audition-conseil-62370/",
+      "destination": "/centre/audition-des-hauts-audruicq-62370-ce4d96/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-ludovic-digue-89300/",
+      "destination": "/centre/audition-ludovic-digue-joigny-89300-568915/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-marc-boulet-77127/",
+      "destination": "/centre/audition-marc-boulet-lieusaint-77127-270ed8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-maritime-76450/",
+      "destination": "/centre/audition-maritime-cany-barville-76450-bcdd6d/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-marquer-50600/",
+      "destination": "/centre/audition-saint-hilaire-du-harcouet-50600-51c7c4/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-martel-46600/",
+      "destination": "/centre/audition-martel-martel-46600-d1646b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-mathias-52000/",
+      "destination": "/centre/entendre-chaumont-52000-80844c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-mauleon-79700/",
+      "destination": "/centre/audition-mauleon-mauleon-79700-102cfb/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-mauleon-79700-2/",
+      "destination": "/centre/audition-conseil-mauleon-79700-d46e12/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-maurice-freres-43000/",
+      "destination": "/centre/audition-maurice-freres-le-puy-en-velay-43000-75dc5b/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-maurice-freres-67000/",
+      "destination": "/centre/audition-maurice-freres-strasbourg-67000-04bf4f/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-maurice-freres-67140/",
+      "destination": "/centre/audition-conseil-barr-67140-89fb6c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-max-75018/",
+      "destination": "/centre/audition-max-paris-75018-dc13b5/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-max-reims-51100/",
+      "destination": "/centre/audition-max-reims-reims-51100-2f556c/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-md-audition-conseil-59510/",
+      "destination": "/centre/audition-conseil-hem-59510-0ffd8a/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-md-audition-conseil-59780/",
+      "destination": "/centre/audition-conseil-baisieux-59780-9d2b4e/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-meinelly-34070/",
+      "destination": "/centre/audilab-meinelly-montpellier-34070-00b492/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-metropole-audition-conseil-59520/",
+      "destination": "/centre/audition-conseil-marquette-lez-lille-59520-95b986/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-metz-54390/",
+      "destination": "/centre/krys-audition-frouard-54390-c007c8/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audition-metz-57000/",
+      "destination": "/centre/audition-metz-metz-57000-8fcbc8/",
       "permanent": true
     }
   ]

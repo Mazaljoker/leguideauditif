@@ -54,7 +54,7 @@ export function buildMedicalOrganizationSchema(): SchemaObject {
     url: SITE_URL,
     logo: `${SITE_URL}/logo-lga.svg`,
     description:
-      "Guide indépendant de l'audition par un audioprothésiste diplômé d'État. Conseils experts, comparatifs d'appareils auditifs, annuaire de centres agréés FINESS.",
+      "Guide indépendant de l'audition par un audioprothésiste diplômé d'État. Conseils experts, comparatifs d'appareils auditifs, annuaire de centres référencés RPPS et INSEE/SIRENE.",
     areaServed: { '@type': 'Country', name: 'France' },
     medicalSpecialty: 'Audiology',
     founder: { '@id': AUTHOR_ID },

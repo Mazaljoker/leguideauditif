@@ -211,7 +211,7 @@ const schemas = [
           Audioprothésiste à {villeName}
         </h1>
         <p class="text-gris-texte text-lg max-w-[700px]">
-          Centres auditifs à {villeName}{depInfo && villeName !== depInfo.nom ? ` (${depInfo.nom}, ${depInfo.code})` : depInfo ? ` (${depInfo.code})` : ''}, référencés à partir des données publiques FINESS.
+          Centres auditifs à {villeName}{depInfo && villeName !== depInfo.nom ? ` (${depInfo.nom}, ${depInfo.code})` : depInfo ? ` (${depInfo.code})` : ''}, référencés à partir du RPPS (Répertoire Partagé des Professionnels de Santé) et de l'INSEE/SIRENE.
           {depInfo && villeName !== depInfo.nom && (
             <>
               {' '}Voir aussi <a href={`/audioprothesiste/departement/${depInfo.slug}/`} class="text-orange hover:underline">tous les audioprothésistes {prepositionDepartement(depInfo.nom).de}</a>.

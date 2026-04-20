@@ -79,7 +79,7 @@ const centresForMap = (centresCount > 500 ? allCentres.slice(0, 500) : allCentre
 
 const prep = prepositionDepartement(depInfo.nom);
 const title = `Audioprothésiste ${prep.de} (${depInfo.code})`;
-const description = `Trouvez un audioprothésiste ${prep.dans} (${depInfo.code}). Annuaire indépendant rédigé par un audioprothésiste DE, basé sur les données publiques FINESS.`;
+const description = `Trouvez un audioprothésiste ${prep.dans} (${depInfo.code}). Annuaire indépendant rédigé par un audioprothésiste DE, basé sur les données publiques RPPS et INSEE/SIRENE.`;
 
 // OG image dynamique — générée via /api/og/silo (Edge function, cachée par Vercel)
 const ogImage = `/api/og/silo?type=departement&title=${encodeURIComponent(`Audioprothésiste ${prep.de}`)}&subtitle=${encodeURIComponent(`${depInfo.region} · ${depInfo.code}`)}`;
@@ -94,7 +94,7 @@ const breadcrumbs = [
 const faq = [
   {
     question: `Comment trouver un audioprothésiste ${prep.dans} ?`,
-    answer: `Consultez la liste des villes ci-dessous ou directement la liste des centres du département ${depInfo.nom} (${depInfo.code}). Les données proviennent du fichier FINESS (source publique) mis à jour régulièrement. Vous pouvez aussi utiliser notre formulaire de devis gratuit : un audioprothésiste qualifié vous rappelle sous 48 heures.`
+    answer: `Consultez la liste des villes ci-dessous ou directement la liste des centres du département ${depInfo.nom} (${depInfo.code}). Les données proviennent du Répertoire Partagé des Professionnels de Santé (RPPS) et de l'INSEE/SIRENE, sources publiques mises à jour régulièrement. Vous pouvez aussi utiliser notre formulaire de devis gratuit : un audioprothésiste qualifié vous rappelle sous 48 heures.`
   },
   {
     question: `Comment choisir un audioprothésiste ${prep.dans} ?`,
@@ -171,7 +171,7 @@ const schemas = [
         </h1>
         <p class="text-gris-texte text-lg max-w-[700px]">
           Centres auditifs du département {depInfo.nom}, région {depInfo.region}.
-          Annuaire indépendant basé sur les données publiques FINESS.
+          Annuaire indépendant basé sur les données publiques RPPS (Répertoire Partagé des Professionnels de Santé) et INSEE/SIRENE.
         </p>
       </header>
 
@@ -223,14 +223,17 @@ const schemas = [
         </div>
       )}
 
-      <!-- Liste des centres (top 20) -->
+      <!-- Liste des centres (top 100, triés fiches vérifiées d'abord) -->
       {allCentres.length > 0 && (
         <div class="mb-10">
           <h2 class="font-sans text-xl font-bold text-marine mb-4">
             Centres auditifs {prep.dans}
+            {allCentres.length > 100 && (
+              <span class="text-sm text-gris-texte font-normal"> ({allCentres.length} au total, 100 premiers)</span>
+            )}
           </h2>
           <div class="space-y-3">
-            {allCentres.slice(0, 20).map((c) => (
+            {allCentres.slice(0, 100).map((c) => (
               <a
                 href={`/centre/${c.slug}/`}
                 class="block bg-blanc rounded-xl p-4 shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-md transition-shadow no-underline hover:no-underline"
@@ -250,9 +253,9 @@ const schemas = [
               </a>
             ))}
           </div>
-          {allCentres.length > 20 && (
+          {allCentres.length > 100 && (
             <p class="text-sm text-gris-texte mt-4 text-center">
-              <a href="/trouver-audioprothesiste/" class="text-orange hover:underline">Voir tous les centres sur la carte interactive</a>
+              <a href="/trouver-audioprothesiste/" class="text-orange hover:underline">Voir les {allCentres.length - 100} centres restants sur la carte interactive</a>
             </p>
           )}
         </div>
