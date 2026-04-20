@@ -1,18 +1,32 @@
 ---
 title: "Surdité brusque : urgence médicale, chaque heure compte"
-metaDescription: "Surdite brusque : consulter un ORL dans les 48h. Symptomes, erreurs a eviter, traitement corticoides. Audioprothesiste DE."
+metaTitle: "Surdité brusque : urgence ORL 48h, corticoïdes"
+metaDescription: "Surdité brusque : consulter un ORL dans les 48h. Symptômes, erreurs à éviter, traitement corticoïdes. Audioprothésiste DE, 28 ans d'expérience."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
 image: /images/blog/surdite-brusque/surdite-brusque.webp
 ogImage: /images/blog/surdite-brusque/surdite-brusque-og.webp
+quickAnswer:
+  title: "Surdité brusque : que faire en urgence ?"
+  items:
+    - strong: "Définition :"
+      text: "perte auditive neurosensorielle soudaine d'au moins 30 dB sur 3 fréquences consécutives, en moins de 72 heures. Généralement unilatérale."
+    - strong: "Action immédiate :"
+      text: "ORL en urgence dans les 48 heures — pas les urgences générales (SAU), mais ORL direct (clinique ORL, urgences spécialisées, ORL de ville en urgence)."
+    - strong: "Pronostic :"
+      text: "50 à 65 % de récupération partielle ou totale si traitement corticoïde précoce. Au-delà de 7 jours, les chances diminuent drastiquement. Chaque heure compte."
+  conclusion: "C'est l'une des rares urgences en audition. Si vous constatez une baisse auditive subite unilatérale, ne banalisez jamais. Appelez un ORL le jour même — la fenêtre thérapeutique est courte."
 relatedGuides:
   - perte-auditive/index
   - perte-auditive/causes
+  - perte-auditive/quand-consulter-orl
+  - perte-auditive/types
+  - acouphenes/pulsatiles
 sources:
   - name: "HAS - Surdité brusque idiopathique : prise en charge (2024)"
     url: "https://www.has-sante.fr/"

@@ -15,6 +15,7 @@
 | 7 | 7 guides marques fabricants | **EN COURS** (3/7 : Phonak + Signia + Oticon 2026-04-20) | juin-juillet 2026 |
 | 8 | Guide Roger On/Select/Table | **BOUCLÉE** | 2026-04-20 |
 | 9 | Cluster acouphènes variantes | **BOUCLÉE** (9 guides optimisés snippet-pipeline) | 2026-04-20 |
+| 9+ | Extension snippet-pipeline autres clusters | **BOUCLÉE** (10 guides : 4 perte-auditive + 3 remboursement + 3 prevention) | 2026-04-20 |
 | 10 | 20 pages locales | **PARTIEL** (branche `feat/enseignes` contient un silo local 96 dép + villes dynamiques) | à auditer |
 | 11 | BL blogs seniors (9 cibles) | À faire | juin-juillet |
 | 12 | Audit schema.org complet | **BOUCLÉE** (auto-injection layout) | 2026-04-20 |

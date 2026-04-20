@@ -1,19 +1,34 @@
 ---
 title: "Les 7 symptômes d'une perte auditive à ne pas ignorer"
-metaDescription: "7 signes de perte auditive : difficulte a entendre, TV trop forte, fatigue auditive. Guide par un audioprothesiste DE."
+metaTitle: "Symptômes perte auditive : 7 signes à connaître"
+metaDescription: "7 signes de perte auditive : TV trop forte, faire répéter, fatigue auditive. Quand consulter — audioprothésiste DE, 28 ans d'expérience."
 cluster: perte-auditive
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 image: /images/blog/symptomes/symptomes.webp
 ogImage: /images/blog/symptomes/symptomes-og.webp
 readingTime: 9
+quickAnswer:
+  title: "Comment reconnaître une perte auditive ?"
+  items:
+    - strong: "Les 3 signes les plus fréquents :"
+      text: "vous faites répéter souvent, la télévision est 'trop forte' selon l'entourage, vous peinez à suivre une conversation en milieu bruyant (restaurant, famille)."
+    - strong: "Les 4 signaux d'alarme :"
+      text: "fatigue après conversations, acouphènes (sifflements), impression de 'mots qui se ressemblent', évitement progressif des situations sociales."
+    - strong: "Quand consulter :"
+      text: "si ≥2 signes présents depuis plus de 6 mois, prenez rendez-vous chez votre généraliste pour une orientation ORL. Bilan audiométrique remboursé avec ordonnance."
+  conclusion: "Le délai moyen entre premiers symptômes et premier appareillage est de 7 ans en France. C'est 7 ans de trop : plus vous attendez, plus le cerveau se déshabitue des sons et plus l'adaptation sera longue."
 relatedGuides:
+  - perte-auditive/index
+  - perte-auditive/causes
+  - perte-auditive/presbyacousie
+  - perte-auditive/types
+  - perte-auditive/quand-consulter-orl
+  - appareils-auditifs/index
   - acouphenes/index
-  - appareils-auditifs/types
-  - remboursement/index
 sources:
   - name: "INSERM - Surdités de perception"
     url: "https://www.inserm.fr/dossier/surdites/"

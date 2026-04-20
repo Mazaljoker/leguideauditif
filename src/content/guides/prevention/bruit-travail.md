@@ -1,16 +1,32 @@
 ---
 title: "Bruit au travail : vos droits et comment vous protéger"
-metaDescription: "Bruit au travail : seuils légaux, protections, droits du salarié. Prévenir la surdité professionnelle. Guide expert terrain."
+metaTitle: "Bruit au travail : seuils légaux, droits, protection"
+metaDescription: "Bruit au travail : seuils légaux 80/85 dB, protections, droits du salarié, surdité professionnelle. Audioprothésiste DE, 28 ans d'expérience."
 cluster: prevention
+image: /images/blog/bruit-travail/bruit-travail.webp
 isPillar: false
 publishDate: 2026-04-07
-updatedDate: 2026-04-12
+updateDate: 2026-04-20
 author: Franck-Olivier
-authorTitle: "Audioprothésiste DE, 28 ans d'expérience"
+authorTitle: "Audioprothésiste DE — 28 ans d'expérience"
 readingTime: 9
+quickAnswer:
+  title: "Bruit au travail : les règles à connaître"
+  items:
+    - strong: "Seuils réglementaires (Code du travail) :"
+      text: "80 dB = obligation d'information. 85 dB = port de protections obligatoire + audiogrammes périodiques. 87 dB = valeur limite d'exposition absolue (après protection)."
+    - strong: "Vos droits :"
+      text: "protections individuelles fournies par l'employeur, audiométries régulières par la médecine du travail, déclaration de maladie professionnelle possible (tableau n°42) si perte auditive avérée."
+    - strong: "Surdité professionnelle reconnue :"
+      text: "tableau n°42 RG — perte minimum 35 dB en moyenne sur 3 fréquences conversationnelles, après au moins 1 an d'exposition. Indemnisation + appareillage pris en charge."
+  conclusion: "Ne minimisez pas les signaux précoces : acouphènes en fin de journée, fatigue auditive, besoin de 'décompresser' le soir. Ce sont les premiers signes que votre capital auditif s'érode. Consultez la médecine du travail tôt."
 relatedGuides:
   - prevention/index
   - prevention/protections-auditives
+  - prevention/seniors
+  - acouphenes/causes
+  - perte-auditive/causes
+  - perte-auditive/types
 sources:
   - name: "INRS - Bruit en milieu professionnel"
     url: "https://www.inrs.fr/risques/bruit.html"
