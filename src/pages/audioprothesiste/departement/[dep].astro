@@ -13,7 +13,7 @@ const { dep } = Astro.params;
 const depInfo = getDepartementBySlug(dep || '');
 
 if (!depInfo) {
-  return Astro.redirect('/trouver-audioprothesiste/');
+  return new Response(null, { status: 404 });
 }
 
 // Récupérer les centres du département (par code postal)
@@ -58,6 +58,10 @@ const topVilles = villes.slice(0, 30);
 const centresCount = allCentres.length;
 const villesCount = villes.length;
 const claimedCount = allCentres.filter((c) => c.plan === 'claimed' || c.plan === 'premium').length;
+
+// Indexation : noindex si département trop pauvre (< 10 centres ET < 3 villes).
+// Les 96 départements métropole sont quasi tous au-dessus du seuil ; utile pour DOM/TOM peu denses.
+const isThin = centresCount < 10 && villesCount < 3;
 
 // Centres pour la mini-carte département (échantillon si >500 pour les perfs)
 const centresForMap = (centresCount > 500 ? allCentres.slice(0, 500) : allCentres).map((c) => ({
@@ -142,7 +146,7 @@ const schemas = [
 ];
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} schema={schemas}>
+<BaseLayout title={title} description={description} ogImage={ogImage} schema={schemas} noindex={isThin}>
   {/* Leaflet CSS — loaded only on this page */}
   <link
     rel="stylesheet"

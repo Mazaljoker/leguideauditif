@@ -8,6 +8,7 @@ interface Props {
   publishDate?: Date;
   updateDate?: Date;
   schema?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   publishDate,
   updateDate,
   schema,
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = canonical
@@ -31,6 +33,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL.href} />
+{noindex && <meta name="robots" content="noindex,follow" />}
 
 <!-- Open Graph -->
 <meta property="og:type" content={ogType} />
