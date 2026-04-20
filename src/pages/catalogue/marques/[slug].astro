@@ -30,6 +30,10 @@ const allProducts = await getCollection('catalogueAppareils');
 const brandProducts = allProducts.map(p => p.data).filter(p => p.marque === brandSlug);
 const models = groupByModel(brandProducts);
 
+/* Maillage éditorial : guide marque /guides/marques/{slug}/ si publié */
+const allGuides = await getCollection('guides');
+const brandGuide = allGuides.find(g => g.data.cluster === 'marques' && g.id === `marques/${brandSlug}`);
+
 // Stats
 const totalProducts = brandProducts.length;
 const totalModels = Object.keys(models).length;
@@ -65,6 +69,28 @@ const description = `Comparez les ${totalProducts} aides auditives ${brandLabel}
         Comparez les modèles, les niveaux technologiques et les prix.
       </p>
     </div>
+
+    {/* Guide éditorial marque (si publié) */}
+    {brandGuide && (
+      <a
+        href={`/guides/marques/${brandSlug}/`}
+        class="group flex items-center gap-4 bg-blanc border-2 border-marine/10 hover:border-orange rounded-2xl p-5 sm:p-6 mb-8 no-underline transition-colors"
+      >
+        <div class="shrink-0 w-12 h-12 rounded-full bg-orange/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="font-sans text-xs font-bold uppercase text-orange tracking-wide mb-0.5">Guide complet {brandLabel}</div>
+          <div class="font-sans text-base sm:text-lg font-bold text-marine leading-snug">
+            {brandGuide.data.title}
+          </div>
+          <p class="font-sans text-sm text-gris-texte mt-1 line-clamp-1">
+            {brandGuide.data.metaDescription}
+          </p>
+        </div>
+        <span class="shrink-0 font-sans text-sm font-bold text-orange group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
+    )}
 
     {/* Stats bar */}
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">

@@ -53,6 +53,10 @@ const schema = productJsonLd(product);
 const allPlatforms = await getCollection('plateformes');
 const productPlatform = product.puce ? allPlatforms.find(p => p.data.produits.includes(product.slug))?.data : null;
 
+/* Maillage éditorial : guide marque /guides/marques/{marque}/ si publié */
+const allGuides = await getCollection('guides');
+const brandGuide = allGuides.find(g => g.data.cluster === 'marques' && g.id === `marques/${product.marque}`);
+
 // Build gallery: gallery array first, then main image as fallback
 const galleryImages: string[] = [];
 if (product.gallery?.length) {
@@ -121,13 +125,22 @@ if (product.gallery?.length) {
           {product.specs?.ip ? ` · ${product.specs.ip}` : ''}
         </p>
 
-        {productPlatform && (
-          <a href={`/catalogue/plateformes/${productPlatform.slug}/`}
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-50 text-purple-700 text-sm font-medium no-underline hover:bg-purple-100 transition-colors mt-1">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
-            Puce {productPlatform.nom}
-          </a>
-        )}
+        <div class="flex flex-wrap items-center gap-2 mt-1">
+          {productPlatform && (
+            <a href={`/catalogue/plateformes/${productPlatform.slug}/`}
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-50 text-purple-700 text-sm font-medium no-underline hover:bg-purple-100 transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+              Puce {productPlatform.nom}
+            </a>
+          )}
+          {brandGuide && (
+            <a href={`/guides/marques/${product.marque}/`}
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange/10 text-orange text-sm font-medium no-underline hover:bg-orange/20 transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              Guide {product.marqueLabel}
+            </a>
+          )}
+        </div>
 
         {product.descriptionCourte && (
           <p class="font-serif text-base text-marine leading-relaxed">{product.descriptionCourte}</p>
