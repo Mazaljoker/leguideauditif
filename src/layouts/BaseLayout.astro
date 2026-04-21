@@ -36,6 +36,7 @@ const props = Astro.props;
     <SEOHead {...props} />
     <slot name="head" />
     <!-- Tarteaucitron CMP (CNIL-compliant, self-hosted) + GA4 conditionnel -->
+    <link rel="stylesheet" href="/tarteaucitron-custom.css" />
     <script is:inline src="/tarteaucitron/tarteaucitron.min.js"></script>
     <script is:inline define:vars={{ measurementId: 'G-1GHQCKDVPM' }}>
       window.tarteaucitronForceLanguage = 'fr';
@@ -48,7 +49,7 @@ const props = Astro.props;
         groupServices: true,
         showDetailsOnClick: true,
         serviceDefaultState: 'wait',
-        showAlertSmall: true,
+        showAlertSmall: false,
         cookieslist: false,
         closePopup: true,
         showIcon: true,
