@@ -27,11 +27,6 @@
       "permanent": true
     },
     {
-      "source": "/guides/remboursement/100-sante",
-      "destination": "/guides/remboursement/100-sante-audition/",
-      "permanent": true
-    },
-    {
       "source": "/guides/remboursement/100-sante/",
       "destination": "/guides/remboursement/100-sante-audition/",
       "permanent": true

@@ -15,21 +15,19 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) =>
-        ![
-          'https://leguideauditif.fr/auth/callback/',
-          'https://leguideauditif.fr/auth/login/',
-          'https://leguideauditif.fr/auth/register/',
-          'https://leguideauditif.fr/auth/profil/',
+      filter: (page) => {
+        if (page.startsWith('https://leguideauditif.fr/admin/')) return false;
+        if (page.startsWith('https://leguideauditif.fr/auth/')) return false;
+        return ![
           'https://leguideauditif.fr/annonces/alertes/',
           'https://leguideauditif.fr/annonces/mes-annonces/',
           'https://leguideauditif.fr/revendiquer/confirmation/',
           'https://leguideauditif.fr/revendiquer-gratuit/confirmation/',
-          'https://leguideauditif.fr/admin/claims/',
           'https://leguideauditif.fr/revendiquer/',
           'https://leguideauditif.fr/revendiquer-gratuit/',
           'https://leguideauditif.fr/connexion-pro/',
-        ].includes(page),
+        ].includes(page);
+      },
     }),
     mdx(),
     icon(),
