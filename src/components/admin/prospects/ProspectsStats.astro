@@ -1,0 +1,26 @@
+---
+// ProspectsStats.astro — Jalon 2a : 4 StatTile avec valeurs hardcodées à 0.
+// Jalon 2b : valeurs réelles dérivées de prospects[] via buildStats().
+
+import StatTile from '../ui/StatTile.astro';
+import type { Prospect } from '../../../types/prospect';
+
+interface Props {
+  prospects: Prospect[];
+}
+
+// Prop reçue mais non utilisée ce jalon (branchement en 2b)
+const { prospects: _prospects } = Astro.props;
+---
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+  <StatTile label="Pipeline actif" value={0} hint="0 ce mois-ci" />
+  <StatTile label="RDV cette semaine" value={0} hint="0 aujourd'hui" />
+  <StatTile label="Propositions" value={0} hint="0 € MRR potentiel" />
+  <StatTile
+    label="Slots Fondateur"
+    value="0 / 20"
+    hint="20 slots restants"
+    variant="fondateur"
+  />
+</div>

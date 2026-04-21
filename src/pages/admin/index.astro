@@ -107,17 +107,27 @@ const fmt = (n: number | null) => (n ?? 0).toLocaleString('fr-FR');
         <h1 class="font-sans text-2xl font-bold text-marine">Tableau de bord</h1>
         <p class="text-sm text-gris-texte font-sans">Mis à jour le {today}</p>
       </div>
-      <a
-        href="/admin/claims/"
-        class="inline-flex items-center gap-2 rounded-lg bg-marine px-4 py-2.5 text-sm font-medium text-blanc font-sans hover:bg-marine-light transition-colors"
-        style="min-height: 44px;"
-      >
-        <Icon name="lucide:shield-check" class="w-4 h-4" />
-        Gérer les claims
-        {(pendingCount ?? 0) > 0 && (
-          <span class="rounded-full bg-orange px-2 py-0.5 text-xs font-bold text-blanc ml-1">{pendingCount}</span>
-        )}
-      </a>
+      <div class="flex items-center gap-3 flex-wrap">
+        <a
+          href="/admin/prospects/"
+          class="inline-flex items-center gap-2 rounded-lg bg-blanc border border-gris-clair px-4 py-2.5 text-sm font-medium text-marine font-sans hover:bg-[#E8ECF2] transition-colors"
+          style="min-height: 44px;"
+        >
+          <Icon name="lucide:users" class="w-4 h-4" />
+          Pipeline prospects
+        </a>
+        <a
+          href="/admin/claims/"
+          class="inline-flex items-center gap-2 rounded-lg bg-marine px-4 py-2.5 text-sm font-medium text-blanc font-sans hover:bg-marine-light transition-colors"
+          style="min-height: 44px;"
+        >
+          <Icon name="lucide:shield-check" class="w-4 h-4" />
+          Gérer les claims
+          {(pendingCount ?? 0) > 0 && (
+            <span class="rounded-full bg-orange px-2 py-0.5 text-xs font-bold text-blanc ml-1">{pendingCount}</span>
+          )}
+        </a>
+      </div>
     </div>
 
     <!-- Rangee 1 : KPI principaux -->
