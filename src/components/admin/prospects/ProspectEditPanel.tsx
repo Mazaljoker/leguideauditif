@@ -4,6 +4,8 @@
 
 import { useState } from 'react';
 import Button from '../ui/react/Button';
+import InteractionsList from './InteractionsList';
+import AddInteractionForm from './AddInteractionForm';
 import {
   PROSPECT_STATUS_LABELS,
   PROSPECT_SOURCE_LABELS,
@@ -71,9 +73,14 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
   const [form, setForm] = useState<FormState>(prospectToForm(prospect));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [reloadKey, setReloadKey] = useState(0);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((f) => ({ ...f, [key]: value }));
+  }
+
+  function handleInteractionAdded() {
+    setReloadKey((k) => k + 1);
   }
 
   async function handleSave() {
@@ -150,6 +157,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             className={inputCls}
             value={form.name}
             onChange={(e) => update('name', e.target.value)}
+            aria-label="Nom complet"
           />
         </div>
 
@@ -160,6 +168,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             value={form.company}
             onChange={(e) => update('company', e.target.value)}
             placeholder="Centres Athuil, Audition Juan Les Pins…"
+            aria-label="Entité ou groupe"
           />
         </div>
 
@@ -171,6 +180,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             min={1}
             value={form.centres_count}
             onChange={(e) => update('centres_count', Math.max(1, Number(e.target.value) || 1))}
+            aria-label="Nombre de centres"
           />
         </div>
 
@@ -180,6 +190,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             className={inputCls}
             value={form.status}
             onChange={(e) => update('status', e.target.value as ProspectStatus)}
+            aria-label="Statut du prospect"
           >
             {(Object.keys(PROSPECT_STATUS_LABELS) as ProspectStatus[]).map((s) => (
               <option key={s} value={s}>
@@ -195,6 +206,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             className={inputCls}
             value={form.city}
             onChange={(e) => update('city', e.target.value)}
+            aria-label="Ville"
           />
         </div>
 
@@ -205,6 +217,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
               className={inputCls}
               value={form.cp}
               onChange={(e) => update('cp', e.target.value)}
+              aria-label="Code postal"
             />
           </div>
           <div>
@@ -214,6 +227,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
               value={form.departement}
               onChange={(e) => update('departement', e.target.value)}
               maxLength={3}
+              aria-label="Département"
             />
           </div>
         </div>
@@ -224,6 +238,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             className={inputCls}
             value={form.source}
             onChange={(e) => update('source', e.target.value as ProspectSource)}
+            aria-label="Canal d'acquisition"
           >
             {(Object.keys(PROSPECT_SOURCE_LABELS) as ProspectSource[]).map((s) => (
               <option key={s} value={s}>
@@ -243,6 +258,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             value={form.mrr_potentiel}
             onChange={(e) => update('mrr_potentiel', e.target.value)}
             placeholder="456.00"
+            aria-label="Montant MRR potentiel en euros par mois"
           />
         </div>
 
@@ -253,6 +269,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             value={form.next_action}
             onChange={(e) => update('next_action', e.target.value)}
             placeholder="Call découverte, Envoyer brief Fondateur…"
+            aria-label="Prochaine action"
           />
         </div>
 
@@ -263,6 +280,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             type="datetime-local"
             value={form.next_action_at}
             onChange={(e) => update('next_action_at', e.target.value)}
+            aria-label="Date et heure de la prochaine action"
           />
         </div>
 
@@ -272,6 +290,7 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
             className={`${inputCls} resize-y min-h-[70px] leading-relaxed`}
             value={form.notes}
             onChange={(e) => update('notes', e.target.value)}
+            aria-label="Notes"
           />
         </div>
 
@@ -287,6 +306,12 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
           >
             {form.is_fondateur ? 'Partenaire Fondateur actif' : 'Non-Fondateur'}
           </button>
+        </div>
+
+        <div className="md:col-span-2 mt-2">
+          <label className={labelCls}>Historique</label>
+          <InteractionsList prospectId={prospect.id} reloadKey={reloadKey} />
+          <AddInteractionForm prospectId={prospect.id} onAdded={handleInteractionAdded} />
         </div>
       </div>
 
