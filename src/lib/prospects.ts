@@ -87,6 +87,38 @@ export function formatEuros(n: number): string {
 }
 
 // ============================================================
+// Phase 4 : search + classification temporelle
+// ============================================================
+
+export function normalizeForSearch(s: string | null | undefined): string {
+  if (!s) return '';
+  return s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '');
+}
+
+export type TemporalState = 'overdue' | 'today' | 'future' | 'none';
+
+export function classifyNextAction(
+  nextActionAt: string | null,
+  now: Date = new Date()
+): TemporalState {
+  if (!nextActionAt) return 'none';
+  const target = new Date(nextActionAt);
+  if (isNaN(target.getTime())) return 'none';
+
+  // Fenêtre « aujourd'hui » dans la TZ locale (PRD §6.8 : approximation TZ
+  // Europe/Paris = client, acceptée en V1).
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const tomorrowStart = new Date(todayStart.getTime() + 86400000);
+
+  if (target < todayStart) return 'overdue';
+  if (target < tomorrowStart) return 'today';
+  return 'future';
+}
+
+// ============================================================
 // Validation (Phase 2 : pas de zod, validation manuelle)
 // ============================================================
 

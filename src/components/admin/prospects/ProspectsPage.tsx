@@ -1,8 +1,8 @@
 // ProspectsPage.tsx — root React de /admin/prospects.
-// Phase 3 : toggle Pipeline/Liste + drag & drop + handleMove optimiste.
-// Collapse auto du panel d'édition au toggle (PRD §6.2, §6.5).
+// Phase 4 : filtres chips actifs + search debounced + filteredProspects
+// passé aux vues (Pipeline + Liste). Chips et Stats conservent le total.
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import ProspectsHeader from './ProspectsHeader';
 import ProspectsStats from './ProspectsStats';
 import ProspectsChips from './ProspectsChips';
@@ -10,11 +10,17 @@ import ProspectsList from './ProspectsList';
 import NewProspectDialog from './NewProspectDialog';
 import ViewToggle, { type ProspectsView } from './ViewToggle';
 import PipelineBoard from './PipelineBoard';
-import { buildStats } from '../../../lib/prospects';
+import { buildStats, normalizeForSearch } from '../../../lib/prospects';
 import type { Prospect, ProspectStatus } from '../../../types/prospect';
 
 interface Props {
   initialProspects: Prospect[];
+}
+
+export interface ActiveFilters {
+  statuses: ProspectStatus[];
+  aFaire: boolean;
+  fondateur: boolean;
 }
 
 const VIEW_STORAGE_KEY = 'lga-admin-prospects-view';
@@ -31,7 +37,65 @@ export default function ProspectsPage({ initialProspects }: Props) {
   const [view, setView] = useState<ProspectsView>(readInitialView);
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
+  // Phase 4 : filtres + search
+  const [filters, setFilters] = useState<ActiveFilters>({
+    statuses: [],
+    aFaire: false,
+    fondateur: false,
+  });
+  const [searchInput, setSearchInput] = useState('');
+  const [searchDebounced, setSearchDebounced] = useState('');
+
+  useEffect(() => {
+    const t = setTimeout(() => setSearchDebounced(searchInput), 150);
+    return () => clearTimeout(t);
+  }, [searchInput]);
+
   const stats = useMemo(() => buildStats(prospects), [prospects]);
+
+  const filteredProspects = useMemo(() => {
+    let result = prospects;
+
+    // Statuts (OR cumulatif). Si aucun → "Tous" = tout sauf perdu
+    // (§6.9 PRD : perdu caché par défaut, accessible via chip dédiée).
+    if (filters.statuses.length > 0) {
+      result = result.filter((p) => filters.statuses.includes(p.status));
+    } else {
+      result = result.filter((p) => p.status !== 'perdu');
+    }
+
+    // À faire : next_action_at < tomorrow 00:00
+    if (filters.aFaire) {
+      const now = new Date();
+      const tomorrowStart = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1
+      );
+      result = result.filter(
+        (p) => p.next_action_at && new Date(p.next_action_at) < tomorrowStart
+      );
+    }
+
+    // Fondateur
+    if (filters.fondateur) {
+      result = result.filter((p) => p.is_fondateur);
+    }
+
+    // Search (AND avec chips). normalizeForSearch = insensible casse + accents.
+    if (searchDebounced.trim()) {
+      const q = normalizeForSearch(searchDebounced);
+      result = result.filter(
+        (p) =>
+          normalizeForSearch(p.name).includes(q) ||
+          normalizeForSearch(p.company).includes(q) ||
+          normalizeForSearch(p.city).includes(q) ||
+          normalizeForSearch(p.cp).includes(q)
+      );
+    }
+
+    return result;
+  }, [prospects, filters, searchDebounced]);
 
   function handleCreated(p: Prospect) {
     setProspects((prev) => [p, ...prev]);
@@ -45,17 +109,23 @@ export default function ProspectsPage({ initialProspects }: Props) {
     setProspects((prev) => prev.filter((p) => p.id !== id));
   }
 
-  // Collapse auto du panel d'édition au toggle de vue (PRD §6.2, §6.5)
   function handleViewChange(next: ProspectsView) {
     if (next === view) return;
     setView(next);
     setExpandedId(null);
+    // Si on repasse en Pipeline, retire le filtre 'perdu' s'il était actif
+    // (chip "Perdu" n'existe pas en kanban — évite la confusion).
+    if (next === 'pipeline' && filters.statuses.includes('perdu')) {
+      setFilters((f) => ({
+        ...f,
+        statuses: f.statuses.filter((s) => s !== 'perdu'),
+      }));
+    }
     if (typeof window !== 'undefined') {
       window.localStorage.setItem(VIEW_STORAGE_KEY, next);
     }
   }
 
-  // Drag & drop kanban : optimistic update + revert en cas d'erreur
   async function handleMove(
     id: string,
     fromStatus: ProspectStatus,
@@ -74,13 +144,11 @@ export default function ProspectsPage({ initialProspects }: Props) {
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? 'Erreur serveur');
-      // Re-sync avec la version serveur (updated_at à jour)
       setProspects((prev) =>
         prev.map((p) => (p.id === id ? (json.prospect as Prospect) : p))
       );
     } catch (e) {
       setProspects(previous);
-      // Pas de lib toast installée (règle scope Phase 3) → alert natif
       alert(`Impossible de déplacer le prospect : ${(e as Error).message}`);
     }
   }
@@ -99,13 +167,20 @@ export default function ProspectsPage({ initialProspects }: Props) {
         )}
       </div>
 
-      <ProspectsChips prospects={prospects} />
+      <ProspectsChips
+        prospects={prospects}
+        filters={filters}
+        onFiltersChange={setFilters}
+        searchInput={searchInput}
+        onSearchChange={setSearchInput}
+        currentView={view}
+      />
 
       {view === 'pipeline' ? (
-        <PipelineBoard prospects={prospects} onMove={handleMove} />
+        <PipelineBoard prospects={filteredProspects} onMove={handleMove} />
       ) : (
         <ProspectsList
-          prospects={prospects}
+          prospects={filteredProspects}
           expandedId={expandedId}
           onToggle={setExpandedId}
           onSaved={handleSaved}
