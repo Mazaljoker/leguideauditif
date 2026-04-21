@@ -15,8 +15,8 @@ interface Props {
 
 export default function Tabs({ tabs, activeId, onChange }: Props) {
   return (
-    <div className="border-b border-[#E4DED3] -mx-6 px-6 mb-5 font-sans">
-      <div className="flex gap-1" role="tablist">
+    <div className="border-b border-[#E4DED3] -mx-5 md:-mx-6 px-5 md:px-6 mb-4 md:mb-5 overflow-x-auto font-sans">
+      <div className="flex gap-1 min-w-max" role="tablist">
         {tabs.map((tab) => {
           const isActive = activeId === tab.id;
           return (
@@ -24,7 +24,7 @@ export default function Tabs({ tabs, activeId, onChange }: Props) {
               key={tab.id}
               role="tab"
               type="button"
-              aria-selected={isActive}
+              aria-selected={isActive ? 'true' : 'false'}
               onClick={() => onChange(tab.id)}
               className={
                 isActive

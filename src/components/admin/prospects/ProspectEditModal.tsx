@@ -79,14 +79,14 @@ export default function ProspectEditModal({
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/40 z-50 flex items-stretch md:items-center justify-center md:p-4 overflow-y-auto"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={`Fiche de ${prospect.name}`}
     >
       <div
-        className="bg-white rounded-xl max-w-2xl w-full p-6 relative max-h-[90vh] overflow-y-auto font-sans"
+        className="bg-white md:rounded-xl w-full md:max-w-2xl p-5 md:p-6 relative shadow-2xl md:max-h-[90vh] md:overflow-y-auto font-sans"
         onClick={(e) => e.stopPropagation()}
       >
         <button

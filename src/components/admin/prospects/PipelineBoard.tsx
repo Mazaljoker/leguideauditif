@@ -2,7 +2,7 @@
 // Phase 4 : col-sum calculés (Ancienneté moy. Prospect, MRR actif Signé).
 // Statut 'perdu' volontairement exclu (PRD §6.9 / D16).
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   DndContext,
   DragOverlay,
@@ -71,11 +71,38 @@ function buildColSum(
 
 export default function PipelineBoard({ prospects, onMove, onCardClick }: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [visibleColumnIndex, setVisibleColumnIndex] = useState(0);
+  const boardRef = useRef<HTMLDivElement>(null);
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
     useSensor(TouchSensor, { activationConstraint: { delay: 150, tolerance: 6 } })
   );
+
+  // Dots indicator mobile : détecte la colonne visible via IntersectionObserver
+  useEffect(() => {
+    const root = boardRef.current;
+    if (!root) return;
+    const cols = root.querySelectorAll('[data-column-idx]');
+    if (cols.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const idx = parseInt(
+              (entry.target as HTMLElement).dataset.columnIdx ?? '0',
+              10
+            );
+            setVisibleColumnIndex(idx);
+          }
+        }
+      },
+      { root, threshold: 0.6 }
+    );
+    cols.forEach((c) => observer.observe(c));
+    return () => observer.disconnect();
+  }, []);
 
   const activeProspect = activeId ? prospects.find((p) => p.id === activeId) : null;
 
@@ -118,8 +145,11 @@ export default function PipelineBoard({ prospects, onMove, onCardClick }: Props)
       onDragEnd={handleDragEnd}
       onDragCancel={handleDragCancel}
     >
-      <div className="grid grid-cols-[repeat(5,82vw)] md:grid-cols-5 gap-3 mb-6 overflow-x-auto pb-2 snap-x snap-mandatory md:snap-none">
-        {KANBAN_COLUMNS.map((status) => (
+      <div
+        ref={boardRef}
+        className="grid grid-cols-[repeat(5,82vw)] md:grid-cols-5 gap-3 mb-2 overflow-x-auto pb-2 snap-x snap-mandatory md:snap-none"
+      >
+        {KANBAN_COLUMNS.map((status, idx) => (
           <PipelineColumn
             key={status}
             status={status}
@@ -128,6 +158,22 @@ export default function PipelineBoard({ prospects, onMove, onCardClick }: Props)
             count={prospectsByStatus[status].length}
             colSum={buildColSum(status, prospectsByStatus[status])}
             onCardClick={onCardClick}
+            columnIndex={idx}
+          />
+        ))}
+      </div>
+
+      {/* Dots indicator mobile uniquement */}
+      <div
+        className="flex justify-center gap-1.5 mb-4 md:hidden"
+        aria-hidden="true"
+      >
+        {KANBAN_COLUMNS.map((_, i) => (
+          <span
+            key={i}
+            className={`w-1.5 h-1.5 rounded-full transition-colors ${
+              i === visibleColumnIndex ? 'bg-[#1B2E4A]' : 'bg-[#E4DED3]'
+            }`}
           />
         ))}
       </div>

@@ -12,6 +12,7 @@ interface Props {
   count: number;
   colSum?: { label: string; value: string };
   onCardClick?: (id: string) => void;
+  columnIndex?: number;
 }
 
 const COLUMN_COLORS: Record<Exclude<ProspectStatus, 'perdu'>, string> = {
@@ -29,6 +30,7 @@ export default function PipelineColumn({
   count,
   colSum,
   onCardClick,
+  columnIndex,
 }: Props) {
   const { setNodeRef, isOver } = useDroppable({
     id: `column-${status}`,
@@ -40,6 +42,7 @@ export default function PipelineColumn({
   return (
     <div
       ref={setNodeRef}
+      data-column-idx={columnIndex}
       className={`border border-[#E4DED3] rounded-xl p-3 min-h-[320px] flex flex-col gap-2 snap-start md:snap-align-none font-sans transition-colors ${
         isOver ? 'bg-[#FDFBF7]' : 'bg-white'
       }`}
