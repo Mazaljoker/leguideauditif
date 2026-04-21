@@ -1,5 +1,6 @@
-// AddInteractionForm.tsx — form compact pour logger une interaction.
-// status_change volontairement exclu : réservé aux mouvements kanban auto (Phase 3).
+// AddInteractionForm.tsx — form pour logger une interaction.
+// Phase 5.0 : support transcripts Meet/Call (textarea XXL + layout colonne).
+// status_change volontairement exclu : réservé aux mouvements kanban auto.
 
 import { useState } from 'react';
 import Button from '../ui/react/Button';
@@ -14,8 +15,17 @@ interface Props {
   onAdded: (interaction: Interaction) => void;
 }
 
-// Exclut status_change de la liste éditable (Phase 3 le gère via /move)
-const EDITABLE_KINDS: InteractionKind[] = ['dm', 'call', 'email', 'note', 'meeting'];
+// Exclut status_change (réservé Phase 3 /move auto).
+// Inclut transcript_meet + transcript_call (Phase 5.0).
+const EDITABLE_KINDS: InteractionKind[] = [
+  'note',
+  'call',
+  'email',
+  'dm',
+  'meeting',
+  'transcript_meet',
+  'transcript_call',
+];
 
 function nowAsDatetimeLocal(): string {
   const d = new Date();
@@ -29,6 +39,8 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
   const [occurredAt, setOccurredAt] = useState<string>(nowAsDatetimeLocal());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const isTranscript = kind === 'transcript_meet' || kind === 'transcript_call';
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -52,7 +64,6 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? 'Erreur serveur');
       onAdded(json.interaction as Interaction);
-      // Reset
       setContent('');
       setKind('note');
       setOccurredAt(nowAsDatetimeLocal());
@@ -71,38 +82,78 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
       {error && (
         <div className="text-[#B34444] text-xs mb-2 font-sans">{error}</div>
       )}
-      <div className="flex flex-wrap gap-2 items-start">
-        <select
-          className={`${inputCls} w-28`}
-          value={kind}
-          onChange={(e) => setKind(e.target.value as InteractionKind)}
-          aria-label="Type d'interaction"
-        >
-          {EDITABLE_KINDS.map((k) => (
-            <option key={k} value={k}>
-              {INTERACTION_KIND_LABELS[k]}
-            </option>
-          ))}
-        </select>
-        <textarea
-          className={`${inputCls} flex-1 min-w-[200px] min-h-[36px] resize-y`}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Noter en 1 phrase…"
-          rows={1}
-          aria-label="Contenu de l'interaction"
-        />
-        <input
-          className={`${inputCls} w-48`}
-          type="datetime-local"
-          value={occurredAt}
-          onChange={(e) => setOccurredAt(e.target.value)}
-          aria-label="Date de l'interaction"
-        />
-        <Button variant="save" type="submit" disabled={loading}>
-          {loading ? 'Ajout…' : 'Ajouter'}
-        </Button>
-      </div>
+
+      {isTranscript ? (
+        // Layout colonne pour les transcripts (textarea XXL)
+        <div className="flex flex-col gap-2">
+          <div className="flex gap-2 flex-wrap items-center">
+            <select
+              className={`${inputCls} w-44`}
+              value={kind}
+              onChange={(e) => setKind(e.target.value as InteractionKind)}
+              aria-label="Type d'interaction"
+            >
+              {EDITABLE_KINDS.map((k) => (
+                <option key={k} value={k}>
+                  {INTERACTION_KIND_LABELS[k]}
+                </option>
+              ))}
+            </select>
+            <input
+              className={`${inputCls} w-48`}
+              type="datetime-local"
+              value={occurredAt}
+              onChange={(e) => setOccurredAt(e.target.value)}
+              aria-label="Date de l'interaction"
+            />
+            <Button variant="save" type="submit" disabled={loading}>
+              {loading ? 'Ajout…' : 'Ajouter'}
+            </Button>
+          </div>
+          <textarea
+            className={`${inputCls} w-full min-h-[200px] resize-y leading-relaxed`}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Colle la transcription ici…"
+            rows={8}
+            aria-label="Transcription"
+          />
+        </div>
+      ) : (
+        // Layout compact row (inchangé depuis Phase 2d)
+        <div className="flex flex-wrap gap-2 items-start">
+          <select
+            className={`${inputCls} w-28`}
+            value={kind}
+            onChange={(e) => setKind(e.target.value as InteractionKind)}
+            aria-label="Type d'interaction"
+          >
+            {EDITABLE_KINDS.map((k) => (
+              <option key={k} value={k}>
+                {INTERACTION_KIND_LABELS[k]}
+              </option>
+            ))}
+          </select>
+          <textarea
+            className={`${inputCls} flex-1 min-w-[200px] min-h-[36px] resize-y`}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Noter en 1 phrase…"
+            rows={1}
+            aria-label="Contenu de l'interaction"
+          />
+          <input
+            className={`${inputCls} w-48`}
+            type="datetime-local"
+            value={occurredAt}
+            onChange={(e) => setOccurredAt(e.target.value)}
+            aria-label="Date de l'interaction"
+          />
+          <Button variant="save" type="submit" disabled={loading}>
+            {loading ? 'Ajout…' : 'Ajouter'}
+          </Button>
+        </div>
+      )}
     </form>
   );
 }
