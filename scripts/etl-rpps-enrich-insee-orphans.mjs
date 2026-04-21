@@ -40,6 +40,11 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const APPLY = process.argv.includes('--apply');
 const EXCLUDE_AUDIT = process.argv.includes('--exclude-audit');
+const ONLY_AUDIT = process.argv.includes('--only-audit');
+const AUDIT_CSV_OVERRIDE = (() => {
+  const a = process.argv.find((x) => x.startsWith('--audit-csv='));
+  return a ? a.slice('--audit-csv='.length) : null;
+})();
 const PREVIEW_CSV = 'reports/rpps-insee-reconciliation-preview.csv';
 const MULTI_SIRET_CSV = 'reports/rpps-insee-reconciliation-multi-siret.csv';
 const SLUG_AUDIT_CSV = 'reports/rpps-insee-reconciliation-slug-audit.csv';
@@ -532,8 +537,12 @@ async function main() {
     console.log(`Review ${SLUG_AUDIT_CSV} avant apply.`);
   }
 
-  // Batch split : si --exclude-audit, on retire les old_slugs audit du batch a appliquer.
+  // Batch split : --exclude-audit retire les old_slugs audit, --only-audit ne garde QUE eux.
   let applyDiffs = diffs;
+  if (EXCLUDE_AUDIT && ONLY_AUDIT) {
+    console.error('ERREUR : --exclude-audit et --only-audit sont mutuellement exclusifs.');
+    process.exit(1);
+  }
   if (EXCLUDE_AUDIT) {
     const excluded = new Set(slugWorse.map((w) => w.old_slug));
     applyDiffs = diffs.filter((d) => !excluded.has(d.old_slug));
@@ -541,6 +550,28 @@ async function main() {
     console.log(`--exclude-audit : ${excluded.size} slugs audit exclus du batch.`);
     console.log(`  Batch A (apply)  : ${applyDiffs.length}`);
     console.log(`  Batch B (exclus) : ${diffs.length - applyDiffs.length}`);
+  }
+  if (ONLY_AUDIT) {
+    // Source de verite : --audit-csv override, sinon SLUG_AUDIT_CSV par defaut.
+    const auditSource = AUDIT_CSV_OVERRIDE || SLUG_AUDIT_CSV;
+    if (!existsSync(auditSource)) {
+      console.error(`ERREUR : ${auditSource} absent.`);
+      process.exit(1);
+    }
+    const csv = readFileSync(auditSource, 'utf-8').split('\n').slice(1);
+    const batchBSlugs = new Set();
+    for (const line of csv) {
+      const m = line.match(/^"([^"]+)"/);
+      if (m) batchBSlugs.add(m[1]);
+    }
+    applyDiffs = diffs.filter((d) => batchBSlugs.has(d.old_slug));
+    console.log(`---`);
+    console.log(`--only-audit : isolement depuis ${auditSource} (${batchBSlugs.size} slugs).`);
+    console.log(`  Batch (apply)   : ${applyDiffs.length}`);
+    console.log(`  Ignores         : ${diffs.length - applyDiffs.length}`);
+    if (applyDiffs.length !== batchBSlugs.size) {
+      console.log(`  ATTENTION : ${batchBSlugs.size - applyDiffs.length} slugs introuvables dans les diffs courants.`);
+    }
   }
 
   if (APPLY) {
