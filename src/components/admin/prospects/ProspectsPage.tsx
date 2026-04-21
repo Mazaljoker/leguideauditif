@@ -8,6 +8,7 @@ import ProspectsStats from './ProspectsStats';
 import ProspectsChips from './ProspectsChips';
 import ProspectsList from './ProspectsList';
 import NewProspectDialog from './NewProspectDialog';
+import ProspectEditModal from './ProspectEditModal';
 import ViewToggle, { type ProspectsView } from './ViewToggle';
 import PipelineBoard from './PipelineBoard';
 import { buildStats, normalizeForSearch } from '../../../lib/prospects';
@@ -36,6 +37,11 @@ export default function ProspectsPage({ initialProspects }: Props) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [view, setView] = useState<ProspectsView>(readInitialView);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [modalProspectId, setModalProspectId] = useState<string | null>(null);
+
+  const modalProspect = modalProspectId
+    ? prospects.find((p) => p.id === modalProspectId) ?? null
+    : null;
 
   // Phase 4 : filtres + search
   const [filters, setFilters] = useState<ActiveFilters>({
@@ -177,7 +183,11 @@ export default function ProspectsPage({ initialProspects }: Props) {
       />
 
       {view === 'pipeline' ? (
-        <PipelineBoard prospects={filteredProspects} onMove={handleMove} />
+        <PipelineBoard
+          prospects={filteredProspects}
+          onMove={handleMove}
+          onCardClick={setModalProspectId}
+        />
       ) : (
         <ProspectsList
           prospects={filteredProspects}
@@ -193,6 +203,15 @@ export default function ProspectsPage({ initialProspects }: Props) {
         onClose={() => setIsDialogOpen(false)}
         onCreated={handleCreated}
       />
+
+      {modalProspect && (
+        <ProspectEditModal
+          prospect={modalProspect}
+          onClose={() => setModalProspectId(null)}
+          onSaved={handleSaved}
+          onDeleted={handleDeleted}
+        />
+      )}
     </>
   );
 }

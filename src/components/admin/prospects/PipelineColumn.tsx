@@ -11,6 +11,7 @@ interface Props {
   label: string;
   count: number;
   colSum?: { label: string; value: string };
+  onCardClick?: (id: string) => void;
 }
 
 const COLUMN_COLORS: Record<Exclude<ProspectStatus, 'perdu'>, string> = {
@@ -27,6 +28,7 @@ export default function PipelineColumn({
   label,
   count,
   colSum,
+  onCardClick,
 }: Props) {
   const { setNodeRef, isOver } = useDroppable({
     id: `column-${status}`,
@@ -58,7 +60,7 @@ export default function PipelineColumn({
       </div>
 
       {prospects.map((p) => (
-        <PipelineCard key={p.id} prospect={p} />
+        <PipelineCard key={p.id} prospect={p} onClick={onCardClick} />
       ))}
 
       {prospects.length === 0 && (

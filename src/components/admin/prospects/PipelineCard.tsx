@@ -10,6 +10,7 @@ import { PROSPECT_SOURCE_LABELS } from '../../../types/prospect';
 interface Props {
   prospect: Prospect;
   isDragOverlay?: boolean;
+  onClick?: (id: string) => void;
 }
 
 const SOURCE_DOT_COLORS: Record<ProspectSource, string> = {
@@ -102,7 +103,7 @@ function formatNextActionShort(prospect: Prospect, state: TemporalState): string
   return prospect.next_action ?? '—';
 }
 
-export default function PipelineCard({ prospect, isDragOverlay = false }: Props) {
+export default function PipelineCard({ prospect, isDragOverlay = false, onClick }: Props) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: prospect.id,
     data: { prospect },
@@ -134,6 +135,7 @@ export default function PipelineCard({ prospect, isDragOverlay = false }: Props)
       style={style}
       {...(isDragOverlay ? {} : attributes)}
       {...(isDragOverlay ? {} : listeners)}
+      onClick={isDragOverlay || !onClick ? undefined : () => onClick(prospect.id)}
       className="bg-[#F8F5F0] border border-[#E4DED3] rounded-lg px-3 py-2.5 cursor-grab transition-all hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(27,46,74,0.08)] active:cursor-grabbing font-sans"
     >
       <div className="font-semibold text-sm text-[#1B2E4A] flex items-center gap-1.5 mb-0.5">

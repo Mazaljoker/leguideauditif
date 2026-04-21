@@ -24,6 +24,7 @@ import {
 interface Props {
   prospects: Prospect[];
   onMove: (id: string, fromStatus: ProspectStatus, toStatus: ProspectStatus) => Promise<void>;
+  onCardClick?: (id: string) => void;
 }
 
 const KANBAN_COLUMNS: Exclude<ProspectStatus, 'perdu'>[] = [
@@ -68,7 +69,7 @@ function buildColSum(
   return undefined;
 }
 
-export default function PipelineBoard({ prospects, onMove }: Props) {
+export default function PipelineBoard({ prospects, onMove, onCardClick }: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const sensors = useSensors(
@@ -126,6 +127,7 @@ export default function PipelineBoard({ prospects, onMove }: Props) {
             label={PROSPECT_STATUS_LABELS[status]}
             count={prospectsByStatus[status].length}
             colSum={buildColSum(status, prospectsByStatus[status])}
+            onCardClick={onCardClick}
           />
         ))}
       </div>
