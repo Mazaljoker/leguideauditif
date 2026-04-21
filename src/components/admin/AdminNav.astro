@@ -21,6 +21,7 @@ interface NavLink {
 
 const links: NavLink[] = [
   { href: '/admin', label: 'Dashboard', icon: 'lucide:layout-dashboard' },
+  { href: '/admin/tasks', label: 'Tâches', urgentCount: counts.tasksUrgent, icon: 'lucide:check-square' },
   { href: '/admin/prospects', label: 'Prospects', urgentCount: counts.prospectsUrgent, icon: 'lucide:kanban-square' },
   { href: '/admin/contacts', label: 'Contacts', urgentCount: counts.contactsUrgent, icon: 'lucide:users-2' },
   { href: '/admin/claims', label: 'Claims', urgentCount: counts.claimsUrgent, icon: 'lucide:shield-check' },
