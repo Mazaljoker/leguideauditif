@@ -4,6 +4,8 @@ export const prerender = false;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 import { supabase } from '../../lib/supabase';
+import { getAdminNavCounts } from '../../lib/adminNav';
+import AdminNav from '../../components/admin/AdminNav.astro';
 
 // Protection par session admin
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
@@ -13,30 +15,32 @@ if (!user || user.email !== ADMIN_EMAIL) {
   return Astro.redirect('/auth/login/');
 }
 
-// Recuperer les claims en attente
-const { data: pendingClaims } = await supabase
-  .from('centres_auditifs')
-  .select('slug, nom, adresse, cp, ville, claimed_by_name, claimed_by_email, claimed_by_adeli, claimed_at, tel, site_web, horaires, specialites, marques, a_propos, photo_url')
-  .eq('claim_status', 'pending')
-  .order('claimed_at', { ascending: false });
+// Recuperer les claims + counts nav en parallele
+const [pendingRes, recentRes, navCounts] = await Promise.all([
+  supabase
+    .from('centres_auditifs')
+    .select('slug, nom, adresse, cp, ville, claimed_by_name, claimed_by_email, claimed_by_adeli, claimed_at, tel, site_web, horaires, specialites, marques, a_propos, photo_url')
+    .eq('claim_status', 'pending')
+    .order('claimed_at', { ascending: false }),
+  supabase
+    .from('centres_auditifs')
+    .select('slug, nom, cp, ville, claimed_by_name, claimed_by_email, claimed_by_adeli, claim_status, claimed_at, plan, tel, site_web, horaires, specialites, marques, a_propos, photo_url')
+    .in('claim_status', ['approved', 'rejected'])
+    .order('claimed_at', { ascending: false })
+    .limit(20),
+  getAdminNavCounts(supabase),
+]);
 
-// Recuperer les claims recemment traites
-const { data: recentClaims } = await supabase
-  .from('centres_auditifs')
-  .select('slug, nom, cp, ville, claimed_by_name, claimed_by_email, claimed_by_adeli, claim_status, claimed_at, plan, tel, site_web, horaires, specialites, marques, a_propos, photo_url')
-  .in('claim_status', ['approved', 'rejected'])
-  .order('claimed_at', { ascending: false })
-  .limit(20);
+const pendingClaims = pendingRes.data;
+const recentClaims = recentRes.data;
 ---
 
 <BaseLayout title="Admin — Claims en attente" description="Administration des revendications">
   <meta slot="head" name="robots" content="noindex" />
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-    <a href="/admin/" class="inline-flex items-center gap-1 text-sm text-orange font-sans font-medium hover:underline mb-4" style="min-height: 44px;">
-      <Icon name="lucide:arrow-left" class="w-4 h-4" />
-      Tableau de bord
-    </a>
+  <AdminNav counts={navCounts} currentPath="/admin/claims" />
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
     <h1 class="font-sans text-2xl font-bold text-marine mb-2">Revendications en attente</h1>
     <p class="text-sm text-gris-texte font-sans mb-8">{pendingClaims?.length || 0} demande(s) a verifier</p>

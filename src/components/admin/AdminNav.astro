@@ -1,0 +1,69 @@
+---
+// AdminNav — topbar horizontale sticky partagée /admin/* (Phase 7).
+// 4 liens, badge orange pour les urgences (masqué si count=0), scroll horizontal mobile.
+
+import { Icon } from 'astro-icon/components';
+import type { AdminNavCounts } from '../../lib/adminNav';
+
+export interface Props {
+  counts: AdminNavCounts;
+  currentPath: string;
+}
+
+const { counts, currentPath } = Astro.props;
+
+interface NavLink {
+  href: string;
+  label: string;
+  urgentCount?: number;
+  icon: string;
+}
+
+const links: NavLink[] = [
+  { href: '/admin', label: 'Dashboard', icon: 'lucide:layout-dashboard' },
+  { href: '/admin/prospects', label: 'Prospects', urgentCount: counts.prospectsUrgent, icon: 'lucide:kanban-square' },
+  { href: '/admin/contacts', label: 'Contacts', urgentCount: counts.contactsUrgent, icon: 'lucide:users-2' },
+  { href: '/admin/claims', label: 'Claims', urgentCount: counts.claimsUrgent, icon: 'lucide:shield-check' },
+];
+
+// Dashboard actif UNIQUEMENT sur /admin (pas /admin/prospects etc.)
+function isActive(linkHref: string, path: string): boolean {
+  if (linkHref === '/admin') {
+    return path === '/admin' || path === '/admin/';
+  }
+  return path === linkHref || path.startsWith(linkHref + '/');
+}
+---
+
+<nav class="bg-white border-b border-[#E4DED3] sticky top-0 z-30" aria-label="Navigation admin">
+  <div class="max-w-6xl mx-auto px-5">
+    <ul class="flex items-center gap-1 overflow-x-auto -mx-5 px-5 md:mx-0 md:px-0" role="list">
+      {links.map((link) => {
+        const active = isActive(link.href, currentPath);
+        return (
+          <li class="flex-shrink-0">
+            <a
+              href={link.href}
+              class:list={[
+                'inline-flex items-center gap-2 px-4 py-3 text-sm border-b-2 transition-colors whitespace-nowrap focus:outline-2 focus:outline-[#D97B3D] focus:outline-offset-[-2px]',
+                active
+                  ? 'text-[#1B2E4A] font-semibold border-[#D97B3D]'
+                  : 'text-[#6B7A90] font-medium border-transparent hover:text-[#1B2E4A] hover:border-[#E4DED3]',
+              ]}
+              aria-current={active ? 'page' : undefined}
+              style="min-height: 44px;"
+            >
+              <Icon name={link.icon} class="w-4 h-4" />
+              <span>{link.label}</span>
+              {link.urgentCount !== undefined && link.urgentCount > 0 && (
+                <span class="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-[#D97B3D] text-white text-[11px] font-bold">
+                  {link.urgentCount}
+                </span>
+              )}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</nav>

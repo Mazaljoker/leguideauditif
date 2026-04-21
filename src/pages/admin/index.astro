@@ -4,6 +4,8 @@ export const prerender = false;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 import { createServerClient } from '../../lib/supabase';
+import { getAdminNavCounts } from '../../lib/adminNav';
+import AdminNav from '../../components/admin/AdminNav.astro';
 
 // Protection admin
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
@@ -14,6 +16,7 @@ if (!user || user.email !== ADMIN_EMAIL) {
 }
 
 const supabase = createServerClient();
+const navCounts = await getAdminNavCounts(supabase);
 const thirtyDaysAgo = new Date(Date.now() - 30 * 86400000).toISOString();
 
 // --- Toutes les queries en parallele ---
@@ -99,6 +102,8 @@ const fmt = (n: number | null) => (n ?? 0).toLocaleString('fr-FR');
 <BaseLayout title="Admin — Tableau de bord" description="Administration LeGuideAuditif">
   <meta slot="head" name="robots" content="noindex" />
 
+  <AdminNav counts={navCounts} currentPath="/admin" />
+
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
     <!-- Header -->
@@ -106,35 +111,6 @@ const fmt = (n: number | null) => (n ?? 0).toLocaleString('fr-FR');
       <div>
         <h1 class="font-sans text-2xl font-bold text-marine">Tableau de bord</h1>
         <p class="text-sm text-gris-texte font-sans">Mis à jour le {today}</p>
-      </div>
-      <div class="flex items-center gap-3 flex-wrap">
-        <a
-          href="/admin/prospects/"
-          class="inline-flex items-center gap-2 rounded-lg bg-blanc border border-gris-clair px-4 py-2.5 text-sm font-medium text-marine font-sans hover:bg-[#E8ECF2] transition-colors"
-          style="min-height: 44px;"
-        >
-          <Icon name="lucide:users" class="w-4 h-4" />
-          Pipeline prospects
-        </a>
-        <a
-          href="/admin/contacts/"
-          class="inline-flex items-center gap-2 rounded-lg bg-blanc border border-gris-clair px-4 py-2.5 text-sm font-medium text-marine font-sans hover:bg-[#E8ECF2] transition-colors"
-          style="min-height: 44px;"
-        >
-          <Icon name="lucide:contact" class="w-4 h-4" />
-          Contacts importés
-        </a>
-        <a
-          href="/admin/claims/"
-          class="inline-flex items-center gap-2 rounded-lg bg-marine px-4 py-2.5 text-sm font-medium text-blanc font-sans hover:bg-marine-light transition-colors"
-          style="min-height: 44px;"
-        >
-          <Icon name="lucide:shield-check" class="w-4 h-4" />
-          Gérer les claims
-          {(pendingCount ?? 0) > 0 && (
-            <span class="rounded-full bg-orange px-2 py-0.5 text-xs font-bold text-blanc ml-1">{pendingCount}</span>
-          )}
-        </a>
       </div>
     </div>
 

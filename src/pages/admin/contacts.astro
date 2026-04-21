@@ -3,6 +3,8 @@ export const prerender = false;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { createServerClient } from '../../lib/supabase';
+import { getAdminNavCounts } from '../../lib/adminNav';
+import AdminNav from '../../components/admin/AdminNav.astro';
 import ContactsPage from '../../components/admin/contacts/ContactsPage.tsx';
 import type { Contact } from '../../types/prospect';
 
@@ -14,18 +16,23 @@ if (!user || user.email !== ADMIN_EMAIL) {
 }
 
 const supabase = createServerClient();
-const { data } = await supabase
-  .from('contacts')
-  .select('*')
-  .eq('archived', false)
-  .order('last_imported_at', { ascending: false })
-  .limit(500);
+const [navCounts, contactsRes] = await Promise.all([
+  getAdminNavCounts(supabase),
+  supabase
+    .from('contacts')
+    .select('*')
+    .eq('archived', false)
+    .order('last_imported_at', { ascending: false })
+    .limit(500),
+]);
 
-const contacts = (data ?? []) as Contact[];
+const contacts = (contactsRes.data ?? []) as Contact[];
 ---
 
 <BaseLayout title="Contacts — Admin LGA" description="Pool de contacts importés (Waalaxy, LinkedIn…)">
   <meta slot="head" name="robots" content="noindex" />
+
+  <AdminNav counts={navCounts} currentPath="/admin/contacts" />
 
   <main class="min-h-screen bg-creme">
     <section class="max-w-6xl mx-auto px-5 py-6">
