@@ -149,6 +149,70 @@ export const INTERACTION_KIND_LABELS: Record<InteractionKind, string> = {
 
 export const FONDATEUR_SLOTS_MAX = 20;
 
+// ============================================================
+// Phase 6 : Contacts importés (Waalaxy, LinkedIn, etc.)
+// ============================================================
+
+export type WaalaxyState =
+  | 'interested'
+  | 'replied'
+  | 'later_interested'
+  | 'not_interested'
+  | 'connected';
+
+export type ImportSource = 'waalaxy' | 'linkedin' | 'manual' | 'other';
+
+export interface Contact {
+  id: string;
+  first_name: string;
+  last_name: string;
+  full_name: string;
+  gender: 'male' | 'female' | 'other' | null;
+
+  job_title: string | null;
+  occupation: string | null;
+  company_name: string | null;
+  company_website: string | null;
+  company_linkedin_url: string | null;
+
+  location: string | null;
+  country: string | null;
+
+  linkedin_url: string | null;
+  linkedin_email: string | null;
+  pro_email: string | null;
+  phone_numbers: string | null;
+  profile_picture_url: string | null;
+
+  waalaxy_state: WaalaxyState | null;
+  waalaxy_prospect_list: string | null;
+  waalaxy_message_sent: boolean;
+  waalaxy_message_replied: boolean;
+  waalaxy_last_reply_content: string | null;
+  waalaxy_last_reply_date: string | null;
+  waalaxy_connected_at: string | null;
+
+  source_import: ImportSource;
+  first_imported_at: string;
+  last_imported_at: string;
+
+  converted_to_prospect_id: string | null;
+  converted_at: string | null;
+
+  archived: boolean;
+
+  created_at: string;
+  updated_at: string;
+}
+
+export const WAALAXY_STATE_LABELS: Record<WaalaxyState, string> = {
+  interested: 'Intéressé',
+  replied: 'A répondu',
+  later_interested: 'Intéressé plus tard',
+  not_interested: 'Non intéressé',
+  connected: 'Connecté',
+};
+
 // Champs pondérés pour le calcul de complétude d'une fiche centre
 // (utilisé par /centres/list pour calculer completeness_pct)
 export const COMPLETENESS_FIELDS: Array<keyof CentreAuditif> = [
