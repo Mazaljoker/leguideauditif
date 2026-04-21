@@ -1,26 +1,39 @@
 ---
-// ProspectsStats.astro — Jalon 2a : 4 StatTile avec valeurs hardcodées à 0.
-// Jalon 2b : valeurs réelles dérivées de prospects[] via buildStats().
+// ProspectsStats.astro — 4 StatTile dérivées de prospects[] via buildStats().
 
 import StatTile from '../ui/StatTile.astro';
+import { buildStats, formatEuros } from '../../../lib/prospects';
 import type { Prospect } from '../../../types/prospect';
 
 interface Props {
   prospects: Prospect[];
 }
 
-// Prop reçue mais non utilisée ce jalon (branchement en 2b)
-const { prospects: _prospects } = Astro.props;
+const { prospects } = Astro.props;
+const stats = buildStats(prospects);
+const slotsLeft = stats.fondateurSlotsMax - stats.fondateurSlotsUsed;
 ---
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-  <StatTile label="Pipeline actif" value={0} hint="0 ce mois-ci" />
-  <StatTile label="RDV cette semaine" value={0} hint="0 aujourd'hui" />
-  <StatTile label="Propositions" value={0} hint="0 € MRR potentiel" />
+  <StatTile
+    label="Pipeline actif"
+    value={stats.pipelineActif}
+    hint={`${stats.pipelineActifThisMonth} ce mois-ci`}
+  />
+  <StatTile
+    label="RDV cette semaine"
+    value={stats.rdvThisWeek}
+    hint={`${stats.rdvToday} aujourd'hui`}
+  />
+  <StatTile
+    label="Propositions"
+    value={stats.propositions}
+    hint={`${formatEuros(stats.propositionsMrrTotal)} MRR potentiel`}
+  />
   <StatTile
     label="Slots Fondateur"
-    value="0 / 20"
-    hint="20 slots restants"
+    value={`${stats.fondateurSlotsUsed} / ${stats.fondateurSlotsMax}`}
+    hint={`${slotsLeft} slots restants`}
     variant="fondateur"
   />
 </div>
