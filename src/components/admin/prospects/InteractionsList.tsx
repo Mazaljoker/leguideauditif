@@ -31,7 +31,7 @@ export default function InteractionsList({ prospectId, reloadKey = 0 }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    let cancelled = false;
+    const controller = new AbortController();
     setLoading(true);
     setError(null);
 
@@ -39,21 +39,25 @@ export default function InteractionsList({ prospectId, reloadKey = 0 }: Props) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prospect_id: prospectId }),
+      signal: controller.signal,
     })
       .then(async (res) => {
         const json = await res.json();
         if (!res.ok) throw new Error(json.error ?? 'Erreur serveur');
-        if (!cancelled) setInteractions((json.interactions as Interaction[]) ?? []);
+        if (!controller.signal.aborted) {
+          setInteractions((json.interactions as Interaction[]) ?? []);
+        }
       })
       .catch((e: Error) => {
-        if (!cancelled) setError(e.message);
+        if (e.name === 'AbortError') return;
+        if (!controller.signal.aborted) setError(e.message);
       })
       .finally(() => {
-        if (!cancelled) setLoading(false);
+        if (!controller.signal.aborted) setLoading(false);
       });
 
     return () => {
-      cancelled = true;
+      controller.abort();
     };
   }, [prospectId, reloadKey]);
 

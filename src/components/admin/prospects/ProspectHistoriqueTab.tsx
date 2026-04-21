@@ -30,7 +30,7 @@ export default function ProspectHistoriqueTab({ prospectId, onCountChange }: Pro
   }, [searchInput]);
 
   useEffect(() => {
-    let cancelled = false;
+    const controller = new AbortController();
     setLoading(true);
     setError(null);
 
@@ -46,25 +46,26 @@ export default function ProspectHistoriqueTab({ prospectId, onCountChange }: Pro
         prospect_id: prospectId,
         ...(trimmed ? { q: trimmed } : {}),
       }),
+      signal: controller.signal,
     })
       .then(async (res) => {
         const json = await res.json();
         if (!res.ok) throw new Error(json.error ?? 'Erreur serveur');
-        if (cancelled) return;
+        if (controller.signal.aborted) return;
         const list = (json.interactions as Interaction[]) ?? [];
         setInteractions(list);
-        // Count total uniquement quand pas de search (count "global")
         if (!trimmed) onCountChange?.(list.length);
       })
       .catch((e: Error) => {
-        if (!cancelled) setError(e.message);
+        if (e.name === 'AbortError') return;
+        if (!controller.signal.aborted) setError(e.message);
       })
       .finally(() => {
-        if (!cancelled) setLoading(false);
+        if (!controller.signal.aborted) setLoading(false);
       });
 
     return () => {
-      cancelled = true;
+      controller.abort();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prospectId, debounced, reloadKey]);

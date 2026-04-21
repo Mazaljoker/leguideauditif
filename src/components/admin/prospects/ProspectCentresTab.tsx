@@ -19,7 +19,7 @@ export default function ProspectCentresTab({ prospectId, onCountChange }: Props)
   const [error, setError] = useState<string | null>(null);
   const [showAutocomplete, setShowAutocomplete] = useState(false);
 
-  async function reload() {
+  async function reload(signal?: AbortSignal) {
     setLoading(true);
     setError(null);
     try {
@@ -27,21 +27,26 @@ export default function ProspectCentresTab({ prospectId, onCountChange }: Props)
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prospect_id: prospectId }),
+        signal,
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? 'Erreur serveur');
+      if (signal?.aborted) return;
       const list = (json.centres as LinkedCentre[]) ?? [];
       setCentres(list);
       onCountChange?.(list.length);
     } catch (e) {
-      setError((e as Error).message);
+      if ((e as Error).name === 'AbortError') return;
+      if (!signal?.aborted) setError((e as Error).message);
     } finally {
-      setLoading(false);
+      if (!signal?.aborted) setLoading(false);
     }
   }
 
   useEffect(() => {
-    reload();
+    const controller = new AbortController();
+    reload(controller.signal);
+    return () => controller.abort();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prospectId]);
 
