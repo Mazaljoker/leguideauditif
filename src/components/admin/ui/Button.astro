@@ -1,0 +1,49 @@
+---
+// Button.astro — bouton unifié pour la zone admin.
+// 5 variantes : primary (CTA orange), ghost (secondaire), save (form inline marine),
+// cancel (discret), icon (icône seule).
+// Usage : <Button variant="primary" type="submit">Enregistrer</Button>
+
+interface Props {
+  variant: 'primary' | 'ghost' | 'save' | 'cancel' | 'icon';
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  disabled?: boolean;
+  'aria-label'?: string;
+  id?: string;
+}
+
+const {
+  variant,
+  type = 'button',
+  class: className = '',
+  disabled = false,
+  'aria-label': ariaLabel,
+  id,
+} = Astro.props;
+
+const baseClasses =
+  'inline-flex items-center justify-center gap-2 rounded-lg font-sans font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed';
+
+const variantClasses = {
+  primary: 'bg-orange text-blanc hover:bg-orange-hover px-4 py-2.5 text-sm',
+  ghost: 'bg-transparent text-marine border border-[#E4DED3] hover:bg-[#E8ECF2] px-4 py-2.5 text-sm',
+  save: 'bg-marine text-blanc hover:bg-marine-light px-3.5 py-2 text-[13px]',
+  cancel: 'bg-transparent text-[#6B7A90] hover:text-marine px-3 py-2 text-[13px]',
+  icon: 'bg-transparent text-[#6B7A90] hover:text-marine p-2 rounded-lg',
+}[variant];
+
+// Touch targets accessibilité seniors : 44x44 sauf icon (40 accepté).
+const sizeStyle = variant === 'icon' ? 'min-height: 40px; min-width: 40px;' : 'min-height: 44px;';
+---
+
+<button
+  type={type}
+  class:list={[baseClasses, variantClasses, className]}
+  disabled={disabled}
+  aria-label={ariaLabel}
+  id={id}
+  style={sizeStyle}
+>
+  <slot />
+</button>

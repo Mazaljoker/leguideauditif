@@ -1,0 +1,41 @@
+---
+// StatTile.astro — tuile de stat de l'en-tête prospects.
+// Label uppercase + valeur serif + hint optionnel. Variante Fondateur = dégradé orange.
+// Usage : <StatTile label="Pipeline actif" value={47} hint="14 ce mois-ci" />
+
+import Card from './Card.astro';
+
+interface Props {
+  label: string;
+  value: string | number;
+  hint?: string;
+  variant?: 'default' | 'fondateur';
+  class?: string;
+}
+
+const {
+  label,
+  value,
+  hint,
+  variant = 'default',
+  class: className = '',
+} = Astro.props;
+
+const cardVariant = variant === 'fondateur' ? 'highlight' : 'default';
+const labelColor = variant === 'fondateur' ? 'text-orange' : 'text-[#6B7A90]';
+const valueColor = variant === 'fondateur' ? 'text-orange' : 'text-marine';
+---
+
+<Card variant={cardVariant} class={className}>
+  <div class:list={['text-xs uppercase tracking-[0.06em] font-medium mb-1.5 font-sans', labelColor]}>
+    {label}
+  </div>
+  <div class:list={['font-serif font-black text-3xl leading-none', valueColor]}>
+    {value}
+  </div>
+  {hint && (
+    <div class="text-xs text-[#6B7A90] mt-1.5 font-sans">
+      {hint}
+    </div>
+  )}
+</Card>

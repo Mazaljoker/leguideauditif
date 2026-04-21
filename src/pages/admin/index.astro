@@ -4,6 +4,12 @@ export const prerender = false;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 import { createServerClient } from '../../lib/supabase';
+import { getAdminNavCounts } from '../../lib/adminNav';
+import { enrichTasksWithOwners } from '../../lib/tasks';
+import AdminNav from '../../components/admin/AdminNav.astro';
+import AdminTasksDrawerProvider from '../../components/admin/AdminTasksDrawerProvider.tsx';
+import TasksTodayBlock from '../../components/admin/tasks/TasksTodayBlock.tsx';
+import type { Task } from '../../types/task';
 
 // Protection admin
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
@@ -14,7 +20,20 @@ if (!user || user.email !== ADMIN_EMAIL) {
 }
 
 const supabase = createServerClient();
+const navCounts = await getAdminNavCounts(supabase);
 const thirtyDaysAgo = new Date(Date.now() - 30 * 86400000).toISOString();
+
+// Tâches "Aujourd'hui" : open + due_at < demain 00:00
+const nowDate = new Date();
+const tomorrowStart = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate() + 1);
+const { data: todayTasksRaw } = await supabase
+  .from('tasks')
+  .select('*')
+  .eq('status', 'open')
+  .lt('due_at', tomorrowStart.toISOString())
+  .order('due_at', { ascending: true })
+  .limit(10);
+const todayTasks = await enrichTasksWithOwners(supabase, (todayTasksRaw ?? []) as Task[]);
 
 // --- Toutes les queries en parallele ---
 const [
@@ -99,6 +118,8 @@ const fmt = (n: number | null) => (n ?? 0).toLocaleString('fr-FR');
 <BaseLayout title="Admin — Tableau de bord" description="Administration LeGuideAuditif">
   <meta slot="head" name="robots" content="noindex" />
 
+  <AdminNav counts={navCounts} currentPath="/admin" />
+
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
     <!-- Header -->
@@ -107,18 +128,20 @@ const fmt = (n: number | null) => (n ?? 0).toLocaleString('fr-FR');
         <h1 class="font-sans text-2xl font-bold text-marine">Tableau de bord</h1>
         <p class="text-sm text-gris-texte font-sans">Mis à jour le {today}</p>
       </div>
-      <a
-        href="/admin/claims/"
-        class="inline-flex items-center gap-2 rounded-lg bg-marine px-4 py-2.5 text-sm font-medium text-blanc font-sans hover:bg-marine-light transition-colors"
-        style="min-height: 44px;"
-      >
-        <Icon name="lucide:shield-check" class="w-4 h-4" />
-        Gérer les claims
-        {(pendingCount ?? 0) > 0 && (
-          <span class="rounded-full bg-orange px-2 py-0.5 text-xs font-bold text-blanc ml-1">{pendingCount}</span>
-        )}
-      </a>
     </div>
+
+    <!-- Bloc Aujourd'hui : tâches en retard + du jour -->
+    <section class="mb-8">
+      <h2 class="font-serif text-xl font-black text-marine mb-3">
+        Aujourd'hui
+        {todayTasks.length > 0 && (
+          <span class="text-sm font-normal text-gris-texte ml-2 font-sans">
+            · {todayTasks.length} tâche{todayTasks.length > 1 ? 's' : ''}
+          </span>
+        )}
+      </h2>
+      <TasksTodayBlock client:load tasks={todayTasks} />
+    </section>
 
     <!-- Rangee 1 : KPI principaux -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -324,4 +347,10 @@ const fmt = (n: number | null) => (n ?? 0).toLocaleString('fr-FR');
     </div>
 
   </section>
+
+  <AdminTasksDrawerProvider
+    client:load
+    urgentCount={navCounts.tasksUrgent}
+    currentPath="/admin"
+  />
 </BaseLayout>

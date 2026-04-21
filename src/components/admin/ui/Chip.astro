@@ -1,0 +1,53 @@
+---
+// Chip.astro — filtre cliquable avec count optionnel et état actif.
+// En Phase 1 : purement visuel + data-attrs. L'hydratation JS arrive en Phase 4.
+// Usage : <Chip label="RDV" count={6} data-filter="rdv" />
+
+interface Props {
+  label: string;
+  count?: number;
+  active?: boolean;
+  id?: string;
+  'data-filter'?: string;
+  class?: string;
+}
+
+const {
+  label,
+  count,
+  active = false,
+  id,
+  'data-filter': dataFilter,
+  class: className = '',
+} = Astro.props;
+
+const baseClasses =
+  'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[13px] font-sans font-medium border transition-colors cursor-pointer';
+
+const stateClasses = active
+  ? 'bg-marine text-blanc border-marine'
+  : 'bg-transparent text-marine border-[#E4DED3] hover:bg-[#E8ECF2]';
+
+const countBgClasses = active ? 'bg-white/20' : 'bg-black/10';
+---
+
+<button
+  type="button"
+  id={id}
+  data-filter={dataFilter}
+  aria-pressed={active}
+  class:list={[baseClasses, stateClasses, className]}
+  style="min-height: 36px;"
+>
+  <span>{label}</span>
+  {typeof count === 'number' && (
+    <span
+      class:list={[
+        'ml-1 px-1.5 py-0.5 rounded-full text-[11px] font-semibold',
+        countBgClasses,
+      ]}
+    >
+      {count}
+    </span>
+  )}
+</button>
