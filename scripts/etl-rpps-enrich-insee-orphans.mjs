@@ -45,9 +45,17 @@ const AUDIT_CSV_OVERRIDE = (() => {
   const a = process.argv.find((x) => x.startsWith('--audit-csv='));
   return a ? a.slice('--audit-csv='.length) : null;
 })();
-const PREVIEW_CSV = 'reports/rpps-insee-reconciliation-preview.csv';
-const MULTI_SIRET_CSV = 'reports/rpps-insee-reconciliation-multi-siret.csv';
-const SLUG_AUDIT_CSV = 'reports/rpps-insee-reconciliation-slug-audit.csv';
+// --target-source=<source> : cible une autre source que 'insee-sirene'
+// (ex: 'rpps' pour Pass 3b). Override aussi les chemins CSV pour eviter
+// l'ecrasement des rapports precedents.
+const TARGET_SOURCE = (() => {
+  const a = process.argv.find((x) => x.startsWith('--target-source='));
+  return a ? a.slice('--target-source='.length) : 'insee-sirene';
+})();
+const REPORT_PREFIX = TARGET_SOURCE === 'insee-sirene' ? 'rpps-insee-reconciliation' : `rpps-${TARGET_SOURCE}-reconciliation`;
+const PREVIEW_CSV = `reports/${REPORT_PREFIX}-preview.csv`;
+const MULTI_SIRET_CSV = `reports/${REPORT_PREFIX}-multi-siret.csv`;
+const SLUG_AUDIT_CSV = `reports/${REPORT_PREFIX}-slug-audit.csv`;
 const ENSEIGNE_FIXES_JSON = 'references/enseigne-fixes.json';
 const REDIRECT_REASON = 'rpps-insee-reconciliation';
 
@@ -192,15 +200,20 @@ async function loadCandidates() {
   const centres = await fetchAll(
     supabase
       .from('centres_auditifs')
-      .select('id, slug, nom, siret, cp, ville, adresse, rpps, audio_nom, tel, email, source')
-      .eq('source', 'insee-sirene')
+      .select('id, slug, nom, siret, cp, ville, adresse, rpps, audio_nom, tel, email, source, claimed, claim_status, claimed_by_email')
+      .eq('source', TARGET_SOURCE)
       .is('rpps', null)
       .is('audio_nom', null)
       .not('siret', 'is', null)
       .neq('siret', ''),
     'centres',
   );
-  console.log(`  INSEE orphelines avec SIRET : ${centres.length}`);
+  const claimed = centres.filter((c) =>
+    c.claimed === true
+    || (c.claim_status && ['pending', 'approved'].includes(c.claim_status))
+    || c.claimed_by_email);
+  const safeCentres = centres.filter((c) => !claimed.includes(c));
+  console.log(`  Orphelines source=${TARGET_SOURCE} avec SIRET : ${safeCentres.length} (+ ${claimed.length} claim skipped)`);
 
   const pros = await fetchAll(
     supabase
@@ -222,7 +235,7 @@ async function loadCandidates() {
 
   const singleMatches = [];
   const multiMatches = [];
-  for (const c of centres) {
+  for (const c of safeCentres) {
     const matches = bySiret.get(c.siret);
     if (!matches || matches.length === 0) continue;
     if (matches.length === 1) singleMatches.push({ centre: c, pro: matches[0] });
