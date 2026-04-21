@@ -1,0 +1,35 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { createServerClient } from '../../lib/supabase';
+import ContactsPage from '../../components/admin/contacts/ContactsPage.tsx';
+import type { Contact } from '../../types/prospect';
+
+const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
+const user = Astro.locals.user;
+
+if (!user || user.email !== ADMIN_EMAIL) {
+  return Astro.redirect('/auth/login/');
+}
+
+const supabase = createServerClient();
+const { data } = await supabase
+  .from('contacts')
+  .select('*')
+  .eq('archived', false)
+  .order('last_imported_at', { ascending: false })
+  .limit(500);
+
+const contacts = (data ?? []) as Contact[];
+---
+
+<BaseLayout title="Contacts — Admin LGA" description="Pool de contacts importés (Waalaxy, LinkedIn…)">
+  <meta slot="head" name="robots" content="noindex" />
+
+  <main class="min-h-screen bg-creme">
+    <section class="max-w-6xl mx-auto px-5 py-6">
+      <ContactsPage client:load initialContacts={contacts} />
+    </section>
+  </main>
+</BaseLayout>
