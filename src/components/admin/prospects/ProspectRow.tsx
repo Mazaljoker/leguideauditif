@@ -1,8 +1,9 @@
-// ProspectRow.tsx — une row liste en vue Liste.
-// Jalon 2b : read-only, chevron pointe vers droite.
-// Jalon 2c : expansion avec panel d'édition quand isExpanded.
+// ProspectRow.tsx — une row liste.
+// Phase 4 : icônes + couleurs overdue/today sur la colonne Prochaine action
+// et dans le mobile-meta compact.
 
 import Badge from '../ui/react/Badge';
+import { classifyNextAction, type TemporalState } from '../../../lib/prospects';
 import {
   PROSPECT_STATUS_LABELS,
   PROSPECT_SOURCE_LABELS,
@@ -15,17 +16,17 @@ interface Props {
   onToggle?: () => void;
 }
 
-function formatDateShort(iso: string | null): string {
-  if (!iso) return '';
+function formatDateForRow(iso: string | null, state: TemporalState): string {
+  if (!iso || state === 'none') return '';
   const d = new Date(iso);
-  if (isNaN(d.getTime())) return '';
-  const datePart = d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' });
-  const hours = d.getHours();
-  const minutes = d.getMinutes();
-  if (hours === 0 && minutes === 0) return datePart;
-  const hh = String(hours).padStart(2, '0');
-  const mm = String(minutes).padStart(2, '0');
-  return `${datePart} ${hh}:${mm}`;
+  if (state === 'overdue') {
+    return `En retard — ${d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })}`;
+  }
+  if (state === 'today') {
+    const time = d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    return `Aujourd'hui ${time}`;
+  }
+  return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' });
 }
 
 function CrownIcon() {
@@ -63,13 +64,55 @@ function ChevronIcon({ expanded }: { expanded: boolean }) {
   );
 }
 
+function AlertTriangleIcon() {
+  return (
+    <svg
+      className="w-3 h-3"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+      <line x1="12" y1="9" x2="12" y2="13" />
+      <line x1="12" y1="17" x2="12.01" y2="17" />
+    </svg>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg
+      className="w-3 h-3"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
 export default function ProspectRow({ prospect, isExpanded = false, onToggle }: Props) {
   const companyLine = [prospect.company, [prospect.cp, prospect.city].filter(Boolean).join(' ')]
     .filter((s) => s && s.length > 0)
     .join(' · ');
 
-  const nextActionText = prospect.next_action ?? '—';
-  const nextActionDate = formatDateShort(prospect.next_action_at);
+  const temporalState = classifyNextAction(prospect.next_action_at);
+  const temporalClass =
+    temporalState === 'overdue'
+      ? 'text-[#B34444] font-semibold'
+      : temporalState === 'today'
+        ? 'text-[#D97B3D] font-semibold'
+        : 'text-[#6B7A90]';
+  const dateLabel = formatDateForRow(prospect.next_action_at, temporalState);
 
   return (
     <div
@@ -88,11 +131,13 @@ export default function ProspectRow({ prospect, isExpanded = false, onToggle }: 
           <div className="text-[13px] text-[#6B7A90] mt-0.5">{companyLine}</div>
         )}
         {/* Mobile : métas empilées */}
-        <div className="flex flex-wrap gap-2 mt-2 md:hidden">
+        <div className="flex flex-wrap gap-2 mt-2 md:hidden items-center">
           <Badge variant={prospect.status}>{PROSPECT_STATUS_LABELS[prospect.status]}</Badge>
-          {nextActionText !== '—' && (
-            <span className="text-xs text-[#6B7A90]">
-              {nextActionText} · {nextActionDate}
+          {dateLabel && (
+            <span className={`text-xs inline-flex items-center gap-1 ${temporalClass}`}>
+              {temporalState === 'overdue' && <AlertTriangleIcon />}
+              {temporalState === 'today' && <PhoneIcon />}
+              {dateLabel}
             </span>
           )}
         </div>
@@ -113,10 +158,14 @@ export default function ProspectRow({ prospect, isExpanded = false, onToggle }: 
       {/* Colonne 4 : Prochaine action — desktop only */}
       <div className="hidden md:flex flex-col gap-0.5 min-w-0">
         <span className="text-[#1B2E4A] font-medium text-sm truncate">
-          {nextActionText}
+          {prospect.next_action ?? '—'}
         </span>
-        {nextActionDate && (
-          <span className="text-[#6B7A90] text-xs">{nextActionDate}</span>
+        {dateLabel && (
+          <span className={`text-xs inline-flex items-center gap-1 ${temporalClass}`}>
+            {temporalState === 'overdue' && <AlertTriangleIcon />}
+            {temporalState === 'today' && <PhoneIcon />}
+            {dateLabel}
+          </span>
         )}
       </div>
 

@@ -1,8 +1,6 @@
 // PipelineBoard.tsx — kanban 5 colonnes avec drag & drop dnd-kit.
-// Statut 'perdu' volontairement exclu (PRD §6.9 — D16) :
-//   - Pas de colonne Perdu ici
-//   - Les prospects perdu sont simplement non rendus
-//   - Pour basculer en Perdu, l'utilisateur passe par la vue Liste
+// Phase 4 : col-sum calculés (Ancienneté moy. Prospect, MRR actif Signé).
+// Statut 'perdu' volontairement exclu (PRD §6.9 / D16).
 
 import { useState } from 'react';
 import {
@@ -28,7 +26,6 @@ interface Props {
   onMove: (id: string, fromStatus: ProspectStatus, toStatus: ProspectStatus) => Promise<void>;
 }
 
-// Ordre d'affichage des 5 colonnes (perdu exclu — D16)
 const KANBAN_COLUMNS: Exclude<ProspectStatus, 'perdu'>[] = [
   'prospect',
   'contacte',
@@ -36,6 +33,40 @@ const KANBAN_COLUMNS: Exclude<ProspectStatus, 'perdu'>[] = [
   'proposition',
   'signe',
 ];
+
+function buildColSum(
+  status: Exclude<ProspectStatus, 'perdu'>,
+  prospects: Prospect[]
+): { label: string; value: string } | undefined {
+  if (status === 'prospect') {
+    if (prospects.length === 0) return undefined;
+    const now = Date.now();
+    const totalDays = prospects.reduce((sum, p) => {
+      const created = new Date(p.created_at).getTime();
+      const days = Math.max(0, Math.floor((now - created) / 86400000));
+      return sum + days;
+    }, 0);
+    const avgDays = Math.round(totalDays / prospects.length);
+    return { label: 'Ancienneté moy.', value: `${avgDays}j` };
+  }
+
+  if (status === 'signe') {
+    const total = prospects
+      .filter((p) => p.mrr_potentiel != null)
+      .reduce((sum, p) => sum + Number(p.mrr_potentiel), 0);
+    if (total === 0) return undefined;
+    return {
+      label: 'MRR actif',
+      value: new Intl.NumberFormat('fr-FR', {
+        style: 'currency',
+        currency: 'EUR',
+        maximumFractionDigits: 0,
+      }).format(total),
+    };
+  }
+
+  return undefined;
+}
 
 export default function PipelineBoard({ prospects, onMove }: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -47,7 +78,6 @@ export default function PipelineBoard({ prospects, onMove }: Props) {
 
   const activeProspect = activeId ? prospects.find((p) => p.id === activeId) : null;
 
-  // Groupement par statut — les 'perdu' ne sont jamais rendus en kanban
   const prospectsByStatus = KANBAN_COLUMNS.reduce(
     (acc, status) => {
       acc[status] = prospects.filter((p) => p.status === status);
@@ -71,7 +101,7 @@ export default function PipelineBoard({ prospects, onMove }: Props) {
     const toStatus = overId.replace('column-', '') as ProspectStatus;
     const activeP = prospects.find((p) => p.id === active.id);
     if (!activeP) return;
-    if (activeP.status === toStatus) return; // drop même colonne → no-op
+    if (activeP.status === toStatus) return;
 
     await onMove(activeP.id, activeP.status, toStatus);
   }
@@ -95,6 +125,7 @@ export default function PipelineBoard({ prospects, onMove }: Props) {
             prospects={prospectsByStatus[status]}
             label={PROSPECT_STATUS_LABELS[status]}
             count={prospectsByStatus[status].length}
+            colSum={buildColSum(status, prospectsByStatus[status])}
           />
         ))}
       </div>

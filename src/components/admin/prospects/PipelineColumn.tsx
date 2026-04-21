@@ -1,5 +1,5 @@
 // PipelineColumn.tsx — une colonne kanban.
-// Droppable via useDroppable. Affiche les prospects filtrés par statut.
+// Phase 4 : col-sum optionnel (Ancienneté moy. sur Prospect, MRR actif sur Signé).
 
 import { useDroppable } from '@dnd-kit/core';
 import PipelineCard from './PipelineCard';
@@ -10,9 +10,9 @@ interface Props {
   prospects: Prospect[];
   label: string;
   count: number;
+  colSum?: { label: string; value: string };
 }
 
-// Couleurs border-bottom + dot par statut (cohérent mockup)
 const COLUMN_COLORS: Record<Exclude<ProspectStatus, 'perdu'>, string> = {
   prospect: '#6B7A90',
   contacte: '#1E4B7A',
@@ -21,7 +21,13 @@ const COLUMN_COLORS: Record<Exclude<ProspectStatus, 'perdu'>, string> = {
   signe: '#2F7A5A',
 };
 
-export default function PipelineColumn({ status, prospects, label, count }: Props) {
+export default function PipelineColumn({
+  status,
+  prospects,
+  label,
+  count,
+  colSum,
+}: Props) {
   const { setNodeRef, isOver } = useDroppable({
     id: `column-${status}`,
     data: { status },
@@ -58,6 +64,15 @@ export default function PipelineColumn({ status, prospects, label, count }: Prop
       {prospects.length === 0 && (
         <div className="text-xs text-[#6B7A90] italic text-center py-4 opacity-60">
           Glisse une carte ici
+        </div>
+      )}
+
+      {colSum && (
+        <div className="mt-auto pt-2.5 border-t border-dashed border-[#E4DED3] text-[11px] text-[#6B7A90] uppercase tracking-[0.04em] flex justify-between items-center">
+          <span>{colSum.label}</span>
+          <strong className="text-[#1B2E4A] font-semibold normal-case tracking-normal">
+            {colSum.value}
+          </strong>
         </div>
       )}
     </div>
