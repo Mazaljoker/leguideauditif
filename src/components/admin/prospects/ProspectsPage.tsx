@@ -15,9 +15,11 @@ import Toast from '../ui/react/Toast';
 import { useToast } from '../../../lib/useToast';
 import { buildStats, normalizeForSearch } from '../../../lib/prospects';
 import type { Prospect, ProspectStatus } from '../../../types/prospect';
+import type { Task } from '../../../types/task';
 
 interface Props {
   initialProspects: Prospect[];
+  initialTasksByProspect?: Record<string, Task>;
 }
 
 export interface ActiveFilters {
@@ -34,8 +36,20 @@ function readInitialView(): ProspectsView {
   return stored === 'list' || stored === 'pipeline' ? stored : 'pipeline';
 }
 
-export default function ProspectsPage({ initialProspects }: Props) {
+export default function ProspectsPage({ initialProspects, initialTasksByProspect }: Props) {
   const [prospects, setProspects] = useState<Prospect[]>(initialProspects);
+  // Transforme le Record reçu en Map React-friendly. Pas reactif : si une tâche
+  // prospect change (édition modal), on ne re-fetch pas le map complet — acceptable V1
+  // car la Page Tasks est la source principale d'édition des tâches.
+  const tasksByProspect = useMemo(() => {
+    const m = new Map<string, Task>();
+    if (initialTasksByProspect) {
+      for (const [k, v] of Object.entries(initialTasksByProspect)) {
+        m.set(k, v);
+      }
+    }
+    return m;
+  }, [initialTasksByProspect]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [view, setView] = useState<ProspectsView>(readInitialView);
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -75,7 +89,8 @@ export default function ProspectsPage({ initialProspects }: Props) {
       result = result.filter((p) => p.status !== 'perdu');
     }
 
-    // À faire : next_action_at < tomorrow 00:00
+    // À faire : prospect avec tâche open due < demain 00:00.
+    // Phase 8 : lit depuis tasksByProspect au lieu de prospect.next_action_at.
     if (filters.aFaire) {
       const now = new Date();
       const tomorrowStart = new Date(
@@ -83,9 +98,10 @@ export default function ProspectsPage({ initialProspects }: Props) {
         now.getMonth(),
         now.getDate() + 1
       );
-      result = result.filter(
-        (p) => p.next_action_at && new Date(p.next_action_at) < tomorrowStart
-      );
+      result = result.filter((p) => {
+        const task = tasksByProspect.get(p.id);
+        return task?.due_at && new Date(task.due_at) < tomorrowStart;
+      });
     }
 
     // Fondateur
@@ -199,6 +215,7 @@ export default function ProspectsPage({ initialProspects }: Props) {
 
       <ProspectsChips
         prospects={prospects}
+        tasksByProspect={tasksByProspect}
         filters={filters}
         onFiltersChange={setFilters}
         searchInput={searchInput}
@@ -209,12 +226,14 @@ export default function ProspectsPage({ initialProspects }: Props) {
       {view === 'pipeline' ? (
         <PipelineBoard
           prospects={filteredProspects}
+          tasksByProspect={tasksByProspect}
           onMove={handleMove}
           onCardClick={setModalProspectId}
         />
       ) : (
         <ProspectsList
           prospects={filteredProspects}
+          tasksByProspect={tasksByProspect}
           expandedId={expandedId}
           onToggle={setExpandedId}
           onSaved={handleSaved}

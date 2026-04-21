@@ -6,9 +6,11 @@ import { CSS } from '@dnd-kit/utilities';
 import { classifyNextAction, type TemporalState } from '../../../lib/prospects';
 import type { Prospect, ProspectSource } from '../../../types/prospect';
 import { PROSPECT_SOURCE_LABELS } from '../../../types/prospect';
+import type { Task } from '../../../types/task';
 
 interface Props {
   prospect: Prospect;
+  nextTask?: Task | null;
   isDragOverlay?: boolean;
   onClick?: (id: string) => void;
 }
@@ -82,10 +84,9 @@ function buildSubline(prospect: Prospect): string {
   return parts.join(' · ');
 }
 
-function formatNextActionShort(prospect: Prospect, state: TemporalState): string {
-  if (!prospect.next_action && !prospect.next_action_at) return '—';
-
-  const date = prospect.next_action_at ? new Date(prospect.next_action_at) : null;
+function formatNextTaskShort(task: Task | null | undefined, state: TemporalState): string {
+  if (!task) return '—';
+  const date = task.due_at ? new Date(task.due_at) : null;
 
   if (state === 'overdue' && date) {
     return `En retard — ${date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })}`;
@@ -95,15 +96,12 @@ function formatNextActionShort(prospect: Prospect, state: TemporalState): string
     return `Auj. ${time}`;
   }
   if (state === 'future' && date) {
-    return (
-      prospect.next_action ??
-      date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })
-    );
+    return task.title ?? date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' });
   }
-  return prospect.next_action ?? '—';
+  return task.title ?? '—';
 }
 
-export default function PipelineCard({ prospect, isDragOverlay = false, onClick }: Props) {
+export default function PipelineCard({ prospect, nextTask, isDragOverlay = false, onClick }: Props) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: prospect.id,
     data: { prospect },
@@ -121,7 +119,7 @@ export default function PipelineCard({ prospect, isDragOverlay = false, onClick 
   const sourceColor = SOURCE_DOT_COLORS[prospect.source];
   const sourceLabel = PROSPECT_SOURCE_LABELS[prospect.source];
 
-  const temporalState = classifyNextAction(prospect.next_action_at);
+  const temporalState = classifyNextAction(nextTask?.due_at ?? null);
   const temporalClass =
     temporalState === 'overdue'
       ? 'text-[#B34444] font-semibold'
@@ -149,7 +147,7 @@ export default function PipelineCard({ prospect, isDragOverlay = false, onClick 
         <span className={`inline-flex items-center gap-1 truncate ${temporalClass}`}>
           {temporalState === 'overdue' && <AlertTriangleIcon />}
           {temporalState === 'today' && <PhoneIcon />}
-          <span className="truncate">{formatNextActionShort(prospect, temporalState)}</span>
+          <span className="truncate">{formatNextTaskShort(nextTask, temporalState)}</span>
         </span>
         <span
           className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0"

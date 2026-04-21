@@ -7,6 +7,7 @@ import { getProspects } from '../../lib/prospects';
 import { getAdminNavCounts } from '../../lib/adminNav';
 import AdminNav from '../../components/admin/AdminNav.astro';
 import ProspectsPage from '../../components/admin/prospects/ProspectsPage.tsx';
+import type { Task } from '../../types/task';
 
 // Protection admin (pattern admin/index.astro)
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
@@ -21,6 +22,25 @@ const [prospects, navCounts] = await Promise.all([
   getProspects(supabase),
   getAdminNavCounts(supabase),
 ]);
+
+// Prochaine tâche open par prospect (ordre par due_at, première = plus imminente)
+const prospectIds = prospects.map((p) => p.id);
+const { data: nextTasksRaw } = prospectIds.length
+  ? await supabase
+      .from('tasks')
+      .select('*')
+      .eq('owner_type', 'prospect')
+      .eq('status', 'open')
+      .in('owner_id', prospectIds)
+      .order('due_at', { ascending: true, nullsFirst: false })
+  : { data: [] as Task[] };
+
+const initialTasksByProspect: Record<string, Task> = {};
+for (const t of (nextTasksRaw ?? []) as Task[]) {
+  if (t.owner_id && !initialTasksByProspect[t.owner_id]) {
+    initialTasksByProspect[t.owner_id] = t;
+  }
+}
 ---
 
 <BaseLayout title="Prospects — Admin LGA" description="Pipeline commercial LeGuideAuditif">
@@ -30,7 +50,11 @@ const [prospects, navCounts] = await Promise.all([
 
   <main class="min-h-screen bg-creme">
     <section class="max-w-6xl mx-auto px-5 py-6">
-      <ProspectsPage client:load initialProspects={prospects} />
+      <ProspectsPage
+        client:load
+        initialProspects={prospects}
+        initialTasksByProspect={initialTasksByProspect}
+      />
     </section>
   </main>
 </BaseLayout>

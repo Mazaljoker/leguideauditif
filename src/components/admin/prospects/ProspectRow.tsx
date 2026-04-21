@@ -9,9 +9,11 @@ import {
   PROSPECT_SOURCE_LABELS,
   type Prospect,
 } from '../../../types/prospect';
+import type { Task } from '../../../types/task';
 
 interface Props {
   prospect: Prospect;
+  nextTask?: Task | null;
   isExpanded?: boolean;
   onToggle?: () => void;
 }
@@ -100,19 +102,21 @@ function PhoneIcon() {
   );
 }
 
-export default function ProspectRow({ prospect, isExpanded = false, onToggle }: Props) {
+export default function ProspectRow({ prospect, nextTask, isExpanded = false, onToggle }: Props) {
   const companyLine = [prospect.company, [prospect.cp, prospect.city].filter(Boolean).join(' ')]
     .filter((s) => s && s.length > 0)
     .join(' · ');
 
-  const temporalState = classifyNextAction(prospect.next_action_at);
+  const nextActionDueAt = nextTask?.due_at ?? null;
+  const nextActionTitle = nextTask?.title ?? null;
+  const temporalState = classifyNextAction(nextActionDueAt);
   const temporalClass =
     temporalState === 'overdue'
       ? 'text-[#B34444] font-semibold'
       : temporalState === 'today'
         ? 'text-[#D97B3D] font-semibold'
         : 'text-[#6B7A90]';
-  const dateLabel = formatDateForRow(prospect.next_action_at, temporalState);
+  const dateLabel = formatDateForRow(nextActionDueAt, temporalState);
 
   return (
     <div
@@ -158,7 +162,7 @@ export default function ProspectRow({ prospect, isExpanded = false, onToggle }: 
       {/* Colonne 4 : Prochaine action — desktop only */}
       <div className="hidden md:flex flex-col gap-0.5 min-w-0">
         <span className="text-[#1B2E4A] font-medium text-sm truncate">
-          {prospect.next_action ?? '—'}
+          {nextActionTitle ?? '—'}
         </span>
         {dateLabel && (
           <span className={`text-xs inline-flex items-center gap-1 ${temporalClass}`}>

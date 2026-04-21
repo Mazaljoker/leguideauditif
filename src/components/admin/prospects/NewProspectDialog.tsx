@@ -27,8 +27,6 @@ interface FormState {
   source: ProspectSource;
   status: ProspectStatus;
   is_fondateur: boolean;
-  next_action: string;
-  next_action_at: string;
   mrr_potentiel: string;
   notes: string;
 }
@@ -43,8 +41,6 @@ const EMPTY_FORM: FormState = {
   source: 'autre',
   status: 'prospect',
   is_fondateur: false,
-  next_action: '',
-  next_action_at: '',
   mrr_potentiel: '',
   notes: '',
 };
@@ -109,8 +105,6 @@ export default function NewProspectDialog({ isOpen, onClose, onCreated }: Props)
         status: form.status,
         source: form.source,
         is_fondateur: form.is_fondateur,
-        next_action: form.next_action || null,
-        next_action_at: form.next_action_at || null,
         mrr_potentiel: form.mrr_potentiel === '' ? null : Number(form.mrr_potentiel),
         notes: form.notes || null,
       };
@@ -286,26 +280,9 @@ export default function NewProspectDialog({ isOpen, onClose, onCreated }: Props)
             </button>
           </div>
 
-          <div>
-            <label className={labelCls}>Prochaine action</label>
-            <input
-              className={inputCls}
-              value={form.next_action}
-              onChange={(e) => update('next_action', e.target.value)}
-              placeholder="Envoyer brief, Call découverte…"
-              aria-label="Prochaine action"
-            />
-          </div>
-
-          <div>
-            <label className={labelCls}>Date / heure</label>
-            <input
-              className={inputCls}
-              type="datetime-local"
-              value={form.next_action_at}
-              onChange={(e) => update('next_action_at', e.target.value)}
-              aria-label="Date et heure de la prochaine action"
-            />
+          <div className="rounded-lg border border-dashed border-[#E4DED3] bg-[#FDFBF7] p-3 text-[12px] text-[#6B7A90]">
+            Une fois le prospect créé, ajoute une tâche depuis la
+            page <a href="/admin/tasks" className="text-[#D97B3D] font-semibold hover:underline">Tâches</a>.
           </div>
 
           <div>

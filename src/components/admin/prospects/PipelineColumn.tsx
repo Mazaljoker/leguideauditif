@@ -4,10 +4,12 @@
 import { useDroppable } from '@dnd-kit/core';
 import PipelineCard from './PipelineCard';
 import type { Prospect, ProspectStatus } from '../../../types/prospect';
+import type { Task } from '../../../types/task';
 
 interface Props {
   status: Exclude<ProspectStatus, 'perdu'>;
   prospects: Prospect[];
+  tasksByProspect?: Map<string, Task>;
   label: string;
   count: number;
   colSum?: { label: string; value: string };
@@ -26,6 +28,7 @@ const COLUMN_COLORS: Record<Exclude<ProspectStatus, 'perdu'>, string> = {
 export default function PipelineColumn({
   status,
   prospects,
+  tasksByProspect,
   label,
   count,
   colSum,
@@ -63,7 +66,12 @@ export default function PipelineColumn({
       </div>
 
       {prospects.map((p) => (
-        <PipelineCard key={p.id} prospect={p} onClick={onCardClick} />
+        <PipelineCard
+          key={p.id}
+          prospect={p}
+          nextTask={tasksByProspect?.get(p.id)}
+          onClick={onCardClick}
+        />
       ))}
 
       {prospects.length === 0 && (

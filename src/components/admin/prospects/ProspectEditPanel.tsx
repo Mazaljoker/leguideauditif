@@ -31,8 +31,6 @@ interface FormState {
   status: ProspectStatus;
   source: ProspectSource;
   is_fondateur: boolean;
-  next_action: string;
-  next_action_at: string; // datetime-local string (YYYY-MM-DDTHH:mm)
   mrr_potentiel: string; // conservé en string pour l'input
   notes: string;
 }
@@ -57,8 +55,6 @@ function prospectToForm(p: Prospect): FormState {
     status: p.status,
     source: p.source,
     is_fondateur: p.is_fondateur,
-    next_action: p.next_action ?? '',
-    next_action_at: isoToDatetimeLocal(p.next_action_at),
     mrr_potentiel: p.mrr_potentiel != null ? String(p.mrr_potentiel) : '',
     notes: p.notes ?? '',
   };
@@ -98,8 +94,6 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
         status: form.status,
         source: form.source,
         is_fondateur: form.is_fondateur,
-        next_action: form.next_action || null,
-        next_action_at: form.next_action_at || null,
         mrr_potentiel: form.mrr_potentiel === '' ? null : Number(form.mrr_potentiel),
         notes: form.notes || null,
       };
@@ -262,26 +256,11 @@ export default function ProspectEditPanel({ prospect, onSave, onCancel, onDelete
           />
         </div>
 
-        <div>
-          <label className={labelCls}>Prochaine action</label>
-          <input
-            className={inputCls}
-            value={form.next_action}
-            onChange={(e) => update('next_action', e.target.value)}
-            placeholder="Call découverte, Envoyer brief Fondateur…"
-            aria-label="Prochaine action"
-          />
-        </div>
-
-        <div>
-          <label className={labelCls}>Date / heure</label>
-          <input
-            className={inputCls}
-            type="datetime-local"
-            value={form.next_action_at}
-            onChange={(e) => update('next_action_at', e.target.value)}
-            aria-label="Date et heure de la prochaine action"
-          />
+        <div className="md:col-span-2">
+          <div className="rounded-lg border border-dashed border-[#E4DED3] bg-[#FDFBF7] p-3 text-[12px] text-[#6B7A90]">
+            <strong className="text-[#1B2E4A]">Prochaine action</strong> — gérée désormais
+            depuis la page <a href="/admin/tasks" className="text-[#D97B3D] font-semibold hover:underline">Tâches</a>.
+          </div>
         </div>
 
         <div className="md:col-span-2">

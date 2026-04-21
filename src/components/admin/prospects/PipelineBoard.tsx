@@ -20,9 +20,11 @@ import {
   type Prospect,
   type ProspectStatus,
 } from '../../../types/prospect';
+import type { Task } from '../../../types/task';
 
 interface Props {
   prospects: Prospect[];
+  tasksByProspect?: Map<string, Task>;
   onMove: (id: string, fromStatus: ProspectStatus, toStatus: ProspectStatus) => Promise<void>;
   onCardClick?: (id: string) => void;
 }
@@ -69,7 +71,7 @@ function buildColSum(
   return undefined;
 }
 
-export default function PipelineBoard({ prospects, onMove, onCardClick }: Props) {
+export default function PipelineBoard({ prospects, tasksByProspect, onMove, onCardClick }: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [visibleColumnIndex, setVisibleColumnIndex] = useState(0);
   const boardRef = useRef<HTMLDivElement>(null);
@@ -154,6 +156,7 @@ export default function PipelineBoard({ prospects, onMove, onCardClick }: Props)
             key={status}
             status={status}
             prospects={prospectsByStatus[status]}
+            tasksByProspect={tasksByProspect}
             label={PROSPECT_STATUS_LABELS[status]}
             count={prospectsByStatus[status].length}
             colSum={buildColSum(status, prospectsByStatus[status])}
@@ -179,7 +182,13 @@ export default function PipelineBoard({ prospects, onMove, onCardClick }: Props)
       </div>
 
       <DragOverlay>
-        {activeProspect ? <PipelineCard prospect={activeProspect} isDragOverlay /> : null}
+        {activeProspect ? (
+          <PipelineCard
+            prospect={activeProspect}
+            nextTask={tasksByProspect?.get(activeProspect.id)}
+            isDragOverlay
+          />
+        ) : null}
       </DragOverlay>
     </DndContext>
   );

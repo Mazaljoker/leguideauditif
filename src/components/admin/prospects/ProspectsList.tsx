@@ -5,9 +5,11 @@
 import ProspectRow from './ProspectRow';
 import ProspectEditPanel from './ProspectEditPanel';
 import type { Prospect } from '../../../types/prospect';
+import type { Task } from '../../../types/task';
 
 interface Props {
   prospects: Prospect[];
+  tasksByProspect?: Map<string, Task>;
   expandedId: string | null;
   onToggle: (id: string | null) => void;
   onSaved: (updated: Prospect) => void;
@@ -16,6 +18,7 @@ interface Props {
 
 export default function ProspectsList({
   prospects,
+  tasksByProspect,
   expandedId,
   onToggle,
   onSaved,
@@ -56,6 +59,7 @@ export default function ProspectsList({
         <div key={p.id}>
           <ProspectRow
             prospect={p}
+            nextTask={tasksByProspect?.get(p.id)}
             isExpanded={expandedId === p.id}
             onToggle={() => handleRowToggle(p.id)}
           />

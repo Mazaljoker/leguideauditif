@@ -5,10 +5,12 @@
 import { useMemo } from 'react';
 import Chip from '../ui/react/Chip';
 import type { Prospect, ProspectStatus } from '../../../types/prospect';
+import type { Task } from '../../../types/task';
 import type { ActiveFilters } from './ProspectsPage';
 
 interface Props {
   prospects: Prospect[];
+  tasksByProspect?: Map<string, Task>;
   filters: ActiveFilters;
   onFiltersChange: (next: ActiveFilters) => void;
   searchInput: string;
@@ -18,6 +20,7 @@ interface Props {
 
 export default function ProspectsChips({
   prospects,
+  tasksByProspect,
   filters,
   onFiltersChange,
   searchInput,
@@ -40,12 +43,13 @@ export default function ProspectsChips({
       proposition: prospects.filter((p) => p.status === 'proposition').length,
       signe: prospects.filter((p) => p.status === 'signe').length,
       perdu: prospects.filter((p) => p.status === 'perdu').length,
-      aFaire: prospects.filter(
-        (p) => p.next_action_at && new Date(p.next_action_at) < tomorrowStart
-      ).length,
+      aFaire: prospects.filter((p) => {
+        const task = tasksByProspect?.get(p.id);
+        return task?.due_at && new Date(task.due_at) < tomorrowStart;
+      }).length,
       fondateur: prospects.filter((p) => p.is_fondateur).length,
     };
-  }, [prospects]);
+  }, [prospects, tasksByProspect]);
 
   function toggleStatus(status: ProspectStatus) {
     const current = filters.statuses;
