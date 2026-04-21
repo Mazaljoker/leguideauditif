@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { createServerClient } from '../../lib/supabase';
 import { getAdminNavCounts } from '../../lib/adminNav';
 import AdminNav from '../../components/admin/AdminNav.astro';
+import AdminTasksDrawerProvider from '../../components/admin/AdminTasksDrawerProvider.tsx';
 import ContactsPage from '../../components/admin/contacts/ContactsPage.tsx';
 import type { Contact } from '../../types/prospect';
 
@@ -39,4 +40,10 @@ const contacts = (contactsRes.data ?? []) as Contact[];
       <ContactsPage client:load initialContacts={contacts} />
     </section>
   </main>
+
+  <AdminTasksDrawerProvider
+    client:load
+    urgentCount={navCounts.tasksUrgent}
+    currentPath="/admin/contacts"
+  />
 </BaseLayout>

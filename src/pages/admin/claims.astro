@@ -6,6 +6,7 @@ import { Icon } from 'astro-icon/components';
 import { supabase } from '../../lib/supabase';
 import { getAdminNavCounts } from '../../lib/adminNav';
 import AdminNav from '../../components/admin/AdminNav.astro';
+import AdminTasksDrawerProvider from '../../components/admin/AdminTasksDrawerProvider.tsx';
 
 // Protection par session admin
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
@@ -372,4 +373,10 @@ const recentClaims = recentRes.data;
       });
     });
   </script>
+
+  <AdminTasksDrawerProvider
+    client:load
+    urgentCount={navCounts.tasksUrgent}
+    currentPath="/admin/claims"
+  />
 </BaseLayout>

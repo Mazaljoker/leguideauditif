@@ -6,6 +6,7 @@ import { createServerClient } from '../../lib/supabase';
 import { getProspects } from '../../lib/prospects';
 import { getAdminNavCounts } from '../../lib/adminNav';
 import AdminNav from '../../components/admin/AdminNav.astro';
+import AdminTasksDrawerProvider from '../../components/admin/AdminTasksDrawerProvider.tsx';
 import ProspectsPage from '../../components/admin/prospects/ProspectsPage.tsx';
 import type { Task } from '../../types/task';
 
@@ -57,4 +58,10 @@ for (const t of (nextTasksRaw ?? []) as Task[]) {
       />
     </section>
   </main>
+
+  <AdminTasksDrawerProvider
+    client:load
+    urgentCount={navCounts.tasksUrgent}
+    currentPath="/admin/prospects"
+  />
 </BaseLayout>
