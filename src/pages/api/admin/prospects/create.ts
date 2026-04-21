@@ -35,6 +35,14 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     }
 
     const body = await request.json();
+
+    // claim_email : champ optionnel hors schéma prospects, consommé uniquement
+    // pour l'auto-lien centre via claim_attributions (Phase 5.0).
+    const claimEmail =
+      typeof body?.claim_email === 'string' && body.claim_email.trim().length > 0
+        ? body.claim_email.trim().toLowerCase()
+        : null;
+
     const validation = validateProspectInput(body, { requireName: true });
 
     if (!validation.ok) {
@@ -57,6 +65,34 @@ export const POST: APIRoute = async ({ request, cookies }) => {
         JSON.stringify({ error: 'Erreur lors de la création.' }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
+    }
+
+    // Auto-lien centre sur revendication (Phase 5.0) :
+    // si source='entrant' ET claim_email fourni, matche dans claim_attributions
+    // et crée le lien prospect_centres avec linked_via='auto_claim'.
+    if (prospect.source === 'entrant' && claimEmail) {
+      const { data: attribution } = await supabase
+        .from('claim_attributions')
+        .select('centre_id')
+        .eq('claimed_by_email', claimEmail)
+        .not('centre_id', 'is', null)
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (attribution?.centre_id) {
+        await supabase
+          .from('prospects')
+          .update({ centre_id: attribution.centre_id })
+          .eq('id', prospect.id);
+
+        await supabase.from('prospect_centres').insert({
+          prospect_id: prospect.id,
+          centre_id: attribution.centre_id,
+          is_primary: true,
+          linked_via: 'auto_claim',
+        });
+      }
     }
 
     return new Response(
