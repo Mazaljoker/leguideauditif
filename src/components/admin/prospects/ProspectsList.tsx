@@ -1,37 +1,37 @@
-// ProspectsList.tsx — vue liste complète avec expansion inline.
-// Jalon 2c : panel d'édition injecté sous la row quand expandedId === p.id.
-// L'état prospects[] lui-même est géré par le parent (ProspectsPage).
+// ProspectsList.tsx — vue liste avec expansion inline.
+// Phase 3 : expandedId remonté au parent (ProspectsPage) pour permettre
+// le collapse auto au toggle de vue Pipeline/Liste (PRD §6.2, §6.5).
 
-import { useState } from 'react';
 import ProspectRow from './ProspectRow';
 import ProspectEditPanel from './ProspectEditPanel';
 import type { Prospect } from '../../../types/prospect';
 
 interface Props {
   prospects: Prospect[];
+  expandedId: string | null;
+  onToggle: (id: string | null) => void;
   onSaved: (updated: Prospect) => void;
   onDeleted: (id: string) => void;
 }
 
-export default function ProspectsList({ prospects, onSaved, onDeleted }: Props) {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-
-  function handleToggle(id: string) {
-    setExpandedId((prev) => (prev === id ? null : id));
+export default function ProspectsList({
+  prospects,
+  expandedId,
+  onToggle,
+  onSaved,
+  onDeleted,
+}: Props) {
+  function handleRowToggle(id: string) {
+    onToggle(expandedId === id ? null : id);
   }
 
   function handleCancelEdit() {
-    setExpandedId(null);
-  }
-
-  function handleLocalSave(updated: Prospect) {
-    onSaved(updated);
-    // Garde le panel ouvert pour voir le résultat
+    onToggle(null);
   }
 
   function handleLocalDelete(id: string) {
     onDeleted(id);
-    setExpandedId(null);
+    onToggle(null);
   }
 
   if (prospects.length === 0) {
@@ -57,12 +57,12 @@ export default function ProspectsList({ prospects, onSaved, onDeleted }: Props) 
           <ProspectRow
             prospect={p}
             isExpanded={expandedId === p.id}
-            onToggle={() => handleToggle(p.id)}
+            onToggle={() => handleRowToggle(p.id)}
           />
           {expandedId === p.id && (
             <ProspectEditPanel
               prospect={p}
-              onSave={handleLocalSave}
+              onSave={onSaved}
               onCancel={handleCancelEdit}
               onDelete={handleLocalDelete}
             />
