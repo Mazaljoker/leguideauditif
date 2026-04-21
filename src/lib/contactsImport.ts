@@ -86,9 +86,17 @@ export function parseWaalaxyRow(row: Record<string, string>): WaalaxyParsed | nu
   };
 }
 
-/** Seuls 'interested' et 'replied' déclenchent l'auto-conversion en prospect. */
-export function shouldAutoConvertToProspect(state: WaalaxyState | null): boolean {
-  return state === 'interested' || state === 'replied';
+/**
+ * Désactivé depuis 2026-04-21 : Notion Pipeline LGA est la source de vérité
+ * pour les prospects. Les imports Waalaxy créent uniquement des contacts (pool
+ * leads). L'humain promeut dans Notion si l'échange mérite un suivi actif.
+ *
+ * Le lien vers un prospect existant (par nom normalisé) reste actif côté
+ * import.ts — un contact peut toujours être rattaché manuellement à un
+ * prospect déjà présent.
+ */
+export function shouldAutoConvertToProspect(_state: WaalaxyState | null): boolean {
+  return false;
 }
 
 /** Normalisation côté JS pour le matching. Aligné avec unaccent_immutable SQL. */
