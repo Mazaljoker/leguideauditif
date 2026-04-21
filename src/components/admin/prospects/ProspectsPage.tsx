@@ -2,7 +2,7 @@
 // Phase 4 : filtres chips actifs + search debounced + filteredProspects
 // passé aux vues (Pipeline + Liste). Chips et Stats conservent le total.
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import ProspectsHeader from './ProspectsHeader';
 import ProspectsStats from './ProspectsStats';
 import ProspectsChips from './ProspectsChips';
@@ -11,6 +11,8 @@ import NewProspectDialog from './NewProspectDialog';
 import ProspectEditModal from './ProspectEditModal';
 import ViewToggle, { type ProspectsView } from './ViewToggle';
 import PipelineBoard from './PipelineBoard';
+import Toast from '../ui/react/Toast';
+import { useToast } from '../../../lib/useToast';
 import { buildStats, normalizeForSearch } from '../../../lib/prospects';
 import type { Prospect, ProspectStatus } from '../../../types/prospect';
 
@@ -51,6 +53,9 @@ export default function ProspectsPage({ initialProspects }: Props) {
   });
   const [searchInput, setSearchInput] = useState('');
   const [searchDebounced, setSearchDebounced] = useState('');
+
+  const { toast, showToast, hideToast } = useToast();
+  const movingIds = useRef<Set<string>>(new Set());
 
   useEffect(() => {
     const t = setTimeout(() => setSearchDebounced(searchInput), 150);
@@ -137,6 +142,10 @@ export default function ProspectsPage({ initialProspects }: Props) {
     fromStatus: ProspectStatus,
     toStatus: ProspectStatus
   ) {
+    // Drag queue : empêche plusieurs /move simultanés sur la même card
+    if (movingIds.current.has(id)) return;
+    movingIds.current.add(id);
+
     const previous = prospects;
     setProspects((prev) =>
       prev.map((p) => (p.id === id ? { ...p, status: toStatus } : p))
@@ -149,13 +158,28 @@ export default function ProspectsPage({ initialProspects }: Props) {
         body: JSON.stringify({ id, from_status: fromStatus, to_status: toStatus }),
       });
       const json = await res.json();
+      if (res.status === 401) {
+        setProspects(previous);
+        showToast('Session expirée. Reconnecte-toi.', 'error', {
+          label: 'Se reconnecter',
+          onClick: () => {
+            window.location.href = '/auth/login/?redirect=/admin/prospects/';
+          },
+        });
+        return;
+      }
       if (!res.ok) throw new Error(json.error ?? 'Erreur serveur');
       setProspects((prev) =>
         prev.map((p) => (p.id === id ? (json.prospect as Prospect) : p))
       );
     } catch (e) {
       setProspects(previous);
-      alert(`Impossible de déplacer le prospect : ${(e as Error).message}`);
+      showToast(
+        `Impossible de déplacer le prospect : ${(e as Error).message}`,
+        'error'
+      );
+    } finally {
+      movingIds.current.delete(id);
     }
   }
 
@@ -210,6 +234,15 @@ export default function ProspectsPage({ initialProspects }: Props) {
           onClose={() => setModalProspectId(null)}
           onSaved={handleSaved}
           onDeleted={handleDeleted}
+        />
+      )}
+
+      {toast && (
+        <Toast
+          message={toast.message}
+          variant={toast.variant}
+          action={toast.action}
+          onClose={hideToast}
         />
       )}
     </>

@@ -2,6 +2,7 @@
 // Fetch lazy à l'ouverture du panel. reloadKey force un refetch.
 
 import { useEffect, useState } from 'react';
+import Skeleton from '../ui/react/Skeleton';
 import {
   INTERACTION_KIND_LABELS,
   type Interaction,
@@ -58,8 +59,10 @@ export default function InteractionsList({ prospectId, reloadKey = 0 }: Props) {
 
   if (loading) {
     return (
-      <div className="text-sm text-[#6B7A90] italic font-sans py-2">
-        Chargement de l'historique…
+      <div className="space-y-2 py-2" aria-label="Chargement de l'historique">
+        <Skeleton className="h-10 w-full" />
+        <Skeleton className="h-10 w-11/12" />
+        <Skeleton className="h-10 w-10/12" />
       </div>
     );
   }

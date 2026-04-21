@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import Button from '../ui/react/Button';
+import Skeleton from '../ui/react/Skeleton';
 import LinkedCentreCard from './LinkedCentreCard';
 import CentreAutocomplete from './CentreAutocomplete';
 import type { LinkedCentre } from '../../../types/prospect';
@@ -84,13 +85,32 @@ export default function ProspectCentresTab({ prospectId, onCountChange }: Props)
   return (
     <div className="space-y-3 font-sans">
       {loading && (
-        <div className="text-sm text-[#6B7A90] italic">Chargement des centres…</div>
+        <div className="space-y-3" aria-label="Chargement des centres">
+          <Skeleton className="h-28 w-full" />
+          <Skeleton className="h-28 w-full" />
+        </div>
       )}
       {error && <div className="text-sm text-[#B34444]">{error}</div>}
 
       {!loading && centres.length === 0 && (
-        <div className="py-6 text-center text-[#6B7A90] italic text-sm">
-          Aucun centre lié pour l'instant. Clique « + Ajouter un centre » ci-dessous.
+        <div className="py-8 text-center text-[#6B7A90] font-sans">
+          <svg
+            className="w-10 h-10 mx-auto mb-2 text-[#E4DED3]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M3 21h18" />
+            <path d="M5 21V7l8-4v18" />
+            <path d="M19 21V11l-6-4" />
+          </svg>
+          <p className="text-sm italic">
+            Aucun centre lié. Utilise « + Ajouter un centre » ci-dessous.
+          </p>
         </div>
       )}
 

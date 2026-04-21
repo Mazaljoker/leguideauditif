@@ -5,6 +5,7 @@
 import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import AddInteractionForm from './AddInteractionForm';
+import Skeleton from '../ui/react/Skeleton';
 import {
   INTERACTION_KIND_LABELS,
   type Interaction,
@@ -80,14 +81,34 @@ export default function ProspectHistoriqueTab({ prospectId, onCountChange }: Pro
       />
 
       {loading ? (
-        <div className="text-sm text-[#6B7A90] italic py-2">Chargement…</div>
+        <div className="space-y-2 py-2" aria-label="Chargement de l'historique">
+          <Skeleton className="h-8 w-full" />
+          <Skeleton className="h-8 w-11/12" />
+          <Skeleton className="h-8 w-10/12" />
+          <Skeleton className="h-8 w-11/12" />
+        </div>
       ) : error ? (
         <div className="text-sm text-[#B34444] py-2">{error}</div>
       ) : interactions.length === 0 ? (
-        <div className="text-sm text-[#6B7A90] italic py-6 text-center">
-          {debounced.trim()
-            ? `Aucune interaction ne correspond à « ${debounced.trim()} »`
-            : 'Aucune interaction enregistrée.'}
+        <div className="py-6 text-center text-[#6B7A90] font-sans">
+          <svg
+            className="w-10 h-10 mx-auto mb-2 text-[#E4DED3]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <p className="text-sm italic">
+            {debounced.trim()
+              ? `Aucune interaction ne correspond à « ${debounced.trim()} »`
+              : 'Aucune interaction. Note un appel, un DM, un RDV…'}
+          </p>
         </div>
       ) : (
         <ul className="space-y-2 max-h-[300px] overflow-y-auto">
