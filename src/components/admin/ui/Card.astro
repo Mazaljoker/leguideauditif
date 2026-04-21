@@ -1,0 +1,23 @@
+---
+// Card.astro — container générique pour la zone admin.
+// Deux variantes : default (surface blanche) / highlight (fond dégradé Fondateur orange).
+// Usage : <Card><p>...</p></Card> ou <Card variant="highlight" class="mb-4">...</Card>
+
+interface Props {
+  variant?: 'default' | 'highlight';
+  class?: string;
+}
+
+const { variant = 'default', class: className = '' } = Astro.props;
+
+const baseClasses = 'rounded-xl border p-4 font-sans';
+
+const variantClasses = {
+  default: 'border-[#E4DED3] bg-blanc',
+  highlight: 'border-[#F2D4B3] bg-gradient-to-br from-[#FEF3E8] to-[#FBEEE2]',
+}[variant];
+---
+
+<div class:list={[baseClasses, variantClasses, className]}>
+  <slot />
+</div>
