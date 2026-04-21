@@ -2,7 +2,12 @@
 // Consommés par la page SSR (prospects.astro) et les endpoints API.
 
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { Prospect, ProspectStats } from '../types/prospect';
+import type {
+  Prospect,
+  ProspectStats,
+  ProspectStatus,
+  ProspectSource,
+} from '../types/prospect';
 import { FONDATEUR_SLOTS_MAX } from '../types/prospect';
 
 export async function getProspects(supabase: SupabaseClient): Promise<Prospect[]> {
@@ -79,4 +84,144 @@ export function formatEuros(n: number): string {
     currency: 'EUR',
     maximumFractionDigits: 0,
   }).format(n);
+}
+
+// ============================================================
+// Validation (Phase 2 : pas de zod, validation manuelle)
+// ============================================================
+
+const VALID_STATUSES: ProspectStatus[] = [
+  'prospect', 'contacte', 'rdv', 'proposition', 'signe', 'perdu',
+];
+const VALID_SOURCES: ProspectSource[] = ['linkedin', 'rpps', 'entrant', 'autre'];
+const UUID_RE = /^[0-9a-f-]{36}$/i;
+
+export interface ProspectInput {
+  name?: string;
+  company?: string | null;
+  centres_count?: number;
+  city?: string | null;
+  cp?: string | null;
+  departement?: string | null;
+  centre_id?: string | null;
+  status?: ProspectStatus;
+  source?: ProspectSource;
+  is_fondateur?: boolean;
+  next_action?: string | null;
+  next_action_at?: string | null;
+  mrr_potentiel?: number | null;
+  notes?: string | null;
+}
+
+type ValidationResult =
+  | { ok: true; data: ProspectInput }
+  | { ok: false; error: string };
+
+export function validateProspectInput(
+  body: unknown,
+  opts: { requireName: boolean }
+): ValidationResult {
+  if (!body || typeof body !== 'object') {
+    return { ok: false, error: 'Body invalide' };
+  }
+  const b = body as Record<string, unknown>;
+  const data: ProspectInput = {};
+
+  // name
+  if (opts.requireName) {
+    if (typeof b.name !== 'string' || b.name.trim().length === 0) {
+      return { ok: false, error: 'Nom requis' };
+    }
+    data.name = b.name.trim().slice(0, 200);
+  } else if (b.name !== undefined) {
+    if (typeof b.name !== 'string' || b.name.trim().length === 0) {
+      return { ok: false, error: 'Nom vide' };
+    }
+    data.name = b.name.trim().slice(0, 200);
+  }
+
+  // text nullables
+  const textKeys = ['company', 'city', 'cp', 'departement', 'next_action', 'notes'] as const;
+  for (const key of textKeys) {
+    if (b[key] === undefined) continue;
+    if (b[key] === null) {
+      data[key] = null;
+      continue;
+    }
+    if (typeof b[key] !== 'string') return { ok: false, error: `${key} invalide` };
+    const v = (b[key] as string).trim();
+    data[key] = v.length === 0 ? null : v.slice(0, 5000);
+  }
+
+  // centres_count
+  if (b.centres_count !== undefined) {
+    const n = Number(b.centres_count);
+    if (!Number.isInteger(n) || n < 1) return { ok: false, error: 'centres_count doit être >= 1' };
+    data.centres_count = n;
+  }
+
+  // status
+  if (b.status !== undefined) {
+    if (!VALID_STATUSES.includes(b.status as ProspectStatus)) {
+      return { ok: false, error: 'Statut invalide' };
+    }
+    data.status = b.status as ProspectStatus;
+  }
+
+  // source
+  if (b.source !== undefined) {
+    if (!VALID_SOURCES.includes(b.source as ProspectSource)) {
+      return { ok: false, error: 'Source invalide' };
+    }
+    data.source = b.source as ProspectSource;
+  }
+
+  // is_fondateur
+  if (b.is_fondateur !== undefined) {
+    if (typeof b.is_fondateur !== 'boolean') {
+      return { ok: false, error: 'is_fondateur doit être booléen' };
+    }
+    data.is_fondateur = b.is_fondateur;
+  }
+
+  // next_action_at
+  if (b.next_action_at !== undefined) {
+    if (b.next_action_at === null || b.next_action_at === '') {
+      data.next_action_at = null;
+    } else if (typeof b.next_action_at === 'string') {
+      const d = new Date(b.next_action_at);
+      if (isNaN(d.getTime())) return { ok: false, error: 'next_action_at invalide' };
+      data.next_action_at = d.toISOString();
+    } else {
+      return { ok: false, error: 'next_action_at invalide' };
+    }
+  }
+
+  // mrr_potentiel
+  if (b.mrr_potentiel !== undefined) {
+    if (b.mrr_potentiel === null || b.mrr_potentiel === '') {
+      data.mrr_potentiel = null;
+    } else {
+      const n = Number(b.mrr_potentiel);
+      if (!isFinite(n) || n < 0) return { ok: false, error: 'mrr_potentiel doit être >= 0' };
+      data.mrr_potentiel = n;
+    }
+  }
+
+  // centre_id UUID
+  if (b.centre_id !== undefined) {
+    if (b.centre_id === null || b.centre_id === '') {
+      data.centre_id = null;
+    } else if (typeof b.centre_id === 'string' && UUID_RE.test(b.centre_id)) {
+      data.centre_id = b.centre_id;
+    } else {
+      return { ok: false, error: 'centre_id UUID invalide' };
+    }
+  }
+
+  return { ok: true, data };
+}
+
+export function isValidUuid(s: unknown): s is string {
+  return typeof s === 'string' && UUID_RE.test(s);
 }
