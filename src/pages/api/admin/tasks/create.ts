@@ -4,11 +4,12 @@ import type { APIRoute } from 'astro';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { createServerClient } from '../../../../lib/supabase';
 import { isValidUuid } from '../../../../lib/prospects';
-import type { TaskOwnerType, TaskRecurrenceKind } from '../../../../types/task';
+import type { TaskCategory, TaskOwnerType, TaskRecurrenceKind } from '../../../../types/task';
 
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
 const VALID_OWNER_TYPES: TaskOwnerType[] = ['prospect', 'contact', 'centre'];
 const VALID_RECURRENCE: TaskRecurrenceKind[] = ['none', 'daily', 'weekly', 'monthly'];
+const VALID_CATEGORIES: TaskCategory[] = ['call', 'email', 'inmail', 'todo'];
 
 async function ownerExists(
   supabase: SupabaseClient,
@@ -90,6 +91,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
       });
     }
 
+    const category = (body?.category ?? 'todo') as TaskCategory;
+    if (!VALID_CATEGORIES.includes(category)) {
+      return new Response(JSON.stringify({ error: 'category invalide.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     const supabase = createServerClient();
 
     if (ownerType && ownerId) {
@@ -111,6 +120,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
         owner_id: ownerId,
         due_at: dueAt,
         recurrence_kind: recurrenceKind,
+        category,
       })
       .select()
       .single();

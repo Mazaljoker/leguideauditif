@@ -3,11 +3,12 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { createServerClient } from '../../../../lib/supabase';
 import { isValidUuid } from '../../../../lib/prospects';
-import type { TaskOwnerType, TaskRecurrenceKind } from '../../../../types/task';
+import type { TaskCategory, TaskOwnerType, TaskRecurrenceKind } from '../../../../types/task';
 
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
 const VALID_OWNER_TYPES: TaskOwnerType[] = ['prospect', 'contact', 'centre'];
 const VALID_RECURRENCE: TaskRecurrenceKind[] = ['none', 'daily', 'weekly', 'monthly'];
+const VALID_CATEGORIES: TaskCategory[] = ['call', 'email', 'inmail', 'todo'];
 
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
@@ -96,6 +97,17 @@ export const POST: APIRoute = async ({ request, locals }) => {
         });
       }
       patch.recurrence_kind = rk;
+    }
+
+    if (body.category !== undefined) {
+      const cat = body.category as TaskCategory;
+      if (!VALID_CATEGORIES.includes(cat)) {
+        return new Response(JSON.stringify({ error: 'category invalide.' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      patch.category = cat;
     }
 
     if (Object.keys(patch).length === 0) {

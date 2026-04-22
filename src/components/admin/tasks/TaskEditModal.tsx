@@ -7,9 +7,11 @@ import TaskOwnerAutocomplete from './TaskOwnerAutocomplete';
 import {
   TASK_RECURRENCE_LABELS,
   TASK_OWNER_TYPE_LABELS,
+  TASK_CATEGORY_LABELS,
   type Task,
   type TaskOwnerType,
   type TaskRecurrenceKind,
+  type TaskCategory,
   type TaskWithOwner,
 } from '../../../types/task';
 
@@ -34,6 +36,7 @@ interface FormState {
   ownerLabel: string | null;
   dueAt: string; // datetime-local (YYYY-MM-DDTHH:mm)
   recurrenceKind: TaskRecurrenceKind;
+  category: TaskCategory;
 }
 
 function CloseIcon() {
@@ -89,6 +92,7 @@ export default function TaskEditModal({
     ownerLabel: null,
     dueAt: '',
     recurrenceKind: 'none',
+    category: 'todo',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -104,6 +108,7 @@ export default function TaskEditModal({
         ownerLabel: task.owner_label,
         dueAt: isoToDatetimeLocal(task.due_at),
         recurrenceKind: task.recurrence_kind,
+        category: task.category,
       });
     } else {
       setForm({
@@ -114,6 +119,7 @@ export default function TaskEditModal({
         ownerLabel: prefillOwnerLabel,
         dueAt: '',
         recurrenceKind: 'none',
+        category: 'todo',
       });
     }
     setError(null);
@@ -164,6 +170,7 @@ export default function TaskEditModal({
         owner_id: form.ownerId,
         due_at: datetimeLocalToIso(form.dueAt),
         recurrence_kind: form.recurrenceKind,
+        category: form.category,
       };
       const res = await fetch(
         isEdit ? '/api/admin/tasks/update' : '/api/admin/tasks/create',
@@ -308,7 +315,22 @@ export default function TaskEditModal({
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div>
+              <label className={labelCls}>Catégorie</label>
+              <select
+                className={inputCls}
+                value={form.category}
+                onChange={(e) => update('category', e.target.value as TaskCategory)}
+                aria-label="Catégorie"
+              >
+                {(Object.keys(TASK_CATEGORY_LABELS) as TaskCategory[]).map((c) => (
+                  <option key={c} value={c}>
+                    {TASK_CATEGORY_LABELS[c]}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div>
               <label className={labelCls}>Échéance</label>
               <input

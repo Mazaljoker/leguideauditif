@@ -141,6 +141,7 @@ export default function ProspectEditModal({
         {activeTab === 'historique' && (
           <ProspectHistoriqueTab
             prospectId={prospect.id}
+            prospectName={prospect.name}
             onCountChange={setInteractionsCount}
           />
         )}

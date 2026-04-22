@@ -1,8 +1,7 @@
 // AddInteractionForm.tsx — form pour logger une interaction.
-// Phase 5.0 : support transcripts Meet/Call (textarea XXL + layout colonne).
-// Phase 6 : checkbox "Créer une tâche de suivi" (défaut coché pour les notes)
-//           qui crée automatiquement une Task liée au prospect à +7 jours.
-// status_change volontairement exclu : réservé aux mouvements kanban auto.
+// Phase 5.0 : support transcripts Meet/Call (textarea XXL).
+// Phase 6 : checkbox "Créer une tâche de suivi" sur TOUS les kinds,
+//           avec catégorie (appel/e-mail/inmail/todo) + titre libre.
 
 import { useState } from 'react';
 import Button from '../ui/react/Button';
@@ -11,9 +10,11 @@ import {
   type Interaction,
   type InteractionKind,
 } from '../../../types/prospect';
+import { TASK_CATEGORY_LABELS, type TaskCategory } from '../../../types/task';
 
 interface Props {
   prospectId: string;
+  prospectName?: string;
   onAdded: (interaction: Interaction) => void;
 }
 
@@ -27,6 +28,18 @@ const EDITABLE_KINDS: InteractionKind[] = [
   'transcript_call',
 ];
 
+// Valeurs par défaut de catégorie/case selon le kind d'interaction.
+const KIND_DEFAULTS: Record<InteractionKind, { createTask: boolean; category: TaskCategory }> = {
+  note:              { createTask: true,  category: 'todo'   },
+  call:              { createTask: false, category: 'call'   },
+  email:             { createTask: false, category: 'email'  },
+  dm:                { createTask: false, category: 'inmail' },
+  meeting:           { createTask: false, category: 'todo'   },
+  transcript_meet:   { createTask: false, category: 'todo'   },
+  transcript_call:   { createTask: false, category: 'call'   },
+  status_change:     { createTask: false, category: 'todo'   }, // jamais saisi à la main
+};
+
 function nowAsDatetimeLocal(): string {
   const d = new Date();
   const pad = (n: number) => String(n).padStart(2, '0');
@@ -34,7 +47,6 @@ function nowAsDatetimeLocal(): string {
 }
 
 function defaultTaskDueDate(): string {
-  // +7 jours à 09:00 local
   const d = new Date();
   d.setDate(d.getDate() + 7);
   d.setHours(9, 0, 0, 0);
@@ -42,36 +54,68 @@ function defaultTaskDueDate(): string {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
-function truncateTaskTitle(content: string): string {
-  const oneLine = content.trim().replace(/\s+/g, ' ');
-  return oneLine.length > 120 ? oneLine.slice(0, 117) + '…' : oneLine;
+function suggestedTaskTitle(
+  kind: InteractionKind,
+  category: TaskCategory,
+  prospectName: string | undefined
+): string {
+  const who = prospectName?.trim() || 'ce prospect';
+  const actionByCategory: Record<TaskCategory, string> = {
+    call: `Rappeler ${who}`,
+    email: `Envoyer e-mail à ${who}`,
+    inmail: `Envoyer InMail à ${who}`,
+    todo: `Suivi ${who}`,
+  };
+  // Cas spécifiques pour que le titre soit parlant
+  if (kind === 'meeting') return `Suivi RDV ${who}`;
+  if (kind === 'transcript_meet') return `Actions suite au RDV ${who}`;
+  if (kind === 'transcript_call') return `Actions suite à l'appel ${who}`;
+  return actionByCategory[category];
 }
 
-export default function AddInteractionForm({ prospectId, onAdded }: Props) {
+export default function AddInteractionForm({ prospectId, prospectName, onAdded }: Props) {
   const [kind, setKind] = useState<InteractionKind>('note');
   const [content, setContent] = useState('');
   const [occurredAt, setOccurredAt] = useState<string>(nowAsDatetimeLocal());
-  const [createTask, setCreateTask] = useState<boolean>(true);
+  const [createTask, setCreateTask] = useState<boolean>(KIND_DEFAULTS.note.createTask);
+  const [taskCategory, setTaskCategory] = useState<TaskCategory>(KIND_DEFAULTS.note.category);
+  const [taskTitle, setTaskTitle] = useState<string>(
+    suggestedTaskTitle('note', KIND_DEFAULTS.note.category, prospectName)
+  );
+  const [taskTitleTouched, setTaskTitleTouched] = useState(false);
   const [taskDueAt, setTaskDueAt] = useState<string>(defaultTaskDueDate());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [taskWarning, setTaskWarning] = useState<string | null>(null);
 
   const isTranscript = kind === 'transcript_meet' || kind === 'transcript_call';
-  const canCreateTask = !isTranscript;
 
   function handleKindChange(next: InteractionKind) {
     setKind(next);
-    // Défaut : tâche cochée pour note, décochée pour les autres kinds
-    if (next === 'note') setCreateTask(true);
-    else if (next === 'transcript_meet' || next === 'transcript_call') setCreateTask(false);
-    else setCreateTask(false);
+    const defaults = KIND_DEFAULTS[next];
+    setCreateTask(defaults.createTask);
+    setTaskCategory(defaults.category);
+    // Régénère le titre suggéré UNIQUEMENT si l'utilisateur n'a rien tapé manuellement
+    if (!taskTitleTouched) {
+      setTaskTitle(suggestedTaskTitle(next, defaults.category, prospectName));
+    }
+  }
+
+  function handleCategoryChange(next: TaskCategory) {
+    setTaskCategory(next);
+    if (!taskTitleTouched) {
+      setTaskTitle(suggestedTaskTitle(kind, next, prospectName));
+    }
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!content.trim()) {
       setError('Contenu requis.');
+      return;
+    }
+    if (createTask && !taskTitle.trim()) {
+      setError('Titre de la tâche requis (ou décoche la case).');
       return;
     }
     setLoading(true);
@@ -93,19 +137,19 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
       if (!res.ok) throw new Error(json.error ?? 'Erreur serveur');
       onAdded(json.interaction as Interaction);
 
-      // 2) Créer la tâche liée si demandé. Erreur tâche non-bloquante pour l'UX :
-      // l'interaction est déjà loggée, on signale juste un warning.
-      if (canCreateTask && createTask) {
+      // 2) Créer la tâche si demandé (non-bloquant en cas d'échec)
+      if (createTask) {
         try {
           const taskRes = await fetch('/api/admin/tasks/create', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              title: truncateTaskTitle(content),
+              title: taskTitle.trim(),
               owner_type: 'prospect',
               owner_id: prospectId,
               due_at: taskDueAt || null,
               recurrence_kind: 'none',
+              category: taskCategory,
             }),
           });
           const taskJson = await taskRes.json();
@@ -121,11 +165,15 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
         }
       }
 
-      // Reset formulaire
+      // Reset formulaire (kind reste sur 'note' par défaut)
       setContent('');
       setKind('note');
       setOccurredAt(nowAsDatetimeLocal());
-      setCreateTask(true);
+      const d = KIND_DEFAULTS.note;
+      setCreateTask(d.createTask);
+      setTaskCategory(d.category);
+      setTaskTitle(suggestedTaskTitle('note', d.category, prospectName));
+      setTaskTitleTouched(false);
       setTaskDueAt(defaultTaskDueDate());
     } catch (err) {
       setError((err as Error).message);
@@ -137,8 +185,8 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
   const inputCls =
     'border border-[#E4DED3] bg-white px-2 py-1.5 rounded-md text-sm font-sans text-[#1B2E4A] focus:outline-2 focus:outline-[#D97B3D]';
 
-  const taskRow = canCreateTask && (
-    <div className="flex flex-wrap gap-3 items-center pt-2 mt-1 border-t border-dashed border-[#E4DED3]">
+  const taskBlock = (
+    <div className="flex flex-col gap-2 pt-2 mt-1 border-t border-dashed border-[#E4DED3]">
       <label className="inline-flex items-center gap-2 text-xs text-[#1B2E4A] cursor-pointer select-none">
         <input
           type="checkbox"
@@ -150,19 +198,39 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
         <span className="font-medium">Créer une tâche de suivi</span>
       </label>
       {createTask && (
-        <>
-          <label className="text-xs text-[#6B7A90]" htmlFor="task-due-at">
-            Échéance :
-          </label>
+        <div className="flex flex-wrap gap-2 items-center pl-6">
+          <select
+            className={`${inputCls} w-32`}
+            value={taskCategory}
+            onChange={(e) => handleCategoryChange(e.target.value as TaskCategory)}
+            aria-label="Catégorie de la tâche"
+          >
+            {(Object.keys(TASK_CATEGORY_LABELS) as TaskCategory[]).map((c) => (
+              <option key={c} value={c}>
+                {TASK_CATEGORY_LABELS[c]}
+              </option>
+            ))}
+          </select>
           <input
-            id="task-due-at"
+            className={`${inputCls} flex-1 min-w-[220px]`}
+            type="text"
+            value={taskTitle}
+            onChange={(e) => {
+              setTaskTitle(e.target.value);
+              setTaskTitleTouched(true);
+            }}
+            placeholder="Titre de la tâche…"
+            maxLength={500}
+            aria-label="Titre de la tâche"
+          />
+          <input
             className={`${inputCls} w-48`}
             type="datetime-local"
             value={taskDueAt}
             onChange={(e) => setTaskDueAt(e.target.value)}
             aria-label="Échéance de la tâche"
           />
-        </>
+        </div>
       )}
     </div>
   );
@@ -177,7 +245,6 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
       )}
 
       {isTranscript ? (
-        // Layout colonne pour les transcripts (textarea XXL, pas de tâche)
         <div className="flex flex-col gap-2">
           <div className="flex gap-2 flex-wrap items-center">
             <select
@@ -211,6 +278,7 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
             rows={8}
             aria-label="Transcription"
           />
+          {taskBlock}
         </div>
       ) : (
         <>
@@ -246,7 +314,7 @@ export default function AddInteractionForm({ prospectId, onAdded }: Props) {
               {loading ? 'Ajout…' : 'Ajouter'}
             </Button>
           </div>
-          {taskRow}
+          {taskBlock}
         </>
       )}
     </form>

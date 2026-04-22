@@ -13,10 +13,11 @@ import {
 
 interface Props {
   prospectId: string;
+  prospectName?: string;
   onCountChange?: (n: number) => void;
 }
 
-export default function ProspectHistoriqueTab({ prospectId, onCountChange }: Props) {
+export default function ProspectHistoriqueTab({ prospectId, prospectName, onCountChange }: Props) {
   const [searchInput, setSearchInput] = useState('');
   const [debounced, setDebounced] = useState('');
   const [interactions, setInteractions] = useState<Interaction[]>([]);
@@ -121,6 +122,7 @@ export default function ProspectHistoriqueTab({ prospectId, onCountChange }: Pro
 
       <AddInteractionForm
         prospectId={prospectId}
+        prospectName={prospectName}
         onAdded={() => setReloadKey((k) => k + 1)}
       />
     </div>

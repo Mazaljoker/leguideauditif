@@ -4,6 +4,7 @@
 export type TaskOwnerType = 'prospect' | 'contact' | 'centre';
 export type TaskStatus = 'open' | 'done' | 'skipped';
 export type TaskRecurrenceKind = 'none' | 'daily' | 'weekly' | 'monthly';
+export type TaskCategory = 'call' | 'email' | 'inmail' | 'todo';
 
 export interface Task {
   id: string;
@@ -16,6 +17,7 @@ export interface Task {
   done_at: string | null;
   skipped_at: string | null;
   recurrence_kind: TaskRecurrenceKind;
+  category: TaskCategory;
   parent_task_id: string | null;
   created_at: string;
   updated_at: string;
@@ -44,4 +46,11 @@ export const TASK_STATUS_LABELS: Record<TaskStatus, string> = {
   open: 'À faire',
   done: 'Terminée',
   skipped: 'Ignorée',
+};
+
+export const TASK_CATEGORY_LABELS: Record<TaskCategory, string> = {
+  call: 'Appel',
+  email: 'E-mail',
+  inmail: 'InMail',
+  todo: 'À faire',
 };
