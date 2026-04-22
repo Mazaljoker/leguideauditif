@@ -74,7 +74,8 @@ export const POST: APIRoute = async ({ request, cookies }) => {
           id, slug, nom, enseigne, raison_sociale, adresse, cp, ville,
           departement, tel, email, site_web, siret, finess, audio_nom,
           audio_prenom, photo_url, a_propos, specialites, marques, plan,
-          claim_status, claimed_by_email, claimed_by_adeli
+          claim_status, claimed_by_email, claimed_by_adeli,
+          claimed_by_name, claimed_at
         )
       `)
       .eq('prospect_id', prospect_id)

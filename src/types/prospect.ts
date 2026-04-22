@@ -88,6 +88,8 @@ export interface CentreAuditif {
   claim_status: 'none' | 'pending' | 'approved' | 'rejected';
   claimed_by_email: string | null;
   claimed_by_adeli: string | null;
+  claimed_by_name: string | null;
+  claimed_at: string | null;
 }
 
 export interface LinkedCentre extends CentreAuditif {

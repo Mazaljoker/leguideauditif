@@ -137,7 +137,10 @@ export default function LinkedCentreCard({ centre, onUnlink }: Props) {
           Voir la fiche LGA →
         </a>
         {centre.claim_status === 'approved' && (
-          <span className="text-[#2F7A5A]">Fiche revendiquée</span>
+          <span className="text-[#2F7A5A]">
+            Revendiquée{centre.claimed_at && ` le ${new Date(centre.claimed_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}`}
+            {centre.claimed_by_name && ` par ${centre.claimed_by_name.trim()}`}
+          </span>
         )}
         {centre.plan === 'premium' && (
           <span className="text-[#D97B3D]">Premium</span>
