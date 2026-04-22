@@ -37,6 +37,7 @@ export interface Prospect {
   status: ProspectStatus;
   source: ProspectSource;
   is_fondateur: boolean;
+  is_apporteur: boolean;
   next_action: string | null;
   next_action_at: string | null;
   mrr_potentiel: number | null;

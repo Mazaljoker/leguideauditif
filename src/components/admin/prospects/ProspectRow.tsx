@@ -49,6 +49,27 @@ function CrownIcon() {
   );
 }
 
+function HandshakeIcon() {
+  return (
+    <svg
+      className="w-3.5 h-3.5 text-[#0C447C]"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-label="Apporteur d’affaires"
+    >
+      <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+      <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+      <path d="m21 3 1 11h-2" />
+      <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+      <path d="M3 4h8" />
+    </svg>
+  );
+}
+
 function ChevronIcon({ expanded }: { expanded: boolean }) {
   return (
     <svg
@@ -130,6 +151,7 @@ export default function ProspectRow({ prospect, nextTask, isExpanded = false, on
         <div className="font-semibold text-[15px] text-[#1B2E4A] flex items-center gap-2">
           <span>{prospect.name}</span>
           {prospect.is_fondateur && <CrownIcon />}
+          {prospect.is_apporteur && <HandshakeIcon />}
         </div>
         {companyLine && (
           <div className="text-[13px] text-[#6B7A90] mt-0.5">{companyLine}</div>

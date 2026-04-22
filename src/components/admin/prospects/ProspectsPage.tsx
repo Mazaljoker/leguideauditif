@@ -31,6 +31,7 @@ export interface ActiveFilters {
   statuses: ProspectStatus[];
   aFaire: boolean;
   fondateur: boolean;
+  apporteur: boolean;
 }
 
 const VIEW_STORAGE_KEY = 'lga-admin-prospects-view';
@@ -73,6 +74,7 @@ export default function ProspectsPage({
     statuses: [],
     aFaire: false,
     fondateur: false,
+    apporteur: false,
   });
   const [searchInput, setSearchInput] = useState('');
   const [searchDebounced, setSearchDebounced] = useState('');
@@ -116,6 +118,11 @@ export default function ProspectsPage({
     // Fondateur
     if (filters.fondateur) {
       result = result.filter((p) => p.is_fondateur);
+    }
+
+    // Apporteur d'affaires
+    if (filters.apporteur) {
+      result = result.filter((p) => p.is_apporteur);
     }
 
     // Search (AND avec chips). Matche nom, company, city, cp, notes prospect

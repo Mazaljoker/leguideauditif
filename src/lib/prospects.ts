@@ -139,6 +139,7 @@ export interface ProspectInput {
   status?: ProspectStatus;
   source?: ProspectSource;
   is_fondateur?: boolean;
+  is_apporteur?: boolean;
   next_action?: string | null;
   next_action_at?: string | null;
   mrr_potentiel?: number | null;
@@ -214,6 +215,14 @@ export function validateProspectInput(
       return { ok: false, error: 'is_fondateur doit être booléen' };
     }
     data.is_fondateur = b.is_fondateur;
+  }
+
+  // is_apporteur
+  if (b.is_apporteur !== undefined) {
+    if (typeof b.is_apporteur !== 'boolean') {
+      return { ok: false, error: 'is_apporteur doit être booléen' };
+    }
+    data.is_apporteur = b.is_apporteur;
   }
 
   // next_action_at

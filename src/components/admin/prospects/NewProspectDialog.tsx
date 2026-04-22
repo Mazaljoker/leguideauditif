@@ -27,6 +27,7 @@ interface FormState {
   source: ProspectSource;
   status: ProspectStatus;
   is_fondateur: boolean;
+  is_apporteur: boolean;
   mrr_potentiel: string;
   notes: string;
 }
@@ -41,6 +42,7 @@ const EMPTY_FORM: FormState = {
   source: 'autre',
   status: 'prospect',
   is_fondateur: false,
+  is_apporteur: false,
   mrr_potentiel: '',
   notes: '',
 };
@@ -105,6 +107,7 @@ export default function NewProspectDialog({ isOpen, onClose, onCreated }: Props)
         status: form.status,
         source: form.source,
         is_fondateur: form.is_fondateur,
+        is_apporteur: form.is_apporteur,
         mrr_potentiel: form.mrr_potentiel === '' ? null : Number(form.mrr_potentiel),
         notes: form.notes || null,
       };
@@ -266,7 +269,7 @@ export default function NewProspectDialog({ isOpen, onClose, onCreated }: Props)
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-wrap gap-2">
             <button
               type="button"
               onClick={() => update('is_fondateur', !form.is_fondateur)}
@@ -277,6 +280,18 @@ export default function NewProspectDialog({ isOpen, onClose, onCreated }: Props)
               }
             >
               {form.is_fondateur ? 'Partenaire Fondateur' : 'Non-Fondateur'}
+            </button>
+            <button
+              type="button"
+              onClick={() => update('is_apporteur', !form.is_apporteur)}
+              className={
+                form.is_apporteur
+                  ? 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-[#0C447C] bg-[#E6F1FB] border border-dashed border-[#0C447C] cursor-pointer'
+                  : 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-[#6B7A90] bg-transparent border border-dashed border-[#E4DED3] cursor-pointer hover:border-[#6B7A90]'
+              }
+              title="Contact commercial / apporteur d’affaires (sans centre client)"
+            >
+              {form.is_apporteur ? 'Apporteur d’affaires' : 'Non-Apporteur'}
             </button>
           </div>
 

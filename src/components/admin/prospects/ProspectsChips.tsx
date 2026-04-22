@@ -57,6 +57,7 @@ export default function ProspectsChips({
         return task?.due_at && new Date(task.due_at) < tomorrowStart;
       }).length,
       fondateur: prospects.filter((p) => p.is_fondateur).length,
+      apporteur: prospects.filter((p) => p.is_apporteur).length,
     };
   }, [prospects, tasksByProspect]);
 
@@ -79,6 +80,10 @@ export default function ProspectsChips({
 
   function toggleFondateur() {
     onFiltersChange({ ...filters, fondateur: !filters.fondateur });
+  }
+
+  function toggleApporteur() {
+    onFiltersChange({ ...filters, apporteur: !filters.apporteur });
   }
 
   const isStatusActive = (s: ProspectStatus) => filters.statuses.includes(s);
@@ -132,6 +137,12 @@ export default function ProspectsChips({
           count={counts.fondateur}
           active={filters.fondateur}
           onClick={toggleFondateur}
+        />
+        <Chip
+          label="Apporteur"
+          count={counts.apporteur}
+          active={filters.apporteur}
+          onClick={toggleApporteur}
         />
 
         {currentView === 'list' && (

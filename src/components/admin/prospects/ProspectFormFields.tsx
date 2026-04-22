@@ -30,6 +30,7 @@ interface FormState {
   status: ProspectStatus;
   source: ProspectSource;
   is_fondateur: boolean;
+  is_apporteur: boolean;
   mrr_potentiel: string;
   notes: string;
 }
@@ -45,6 +46,7 @@ function prospectToForm(p: Prospect): FormState {
     status: p.status,
     source: p.source,
     is_fondateur: p.is_fondateur,
+    is_apporteur: p.is_apporteur,
     mrr_potentiel: p.mrr_potentiel != null ? String(p.mrr_potentiel) : '',
     notes: p.notes ?? '',
   };
@@ -84,6 +86,7 @@ export default function ProspectFormFields({
         status: form.status,
         source: form.source,
         is_fondateur: form.is_fondateur,
+        is_apporteur: form.is_apporteur,
         mrr_potentiel: form.mrr_potentiel === '' ? null : Number(form.mrr_potentiel),
         notes: form.notes || null,
       };
@@ -265,7 +268,7 @@ export default function ProspectFormFields({
           />
         </div>
 
-        <div className="md:col-span-2">
+        <div className="md:col-span-2 flex flex-wrap gap-2">
           <button
             type="button"
             onClick={() => update('is_fondateur', !form.is_fondateur)}
@@ -276,6 +279,18 @@ export default function ProspectFormFields({
             }
           >
             {form.is_fondateur ? 'Partenaire Fondateur actif' : 'Non-Fondateur'}
+          </button>
+          <button
+            type="button"
+            onClick={() => update('is_apporteur', !form.is_apporteur)}
+            className={
+              form.is_apporteur
+                ? 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-sans font-medium text-[#0C447C] bg-[#E6F1FB] border border-dashed border-[#0C447C] cursor-pointer'
+                : 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-sans font-medium text-[#6B7A90] bg-transparent border border-dashed border-[#E4DED3] cursor-pointer hover:border-[#6B7A90]'
+            }
+            title="Contact commercial / apporteur d'affaires (sans centre client)"
+          >
+            {form.is_apporteur ? 'Apporteur d’affaires' : 'Non-Apporteur'}
           </button>
         </div>
       </div>
