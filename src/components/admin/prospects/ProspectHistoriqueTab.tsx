@@ -15,9 +15,15 @@ interface Props {
   prospectId: string;
   prospectName?: string;
   onCountChange?: (n: number) => void;
+  onCreateTask?: () => void;
 }
 
-export default function ProspectHistoriqueTab({ prospectId, prospectName, onCountChange }: Props) {
+export default function ProspectHistoriqueTab({
+  prospectId,
+  prospectName,
+  onCountChange,
+  onCreateTask,
+}: Props) {
   const [searchInput, setSearchInput] = useState('');
   const [debounced, setDebounced] = useState('');
   const [interactions, setInteractions] = useState<Interaction[]>([]);
@@ -73,14 +79,26 @@ export default function ProspectHistoriqueTab({ prospectId, prospectName, onCoun
 
   return (
     <div className="space-y-3 font-sans">
-      <input
-        type="search"
-        value={searchInput}
-        onChange={(e) => setSearchInput(e.target.value)}
-        placeholder="Rechercher dans l'historique (notes, DMs, transcripts)…"
-        className="w-full border border-[#E4DED3] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97B3D]"
-        aria-label="Rechercher dans l'historique"
-      />
+      <div className="flex gap-2 items-center">
+        <input
+          type="search"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          placeholder="Rechercher dans l'historique (notes, DMs, transcripts)…"
+          className="flex-1 border border-[#E4DED3] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97B3D]"
+          aria-label="Rechercher dans l'historique"
+        />
+        {onCreateTask && (
+          <button
+            type="button"
+            onClick={onCreateTask}
+            className="inline-flex items-center gap-1 px-3 py-2 text-sm font-semibold text-white bg-[#1B2E4A] hover:bg-[#2a3d5e] rounded-lg whitespace-nowrap flex-shrink-0"
+            title="Créer une tâche seule (sans interaction)"
+          >
+            + Tâche
+          </button>
+        )}
+      </div>
 
       {loading ? (
         <div className="space-y-2 py-2" aria-label="Chargement de l'historique">

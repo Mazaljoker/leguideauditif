@@ -280,9 +280,15 @@ export default function ProspectsPage({
       {modalProspect && (
         <ProspectEditModal
           prospect={modalProspect}
+          nextTask={tasksByProspect.get(modalProspect.id) ?? null}
           onClose={() => setModalProspectId(null)}
           onSaved={handleSaved}
           onDeleted={handleDeleted}
+          onTaskChanged={() => {
+            // V1 : recharge la page pour remettre à jour tasksByProspect
+            // (impose un reload complet mais évite un endpoint dédié).
+            if (typeof window !== 'undefined') window.location.reload();
+          }}
         />
       )}
 

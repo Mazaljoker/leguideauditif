@@ -7,16 +7,20 @@ import Tabs from '../ui/react/Tabs';
 import ProspectFormFields from './ProspectFormFields';
 import ProspectCentresTab from './ProspectCentresTab';
 import ProspectHistoriqueTab from './ProspectHistoriqueTab';
+import TaskEditModal from '../tasks/TaskEditModal';
 import {
   PROSPECT_STATUS_LABELS,
   type Prospect,
 } from '../../../types/prospect';
+import type { Task, TaskWithOwner } from '../../../types/task';
 
 interface Props {
   prospect: Prospect;
+  nextTask?: Task | null;
   onClose: () => void;
   onSaved: (updated: Prospect) => void;
   onDeleted: (id: string) => void;
+  onTaskChanged?: () => void;
 }
 
 type TabId = 'info' | 'centres' | 'historique';
@@ -59,13 +63,32 @@ function CloseIcon() {
 
 export default function ProspectEditModal({
   prospect,
+  nextTask,
   onClose,
   onSaved,
   onDeleted,
+  onTaskChanged,
 }: Props) {
   const [activeTab, setActiveTab] = useState<TabId>('info');
   const [centresCount, setCentresCount] = useState<number | undefined>(undefined);
   const [interactionsCount, setInteractionsCount] = useState<number | undefined>(undefined);
+  const [taskModalOpen, setTaskModalOpen] = useState(false);
+  const [taskModalTask, setTaskModalTask] = useState<TaskWithOwner | null>(null);
+
+  function openTaskCreate() {
+    setTaskModalTask(null);
+    setTaskModalOpen(true);
+  }
+
+  function openTaskEdit(task: Task) {
+    // Enrichir Task → TaskWithOwner (prospectId/name déjà connus)
+    setTaskModalTask({
+      ...task,
+      owner_label: prospect.name,
+      owner_slug: prospect.id,
+    });
+    setTaskModalOpen(true);
+  }
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -122,12 +145,15 @@ export default function ProspectEditModal({
         {activeTab === 'info' && (
           <ProspectFormFields
             prospect={prospect}
+            nextTask={nextTask}
             onSaved={onSaved}
             onCancel={onClose}
             onDeleted={(id) => {
               onDeleted(id);
               onClose();
             }}
+            onEditTask={openTaskEdit}
+            onCreateTask={openTaskCreate}
           />
         )}
 
@@ -143,9 +169,27 @@ export default function ProspectEditModal({
             prospectId={prospect.id}
             prospectName={prospect.name}
             onCountChange={setInteractionsCount}
+            onCreateTask={openTaskCreate}
           />
         )}
       </div>
+
+      <TaskEditModal
+        isOpen={taskModalOpen}
+        onClose={() => setTaskModalOpen(false)}
+        task={taskModalTask}
+        prefillOwnerType="prospect"
+        prefillOwnerId={prospect.id}
+        prefillOwnerLabel={prospect.name}
+        onSaved={() => {
+          onTaskChanged?.();
+          setTaskModalOpen(false);
+        }}
+        onDeleted={() => {
+          onTaskChanged?.();
+          setTaskModalOpen(false);
+        }}
+      />
     </div>
   );
 }

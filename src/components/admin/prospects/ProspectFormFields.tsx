@@ -12,12 +12,17 @@ import {
   type ProspectStatus,
   type ProspectSource,
 } from '../../../types/prospect';
+import { TASK_CATEGORY_LABELS, type Task } from '../../../types/task';
+import { classifyNextAction } from '../../../lib/prospects';
 
 interface Props {
   prospect: Prospect;
+  nextTask?: Task | null;
   onSaved: (updated: Prospect) => void;
   onCancel: () => void;
   onDeleted: (id: string) => void;
+  onEditTask?: (task: Task) => void;
+  onCreateTask?: () => void;
 }
 
 interface FormState {
@@ -59,9 +64,12 @@ function formatMeta(iso: string): string {
 
 export default function ProspectFormFields({
   prospect,
+  nextTask,
   onSaved,
   onCancel,
   onDeleted,
+  onEditTask,
+  onCreateTask,
 }: Props) {
   const [form, setForm] = useState<FormState>(prospectToForm(prospect));
   const [loading, setLoading] = useState(false);
@@ -250,12 +258,11 @@ export default function ProspectFormFields({
         </div>
 
         <div className="md:col-span-2">
-          <div className="rounded-lg border border-dashed border-[#E4DED3] bg-[#FDFBF7] p-3 text-[12px] text-[#6B7A90] font-sans">
-            <strong className="text-[#1B2E4A]">Prochaine action</strong> — gérée désormais
-            depuis la page <a href="/admin/tasks" className="text-[#D97B3D] font-semibold hover:underline">Tâches</a>.
-            Les cards et rows de ce prospect affichent automatiquement la tâche
-            ouverte la plus proche.
-          </div>
+          <NextActionBlock
+            task={nextTask ?? null}
+            onEditTask={onEditTask}
+            onCreateTask={onCreateTask}
+          />
         </div>
 
         <div className="md:col-span-2">
@@ -314,6 +321,79 @@ export default function ProspectFormFields({
           Supprimer
         </Button>
       </div>
+    </div>
+  );
+}
+
+// ---------- NextActionBlock ----------
+// Affiche la prochaine tâche ouverte du prospect (ou CTA création si aucune).
+
+function NextActionBlock({
+  task,
+  onEditTask,
+  onCreateTask,
+}: {
+  task: Task | null;
+  onEditTask?: (task: Task) => void;
+  onCreateTask?: () => void;
+}) {
+  if (!task) {
+    return (
+      <div className="rounded-lg border border-dashed border-[#E4DED3] bg-[#FDFBF7] p-3 text-sm flex flex-wrap items-center justify-between gap-2 font-sans">
+        <span className="text-[12px] text-[#6B7A90]">
+          <strong className="text-[#1B2E4A]">Prochaine action</strong> — aucune tâche
+          ouverte pour ce prospect.
+        </span>
+        {onCreateTask && (
+          <button
+            type="button"
+            onClick={onCreateTask}
+            className="text-[#D97B3D] font-semibold text-xs hover:underline"
+          >
+            + Créer une tâche
+          </button>
+        )}
+      </div>
+    );
+  }
+
+  const temporal = classifyNextAction(task.due_at);
+  const dateCls =
+    temporal === 'overdue'
+      ? 'text-[#B34444] font-semibold'
+      : temporal === 'today'
+        ? 'text-[#D97B3D] font-semibold'
+        : 'text-[#6B7A90]';
+
+  const dueLabel = task.due_at
+    ? (() => {
+        const d = new Date(task.due_at);
+        const dateStr = d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+        const timeStr = d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+        if (temporal === 'overdue') return `En retard — ${dateStr} ${timeStr}`;
+        if (temporal === 'today') return `Aujourd'hui ${timeStr}`;
+        return `${dateStr} ${timeStr}`;
+      })()
+    : 'Pas de date';
+
+  return (
+    <div className="rounded-lg border border-[#E4DED3] bg-[#FDFBF7] p-3 flex items-start justify-between gap-3 font-sans">
+      <div className="min-w-0 flex-1">
+        <div className="text-[11px] font-semibold text-[#6B7A90] uppercase tracking-wide mb-0.5">
+          Prochaine action · {TASK_CATEGORY_LABELS[task.category]}
+        </div>
+        <div className="font-semibold text-sm text-[#1B2E4A] truncate">{task.title}</div>
+        <div className={`text-xs mt-0.5 ${dateCls}`}>{dueLabel}</div>
+      </div>
+      {onEditTask && (
+        <button
+          type="button"
+          onClick={() => onEditTask(task)}
+          className="text-[#D97B3D] font-semibold text-xs hover:underline flex-shrink-0"
+        >
+          Modifier
+        </button>
+      )}
     </div>
   );
 }
