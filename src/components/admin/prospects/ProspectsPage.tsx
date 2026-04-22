@@ -20,6 +20,11 @@ import type { Task } from '../../../types/task';
 interface Props {
   initialProspects: Prospect[];
   initialTasksByProspect?: Record<string, Task>;
+  /**
+   * Par prospect_id, chaîne concaténée des noms de centres liés + téléphones.
+   * Utilisée par le champ recherche pour matcher centre/téléphone sans refetch.
+   */
+  initialSearchBlobs?: Record<string, string>;
 }
 
 export interface ActiveFilters {
@@ -36,7 +41,11 @@ function readInitialView(): ProspectsView {
   return stored === 'list' || stored === 'pipeline' ? stored : 'pipeline';
 }
 
-export default function ProspectsPage({ initialProspects, initialTasksByProspect }: Props) {
+export default function ProspectsPage({
+  initialProspects,
+  initialTasksByProspect,
+  initialSearchBlobs,
+}: Props) {
   const [prospects, setProspects] = useState<Prospect[]>(initialProspects);
   // Transforme le Record reçu en Map React-friendly. Pas reactif : si une tâche
   // prospect change (édition modal), on ne re-fetch pas le map complet — acceptable V1
@@ -109,20 +118,34 @@ export default function ProspectsPage({ initialProspects, initialTasksByProspect
       result = result.filter((p) => p.is_fondateur);
     }
 
-    // Search (AND avec chips). normalizeForSearch = insensible casse + accents.
+    // Search (AND avec chips). Matche nom, company, city, cp, notes prospect
+    // + nom de chaque centre lié + téléphone (formaté ou digits-only).
     if (searchDebounced.trim()) {
       const q = normalizeForSearch(searchDebounced);
-      result = result.filter(
-        (p) =>
+      const qDigits = searchDebounced.replace(/\D/g, '');
+      result = result.filter((p) => {
+        if (
           normalizeForSearch(p.name).includes(q) ||
           normalizeForSearch(p.company).includes(q) ||
           normalizeForSearch(p.city).includes(q) ||
-          normalizeForSearch(p.cp).includes(q)
-      );
+          normalizeForSearch(p.cp).includes(q) ||
+          normalizeForSearch(p.notes).includes(q)
+        ) {
+          return true;
+        }
+        const blob = initialSearchBlobs?.[p.id];
+        if (!blob) return false;
+        if (normalizeForSearch(blob).includes(q)) return true;
+        // Téléphone : matche digits-only (ex : "0612" matche "06 12 34 56 78")
+        if (qDigits.length >= 3 && blob.replace(/\D/g, '').includes(qDigits)) {
+          return true;
+        }
+        return false;
+      });
     }
 
     return result;
-  }, [prospects, filters, searchDebounced]);
+  }, [prospects, filters, searchDebounced, initialSearchBlobs]);
 
   function handleCreated(p: Prospect) {
     setProspects((prev) => [p, ...prev]);

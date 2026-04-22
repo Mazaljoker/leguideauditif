@@ -137,7 +137,7 @@ export default function ProspectsChips({
         type="search"
         value={searchInput}
         onChange={(e) => onSearchChange(e.target.value)}
-        placeholder="Rechercher nom, centre, ville…"
+        placeholder="Rechercher nom, centre, téléphone, ville…"
         className="flex-1 min-w-[200px] border border-[#E4DED3] bg-[#F8F5F0] px-3 py-2 rounded-lg text-[13px] font-sans text-[#1B2E4A] focus:outline-none focus:ring-2 focus:ring-[#D97B3D] focus:ring-offset-1"
         aria-label="Rechercher un prospect"
       />

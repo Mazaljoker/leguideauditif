@@ -42,6 +42,25 @@ for (const t of (nextTasksRaw ?? []) as Task[]) {
     initialTasksByProspect[t.owner_id] = t;
   }
 }
+
+// Search blobs : par prospect_id, concatène noms centres + téléphones liés.
+// Permet la recherche côté client par "centre", "téléphone", etc.
+const { data: centresForSearchRaw } = prospectIds.length
+  ? await supabase
+      .from('prospect_centres')
+      .select('prospect_id, centre:centres_auditifs(nom, tel)')
+      .in('prospect_id', prospectIds)
+  : { data: [] as Array<{ prospect_id: string; centre: { nom: string | null; tel: string | null } | { nom: string | null; tel: string | null }[] | null }> };
+
+const initialSearchBlobs: Record<string, string> = {};
+for (const row of centresForSearchRaw ?? []) {
+  const centre = Array.isArray(row.centre) ? row.centre[0] : row.centre;
+  if (!centre) continue;
+  const telDigits = centre.tel ? centre.tel.replace(/\D/g, '') : '';
+  const parts = [centre.nom, centre.tel, telDigits].filter(Boolean) as string[];
+  const prev = initialSearchBlobs[row.prospect_id] ?? '';
+  initialSearchBlobs[row.prospect_id] = (prev + ' ' + parts.join(' ')).trim();
+}
 ---
 
 <BaseLayout title="Prospects — Admin LGA" description="Pipeline commercial LeGuideAuditif">
@@ -55,6 +74,7 @@ for (const t of (nextTasksRaw ?? []) as Task[]) {
         client:load
         initialProspects={prospects}
         initialTasksByProspect={initialTasksByProspect}
+        initialSearchBlobs={initialSearchBlobs}
       />
     </section>
   </main>
