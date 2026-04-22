@@ -18,6 +18,15 @@ interface Props {
   currentView: 'pipeline' | 'list';
 }
 
+function SearchIcon() {
+  return (
+    <svg className="w-4 h-4 text-[#6B7A90]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
+  );
+}
+
 export default function ProspectsChips({
   prospects,
   tasksByProspect,
@@ -76,71 +85,78 @@ export default function ProspectsChips({
   const isTousActive = filters.statuses.length === 0;
 
   return (
-    <div className="bg-white border border-[#E4DED3] rounded-xl p-3 mb-4 flex gap-2 flex-wrap items-center font-sans">
-      <Chip label="Tous" count={counts.tous} active={isTousActive} onClick={clickTous} />
-      <Chip
-        label="Prospect"
-        count={counts.prospect}
-        active={isStatusActive('prospect')}
-        onClick={() => toggleStatus('prospect')}
-      />
-      <Chip
-        label="Contacté"
-        count={counts.contacte}
-        active={isStatusActive('contacte')}
-        onClick={() => toggleStatus('contacte')}
-      />
-      <Chip
-        label="RDV"
-        count={counts.rdv}
-        active={isStatusActive('rdv')}
-        onClick={() => toggleStatus('rdv')}
-      />
-      <Chip
-        label="Proposition"
-        count={counts.proposition}
-        active={isStatusActive('proposition')}
-        onClick={() => toggleStatus('proposition')}
-      />
-      <Chip
-        label="Signé"
-        count={counts.signe}
-        active={isStatusActive('signe')}
-        onClick={() => toggleStatus('signe')}
-      />
-
-      <div className="w-px h-5 bg-[#E4DED3] mx-1" aria-hidden="true" />
-
-      <Chip
-        label="À faire"
-        count={counts.aFaire}
-        active={filters.aFaire}
-        onClick={toggleAFaire}
-      />
-      <Chip
-        label="Fondateur"
-        count={counts.fondateur}
-        active={filters.fondateur}
-        onClick={toggleFondateur}
-      />
-
-      {currentView === 'list' && (
+    <div className="bg-white border border-[#E4DED3] rounded-xl p-3 mb-4 font-sans">
+      <div className="flex gap-2 flex-wrap items-center">
+        <Chip label="Tous" count={counts.tous} active={isTousActive} onClick={clickTous} />
         <Chip
-          label="Perdu"
-          count={counts.perdu}
-          active={isStatusActive('perdu')}
-          onClick={() => toggleStatus('perdu')}
+          label="Prospect"
+          count={counts.prospect}
+          active={isStatusActive('prospect')}
+          onClick={() => toggleStatus('prospect')}
         />
-      )}
+        <Chip
+          label="Contacté"
+          count={counts.contacte}
+          active={isStatusActive('contacte')}
+          onClick={() => toggleStatus('contacte')}
+        />
+        <Chip
+          label="RDV"
+          count={counts.rdv}
+          active={isStatusActive('rdv')}
+          onClick={() => toggleStatus('rdv')}
+        />
+        <Chip
+          label="Proposition"
+          count={counts.proposition}
+          active={isStatusActive('proposition')}
+          onClick={() => toggleStatus('proposition')}
+        />
+        <Chip
+          label="Signé"
+          count={counts.signe}
+          active={isStatusActive('signe')}
+          onClick={() => toggleStatus('signe')}
+        />
 
-      <input
-        type="search"
-        value={searchInput}
-        onChange={(e) => onSearchChange(e.target.value)}
-        placeholder="Rechercher nom, centre, téléphone, ville…"
-        className="flex-1 min-w-[200px] border border-[#E4DED3] bg-[#F8F5F0] px-3 py-2 rounded-lg text-[13px] font-sans text-[#1B2E4A] focus:outline-none focus:ring-2 focus:ring-[#D97B3D] focus:ring-offset-1"
-        aria-label="Rechercher un prospect"
-      />
+        <div className="w-px h-5 bg-[#E4DED3] mx-1" aria-hidden="true" />
+
+        <Chip
+          label="À faire"
+          count={counts.aFaire}
+          active={filters.aFaire}
+          onClick={toggleAFaire}
+        />
+        <Chip
+          label="Fondateur"
+          count={counts.fondateur}
+          active={filters.fondateur}
+          onClick={toggleFondateur}
+        />
+
+        {currentView === 'list' && (
+          <Chip
+            label="Perdu"
+            count={counts.perdu}
+            active={isStatusActive('perdu')}
+            onClick={() => toggleStatus('perdu')}
+          />
+        )}
+      </div>
+
+      <div className="relative max-w-md mt-3">
+        <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
+          <SearchIcon />
+        </div>
+        <input
+          type="search"
+          value={searchInput}
+          onChange={(e) => onSearchChange(e.target.value)}
+          placeholder="Rechercher nom, centre, téléphone, ville…"
+          className="w-full min-h-10 pl-9 pr-3 py-2 border border-[#E4DED3] bg-white rounded-md text-sm font-sans text-[#1B2E4A] focus:outline-2 focus:outline-[#D97B3D]"
+          aria-label="Rechercher un prospect"
+        />
+      </div>
     </div>
   );
 }
