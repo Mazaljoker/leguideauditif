@@ -6,8 +6,20 @@ import { isValidUuid } from '../../../../../lib/prospects';
 import type { InteractionKind } from '../../../../../types/prospect';
 
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
-const VALID_KINDS: InteractionKind[] = ['dm', 'call', 'email', 'note', 'meeting', 'status_change'];
-const MAX_CONTENT = 5000;
+// Kinds acceptés via ce endpoint public admin.
+// status_change est volontairement exclu : inséré automatiquement par /move
+// quand l'utilisateur drag-and-drop une card kanban (pas saisissable à la main).
+// transcript_meet / transcript_call ajoutés par migration 013 (Phase 5.0).
+const VALID_KINDS: InteractionKind[] = [
+  'dm',
+  'call',
+  'email',
+  'note',
+  'meeting',
+  'transcript_meet',
+  'transcript_call',
+];
+const MAX_CONTENT = 50000;
 
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
