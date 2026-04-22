@@ -2,11 +2,29 @@
 // Affiche infos complètes + badge complétude + bouton détach + lien fiche LGA.
 
 import Button from '../ui/react/Button';
-import type { LinkedCentre } from '../../../types/prospect';
+import {
+  COMPLETENESS_FIELDS,
+  COMPLETENESS_FIELD_LABELS,
+  type LinkedCentre,
+} from '../../../types/prospect';
 
 interface Props {
   centre: LinkedCentre;
   onUnlink: () => void;
+}
+
+function computeMissingFields(centre: LinkedCentre): string[] {
+  const missing: string[] = [];
+  for (const f of COMPLETENESS_FIELDS) {
+    const v = centre[f];
+    const isEmpty =
+      v === null ||
+      v === undefined ||
+      (Array.isArray(v) && v.length === 0) ||
+      (typeof v === 'string' && v.trim() === '');
+    if (isEmpty) missing.push(COMPLETENESS_FIELD_LABELS[f]);
+  }
+  return missing;
 }
 
 function XIcon() {
@@ -27,24 +45,37 @@ function XIcon() {
   );
 }
 
-function CompletenessBadge({ pct }: { pct: number }) {
+function CompletenessBadge({ pct, missing }: { pct: number; missing: string[] }) {
   const color =
     pct >= 80
       ? 'bg-[#E3F0EA] text-[#2F7A5A]'
       : pct >= 50
         ? 'bg-[#FBEFD8] text-[#B8761F]'
         : 'bg-[#F6E3E3] text-[#B34444]';
+  const missingLabel =
+    missing.length === 0
+      ? 'Fiche complète'
+      : `Manque : ${missing.join(', ')}`;
   return (
-    <span
-      className={`text-[11px] font-semibold px-2 py-1 rounded ${color}`}
-      aria-label={`Complétude ${pct} pour cent`}
-    >
-      {pct}%
-    </span>
+    <div className="flex flex-col items-end gap-0.5 min-w-0">
+      <span
+        className={`text-[11px] font-semibold px-2 py-1 rounded ${color}`}
+        aria-label={`Complétude ${pct} pour cent. ${missingLabel}`}
+        title={missingLabel}
+      >
+        {pct}%
+      </span>
+      {missing.length > 0 && (
+        <span className="text-[10px] text-[#6B7A90] text-right leading-tight max-w-[180px]">
+          Manque : {missing.join(', ')}
+        </span>
+      )}
+    </div>
   );
 }
 
 export default function LinkedCentreCard({ centre, onUnlink }: Props) {
+  const missing = computeMissingFields(centre);
   return (
     <div className="border border-[#E4DED3] rounded-lg p-4 bg-white font-sans">
       <div className="flex items-start justify-between gap-3 mb-3">
@@ -69,8 +100,8 @@ export default function LinkedCentreCard({ centre, onUnlink }: Props) {
           )}
         </div>
 
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <CompletenessBadge pct={centre.completeness_pct} />
+        <div className="flex items-start gap-2 flex-shrink-0">
+          <CompletenessBadge pct={centre.completeness_pct} missing={missing} />
           <Button variant="icon" onClick={onUnlink} aria-label="Détacher ce centre">
             <XIcon />
           </Button>

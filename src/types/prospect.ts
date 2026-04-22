@@ -221,3 +221,13 @@ export const WAALAXY_STATE_LABELS: Record<WaalaxyState, string> = {
 export const COMPLETENESS_FIELDS: Array<keyof CentreAuditif> = [
   'tel', 'site_web', 'a_propos', 'photo_url', 'specialites', 'marques', 'email',
 ];
+
+export const COMPLETENESS_FIELD_LABELS: Record<(typeof COMPLETENESS_FIELDS)[number], string> = {
+  tel: 'Téléphone',
+  site_web: 'Site web',
+  a_propos: 'Description',
+  photo_url: 'Photo',
+  specialites: 'Spécialités',
+  marques: 'Marques',
+  email: 'E-mail',
+};
