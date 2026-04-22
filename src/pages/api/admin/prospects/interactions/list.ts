@@ -1,7 +1,6 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { createClient } from '@supabase/supabase-js';
 import { createServerClient } from '../../../../../lib/supabase';
 import { isValidUuid } from '../../../../../lib/prospects';
 
@@ -9,33 +8,17 @@ const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
 
 // POST pour un read : viole REST mais suit la convention maison du repo
 // (toutes les routes /api/admin sont POST+body JSON — voir PRD §4.2).
-export const POST: APIRoute = async ({ request, cookies }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
-    const accessToken = cookies.get('sb-access-token')?.value;
-    const refreshToken = cookies.get('sb-refresh-token')?.value;
-
-    if (!accessToken || !refreshToken) {
-      return new Response(
-        JSON.stringify({ error: 'Non autorisé.' }),
-        { status: 401, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
-    const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
-    const authClient = createClient(supabaseUrl, supabaseAnonKey);
-    const { data: { user } } = await authClient.auth.setSession({
-      access_token: accessToken,
-      refresh_token: refreshToken,
-    });
-
+    // Auth via middleware SSR (locals.user) — évite la 2e setSession qui
+    // consomme le rotating refresh token déjà utilisé par le middleware.
+    const user = locals.user;
     if (!user || user.email !== ADMIN_EMAIL) {
       return new Response(
         JSON.stringify({ error: 'Non autorisé.' }),
         { status: 401, headers: { 'Content-Type': 'application/json' } }
       );
     }
-
     const body = await request.json();
     const { prospect_id } = body ?? {};
 
