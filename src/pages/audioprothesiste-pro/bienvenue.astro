@@ -1,0 +1,128 @@
+---
+export const prerender = false;
+
+// Page tiers état : utilisateur authentifié mais sans fiche revendiquée
+// approuvée. Affiche un accueil avec :
+//   - Rappel de l'email connecté
+//   - CTA principal : aller sur la carte pour trouver sa fiche
+//   - CTA secondaire : se déconnecter (utile si le user a loggé le mauvais
+//     compte Google par erreur, ou veut utiliser un compte pro distinct)
+//
+// Si l'user a déjà au moins une fiche approved, on redirige vers le
+// dashboard espace pro. Évite que la page soit accessible par erreur
+// aux pros "légitimes".
+
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { createServerClient } from '../../lib/supabase';
+import { getUserCentres } from '../../lib/audiopro';
+
+const user = Astro.locals.user;
+if (!user || !user.email) return Astro.redirect('/connexion-pro/');
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+if (centres.length > 0) return Astro.redirect('/audioprothesiste-pro/');
+
+// Détecter si une revendication est en cours (claim pending)
+const { data: pendingCentre } = await supabase
+  .from('centres_auditifs')
+  .select('slug, nom, ville, cp')
+  .eq('claimed_by_email', user.email)
+  .eq('claim_status', 'pending')
+  .limit(1)
+  .maybeSingle();
+---
+
+<BaseLayout
+  title="Bienvenue sur votre espace pro — LeGuideAuditif"
+  description="Aucune fiche revendiquée n'est associée à votre compte."
+  noindex={true}
+>
+  <meta slot="head" name="robots" content="noindex, nofollow" />
+
+  <section class="max-w-xl mx-auto px-4 py-12">
+    <div class="rounded-xl border border-gris-clair bg-blanc p-6 sm:p-8 shadow-sm">
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 rounded-full bg-marine/10 flex items-center justify-center mx-auto mb-4">
+          <Icon name="lucide:user-check" class="w-7 h-7 text-marine" />
+        </div>
+        <h1 class="font-sans text-xl sm:text-2xl font-bold text-marine">Bienvenue sur votre espace pro</h1>
+        <p class="text-sm text-gris-texte font-sans mt-2">
+          Vous êtes connecté avec <strong class="text-marine">{user.email}</strong>.
+        </p>
+      </div>
+
+      {pendingCentre ? (
+        <div class="rounded-lg border border-[#EFD5A0] bg-[#FAEEDA] p-4 mb-6">
+          <div class="flex items-start gap-3">
+            <Icon name="lucide:clock" class="w-5 h-5 text-[#854F0B] shrink-0 mt-0.5" />
+            <div>
+              <p class="text-sm font-sans font-semibold text-[#633806]">Vérification en cours</p>
+              <p class="text-xs text-[#854F0B] font-sans mt-1">
+                Votre revendication pour <strong>{pendingCentre.nom}</strong>
+                {pendingCentre.ville ? ` à ${pendingCentre.ville}` : ''} est en cours de vérification.
+                Vous recevrez un email sous 24 h dès que la validation sera effectuée.
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="rounded-lg border border-marine/20 bg-marine/5 p-4 mb-6">
+          <div class="flex items-start gap-3">
+            <Icon name="lucide:info" class="w-5 h-5 text-marine shrink-0 mt-0.5" />
+            <div>
+              <p class="text-sm font-sans font-semibold text-marine">Aucune fiche n'est encore revendiquée</p>
+              <p class="text-xs text-gris-texte font-sans mt-1">
+                Pour accéder à votre espace pro, retrouvez votre centre audioprothèse sur la carte
+                et revendiquez votre fiche. La revendication est gratuite.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div class="space-y-3">
+        {!pendingCentre && (
+          <a
+            href="/trouver-audioprothesiste/"
+            class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-orange px-6 py-3 text-base font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/50"
+            style="min-height: 48px;"
+          >
+            <Icon name="lucide:map-pin" class="w-5 h-5" />
+            Trouver ma fiche sur la carte
+          </a>
+        )}
+
+        <button
+          type="button"
+          id="logout-btn"
+          class="w-full inline-flex items-center justify-center gap-2 rounded-lg border-2 border-marine px-6 py-3 text-base font-semibold text-marine font-sans transition-colors hover:bg-marine hover:text-blanc focus:outline-none focus:ring-2 focus:ring-marine/30 disabled:opacity-60"
+          style="min-height: 48px;"
+        >
+          <Icon name="lucide:log-out" class="w-5 h-5" />
+          Se déconnecter
+        </button>
+      </div>
+
+      <p class="text-xs text-gris-texte font-sans text-center mt-6 pt-6 border-t border-gris-clair">
+        Besoin d'aide ? <a href="/contact/" class="text-orange font-medium hover:underline">Contactez-nous</a>.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    import { signOut } from '../../lib/auth';
+
+    const logoutBtn = document.getElementById('logout-btn') as HTMLButtonElement;
+    logoutBtn.addEventListener('click', async () => {
+      logoutBtn.disabled = true;
+      logoutBtn.textContent = 'Déconnexion…';
+      // Invalide la session Supabase côté client
+      await signOut();
+      // Supprime les cookies côté serveur (sb-access, sb-refresh, lga_centre_slug)
+      await fetch('/api/auth/logout', { method: 'POST' });
+      window.location.href = '/';
+    });
+  </script>
+</BaseLayout>

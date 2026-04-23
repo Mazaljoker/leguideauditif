@@ -39,7 +39,10 @@ const centres = await getUserCentres(supabase, user.email);
 if (centres.length === 0) {
   // L'utilisateur est bien connecté mais n'a pas de centre approved.
   // Soit la revendication est encore pending, soit jamais faite.
-  return Astro.redirect('/trouver-audioprothesiste/');
+  // On l'envoie sur /bienvenue/ qui affiche un tiers état avec logout
+  // + CTA revendiquer, plutôt que de le jeter sur la carte publique
+  // sans moyen de se déconnecter.
+  return Astro.redirect('/audioprothesiste-pro/bienvenue/');
 }
 
 const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;

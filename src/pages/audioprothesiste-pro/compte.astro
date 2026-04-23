@@ -11,7 +11,7 @@ if (!user || !user.email) return Astro.redirect('/connexion-pro/');
 
 const supabase = createServerClient();
 const centres = await getUserCentres(supabase, user.email);
-if (centres.length === 0) return Astro.redirect('/trouver-audioprothesiste/');
+if (centres.length === 0) return Astro.redirect('/audioprothesiste-pro/bienvenue/');
 
 const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
 const active = resolveActiveCentre(centres, cookieSlug);
