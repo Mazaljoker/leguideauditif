@@ -12,6 +12,8 @@ import SectionHeader from '../shared/SectionHeader.astro';
 import KPICard from '../shared/KPICard.astro';
 import QuickAccess from '../shared/QuickAccess.astro';
 import CompletudeBar from '../shared/CompletudeBar.astro';
+import AudioAvatar from '../shared/AudioAvatar.astro';
+import FlagshipProducts from '../shared/FlagshipProducts.astro';
 import LeviersActifs from './LeviersActifs.astro';
 import type { ActionPrioritaireInfo } from '../../../types/audiopro';
 import type { CentreData } from '../../../types/centre';
@@ -24,6 +26,7 @@ export interface Props {
   zoneChalandise: number | null;
   completeness: number;
   action?: ActionPrioritaireInfo;
+  audioPhotoUrl?: string | null;
 }
 
 const {
@@ -34,7 +37,17 @@ const {
   zoneChalandise,
   completeness,
   action,
+  audioPhotoUrl,
 } = Astro.props;
+
+// Nom complet de l'audioprothésiste à afficher en header. Priorité :
+//   1. audio_prenom + audio_nom (RPPS source)
+//   2. claimed_by_name (auto-saisi au claim)
+//   3. prenom du user (fallback dernier recours)
+const audioFullName =
+  centre.audio_prenom && centre.audio_nom
+    ? `${centre.audio_prenom} ${centre.audio_nom}`
+    : centre.claimed_by_name || prenom;
 
 const zoneValue =
   zoneChalandise === null
@@ -55,14 +68,20 @@ const completenessStepsDone = Math.round((completeness / 100) * completenessStep
 ---
 
 <header class="mb-6 sm:mb-8">
-  <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">
+  <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine mb-4">
     Bonjour {prenom}
   </h1>
-  <p class="text-sm sm:text-base font-sans text-gris-texte mt-1">
-    Votre centre <strong class="text-marine">{centre.nom}</strong>
-    {centre.ville ? ` à ${centre.ville}` : ''}
-    · Plan Premium actif
-  </p>
+  <div class="rounded-xl bg-blanc border border-gris-clair p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+    <AudioAvatar
+      photoUrl={audioPhotoUrl}
+      name={audioFullName}
+      sublabel={`${centre.nom}${centre.ville ? ' · ' + centre.ville : ''}`}
+      size="lg"
+    />
+    <span class="inline-flex items-center gap-1.5 rounded-full bg-orange/10 text-orange px-3 py-1 text-xs font-sans font-bold uppercase tracking-wide sm:ml-auto shrink-0 self-start sm:self-auto">
+      Plan Premium actif
+    </span>
+  </div>
 </header>
 
 {action && (
@@ -134,6 +153,8 @@ const completenessStepsDone = Math.round((completeness / 100) * completenessStep
   </div>
   <CompletudeBar done={completenessStepsDone} total={completenessStepsTotal} labelDone="éléments" />
 </section>
+
+<FlagshipProducts />
 
 <QuickAccess
   links={[

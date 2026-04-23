@@ -56,8 +56,10 @@ const isPreview = previewState !== null;
 // ------------------------------------------------------------
 const metadata = (user as { user_metadata?: Record<string, unknown> }).user_metadata ?? {};
 const metaGivenName = typeof metadata.given_name === 'string' ? metadata.given_name.trim() : '';
+const metaFamilyName = typeof metadata.family_name === 'string' ? metadata.family_name.trim() : '';
 const metaFullName = typeof metadata.full_name === 'string' ? metadata.full_name.trim() : '';
 const metaName = typeof metadata.name === 'string' ? metadata.name.trim() : '';
+const metaPicture = typeof metadata.picture === 'string' ? metadata.picture : null;
 const claimedFirstName = centre.claimed_by_name?.split(' ')[0]?.trim() ?? '';
 const emailLocal = (user.email ?? '').split('@')[0]?.trim() ?? '';
 
@@ -68,6 +70,13 @@ const prenom =
   claimedFirstName ||
   (emailLocal ? emailLocal.charAt(0).toUpperCase() + emailLocal.slice(1) : '') ||
   'Docteur';
+
+const nomFamille =
+  metaFamilyName ||
+  metaFullName.split(' ').slice(1).join(' ') ||
+  metaName.split(' ').slice(1).join(' ') ||
+  centre.claimed_by_name?.split(' ').slice(1).join(' ') ||
+  '';
 
 // ------------------------------------------------------------
 // Stats centre actif (vues 30j + leads 30j) — utilisées par les 3 states
@@ -115,8 +124,6 @@ async function computeReseauAggregates(
     positionRank: null,
     positionTotal: null,
     vues30j: vues,
-    reviewScore: null,
-    reviewCount: null,
     completeness: 0,
   }));
 
@@ -233,12 +240,16 @@ const previewRevendicateurCentre = makeMockCentre();
       zoneChalandise={estimateZoneChalandise(centre.cp)}
       completeness={completeness}
       action={computeActionPremium(centre, completeness)}
+      audioPhotoUrl={metaPicture}
     />
   )}
 
   {state === 'reseau' && (
     <DashboardReseau
       prenom={isPreview ? 'Anthony' : prenom}
+      nom={isPreview ? 'Athuil' : nomFamille}
+      audioPhotoUrl={isPreview ? null : metaPicture}
+      reseauLabel={isPreview ? '3 centres · Réseau Laboratoire Auditif Athuil' : undefined}
       nbCentres={isPreview ? 3 : centres.length}
       villesLabel={
         isPreview

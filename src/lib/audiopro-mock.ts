@@ -60,8 +60,6 @@ export const mockReseauRows: CentreTableRow[] = [
     positionRank: 3,
     positionTotal: 47,
     vues30j: 5,
-    reviewScore: 4.7,
-    reviewCount: 47,
     completeness: 89,
   },
   {
@@ -74,8 +72,6 @@ export const mockReseauRows: CentreTableRow[] = [
     positionRank: null,
     positionTotal: null,
     vues30j: 1,
-    reviewScore: 4.6,
-    reviewCount: 28,
     completeness: 76,
   },
   {
@@ -88,8 +84,6 @@ export const mockReseauRows: CentreTableRow[] = [
     positionRank: null,
     positionTotal: null,
     vues30j: 1,
-    reviewScore: 4.5,
-    reviewCount: 19,
     completeness: 82,
   },
 ];

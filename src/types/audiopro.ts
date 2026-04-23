@@ -57,7 +57,5 @@ export interface CentreTableRow {
   positionRank: number | null;
   positionTotal: number | null;
   vues30j: number;
-  reviewScore: number | null;
-  reviewCount: number | null;
   completeness: number;
 }

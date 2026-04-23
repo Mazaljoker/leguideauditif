@@ -1,0 +1,93 @@
+---
+// Section "Appareils phares" en bas des dashboards Premium (solo + réseau).
+// Liens vers les comparatifs existants pour aider l'audio à orienter
+// ses patients et enrichir sa veille produit. Contenu statique en Phase 1 ;
+// en Phase 2 on pourra rendre éditable depuis l'espace pro pour que chaque
+// audio sélectionne ses propres flagships.
+
+import { Icon } from 'astro-icon/components';
+
+const products: Array<{
+  title: string;
+  desc: string;
+  classe: 'Classe 1' | 'Classe 2' | 'Tous';
+  href: string;
+  icon: string;
+}> = [
+  {
+    title: 'Meilleur appareil Classe 1',
+    desc: '100% Santé — les modèles à recommander en premier quand le reste à charge compte.',
+    classe: 'Classe 1',
+    href: '/comparatifs/meilleur-appareil-classe-1/',
+    icon: 'lucide:shield-check',
+  },
+  {
+    title: 'Meilleur appareil Classe 2',
+    desc: 'Les flagships haut de gamme 2026 — Phonak Sphere, Oticon Intent, Signia IX.',
+    classe: 'Classe 2',
+    href: '/comparatifs/meilleur-appareil-auditif-2026/',
+    icon: 'lucide:sparkles',
+  },
+  {
+    title: 'Intra-auriculaires',
+    desc: 'Comparatif des modèles CIC/ITE discrets pour patients attentifs à l\'esthétique.',
+    classe: 'Tous',
+    href: '/comparatifs/meilleur-intra-auriculaire/',
+    icon: 'lucide:ear',
+  },
+  {
+    title: 'Solutions acouphènes',
+    desc: 'Appareils avec générateur de bruit intégré et programmes masqueurs.',
+    classe: 'Tous',
+    href: '/comparatifs/meilleur-appareil-acouphenes/',
+    icon: 'lucide:volume-2',
+  },
+];
+---
+
+<section class="mb-10">
+  <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mt-2 mb-4">
+    <div>
+      <h2 class="font-sans text-base sm:text-lg font-bold text-marine">Appareils phares à recommander</h2>
+      <p class="text-xs sm:text-sm text-gris-texte font-sans mt-0.5">
+        Nos comparatifs pour orienter vos patients sur chaque classe
+      </p>
+    </div>
+    <a
+      href="/comparatifs/"
+      class="inline-flex items-center gap-1.5 rounded-lg border border-gris-clair bg-blanc px-4 py-2 text-sm font-sans font-semibold text-marine hover:border-orange/40 transition-colors self-start sm:self-auto"
+      style="min-height: 44px;"
+    >
+      Tous les comparatifs
+      <Icon name="lucide:arrow-right" class="w-4 h-4" />
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    {products.map((p) => (
+      <a
+        href={p.href}
+        class="group min-w-0 rounded-xl bg-blanc border border-gris-clair p-5 hover:border-orange/40 transition-colors overflow-hidden block"
+      >
+        <div class="flex items-start gap-3 mb-2">
+          <div class="w-10 h-10 rounded-full bg-[#FEF3E7] text-orange flex items-center justify-center shrink-0">
+            <Icon name={p.icon} class="w-5 h-5" />
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="text-[11px] font-sans font-bold uppercase tracking-wide text-orange mb-0.5">
+              {p.classe}
+            </p>
+            <h3 class="font-sans text-base font-bold text-marine group-hover:text-orange transition-colors truncate">
+              {p.title}
+            </h3>
+          </div>
+        </div>
+        <p class="text-sm text-gris-texte font-sans leading-snug">{p.desc}</p>
+        <p class="text-sm font-sans font-semibold text-orange mt-3 inline-flex items-center gap-1">
+          Voir la fiche produit
+          <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
+        </p>
+      </a>
+    ))}
+  </div>
+</section>
