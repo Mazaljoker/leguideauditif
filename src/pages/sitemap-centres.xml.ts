@@ -10,6 +10,7 @@ export const GET: APIRoute = async () => {
     .from('centres_auditifs')
     .select('slug, updated_at, plan')
     .in('plan', ['claimed', 'premium'])
+    .eq('is_demo', false)
     .order('slug');
 
   if (error || !centres) {

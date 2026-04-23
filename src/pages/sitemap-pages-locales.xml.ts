@@ -33,6 +33,7 @@ export const GET: APIRoute = async () => {
     const { data, error } = await supabase
       .from('centres_auditifs')
       .select('ville, cp')
+      .eq('is_demo', false)
       .not('ville', 'is', null)
       .not('cp', 'is', null)
       .range(offset, offset + PAGE_SIZE - 1);

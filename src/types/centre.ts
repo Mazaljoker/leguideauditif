@@ -28,6 +28,7 @@ export interface CentreData {
   claimed_by_email: string | null;
   claimed_at: string | null;
   claim_status: 'none' | 'pending' | 'approved' | 'rejected';
+  is_demo?: boolean;
 }
 
 export type CentrePlan = 'rpps' | 'claimed' | 'premium';

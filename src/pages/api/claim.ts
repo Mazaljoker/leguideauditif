@@ -65,7 +65,7 @@ export const POST: APIRoute = async ({ request, clientAddress, cookies }) => {
     // Verifier que le centre existe et n'est pas deja revendique
     const { data: centre, error: fetchError } = await supabase
       .from('centres_auditifs')
-      .select('id, slug, nom, plan, claim_status')
+      .select('id, slug, nom, plan, claim_status, is_demo')
       .eq('slug', centreSlug)
       .single();
 
@@ -73,6 +73,14 @@ export const POST: APIRoute = async ({ request, clientAddress, cookies }) => {
       return new Response(
         JSON.stringify({ error: 'Centre introuvable.' }),
         { status: 404, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Les fiches de démonstration ne peuvent pas être revendiquées.
+    if (centre.is_demo === true) {
+      return new Response(
+        JSON.stringify({ error: 'Ce centre ne peut pas être revendiqué.' }),
+        { status: 403, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
