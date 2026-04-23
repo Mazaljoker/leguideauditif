@@ -85,17 +85,6 @@ const oneTapEnabled = googleClientId.length > 0;
         >
           Mot de passe
         </button>
-        <button
-          type="button"
-          class="auth-tab"
-          data-tab="google"
-          role="tab"
-          aria-selected="false"
-          aria-controls="panel-google"
-          id="tab-google"
-        >
-          Google
-        </button>
       </div>
 
       {/* Panel Magic Link */}
@@ -188,34 +177,6 @@ const oneTapEnabled = googleClientId.length > 0;
         </form>
       </section>
 
-      {/* Panel Google */}
-      <section
-        id="panel-google"
-        class="auth-panel hidden"
-        role="tabpanel"
-        aria-labelledby="tab-google"
-      >
-        <p class="text-sm text-gris-texte font-sans mb-5">
-          Connectez-vous avec votre compte Google professionnel.
-          L'email Google doit correspondre à celui utilisé pour revendiquer votre fiche.
-        </p>
-        <button
-          type="button"
-          id="google-btn"
-          class="w-full inline-flex items-center justify-center gap-3 rounded-lg border-2 border-gris-clair bg-blanc px-6 py-3 text-base font-semibold text-marine font-sans transition-colors hover:border-marine hover:bg-creme focus:outline-none focus:ring-2 focus:ring-marine/30 cursor-pointer disabled:opacity-60"
-          style="min-height: 48px;"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-          </svg>
-          Se connecter avec Google
-        </button>
-        <div id="google-error" class="hidden mt-3 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
-      </section>
-
       <p class="text-xs text-gris-texte font-sans text-center mt-6 pt-6 border-t border-gris-clair">
         Pas encore de fiche ? <a href="/trouver-audioprothesiste/" class="text-orange font-medium hover:underline">Trouvez votre centre</a> et revendiquez-le gratuitement.
       </p>
@@ -263,7 +224,6 @@ const oneTapEnabled = googleClientId.length > 0;
     import {
       signInProWithMagicLink,
       signInProWithPassword,
-      signInProWithGoogle,
       signInProWithGoogleIdToken,
       generateGoogleNonce,
     } from '../lib/auth';
@@ -352,21 +312,6 @@ const oneTapEnabled = googleClientId.length > 0;
       window.location.href = '/audioprothesiste-pro/';
     });
 
-    // --- Google OAuth (fallback redirect) ---
-    const googleBtn = document.getElementById('google-btn') as HTMLButtonElement;
-    const googleError = document.getElementById('google-error') as HTMLElement;
-    googleBtn.addEventListener('click', async () => {
-      googleError.classList.add('hidden');
-      googleBtn.disabled = true;
-      const { error } = await signInProWithGoogle();
-      if (error) {
-        googleError.textContent = error.message || 'Connexion Google impossible.';
-        googleError.classList.remove('hidden');
-        googleBtn.disabled = false;
-      }
-      // Sinon Supabase redirige automatiquement vers Google.
-    });
-
     // --- Google One Tap + bouton Sign in with Google ---
     // Activé si PUBLIC_GOOGLE_CLIENT_ID est défini. Le script GSI est
     // chargé async ; on attend sa disponibilité puis on configure le
@@ -381,7 +326,10 @@ const oneTapEnabled = googleClientId.length > 0;
     async function initOneTap(clientId: string) {
       // Attendre que le script GSI ait défini window.google.accounts.id
       const gsi = await waitForGsi(5000);
-      if (!gsi) return;
+      if (!gsi) {
+        console.warn('[gsi] Script GSI indisponible après 5s — bouton One Tap désactivé');
+        return;
+      }
 
       const { nonce, hashedNonce } = await generateGoogleNonce();
       // Stocker le nonce en clair pour le callback (consommé une fois)
@@ -390,26 +338,45 @@ const oneTapEnabled = googleClientId.length > 0;
       const gsiError = document.getElementById('gsi-error') as HTMLElement | null;
       const btnContainer = document.getElementById('google-one-tap-btn');
 
+      function showError(msg: string) {
+        console.error('[gsi]', msg);
+        if (gsiError) {
+          gsiError.textContent = msg;
+          gsiError.classList.remove('hidden');
+        }
+      }
+
+      // Le callback de GSI n'est PAS async — on déclenche le flow asynchrone
+      // via une fonction séparée pour que GSI reçoive une fonction synchrone
+      // (certaines versions du SDK tolèrent mal les Promise retournées ici).
+      function onGoogleCredential(response: { credential?: string }) {
+        console.log('[gsi] credential received', { hasCredential: !!response?.credential });
+        const credential = response?.credential;
+        if (!credential) {
+          showError('Réponse Google vide. Réessayez.');
+          return;
+        }
+        void handleGoogleLogin(credential);
+      }
+
+      async function handleGoogleLogin(credential: string) {
+        try {
+          const n = (window as unknown as { __gsiNonce?: string }).__gsiNonce ?? '';
+          const { data, error } = await signInProWithGoogleIdToken(credential, n);
+          if (error) throw error;
+          if (!data?.session) throw new Error('Session vide côté Supabase.');
+          document.cookie = `sb-access-token=${data.session.access_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
+          document.cookie = `sb-refresh-token=${data.session.refresh_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
+          window.location.href = '/audioprothesiste-pro/';
+        } catch (err: unknown) {
+          const msg = err instanceof Error ? err.message : 'Connexion Google impossible.';
+          showError(msg);
+        }
+      }
+
       gsi.initialize({
         client_id: clientId,
-        callback: async (response: { credential: string }) => {
-          try {
-            const credential = response?.credential;
-            if (!credential) throw new Error('Réponse Google invalide.');
-            const n = (window as unknown as { __gsiNonce?: string }).__gsiNonce ?? '';
-            const { data, error } = await signInProWithGoogleIdToken(credential, n);
-            if (error || !data?.session) throw error ?? new Error('Session vide');
-            document.cookie = `sb-access-token=${data.session.access_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
-            document.cookie = `sb-refresh-token=${data.session.refresh_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
-            window.location.href = '/audioprothesiste-pro/';
-          } catch (err: unknown) {
-            const msg = err instanceof Error ? err.message : 'Connexion Google impossible.';
-            if (gsiError) {
-              gsiError.textContent = msg;
-              gsiError.classList.remove('hidden');
-            }
-          }
-        },
+        callback: onGoogleCredential,
         nonce: hashedNonce,
         use_fedcm_for_prompt: true,
         itp_support: true,
@@ -418,18 +385,39 @@ const oneTapEnabled = googleClientId.length > 0;
       });
 
       if (btnContainer) {
-        gsi.renderButton(btnContainer, {
-          theme: 'outline',
-          size: 'large',
-          text: 'signin_with',
-          shape: 'pill',
-          logo_alignment: 'left',
-          width: 260,
-        });
+        try {
+          gsi.renderButton(btnContainer, {
+            theme: 'outline',
+            size: 'large',
+            text: 'continue_with',
+            shape: 'rectangular',
+            logo_alignment: 'left',
+            width: 320,
+          });
+        } catch (err) {
+          console.error('[gsi] renderButton failed', err);
+        }
       }
 
-      // Proposer le One Tap popup. Silencieux si user l'a rejeté ≥3 fois ou si navigateur ne supporte pas.
-      gsi.prompt();
+      // Proposer le One Tap popup. Un listener affiche les raisons de skip
+      // côté console si FedCM/cookies tiers bloquent le prompt.
+      gsi.prompt((notification: unknown) => {
+        const n = notification as {
+          isNotDisplayed?: () => boolean;
+          getNotDisplayedReason?: () => string;
+          isSkippedMoment?: () => boolean;
+          getSkippedReason?: () => string;
+          isDismissedMoment?: () => boolean;
+          getDismissedReason?: () => string;
+        };
+        if (n.isNotDisplayed?.()) {
+          console.info('[gsi] One Tap non affiché :', n.getNotDisplayedReason?.());
+        } else if (n.isSkippedMoment?.()) {
+          console.info('[gsi] One Tap skippé :', n.getSkippedReason?.());
+        } else if (n.isDismissedMoment?.()) {
+          console.info('[gsi] One Tap fermé :', n.getDismissedReason?.());
+        }
+      });
     }
 
     interface GsiApi {
