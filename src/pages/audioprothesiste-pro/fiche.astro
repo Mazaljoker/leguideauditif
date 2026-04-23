@@ -179,7 +179,9 @@ const isPremium = centre.plan === 'premium';
             Horaires d'ouverture
           </label>
           <input type="hidden" id="edit-horaires" name="horaires" value={centre.horaires || ''} />
-          <div class="grid grid-cols-3 gap-3">
+
+          {/* Mode simple : 3 selects (la majorité des cas) */}
+          <div class="grid grid-cols-3 gap-3" id="horaires-simple">
             <div>
               <label for="h-ouverture" class="block text-xs text-gris-texte font-sans mb-1">Ouverture</label>
               <select id="h-ouverture" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc">
@@ -214,6 +216,29 @@ const isPremium = centre.plan === 'premium';
               </select>
             </div>
           </div>
+
+          {/* Mode avancé : textarea libre pour horaires détaillés + présence audio */}
+          <details id="horaires-avance-details" class="mt-3 rounded-lg border border-gris-clair bg-creme/50 group">
+            <summary class="cursor-pointer px-4 py-3 text-sm font-sans font-medium text-marine flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden">
+              <Icon name="lucide:chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90" />
+              <Icon name="lucide:pen-line" class="w-4 h-4 text-orange" />
+              <span>Préciser mes horaires en texte libre</span>
+              <span class="text-xs font-normal text-gris-texte ml-auto">optionnel</span>
+            </summary>
+            <div class="px-4 pb-4 pt-1">
+              <textarea
+                id="edit-horaires-libre"
+                rows="3"
+                maxlength="300"
+                placeholder="Ex : Lun-Ven 9h-13h / 14h-18h30, fermé jeudi après-midi. Audioprothésiste DE présent mardi et vendredi uniquement. Sur RDV le samedi matin."
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 resize-y"
+              ></textarea>
+              <p class="text-xs text-gris-texte font-sans mt-2 flex items-start gap-1.5">
+                <Icon name="lucide:info" class="w-3.5 h-3.5 mt-0.5 shrink-0 text-marine" />
+                <span>Si ce champ est rempli, il remplace les horaires simples ci-dessus sur votre fiche publique. Parfait pour préciser les jours de présence de l'audioprothésiste, les pauses déjeuner ou les fermetures spéciales.</span>
+              </p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -425,20 +450,54 @@ const isPremium = centre.plan === 'premium';
     const hFermeture = document.getElementById('h-fermeture');
     const hSamedi = document.getElementById('h-samedi');
     const hHidden = document.getElementById('edit-horaires');
+    const hLibre = document.getElementById('edit-horaires-libre');
+    const hAvanceDetails = document.getElementById('horaires-avance-details');
+
+    // Tente de parser les horaires au format généré par les selects.
+    // Retourne true si le format match, false sinon (→ le textarea libre
+    // prend le relais en pré-remplissant avec la valeur brute).
+    function tryPreFillSelects(value) {
+      let parsed = false;
+      const match = value.match(/Lun-Ven\s+(\d+h\d*)-(\d+h\d*)/);
+      if (match) {
+        const openVals = Array.from(hOuverture.options).map((o) => o.value);
+        const closeVals = Array.from(hFermeture.options).map((o) => o.value);
+        if (openVals.includes(match[1]) && closeVals.includes(match[2])) {
+          hOuverture.value = match[1];
+          hFermeture.value = match[2];
+          parsed = true;
+        }
+      }
+      const samMatch = value.match(/Sam\s+(.+)/);
+      if (samMatch) {
+        const samVals = Array.from(hSamedi.options).map((o) => o.value);
+        const samValue = samMatch[1].trim();
+        if (samVals.includes(samValue)) {
+          hSamedi.value = samValue;
+          parsed = true;
+        }
+      }
+      return parsed;
+    }
 
     if (currentHoraires) {
-      const match = currentHoraires.match(/Lun-Ven\s+(\d+h\d*)-(\d+h\d*)/);
-      if (match) {
-        hOuverture.value = match[1];
-        hFermeture.value = match[2];
-      }
-      const samMatch = currentHoraires.match(/Sam\s+(.+)/);
-      if (samMatch) {
-        hSamedi.value = samMatch[1].trim();
+      const parsedByselects = tryPreFillSelects(currentHoraires);
+      // Si le format existant n'est pas parsable par les selects (pause
+      // déjeuner, jours spécifiques, etc.), on met la valeur dans le
+      // textarea libre et on ouvre la section avancée automatiquement.
+      if (!parsedByselects) {
+        hLibre.value = currentHoraires;
+        if (hAvanceDetails) hAvanceDetails.open = true;
       }
     }
 
     function updateHoraires() {
+      // Priorité : si le textarea libre est rempli, il remplace les selects.
+      const libre = (hLibre.value || '').trim();
+      if (libre) {
+        hHidden.value = libre;
+        return;
+      }
       const ouv = hOuverture.value;
       const fer = hFermeture.value;
       const sam = hSamedi.value;
@@ -450,6 +509,7 @@ const isPremium = centre.plan === 'premium';
     hOuverture.addEventListener('change', updateHoraires);
     hFermeture.addEventListener('change', updateHoraires);
     hSamedi.addEventListener('change', updateHoraires);
+    hLibre.addEventListener('input', updateHoraires);
 
     // --- Limiter checkboxes à 3 ---
     function limitCheckboxes(containerId, max) {
