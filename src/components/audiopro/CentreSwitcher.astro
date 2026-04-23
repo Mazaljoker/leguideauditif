@@ -1,0 +1,83 @@
+---
+// Dropdown de sélection du centre actif dans l'espace pro.
+// - Si 1 seul centre : affiche juste le nom (pas de dropdown).
+// - Si ≥2 centres : <select> qui POST /api/audiopro/set-active-centre
+//   puis recharge la page pour refléter le nouveau contexte.
+
+import { Icon } from 'astro-icon/components';
+import type { UserCentre } from '../../lib/audiopro';
+
+export interface Props {
+  centres: UserCentre[];
+  active: UserCentre;
+}
+
+const { centres, active } = Astro.props;
+const multi = centres.length > 1;
+---
+
+<div class="flex items-center gap-3 rounded-xl border border-gris-clair bg-blanc px-4 py-3">
+  <Icon name="lucide:building-2" class="w-5 h-5 text-marine shrink-0" />
+  {multi ? (
+    <label class="flex-1 flex items-center gap-2 min-w-0">
+      <span class="sr-only">Centre actif</span>
+      <select
+        id="centre-switcher"
+        class="flex-1 min-w-0 bg-transparent text-base font-sans font-semibold text-marine focus:outline-none focus:ring-2 focus:ring-orange/30 rounded-md px-1 py-1 cursor-pointer"
+        aria-label="Changer de centre"
+      >
+        {centres.map((c) => (
+          <option value={c.slug} selected={c.slug === active.slug}>
+            {c.nom}{c.ville ? ` — ${c.ville}` : ''}
+          </option>
+        ))}
+      </select>
+      <span class="text-xs text-gris-texte font-sans whitespace-nowrap hidden sm:inline">
+        {centres.length} centres
+      </span>
+    </label>
+  ) : (
+    <div class="flex-1 min-w-0">
+      <p class="text-base font-sans font-semibold text-marine truncate">{active.nom}</p>
+      <p class="text-xs text-gris-texte font-sans truncate">
+        {active.ville ? `${active.ville}` : active.cp}
+        <span class="mx-1">·</span>
+        <span class:list={[
+          'font-medium',
+          active.plan === 'premium' ? 'text-orange' : 'text-gris-texte',
+        ]}>
+          {active.plan === 'premium' ? 'Premium' : active.plan === 'claimed' ? 'Revendiquée' : 'Standard'}
+        </span>
+      </p>
+    </div>
+  )}
+</div>
+
+{multi && (
+  <script>
+    const select = document.getElementById('centre-switcher') as HTMLSelectElement | null;
+    if (select) {
+      select.addEventListener('change', async () => {
+        const slug = select.value;
+        select.disabled = true;
+        try {
+          const res = await fetch('/api/audiopro/set-active-centre', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug }),
+          });
+          if (res.ok) {
+            window.location.reload();
+          } else {
+            select.disabled = false;
+            const data = await res.json().catch(() => ({}));
+            alert(data?.error || 'Impossible de changer de centre.');
+          }
+        } catch {
+          select.disabled = false;
+          alert('Erreur réseau. Réessayez.');
+        }
+      });
+    }
+  </script>
+)}

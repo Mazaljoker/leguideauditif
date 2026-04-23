@@ -25,19 +25,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     document.cookie = `sb-access-token=${session.access_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
     document.cookie = `sb-refresh-token=${session.refresh_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
 
-    // Trouver le centre du pro via son email
-    const { data: centre } = await supabase
-      .from('centres_auditifs')
-      .select('slug')
-      .eq('claimed_by_email', session.user.email)
-      .eq('claim_status', 'approved')
-      .single();
-
-    if (centre) {
-      window.location.href = `/centre/${centre.slug}/modifier`;
-    } else {
-      window.location.href = '/trouver-audioprothesiste/';
-    }
+    // Redirection vers l'espace pro unifié. Le layout AudioproLayout
+    // gère la résolution du centre actif (is_primary ou cookie) et
+    // redirige vers /trouver-audioprothesiste/ si aucun centre claimed.
+    window.location.href = '/audioprothesiste-pro/';
   } else {
     window.location.href = '/connexion-pro?error=1';
   }

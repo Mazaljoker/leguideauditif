@@ -1,0 +1,65 @@
+---
+// Stats cards du dashboard pro (4 cards) :
+//   1. Vues de la fiche sur 30 jours
+//   2. Demandes de devis reçues sur 30 jours
+//   3. Complétude de la fiche (%)
+//   4. Statut de la fiche (Standard / Revendiquée / Premium)
+
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  viewCount: number;
+  leadCount: number;
+  completeness: number;
+  plan: 'rpps' | 'claimed' | 'premium';
+}
+
+const { viewCount, leadCount, completeness, plan } = Astro.props;
+
+const planLabel = plan === 'premium' ? 'Premium' : plan === 'claimed' ? 'Revendiquée' : 'Standard';
+const planTone = plan === 'premium' ? 'text-orange' : 'text-marine';
+const planSub = plan === 'premium' ? 'Visibilité maximale' : plan === 'claimed' ? 'Gratuite — upgradable' : 'Non revendiquée';
+
+const completenessTone = completeness >= 80 ? 'text-[#639922]' : completeness >= 50 ? 'text-[#EF9F27]' : 'text-[#A32D2D]';
+const completenessBar = completeness >= 80 ? 'bg-[#639922]' : completeness >= 50 ? 'bg-[#EF9F27]' : 'bg-[#A32D2D]';
+---
+
+<section aria-label="Statistiques de votre fiche" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  <article class="rounded-xl border border-gris-clair bg-blanc p-5">
+    <div class="flex items-center gap-2 text-marine mb-3">
+      <Icon name="lucide:eye" class="w-4 h-4" />
+      <h3 class="text-xs font-sans font-semibold uppercase tracking-wide">Vues 30 jours</h3>
+    </div>
+    <p class="text-3xl font-sans font-bold text-marine leading-none">{viewCount.toLocaleString('fr-FR')}</p>
+    <p class="text-xs text-gris-texte font-sans mt-2">Pages vues de votre fiche</p>
+  </article>
+
+  <article class="rounded-xl border border-gris-clair bg-blanc p-5">
+    <div class="flex items-center gap-2 text-marine mb-3">
+      <Icon name="lucide:inbox" class="w-4 h-4" />
+      <h3 class="text-xs font-sans font-semibold uppercase tracking-wide">Demandes 30 jours</h3>
+    </div>
+    <p class="text-3xl font-sans font-bold text-marine leading-none">{leadCount.toLocaleString('fr-FR')}</p>
+    <p class="text-xs text-gris-texte font-sans mt-2">Demandes de bilan reçues</p>
+  </article>
+
+  <article class="rounded-xl border border-gris-clair bg-blanc p-5">
+    <div class="flex items-center gap-2 text-marine mb-3">
+      <Icon name="lucide:gauge" class="w-4 h-4" />
+      <h3 class="text-xs font-sans font-semibold uppercase tracking-wide">Complétude</h3>
+    </div>
+    <p class:list={['text-3xl font-sans font-bold leading-none', completenessTone]}>{completeness}%</p>
+    <div class="w-full h-1.5 rounded-full bg-[#F1EFE8] overflow-hidden mt-3">
+      <div class:list={['h-full rounded-full transition-all', completenessBar]} style={`width: ${completeness}%`}></div>
+    </div>
+  </article>
+
+  <article class="rounded-xl border border-gris-clair bg-blanc p-5">
+    <div class="flex items-center gap-2 text-marine mb-3">
+      <Icon name="lucide:badge-check" class="w-4 h-4" />
+      <h3 class="text-xs font-sans font-semibold uppercase tracking-wide">Statut fiche</h3>
+    </div>
+    <p class:list={['text-2xl font-sans font-bold leading-none', planTone]}>{planLabel}</p>
+    <p class="text-xs text-gris-texte font-sans mt-2">{planSub}</p>
+  </article>
+</section>

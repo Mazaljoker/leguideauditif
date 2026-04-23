@@ -1,0 +1,240 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import { createServerClient } from '../../lib/supabase';
+import {
+  ACTIVE_CENTRE_COOKIE,
+  getUserCentres,
+  resolveActiveCentre,
+} from '../../lib/audiopro';
+
+const user = Astro.locals.user;
+if (!user || !user.email) return Astro.redirect('/connexion-pro/');
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+if (centres.length === 0) return Astro.redirect('/trouver-audioprothesiste/');
+
+const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
+const active = resolveActiveCentre(centres, cookieSlug);
+if (!active) return Astro.redirect('/trouver-audioprothesiste/');
+
+// Charger les détails Premium (premium_since, premium_until) pour les fiches
+// concernées. getUserCentres ne retourne pas ces colonnes (RPC minimale).
+const premiumSlugs = centres.filter((c) => c.plan === 'premium').map((c) => c.slug);
+
+interface PremiumDetail {
+  slug: string;
+  premium_since: string | null;
+  premium_until: string | null;
+  stripe_customer_id: string | null;
+  stripe_subscription_id: string | null;
+}
+
+let premiumDetails: PremiumDetail[] = [];
+if (premiumSlugs.length > 0) {
+  const { data } = await supabase
+    .from('centres_auditifs')
+    .select('slug, premium_since, premium_until, stripe_customer_id, stripe_subscription_id')
+    .in('slug', premiumSlugs);
+  premiumDetails = (data ?? []) as PremiumDetail[];
+}
+
+const premiumBySlug = Object.fromEntries(premiumDetails.map((d) => [d.slug, d]));
+
+function formatDate(iso: string | null): string {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleDateString('fr-FR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+
+const premiumCount = centres.filter((c) => c.plan === 'premium').length;
+const claimedCount = centres.filter((c) => c.plan === 'claimed').length;
+---
+
+<AudioproLayout
+  title="Abonnement — Espace pro LeGuideAuditif"
+  pageLabel="Abonnement"
+>
+  <header class="mb-6">
+    <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">Abonnement</h1>
+    <p class="text-sm text-gris-texte font-sans mt-1">
+      Statut de chaque fiche et gestion de vos abonnements Stripe.
+    </p>
+  </header>
+
+  {/* Résumé */}
+  <div class="grid gap-4 sm:grid-cols-3 mb-6">
+    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
+      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Fiches Premium</p>
+      <p class="text-2xl font-sans font-bold text-orange">{premiumCount}</p>
+    </article>
+    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
+      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Fiches Standard</p>
+      <p class="text-2xl font-sans font-bold text-marine">{claimedCount}</p>
+    </article>
+    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
+      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Total</p>
+      <p class="text-2xl font-sans font-bold text-marine">{centres.length}</p>
+    </article>
+  </div>
+
+  {/* Liste par fiche */}
+  <section class="space-y-4 mb-10">
+    {centres.map((c) => {
+      const isPremium = c.plan === 'premium';
+      const detail = premiumBySlug[c.slug];
+      return (
+        <article class="rounded-xl border border-gris-clair bg-blanc p-5">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1 flex-wrap">
+                <h2 class="font-sans text-base font-bold text-marine truncate">{c.nom}</h2>
+                {isPremium ? (
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-orange/10 text-orange px-2.5 py-0.5 text-[11px] font-sans font-bold uppercase tracking-wide">
+                    <Icon name="lucide:crown" class="w-3 h-3" />
+                    Premium
+                  </span>
+                ) : (
+                  <span class="inline-flex items-center rounded-full bg-marine/10 text-marine px-2.5 py-0.5 text-[11px] font-sans font-bold uppercase tracking-wide">
+                    Standard
+                  </span>
+                )}
+                {c.is_primary && centres.length > 1 && (
+                  <span class="inline-flex items-center rounded-full bg-[#639922]/10 text-[#639922] px-2.5 py-0.5 text-[11px] font-sans font-semibold uppercase tracking-wide">
+                    Principal
+                  </span>
+                )}
+              </div>
+              <p class="text-sm text-gris-texte font-sans">
+                {c.ville ?? c.cp}
+              </p>
+              {isPremium && detail && (
+                <p class="text-xs text-gris-texte font-sans mt-2">
+                  Premium depuis le {formatDate(detail.premium_since)}
+                  {detail.premium_until && (
+                    <span>
+                      <span class="mx-2">·</span>
+                      Prochain renouvellement : {formatDate(detail.premium_until)}
+                    </span>
+                  )}
+                </p>
+              )}
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 shrink-0">
+              <a
+                href={`/centre/${c.slug}/`}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-1.5 rounded-lg border border-gris-clair px-3 py-2 text-xs font-sans font-medium text-marine hover:bg-creme transition-colors"
+                style="min-height: 36px;"
+              >
+                <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
+                Voir la fiche
+              </a>
+              {isPremium ? (
+                <button
+                  type="button"
+                  class="portal-btn inline-flex items-center gap-1.5 rounded-lg bg-marine text-blanc px-4 py-2 text-sm font-sans font-semibold hover:bg-marine/90 transition-colors disabled:opacity-60"
+                  style="min-height: 36px;"
+                  data-slug={c.slug}
+                >
+                  <Icon name="lucide:credit-card" class="w-4 h-4" />
+                  Gérer mon abonnement
+                </button>
+              ) : (
+                <a
+                  href={`/revendiquer/?centre=${c.slug}`}
+                  class="inline-flex items-center gap-1.5 rounded-lg bg-orange text-blanc px-4 py-2 text-sm font-sans font-semibold hover:bg-orange-hover transition-colors"
+                  style="min-height: 36px;"
+                >
+                  <Icon name="lucide:crown" class="w-4 h-4" />
+                  Passer en Premium
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      );
+    })}
+  </section>
+
+  <div id="portal-error" class="hidden mb-6 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+
+  {/* Avantages Premium */}
+  <section class="rounded-xl border border-orange/30 bg-orange/5 p-6">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-10 h-10 rounded-full bg-orange flex items-center justify-center">
+        <Icon name="lucide:crown" class="w-5 h-5 text-blanc" />
+      </div>
+      <h2 class="font-sans text-lg font-bold text-marine">Avantages Premium</h2>
+    </div>
+    <ul class="grid gap-3 sm:grid-cols-2 font-sans text-sm text-gris-texte mb-4">
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        <span>Numéro de téléphone affiché en clair</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        <span>Lien direct vers votre site web</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        <span>Horaires d'ouverture affichés</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        <span>Badge « Centre vérifié »</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        <span>Marqueur prioritaire sur la carte</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <Icon name="lucide:check" class="w-4 h-4 text-orange mt-0.5 shrink-0" />
+        <span>Liens réseaux sociaux affichés</span>
+      </li>
+    </ul>
+    <p class="text-sm font-sans text-marine font-medium">
+      39&nbsp;€ HT / mois — ou 390&nbsp;€ HT / an (2 mois offerts).
+      Sans engagement, résiliable à tout moment.
+    </p>
+  </section>
+
+  <script>
+    const portalError = document.getElementById('portal-error') as HTMLElement;
+    document.querySelectorAll<HTMLButtonElement>('.portal-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        portalError.classList.add('hidden');
+        const slug = btn.dataset.slug;
+        if (!slug) return;
+        btn.disabled = true;
+        const originalText = btn.innerHTML;
+        btn.textContent = 'Redirection...';
+        try {
+          const res = await fetch('/api/audiopro/stripe-portal', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ centreSlug: slug }),
+          });
+          const data = await res.json();
+          if (!res.ok || !data.url) throw new Error(data.error || 'Erreur');
+          window.location.href = data.url;
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : 'Erreur inattendue.';
+          portalError.textContent = msg;
+          portalError.classList.remove('hidden');
+          portalError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          btn.disabled = false;
+          btn.innerHTML = originalText;
+        }
+      });
+    });
+  </script>
+</AudioproLayout>

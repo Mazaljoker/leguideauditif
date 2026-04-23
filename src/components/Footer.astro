@@ -33,7 +33,16 @@ const sections = [
       { href: '/contact/', label: 'Contact' },
       { href: '/faq/', label: 'FAQ' },
       { href: '/glossaire/', label: 'Glossaire' },
-      { href: '/annonces/', label: 'Espace pro' },
+    ],
+  },
+  {
+    id: 'pro',
+    title: 'Audioprothésistes',
+    links: [
+      { href: '/audioprothesiste-pro/', label: 'Espace pro' },
+      { href: '/annonces/', label: 'Petites annonces' },
+      { href: '/revendiquer-gratuit/', label: 'Revendiquer ma fiche' },
+      { href: '/connexion-pro/', label: 'Me connecter' },
     ],
   },
 ];
@@ -89,8 +98,8 @@ const year = new Date().getFullYear();
 <footer class="bg-marine text-white pt-14 pb-8">
   <div class="max-w-[1140px] mx-auto px-5">
 
-    <!-- Bloc identité + 3 colonnes -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-10">
+    <!-- Bloc identité + 4 colonnes (santé / prix / site / audioprothésistes) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
 
       <!-- Bloc identité -->
       <div>

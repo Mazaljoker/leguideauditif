@@ -1,0 +1,545 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import { createServerClient } from '../../lib/supabase';
+import {
+  ACTIVE_CENTRE_COOKIE,
+  getActiveCentreFull,
+  getUserCentres,
+  resolveActiveCentre,
+} from '../../lib/audiopro';
+
+const user = Astro.locals.user;
+if (!user || !user.email) return Astro.redirect('/connexion-pro/');
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+if (centres.length === 0) return Astro.redirect('/trouver-audioprothesiste/');
+
+const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
+const active = resolveActiveCentre(centres, cookieSlug);
+if (!active) return Astro.redirect('/trouver-audioprothesiste/');
+
+const centre = await getActiveCentreFull(supabase, active.slug, user.email);
+if (!centre) return Astro.redirect('/trouver-audioprothesiste/');
+
+const specialitesList = [
+  'Acouphènes', 'Pédiatrie', 'Implants cochléaires',
+  '100% Santé', 'Bilan auditif gratuit', 'Appareillage première fois',
+  'Surdité sévère/profonde', 'Protection auditive', 'Audiométrie',
+];
+const marquesList = [
+  'Phonak', 'Oticon', 'Signia', 'ReSound', 'Starkey',
+  'Widex', 'Bernafon', 'Unitron', 'Audioservice',
+];
+
+const isPremium = centre.plan === 'premium';
+---
+
+<AudioproLayout
+  title={`Modifier ${centre.nom} — Espace pro LeGuideAuditif`}
+  pageLabel="Ma fiche"
+>
+  <header class="mb-6">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div>
+        <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">Ma fiche</h1>
+        <p class="text-sm text-gris-texte font-sans mt-1">
+          {centre.adresse}, {centre.cp} {centre.ville ?? ''}
+        </p>
+      </div>
+      <a
+        href={`/centre/${centre.slug}/`}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 rounded-lg border border-gris-clair px-4 py-2.5 text-sm font-medium text-marine font-sans hover:bg-blanc transition-colors shrink-0"
+        style="min-height: 44px;"
+      >
+        <Icon name="lucide:external-link" class="w-4 h-4" />
+        Voir ma fiche publique
+      </a>
+    </div>
+  </header>
+
+  {/* Onglets */}
+  <div class="mb-6" role="tablist" aria-label="Sections de la fiche">
+    <div class="flex gap-1 overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 border-b border-gris-clair">
+      <button
+        type="button"
+        class="tab-btn tab-btn--active"
+        data-tab="identite"
+        role="tab"
+        aria-selected="true"
+        aria-controls="tab-identite"
+        id="tab-label-identite"
+      >
+        <Icon name="lucide:id-card" class="w-4 h-4" />
+        Identité
+      </button>
+      <button
+        type="button"
+        class="tab-btn"
+        data-tab="offre"
+        role="tab"
+        aria-selected="false"
+        aria-controls="tab-offre"
+        id="tab-label-offre"
+      >
+        <Icon name="lucide:sparkles" class="w-4 h-4" />
+        Offre
+      </button>
+      {isPremium && (
+        <button
+          type="button"
+          class="tab-btn"
+          data-tab="reseaux"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tab-reseaux"
+          id="tab-label-reseaux"
+        >
+          <Icon name="lucide:share-2" class="w-4 h-4" />
+          Réseaux sociaux
+        </button>
+      )}
+    </div>
+  </div>
+
+  <form id="fiche-form" class="rounded-xl border border-gris-clair bg-blanc p-6 sm:p-8">
+    <input type="hidden" name="centreSlug" value={centre.slug} />
+
+    {/* ================== Onglet Identité ================== */}
+    <section
+      id="tab-identite"
+      class="tab-panel"
+      role="tabpanel"
+      aria-labelledby="tab-label-identite"
+    >
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+          <label for="edit-nom" class="block text-sm font-medium text-marine font-sans mb-1">
+            Nom du centre
+          </label>
+          <input
+            id="edit-nom"
+            name="nom"
+            type="text"
+            value={centre.nom}
+            required
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+
+        <div>
+          <label for="edit-tel" class="block text-sm font-medium text-marine font-sans mb-1">
+            Téléphone
+          </label>
+          <input
+            id="edit-tel"
+            name="tel"
+            type="tel"
+            value={centre.tel || ''}
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+
+        <div>
+          <label for="edit-rpps" class="block text-sm font-medium text-marine font-sans mb-1">
+            N° RPPS
+          </label>
+          <input
+            id="edit-rpps"
+            name="rpps"
+            type="text"
+            value={centre.rpps || ''}
+            placeholder="Ex : 10001234567"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+          <p class="text-xs text-gris-texte font-sans mt-1">Répertoire Partagé des Professionnels de Santé (11 chiffres)</p>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="edit-site-web" class="block text-sm font-medium text-marine font-sans mb-1">
+            Site web
+          </label>
+          <input
+            id="edit-site-web"
+            name="site_web"
+            type="url"
+            value={centre.site_web || ''}
+            placeholder="https://www.mon-centre.fr"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-marine font-sans mb-2">
+            Horaires d'ouverture
+          </label>
+          <input type="hidden" id="edit-horaires" name="horaires" value={centre.horaires || ''} />
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label for="h-ouverture" class="block text-xs text-gris-texte font-sans mb-1">Ouverture</label>
+              <select id="h-ouverture" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc">
+                <option value="">--</option>
+                <option value="8h">8h</option>
+                <option value="8h30">8h30</option>
+                <option value="9h">9h</option>
+                <option value="9h30">9h30</option>
+                <option value="10h">10h</option>
+              </select>
+            </div>
+            <div>
+              <label for="h-fermeture" class="block text-xs text-gris-texte font-sans mb-1">Fermeture</label>
+              <select id="h-fermeture" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc">
+                <option value="">--</option>
+                <option value="17h">17h</option>
+                <option value="17h30">17h30</option>
+                <option value="18h">18h</option>
+                <option value="18h30">18h30</option>
+                <option value="19h">19h</option>
+              </select>
+            </div>
+            <div>
+              <label for="h-samedi" class="block text-xs text-gris-texte font-sans mb-1">Samedi</label>
+              <select id="h-samedi" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc">
+                <option value="">--</option>
+                <option value="Fermé">Fermé</option>
+                <option value="9h-12h">9h-12h</option>
+                <option value="9h-13h">9h-13h</option>
+                <option value="10h-12h">10h-12h</option>
+                <option value="Sur RDV">Sur RDV</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ================== Onglet Offre ================== */}
+    <section
+      id="tab-offre"
+      class="tab-panel hidden"
+      role="tabpanel"
+      aria-labelledby="tab-label-offre"
+    >
+      <div class="mb-5">
+        <label class="block text-sm font-medium text-marine font-sans mb-2">
+          Spécialités (3 max)
+        </label>
+        <div class="flex flex-wrap gap-2" id="specialites-container">
+          {specialitesList.map((s) => (
+            <label class="inline-flex items-center gap-1.5 rounded-full border border-gris-clair bg-blanc px-3 py-1.5 text-sm font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30 has-[:checked]:text-[#0C447C]">
+              <input
+                type="checkbox"
+                name="specialites"
+                value={s}
+                checked={centre.specialites?.includes(s)}
+                class="sr-only peer"
+              />
+              {s}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <label class="block text-sm font-medium text-marine font-sans mb-2">
+          Marques proposées (3 max)
+        </label>
+        <div class="flex flex-wrap gap-2" id="marques-container">
+          {marquesList.map((m) => (
+            <label class="inline-flex items-center gap-1.5 rounded-full border border-gris-clair bg-blanc px-3 py-1.5 text-sm font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30 has-[:checked]:text-[#0C447C]">
+              <input
+                type="checkbox"
+                name="marques"
+                value={m}
+                checked={centre.marques?.includes(m)}
+                class="sr-only peer"
+              />
+              {m}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <label for="edit-apropos" class="block text-sm font-medium text-marine font-sans mb-1">
+          À propos de votre centre
+        </label>
+        <textarea
+          id="edit-apropos"
+          name="a_propos"
+          rows="5"
+          maxlength="500"
+          class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 resize-y"
+        >{centre.a_propos || ''}</textarea>
+        <p class="text-xs text-gris-texte font-sans mt-1">500 caractères max — décrivez votre approche, votre équipe, votre philosophie.</p>
+      </div>
+    </section>
+
+    {/* ================== Onglet Réseaux sociaux (premium only) ================== */}
+    {isPremium && (
+      <section
+        id="tab-reseaux"
+        class="tab-panel hidden"
+        role="tabpanel"
+        aria-labelledby="tab-label-reseaux"
+      >
+        <p class="text-sm text-gris-texte font-sans mb-5">
+          Ces liens apparaissent sur votre fiche publique et sont exclusifs aux centres Premium.
+        </p>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="rs-facebook" class="block text-sm font-medium text-marine font-sans mb-1">Facebook</label>
+            <input
+              id="rs-facebook"
+              name="rs_facebook"
+              type="url"
+              value={centre.reseaux_sociaux?.facebook || ''}
+              placeholder="https://facebook.com/votre-page"
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+            />
+          </div>
+          <div>
+            <label for="rs-instagram" class="block text-sm font-medium text-marine font-sans mb-1">Instagram</label>
+            <input
+              id="rs-instagram"
+              name="rs_instagram"
+              type="url"
+              value={centre.reseaux_sociaux?.instagram || ''}
+              placeholder="https://instagram.com/votre-compte"
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+            />
+          </div>
+          <div>
+            <label for="rs-google" class="block text-sm font-medium text-marine font-sans mb-1">Google Business</label>
+            <input
+              id="rs-google"
+              name="rs_google"
+              type="url"
+              value={centre.reseaux_sociaux?.google || ''}
+              placeholder="https://g.page/votre-centre"
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+            />
+          </div>
+          <div>
+            <label for="rs-linkedin" class="block text-sm font-medium text-marine font-sans mb-1">LinkedIn</label>
+            <input
+              id="rs-linkedin"
+              name="rs_linkedin"
+              type="url"
+              value={centre.reseaux_sociaux?.linkedin || ''}
+              placeholder="https://linkedin.com/company/..."
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+            />
+          </div>
+        </div>
+      </section>
+    )}
+
+    <div id="edit-error" class="hidden mt-6 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+    <div id="edit-success" class="hidden mt-6 rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-700 font-sans"></div>
+
+    <div class="mt-8 flex flex-col sm:flex-row gap-3">
+      <button
+        type="submit"
+        id="edit-submit"
+        class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange px-8 py-3 text-base font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/50 cursor-pointer disabled:opacity-60"
+        style="min-height: 48px;"
+      >
+        <Icon name="lucide:save" class="w-4 h-4" />
+        Enregistrer les modifications
+      </button>
+      <a
+        href="/audioprothesiste-pro/"
+        class="inline-flex items-center justify-center gap-2 rounded-lg border border-gris-clair px-6 py-3 text-base font-medium text-gris-texte font-sans hover:bg-creme transition-colors"
+        style="min-height: 48px;"
+      >
+        Retour au tableau de bord
+      </a>
+    </div>
+  </form>
+
+  <style>
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-gris-texte);
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      cursor: pointer;
+      background: transparent;
+      transition: color 150ms, border-color 150ms;
+      min-height: 44px;
+    }
+    .tab-btn:hover {
+      color: var(--color-marine);
+    }
+    .tab-btn:focus-visible {
+      outline: 2px solid var(--color-orange);
+      outline-offset: -2px;
+      border-radius: 4px;
+    }
+    .tab-btn--active {
+      color: var(--color-marine);
+      font-weight: 600;
+      border-bottom-color: var(--color-orange);
+    }
+  </style>
+
+  <script define:vars={{ currentHoraires: centre.horaires || '' }}>
+    // --- Onglets ---
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-tab');
+        tabBtns.forEach((b) => {
+          b.classList.remove('tab-btn--active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('tab-btn--active');
+        btn.setAttribute('aria-selected', 'true');
+        tabPanels.forEach((panel) => {
+          const panelId = panel.id.replace('tab-', '');
+          if (panelId === target) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // --- Horaires ---
+    const hOuverture = document.getElementById('h-ouverture');
+    const hFermeture = document.getElementById('h-fermeture');
+    const hSamedi = document.getElementById('h-samedi');
+    const hHidden = document.getElementById('edit-horaires');
+
+    if (currentHoraires) {
+      const match = currentHoraires.match(/Lun-Ven\s+(\d+h\d*)-(\d+h\d*)/);
+      if (match) {
+        hOuverture.value = match[1];
+        hFermeture.value = match[2];
+      }
+      const samMatch = currentHoraires.match(/Sam\s+(.+)/);
+      if (samMatch) {
+        hSamedi.value = samMatch[1].trim();
+      }
+    }
+
+    function updateHoraires() {
+      const ouv = hOuverture.value;
+      const fer = hFermeture.value;
+      const sam = hSamedi.value;
+      const parts = [];
+      if (ouv && fer) parts.push('Lun-Ven ' + ouv + '-' + fer);
+      if (sam) parts.push('Sam ' + sam);
+      hHidden.value = parts.join(' | ');
+    }
+    hOuverture.addEventListener('change', updateHoraires);
+    hFermeture.addEventListener('change', updateHoraires);
+    hSamedi.addEventListener('change', updateHoraires);
+
+    // --- Limiter checkboxes à 3 ---
+    function limitCheckboxes(containerId, max) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.addEventListener('change', function () {
+        const checked = container.querySelectorAll('input[type="checkbox"]:checked');
+        const unchecked = container.querySelectorAll('input[type="checkbox"]:not(:checked)');
+        if (checked.length >= max) {
+          unchecked.forEach((cb) => { cb.disabled = true; });
+        } else {
+          unchecked.forEach((cb) => { cb.disabled = false; });
+        }
+      });
+      const initChecked = container.querySelectorAll('input[type="checkbox"]:checked');
+      if (initChecked.length >= max) {
+        container.querySelectorAll('input[type="checkbox"]:not(:checked)').forEach((cb) => { cb.disabled = true; });
+      }
+    }
+    limitCheckboxes('specialites-container', 3);
+    limitCheckboxes('marques-container', 3);
+
+    // --- Submit ---
+    const form = document.getElementById('fiche-form');
+    const submitBtn = document.getElementById('edit-submit');
+    const errorDiv = document.getElementById('edit-error');
+    const successDiv = document.getElementById('edit-success');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      const originalLabel = submitBtn.innerHTML;
+      submitBtn.textContent = 'Enregistrement…';
+      errorDiv.classList.add('hidden');
+      successDiv.classList.add('hidden');
+
+      updateHoraires();
+
+      const formData = new FormData(form);
+      const centreSlug = formData.get('centreSlug');
+      const specialites = formData.getAll('specialites');
+      const marques = formData.getAll('marques');
+
+      const reseaux = {};
+      const rsFb = formData.get('rs_facebook');
+      const rsIg = formData.get('rs_instagram');
+      const rsGo = formData.get('rs_google');
+      const rsLi = formData.get('rs_linkedin');
+      if (rsFb) reseaux.facebook = rsFb;
+      if (rsIg) reseaux.instagram = rsIg;
+      if (rsGo) reseaux.google = rsGo;
+      if (rsLi) reseaux.linkedin = rsLi;
+
+      const payload = {
+        centreSlug,
+        nom: formData.get('nom'),
+        tel: formData.get('tel') || null,
+        rpps: formData.get('rpps') || null,
+        site_web: formData.get('site_web') || null,
+        horaires: formData.get('horaires') || null,
+        a_propos: formData.get('a_propos') || null,
+        specialites,
+        marques,
+      };
+      if (Object.keys(reseaux).length > 0) payload.reseaux_sociaux = reseaux;
+
+      try {
+        const res = await fetch('/api/centre-update', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Erreur lors de la sauvegarde.');
+        }
+
+        successDiv.textContent = 'Modifications enregistrées avec succès.';
+        successDiv.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalLabel;
+        successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (err) {
+        errorDiv.textContent = err.message || 'Une erreur est survenue.';
+        errorDiv.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalLabel;
+      }
+    });
+  </script>
+</AudioproLayout>

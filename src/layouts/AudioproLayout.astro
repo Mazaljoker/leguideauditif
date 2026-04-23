@@ -1,0 +1,89 @@
+---
+// Layout de l'espace pro audioprothésiste.
+//
+// Responsabilités :
+//   1. Auth guard — redirige vers /connexion-pro/ si pas connecté
+//   2. Check au moins 1 centre approved — sinon /trouver-audioprothesiste/
+//   3. Résout le centre actif via cookie lga_centre_slug ou is_primary
+//   4. Expose { centres, active } au slot via Astro.locals.audiopro
+//   5. Render : BaseLayout + sticky sidebar + slot main
+
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AudioproNav from '../components/audiopro/AudioproNav.astro';
+import CentreSwitcher from '../components/audiopro/CentreSwitcher.astro';
+import { createServerClient } from '../lib/supabase';
+import {
+  ACTIVE_CENTRE_COOKIE,
+  getUserCentres,
+  resolveActiveCentre,
+} from '../lib/audiopro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  pageLabel: string; // Pour le fil d'Ariane (ex "Tableau de bord")
+}
+
+const { title, description, pageLabel } = Astro.props;
+
+const user = Astro.locals.user;
+
+if (!user || !user.email) {
+  return Astro.redirect('/connexion-pro/');
+}
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+
+if (centres.length === 0) {
+  // L'utilisateur est bien connecté mais n'a pas de centre approved.
+  // Soit la revendication est encore pending, soit jamais faite.
+  return Astro.redirect('/trouver-audioprothesiste/');
+}
+
+const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
+const active = resolveActiveCentre(centres, cookieSlug);
+
+if (!active) {
+  // Défense en profondeur : resolveActiveCentre garantit non-null si
+  // centres.length > 0, mais on sécurise côté TS.
+  return Astro.redirect('/trouver-audioprothesiste/');
+}
+
+const breadcrumbs = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Espace pro', href: '/audioprothesiste-pro/' },
+  { label: pageLabel },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description ?? 'Espace audioprothésiste — gérez votre fiche, vos demandes et votre abonnement LeGuideAuditif.'}
+  noindex={true}
+>
+  <meta slot="head" name="robots" content="noindex, nofollow" />
+
+  <div class="bg-creme">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
+    <div class="mb-6">
+      <CentreSwitcher centres={centres} active={active} />
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10">
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <AudioproNav currentPath={Astro.url.pathname} />
+      </aside>
+
+      <main>
+        <slot />
+      </main>
+    </div>
+  </div>
+</BaseLayout>

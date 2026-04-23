@@ -3,96 +3,333 @@ export const prerender = false;
 
 import { Icon } from 'astro-icon/components';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Si déjà connecté → aller direct à l'espace pro (pas besoin de se reloguer).
+const user = Astro.locals.user;
+if (user && user.email) {
+  return Astro.redirect('/audioprothesiste-pro/');
+}
+
+const error = Astro.url.searchParams.get('error');
 ---
 
 <BaseLayout
   title="Espace professionnel — LeGuideAuditif"
-  description="Connectez-vous pour modifier votre fiche audioprothésiste sur LeGuideAuditif.fr"
+  description="Connectez-vous à votre espace audioprothésiste pour gérer votre fiche, vos demandes et votre abonnement."
 >
   <meta slot="head" name="robots" content="noindex" />
 
-  <section class="max-w-md mx-auto px-4 py-16">
-    <div class="rounded-xl border border-gris-clair bg-blanc p-8 shadow-sm">
-      <div class="text-center mb-8">
+  <section class="max-w-md mx-auto px-4 py-12">
+    <div class="rounded-xl border border-gris-clair bg-blanc p-6 sm:p-8 shadow-sm">
+      <div class="text-center mb-6">
         <div class="w-14 h-14 rounded-full bg-marine/10 flex items-center justify-center mx-auto mb-4">
           <Icon name="lucide:user-check" class="w-7 h-7 text-marine" />
         </div>
         <h1 class="font-sans text-xl font-bold text-marine">Espace professionnel</h1>
         <p class="text-sm text-gris-texte font-sans mt-2">
-          Saisissez l'email utilis&eacute; lors de la revendication de votre fiche.
-          Vous recevrez un lien de connexion par email.
+          Connectez-vous pour gérer votre fiche audioprothésiste.
         </p>
       </div>
 
-      <form id="magic-link-form">
-        <div class="mb-5">
-          <label for="pro-email" class="block text-sm font-medium text-marine font-sans mb-1">
-            Email professionnel
-          </label>
-          <input
-            id="pro-email"
-            name="email"
-            type="email"
-            required
-            autocomplete="email"
-            placeholder="votre@email.fr"
-            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
-          />
+      {error && (
+        <div class="mb-5 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans">
+          La connexion a échoué. Merci de réessayer.
         </div>
+      )}
 
-        <div id="form-error" class="hidden mb-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
-        <div id="form-success" class="hidden mb-4 rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-700 font-sans"></div>
-
+      {/* Onglets */}
+      <div role="tablist" aria-label="Méthode de connexion" class="flex gap-1 mb-5 border-b border-gris-clair -mx-6 sm:-mx-8 px-6 sm:px-8 overflow-x-auto">
         <button
-          type="submit"
-          id="submit-btn"
-          class="w-full rounded-lg bg-orange px-6 py-3 text-base font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/50 cursor-pointer disabled:opacity-60"
+          type="button"
+          class="auth-tab auth-tab--active"
+          data-tab="magic"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-magic"
+          id="tab-magic"
+        >
+          Lien par email
+        </button>
+        <button
+          type="button"
+          class="auth-tab"
+          data-tab="password"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-password"
+          id="tab-password"
+        >
+          Mot de passe
+        </button>
+        <button
+          type="button"
+          class="auth-tab"
+          data-tab="google"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-google"
+          id="tab-google"
+        >
+          Google
+        </button>
+      </div>
+
+      {/* Panel Magic Link */}
+      <section
+        id="panel-magic"
+        class="auth-panel"
+        role="tabpanel"
+        aria-labelledby="tab-magic"
+      >
+        <p class="text-sm text-gris-texte font-sans mb-4">
+          Recevez un lien de connexion par email. Aucun mot de passe à retenir.
+        </p>
+        <form id="magic-form">
+          <div class="mb-4">
+            <label for="magic-email" class="block text-sm font-medium text-marine font-sans mb-1">
+              Email professionnel
+            </label>
+            <input
+              id="magic-email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="votre@email.fr"
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+            />
+          </div>
+          <div class="auth-error hidden mb-3 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+          <div class="auth-success hidden mb-3 rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-700 font-sans"></div>
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-orange px-6 py-3 text-base font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/50 cursor-pointer disabled:opacity-60"
+            style="min-height: 48px;"
+          >
+            Recevoir un lien de connexion
+          </button>
+        </form>
+      </section>
+
+      {/* Panel Password */}
+      <section
+        id="panel-password"
+        class="auth-panel hidden"
+        role="tabpanel"
+        aria-labelledby="tab-password"
+      >
+        <p class="text-sm text-gris-texte font-sans mb-4">
+          Entrez votre email et votre mot de passe.
+        </p>
+        <form id="password-form">
+          <div class="mb-4">
+            <label for="pwd-email" class="block text-sm font-medium text-marine font-sans mb-1">
+              Email professionnel
+            </label>
+            <input
+              id="pwd-email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="votre@email.fr"
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="pwd-password" class="block text-sm font-medium text-marine font-sans mb-1">
+              Mot de passe
+            </label>
+            <input
+              id="pwd-password"
+              name="password"
+              type="password"
+              required
+              autocomplete="current-password"
+              minlength="8"
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+            />
+          </div>
+          <div class="auth-error hidden mb-3 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-orange px-6 py-3 text-base font-semibold text-blanc font-sans transition-colors hover:bg-orange-hover focus:outline-none focus:ring-2 focus:ring-orange/50 cursor-pointer disabled:opacity-60"
+            style="min-height: 48px;"
+          >
+            Se connecter
+          </button>
+          <p class="text-xs text-gris-texte font-sans text-center mt-4">
+            Pas encore de mot de passe ? Utilisez le lien par email puis définissez-le dans votre compte.
+          </p>
+        </form>
+      </section>
+
+      {/* Panel Google */}
+      <section
+        id="panel-google"
+        class="auth-panel hidden"
+        role="tabpanel"
+        aria-labelledby="tab-google"
+      >
+        <p class="text-sm text-gris-texte font-sans mb-5">
+          Connectez-vous avec votre compte Google professionnel.
+          L'email Google doit correspondre à celui utilisé pour revendiquer votre fiche.
+        </p>
+        <button
+          type="button"
+          id="google-btn"
+          class="w-full inline-flex items-center justify-center gap-3 rounded-lg border-2 border-gris-clair bg-blanc px-6 py-3 text-base font-semibold text-marine font-sans transition-colors hover:border-marine hover:bg-creme focus:outline-none focus:ring-2 focus:ring-marine/30 cursor-pointer disabled:opacity-60"
           style="min-height: 48px;"
         >
-          Recevoir un lien de connexion
+          <svg class="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+          </svg>
+          Se connecter avec Google
         </button>
-      </form>
+        <div id="google-error" class="hidden mt-3 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+      </section>
 
-      <p class="text-xs text-gris-texte font-sans text-center mt-6">
+      <p class="text-xs text-gris-texte font-sans text-center mt-6 pt-6 border-t border-gris-clair">
         Pas encore de fiche ? <a href="/trouver-audioprothesiste/" class="text-orange font-medium hover:underline">Trouvez votre centre</a> et revendiquez-le gratuitement.
       </p>
     </div>
   </section>
 
+  <style>
+    .auth-tab {
+      flex: 1;
+      min-width: max-content;
+      padding: 0.75rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-gris-texte);
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 150ms, border-color 150ms;
+      min-height: 44px;
+    }
+    .auth-tab:hover { color: var(--color-marine); }
+    .auth-tab:focus-visible {
+      outline: 2px solid var(--color-orange);
+      outline-offset: -2px;
+    }
+    .auth-tab--active {
+      color: var(--color-marine);
+      font-weight: 600;
+      border-bottom-color: var(--color-orange);
+    }
+  </style>
+
   <script>
-    import { supabase } from '../lib/supabase';
+    import {
+      signInProWithMagicLink,
+      signInProWithPassword,
+      signInProWithGoogle,
+    } from '../lib/auth';
 
-    const form = document.getElementById('magic-link-form') as HTMLFormElement;
-    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-    const errorDiv = document.getElementById('form-error') as HTMLDivElement;
-    const successDiv = document.getElementById('form-success') as HTMLDivElement;
+    // --- Onglets ---
+    const tabBtns = document.querySelectorAll<HTMLButtonElement>('.auth-tab');
+    const panels = document.querySelectorAll<HTMLElement>('.auth-panel');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Envoi en cours...';
-      errorDiv.classList.add('hidden');
-      successDiv.classList.add('hidden');
-
-      const email = (document.getElementById('pro-email') as HTMLInputElement).value.trim();
-
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback-pro`,
-        },
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-tab');
+        tabBtns.forEach((b) => {
+          b.classList.remove('auth-tab--active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('auth-tab--active');
+        btn.setAttribute('aria-selected', 'true');
+        panels.forEach((p) => {
+          const panelId = p.id.replace('panel-', '');
+          if (panelId === target) p.classList.remove('hidden');
+          else p.classList.add('hidden');
+        });
       });
+    });
+
+    // --- Helpers UI ---
+    function showMsg(panel: HTMLElement, kind: 'error' | 'success', message: string) {
+      const err = panel.querySelector('.auth-error') as HTMLElement | null;
+      const ok = panel.querySelector('.auth-success') as HTMLElement | null;
+      err?.classList.add('hidden');
+      ok?.classList.add('hidden');
+      const target = kind === 'error' ? err : ok;
+      if (target) {
+        target.textContent = message;
+        target.classList.remove('hidden');
+      }
+    }
+
+    // --- Magic link ---
+    const magicForm = document.getElementById('magic-form') as HTMLFormElement;
+    magicForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const panel = document.getElementById('panel-magic')!;
+      const btn = magicForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const email = (document.getElementById('magic-email') as HTMLInputElement).value.trim();
+
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours...';
+
+      const { error } = await signInProWithMagicLink(email);
 
       if (error) {
-        errorDiv.textContent = 'Impossible d\u2019envoyer le lien. V\u00e9rifiez votre email.';
-        errorDiv.classList.remove('hidden');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Recevoir un lien de connexion';
+        showMsg(panel, 'error', 'Impossible d’envoyer le lien. Vérifiez votre email.');
+        btn.disabled = false;
+        btn.textContent = 'Recevoir un lien de connexion';
       } else {
-        successDiv.innerHTML = 'Un lien de connexion a \u00e9t\u00e9 envoy\u00e9 \u00e0 <strong>' + email + '</strong>. V\u00e9rifiez votre bo\u00eete de r\u00e9ception.';
-        successDiv.classList.remove('hidden');
-        submitBtn.textContent = 'Email envoy\u00e9';
+        showMsg(panel, 'success', `Un lien de connexion a été envoyé à ${email}. Vérifiez votre boîte de réception.`);
+        btn.textContent = 'Email envoyé';
       }
+    });
+
+    // --- Password ---
+    const passwordForm = document.getElementById('password-form') as HTMLFormElement;
+    passwordForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const panel = document.getElementById('panel-password')!;
+      const btn = passwordForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const email = (document.getElementById('pwd-email') as HTMLInputElement).value.trim();
+      const password = (document.getElementById('pwd-password') as HTMLInputElement).value;
+
+      btn.disabled = true;
+      btn.textContent = 'Connexion...';
+
+      const { data, error } = await signInProWithPassword(email, password);
+
+      if (error || !data.session) {
+        showMsg(panel, 'error', 'Email ou mot de passe incorrect.');
+        btn.disabled = false;
+        btn.textContent = 'Se connecter';
+        return;
+      }
+
+      // Stocker les tokens dans des cookies pour le middleware SSR
+      document.cookie = `sb-access-token=${data.session.access_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
+      document.cookie = `sb-refresh-token=${data.session.refresh_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
+      window.location.href = '/audioprothesiste-pro/';
+    });
+
+    // --- Google OAuth ---
+    const googleBtn = document.getElementById('google-btn') as HTMLButtonElement;
+    const googleError = document.getElementById('google-error') as HTMLElement;
+    googleBtn.addEventListener('click', async () => {
+      googleError.classList.add('hidden');
+      googleBtn.disabled = true;
+      const { error } = await signInProWithGoogle();
+      if (error) {
+        googleError.textContent = error.message || 'Connexion Google impossible.';
+        googleError.classList.remove('hidden');
+        googleBtn.disabled = false;
+      }
+      // Sinon Supabase redirige automatiquement vers Google.
     });
   </script>
 </BaseLayout>

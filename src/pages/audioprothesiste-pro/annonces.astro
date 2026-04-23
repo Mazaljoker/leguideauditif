@@ -1,0 +1,59 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import DashboardAnnonces from '../../components/annonces/DashboardAnnonces';
+import { createServerClient } from '../../lib/supabase';
+import {
+  ACTIVE_CENTRE_COOKIE,
+  getUserCentres,
+  resolveActiveCentre,
+} from '../../lib/audiopro';
+
+const user = Astro.locals.user;
+if (!user || !user.email) return Astro.redirect('/connexion-pro/');
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+if (centres.length === 0) return Astro.redirect('/trouver-audioprothesiste/');
+
+const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
+const active = resolveActiveCentre(centres, cookieSlug);
+if (!active) return Astro.redirect('/trouver-audioprothesiste/');
+---
+
+<AudioproLayout
+  title="Mes annonces — Espace pro LeGuideAuditif"
+  pageLabel="Mes annonces"
+>
+  <header class="mb-6">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div>
+        <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">Mes annonces</h1>
+        <p class="text-sm text-gris-texte font-sans mt-1">
+          Cession, emploi, remplacement, matériel, services — gérez vos annonces B2B.
+        </p>
+      </div>
+      <a
+        href="/annonces/deposer/"
+        class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange px-5 py-3 text-sm font-sans font-semibold text-blanc hover:bg-orange-hover transition-colors shrink-0"
+        style="min-height: 44px;"
+      >
+        <Icon name="lucide:plus" class="w-4 h-4" />
+        Déposer une annonce
+      </a>
+    </div>
+  </header>
+
+  {/* Info : le module annonces utilise son propre auth (profiles) */}
+  <div class="mb-6 rounded-lg border border-marine/20 bg-marine/5 px-4 py-3 flex items-start gap-2">
+    <Icon name="lucide:info" class="w-4 h-4 text-marine mt-0.5 shrink-0" />
+    <p class="text-xs text-marine/80 font-sans">
+      Lors de votre premier dépôt, complétez votre profil annonces
+      (<a href="/auth/profil/" class="text-orange hover:underline">numéro RPPS, département, etc.</a>) — distinct de votre fiche centre.
+    </p>
+  </div>
+
+  <DashboardAnnonces client:load />
+</AudioproLayout>
