@@ -52,6 +52,39 @@ export async function signInProWithGoogle() {
   return { data, error };
 }
 
+/**
+ * Connexion via ID token Google (One Tap / Sign in with Google button).
+ * Zéro redirection — le user reste sur notre page. Utilisé conjointement
+ * avec le script GSI (https://accounts.google.com/gsi/client).
+ *
+ * Le nonce doit être passé en clair ici (la version hashée SHA-256 a été
+ * fournie à Google via l'attribut data-nonce sur le bouton). Supabase
+ * valide la correspondance.
+ */
+export async function signInProWithGoogleIdToken(credential: string, nonce: string) {
+  const { data, error } = await supabase.auth.signInWithIdToken({
+    provider: 'google',
+    token: credential,
+    nonce,
+  });
+  return { data, error };
+}
+
+/**
+ * Génère un nonce aléatoire + sa version hashée SHA-256 hex.
+ * À utiliser avec Google One Tap : hashedNonce → attribut data-nonce,
+ * nonce brut → paramètre signInWithIdToken.
+ */
+export async function generateGoogleNonce(): Promise<{ nonce: string; hashedNonce: string }> {
+  const nonce = btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(32))));
+  const encoder = new TextEncoder();
+  const encodedNonce = encoder.encode(nonce);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', encodedNonce);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashedNonce = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
+  return { nonce, hashedNonce };
+}
+
 export async function updatePassword(newPassword: string) {
   const { data, error } = await supabase.auth.updateUser({ password: newPassword });
   return { data, error };

@@ -19,9 +19,20 @@ Si un pro existe déjà (compte créé via magic link lors de la revendication),
 il peut définir son mot de passe depuis `/audioprothesiste-pro/compte/`
 section "Mot de passe". Aucun reset email n'est nécessaire.
 
-## 2. Google OAuth
+## 2. Google OAuth — 2 flows possibles avec le même Client ID
 
-**À activer manuellement** — flow complet :
+LeGuideAuditif implémente **les deux flows** sur `/connexion-pro/` :
+
+- **Flow A — Google One Tap + bouton officiel** (priorité visuelle en haut de page)
+  Appel `signInWithIdToken` — **zéro redirection**, user reste sur notre page.
+  Nécessite la variable d'env `PUBLIC_GOOGLE_CLIENT_ID`.
+  Si absente, le bloc One Tap ne s'affiche tout simplement pas.
+- **Flow B — OAuth redirect** (onglet Google dans les tabs, fallback)
+  Appel `signInWithOAuth` — redirige vers `accounts.google.com` puis retour.
+  Utilise le Client ID + Secret côté Supabase dashboard.
+
+Les deux flows partagent **le même OAuth 2.0 Client ID Google**. Configurez
+les deux pour une couverture maximale.
 
 ### Étape A — Google Cloud Console
 
@@ -50,6 +61,23 @@ section "Mot de passe". Aucun reset email n'est nécessaire.
    - **Client Secret** (Google console)
 5. **Redirect URL** affichée = celle à copier dans Google Cloud (étape A.6)
 6. Save
+
+### Étape B.bis — Variable d'env pour le Flow A (One Tap)
+
+Pour activer le bloc "Connexion rapide" en haut de `/connexion-pro/` :
+
+1. Copier le **Client ID** Google (étape A.7)
+2. Ajouter dans :
+   - `.env` local :
+     ```
+     PUBLIC_GOOGLE_CLIENT_ID=xxxxxxxxxxxxxxxx.apps.googleusercontent.com
+     ```
+   - Vercel → Project Settings → Environment Variables :
+     - Name: `PUBLIC_GOOGLE_CLIENT_ID`
+     - Value: même Client ID
+     - Environments: Production, Preview, Development
+
+> **Important** : le préfixe `PUBLIC_` fait que la valeur est **exposée côté client**. C'est attendu et safe — un Client ID Google n'est pas un secret (c'est un identifiant public, comme un nom de domaine). Le Client Secret, lui, reste côté serveur Supabase.
 
 ### Étape C — Configuration OAuth consent screen (Google)
 
