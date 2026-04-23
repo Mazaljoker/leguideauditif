@@ -1,0 +1,31 @@
+---
+// Variante lockée du KPICard : valeur grisée + badge Premium.
+// Utilisée dans le dashboard Revendicateur pour teaser la feature "Position
+// dans votre zone" sans la livrer, afin de créer la frustration utile qui
+// déclenche l'upsell Premium/Fondateur.
+
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  label: string;
+  value: string; // Typiquement "— / 34"
+  desc: string;
+  badgeLabel?: string;
+}
+
+const { label, value, desc, badgeLabel = 'Premium' } = Astro.props;
+---
+
+<article class="rounded-xl border border-gris-clair bg-[#F9FAFB] p-5 sm:p-6">
+  <p class="text-[11px] font-sans font-bold uppercase tracking-[1.2px] text-gris-texte mb-3">
+    {label}
+  </p>
+  <p class="font-sans text-3xl sm:text-4xl font-extrabold text-[#9CA3AF] leading-none mb-2">
+    {value}
+  </p>
+  <p class="text-sm text-[#9CA3AF] font-sans leading-snug">{desc}</p>
+  <span class="inline-flex items-center gap-1.5 rounded-full bg-marine text-blanc text-[10px] font-sans font-bold tracking-[0.8px] uppercase px-2.5 py-1 mt-3">
+    <Icon name="lucide:lock" class="w-3 h-3" />
+    {badgeLabel}
+  </span>
+</article>

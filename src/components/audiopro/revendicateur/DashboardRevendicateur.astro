@@ -1,0 +1,191 @@
+---
+// Orchestrateur du dashboard "Revendicateur" (compte gratuit, 1+ fiche
+// revendiquée approved, pas d'abonnement Premium).
+//
+// Objectif produit : convertir vers Fondateur (scarcity) ou Premium.
+// Pour cela on enchaîne : welcome banner -> h1 prénom -> todo complétude
+// -> 3 KPIs (2 visibles + 1 locked) -> 2 upsells 50/50 -> 3 leviers
+// teaser lockés -> accès rapide.
+
+import WelcomeBanner from '../shared/WelcomeBanner.astro';
+import SectionHeader from '../shared/SectionHeader.astro';
+import KPICard from '../shared/KPICard.astro';
+import KPICardLocked from '../shared/KPICardLocked.astro';
+import UpsellCard from '../shared/UpsellCard.astro';
+import QuickAccess from '../shared/QuickAccess.astro';
+import CompletudeTodo, { type TodoItem } from './CompletudeTodo.astro';
+import LeviersTeaser from './LeviersTeaser.astro';
+import {
+  FONDATEUR_SLOTS_TAKEN,
+  FONDATEUR_SLOTS_TOTAL,
+} from '../../../lib/audiopro';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  prenom: string;
+  centre: CentreData;
+  viewCount30j: number;
+  leadCount30j: number;
+  claimedDaysAgo: number;
+}
+
+const { prenom, centre, viewCount30j, leadCount30j, claimedDaysAgo } = Astro.props;
+
+const ficheHref = '/audioprothesiste-pro/fiche/';
+
+// Liste des 8 étapes de complétude calculée à partir des champs du centre.
+const items: TodoItem[] = [
+  { label: 'Revendiquer votre fiche', done: true },
+  {
+    label: 'Informations de contact (téléphone, email, site)',
+    done: Boolean(centre.tel && centre.email),
+    href: ficheHref,
+    ctaLabel: 'Compléter',
+  },
+  {
+    label: 'Horaires d’ouverture',
+    done: Boolean(centre.horaires),
+    href: ficheHref,
+    ctaLabel: 'Renseigner',
+  },
+  {
+    label: 'Diplôme et numéro RPPS vérifié',
+    done: true,
+  },
+  {
+    label: 'Ajouter votre photo de profil',
+    done: Boolean(centre.photo_url),
+    href: ficheHref,
+    ctaLabel: 'Ajouter',
+  },
+  {
+    label: 'Photos de votre cabine (min. 3)',
+    done: false,
+    href: ficheHref,
+    ctaLabel: 'Ajouter',
+  },
+  {
+    label: 'Vos spécialités et marques proposées',
+    done: centre.specialites.length > 0 && centre.marques.length > 0,
+    href: ficheHref,
+    ctaLabel: 'Renseigner',
+  },
+  {
+    label: 'Bio courte (parcours, approche)',
+    done: Boolean(centre.a_propos),
+    href: ficheHref,
+    ctaLabel: 'Rédiger',
+  },
+];
+
+const claimedLabel =
+  claimedDaysAgo === 0
+    ? "aujourd'hui"
+    : claimedDaysAgo === 1
+      ? 'hier'
+      : `il y a ${claimedDaysAgo} jours`;
+---
+
+<WelcomeBanner prenom={prenom} centreId={centre.id} />
+
+<header class="mb-6 sm:mb-8">
+  <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">
+    Bonjour {prenom}
+  </h1>
+  <p class="text-sm sm:text-base font-sans text-gris-texte mt-1">
+    Voici l'état de votre fiche ·
+    <strong class="text-marine">{centre.nom}</strong>
+    · revendiquée {claimedLabel}
+  </p>
+</header>
+
+<CompletudeTodo items={items} />
+
+<SectionHeader title="Votre activité" subtitle="30 derniers jours" />
+
+<div class="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+  <KPICard
+    label="VUES DE VOTRE FICHE"
+    value={viewCount30j.toLocaleString('fr-FR')}
+    desc="vues depuis la revendication"
+    footer="Site lancé le 14 avril 2026 · J+10"
+    footerTone="muted"
+  />
+  <KPICard
+    label="DEMANDES PATIENTS"
+    value={leadCount30j.toLocaleString('fr-FR')}
+    desc="reçues via LGA ce mois"
+    footer="Vos fiches remontent mieux en Premium"
+    footerTone="muted"
+  />
+  <KPICardLocked
+    label="POSITION DANS VOTRE ZONE"
+    value="— / 34"
+    desc="Analyse de ranking zone"
+  />
+</div>
+
+<div id="upsell">
+  <SectionHeader
+    title="Passez à l'étape suivante"
+    subtitle="Deux formules pour booster votre visibilité"
+  />
+</div>
+
+<div class="grid gap-5 lg:grid-cols-[1.4fr_1fr] mb-10">
+  <UpsellCard
+    variant="fondateur"
+    badge="Offre Fondateur limitée"
+    title="Devenez Partenaire Fondateur"
+    tagline="Pour les 20 premiers audios qui nous rejoignent et témoignent de leur expérience."
+    scarcityTaken={FONDATEUR_SLOTS_TAKEN}
+    scarcityTotal={FONDATEUR_SLOTS_TOTAL}
+    priceMain="6 mois"
+    priceSub="offerts"
+    priceNote="puis <strong>19€/mois à vie</strong> · au lieu de 39€/mois · soit 240€ d'économie par an, à vie"
+    features={[
+      'Toutes les fonctionnalités Premium',
+      'Visibilité prioritaire dans votre zone',
+      'Accès à vie au Palier 1 et 30% de réduction permanente sur les upgrades',
+      'Vous témoignez (vidéo courte) et partagez vos résultats pour nourrir le site',
+      'Vous êtes mis en avant comme audio référent de votre zone',
+    ]}
+    ctaLabel="Réserver ma place Fondateur"
+    ctaHref={`/revendiquer/?centre=${centre.slug}&plan=fondateur`}
+  />
+
+  <UpsellCard
+    variant="premium"
+    badge="Premium Standard"
+    title="Fiche Premium"
+    tagline="Pour faire remonter votre centre en tête des recherches."
+    priceMain="39€"
+    priceSub="/mois"
+    priceNote="ou <strong>390€/an</strong> (2 mois offerts)"
+    features={[
+      'Visibilité prioritaire dans votre zone',
+      'Analytics avancés : ranking, trafic, demandes',
+      'Accès aux leviers Ads, Leads, nPosts',
+      'Badge Premium visible sur votre fiche publique',
+      'Résiliable à tout moment',
+    ]}
+    ctaLabel="Passer Premium"
+    ctaHref={`/revendiquer/?centre=${centre.slug}&plan=premium`}
+  />
+</div>
+
+<SectionHeader
+  title="Débloquez les leviers d'acquisition"
+  subtitle="Disponibles en Premium ou Fondateur"
+/>
+
+<LeviersTeaser />
+
+<QuickAccess
+  links={[
+    { label: 'Ma fiche', href: '/audioprothesiste-pro/fiche/' },
+    { label: 'Mes demandes', href: '/audioprothesiste-pro/leads/' },
+    { label: 'Mon compte', href: '/audioprothesiste-pro/compte/' },
+    { label: 'Support', href: 'mailto:contact@leguideauditif.fr' },
+  ]}
+/>

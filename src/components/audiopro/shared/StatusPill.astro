@@ -1,0 +1,26 @@
+---
+// Pill de statut (active | pending | inactive) avec un dot coloré.
+// Utilisé dans le tableau des centres du dashboard Réseau et dans les leviers.
+
+export interface Props {
+  status: 'active' | 'pending' | 'inactive';
+  label: string;
+}
+
+const { status, label } = Astro.props;
+
+const classes =
+  status === 'active'
+    ? { wrap: 'bg-[#D1FAE5] text-[#059669]', dot: 'bg-[#059669]' }
+    : status === 'pending'
+      ? { wrap: 'bg-[#FEF3C7] text-[#D97706]', dot: 'bg-[#D97706]' }
+      : { wrap: 'bg-[#F3F4F6] text-gris-texte', dot: 'bg-[#9CA3AF]' };
+---
+
+<span class:list={[
+  'inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-sans font-bold uppercase tracking-[0.3px]',
+  classes.wrap,
+]}>
+  <span class:list={['w-1.5 h-1.5 rounded-full', classes.dot]} aria-hidden="true"></span>
+  {label}
+</span>

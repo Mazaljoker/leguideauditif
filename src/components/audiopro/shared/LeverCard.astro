@@ -1,0 +1,82 @@
+---
+// Card "Levier d'acquisition" pour les dashboards Premium et Réseau.
+// Inspirée de .lever du mockup v3 : barre colorée en haut + numéro circulaire
+// + titre + body + status + CTA. Mobile-first (padding réduit < sm).
+//
+// Variantes couleur via prop `num` (1 marine, 2 orange, 3 gris).
+
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  num: 1 | 2 | 3;
+  title: string;
+  body: string;
+  statusLabel: string;
+  statusValue: string;
+  statusTone?: 'positive' | 'muted' | 'action';
+  ctaLabel: string;
+  ctaHref: string;
+  ctaVariant?: 'marine' | 'outline' | 'ghost';
+  iconName?: string;
+}
+
+const {
+  num,
+  title,
+  body,
+  statusLabel,
+  statusValue,
+  statusTone = 'muted',
+  ctaLabel,
+  ctaHref,
+  ctaVariant = 'marine',
+  iconName,
+} = Astro.props;
+
+const barClass =
+  num === 1 ? 'bg-marine' : num === 2 ? 'bg-orange' : 'bg-[#9CA3AF]';
+const numBgClass =
+  num === 1
+    ? 'bg-[#E8F0FF] text-marine'
+    : num === 2
+      ? 'bg-[#FEF3E7] text-orange'
+      : 'bg-[#F3F4F6] text-marine';
+const statusValueClass =
+  statusTone === 'positive'
+    ? 'text-[#059669]'
+    : statusTone === 'action'
+      ? 'text-orange'
+      : 'text-gris-texte';
+
+const ctaBase =
+  'inline-flex items-center justify-center gap-1.5 w-full rounded-lg font-sans font-semibold text-sm px-4 py-3 transition-colors';
+const ctaClass =
+  ctaVariant === 'marine'
+    ? `${ctaBase} bg-marine text-blanc hover:bg-marine-light`
+    : ctaVariant === 'outline'
+      ? `${ctaBase} bg-blanc text-marine border border-gris-clair hover:border-orange/40`
+      : `${ctaBase} bg-[#F3F4F6] text-marine hover:bg-gris-clair`;
+---
+
+<article class="relative rounded-xl bg-blanc border border-gris-clair pt-7 p-5 sm:p-6 sm:pt-8">
+  <div class:list={['absolute top-0 left-0 right-0 h-1.5 rounded-t-xl', barClass]}></div>
+
+  <div class="flex items-center gap-3 mb-3">
+    <div class:list={['w-9 h-9 rounded-full flex items-center justify-center font-sans font-bold text-base shrink-0', numBgClass]}>
+      {iconName ? <Icon name={iconName} class="w-4 h-4" /> : num}
+    </div>
+    <h3 class="font-sans text-base sm:text-lg font-bold text-marine">{title}</h3>
+  </div>
+
+  <p class="text-sm text-gris-texte font-sans leading-snug mb-4 min-h-[56px]">{body}</p>
+
+  <div class="flex items-center justify-between gap-3 bg-[#F9FAFB] rounded-lg px-3.5 py-2.5 mb-4">
+    <span class="text-xs text-gris-texte font-sans">{statusLabel}</span>
+    <span class:list={['text-xs font-sans font-bold', statusValueClass]}>{statusValue}</span>
+  </div>
+
+  <a href={ctaHref} class={ctaClass} style="min-height: 44px;">
+    {ctaLabel}
+    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+  </a>
+</article>

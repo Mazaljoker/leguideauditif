@@ -1,0 +1,58 @@
+---
+// 3 leviers "actifs" pour un pro Premium solo. Contrairement aux teasers
+// du Revendicateur, ces cards affichent un statut réel et un CTA "Gérer"
+// ou "En discuter avec mon conseiller" (pas de grille tarifaire — règle
+// spec §7.1 "aucun prix post-signature").
+
+import LeverCard from '../shared/LeverCard.astro';
+
+export interface Props {
+  adsStatusLabel: string;
+  adsStatusValue: string;
+  adsStatusTone: 'positive' | 'muted' | 'action';
+  codePostal: string;
+}
+
+const { adsStatusLabel, adsStatusValue, adsStatusTone, codePostal } = Astro.props;
+---
+
+<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+  <LeverCard
+    num={1}
+    iconName="lucide:megaphone"
+    title="Campagnes Google Ads"
+    body="Landing LGA co-brandée et gestion complète de vos campagnes sur votre zone."
+    statusLabel={adsStatusLabel}
+    statusValue={adsStatusValue}
+    statusTone={adsStatusTone}
+    ctaLabel="Gérer ma campagne"
+    ctaHref="mailto:contact@leguideauditif.fr?subject=Gestion Google Ads"
+    ctaVariant="marine"
+  />
+
+  <LeverCard
+    num={2}
+    iconName="lucide:target"
+    title="Leads qualifiés"
+    body={`Demandes patients exclusives sur votre code postal ${codePostal}. Paiement à la performance.`}
+    statusLabel="Statut"
+    statusValue="Non activé"
+    statusTone="muted"
+    ctaLabel="En discuter avec mon conseiller"
+    ctaHref="mailto:contact@leguideauditif.fr?subject=Leads qualifiés"
+    ctaVariant="outline"
+  />
+
+  <LeverCard
+    num={3}
+    iconName="lucide:smartphone"
+    title="Réseaux sociaux"
+    body="Publication automatique sur Facebook, Instagram et Google Business Profile via nPosts."
+    statusLabel="Statut"
+    statusValue="Non activé"
+    statusTone="muted"
+    ctaLabel="Découvrir nPosts"
+    ctaHref="https://nposts.ai"
+    ctaVariant="ghost"
+  />
+</div>

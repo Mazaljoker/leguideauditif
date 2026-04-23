@@ -1,0 +1,121 @@
+---
+// Card Upsell pour le dashboard Revendicateur. Deux variantes :
+//   - "fondateur" : fond gradient marine + badge scarcity orange + CTA orange
+//   - "premium"   : fond blanc + badge neutre + CTA marine
+//
+// La scarcity (14/20) est passée en prop pour que la valeur reste gérée
+// côté serveur depuis les constantes de audiopro.ts. Jamais de scarcity
+// inventée au rendu.
+
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  variant: 'fondateur' | 'premium';
+  badge: string;
+  title: string;
+  tagline: string;
+  priceMain: string;
+  priceSub?: string;
+  priceNote?: string;
+  features: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  scarcityTaken?: number;
+  scarcityTotal?: number;
+}
+
+const {
+  variant,
+  badge,
+  title,
+  tagline,
+  priceMain,
+  priceSub,
+  priceNote,
+  features,
+  ctaLabel,
+  ctaHref,
+  scarcityTaken,
+  scarcityTotal,
+} = Astro.props;
+
+const isFondateur = variant === 'fondateur';
+const remaining =
+  typeof scarcityTaken === 'number' && typeof scarcityTotal === 'number'
+    ? Math.max(0, scarcityTotal - scarcityTaken)
+    : null;
+const scarcityPercent =
+  typeof scarcityTaken === 'number' && typeof scarcityTotal === 'number' && scarcityTotal > 0
+    ? Math.min(100, Math.round((scarcityTaken / scarcityTotal) * 100))
+    : 0;
+
+const cardClass = isFondateur
+  ? 'relative overflow-hidden rounded-2xl p-6 sm:p-8 text-blanc bg-gradient-to-br from-marine to-marine-light'
+  : 'rounded-2xl p-6 sm:p-8 bg-blanc border-2 border-gris-clair';
+
+const badgeClass = isFondateur
+  ? 'bg-orange text-blanc'
+  : 'bg-[#F3F4F6] text-marine';
+
+const taglineClass = isFondateur ? 'text-blanc/80' : 'text-gris-texte';
+const priceMainClass = isFondateur ? 'text-blanc' : 'text-marine';
+const priceSubClass = isFondateur ? 'text-blanc/70' : 'text-gris-texte';
+const priceNoteClass = isFondateur ? 'text-blanc/70' : 'text-gris-texte';
+const featureTextClass = isFondateur ? 'text-blanc/95' : 'text-marine';
+const checkColorClass = isFondateur ? 'text-orange' : 'text-[#059669]';
+
+const ctaClass = isFondateur
+  ? 'inline-flex w-full items-center justify-center gap-2 rounded-lg bg-orange text-blanc font-sans font-bold text-sm px-4 py-4 hover:bg-orange-hover transition-colors'
+  : 'inline-flex w-full items-center justify-center gap-2 rounded-lg bg-marine text-blanc font-sans font-bold text-sm px-4 py-4 hover:bg-marine-light transition-colors';
+---
+
+<article class={cardClass}>
+  <span class:list={[
+    'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-sans font-bold uppercase tracking-[1px] mb-3',
+    badgeClass,
+  ]}>
+    {isFondateur && <Icon name="lucide:zap" class="w-3 h-3" />}
+    {badge}
+  </span>
+
+  <h3 class:list={['font-sans text-2xl sm:text-3xl font-extrabold leading-tight mb-2', isFondateur ? 'text-blanc' : 'text-marine']}>
+    {title}
+  </h3>
+  <p class:list={['text-sm font-sans mb-5', taglineClass]}>{tagline}</p>
+
+  {isFondateur && remaining !== null && (
+    <div class="rounded-lg bg-white/10 px-3.5 py-3 mb-4">
+      <div class="flex items-center justify-between text-xs font-sans font-semibold text-blanc mb-2">
+        <span>Slots restants</span>
+        <span>{remaining} / {scarcityTotal}</span>
+      </div>
+      <div class="h-1.5 rounded-full bg-white/15 overflow-hidden">
+        <div class="h-full bg-orange transition-all" style={`width: ${scarcityPercent}%`}></div>
+      </div>
+    </div>
+  )}
+
+  <div class="flex items-baseline gap-2 mb-1">
+    <span class:list={['font-sans text-3xl sm:text-4xl font-extrabold leading-none', priceMainClass]}>
+      {priceMain}
+    </span>
+    {priceSub && <span class:list={['text-sm font-sans', priceSubClass]}>{priceSub}</span>}
+  </div>
+  {priceNote && (
+    <p class:list={['text-xs font-sans mb-5', priceNoteClass]} set:html={priceNote} />
+  )}
+
+  <ul class="space-y-2 mb-6">
+    {features.map((f) => (
+      <li class:list={['flex items-start gap-2 text-sm font-sans', featureTextClass]}>
+        <Icon name="lucide:check" class:list={['w-4 h-4 mt-0.5 shrink-0', checkColorClass]} />
+        <span>{f}</span>
+      </li>
+    ))}
+  </ul>
+
+  <a href={ctaHref} class={ctaClass} style="min-height: 48px;">
+    {ctaLabel}
+    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+  </a>
+</article>

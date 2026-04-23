@@ -4,9 +4,39 @@
 
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { CentreData, CentrePlan } from '../types/centre';
+import type { DashboardState } from '../types/audiopro';
 
 export const ACTIVE_CENTRE_COOKIE = 'lga_centre_slug';
 export const ACTIVE_CENTRE_MAX_AGE = 60 * 60 * 24 * 90; // 90 jours
+
+// Seuil à partir duquel un pro Premium bascule en dashboard "Réseau".
+// Cas Anthony Athuil = 3 centres ; garder 3 pour qu'il rende le dashboard
+// agrégé. À monter si le produit évolue.
+export const RESEAU_MIN_FICHES = 3;
+
+// Offre Fondateur : 20 places à vie. Le compteur est géré en constante
+// tant qu'il n'y a pas de workflow paiement en DB (Phase 2). Franck-Olivier
+// bump FONDATEUR_SLOTS_TAKEN par PR à chaque signature.
+export const FONDATEUR_SLOTS_TOTAL = 20;
+export const FONDATEUR_SLOTS_TAKEN = 6;
+
+/**
+ * Résout l'état de dashboard à afficher en fonction du portefeuille du pro.
+ *
+ *   - onboarding       : aucun centre approved (géré en amont via redirect)
+ *   - revendicateur    : centres revendiqués mais aucun Premium
+ *   - premium_solo     : 1 à RESEAU_MIN_FICHES-1 centres dont au moins 1 Premium
+ *   - reseau           : RESEAU_MIN_FICHES+ centres Premium
+ */
+export function resolveDashboardState(
+  centres: { plan: CentrePlan }[],
+): DashboardState {
+  if (centres.length === 0) return 'onboarding';
+  const hasPremium = centres.some((c) => c.plan === 'premium');
+  if (!hasPremium) return 'revendicateur';
+  if (centres.length >= RESEAU_MIN_FICHES) return 'reseau';
+  return 'premium_solo';
+}
 
 export interface UserCentre {
   id: string;

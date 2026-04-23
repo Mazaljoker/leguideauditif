@@ -1,0 +1,135 @@
+---
+// Orchestrateur du dashboard "Réseau" (3+ centres Premium).
+// Reproduit le mockup v3 : action prioritaire -> KPIs agrégés 30j ->
+// tableau des centres -> 3 leviers réseau -> accès rapide.
+//
+// Le CentreSwitcher global (dans AudioproLayout) reste visible au-dessus
+// pour le switch de centre actif. La vue "réseau" ici est indépendante
+// du centre actif : on affiche l'ensemble du portefeuille.
+
+import ActionPrioritaire from '../shared/ActionPrioritaire.astro';
+import SectionHeader from '../shared/SectionHeader.astro';
+import LeverCard from '../shared/LeverCard.astro';
+import QuickAccess from '../shared/QuickAccess.astro';
+import KPIsReseau from './KPIsReseau.astro';
+import CentresTable from './CentresTable.astro';
+import type { ActionPrioritaireInfo, CentreTableRow } from '../../../types/audiopro';
+
+export interface Props {
+  prenom: string;
+  nbCentres: number;
+  villesLabel: string;
+  zoneChalandise: number | null;
+  zoneLabel: string;
+  leadsCumules: number;
+  vuesCumulees: number;
+  rows: CentreTableRow[];
+  action?: ActionPrioritaireInfo;
+  nbAdsActives: number;
+  codePostauxLabel: string;
+}
+
+const {
+  prenom,
+  nbCentres,
+  villesLabel,
+  zoneChalandise,
+  zoneLabel,
+  leadsCumules,
+  vuesCumulees,
+  rows,
+  action,
+  nbAdsActives,
+  codePostauxLabel,
+} = Astro.props;
+---
+
+<header class="mb-6 sm:mb-8">
+  <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">
+    Bonjour {prenom}
+  </h1>
+  <p class="text-sm sm:text-base font-sans text-gris-texte mt-1">
+    Vue consolidée de vos {nbCentres} centres · {villesLabel}
+  </p>
+</header>
+
+{action && (
+  <ActionPrioritaire
+    label={action.label}
+    title={action.title}
+    desc={action.desc}
+    ctaLabel={action.ctaLabel}
+    ctaHref={action.ctaHref}
+  />
+)}
+
+<KPIsReseau
+  zoneChalandise={zoneChalandise}
+  zoneLabel={zoneLabel}
+  leadsCumules={leadsCumules}
+  vuesCumulees={vuesCumulees}
+  nbCentres={nbCentres}
+/>
+
+<SectionHeader
+  title={`Mes ${nbCentres} centres`}
+  subtitle="Cliquez sur un centre pour voir son détail"
+/>
+
+<CentresTable rows={rows} />
+
+<SectionHeader
+  title="Leviers d'acquisition"
+  subtitle="Applicables par centre ou à l'ensemble du réseau"
+/>
+
+<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+  <LeverCard
+    num={1}
+    iconName="lucide:megaphone"
+    title="Campagnes Google Ads"
+    body="Landing LGA co-brandée pour chaque centre. Architecture MCC validée, conversions par URL."
+    statusLabel="Centres actifs"
+    statusValue={`${nbAdsActives} / ${nbCentres}`}
+    statusTone={nbAdsActives > 0 ? 'positive' : 'muted'}
+    ctaLabel="Gérer les campagnes"
+    ctaHref="mailto:contact@leguideauditif.fr?subject=Gestion campagnes Google Ads"
+    ctaVariant="marine"
+  />
+
+  <LeverCard
+    num={2}
+    iconName="lucide:target"
+    title="Leads qualifiés"
+    body={`Demandes patients sur vos CP (${codePostauxLabel}). Exclusivité par code postal.`}
+    statusLabel="Statut"
+    statusValue="Non activé"
+    statusTone="muted"
+    ctaLabel="En discuter avec mon conseiller"
+    ctaHref="mailto:contact@leguideauditif.fr?subject=Leads qualifiés réseau"
+    ctaVariant="outline"
+  />
+
+  <LeverCard
+    num={3}
+    iconName="lucide:smartphone"
+    title="Réseaux sociaux"
+    body="Publication multi-centres via nPosts. 1 post → N variantes uniques par centre."
+    statusLabel="Statut"
+    statusValue="Non activé"
+    statusTone="muted"
+    ctaLabel="Découvrir nPosts"
+    ctaHref="https://nposts.ai"
+    ctaVariant="ghost"
+  />
+</div>
+
+<QuickAccess
+  links={[
+    { label: 'Mes demandes patients', href: '/audioprothesiste-pro/leads/' },
+    { label: 'Mes annonces', href: '/audioprothesiste-pro/annonces/' },
+    { label: 'Mon abonnement', href: '/audioprothesiste-pro/abonnement/' },
+    { label: 'Facturation', href: '/audioprothesiste-pro/abonnement/' },
+    { label: 'Support', href: 'mailto:contact@leguideauditif.fr' },
+  ]}
+/>

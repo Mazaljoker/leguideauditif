@@ -1,0 +1,60 @@
+---
+// 3 KPIs agrégés pour le dashboard Réseau : zone chalandise cumulée,
+// demandes patients cumulées, vues de fiches cumulées.
+//
+// Les vues 30j / leads 30j sont passées en props (sommes déjà faites
+// côté parent). La zone de chalandise est calculée côté parent également :
+// en Phase 1 on passe un placeholder ou une estimation INSEE simple.
+
+import SectionHeader from '../shared/SectionHeader.astro';
+import KPICard from '../shared/KPICard.astro';
+
+export interface Props {
+  zoneChalandise: number | null;
+  zoneLabel: string;
+  leadsCumules: number;
+  vuesCumulees: number;
+  nbCentres: number;
+}
+
+const { zoneChalandise, zoneLabel, leadsCumules, vuesCumulees, nbCentres } = Astro.props;
+
+const zoneValue =
+  zoneChalandise === null
+    ? 'À venir'
+    : `~${zoneChalandise.toLocaleString('fr-FR').replace(/,/g, ' ')}`;
+---
+
+<SectionHeader
+  title="Performance réseau (30 jours)"
+  subtitle={`Agrégation de vos ${nbCentres} centres`}
+  ctaLabel="Exporter le rapport"
+  ctaHref="/audioprothesiste-pro/leads/"
+/>
+
+<div class="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+  <KPICard
+    label="ZONE DE CHALANDISE CUMULÉE"
+    value={zoneValue}
+    desc={`patients potentiels<br>sur vos ${nbCentres} zones`}
+    footer={zoneLabel}
+    footerTone="positive"
+  />
+
+  <KPICard
+    label="DEMANDES PATIENTS"
+    value={leadsCumules.toLocaleString('fr-FR')}
+    desc="reçues via LGA ce mois"
+    footer="Activation complète prévue fin avril 2026"
+    footerTone="muted"
+  />
+
+  <KPICard
+    label="VUES DE VOS FICHES"
+    value={vuesCumulees.toLocaleString('fr-FR')}
+    valueSub="total"
+    desc={`cumulées sur vos ${nbCentres} fiches`}
+    footer="Site lancé J+10 · pic SEO projeté M+6"
+    footerTone="muted"
+  />
+</div>

@@ -1,0 +1,36 @@
+---
+// Barre de scarcity Fondateur (affiche 14/20 slots restants avec progress).
+// Utilisée en interne par UpsellCard variant="fondateur" ; exposée aussi
+// comme composant indépendant au cas où Franck-Olivier voudrait l'injecter
+// ailleurs (bannière header, page marketing).
+
+export interface Props {
+  taken: number;
+  total: number;
+  label?: string;
+  tone?: 'light' | 'dark';
+}
+
+const { taken, total, label = 'Slots restants', tone = 'dark' } = Astro.props;
+const remaining = Math.max(0, total - taken);
+const percent = total > 0 ? Math.min(100, Math.round((taken / total) * 100)) : 0;
+
+const wrapClass =
+  tone === 'dark'
+    ? 'bg-white/10 text-blanc'
+    : 'bg-[#F9FAFB] text-marine';
+const trackClass =
+  tone === 'dark'
+    ? 'bg-white/15'
+    : 'bg-gris-clair';
+---
+
+<div class:list={['rounded-lg px-3.5 py-3 text-xs font-sans', wrapClass]}>
+  <div class="flex items-center justify-between font-semibold mb-2">
+    <span>{label}</span>
+    <span>{remaining} / {total}</span>
+  </div>
+  <div class:list={['h-1.5 rounded-full overflow-hidden', trackClass]}>
+    <div class="h-full bg-orange transition-all" style={`width: ${percent}%`}></div>
+  </div>
+</div>

@@ -1,0 +1,147 @@
+---
+// Orchestrateur du dashboard "Premium solo" (1 ou 2 centres avec un plan
+// Premium). Version allégée du dashboard Réseau : pas de tableau multi-
+// centres, KPIs orientés zone du centre unique, action prioritaire
+// focalisée sur le centre actif.
+//
+// La règle "aucun prix" s'applique : les leviers non activés renvoient
+// vers un mailto conseiller, jamais vers une grille tarifaire.
+
+import ActionPrioritaire from '../shared/ActionPrioritaire.astro';
+import SectionHeader from '../shared/SectionHeader.astro';
+import KPICard from '../shared/KPICard.astro';
+import QuickAccess from '../shared/QuickAccess.astro';
+import CompletudeBar from '../shared/CompletudeBar.astro';
+import LeviersActifs from './LeviersActifs.astro';
+import type { ActionPrioritaireInfo } from '../../../types/audiopro';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  prenom: string;
+  centre: CentreData;
+  viewCount30j: number;
+  leadCount30j: number;
+  zoneChalandise: number | null;
+  completeness: number;
+  action?: ActionPrioritaireInfo;
+}
+
+const {
+  prenom,
+  centre,
+  viewCount30j,
+  leadCount30j,
+  zoneChalandise,
+  completeness,
+  action,
+} = Astro.props;
+
+const zoneValue =
+  zoneChalandise === null
+    ? 'À venir'
+    : `~${zoneChalandise.toLocaleString('fr-FR').replace(/,/g, ' ')}`;
+
+const ads = {
+  statusLabel: 'Statut',
+  statusValue: 'Non activé',
+  statusTone: 'muted' as const,
+};
+
+// Nombre d'étapes "done" : 9 champs de completeness déjà calculés côté
+// appelant. On affiche la progress en bas de page pour rappeler où le
+// pro peut améliorer sa fiche.
+const completenessStepsTotal = 9;
+const completenessStepsDone = Math.round((completeness / 100) * completenessStepsTotal);
+---
+
+<header class="mb-6 sm:mb-8">
+  <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">
+    Bonjour {prenom}
+  </h1>
+  <p class="text-sm sm:text-base font-sans text-gris-texte mt-1">
+    Votre centre <strong class="text-marine">{centre.nom}</strong>
+    {centre.ville ? ` à ${centre.ville}` : ''}
+    · Plan Premium actif
+  </p>
+</header>
+
+{action && (
+  <ActionPrioritaire
+    label={action.label}
+    title={action.title}
+    desc={action.desc}
+    ctaLabel={action.ctaLabel}
+    ctaHref={action.ctaHref}
+  />
+)}
+
+<SectionHeader
+  title="Votre zone (30 jours)"
+  subtitle={`CP ${centre.cp} · ${centre.ville ?? ''}`.trim()}
+/>
+
+<div class="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+  <KPICard
+    label="PATIENTS POTENTIELS"
+    value={zoneValue}
+    desc="dans votre zone de chalandise"
+    footer={`CP ${centre.cp}`}
+    footerTone="positive"
+  />
+  <KPICard
+    label="DEMANDES PATIENTS"
+    value={leadCount30j.toLocaleString('fr-FR')}
+    desc="reçues via LGA ce mois"
+    footer="Demandes exclusives sur votre CP"
+    footerTone="muted"
+  />
+  <KPICard
+    label="VUES DE VOTRE FICHE"
+    value={viewCount30j.toLocaleString('fr-FR')}
+    desc="pages vues sur 30j"
+    footer="Site lancé J+10 · pic SEO projeté M+6"
+    footerTone="muted"
+  />
+</div>
+
+<SectionHeader
+  title="Leviers d'acquisition"
+  subtitle="Activables à la demande avec votre conseiller"
+/>
+
+<LeviersActifs
+  adsStatusLabel={ads.statusLabel}
+  adsStatusValue={ads.statusValue}
+  adsStatusTone={ads.statusTone}
+  codePostal={centre.cp}
+/>
+
+<section class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-6 mb-10 shadow-[0_1px_3px_rgba(27,46,74,0.06)]">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+    <div>
+      <h2 class="font-sans text-base sm:text-lg font-bold text-marine">Gestion de votre fiche</h2>
+      <p class="text-xs sm:text-sm text-gris-texte font-sans mt-0.5">
+        Une fiche complète remonte mieux dans les recherches
+      </p>
+    </div>
+    <a
+      href="/audioprothesiste-pro/fiche/"
+      class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange text-blanc font-sans font-semibold text-sm px-5 py-3 hover:bg-orange-hover transition-colors self-start sm:self-auto"
+      style="min-height: 44px;"
+    >
+      Modifier ma fiche
+    </a>
+  </div>
+  <CompletudeBar done={completenessStepsDone} total={completenessStepsTotal} labelDone="éléments" />
+</section>
+
+<QuickAccess
+  links={[
+    { label: 'Ma fiche', href: '/audioprothesiste-pro/fiche/' },
+    { label: 'Mes demandes', href: '/audioprothesiste-pro/leads/' },
+    { label: 'Mes annonces', href: '/audioprothesiste-pro/annonces/' },
+    { label: 'Mon abonnement', href: '/audioprothesiste-pro/abonnement/' },
+    { label: 'Mon compte', href: '/audioprothesiste-pro/compte/' },
+    { label: 'Support', href: 'mailto:contact@leguideauditif.fr' },
+  ]}
+/>

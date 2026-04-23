@@ -1,0 +1,31 @@
+---
+// Barre de progression de complétude d'une fiche, avec compteur "X / N étapes".
+// Animée si l'user n'a pas `prefers-reduced-motion` (voir global.css).
+
+export interface Props {
+  done: number;
+  total: number;
+  labelDone?: string;
+  tone?: 'orange' | 'green';
+}
+
+const { done, total, labelDone = 'étapes', tone = 'orange' } = Astro.props;
+const percent = total > 0 ? Math.min(100, Math.round((done / total) * 100)) : 0;
+
+const labelColorClass = tone === 'green' ? 'text-[#059669]' : 'text-orange';
+const barColorClass = tone === 'green' ? 'bg-[#059669]' : 'bg-orange';
+---
+
+<div>
+  <div class="flex items-center justify-between mb-2 gap-3 flex-wrap">
+    <span class:list={['text-sm font-sans font-semibold', labelColorClass]}>
+      {done} / {total} {labelDone} · {percent}%
+    </span>
+  </div>
+  <div class="h-2 rounded-full bg-gris-clair overflow-hidden">
+    <div
+      class:list={['h-full rounded-full transition-all duration-300', barColorClass]}
+      style={`width: ${percent}%`}
+    ></div>
+  </div>
+</div>

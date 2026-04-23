@@ -1,0 +1,50 @@
+---
+// Card KPI réutilisable pour les 3 dashboards (revendicateur, premium, réseau).
+// Reproduit le style .card .kpi-value des mockups avec un rendu mobile-first.
+//
+// Props :
+//   label     : texte label uppercase (ex "VUES DE VOTRE FICHE")
+//   value     : chiffre principal (string pour laisser le formatage au parent)
+//   valueSub  : suffixe optionnel en gris (ex " total", " / 5")
+//   desc      : ligne descriptive sous la valeur
+//   footer    : ligne footer après le séparateur (optionnelle)
+//   footerTone: couleur du footer (positive|action|muted|neutral)
+//
+// Usage : <KPICard label="VUES 30J" value="12" desc="vues depuis..." />
+
+import type { KPITone } from '../../../types/audiopro';
+
+export interface Props {
+  label: string;
+  value: string;
+  valueSub?: string;
+  desc: string;
+  footer?: string;
+  footerTone?: KPITone;
+}
+
+const { label, value, valueSub, desc, footer, footerTone = 'muted' } = Astro.props;
+
+const footerClass =
+  footerTone === 'positive'
+    ? 'text-[#059669]'
+    : footerTone === 'action'
+      ? 'text-orange'
+      : 'text-gris-texte';
+---
+
+<article class="rounded-xl border border-gris-clair bg-blanc p-5 sm:p-6">
+  <p class="text-[11px] font-sans font-bold uppercase tracking-[1.2px] text-gris-texte mb-3">
+    {label}
+  </p>
+  <p class="font-sans text-3xl sm:text-4xl font-extrabold text-marine leading-none mb-2">
+    {value}
+    {valueSub && <span class="text-base sm:text-lg font-medium text-gris-texte">{valueSub}</span>}
+  </p>
+  <p class="text-sm text-gris-texte font-sans leading-snug" set:html={desc} />
+  {footer && (
+    <div class="border-t border-gris-clair pt-3 mt-4">
+      <p class:list={['text-xs font-sans', footerClass]}>{footer}</p>
+    </div>
+  )}
+</article>
