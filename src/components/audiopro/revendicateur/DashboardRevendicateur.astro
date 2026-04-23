@@ -103,7 +103,7 @@ const claimedLabel =
 
 <SectionHeader title="Votre activité" subtitle="30 derniers jours" />
 
-<div class="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+<div class="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
   <KPICard
     label="VUES DE VOTRE FICHE"
     value={viewCount30j.toLocaleString('fr-FR')}
@@ -132,7 +132,7 @@ const claimedLabel =
   />
 </div>
 
-<div class="grid gap-5 lg:grid-cols-[1.4fr_1fr] mb-10">
+<div class="grid grid-cols-1 gap-5 lg:grid-cols-[1.4fr_1fr] mb-10">
   <UpsellCard
     variant="fondateur"
     badge="Offre Fondateur limitée"
