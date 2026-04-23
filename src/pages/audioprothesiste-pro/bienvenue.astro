@@ -16,6 +16,7 @@ import { Icon } from 'astro-icon/components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { createServerClient } from '../../lib/supabase';
 import { getUserCentres } from '../../lib/audiopro';
+import { trackAudioproSignup } from '../../lib/audiopro-signup';
 
 const user = Astro.locals.user;
 if (!user || !user.email) return Astro.redirect('/connexion-pro/');
@@ -23,6 +24,19 @@ if (!user || !user.email) return Astro.redirect('/connexion-pro/');
 const supabase = createServerClient();
 const centres = await getUserCentres(supabase, user.email);
 if (centres.length > 0) return Astro.redirect('/audioprothesiste-pro/');
+
+// Tracker le signup dans contacts (lead pool B2B) — idempotent.
+// Note : si l'user finit par revendiquer une fiche plus tard, le trigger
+// auto_link_claimed_centre le promouvra en prospect. Les 2 tables peuvent
+// coexister (contacts = pool passif, prospects = pipeline actif).
+const metadata = (user as { user_metadata?: Record<string, unknown> }).user_metadata ?? {};
+await trackAudioproSignup(supabase, user.id, user.email, {
+  given_name: typeof metadata.given_name === 'string' ? metadata.given_name : undefined,
+  family_name: typeof metadata.family_name === 'string' ? metadata.family_name : undefined,
+  full_name: typeof metadata.full_name === 'string' ? metadata.full_name : undefined,
+  name: typeof metadata.name === 'string' ? metadata.name : undefined,
+  picture: typeof metadata.picture === 'string' ? metadata.picture : null,
+});
 
 // Détecter si une revendication est en cours (claim pending)
 const { data: pendingCentre } = await supabase
