@@ -1,0 +1,105 @@
+---
+// Articles LGA contextualisés à la fiche centre.
+// Sélection dynamique :
+//   1. Pour chaque marque cochée, article /guides/marques/{marque} si existe
+//   2. Pour spécialité acouphènes → /guides/acouphenes/
+//   3. Pour spécialité 100% Santé → /guides/remboursement/100-sante-audition/
+//   4. Complète avec articles universels (prix, choisir audio) si < 3 résultats
+//   Résultat : 3 cards max, liens vers article complet = maillage interne SEO + temps passé.
+
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+
+const guides = await getCollection('guides');
+
+function findGuide(slugPattern: string) {
+  return guides.find((g) => g.id.toLowerCase().includes(slugPattern.toLowerCase()));
+}
+
+const picked: Array<{ title: string; description: string; slug: string; pubDate?: Date }> = [];
+const seen = new Set<string>();
+
+function addGuide(g: (typeof guides)[number] | undefined) {
+  if (!g || seen.has(g.id)) return;
+  seen.add(g.id);
+  const data = g.data as { title?: string; description?: string; pubDate?: Date };
+  picked.push({
+    title: data.title ?? g.id,
+    description: data.description ?? '',
+    slug: g.id.replace(/\/index$/, '').replace(/\.mdx$/, ''),
+    pubDate: data.pubDate,
+  });
+}
+
+// 1. Marques — ajoute max 2 articles marque
+let marqueCount = 0;
+for (const marque of centre.marques) {
+  if (marqueCount >= 2 || picked.length >= 3) break;
+  const g = findGuide(`marques/${marque.toLowerCase()}`);
+  if (g) {
+    addGuide(g);
+    marqueCount++;
+  }
+}
+
+// 2. Spécialité acouphènes
+if (picked.length < 3 && centre.specialites.includes('Acouphènes')) {
+  addGuide(findGuide('acouphenes/index'));
+}
+
+// 3. 100% Santé
+if (picked.length < 3 && centre.specialites.includes('100% Santé')) {
+  addGuide(findGuide('remboursement/100-sante-audition'));
+}
+
+// 4. Universels (fallback si pas assez)
+if (picked.length < 3) addGuide(findGuide('remboursement/prix-appareil-auditif'));
+if (picked.length < 3) addGuide(findGuide('audioprothesiste/choisir'));
+if (picked.length < 3) addGuide(findGuide('appareils-auditifs/classe-1-vs-classe-2'));
+
+const articles = picked.slice(0, 3);
+const ville = centre.ville ?? centre.cp;
+---
+
+{articles.length > 0 && (
+<section class="mb-8" aria-labelledby="articles-title">
+  <div class="flex items-center gap-3 mb-5">
+    <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+      <Icon name="lucide:book-open" class="w-5 h-5" />
+    </div>
+    <div>
+      <h2 id="articles-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+        Articles utiles à consulter
+      </h2>
+      <p class="text-sm text-gris-texte font-sans mt-0.5">Ressources sélectionnées selon votre profil de centre</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    {articles.map((a) => (
+      <a
+        href={`/guides/${a.slug}/`}
+        class="group min-w-0 rounded-xl bg-blanc border border-gris-clair p-5 hover:border-orange/40 transition-colors overflow-hidden flex flex-col"
+      >
+        <h3 class="font-sans text-base font-bold text-marine group-hover:text-orange transition-colors mb-2 leading-snug">
+          {a.title}
+        </h3>
+        <p class="text-sm font-sans text-gris-texte leading-snug flex-1 mb-3">
+          {a.description.length > 140 ? a.description.slice(0, 140) + '…' : a.description}
+        </p>
+        <p class="inline-flex items-center gap-1 text-sm font-sans font-semibold text-orange">
+          Lire l'article
+          <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
+        </p>
+      </a>
+    ))}
+  </div>
+</section>
+)}

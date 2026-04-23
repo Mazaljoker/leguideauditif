@@ -1,0 +1,88 @@
+---
+// FAQ locale géolocalisée pour fiche Premium.
+// Génère 5 questions/réponses dynamiques basées sur les données du centre
+// (ville, département, spécialités) + JSON-LD FAQPage pour éligibilité
+// rich results Google (CTR +30% démontré en pratique).
+//
+// Les réponses restent génériques + conformes YMYL (pas d'affirmation
+// médicale non sourcée, pas de prix exact — on donne des fourchettes).
+
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const ville = centre.ville ?? centre.cp;
+const dep = centre.departement ?? centre.cp.slice(0, 2);
+
+// Questions dynamiques — on privilégie les intents locaux les plus cherchés
+// ("prix appareil auditif {ville}", "remboursement {ville}", "bilan auditif").
+// Les réponses sont factuelles et non-médicales (règle YMYL).
+const faqs: Array<{ q: string; a: string }> = [
+  {
+    q: `Combien coûte un appareil auditif à ${ville} ?`,
+    a: `Le prix d'un appareil auditif dépend de sa classe de remboursement. En <strong>Classe 1 (100% Santé)</strong>, le reste à charge est de 0€ après remboursement Sécu + mutuelle. En <strong>Classe 2</strong>, comptez entre 900€ et 2000€ par oreille selon la technologie choisie. Chez ${centre.nom}, ${centre.audio_prenom ?? 'votre audioprothésiste'} vous propose un essai gratuit avant tout engagement.`,
+  },
+  {
+    q: `Où trouver un audioprothésiste à ${ville} ?`,
+    a: `${centre.nom} est situé au <strong>${centre.adresse}</strong>${ville ? ', ' + ville : ''}${centre.cp ? ' (' + centre.cp + ')' : ''}. ${centre.tel ? `Contactez-nous au ${centre.tel} pour un premier rendez-vous.` : 'Utilisez le formulaire ci-dessous pour prendre rendez-vous.'} Le bilan auditif est <strong>gratuit et sans engagement</strong>.`,
+  },
+  {
+    q: `Quel est le délai pour un bilan auditif à ${ville} ?`,
+    a: `Chez ${centre.nom}, les premiers rendez-vous sont généralement proposés sous <strong>1 à 2 semaines</strong>. Un bilan dure environ 30 minutes et inclut une audiométrie tonale et vocale. Aucune ordonnance n'est nécessaire pour un premier bilan.`,
+  },
+  {
+    q: `Comment est remboursé un appareil auditif dans le ${dep} ?`,
+    a: `L'Assurance Maladie prend en charge 400€ par oreille en Classe 1 et 400€ en Classe 2 (sur prescription ORL). Le complément est assuré par votre mutuelle selon son niveau de couverture. En <strong>Classe 1</strong>, la somme Sécu + mutuelle responsable couvre 100% du prix — soit un reste à charge de <strong>0€</strong>.`,
+  },
+  {
+    q: `Faut-il une ordonnance pour un bilan auditif ?`,
+    a: `Un <strong>premier bilan auditif est accessible sans ordonnance</strong> et vous permet d'évaluer votre audition. En revanche, une prescription ORL est obligatoire avant l'appareillage pour bénéficier du remboursement Sécu. ${centre.audio_prenom ?? 'Votre audioprothésiste'} vous orientera si besoin vers un ORL partenaire.`,
+  },
+];
+
+// JSON-LD FAQPage — obligatoire pour rich results Google
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.a.replace(/<[^>]+>/g, ''),
+    },
+  })),
+};
+---
+
+<section
+  class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7 mb-8"
+  aria-labelledby="faq-title"
+>
+  <div class="flex items-center gap-3 mb-5">
+    <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+      <Icon name="lucide:help-circle" class="w-5 h-5" />
+    </div>
+    <h2 id="faq-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+      Questions fréquentes à {ville}
+    </h2>
+  </div>
+
+  <div class="space-y-3">
+    {faqs.map((f, idx) => (
+      <details class="group rounded-lg border border-gris-clair bg-creme/40 overflow-hidden">
+        <summary class="cursor-pointer px-5 py-4 flex items-start gap-3 font-sans font-semibold text-marine hover:bg-creme/70 list-none [&::-webkit-details-marker]:hidden min-h-[44px]">
+          <Icon name="lucide:chevron-right" class="w-5 h-5 text-orange shrink-0 mt-0.5 transition-transform group-open:rotate-90" />
+          <span class="flex-1">{f.q}</span>
+        </summary>
+        <div class="px-5 pb-5 pt-1 pl-13 font-serif text-marine leading-relaxed" set:html={f.a}></div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -35,7 +35,28 @@ const marquesList = [
   'Widex', 'Bernafon', 'Unitron', 'Audioservice',
 ];
 
+const associationsList = [
+  { code: 'UNSAF', label: 'UNSAF' },
+  { code: 'CNA', label: 'Collège National d\'Audioprothèse' },
+  { code: 'SFA', label: 'Société Française d\'Audiologie' },
+  { code: 'AFREPA', label: 'AFREPA (acouphènes)' },
+  { code: 'AES', label: 'AES' },
+];
+
+const languesList = [
+  { code: 'FR', label: 'Français' },
+  { code: 'EN', label: 'Anglais' },
+  { code: 'ES', label: 'Espagnol' },
+  { code: 'LSF', label: 'Langue des signes' },
+  { code: 'IT', label: 'Italien' },
+  { code: 'DE', label: 'Allemand' },
+  { code: 'AR', label: 'Arabe' },
+  { code: 'PT', label: 'Portugais' },
+];
+
 const isPremium = centre.plan === 'premium';
+const currentYear = new Date().getFullYear();
+const servicesInclus = (centre.services_inclus ?? {}) as Record<string, boolean>;
 ---
 
 <AudioproLayout
@@ -90,6 +111,20 @@ const isPremium = centre.plan === 'premium';
         <Icon name="lucide:sparkles" class="w-4 h-4" />
         Offre
       </button>
+      {isPremium && (
+        <button
+          type="button"
+          class="tab-btn"
+          data-tab="expertise"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tab-expertise"
+          id="tab-label-expertise"
+        >
+          <Icon name="lucide:award" class="w-4 h-4" />
+          Expertise
+        </button>
+      )}
       {isPremium && (
         <button
           type="button"
@@ -360,6 +395,129 @@ const isPremium = centre.plan === 'premium';
         <p class="text-xs text-gris-texte font-sans mt-1">500 caractères max — décrivez votre approche, votre équipe, votre philosophie.</p>
       </div>
     </section>
+
+    {/* ================== Onglet Expertise (premium only) ================== */}
+    {isPremium && (
+      <section
+        id="tab-expertise"
+        class="tab-panel hidden"
+        role="tabpanel"
+        aria-labelledby="tab-label-expertise"
+      >
+        <p class="text-sm text-gris-texte font-sans mb-5">
+          Ces informations renforcent votre crédibilité professionnelle. Plus la page est complète, mieux elle remonte dans Google sur votre zone (signaux E-E-A-T pour les contenus santé).
+        </p>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="sm:col-span-2">
+            <label for="edit-audio-bio" class="block text-sm font-medium text-marine font-sans mb-1">
+              Biographie professionnelle
+            </label>
+            <textarea
+              id="edit-audio-bio"
+              name="audio_bio"
+              rows="5"
+              maxlength="800"
+              placeholder="Parcours (DE d'audioprothèse, stages, expériences), votre approche patient, vos domaines d'intérêt (acouphènes, pédiatrie, presbyacousie…)."
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 resize-y"
+            >{centre.audio_bio ?? ''}</textarea>
+            <p class="text-xs text-gris-texte font-sans mt-1">
+              800 caractères max · affichée en haut de votre fiche publique.
+            </p>
+          </div>
+
+          <div>
+            <label for="edit-audio-annee-dip" class="block text-sm font-medium text-marine font-sans mb-1">
+              Année d'obtention du D.E.
+            </label>
+            <input
+              id="edit-audio-annee-dip"
+              name="audio_annee_dip"
+              type="number"
+              min="1960"
+              max={currentYear}
+              value={centre.audio_annee_dip ?? ''}
+              placeholder="Ex : 2005"
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+            />
+            <p class="text-xs text-gris-texte font-sans mt-1">
+              Affiche votre nombre d'années d'expérience calculé automatiquement.
+            </p>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-marine font-sans mb-2">
+              Langues parlées au centre
+            </label>
+            <div class="flex flex-wrap gap-2" id="langues-container">
+              {languesList.map((l) => (
+                <label class="inline-flex items-center gap-1.5 rounded-full border border-gris-clair bg-blanc px-3 py-2 text-sm font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30 has-[:checked]:text-[#0C447C]" style="min-height: 44px;">
+                  <input
+                    type="checkbox"
+                    name="langues"
+                    value={l.code}
+                    checked={centre.langues?.includes(l.code)}
+                    class="sr-only peer"
+                  />
+                  {l.label}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium text-marine font-sans mb-2">
+              Associations professionnelles
+            </label>
+            <div class="flex flex-wrap gap-2" id="associations-container">
+              {associationsList.map((a) => (
+                <label class="inline-flex items-center gap-1.5 rounded-full border border-gris-clair bg-blanc px-3 py-2 text-sm font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30 has-[:checked]:text-[#0C447C]" style="min-height: 44px;">
+                  <input
+                    type="checkbox"
+                    name="audio_associations"
+                    value={a.code}
+                    checked={centre.audio_associations?.includes(a.code)}
+                    class="sr-only peer"
+                  />
+                  {a.label}
+                </label>
+              ))}
+            </div>
+            <p class="text-xs text-gris-texte font-sans mt-1">
+              Signal E-E-A-T important : les associations renforcent votre crédibilité professionnelle pour Google.
+            </p>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium text-marine font-sans mb-2">
+              Services inclus
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+                <input type="checkbox" name="services_essai_30j" checked={!!servicesInclus.essai_30j} class="sr-only peer" />
+                <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+                <span class="text-sm text-marine">Essai gratuit 30 jours</span>
+              </label>
+              <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+                <input type="checkbox" name="services_livraison_domicile" checked={!!servicesInclus.livraison_domicile} class="sr-only peer" />
+                <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+                <span class="text-sm text-marine">Livraison à domicile</span>
+              </label>
+              <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+                <input type="checkbox" name="services_teleconsultation" checked={!!servicesInclus.teleconsultation} class="sr-only peer" />
+                <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+                <span class="text-sm text-marine">Téléconsultation</span>
+              </label>
+              <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+                <input type="checkbox" name="services_urgences" checked={!!servicesInclus.urgences} class="sr-only peer" />
+                <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+                <span class="text-sm text-marine">Accueil urgence auditive</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
 
     {/* ================== Onglet Réseaux sociaux (premium only) ================== */}
     {isPremium && (
@@ -700,6 +858,18 @@ const isPremium = centre.plan === 'premium';
       if (rsGo) reseaux.google = rsGo;
       if (rsLi) reseaux.linkedin = rsLi;
 
+      // Expertise Premium
+      const audioAssociations = formData.getAll('audio_associations');
+      const langues = formData.getAll('langues');
+      const anneeDipRaw = formData.get('audio_annee_dip');
+      const anneeDip = anneeDipRaw ? parseInt(String(anneeDipRaw), 10) : null;
+      const servicesInclus = {
+        essai_30j: formData.get('services_essai_30j') === 'on',
+        livraison_domicile: formData.get('services_livraison_domicile') === 'on',
+        teleconsultation: formData.get('services_teleconsultation') === 'on',
+        urgences: formData.get('services_urgences') === 'on',
+      };
+
       const payload = {
         centreSlug,
         nom: formData.get('nom'),
@@ -710,6 +880,11 @@ const isPremium = centre.plan === 'premium';
         a_propos: formData.get('a_propos') || null,
         specialites,
         marques,
+        audio_bio: formData.get('audio_bio') || null,
+        audio_annee_dip: anneeDip && !isNaN(anneeDip) ? anneeDip : null,
+        audio_associations: audioAssociations,
+        langues: langues,
+        services_inclus: servicesInclus,
       };
       if (Object.keys(reseaux).length > 0) payload.reseaux_sociaux = reseaux;
 
