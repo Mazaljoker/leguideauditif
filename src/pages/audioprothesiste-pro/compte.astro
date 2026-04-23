@@ -1,0 +1,362 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import { createServerClient } from '../../lib/supabase';
+import { ACTIVE_CENTRE_COOKIE, getUserCentres, resolveActiveCentre } from '../../lib/audiopro';
+
+const user = Astro.locals.user;
+if (!user || !user.email) return Astro.redirect('/connexion-pro/');
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+if (centres.length === 0) return Astro.redirect('/trouver-audioprothesiste/');
+
+const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
+const active = resolveActiveCentre(centres, cookieSlug);
+if (!active) return Astro.redirect('/trouver-audioprothesiste/');
+
+// Les identités complètes ne sont pas exposées par Astro.locals.user
+// (middleware ne stocke que l'objet user basique). On les chargera côté
+// client pour savoir si Google est lié et si un password est défini.
+
+const lastSignIn = (user as { last_sign_in_at?: string }).last_sign_in_at;
+const lastSignInDate = lastSignIn
+  ? new Date(lastSignIn).toLocaleDateString('fr-FR', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    })
+  : null;
+---
+
+<AudioproLayout
+  title="Mon compte — Espace pro LeGuideAuditif"
+  pageLabel="Compte"
+>
+  <header class="mb-6">
+    <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">Mon compte</h1>
+    <p class="text-sm text-gris-texte font-sans mt-1">
+      Gérez vos méthodes de connexion et votre mot de passe.
+    </p>
+  </header>
+
+  <div class="space-y-6">
+    {/* === Informations compte === */}
+    <section class="rounded-xl border border-gris-clair bg-blanc p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-marine/10 flex items-center justify-center">
+          <Icon name="lucide:user" class="w-5 h-5 text-marine" />
+        </div>
+        <h2 class="font-sans text-lg font-bold text-marine">Informations</h2>
+      </div>
+
+      <dl class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <dt class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Email</dt>
+          <dd class="font-sans text-marine font-medium">{user.email}</dd>
+        </div>
+        <div>
+          <dt class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Fiches revendiquées</dt>
+          <dd class="font-sans text-marine font-medium">
+            {centres.length} centre{centres.length > 1 ? 's' : ''}
+          </dd>
+        </div>
+        {lastSignInDate && (
+          <div class="sm:col-span-2">
+            <dt class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Dernière connexion</dt>
+            <dd class="font-sans text-gris-texte text-sm">{lastSignInDate}</dd>
+          </div>
+        )}
+      </dl>
+    </section>
+
+    {/* === Mot de passe === */}
+    <section class="rounded-xl border border-gris-clair bg-blanc p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-marine/10 flex items-center justify-center">
+          <Icon name="lucide:key-round" class="w-5 h-5 text-marine" />
+        </div>
+        <h2 class="font-sans text-lg font-bold text-marine">Mot de passe</h2>
+      </div>
+      <p class="text-sm text-gris-texte font-sans mb-5">
+        Définissez ou modifiez votre mot de passe pour vous connecter sans email magique.
+      </p>
+      <form id="password-form" class="max-w-md">
+        <div class="mb-4">
+          <label for="new-password" class="block text-sm font-medium text-marine font-sans mb-1">
+            Nouveau mot de passe
+          </label>
+          <input
+            id="new-password"
+            name="password"
+            type="password"
+            required
+            autocomplete="new-password"
+            minlength="8"
+            placeholder="Minimum 8 caractères"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="confirm-password" class="block text-sm font-medium text-marine font-sans mb-1">
+            Confirmer le mot de passe
+          </label>
+          <input
+            id="confirm-password"
+            name="confirm"
+            type="password"
+            required
+            autocomplete="new-password"
+            minlength="8"
+            class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          />
+        </div>
+        <div id="password-error" class="hidden mb-4 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+        <div id="password-success" class="hidden mb-4 rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-700 font-sans"></div>
+        <button
+          type="submit"
+          id="password-submit"
+          class="inline-flex items-center gap-2 rounded-lg bg-orange px-6 py-3 text-base font-semibold text-blanc font-sans hover:bg-orange-hover transition-colors disabled:opacity-60"
+          style="min-height: 48px;"
+        >
+          <Icon name="lucide:save" class="w-4 h-4" />
+          Enregistrer
+        </button>
+      </form>
+    </section>
+
+    {/* === Comptes liés (providers) === */}
+    <section class="rounded-xl border border-gris-clair bg-blanc p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-marine/10 flex items-center justify-center">
+          <Icon name="lucide:link-2" class="w-5 h-5 text-marine" />
+        </div>
+        <h2 class="font-sans text-lg font-bold text-marine">Comptes liés</h2>
+      </div>
+      <p class="text-sm text-gris-texte font-sans mb-5">
+        Liez votre compte Google pour vous connecter en un clic lors de vos prochaines visites.
+      </p>
+
+      <div id="providers-loading" class="text-sm text-gris-texte font-sans">
+        Chargement…
+      </div>
+
+      <ul id="providers-list" class="hidden divide-y divide-gris-clair">
+        <li id="provider-email" class="flex items-center justify-between gap-3 py-3">
+          <div class="flex items-center gap-3">
+            <Icon name="lucide:mail" class="w-5 h-5 text-marine" />
+            <div>
+              <p class="font-sans text-sm font-semibold text-marine">Email</p>
+              <p class="text-xs text-gris-texte font-sans provider-email-value">—</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-[#639922]/10 text-[#639922] px-3 py-1 text-xs font-sans font-semibold">
+            <Icon name="lucide:check" class="w-3 h-3" />
+            Actif
+          </span>
+        </li>
+        <li id="provider-google" class="flex items-center justify-between gap-3 py-3">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <div>
+              <p class="font-sans text-sm font-semibold text-marine">Google</p>
+              <p class="text-xs text-gris-texte font-sans provider-google-value">Non lié</p>
+            </div>
+          </div>
+          <button
+            id="google-link-btn"
+            type="button"
+            class="inline-flex items-center gap-1.5 rounded-lg border border-gris-clair px-4 py-2 text-xs font-sans font-semibold text-marine hover:bg-creme transition-colors"
+            style="min-height: 36px;"
+          >
+            Lier
+          </button>
+        </li>
+      </ul>
+
+      <div id="providers-error" class="hidden mt-3 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+    </section>
+
+    {/* === Déconnexion === */}
+    <section class="rounded-xl border border-gris-clair bg-blanc p-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-marine/10 flex items-center justify-center">
+            <Icon name="lucide:log-out" class="w-5 h-5 text-marine" />
+          </div>
+          <div>
+            <h2 class="font-sans text-lg font-bold text-marine">Déconnexion</h2>
+            <p class="text-sm text-gris-texte font-sans">
+              Vous déconnecter de votre espace pro sur cet appareil.
+            </p>
+          </div>
+        </div>
+        <button
+          type="button"
+          id="logout-btn"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-marine px-5 py-2.5 text-sm font-semibold text-marine font-sans hover:bg-marine hover:text-blanc transition-colors disabled:opacity-60"
+          style="min-height: 44px;"
+        >
+          <Icon name="lucide:log-out" class="w-4 h-4" />
+          Se déconnecter
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    import { supabase } from '../../lib/supabase';
+    import { linkGoogleIdentity, signOut } from '../../lib/auth';
+
+    // --- Charger les identités pour afficher le statut providers ---
+    async function loadProviders() {
+      const loading = document.getElementById('providers-loading')!;
+      const list = document.getElementById('providers-list')!;
+      const errorDiv = document.getElementById('providers-error')!;
+
+      try {
+        const { data: { user }, error } = await supabase.auth.getUser();
+        if (error || !user) throw error ?? new Error('Aucune session');
+
+        const identities = user.identities || [];
+        const emailIdentity = identities.find((i) => i.provider === 'email');
+        const googleIdentity = identities.find((i) => i.provider === 'google');
+
+        const emailValue = document.querySelector('.provider-email-value')!;
+        emailValue.textContent = user.email || '—';
+
+        const googleValue = document.querySelector('.provider-google-value')!;
+        const googleBtn = document.getElementById('google-link-btn') as HTMLButtonElement;
+
+        if (googleIdentity) {
+          const googleEmail = (googleIdentity.identity_data as { email?: string } | undefined)?.email;
+          googleValue.textContent = googleEmail || 'Lié';
+          googleBtn.textContent = 'Délier';
+          googleBtn.dataset.action = 'unlink';
+          googleBtn.dataset.identityId = googleIdentity.identity_id;
+          // On autorise le délier uniquement s'il reste au moins une autre méthode.
+          if (!emailIdentity) {
+            googleBtn.disabled = true;
+            googleBtn.title = 'Impossible de délier Google sans définir d’abord un mot de passe.';
+          }
+        } else {
+          googleValue.textContent = 'Non lié';
+          googleBtn.textContent = 'Lier';
+          googleBtn.dataset.action = 'link';
+        }
+
+        loading.classList.add('hidden');
+        list.classList.remove('hidden');
+      } catch (err) {
+        loading.classList.add('hidden');
+        errorDiv.textContent = 'Impossible de charger les comptes liés.';
+        errorDiv.classList.remove('hidden');
+      }
+    }
+    loadProviders();
+
+    // --- Bouton Lier/Délier Google ---
+    const googleBtn = document.getElementById('google-link-btn') as HTMLButtonElement;
+    const providersError = document.getElementById('providers-error')!;
+    googleBtn.addEventListener('click', async () => {
+      providersError.classList.add('hidden');
+      const action = googleBtn.dataset.action;
+
+      if (action === 'link') {
+        googleBtn.disabled = true;
+        const { error } = await linkGoogleIdentity();
+        if (error) {
+          providersError.textContent = error.message || 'Liaison Google impossible.';
+          providersError.classList.remove('hidden');
+          googleBtn.disabled = false;
+        }
+        // Sinon redirection Google automatique
+      } else if (action === 'unlink') {
+        if (!confirm('Délier votre compte Google ? Vous ne pourrez plus vous connecter avec Google.')) return;
+        googleBtn.disabled = true;
+        const identityId = googleBtn.dataset.identityId;
+        const { data: { user } } = await supabase.auth.getUser();
+        const identity = user?.identities?.find((i) => i.identity_id === identityId);
+        if (!identity) {
+          providersError.textContent = 'Identité introuvable.';
+          providersError.classList.remove('hidden');
+          googleBtn.disabled = false;
+          return;
+        }
+        const { error } = await supabase.auth.unlinkIdentity(identity);
+        if (error) {
+          providersError.textContent = error.message || 'Déliaison impossible.';
+          providersError.classList.remove('hidden');
+          googleBtn.disabled = false;
+        } else {
+          window.location.reload();
+        }
+      }
+    });
+
+    // --- Formulaire mot de passe ---
+    const passwordForm = document.getElementById('password-form') as HTMLFormElement;
+    const passwordError = document.getElementById('password-error')!;
+    const passwordSuccess = document.getElementById('password-success')!;
+    const passwordSubmit = document.getElementById('password-submit') as HTMLButtonElement;
+
+    passwordForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      passwordError.classList.add('hidden');
+      passwordSuccess.classList.add('hidden');
+
+      const pwd = (document.getElementById('new-password') as HTMLInputElement).value;
+      const confirm = (document.getElementById('confirm-password') as HTMLInputElement).value;
+
+      if (pwd.length < 8) {
+        passwordError.textContent = 'Le mot de passe doit contenir au moins 8 caractères.';
+        passwordError.classList.remove('hidden');
+        return;
+      }
+      if (pwd !== confirm) {
+        passwordError.textContent = 'Les deux mots de passe ne correspondent pas.';
+        passwordError.classList.remove('hidden');
+        return;
+      }
+
+      passwordSubmit.disabled = true;
+
+      try {
+        const res = await fetch('/api/auth/update-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: pwd }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Erreur');
+        passwordSuccess.textContent = 'Mot de passe mis à jour.';
+        passwordSuccess.classList.remove('hidden');
+        passwordForm.reset();
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : 'Erreur inattendue.';
+        passwordError.textContent = msg;
+        passwordError.classList.remove('hidden');
+      } finally {
+        passwordSubmit.disabled = false;
+      }
+    });
+
+    // --- Déconnexion ---
+    const logoutBtn = document.getElementById('logout-btn') as HTMLButtonElement;
+    logoutBtn.addEventListener('click', async () => {
+      logoutBtn.disabled = true;
+      await signOut();
+      await fetch('/api/auth/logout', { method: 'POST' });
+      window.location.href = '/';
+    });
+  </script>
+</AudioproLayout>

@@ -1,0 +1,259 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import AudioproStatsCards from '../../components/audiopro/AudioproStatsCards.astro';
+import { createServerClient } from '../../lib/supabase';
+import {
+  ACTIVE_CENTRE_COOKIE,
+  computeCompleteness,
+  getActiveCentreFull,
+  getUserCentres,
+  getUserLeads,
+  resolveActiveCentre,
+} from '../../lib/audiopro';
+
+const user = Astro.locals.user;
+// AudioproLayout gère la redirection si user absent ou pas de centre,
+// mais on a besoin ici de recharger les données pour la page.
+if (!user || !user.email) return Astro.redirect('/connexion-pro/');
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+if (centres.length === 0) return Astro.redirect('/trouver-audioprothesiste/');
+
+const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
+const active = resolveActiveCentre(centres, cookieSlug);
+if (!active) return Astro.redirect('/trouver-audioprothesiste/');
+
+// Fiche complète pour la complétude + futurs détails
+const centre = await getActiveCentreFull(supabase, active.slug, user.email);
+if (!centre) return Astro.redirect('/trouver-audioprothesiste/');
+
+const completeness = computeCompleteness(centre);
+
+// Vues 30 jours via RPC existante centre_view_stats
+let viewCount = 0;
+const { data: stats } = await supabase.rpc('centre_view_stats', {
+  p_centre_id: centre.id,
+});
+if (stats && stats.length > 0) viewCount = Number(stats[0].views_30d) || 0;
+
+// Leads 30 jours : leads WHERE source = 'centre/slug' AND created_at > 30j
+const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+const { count: leadCount30 } = await supabase
+  .from('leads')
+  .select('*', { count: 'exact', head: true })
+  .eq('source', `centre/${centre.slug}`)
+  .gte('created_at', thirtyDaysAgo);
+
+// 5 derniers leads de TOUS les centres du pro (vue multi-centres par défaut)
+const recentLeads = await getUserLeads(supabase, user.email, { limit: 5 });
+const unreadCount = recentLeads.filter((l) => l.read_at === null).length;
+
+function formatLeadDate(iso: string): string {
+  const diffHours = Math.floor((Date.now() - new Date(iso).getTime()) / 3_600_000);
+  if (diffHours < 1) return 'À l’instant';
+  if (diffHours < 24) return `Il y a ${diffHours} h`;
+  const diffDays = Math.floor(diffHours / 24);
+  if (diffDays < 7) return `Il y a ${diffDays} j`;
+  return new Date(iso).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' });
+}
+
+const prenom = centre.claimed_by_name
+  ? centre.claimed_by_name.split(' ')[0]
+  : 'Docteur';
+
+// Détection des champs manquants critiques (pour suggestions d'actions)
+const missingFields: Array<{ key: string; label: string }> = [];
+if (!centre.tel) missingFields.push({ key: 'tel', label: 'Votre numéro de téléphone' });
+if (!centre.horaires) missingFields.push({ key: 'horaires', label: 'Vos horaires d’ouverture' });
+if (!centre.site_web) missingFields.push({ key: 'site_web', label: 'Votre site web' });
+if (centre.specialites.length === 0) missingFields.push({ key: 'specialites', label: 'Vos spécialités' });
+if (centre.marques.length === 0) missingFields.push({ key: 'marques', label: 'Les marques proposées' });
+if (!centre.a_propos) missingFields.push({ key: 'a_propos', label: 'Un texte "À propos"' });
+---
+
+<AudioproLayout
+  title="Tableau de bord — Espace pro LeGuideAuditif"
+  pageLabel="Tableau de bord"
+>
+  <header class="mb-8">
+    <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">
+      Bonjour {prenom}
+    </h1>
+    <p class="text-gris-texte font-sans mt-1">
+      Voici l'activité de votre fiche <strong class="text-marine">{centre.nom}</strong>
+      {centre.ville ? ` à ${centre.ville}` : ''}.
+    </p>
+  </header>
+
+  <div class="mb-8">
+    <AudioproStatsCards
+      viewCount={viewCount}
+      leadCount={leadCount30 ?? 0}
+      completeness={completeness}
+      plan={centre.plan}
+    />
+  </div>
+
+  <div class="grid gap-6 lg:grid-cols-2">
+    {/* Action rapide : compléter la fiche */}
+    <section class="rounded-xl border border-gris-clair bg-blanc p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-orange/10 flex items-center justify-center">
+          <Icon name="lucide:pen-line" class="w-5 h-5 text-orange" />
+        </div>
+        <h2 class="font-sans text-lg font-bold text-marine">Complétez votre fiche</h2>
+      </div>
+
+      {missingFields.length > 0 ? (
+        <>
+          <p class="text-sm text-gris-texte font-sans mb-3">
+            {missingFields.length} élément{missingFields.length > 1 ? 's' : ''} à renseigner pour améliorer votre visibilité&nbsp;:
+          </p>
+          <ul class="space-y-2 mb-5">
+            {missingFields.slice(0, 4).map((field) => (
+              <li class="flex items-start gap-2 text-sm font-sans text-marine">
+                <Icon name="lucide:circle" class="w-3 h-3 text-orange mt-1.5 shrink-0" />
+                <span>{field.label}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <div class="flex items-start gap-2 text-sm font-sans text-[#639922] mb-5">
+          <Icon name="lucide:check-circle-2" class="w-4 h-4 mt-0.5 shrink-0" />
+          <span>Votre fiche est complète. Bravo&nbsp;!</span>
+        </div>
+      )}
+
+      <a
+        href="/audioprothesiste-pro/fiche/"
+        class="inline-flex items-center gap-2 rounded-lg bg-orange px-5 py-2.5 text-sm font-semibold text-blanc font-sans hover:bg-orange-hover transition-colors"
+        style="min-height: 44px;"
+      >
+        Modifier ma fiche
+        <Icon name="lucide:arrow-right" class="w-4 h-4" />
+      </a>
+    </section>
+
+    {/* Voir la fiche publique */}
+    <section class="rounded-xl border border-gris-clair bg-blanc p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-marine/10 flex items-center justify-center">
+          <Icon name="lucide:eye" class="w-5 h-5 text-marine" />
+        </div>
+        <h2 class="font-sans text-lg font-bold text-marine">Votre fiche publique</h2>
+      </div>
+      <p class="text-sm text-gris-texte font-sans mb-5">
+        Vérifiez comment votre fiche apparaît aux patients qui cherchent un audioprothésiste à {centre.ville || centre.cp}.
+      </p>
+      <a
+        href={`/centre/${centre.slug}/`}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 rounded-lg border border-gris-clair px-5 py-2.5 text-sm font-semibold text-marine font-sans hover:bg-creme transition-colors"
+        style="min-height: 44px;"
+      >
+        Voir ma fiche publique
+        <Icon name="lucide:external-link" class="w-4 h-4" />
+      </a>
+    </section>
+
+    {/* Bloc leads — 5 derniers leads reçus */}
+    <section class="rounded-xl border border-gris-clair bg-blanc p-6 lg:col-span-2">
+      <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-marine/10 flex items-center justify-center">
+            <Icon name="lucide:inbox" class="w-5 h-5 text-marine" />
+          </div>
+          <div>
+            <h2 class="font-sans text-lg font-bold text-marine">Vos dernières demandes</h2>
+            {unreadCount > 0 && (
+              <p class="text-xs font-sans text-orange font-semibold mt-0.5">
+                {unreadCount} non lue{unreadCount > 1 ? 's' : ''}
+              </p>
+            )}
+          </div>
+        </div>
+        <a
+          href="/audioprothesiste-pro/leads/"
+          class="inline-flex items-center gap-1.5 text-sm font-sans font-medium text-orange hover:underline"
+        >
+          Voir toutes les demandes
+          <Icon name="lucide:arrow-right" class="w-4 h-4" />
+        </a>
+      </div>
+
+      {recentLeads.length === 0 ? (
+        <p class="text-sm text-gris-texte font-sans">
+          Aucune demande pour le moment. Les demandes de bilan envoyées depuis votre fiche apparaîtront ici.
+        </p>
+      ) : (
+        <ul class="divide-y divide-gris-clair">
+          {recentLeads.map((lead) => {
+            const unread = lead.read_at === null;
+            return (
+              <li class:list={[
+                'flex items-center gap-3 py-3',
+                unread ? 'pl-3 -ml-3 rounded-lg bg-orange/5' : '',
+              ]}>
+                {unread && (
+                  <span class="inline-block w-2 h-2 rounded-full bg-orange shrink-0" aria-label="Non lue" />
+                )}
+                <div class="flex-1 min-w-0">
+                  <p class="font-sans text-sm font-semibold text-marine truncate">
+                    {lead.first_name}
+                    <span class="text-gris-texte font-normal">
+                      {` — ${lead.zip_code}`}
+                      {lead.centre_nom && centres.length > 1 ? ` · ${lead.centre_nom}` : ''}
+                    </span>
+                  </p>
+                  <p class="text-xs text-gris-texte font-sans mt-0.5">
+                    <a
+                      href={`tel:${lead.phone.replace(/\s/g, '')}`}
+                      class="text-marine hover:text-orange font-medium"
+                    >
+                      {lead.phone}
+                    </a>
+                    <span class="mx-2">·</span>
+                    {formatLeadDate(lead.created_at)}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
+
+    {/* Upgrade Premium si fiche claimed */}
+    {centre.plan === 'claimed' && (
+      <section class="rounded-xl border-2 border-orange/30 bg-orange/5 p-6 lg:col-span-2">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+          <div class="flex items-center gap-3 flex-1">
+            <div class="w-12 h-12 rounded-full bg-orange flex items-center justify-center shrink-0">
+              <Icon name="lucide:crown" class="w-6 h-6 text-blanc" />
+            </div>
+            <div>
+              <h2 class="font-sans text-lg font-bold text-marine">Passez en Premium</h2>
+              <p class="text-sm text-gris-texte font-sans">
+                Téléphone en clair, site web, badge "Centre vérifié" et priorité sur la carte.
+              </p>
+            </div>
+          </div>
+          <a
+            href={`/revendiquer/?centre=${centre.slug}`}
+            class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange px-5 py-3 text-sm font-semibold text-blanc font-sans hover:bg-orange-hover transition-colors shrink-0"
+            style="min-height: 48px;"
+          >
+            Voir les offres
+            <Icon name="lucide:arrow-right" class="w-4 h-4" />
+          </a>
+        </div>
+      </section>
+    )}
+  </div>
+</AudioproLayout>

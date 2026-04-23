@@ -8,6 +8,11 @@ const navLinks = [
   { href: '/outils/analyse-audiogramme/', label: 'Audiogramme' },
   { href: '/faq/', label: 'FAQ' },
 ];
+
+// Lien discret "Espace pro" — le serveur /audioprothesiste-pro/ gère la
+// redirection vers /connexion-pro/ si non authentifié, donc le même lien
+// fonctionne pour les pages statiques et dynamiques.
+const audioproHref = '/audioprothesiste-pro/';
 ---
 
 <!-- Top Bar (scrolle avec le contenu, pas sticky) -->
@@ -55,6 +60,15 @@ const navLinks = [
       >
         <Icon name="lucide:search" class="w-6 h-6" />
       </button>
+
+      <!-- Lien discret Espace pro (audioprothésistes partenaires) -->
+      <a
+        href={audioproHref}
+        class="inline-flex items-center gap-1.5 text-marine/70 font-sans text-[14px] font-medium whitespace-nowrap no-underline hover:text-orange hover:no-underline transition-colors"
+      >
+        <Icon name="lucide:briefcase" class="w-4 h-4" aria-hidden="true" />
+        Espace pro
+      </a>
 
       <!-- CTA -->
       <a
@@ -105,6 +119,13 @@ const navLinks = [
             {link.label}
           </a>
         ))}
+        <a
+          href={audioproHref}
+          class="flex items-center gap-2 min-h-[48px] py-3 text-marine/70 font-sans text-base font-medium border-b border-gris-clair no-underline hover:text-orange hover:no-underline"
+        >
+          <Icon name="lucide:briefcase" class="w-4 h-4" aria-hidden="true" />
+          Espace pro (audioprothésistes)
+        </a>
         <a
           href="/trouver-audioprothesiste/"
           class="mt-3 flex items-center justify-center min-h-[48px] px-5 py-3 bg-orange text-white font-sans font-semibold rounded-md no-underline hover:bg-orange-hover hover:no-underline"

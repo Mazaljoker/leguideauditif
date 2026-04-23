@@ -1,0 +1,78 @@
+---
+// Navigation latérale (desktop) / topbar scrollable (mobile) pour
+// /audioprothesiste-pro/. Pattern inspiré de AdminNav.astro. Les
+// entrées "Bientôt" restent présentes visuellement mais désactivées
+// — l'utilisateur voit toute la carte fonctionnelle à venir.
+
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+interface NavLink {
+  href: string;
+  label: string;
+  icon: string;
+  soon?: boolean;
+}
+
+const links: NavLink[] = [
+  { href: '/audioprothesiste-pro/', label: 'Tableau de bord', icon: 'lucide:layout-dashboard' },
+  { href: '/audioprothesiste-pro/fiche/', label: 'Ma fiche', icon: 'lucide:pen-line' },
+  { href: '/audioprothesiste-pro/leads/', label: 'Mes demandes', icon: 'lucide:inbox' },
+  { href: '/audioprothesiste-pro/annonces/', label: 'Mes annonces', icon: 'lucide:megaphone' },
+  { href: '/audioprothesiste-pro/abonnement/', label: 'Abonnement', icon: 'lucide:credit-card' },
+  { href: '/audioprothesiste-pro/compte/', label: 'Compte', icon: 'lucide:user' },
+];
+
+function isActive(linkHref: string, path: string): boolean {
+  if (linkHref === '/audioprothesiste-pro/') {
+    return path === '/audioprothesiste-pro' || path === '/audioprothesiste-pro/';
+  }
+  return path === linkHref || path.startsWith(linkHref);
+}
+---
+
+<nav aria-label="Navigation espace pro" class="audiopro-nav">
+  <ul class="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible -mx-4 px-4 lg:mx-0 lg:px-0" role="list">
+    {links.map((link) => {
+      const active = isActive(link.href, currentPath);
+      const baseClass = 'inline-flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-sans whitespace-nowrap transition-colors focus:outline-none focus:ring-2 focus:ring-orange/50';
+      const stateClass = link.soon
+        ? 'text-gris-texte/60 cursor-not-allowed bg-blanc/60'
+        : active
+          ? 'bg-marine text-blanc font-semibold'
+          : 'text-marine hover:bg-blanc hover:text-orange font-medium';
+
+      return (
+        <li class="flex-shrink-0 lg:flex-shrink">
+          {link.soon ? (
+            <span
+              class:list={[baseClass, stateClass, 'lg:w-full']}
+              style="min-height: 44px;"
+              aria-disabled="true"
+              title="Bientôt disponible"
+            >
+              <Icon name={link.icon} class="w-4 h-4 shrink-0" />
+              <span class="flex-1">{link.label}</span>
+              <span class="text-[11px] font-semibold uppercase tracking-wide text-orange/80">Bientôt</span>
+            </span>
+          ) : (
+            <a
+              href={link.href}
+              class:list={[baseClass, stateClass, 'lg:w-full']}
+              style="min-height: 44px;"
+              aria-current={active ? 'page' : undefined}
+            >
+              <Icon name={link.icon} class="w-4 h-4 shrink-0" />
+              <span class="flex-1">{link.label}</span>
+            </a>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+</nav>

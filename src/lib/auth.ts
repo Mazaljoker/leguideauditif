@@ -21,6 +21,63 @@ export async function signInWithMagicLink(email: string) {
   return { data, error };
 }
 
+// --- Helpers Espace pro audioprothésiste ---
+// Ces helpers ciblent /audioprothesiste-pro/ — le redirect pointe vers
+// /auth/callback-pro qui route ensuite vers l'espace pro.
+
+export async function signInProWithMagicLink(email: string) {
+  const { data, error } = await supabase.auth.signInWithOtp({
+    email,
+    options: { emailRedirectTo: `${window.location.origin}/auth/callback-pro` },
+  });
+  return { data, error };
+}
+
+export async function signInProWithPassword(email: string, password: string) {
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  return { data, error };
+}
+
+export async function signInProWithGoogle() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: `${window.location.origin}/auth/callback-pro`,
+      queryParams: {
+        access_type: 'offline',
+        prompt: 'consent',
+      },
+    },
+  });
+  return { data, error };
+}
+
+export async function updatePassword(newPassword: string) {
+  const { data, error } = await supabase.auth.updateUser({ password: newPassword });
+  return { data, error };
+}
+
+export async function linkGoogleIdentity() {
+  // linkIdentity n'est supporté que si l'utilisateur est déjà connecté.
+  // Supabase redirige vers Google puis revient sur redirectTo avec la nouvelle
+  // identité liée au compte actuel.
+  const { data, error } = await supabase.auth.linkIdentity({
+    provider: 'google',
+    options: {
+      redirectTo: `${window.location.origin}/auth/callback-pro`,
+    },
+  });
+  return { data, error };
+}
+
+export async function unlinkIdentity(identityId: string) {
+  const { data: { user } } = await supabase.auth.getUser();
+  const identity = user?.identities?.find((i) => i.identity_id === identityId);
+  if (!identity) return { error: new Error('Identité introuvable.') };
+  const { error } = await supabase.auth.unlinkIdentity(identity);
+  return { error };
+}
+
 export async function signOut() {
   const { error } = await supabase.auth.signOut();
   return { error };

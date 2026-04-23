@@ -1,0 +1,132 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import LeadsTable from '../../components/audiopro/LeadsTable';
+import { createServerClient } from '../../lib/supabase';
+import {
+  ACTIVE_CENTRE_COOKIE,
+  countUserLeads,
+  getUserCentres,
+  getUserLeads,
+  resolveActiveCentre,
+} from '../../lib/audiopro';
+
+const user = Astro.locals.user;
+if (!user || !user.email) return Astro.redirect('/connexion-pro/');
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+if (centres.length === 0) return Astro.redirect('/trouver-audioprothesiste/');
+
+const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
+const active = resolveActiveCentre(centres, cookieSlug);
+if (!active) return Astro.redirect('/trouver-audioprothesiste/');
+
+// Mode filtrage : par défaut on affiche les leads de TOUS les centres du pro
+// pour les multi-centres ; le filtre par centre actif est une option.
+const filterParam = Astro.url.searchParams.get('filter');
+const onlyUnread = filterParam === 'unread';
+const scopeParam = Astro.url.searchParams.get('scope');
+const scope = scopeParam === 'active' ? 'active' : 'all';
+const centreSlugFilter = scope === 'active' ? active.slug : null;
+
+const [leads, counts] = await Promise.all([
+  getUserLeads(supabase, user.email, {
+    limit: 50,
+    offset: 0,
+    onlyUnread,
+    centreSlug: centreSlugFilter,
+  }),
+  countUserLeads(supabase, user.email, centreSlugFilter),
+]);
+
+const multi = centres.length > 1;
+---
+
+<AudioproLayout
+  title="Mes demandes — Espace pro LeGuideAuditif"
+  pageLabel="Mes demandes"
+>
+  <header class="mb-6">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div>
+        <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">
+          Mes demandes de bilan
+        </h1>
+        <p class="text-sm text-gris-texte font-sans mt-1">
+          Demandes envoyées par des patients depuis {scope === 'active' ? `la fiche ${active.nom}` : 'vos fiches revendiquées'}.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  {/* Cards chiffres */}
+  <div class="grid gap-4 sm:grid-cols-4 mb-6">
+    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
+      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Non lues</p>
+      <p class="text-2xl font-sans font-bold text-orange">{counts.unread}</p>
+    </article>
+    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
+      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">7 jours</p>
+      <p class="text-2xl font-sans font-bold text-marine">{counts.last_7d}</p>
+    </article>
+    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
+      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">30 jours</p>
+      <p class="text-2xl font-sans font-bold text-marine">{counts.last_30d}</p>
+    </article>
+    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
+      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Total</p>
+      <p class="text-2xl font-sans font-bold text-marine">{counts.total}</p>
+    </article>
+  </div>
+
+  {/* Filtre de scope (uniquement si multi-centres) */}
+  {multi && (
+    <div class="mb-4 rounded-lg border border-gris-clair bg-blanc px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
+      <span class="text-sm font-sans font-medium text-marine">Afficher&nbsp;:</span>
+      <div class="flex gap-2">
+        <a
+          href="/audioprothesiste-pro/leads/"
+          class:list={[
+            'rounded-full px-4 py-1.5 text-sm font-sans font-medium transition-colors',
+            scope === 'all'
+              ? 'bg-marine text-blanc'
+              : 'border border-gris-clair text-gris-texte hover:text-marine',
+          ]}
+        >
+          Tous mes centres ({centres.length})
+        </a>
+        <a
+          href="/audioprothesiste-pro/leads/?scope=active"
+          class:list={[
+            'rounded-full px-4 py-1.5 text-sm font-sans font-medium transition-colors',
+            scope === 'active'
+              ? 'bg-marine text-blanc'
+              : 'border border-gris-clair text-gris-texte hover:text-marine',
+          ]}
+        >
+          {active.nom}
+        </a>
+      </div>
+    </div>
+  )}
+
+  {/* Info RGPD / protection données */}
+  <div class="mb-6 rounded-lg border border-marine/20 bg-marine/5 px-4 py-3 flex items-start gap-2">
+    <Icon name="lucide:shield-check" class="w-4 h-4 text-marine mt-0.5 shrink-0" />
+    <p class="text-xs text-marine/80 font-sans">
+      Ces demandes contiennent des données personnelles soumises au RGPD.
+      Utilisez-les uniquement pour prendre contact avec le patient et proposer un rendez-vous de bilan auditif.
+      N'effectuez aucun traitement au-delà de cet usage.
+    </p>
+  </div>
+
+  <LeadsTable
+    client:load
+    initialLeads={leads}
+    initialFilter={onlyUnread ? 'unread' : 'all'}
+    showCentreColumn={multi && scope === 'all'}
+  />
+</AudioproLayout>
