@@ -11,7 +11,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AudioproNav from '../components/audiopro/AudioproNav.astro';
-import CentreSwitcher from '../components/audiopro/CentreSwitcher.astro';
+import CentreSwitcher from '../components/audiopro/CentreSwitcher';
 import { createServerClient } from '../lib/supabase';
 import {
   ACTIVE_CENTRE_COOKIE,
@@ -76,7 +76,7 @@ const breadcrumbs = [
 
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
     <div class="mb-6">
-      <CentreSwitcher centres={centres} active={active} />
+      <CentreSwitcher client:load centres={centres} activeSlug={active.slug} />
     </div>
 
     <div class="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10">

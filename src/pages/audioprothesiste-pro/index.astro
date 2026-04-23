@@ -61,9 +61,24 @@ function formatLeadDate(iso: string): string {
   return new Date(iso).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' });
 }
 
-const prenom = centre.claimed_by_name
-  ? centre.claimed_by_name.split(' ')[0]
-  : 'Docteur';
+// Prénom affiché : priorité au user_metadata Google (given_name, full_name, name)
+// qui reflète vraiment l'identité du user connecté, puis fallback sur
+// claimed_by_name de la fiche (peut être générique comme "Utilisateur Demo"),
+// puis split de l'email, puis "Docteur".
+const metadata = (user as { user_metadata?: Record<string, unknown> }).user_metadata ?? {};
+const metaGivenName = typeof metadata.given_name === 'string' ? metadata.given_name.trim() : '';
+const metaFullName = typeof metadata.full_name === 'string' ? metadata.full_name.trim() : '';
+const metaName = typeof metadata.name === 'string' ? metadata.name.trim() : '';
+const claimedFirstName = centre.claimed_by_name?.split(' ')[0]?.trim() ?? '';
+const emailLocal = (user.email ?? '').split('@')[0]?.trim() ?? '';
+
+const prenom =
+  metaGivenName ||
+  metaFullName.split(' ')[0] ||
+  metaName.split(' ')[0] ||
+  claimedFirstName ||
+  (emailLocal ? emailLocal.charAt(0).toUpperCase() + emailLocal.slice(1) : '') ||
+  'Docteur';
 
 // Détection des champs manquants critiques (pour suggestions d'actions)
 const missingFields: Array<{ key: string; label: string }> = [];
