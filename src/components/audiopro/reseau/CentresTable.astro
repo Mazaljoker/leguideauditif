@@ -37,9 +37,9 @@ const { rows } = Astro.props;
           <StatusPill status={r.adsStatus} label={r.adsLabel} />
         </div>
 
-        <dl class="grid grid-cols-2 gap-3 text-sm">
+        <dl class="grid grid-cols-3 gap-3 text-sm">
           <div>
-            <dt class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte">Position zone</dt>
+            <dt class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte">Position</dt>
             <dd class="font-sans font-bold text-marine mt-0.5">
               {r.positionRank === null || r.positionTotal === null ? (
                 <span class="text-[#9CA3AF]">—</span>
@@ -54,19 +54,6 @@ const { rows } = Astro.props;
           <div>
             <dt class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte">Vues 30j</dt>
             <dd class="font-sans font-bold text-marine mt-0.5">{r.vues30j}</dd>
-          </div>
-          <div>
-            <dt class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte">Avis Google</dt>
-            <dd class="font-sans font-bold text-marine mt-0.5">
-              {r.reviewScore === null ? (
-                <span class="text-[#9CA3AF]">—</span>
-              ) : (
-                <>
-                  {r.reviewScore.toFixed(1)}
-                  <span class="text-xs font-normal text-gris-texte"> / 5 · {r.reviewCount ?? 0}</span>
-                </>
-              )}
-            </dd>
           </div>
           <div>
             <dt class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte">Fiche</dt>
@@ -86,7 +73,6 @@ const { rows } = Astro.props;
           <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Google Ads</th>
           <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Position zone</th>
           <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Vues 30j</th>
-          <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Avis Google</th>
           <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Fiche</th>
         </tr>
       </thead>
@@ -116,16 +102,6 @@ const { rows } = Astro.props;
               )}
             </td>
             <td class="px-5 py-5 align-middle font-sans font-bold text-marine">{r.vues30j}</td>
-            <td class="px-5 py-5 align-middle">
-              {r.reviewScore === null ? (
-                <span class="font-sans font-bold text-[#9CA3AF]">—</span>
-              ) : (
-                <span class="font-sans font-bold text-marine">
-                  {r.reviewScore.toFixed(1)}
-                  <span class="text-xs font-normal text-gris-texte"> / 5 · {r.reviewCount ?? 0} avis</span>
-                </span>
-              )}
-            </td>
             <td class="px-5 py-5 align-middle text-sm font-sans text-gris-texte">{r.completeness}% complète</td>
           </tr>
         ))}
