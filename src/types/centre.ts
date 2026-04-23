@@ -20,6 +20,15 @@ export interface CentreData {
   audio_associations: string[];
   services_inclus: Record<string, boolean> | null;
   langues: string[];
+  equipement_cabine: Record<string, boolean | number> | null;
+  accessibilite: Record<string, boolean | string> | null;
+  partenaires_locaux: Array<{
+    nom: string;
+    role: 'orl' | 'generaliste' | 'kine' | 'ehpad' | 'pharmacie' | 'autre';
+    ville?: string;
+    tel?: string;
+    url?: string;
+  }> | null;
   specialites: string[];
   marques: string[];
   reseaux_sociaux: Record<string, string> | null;

@@ -57,6 +57,12 @@ const languesList = [
 const isPremium = centre.plan === 'premium';
 const currentYear = new Date().getFullYear();
 const servicesInclus = (centre.services_inclus ?? {}) as Record<string, boolean>;
+const equipement = (centre.equipement_cabine ?? {}) as Record<string, boolean | number>;
+const accessibilite = (centre.accessibilite ?? {}) as Record<string, boolean | string>;
+
+// Partenaires — 5 slots fixes (vides si non renseignés)
+const partenairesInit = centre.partenaires_locaux ?? [];
+const partenairesSlots = Array.from({ length: 5 }, (_, i) => partenairesInit[i] ?? { nom: '', role: 'orl', ville: '', tel: '', url: '' });
 ---
 
 <AudioproLayout
@@ -123,6 +129,20 @@ const servicesInclus = (centre.services_inclus ?? {}) as Record<string, boolean>
         >
           <Icon name="lucide:award" class="w-4 h-4" />
           Expertise
+        </button>
+      )}
+      {isPremium && (
+        <button
+          type="button"
+          class="tab-btn"
+          data-tab="acces"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tab-acces"
+          id="tab-label-acces"
+        >
+          <Icon name="lucide:map-pin" class="w-4 h-4" />
+          Accès & équipement
         </button>
       )}
       {isPremium && (
@@ -519,6 +539,194 @@ const servicesInclus = (centre.services_inclus ?? {}) as Record<string, boolean>
       </section>
     )}
 
+    {/* ================== Onglet Accès & équipement (premium only) ================== */}
+    {isPremium && (
+      <section
+        id="tab-acces"
+        class="tab-panel hidden"
+        role="tabpanel"
+        aria-labelledby="tab-label-acces"
+      >
+        <p class="text-sm text-gris-texte font-sans mb-5">
+          Détails techniques et pratiques affichés sur votre fiche publique. Plus l'info est complète, mieux Google comprend votre centre (schema Local Pack).
+        </p>
+
+        {/* --- Équipement technique --- */}
+        <fieldset class="mb-6">
+          <legend class="block text-sm font-medium text-marine font-sans mb-3">Équipement du centre</legend>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+            <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+              <input type="checkbox" name="eq_cabine_insonorisee" checked={!!equipement.cabine_insonorisee} class="sr-only peer" />
+              <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+              <span class="text-sm text-marine">Cabine insonorisée</span>
+            </label>
+            <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+              <input type="checkbox" name="eq_rem" checked={!!equipement.rem} class="sr-only peer" />
+              <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+              <span class="text-sm text-marine">Mesure in vivo (REM)</span>
+            </label>
+            <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+              <input type="checkbox" name="eq_anc" checked={!!equipement.anc} class="sr-only peer" />
+              <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+              <span class="text-sm text-marine">Audiométrie automatisée</span>
+            </label>
+            <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+              <input type="checkbox" name="eq_audiometre_num" checked={!!equipement.audiometre_num} class="sr-only peer" />
+              <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+              <span class="text-sm text-marine">Audiomètre numérique</span>
+            </label>
+            <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30 sm:col-span-2" style="min-height: 44px;">
+              <input type="checkbox" name="eq_cabine_pediatrique" checked={!!equipement.cabine_pediatrique} class="sr-only peer" />
+              <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+              <span class="text-sm text-marine">Cabine adaptée enfants (audiométrie pédiatrique)</span>
+            </label>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="eq-essai-jours" class="block text-sm font-medium text-marine font-sans mb-1">
+                Essai gratuit (jours)
+              </label>
+              <input
+                id="eq-essai-jours"
+                name="eq_essai_jours"
+                type="number"
+                min="0"
+                max="90"
+                value={typeof equipement.essai_jours === 'number' ? equipement.essai_jours : ''}
+                placeholder="30"
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+              />
+              <p class="text-xs text-gris-texte font-sans mt-1">Laissez vide si pas d'essai proposé.</p>
+            </div>
+            <div>
+              <label for="eq-garantie-annees" class="block text-sm font-medium text-marine font-sans mb-1">
+                Garantie fabricant (années)
+              </label>
+              <input
+                id="eq-garantie-annees"
+                name="eq_garantie_annees"
+                type="number"
+                min="0"
+                max="10"
+                value={typeof equipement.garantie_annees === 'number' ? equipement.garantie_annees : ''}
+                placeholder="4"
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+              />
+            </div>
+          </div>
+        </fieldset>
+
+        {/* --- Accessibilité --- */}
+        <fieldset class="mb-6">
+          <legend class="block text-sm font-medium text-marine font-sans mb-3">Accessibilité du centre</legend>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+            <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+              <input type="checkbox" name="acc_pmr" checked={!!accessibilite.pmr} class="sr-only peer" />
+              <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+              <span class="text-sm text-marine">Accès PMR</span>
+            </label>
+            <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+              <input type="checkbox" name="acc_ascenseur" checked={!!accessibilite.ascenseur} class="sr-only peer" />
+              <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+              <span class="text-sm text-marine">Ascenseur</span>
+            </label>
+            <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+              <input type="checkbox" name="acc_rdc" checked={!!accessibilite.rdc} class="sr-only peer" />
+              <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+              <span class="text-sm text-marine">Rez-de-chaussée</span>
+            </label>
+            <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 transition-colors has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+              <input type="checkbox" name="acc_parking" checked={!!accessibilite.parking} class="sr-only peer" />
+              <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+              <span class="text-sm text-marine">Parking à proximité</span>
+            </label>
+          </div>
+          <div>
+            <label for="acc-transports" class="block text-sm font-medium text-marine font-sans mb-1">
+              Transports en commun
+            </label>
+            <input
+              id="acc-transports"
+              name="acc_transports_en_commun"
+              type="text"
+              value={typeof accessibilite.transports_en_commun === 'string' ? accessibilite.transports_en_commun : ''}
+              maxlength="150"
+              placeholder="Ex : Métro ligne 9 Trocadéro (3 min à pied), bus 63 arrêt Boissière"
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+            />
+          </div>
+        </fieldset>
+
+        {/* --- Partenaires locaux --- */}
+        <fieldset>
+          <legend class="block text-sm font-medium text-marine font-sans mb-1">Réseau de soins local</legend>
+          <p class="text-xs text-gris-texte font-sans mb-4">
+            5 partenaires max : ORL, médecins, kinés, EHPAD, pharmacies. Laissez les champs vides pour retirer un partenaire. Signal E-A-T local fort pour Google.
+          </p>
+
+          <div class="space-y-3" id="partenaires-list">
+            {partenairesSlots.map((p, idx) => (
+              <div class="rounded-lg border border-gris-clair bg-creme/40 p-4" data-partner-idx={idx}>
+                <div class="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-3 mb-3">
+                  <input
+                    type="text"
+                    name={`partner_${idx}_nom`}
+                    value={p.nom ?? ''}
+                    maxlength="100"
+                    placeholder={`Nom du partenaire ${idx + 1}`}
+                    class="w-full rounded-lg border border-gris-clair px-3 py-2 text-sm font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+                    style="min-height: 44px;"
+                  />
+                  <select
+                    name={`partner_${idx}_role`}
+                    class="w-full rounded-lg border border-gris-clair px-3 py-2 text-sm font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
+                    style="min-height: 44px;"
+                  >
+                    <option value="orl" selected={p.role === 'orl'}>ORL</option>
+                    <option value="generaliste" selected={p.role === 'generaliste'}>Médecin généraliste</option>
+                    <option value="kine" selected={p.role === 'kine'}>Kinésithérapeute</option>
+                    <option value="ehpad" selected={p.role === 'ehpad'}>EHPAD</option>
+                    <option value="pharmacie" selected={p.role === 'pharmacie'}>Pharmacie</option>
+                    <option value="autre" selected={p.role === 'autre'}>Autre</option>
+                  </select>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <input
+                    type="text"
+                    name={`partner_${idx}_ville`}
+                    value={p.ville ?? ''}
+                    maxlength="60"
+                    placeholder="Ville"
+                    class="w-full rounded-lg border border-gris-clair px-3 py-2 text-sm font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+                    style="min-height: 44px;"
+                  />
+                  <input
+                    type="tel"
+                    name={`partner_${idx}_tel`}
+                    value={p.tel ?? ''}
+                    maxlength="20"
+                    placeholder="Téléphone"
+                    class="w-full rounded-lg border border-gris-clair px-3 py-2 text-sm font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+                    style="min-height: 44px;"
+                  />
+                  <input
+                    type="url"
+                    name={`partner_${idx}_url`}
+                    value={p.url ?? ''}
+                    maxlength="200"
+                    placeholder="Site web (optionnel)"
+                    class="w-full rounded-lg border border-gris-clair px-3 py-2 text-sm font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+                    style="min-height: 44px;"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </fieldset>
+      </section>
+    )}
+
     {/* ================== Onglet Réseaux sociaux (premium only) ================== */}
     {isPremium && (
       <section
@@ -870,6 +1078,48 @@ const servicesInclus = (centre.services_inclus ?? {}) as Record<string, boolean>
         urgences: formData.get('services_urgences') === 'on',
       };
 
+      // Accès & équipement Premium
+      const essaiJoursRaw = formData.get('eq_essai_jours');
+      const garantieAnneesRaw = formData.get('eq_garantie_annees');
+      const essaiJours = essaiJoursRaw ? parseInt(String(essaiJoursRaw), 10) : null;
+      const garantieAnnees = garantieAnneesRaw ? parseInt(String(garantieAnneesRaw), 10) : null;
+      const equipementCabine = {
+        cabine_insonorisee: formData.get('eq_cabine_insonorisee') === 'on',
+        rem: formData.get('eq_rem') === 'on',
+        anc: formData.get('eq_anc') === 'on',
+        audiometre_num: formData.get('eq_audiometre_num') === 'on',
+        cabine_pediatrique: formData.get('eq_cabine_pediatrique') === 'on',
+      };
+      if (essaiJours !== null && !isNaN(essaiJours)) equipementCabine.essai_jours = essaiJours;
+      if (garantieAnnees !== null && !isNaN(garantieAnnees)) equipementCabine.garantie_annees = garantieAnnees;
+
+      const accessibiliteData = {
+        pmr: formData.get('acc_pmr') === 'on',
+        ascenseur: formData.get('acc_ascenseur') === 'on',
+        rdc: formData.get('acc_rdc') === 'on',
+        parking: formData.get('acc_parking') === 'on',
+      };
+      const transports = (formData.get('acc_transports_en_commun') || '').toString().trim();
+      if (transports) accessibiliteData.transports_en_commun = transports;
+
+      // Partenaires : 5 slots, on ne garde que ceux avec un nom
+      const partenaires = [];
+      for (let i = 0; i < 5; i++) {
+        const nom = (formData.get(`partner_${i}_nom`) || '').toString().trim();
+        if (!nom) continue;
+        const entry = {
+          nom,
+          role: formData.get(`partner_${i}_role`) || 'autre',
+        };
+        const ville = (formData.get(`partner_${i}_ville`) || '').toString().trim();
+        const tel = (formData.get(`partner_${i}_tel`) || '').toString().trim();
+        const url = (formData.get(`partner_${i}_url`) || '').toString().trim();
+        if (ville) entry.ville = ville;
+        if (tel) entry.tel = tel;
+        if (url) entry.url = url;
+        partenaires.push(entry);
+      }
+
       const payload = {
         centreSlug,
         nom: formData.get('nom'),
@@ -885,6 +1135,9 @@ const servicesInclus = (centre.services_inclus ?? {}) as Record<string, boolean>
         audio_associations: audioAssociations,
         langues: langues,
         services_inclus: servicesInclus,
+        equipement_cabine: equipementCabine,
+        accessibilite: accessibiliteData,
+        partenaires_locaux: partenaires,
       };
       if (Object.keys(reseaux).length > 0) payload.reseaux_sociaux = reseaux;
 

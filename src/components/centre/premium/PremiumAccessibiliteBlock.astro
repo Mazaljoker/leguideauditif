@@ -1,0 +1,99 @@
+---
+// Informations d'accessibilité du centre. Rendu en chips visuels +
+// JSON-LD amenityFeature sur le LocalBusiness parent (injecté via
+// schema dans [slug].astro — ce bloc ajoute juste son propre schema
+// Place avec amenityFeature pour enrichir Google Local Pack).
+
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const acc = (centre.accessibilite ?? {}) as Record<string, boolean | string>;
+
+interface AccItem {
+  key: string;
+  label: string;
+  icon: string;
+}
+
+const boolItems: AccItem[] = [
+  { key: 'pmr', label: 'Accès PMR', icon: 'lucide:accessibility' },
+  { key: 'ascenseur', label: 'Ascenseur', icon: 'lucide:arrow-up-down' },
+  { key: 'rdc', label: 'Rez-de-chaussée', icon: 'lucide:square' },
+  { key: 'parking', label: 'Parking à proximité', icon: 'lucide:car' },
+];
+
+const activeFeatures = boolItems.filter((i) => acc[i.key] === true);
+const transports = typeof acc.transports_en_commun === 'string' && acc.transports_en_commun.trim().length > 0
+  ? acc.transports_en_commun.trim()
+  : null;
+
+const hasContent = activeFeatures.length > 0 || transports !== null;
+
+// Schema Place avec amenityFeature (éligible Google Local Pack)
+const schema = hasContent ? {
+  '@context': 'https://schema.org',
+  '@type': 'Place',
+  name: centre.nom,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: centre.adresse,
+    postalCode: centre.cp,
+    addressLocality: centre.ville ?? '',
+    addressCountry: 'FR',
+  },
+  amenityFeature: [
+    ...activeFeatures.map((f) => ({
+      '@type': 'LocationFeatureSpecification',
+      name: f.label,
+      value: true,
+    })),
+    ...(transports ? [{ '@type': 'LocationFeatureSpecification', name: 'Transports en commun', value: transports }] : []),
+  ],
+} : null;
+---
+
+{hasContent && (
+  <>
+    <section
+      class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7 mb-8"
+      aria-labelledby="accessibilite-title"
+    >
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+          <Icon name="lucide:map-pin" class="w-5 h-5" />
+        </div>
+        <div>
+          <h2 id="accessibilite-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+            Accès et accessibilité
+          </h2>
+          <p class="text-sm text-gris-texte font-sans mt-0.5">Conditions d'accueil des patients</p>
+        </div>
+      </div>
+
+      {activeFeatures.length > 0 && (
+        <ul class="flex flex-wrap gap-2 mb-4">
+          {activeFeatures.map((f) => (
+            <li class="inline-flex items-center gap-2 rounded-full bg-[#D1FAE5] text-[#059669] px-3 py-1.5 text-sm font-sans font-semibold">
+              <Icon name={f.icon} class="w-4 h-4" />
+              {f.label}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {transports && (
+        <div class="flex items-start gap-2 text-sm font-sans text-marine">
+          <Icon name="lucide:train" class="w-4 h-4 text-orange shrink-0 mt-0.5" />
+          <span><strong>Transports en commun :</strong> {transports}</span>
+        </div>
+      )}
+    </section>
+
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </>
+)}
