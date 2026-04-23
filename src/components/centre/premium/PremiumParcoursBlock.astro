@@ -1,0 +1,112 @@
+---
+// Parcours patient en 4 étapes (bilan → essai → choix → suivi) avec
+// JSON-LD HowTo pour éligibilité AI answers (ChatGPT, Gemini, Perplexity)
+// et featured snippet Google.
+//
+// Chaque étape a une durée estimée + description factuelle. On ne promet
+// pas de résultat médical (règle YMYL).
+
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+
+const steps: Array<{ n: number; title: string; desc: string; duration: string; icon: string }> = [
+  {
+    n: 1,
+    title: 'Bilan auditif gratuit',
+    desc: `Audiométrie tonale et vocale en cabine insonorisée, examen des conduits auditifs, entretien sur vos besoins quotidiens. Sans engagement, accessible sans ordonnance.`,
+    duration: '30 minutes',
+    icon: 'lucide:stethoscope',
+  },
+  {
+    n: 2,
+    title: 'Essai gratuit 30 jours',
+    desc: `Port d'appareils adaptés à votre perte auditive dans vos conditions réelles (domicile, réunions, bruit). Réglages personnalisés selon votre retour.`,
+    duration: '30 jours',
+    icon: 'lucide:test-tube',
+  },
+  {
+    n: 3,
+    title: 'Choix et financement',
+    desc: `Sélection du modèle le plus adapté parmi les marques disponibles. Devis détaillé, simulation de remboursement Sécu + mutuelle. Option 100% Santé (reste à charge 0€).`,
+    duration: 'Rendez-vous d\'1 h',
+    icon: 'lucide:file-check',
+  },
+  {
+    n: 4,
+    title: 'Suivi sur 4 ans',
+    desc: `Rendez-vous de contrôle tous les 6 mois inclus (réglages, nettoyage, remplacements consommables). Garantie fabricant 4 ans. Accompagnement à l'adaptation.`,
+    duration: 'Garantie 4 ans',
+    icon: 'lucide:life-buoy',
+  },
+];
+
+// JSON-LD HowTo — eligibility rich results + AI answers
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: `Comment se passe un appareillage auditif chez ${centre.nom}`,
+  description: `Parcours patient en 4 étapes : bilan gratuit, essai 30 jours, choix et suivi 4 ans.`,
+  totalTime: 'P4Y',
+  estimatedCost: {
+    '@type': 'MonetaryAmount',
+    currency: 'EUR',
+    value: '0',
+  },
+  step: steps.map((s) => ({
+    '@type': 'HowToStep',
+    position: s.n,
+    name: s.title,
+    text: s.desc,
+  })),
+};
+---
+
+<section
+  class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7 mb-8"
+  aria-labelledby="parcours-title"
+>
+  <div class="flex items-center gap-3 mb-5">
+    <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+      <Icon name="lucide:route" class="w-5 h-5" />
+    </div>
+    <div>
+      <h2 id="parcours-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+        Comment se déroule votre appareillage
+      </h2>
+      <p class="text-sm text-gris-texte font-sans mt-0.5">4 étapes · de l'écoute à l'adaptation durable</p>
+    </div>
+  </div>
+
+  <ol class="space-y-4 sm:space-y-5">
+    {steps.map((s, idx) => (
+      <li class="flex gap-4 sm:gap-5">
+        <div class="shrink-0 flex flex-col items-center">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange text-blanc flex items-center justify-center font-sans font-bold text-lg shrink-0">
+            {s.n}
+          </div>
+          {idx < steps.length - 1 && (
+            <div class="w-0.5 flex-1 bg-gris-clair mt-2" aria-hidden="true"></div>
+          )}
+        </div>
+        <div class="flex-1 min-w-0 pb-2">
+          <div class="flex items-center gap-2 flex-wrap mb-1">
+            <h3 class="font-sans text-base sm:text-lg font-bold text-marine">{s.title}</h3>
+            <span class="inline-flex items-center gap-1 rounded-full bg-marine/10 text-marine px-2.5 py-0.5 text-[11px] font-sans font-semibold">
+              <Icon name={s.icon} class="w-3 h-3" />
+              {s.duration}
+            </span>
+          </div>
+          <p class="text-sm sm:text-base font-serif text-marine leading-relaxed">{s.desc}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

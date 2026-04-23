@@ -1,0 +1,183 @@
+---
+// Bloc E-E-A-T pour fiche Premium : diplôme + RPPS + expérience + associations
+// + bio longue + services + langues. Rend aussi le JSON-LD ProfessionalService
+// et Person pour signaler les credentials à Google (YMYL Trust).
+//
+// Règles YMYL :
+//   - Ne jamais afficher une année de diplôme fantaisiste (vérifiée via RPPS côté admin)
+//   - Les associations sont une source importante de trust, les valoriser visuellement
+//   - Sans audio_bio, afficher un encart "À propos du centre" basé sur a_propos
+//     comme fallback (mieux qu'une section vide).
+
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+
+const hasMinimalContent =
+  !!centre.audio_bio ||
+  !!centre.audio_annee_dip ||
+  centre.audio_associations.length > 0 ||
+  !!centre.rpps ||
+  !!centre.a_propos ||
+  !!centre.audio_photo_url;
+
+const currentYear = new Date().getFullYear();
+const anneesExperience =
+  centre.audio_annee_dip && centre.audio_annee_dip > 1960 && centre.audio_annee_dip <= currentYear
+    ? currentYear - centre.audio_annee_dip
+    : null;
+
+const audioFullName =
+  centre.audio_prenom && centre.audio_nom
+    ? `${centre.audio_prenom} ${centre.audio_nom}`
+    : centre.claimed_by_name || 'Votre audioprothésiste';
+
+// Mapping codes associations → libellés lisibles
+const ASSOC_LABELS: Record<string, string> = {
+  UNSAF: 'UNSAF — Union Nationale des Syndicats d\'Audioprothésistes',
+  CNA: 'Collège National d\'Audioprothèse',
+  SFA: 'Société Française d\'Audiologie',
+  AES: 'Association Européenne des Sens',
+  AFREPA: 'AFREPA — Association Francophone des Équipes Pluridisciplinaires en Acouphénologie',
+};
+
+// Langues ISO vers label FR
+const LANG_LABELS: Record<string, string> = {
+  FR: 'Français',
+  EN: 'Anglais',
+  ES: 'Espagnol',
+  LSF: 'Langue des signes française',
+  IT: 'Italien',
+  DE: 'Allemand',
+  AR: 'Arabe',
+  PT: 'Portugais',
+};
+
+// Schema.org ProfessionalService + Person pour E-E-A-T YMYL
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: centre.nom,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: centre.adresse,
+    postalCode: centre.cp,
+    addressLocality: centre.ville ?? '',
+    addressCountry: 'FR',
+  },
+  provider: {
+    '@type': 'Person',
+    name: audioFullName,
+    jobTitle: 'Audioprothésiste D.E.',
+    ...(centre.rpps ? { identifier: { '@type': 'PropertyValue', propertyID: 'RPPS', value: centre.rpps } } : {}),
+    ...(centre.audio_annee_dip ? { alumniOf: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Diplôme d\'État d\'Audioprothésiste', dateCreated: String(centre.audio_annee_dip) } } : {}),
+    ...(centre.audio_associations.length > 0 ? { memberOf: centre.audio_associations.map((code) => ({ '@type': 'Organization', name: ASSOC_LABELS[code] ?? code })) } : {}),
+  },
+  ...(centre.audio_bio ? { description: centre.audio_bio } : {}),
+};
+---
+
+{hasMinimalContent && (
+  <>
+<section
+  class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7 mb-8"
+  aria-labelledby="expertise-title"
+>
+  <div class="flex items-center gap-3 mb-5">
+    <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+      <Icon name="lucide:award" class="w-5 h-5" />
+    </div>
+    <h2 id="expertise-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+      Votre audioprothésiste
+    </h2>
+  </div>
+
+  <div class="flex flex-col sm:flex-row gap-5 mb-5">
+    {centre.audio_photo_url ? (
+      <img
+        src={centre.audio_photo_url}
+        alt={`Photo de ${audioFullName}`}
+        loading="lazy"
+        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-gris-clair shrink-0 mx-auto sm:mx-0"
+      />
+    ) : (
+      <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-marine text-blanc flex items-center justify-center text-2xl font-sans font-bold shrink-0 mx-auto sm:mx-0">
+        {audioFullName.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase()}
+      </div>
+    )}
+    <div class="flex-1 min-w-0">
+      <p class="font-sans text-lg font-bold text-marine">{audioFullName}</p>
+      <p class="text-sm font-sans text-orange font-semibold mb-3">Audioprothésiste D.E.</p>
+      <ul class="space-y-1.5 text-sm font-sans text-gris-texte">
+        {centre.rpps && (
+          <li class="flex items-center gap-2">
+            <Icon name="lucide:shield-check" class="w-4 h-4 text-[#059669] shrink-0" />
+            <span>N° RPPS vérifié : <strong class="text-marine">{centre.rpps}</strong></span>
+          </li>
+        )}
+        {anneesExperience !== null && (
+          <li class="flex items-center gap-2">
+            <Icon name="lucide:calendar" class="w-4 h-4 text-[#059669] shrink-0" />
+            <span>
+              <strong class="text-marine">{anneesExperience} ans</strong> d'exercice
+              {centre.audio_annee_dip && <span class="text-gris-texte"> · D.E. obtenu en {centre.audio_annee_dip}</span>}
+            </span>
+          </li>
+        )}
+        {centre.audio_associations.length > 0 && (
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:users" class="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
+            <span>
+              Membre de <strong class="text-marine">{centre.audio_associations.map(c => ASSOC_LABELS[c]?.split(' — ')[0] ?? c).join(', ')}</strong>
+            </span>
+          </li>
+        )}
+        {centre.langues.length > 0 && (
+          <li class="flex items-start gap-2">
+            <Icon name="lucide:languages" class="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
+            <span>
+              Langues parlées : {centre.langues.map(l => LANG_LABELS[l] ?? l).join(', ')}
+            </span>
+          </li>
+        )}
+      </ul>
+    </div>
+  </div>
+
+  {centre.audio_bio && (
+    <div class="prose prose-sm sm:prose-base max-w-none font-serif text-marine">
+      {centre.audio_bio.split('\n\n').map(para => <p class="mb-3">{para}</p>)}
+    </div>
+  )}
+
+  {centre.services_inclus && Object.values(centre.services_inclus).some(Boolean) && (
+    <div class="mt-6 pt-5 border-t border-gris-clair">
+      <p class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte mb-3">
+        Services inclus
+      </p>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm font-sans">
+        {centre.services_inclus.essai_30j && (
+          <li class="flex items-center gap-2 text-marine"><Icon name="lucide:check" class="w-4 h-4 text-orange shrink-0" />Essai gratuit 30 jours</li>
+        )}
+        {centre.services_inclus.livraison_domicile && (
+          <li class="flex items-center gap-2 text-marine"><Icon name="lucide:check" class="w-4 h-4 text-orange shrink-0" />Livraison à domicile</li>
+        )}
+        {centre.services_inclus.teleconsultation && (
+          <li class="flex items-center gap-2 text-marine"><Icon name="lucide:check" class="w-4 h-4 text-orange shrink-0" />Téléconsultation possible</li>
+        )}
+        {centre.services_inclus.urgences && (
+          <li class="flex items-center gap-2 text-marine"><Icon name="lucide:check" class="w-4 h-4 text-orange shrink-0" />Accueil urgence auditive</li>
+        )}
+      </ul>
+    </div>
+  )}
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </>
+)}

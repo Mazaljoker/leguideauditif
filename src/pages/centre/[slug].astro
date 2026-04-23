@@ -20,6 +20,12 @@ import CentreCompetitors from '../../components/centre/CentreCompetitors.astro';
 import CentreStats from '../../components/centre/CentreStats.astro';
 import CentreMap from '../../components/centre/CentreMap.astro';
 
+// Blocs Premium enrichissement SEO/YMYL
+import PremiumExpertiseBlock from '../../components/centre/premium/PremiumExpertiseBlock.astro';
+import PremiumParcoursBlock from '../../components/centre/premium/PremiumParcoursBlock.astro';
+import PremiumArticlesBlock from '../../components/centre/premium/PremiumArticlesBlock.astro';
+import PremiumFaqBlock from '../../components/centre/premium/PremiumFaqBlock.astro';
+
 import { supabase } from '../../lib/supabase';
 import { getDepartementByCode, slugifyVille } from '../../lib/departements';
 import type { CentreData } from '../../types/centre';
@@ -253,26 +259,40 @@ if (typedCentre.marques?.length > 0) {
     )}
 
     {/* ================================================================
-        ÉTAT 3 — Premium
+        ÉTAT 3 — Premium (fiche enrichie E-E-A-T + YMYL + local SEO)
         ================================================================ */}
     {isPremium && (
       <>
+        {isOwner && (
+          <a
+            href="/audioprothesiste-pro/"
+            class="flex items-center justify-center gap-2 w-full rounded-lg bg-marine px-5 py-3 text-sm font-medium text-blanc font-sans mb-4 hover:bg-marine/90 transition-colors"
+            style="min-height: 44px;"
+          >
+            <Icon name="lucide:layout-dashboard" class="w-4 h-4" />
+            Accéder à mon espace pro
+          </a>
+        )}
         <CentreHeader centre={typedCentre} />
         <CentreInfoGrid centre={typedCentre} />
-
         <CentreSpecialties centre={typedCentre} />
         <CentreBrands centre={typedCentre} />
-        <CentreCompleteness centre={typedCentre} />
 
-        {typedCentre.a_propos && (
-          <section class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6" aria-label="À propos du centre">
-            <h2 class="font-sans text-lg font-bold text-marine mb-4">À propos</h2>
-            <p class="text-gris-texte font-sans leading-relaxed">{typedCentre.a_propos}</p>
-          </section>
-        )}
+        {/* E-E-A-T : audio + diplôme + asso + bio (remplace l'ancien "à propos"
+            qui était pauvre — on intègre a_propos comme fallback bio dans le bloc) */}
+        <PremiumExpertiseBlock centre={typedCentre} />
+
+        {/* Parcours patient 4 étapes + HowTo JSON-LD */}
+        <PremiumParcoursBlock centre={typedCentre} />
+
+        {/* Articles contextualisés — maillage interne SEO */}
+        <PremiumArticlesBlock centre={typedCentre} />
 
         <CentreStats plan="premium" viewCount={viewCount} leadCount={leadCount} />
         <CentreMap centre={typedCentre} />
+
+        {/* FAQ locale schema.org — rich results */}
+        <PremiumFaqBlock centre={typedCentre} />
 
         <section class="mb-6" aria-label="Demande de bilan auditif">
           <LeadForm client:visible centreSlug={typedCentre.slug} centreName={typedCentre.nom} variant="premium" />
