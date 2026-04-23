@@ -3,11 +3,12 @@
 // Identique au form de ProspectEditPanel mais SANS le bloc historique
 // (séparé dans l'onglet "Historique" du modal).
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../ui/react/Button';
 import {
   PROSPECT_STATUS_LABELS,
   PROSPECT_SOURCE_LABELS,
+  type LinkedCentre,
   type Prospect,
   type ProspectStatus,
   type ProspectSource,
@@ -74,6 +75,29 @@ export default function ProspectFormFields({
   const [form, setForm] = useState<FormState>(prospectToForm(prospect));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [linkedCentres, setLinkedCentres] = useState<LinkedCentre[]>([]);
+
+  // Charge les centres liés une fois à l'ouverture pour récupérer les e-mails
+  // (centre + revendiqueur) affichés dans le bloc Contacts.
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch('/api/admin/prospects/centres/list', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prospect_id: prospect.id }),
+      signal: controller.signal,
+    })
+      .then((r) => r.json())
+      .then((json) => {
+        if (!controller.signal.aborted && Array.isArray(json.centres)) {
+          setLinkedCentres(json.centres as LinkedCentre[]);
+        }
+      })
+      .catch(() => {
+        // Silencieux — le bloc Contacts est un nice-to-have, pas bloquant.
+      });
+    return () => controller.abort();
+  }, [prospect.id]);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((f) => ({ ...f, [key]: value }));
@@ -258,6 +282,10 @@ export default function ProspectFormFields({
         </div>
 
         <div className="md:col-span-2">
+          <ContactEmailsBlock centres={linkedCentres} />
+        </div>
+
+        <div className="md:col-span-2">
           <NextActionBlock
             task={nextTask ?? null}
             onEditTask={onEditTask}
@@ -321,6 +349,54 @@ export default function ProspectFormFields({
           Supprimer
         </Button>
       </div>
+    </div>
+  );
+}
+
+// ---------- ContactEmailsBlock ----------
+// Agrège les e-mails des centres liés (centre + revendiqueur) et les
+// affiche en cliquables mailto:. Dédup si même e-mail.
+
+function ContactEmailsBlock({ centres }: { centres: LinkedCentre[] }) {
+  if (centres.length === 0) return null;
+
+  const rows: Array<{ centre: string; label: string; email: string }> = [];
+  for (const c of centres) {
+    if (c.email) {
+      rows.push({ centre: c.nom, label: 'Centre', email: c.email });
+    }
+    if (c.claimed_by_email && c.claimed_by_email !== c.email) {
+      rows.push({
+        centre: c.nom,
+        label: c.claimed_by_name?.trim() || 'Revendiqueur',
+        email: c.claimed_by_email,
+      });
+    }
+  }
+
+  if (rows.length === 0) return null;
+
+  return (
+    <div className="rounded-lg border border-[#E4DED3] bg-[#FDFBF7] p-3 font-sans">
+      <div className="text-[11px] font-semibold text-[#6B7A90] uppercase tracking-wide mb-1.5">
+        Contacts e-mail ({rows.length})
+      </div>
+      <ul className="space-y-1 text-sm">
+        {rows.map((r, i) => (
+          <li key={`${r.email}-${i}`} className="flex flex-wrap gap-x-2 gap-y-0.5 items-baseline">
+            <span className="text-[11px] text-[#6B7A90] uppercase tracking-wide">
+              {r.label}
+            </span>
+            <a
+              href={`mailto:${r.email}`}
+              className="text-[#1B2E4A] hover:text-[#D97B3D] underline-offset-2 hover:underline"
+            >
+              {r.email}
+            </a>
+            <span className="text-[11px] text-[#6B7A90] truncate">· {r.centre}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

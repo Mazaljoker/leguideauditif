@@ -144,6 +144,16 @@ export default function LinkedCentreCard({ centre, onUnlink }: Props) {
             <dd className="font-mono text-[13px] text-[#1B2E4A]">{centre.siret}</dd>
           </div>
         )}
+        {centre.claimed_by_email && centre.claimed_by_email !== centre.email && (
+          <div>
+            <dt className="text-[11px] text-[#6B7A90] uppercase tracking-wide">E-mail revendiqueur</dt>
+            <dd>
+              <a href={`mailto:${centre.claimed_by_email}`} className="text-[#1B2E4A] hover:text-[#D97B3D]">
+                {centre.claimed_by_email}
+              </a>
+            </dd>
+          </div>
+        )}
         {centre.claimed_by_adeli && (
           <div>
             <dt className="text-[11px] text-[#6B7A90] uppercase tracking-wide">ADELI / RPPS</dt>
