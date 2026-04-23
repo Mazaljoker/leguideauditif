@@ -11,6 +11,12 @@ if (user && user.email) {
 }
 
 const error = Astro.url.searchParams.get('error');
+
+// Google One Tap — activé uniquement si le Client ID est fourni.
+// Fallback transparent : si absent, l'onglet Google reste disponible
+// via OAuth redirect (signInWithOAuth).
+const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
+const oneTapEnabled = googleClientId.length > 0;
 ---
 
 <BaseLayout
@@ -34,6 +40,24 @@ const error = Astro.url.searchParams.get('error');
       {error && (
         <div class="mb-5 rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans">
           La connexion a échoué. Merci de réessayer.
+        </div>
+      )}
+
+      {/* Google One Tap — connexion rapide sans quitter la page */}
+      {oneTapEnabled && (
+        <div class="mb-5">
+          <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-2 text-center">
+            Connexion rapide
+          </p>
+          <div class="flex justify-center mb-2" id="google-one-tap-btn">
+            {/* Le bouton Google s'injecte ici via le script GSI */}
+          </div>
+          <div id="gsi-error" class="hidden rounded-lg border border-red-300 bg-red-50 p-2 text-xs text-red-600 font-sans mb-2"></div>
+          <div class="flex items-center gap-3 my-4" aria-hidden="true">
+            <span class="flex-1 h-px bg-gris-clair"></span>
+            <span class="text-[11px] font-sans text-gris-texte uppercase tracking-wide">ou</span>
+            <span class="flex-1 h-px bg-gris-clair"></span>
+          </div>
         </div>
       )}
 
@@ -226,11 +250,22 @@ const error = Astro.url.searchParams.get('error');
     }
   </style>
 
+  {oneTapEnabled && (
+    <script is:inline src="https://accounts.google.com/gsi/client" async></script>
+  )}
+
+  <script define:vars={{ googleClientId, oneTapEnabled }}>
+    // Exposer la config Google aux scripts module ci-dessous.
+    window.__lgaGoogleConfig = { googleClientId, oneTapEnabled };
+  </script>
+
   <script>
     import {
       signInProWithMagicLink,
       signInProWithPassword,
       signInProWithGoogle,
+      signInProWithGoogleIdToken,
+      generateGoogleNonce,
     } from '../lib/auth';
 
     // --- Onglets ---
@@ -317,7 +352,7 @@ const error = Astro.url.searchParams.get('error');
       window.location.href = '/audioprothesiste-pro/';
     });
 
-    // --- Google OAuth ---
+    // --- Google OAuth (fallback redirect) ---
     const googleBtn = document.getElementById('google-btn') as HTMLButtonElement;
     const googleError = document.getElementById('google-error') as HTMLElement;
     googleBtn.addEventListener('click', async () => {
@@ -331,5 +366,89 @@ const error = Astro.url.searchParams.get('error');
       }
       // Sinon Supabase redirige automatiquement vers Google.
     });
+
+    // --- Google One Tap + bouton Sign in with Google ---
+    // Activé si PUBLIC_GOOGLE_CLIENT_ID est défini. Le script GSI est
+    // chargé async ; on attend sa disponibilité puis on configure le
+    // bouton officiel + on propose le One Tap popup.
+    const cfg = (window as unknown as { __lgaGoogleConfig?: { googleClientId: string; oneTapEnabled: boolean } }).__lgaGoogleConfig;
+    if (cfg?.oneTapEnabled && cfg.googleClientId) {
+      initOneTap(cfg.googleClientId).catch((err) => {
+        console.error('[gsi] init failed', err);
+      });
+    }
+
+    async function initOneTap(clientId: string) {
+      // Attendre que le script GSI ait défini window.google.accounts.id
+      const gsi = await waitForGsi(5000);
+      if (!gsi) return;
+
+      const { nonce, hashedNonce } = await generateGoogleNonce();
+      // Stocker le nonce en clair pour le callback (consommé une fois)
+      (window as unknown as { __gsiNonce?: string }).__gsiNonce = nonce;
+
+      const gsiError = document.getElementById('gsi-error') as HTMLElement | null;
+      const btnContainer = document.getElementById('google-one-tap-btn');
+
+      gsi.initialize({
+        client_id: clientId,
+        callback: async (response: { credential: string }) => {
+          try {
+            const credential = response?.credential;
+            if (!credential) throw new Error('Réponse Google invalide.');
+            const n = (window as unknown as { __gsiNonce?: string }).__gsiNonce ?? '';
+            const { data, error } = await signInProWithGoogleIdToken(credential, n);
+            if (error || !data?.session) throw error ?? new Error('Session vide');
+            document.cookie = `sb-access-token=${data.session.access_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
+            document.cookie = `sb-refresh-token=${data.session.refresh_token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
+            window.location.href = '/audioprothesiste-pro/';
+          } catch (err: unknown) {
+            const msg = err instanceof Error ? err.message : 'Connexion Google impossible.';
+            if (gsiError) {
+              gsiError.textContent = msg;
+              gsiError.classList.remove('hidden');
+            }
+          }
+        },
+        nonce: hashedNonce,
+        use_fedcm_for_prompt: true,
+        itp_support: true,
+        auto_select: false, // ne pas reconnecter automatiquement
+        context: 'signin',
+      });
+
+      if (btnContainer) {
+        gsi.renderButton(btnContainer, {
+          theme: 'outline',
+          size: 'large',
+          text: 'signin_with',
+          shape: 'pill',
+          logo_alignment: 'left',
+          width: 260,
+        });
+      }
+
+      // Proposer le One Tap popup. Silencieux si user l'a rejeté ≥3 fois ou si navigateur ne supporte pas.
+      gsi.prompt();
+    }
+
+    interface GsiApi {
+      initialize: (config: Record<string, unknown>) => void;
+      renderButton: (el: HTMLElement, opts: Record<string, unknown>) => void;
+      prompt: (listener?: (notification: unknown) => void) => void;
+    }
+
+    async function waitForGsi(timeoutMs: number): Promise<GsiApi | null> {
+      const start = Date.now();
+      return new Promise((resolve) => {
+        const tick = () => {
+          const gsi = (window as unknown as { google?: { accounts?: { id?: GsiApi } } }).google?.accounts?.id;
+          if (gsi) return resolve(gsi);
+          if (Date.now() - start > timeoutMs) return resolve(null);
+          setTimeout(tick, 50);
+        };
+        tick();
+      });
+    }
   </script>
 </BaseLayout>
