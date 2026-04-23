@@ -22,8 +22,11 @@ import CentreMap from '../../components/centre/CentreMap.astro';
 
 // Blocs Premium enrichissement SEO/YMYL
 import PremiumExpertiseBlock from '../../components/centre/premium/PremiumExpertiseBlock.astro';
+import PremiumEquipementBlock from '../../components/centre/premium/PremiumEquipementBlock.astro';
 import PremiumParcoursBlock from '../../components/centre/premium/PremiumParcoursBlock.astro';
 import PremiumArticlesBlock from '../../components/centre/premium/PremiumArticlesBlock.astro';
+import PremiumAccessibiliteBlock from '../../components/centre/premium/PremiumAccessibiliteBlock.astro';
+import PremiumPartenairesBlock from '../../components/centre/premium/PremiumPartenairesBlock.astro';
 import PremiumFaqBlock from '../../components/centre/premium/PremiumFaqBlock.astro';
 
 import { supabase } from '../../lib/supabase';
@@ -282,11 +285,20 @@ if (typedCentre.marques?.length > 0) {
             qui était pauvre — on intègre a_propos comme fallback bio dans le bloc) */}
         <PremiumExpertiseBlock centre={typedCentre} />
 
+        {/* Équipement technique : cabine, REM, essai, garantie */}
+        <PremiumEquipementBlock centre={typedCentre} />
+
         {/* Parcours patient 4 étapes + HowTo JSON-LD */}
         <PremiumParcoursBlock centre={typedCentre} />
 
         {/* Articles contextualisés — maillage interne SEO */}
         <PremiumArticlesBlock centre={typedCentre} />
+
+        {/* Accessibilité + schema Place amenityFeature (Google Local Pack) */}
+        <PremiumAccessibiliteBlock centre={typedCentre} />
+
+        {/* Partenaires de soin locaux — E-A-T réseau */}
+        <PremiumPartenairesBlock centre={typedCentre} />
 
         <CentreStats plan="premium" viewCount={viewCount} leadCount={leadCount} />
         <CentreMap centre={typedCentre} />

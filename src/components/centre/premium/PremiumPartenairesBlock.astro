@@ -1,0 +1,93 @@
+---
+// Partenaires locaux du centre (ORL, généralistes, kinés, EHPAD, pharmacies).
+// Signal E-A-T local majeur : on démontre que l'audio est intégré au
+// réseau de soins de sa zone.
+//
+// Les liens sortants ont rel="nofollow noopener" pour ne pas transférer
+// de jus SEO à des tiers sans contrepartie, tout en restant utiles aux
+// patients.
+
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const partenaires = centre.partenaires_locaux ?? [];
+
+const ROLE_META: Record<string, { label: string; icon: string; color: string }> = {
+  orl: { label: 'ORL', icon: 'lucide:ear', color: 'bg-marine/10 text-marine' },
+  generaliste: { label: 'Médecin généraliste', icon: 'lucide:stethoscope', color: 'bg-marine/10 text-marine' },
+  kine: { label: 'Kinésithérapeute', icon: 'lucide:hand', color: 'bg-marine/10 text-marine' },
+  ehpad: { label: 'EHPAD', icon: 'lucide:building-2', color: 'bg-orange/10 text-orange' },
+  pharmacie: { label: 'Pharmacie', icon: 'lucide:pill', color: 'bg-[#059669]/10 text-[#059669]' },
+  autre: { label: 'Partenaire', icon: 'lucide:link-2', color: 'bg-gris-clair text-marine' },
+};
+
+const hasContent = partenaires.length > 0;
+---
+
+{hasContent && (
+  <section
+    class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7 mb-8"
+    aria-labelledby="partenaires-title"
+  >
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+        <Icon name="lucide:network" class="w-5 h-5" />
+      </div>
+      <div>
+        <h2 id="partenaires-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+          Notre réseau de soins local
+        </h2>
+        <p class="text-sm text-gris-texte font-sans mt-0.5">Professionnels de santé avec lesquels nous collaborons</p>
+      </div>
+    </div>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {partenaires.map((p) => {
+        const meta = ROLE_META[p.role] ?? ROLE_META.autre;
+        const inner = (
+          <>
+            <div class:list={['w-9 h-9 rounded-full flex items-center justify-center shrink-0', meta.color]}>
+              <Icon name={meta.icon} class="w-4 h-4" />
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="font-sans font-bold text-marine text-sm truncate">{p.nom}</p>
+              <p class="text-xs font-sans text-gris-texte mt-0.5">
+                {meta.label}{p.ville ? ` · ${p.ville}` : ''}
+              </p>
+              {p.tel && (
+                <a href={`tel:${p.tel.replace(/\s/g, '')}`} class="inline-flex items-center gap-1 text-xs font-sans text-orange hover:underline mt-1">
+                  <Icon name="lucide:phone" class="w-3 h-3" />
+                  {p.tel}
+                </a>
+              )}
+            </div>
+          </>
+        );
+        return (
+          <li>
+            {p.url ? (
+              <a
+                href={p.url}
+                target="_blank"
+                rel="nofollow noopener"
+                class="flex items-start gap-3 rounded-lg bg-creme/40 border border-gris-clair p-4 hover:border-orange/40 transition-colors"
+              >
+                {inner}
+                <Icon name="lucide:external-link" class="w-3.5 h-3.5 text-gris-texte shrink-0 mt-1" />
+              </a>
+            ) : (
+              <div class="flex items-start gap-3 rounded-lg bg-creme/40 border border-gris-clair p-4">
+                {inner}
+              </div>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+)}

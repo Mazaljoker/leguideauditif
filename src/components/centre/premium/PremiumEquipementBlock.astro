@@ -1,0 +1,114 @@
+---
+// Équipement technique du centre. Signaux d'expertise métier concrets
+// que Google rattache à l'E-E-A-T "Experience" (on expose des capacités
+// vérifiables, pas du marketing flou).
+//
+// Tous les champs sont optionnels — on skip tout le bloc si rien de coché.
+
+import { Icon } from 'astro-icon/components';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const eq = (centre.equipement_cabine ?? {}) as Record<string, boolean | number>;
+
+const items: Array<{ key: string; label: string; desc: string; icon: string }> = [
+  {
+    key: 'cabine_insonorisee',
+    label: 'Cabine audiométrique insonorisée',
+    desc: 'Mesure précise du seuil auditif sans interférences extérieures.',
+    icon: 'lucide:volume-x',
+  },
+  {
+    key: 'rem',
+    label: 'Mesure in vivo (REM)',
+    desc: 'Vérification objective du gain réel de l\'appareil dans le conduit auditif.',
+    icon: 'lucide:activity',
+  },
+  {
+    key: 'anc',
+    label: 'Audiométrie automatisée',
+    desc: 'Protocole de test standardisé, reproductible d\'une séance à l\'autre.',
+    icon: 'lucide:cpu',
+  },
+  {
+    key: 'audiometre_num',
+    label: 'Audiomètre numérique haute précision',
+    desc: 'Seuils mesurés par pas de 1 dB de 125 Hz à 8 kHz.',
+    icon: 'lucide:gauge',
+  },
+  {
+    key: 'cabine_pediatrique',
+    label: 'Cabine adaptée enfants',
+    desc: 'Tests adaptés aux jeunes patients (ROV, jeu audiométrique).',
+    icon: 'lucide:baby',
+  },
+];
+
+const activeItems = items.filter((i) => eq[i.key] === true);
+const essaiJours = typeof eq.essai_jours === 'number' ? eq.essai_jours : null;
+const garantieAnnees = typeof eq.garantie_annees === 'number' ? eq.garantie_annees : null;
+
+const hasContent = activeItems.length > 0 || essaiJours !== null || garantieAnnees !== null;
+---
+
+{hasContent && (
+  <section
+    class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7 mb-8"
+    aria-labelledby="equipement-title"
+  >
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+        <Icon name="lucide:microscope" class="w-5 h-5" />
+      </div>
+      <div>
+        <h2 id="equipement-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+          Équipement professionnel
+        </h2>
+        <p class="text-sm text-gris-texte font-sans mt-0.5">Matériel et engagements de suivi</p>
+      </div>
+    </div>
+
+    {activeItems.length > 0 && (
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+        {activeItems.map((it) => (
+          <li class="flex gap-3 rounded-lg bg-creme/40 border border-gris-clair p-4">
+            <div class="w-9 h-9 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+              <Icon name={it.icon} class="w-4 h-4" />
+            </div>
+            <div class="min-w-0">
+              <p class="font-sans font-bold text-marine text-sm">{it.label}</p>
+              <p class="text-xs font-sans text-gris-texte mt-0.5 leading-snug">{it.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    {(essaiJours !== null || garantieAnnees !== null) && (
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {essaiJours !== null && (
+          <div class="flex items-center gap-3 rounded-lg bg-orange/5 border border-orange/30 p-4">
+            <Icon name="lucide:calendar-check" class="w-5 h-5 text-orange shrink-0" />
+            <div>
+              <p class="font-sans font-bold text-marine text-sm">Essai gratuit {essaiJours} jours</p>
+              <p class="text-xs font-sans text-gris-texte">Sans engagement d'achat</p>
+            </div>
+          </div>
+        )}
+        {garantieAnnees !== null && (
+          <div class="flex items-center gap-3 rounded-lg bg-orange/5 border border-orange/30 p-4">
+            <Icon name="lucide:shield" class="w-5 h-5 text-orange shrink-0" />
+            <div>
+              <p class="font-sans font-bold text-marine text-sm">Garantie fabricant {garantieAnnees} ans</p>
+              <p class="text-xs font-sans text-gris-texte">Réparations incluses</p>
+            </div>
+          </div>
+        )}
+      </div>
+    )}
+  </section>
+)}

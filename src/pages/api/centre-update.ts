@@ -9,6 +9,7 @@ const ALLOWED_FIELDS = [
   'specialites', 'marques', 'reseaux_sociaux', 'audio_photo_url',
   'audio_bio', 'audio_annee_dip', 'audio_associations',
   'services_inclus', 'langues',
+  'equipement_cabine', 'accessibilite', 'partenaires_locaux',
 ];
 
 export const POST: APIRoute = async ({ request, cookies }) => {
