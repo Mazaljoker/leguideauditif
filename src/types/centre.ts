@@ -14,6 +14,7 @@ export interface CentreData {
   site_web: string | null;
   email: string | null;
   photo_url: string | null;
+  audio_photo_url: string | null;
   specialites: string[];
   marques: string[];
   reseaux_sociaux: Record<string, string> | null;
