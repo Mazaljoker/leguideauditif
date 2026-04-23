@@ -140,6 +140,7 @@ export interface ProspectInput {
   source?: ProspectSource;
   is_fondateur?: boolean;
   is_apporteur?: boolean;
+  emails?: string[];
   next_action?: string | null;
   next_action_at?: string | null;
   mrr_potentiel?: number | null;
@@ -223,6 +224,30 @@ export function validateProspectInput(
       return { ok: false, error: 'is_apporteur doit être booléen' };
     }
     data.is_apporteur = b.is_apporteur;
+  }
+
+  // emails (TEXT[]) — valide format + dédup + normalise lowercase trim
+  if (b.emails !== undefined) {
+    if (!Array.isArray(b.emails)) {
+      return { ok: false, error: 'emails doit être un tableau' };
+    }
+    const cleaned: string[] = [];
+    const seen = new Set<string>();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    for (const raw of b.emails) {
+      if (typeof raw !== 'string') continue;
+      const v = raw.trim().toLowerCase();
+      if (!v) continue;
+      if (v.length > 200) continue;
+      if (!emailRe.test(v)) {
+        return { ok: false, error: `e-mail invalide : ${raw}` };
+      }
+      if (!seen.has(v)) {
+        seen.add(v);
+        cleaned.push(v);
+      }
+    }
+    data.emails = cleaned;
   }
 
   // next_action_at

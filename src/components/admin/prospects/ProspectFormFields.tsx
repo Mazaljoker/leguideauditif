@@ -37,6 +37,7 @@ interface FormState {
   source: ProspectSource;
   is_fondateur: boolean;
   is_apporteur: boolean;
+  emails: string[];
   mrr_potentiel: string;
   notes: string;
 }
@@ -53,6 +54,7 @@ function prospectToForm(p: Prospect): FormState {
     source: p.source,
     is_fondateur: p.is_fondateur,
     is_apporteur: p.is_apporteur,
+    emails: p.emails ?? [],
     mrr_potentiel: p.mrr_potentiel != null ? String(p.mrr_potentiel) : '',
     notes: p.notes ?? '',
   };
@@ -119,6 +121,7 @@ export default function ProspectFormFields({
         source: form.source,
         is_fondateur: form.is_fondateur,
         is_apporteur: form.is_apporteur,
+        emails: form.emails,
         mrr_potentiel: form.mrr_potentiel === '' ? null : Number(form.mrr_potentiel),
         notes: form.notes || null,
       };
@@ -282,7 +285,11 @@ export default function ProspectFormFields({
         </div>
 
         <div className="md:col-span-2">
-          <ContactEmailsBlock centres={linkedCentres} />
+          <ContactEmailsBlock
+            centres={linkedCentres}
+            personalEmails={form.emails}
+            onPersonalEmailsChange={(next) => update('emails', next)}
+          />
         </div>
 
         <div className="md:col-span-2">
@@ -354,19 +361,49 @@ export default function ProspectFormFields({
 }
 
 // ---------- ContactEmailsBlock ----------
-// Agrège les e-mails des centres liés (centre + revendiqueur) et les
-// affiche en cliquables mailto:. Dédup si même e-mail.
+// Deux sections :
+//   1) E-mails perso éditables (stockés sur prospects.emails)
+//   2) E-mails centres en lecture seule (depuis centres liés)
 
-function ContactEmailsBlock({ centres }: { centres: LinkedCentre[] }) {
-  if (centres.length === 0) return null;
+function ContactEmailsBlock({
+  centres,
+  personalEmails,
+  onPersonalEmailsChange,
+}: {
+  centres: LinkedCentre[];
+  personalEmails: string[];
+  onPersonalEmailsChange: (next: string[]) => void;
+}) {
+  const [draft, setDraft] = useState('');
+  const [addError, setAddError] = useState<string | null>(null);
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const rows: Array<{ centre: string; label: string; email: string }> = [];
-  for (const c of centres) {
-    if (c.email) {
-      rows.push({ centre: c.nom, label: 'Centre', email: c.email });
+  function addEmail() {
+    const v = draft.trim().toLowerCase();
+    if (!v) return;
+    if (!emailRe.test(v)) {
+      setAddError('Format e-mail invalide');
+      return;
     }
+    if (personalEmails.includes(v)) {
+      setAddError('Déjà ajouté');
+      return;
+    }
+    onPersonalEmailsChange([...personalEmails, v]);
+    setDraft('');
+    setAddError(null);
+  }
+
+  function removeEmail(email: string) {
+    onPersonalEmailsChange(personalEmails.filter((e) => e !== email));
+  }
+
+  // Centre emails (lecture seule)
+  const centreRows: Array<{ centre: string; label: string; email: string }> = [];
+  for (const c of centres) {
+    if (c.email) centreRows.push({ centre: c.nom, label: 'Centre', email: c.email });
     if (c.claimed_by_email && c.claimed_by_email !== c.email) {
-      rows.push({
+      centreRows.push({
         centre: c.nom,
         label: c.claimed_by_name?.trim() || 'Revendiqueur',
         email: c.claimed_by_email,
@@ -374,29 +411,93 @@ function ContactEmailsBlock({ centres }: { centres: LinkedCentre[] }) {
     }
   }
 
-  if (rows.length === 0) return null;
-
   return (
-    <div className="rounded-lg border border-[#E4DED3] bg-[#FDFBF7] p-3 font-sans">
-      <div className="text-[11px] font-semibold text-[#6B7A90] uppercase tracking-wide mb-1.5">
-        Contacts e-mail ({rows.length})
+    <div className="rounded-lg border border-[#E4DED3] bg-[#FDFBF7] p-3 font-sans space-y-3">
+      <div>
+        <div className="text-[11px] font-semibold text-[#6B7A90] uppercase tracking-wide mb-1.5">
+          E-mails perso ({personalEmails.length})
+        </div>
+        {personalEmails.length > 0 && (
+          <ul className="flex flex-wrap gap-1.5 mb-2">
+            {personalEmails.map((e) => (
+              <li
+                key={e}
+                className="inline-flex items-center gap-1.5 bg-white border border-[#E4DED3] rounded-full pl-2.5 pr-1.5 py-0.5 text-xs text-[#1B2E4A]"
+              >
+                <a
+                  href={`mailto:${e}`}
+                  className="hover:text-[#D97B3D] underline-offset-2 hover:underline"
+                >
+                  {e}
+                </a>
+                <button
+                  type="button"
+                  onClick={() => removeEmail(e)}
+                  className="w-4 h-4 inline-flex items-center justify-center rounded-full text-[#6B7A90] hover:text-[#B34444] hover:bg-[#F6E3E3]"
+                  aria-label={`Supprimer ${e}`}
+                  title="Supprimer"
+                >
+                  ×
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="flex gap-1.5">
+          <input
+            type="email"
+            value={draft}
+            onChange={(e) => {
+              setDraft(e.target.value);
+              setAddError(null);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                addEmail();
+              }
+            }}
+            placeholder="ajouter@email.com"
+            className="flex-1 border border-[#E4DED3] bg-white px-2 py-1 rounded-md text-sm font-sans text-[#1B2E4A] focus:outline-2 focus:outline-[#D97B3D]"
+            aria-label="Nouvel e-mail perso"
+          />
+          <button
+            type="button"
+            onClick={addEmail}
+            disabled={!draft.trim()}
+            className="px-3 py-1 text-sm font-semibold text-white bg-[#1B2E4A] hover:bg-[#2a3d5e] rounded-md disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            + Ajouter
+          </button>
+        </div>
+        {addError && (
+          <div className="text-[#B34444] text-xs mt-1">{addError}</div>
+        )}
       </div>
-      <ul className="space-y-1 text-sm">
-        {rows.map((r, i) => (
-          <li key={`${r.email}-${i}`} className="flex flex-wrap gap-x-2 gap-y-0.5 items-baseline">
-            <span className="text-[11px] text-[#6B7A90] uppercase tracking-wide">
-              {r.label}
-            </span>
-            <a
-              href={`mailto:${r.email}`}
-              className="text-[#1B2E4A] hover:text-[#D97B3D] underline-offset-2 hover:underline"
-            >
-              {r.email}
-            </a>
-            <span className="text-[11px] text-[#6B7A90] truncate">· {r.centre}</span>
-          </li>
-        ))}
-      </ul>
+
+      {centreRows.length > 0 && (
+        <div className="pt-3 border-t border-dashed border-[#E4DED3]">
+          <div className="text-[11px] font-semibold text-[#6B7A90] uppercase tracking-wide mb-1.5">
+            E-mails centres liés ({centreRows.length})
+          </div>
+          <ul className="space-y-1 text-sm">
+            {centreRows.map((r, i) => (
+              <li key={`${r.email}-${i}`} className="flex flex-wrap gap-x-2 gap-y-0.5 items-baseline">
+                <span className="text-[11px] text-[#6B7A90] uppercase tracking-wide">
+                  {r.label}
+                </span>
+                <a
+                  href={`mailto:${r.email}`}
+                  className="text-[#1B2E4A] hover:text-[#D97B3D] underline-offset-2 hover:underline"
+                >
+                  {r.email}
+                </a>
+                <span className="text-[11px] text-[#6B7A90] truncate">· {r.centre}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

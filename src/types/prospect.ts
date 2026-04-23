@@ -38,6 +38,7 @@ export interface Prospect {
   source: ProspectSource;
   is_fondateur: boolean;
   is_apporteur: boolean;
+  emails: string[];
   next_action: string | null;
   next_action_at: string | null;
   mrr_potentiel: number | null;
