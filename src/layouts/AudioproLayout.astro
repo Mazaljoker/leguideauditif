@@ -74,17 +74,17 @@ const breadcrumbs = [
     </div>
   </div>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10 overflow-x-hidden">
     <div class="mb-6">
       <CentreSwitcher client:load centres={centres} activeSlug={active.slug} />
     </div>
 
-    <div class="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10">
-      <aside class="lg:sticky lg:top-24 lg:self-start">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10">
+      <aside class="min-w-0 lg:sticky lg:top-24 lg:self-start">
         <AudioproNav currentPath={Astro.url.pathname} />
       </aside>
 
-      <main>
+      <main class="min-w-0">
         <slot />
       </main>
     </div>
