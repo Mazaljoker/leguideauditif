@@ -1,0 +1,135 @@
+---
+// Tableau des centres du réseau. Mobile-first : sur < lg on remplace la
+// table par une liste de cards empilées (une card par centre avec les
+// métriques en grille 2 colonnes). Sur ≥ lg on affiche la vraie table.
+//
+// Chaque ligne cliquable redirige vers /centre/[slug]/ (fiche publique
+// pour voir le rendu réel ou vers l'édition selon le besoin). Pour Phase 1
+// on route vers la fiche publique dans un nouvel onglet.
+
+import StatusPill from '../shared/StatusPill.astro';
+import type { CentreTableRow } from '../../../types/audiopro';
+
+export interface Props {
+  rows: CentreTableRow[];
+}
+
+const { rows } = Astro.props;
+---
+
+<section class="mb-10">
+  {/* Mobile : cards empilées */}
+  <div class="lg:hidden space-y-4">
+    {rows.map((r) => (
+      <a
+        href={`/centre/${r.slug}/`}
+        target="_blank"
+        rel="noopener"
+        class="block rounded-xl bg-blanc border border-gris-clair p-5 shadow-[0_1px_3px_rgba(27,46,74,0.06)] hover:border-orange/40 transition-colors"
+      >
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <div class="min-w-0">
+            <p class="font-sans font-bold text-marine text-base leading-tight">{r.nom}</p>
+            <p class="text-xs text-gris-texte font-sans mt-1 truncate">
+              {r.adresse} · {r.cp}
+            </p>
+          </div>
+          <StatusPill status={r.adsStatus} label={r.adsLabel} />
+        </div>
+
+        <dl class="grid grid-cols-2 gap-3 text-sm">
+          <div>
+            <dt class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte">Position zone</dt>
+            <dd class="font-sans font-bold text-marine mt-0.5">
+              {r.positionRank === null || r.positionTotal === null ? (
+                <span class="text-[#9CA3AF]">—</span>
+              ) : (
+                <>
+                  {r.positionRank}
+                  <span class="text-xs font-normal text-gris-texte"> / {r.positionTotal}</span>
+                </>
+              )}
+            </dd>
+          </div>
+          <div>
+            <dt class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte">Vues 30j</dt>
+            <dd class="font-sans font-bold text-marine mt-0.5">{r.vues30j}</dd>
+          </div>
+          <div>
+            <dt class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte">Avis Google</dt>
+            <dd class="font-sans font-bold text-marine mt-0.5">
+              {r.reviewScore === null ? (
+                <span class="text-[#9CA3AF]">—</span>
+              ) : (
+                <>
+                  {r.reviewScore.toFixed(1)}
+                  <span class="text-xs font-normal text-gris-texte"> / 5 · {r.reviewCount ?? 0}</span>
+                </>
+              )}
+            </dd>
+          </div>
+          <div>
+            <dt class="text-[11px] font-sans font-bold uppercase tracking-wide text-gris-texte">Fiche</dt>
+            <dd class="font-sans font-bold text-marine mt-0.5">{r.completeness}%</dd>
+          </div>
+        </dl>
+      </a>
+    ))}
+  </div>
+
+  {/* Desktop : vraie table */}
+  <div class="hidden lg:block rounded-xl bg-blanc border border-gris-clair overflow-hidden shadow-[0_1px_3px_rgba(27,46,74,0.06)]">
+    <table class="w-full border-collapse">
+      <thead>
+        <tr>
+          <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Centre</th>
+          <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Google Ads</th>
+          <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Position zone</th>
+          <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Vues 30j</th>
+          <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Avis Google</th>
+          <th class="text-left text-[11px] font-sans font-bold uppercase tracking-[1px] text-gris-texte bg-[#F9FAFB] px-5 py-4 border-b border-gris-clair">Fiche</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r, idx) => (
+          <tr class:list={[
+            'hover:bg-[#F9FAFB] transition-colors',
+            idx < rows.length - 1 ? 'border-b border-[#F3F4F6]' : '',
+          ]}>
+            <td class="px-5 py-5 align-middle">
+              <a href={`/centre/${r.slug}/`} target="_blank" rel="noopener" class="block group">
+                <p class="font-sans font-bold text-marine group-hover:text-orange transition-colors">{r.nom}</p>
+                <p class="text-xs text-gris-texte font-sans mt-0.5">{r.adresse} · {r.cp}</p>
+              </a>
+            </td>
+            <td class="px-5 py-5 align-middle">
+              <StatusPill status={r.adsStatus} label={r.adsLabel} />
+            </td>
+            <td class="px-5 py-5 align-middle">
+              {r.positionRank === null || r.positionTotal === null ? (
+                <span class="font-sans font-bold text-[#9CA3AF]">—</span>
+              ) : (
+                <span class="font-sans font-bold text-marine">
+                  {r.positionRank}
+                  <span class="text-xs font-normal text-gris-texte"> / {r.positionTotal}</span>
+                </span>
+              )}
+            </td>
+            <td class="px-5 py-5 align-middle font-sans font-bold text-marine">{r.vues30j}</td>
+            <td class="px-5 py-5 align-middle">
+              {r.reviewScore === null ? (
+                <span class="font-sans font-bold text-[#9CA3AF]">—</span>
+              ) : (
+                <span class="font-sans font-bold text-marine">
+                  {r.reviewScore.toFixed(1)}
+                  <span class="text-xs font-normal text-gris-texte"> / 5 · {r.reviewCount ?? 0} avis</span>
+                </span>
+              )}
+            </td>
+            <td class="px-5 py-5 align-middle text-sm font-sans text-gris-texte">{r.completeness}% complète</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,0 +1,60 @@
+---
+// Bannière de bienvenue affichée en haut du dashboard Revendicateur
+// juste après la revendication. Dismissable via localStorage — le flag
+// est scopé au centre (clé lga_welcome_dismissed_<centreId>) pour qu'un
+// user multi-fiches puisse redécouvrir le message à chaque revendication.
+
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  prenom: string;
+  centreId: string;
+}
+
+const { prenom, centreId } = Astro.props;
+---
+
+<aside
+  id={`welcome-banner-${centreId}`}
+  class="hidden welcome-banner flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 bg-gradient-to-br from-blanc to-[#F9FAFB] rounded-xl p-5 sm:p-6 mb-7 shadow-[0_1px_3px_rgba(27,46,74,0.06)]"
+  aria-label="Confirmation de revendication"
+  data-centre-id={centreId}
+>
+  <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#D1FAE5] text-[#059669] flex items-center justify-center shrink-0">
+    <Icon name="lucide:check" class="w-6 h-6 sm:w-7 sm:h-7" />
+  </div>
+  <div class="flex-1">
+    <p class="font-sans text-base sm:text-lg font-bold text-marine mb-1">
+      Bienvenue {prenom}, votre fiche est revendiquée
+    </p>
+    <p class="text-sm font-sans text-gris-texte leading-snug">
+      Vous pouvez maintenant compléter vos informations et être trouvé par les patients de votre zone. La mise en ligne de vos modifications est instantanée.
+    </p>
+  </div>
+  <button
+    type="button"
+    class="welcome-dismiss self-start sm:self-center text-gris-texte hover:text-marine rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-colors"
+    aria-label="Masquer le message de bienvenue"
+  >
+    <Icon name="lucide:x" class="w-5 h-5" />
+  </button>
+</aside>
+
+<script is:inline define:vars={{ centreId }}>
+  (function () {
+    const banner = document.getElementById(`welcome-banner-${centreId}`);
+    if (!banner) return;
+    const key = `lga_welcome_dismissed_${centreId}`;
+    const dismissed = window.localStorage.getItem(key) === '1';
+    if (!dismissed) {
+      banner.classList.remove('hidden');
+      banner.classList.add('flex');
+    }
+    const btn = banner.querySelector('.welcome-dismiss');
+    btn?.addEventListener('click', () => {
+      window.localStorage.setItem(key, '1');
+      banner.classList.add('hidden');
+      banner.classList.remove('flex');
+    });
+  })();
+</script>

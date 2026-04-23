@@ -1,0 +1,50 @@
+---
+// Alerte contextuelle orange affichée en haut des dashboards Premium et
+// Réseau. Le parent est responsable de calculer l'info à afficher selon
+// les priorités métier (voir Docs/spec-espace-pro-v2.md §7.5) :
+//   1. Setup Ads incomplet
+//   2. Complétude fiche < 80%
+//   3. Ads active sans conversions 30j
+//   4. Rien d'urgent → composant non rendu côté parent
+//
+// Règle : si aucune action pertinente, le parent ne rend PAS ce composant
+// (pas de fausse alerte pour remplir l'espace).
+
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  label: string;     // "ACTION PRIORITAIRE · RÉSEAU"
+  title: string;
+  desc: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+const { label, title, desc, ctaLabel, ctaHref } = Astro.props;
+---
+
+<section
+  class="rounded-xl bg-[#FEF3E7] border-2 border-orange p-5 sm:p-6 mb-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5"
+  role="alert"
+>
+  <div class="w-11 h-11 rounded-full bg-orange text-blanc flex items-center justify-center shrink-0">
+    <Icon name="lucide:alert-triangle" class="w-5 h-5" />
+  </div>
+  <div class="flex-1">
+    <p class="text-[11px] font-sans font-bold uppercase tracking-[1px] text-orange mb-1">
+      {label}
+    </p>
+    <p class="font-sans text-base sm:text-lg font-bold text-marine leading-snug mb-1">
+      {title}
+    </p>
+    <p class="text-sm font-sans text-gris-texte leading-snug">{desc}</p>
+  </div>
+  <a
+    href={ctaHref}
+    class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-orange text-blanc font-sans font-semibold text-sm px-5 py-3 hover:bg-orange-hover transition-colors shrink-0"
+    style="min-height: 44px;"
+  >
+    {ctaLabel}
+    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+  </a>
+</section>
