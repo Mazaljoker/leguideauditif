@@ -62,8 +62,8 @@ const multi = centres.length > 1;
     </div>
   </header>
 
-  {/* Cards chiffres */}
-  <div class="grid gap-4 sm:grid-cols-4 mb-6">
+  {/* Cards chiffres — 2x2 sur mobile, 4 colonnes sur desktop */}
+  <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 mb-6">
     <article class="rounded-xl border border-gris-clair bg-blanc p-4">
       <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Non lues</p>
       <p class="text-2xl font-sans font-bold text-orange">{counts.unread}</p>
@@ -82,30 +82,32 @@ const multi = centres.length > 1;
     </article>
   </div>
 
-  {/* Filtre de scope (uniquement si multi-centres) */}
+  {/* Filtre de scope (uniquement si multi-centres) — pills scrollables sur mobile */}
   {multi && (
     <div class="mb-4 rounded-lg border border-gris-clair bg-blanc px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
       <span class="text-sm font-sans font-medium text-marine">Afficher&nbsp;:</span>
-      <div class="flex gap-2">
+      <div class="flex gap-2 flex-wrap">
         <a
           href="/audioprothesiste-pro/leads/"
           class:list={[
-            'rounded-full px-4 py-1.5 text-sm font-sans font-medium transition-colors',
+            'inline-flex items-center rounded-full px-4 py-2 text-sm font-sans font-medium transition-colors',
             scope === 'all'
               ? 'bg-marine text-blanc'
               : 'border border-gris-clair text-gris-texte hover:text-marine',
           ]}
+          style="min-height: 44px;"
         >
           Tous mes centres ({centres.length})
         </a>
         <a
           href="/audioprothesiste-pro/leads/?scope=active"
           class:list={[
-            'rounded-full px-4 py-1.5 text-sm font-sans font-medium transition-colors',
+            'inline-flex items-center rounded-full px-4 py-2 text-sm font-sans font-medium transition-colors',
             scope === 'active'
               ? 'bg-marine text-blanc'
               : 'border border-gris-clair text-gris-texte hover:text-marine',
           ]}
+          style="min-height: 44px;"
         >
           {active.nom}
         </a>

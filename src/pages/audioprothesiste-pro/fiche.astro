@@ -180,11 +180,11 @@ const isPremium = centre.plan === 'premium';
           </label>
           <input type="hidden" id="edit-horaires" name="horaires" value={centre.horaires || ''} />
 
-          {/* Mode simple : 3 selects (la majorité des cas) */}
-          <div class="grid grid-cols-3 gap-3" id="horaires-simple">
+          {/* Mode simple : 3 selects (la majorité des cas) — empilés sur mobile pour lisibilité */}
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="horaires-simple">
             <div>
               <label for="h-ouverture" class="block text-xs text-gris-texte font-sans mb-1">Ouverture</label>
-              <select id="h-ouverture" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc">
+              <select id="h-ouverture" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc" style="min-height: 44px;">
                 <option value="">--</option>
                 <option value="8h">8h</option>
                 <option value="8h30">8h30</option>
@@ -195,7 +195,7 @@ const isPremium = centre.plan === 'premium';
             </div>
             <div>
               <label for="h-fermeture" class="block text-xs text-gris-texte font-sans mb-1">Fermeture</label>
-              <select id="h-fermeture" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc">
+              <select id="h-fermeture" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc" style="min-height: 44px;">
                 <option value="">--</option>
                 <option value="17h">17h</option>
                 <option value="17h30">17h30</option>
@@ -206,7 +206,7 @@ const isPremium = centre.plan === 'premium';
             </div>
             <div>
               <label for="h-samedi" class="block text-xs text-gris-texte font-sans mb-1">Samedi</label>
-              <select id="h-samedi" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc">
+              <select id="h-samedi" class="w-full rounded-lg border border-gris-clair px-3 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc" style="min-height: 44px;">
                 <option value="">--</option>
                 <option value="Fermé">Fermé</option>
                 <option value="9h-12h">9h-12h</option>
