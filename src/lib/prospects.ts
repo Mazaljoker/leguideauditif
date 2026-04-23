@@ -141,6 +141,7 @@ export interface ProspectInput {
   is_fondateur?: boolean;
   is_apporteur?: boolean;
   emails?: string[];
+  phones?: string[];
   next_action?: string | null;
   next_action_at?: string | null;
   mrr_potentiel?: number | null;
@@ -248,6 +249,35 @@ export function validateProspectInput(
       }
     }
     data.emails = cleaned;
+  }
+
+  // phones (TEXT[]) — accepte chiffres + espace/.-+/() parenthèses, longueur 4-20
+  // digits-only ; dédup sur la forme normalisée.
+  if (b.phones !== undefined) {
+    if (!Array.isArray(b.phones)) {
+      return { ok: false, error: 'phones doit être un tableau' };
+    }
+    const cleaned: string[] = [];
+    const seen = new Set<string>();
+    const allowedRe = /^[\d\s().+\-]+$/;
+    for (const raw of b.phones) {
+      if (typeof raw !== 'string') continue;
+      const v = raw.trim();
+      if (!v) continue;
+      if (v.length > 40) continue;
+      if (!allowedRe.test(v)) {
+        return { ok: false, error: `téléphone invalide : ${raw}` };
+      }
+      const digits = v.replace(/\D/g, '');
+      if (digits.length < 4 || digits.length > 20) {
+        return { ok: false, error: `téléphone invalide : ${raw}` };
+      }
+      if (!seen.has(digits)) {
+        seen.add(digits);
+        cleaned.push(v);
+      }
+    }
+    data.phones = cleaned;
   }
 
   // next_action_at

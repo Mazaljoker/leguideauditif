@@ -38,6 +38,7 @@ interface FormState {
   is_fondateur: boolean;
   is_apporteur: boolean;
   emails: string[];
+  phones: string[];
   mrr_potentiel: string;
   notes: string;
 }
@@ -55,6 +56,7 @@ function prospectToForm(p: Prospect): FormState {
     is_fondateur: p.is_fondateur,
     is_apporteur: p.is_apporteur,
     emails: p.emails ?? [],
+    phones: p.phones ?? [],
     mrr_potentiel: p.mrr_potentiel != null ? String(p.mrr_potentiel) : '',
     notes: p.notes ?? '',
   };
@@ -122,6 +124,7 @@ export default function ProspectFormFields({
         is_fondateur: form.is_fondateur,
         is_apporteur: form.is_apporteur,
         emails: form.emails,
+        phones: form.phones,
         mrr_potentiel: form.mrr_potentiel === '' ? null : Number(form.mrr_potentiel),
         notes: form.notes || null,
       };
@@ -289,6 +292,14 @@ export default function ProspectFormFields({
             centres={linkedCentres}
             personalEmails={form.emails}
             onPersonalEmailsChange={(next) => update('emails', next)}
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <ContactPhonesBlock
+            centres={linkedCentres}
+            personalPhones={form.phones}
+            onPersonalPhonesChange={(next) => update('phones', next)}
           />
         </div>
 
@@ -491,6 +502,155 @@ function ContactEmailsBlock({
                   className="text-[#1B2E4A] hover:text-[#D97B3D] underline-offset-2 hover:underline"
                 >
                   {r.email}
+                </a>
+                <span className="text-[11px] text-[#6B7A90] truncate">· {r.centre}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------- ContactPhonesBlock ----------
+// Mirror de ContactEmailsBlock pour les téléphones. Tels perso (éditables)
+// + tels des centres liés (lecture seule). Dédup par forme digits-only.
+
+function ContactPhonesBlock({
+  centres,
+  personalPhones,
+  onPersonalPhonesChange,
+}: {
+  centres: LinkedCentre[];
+  personalPhones: string[];
+  onPersonalPhonesChange: (next: string[]) => void;
+}) {
+  const [draft, setDraft] = useState('');
+  const [addError, setAddError] = useState<string | null>(null);
+  const allowedRe = /^[\d\s().+\-]+$/;
+
+  function digitsOnly(s: string): string {
+    return s.replace(/\D/g, '');
+  }
+
+  function addPhone() {
+    const v = draft.trim();
+    if (!v) return;
+    if (!allowedRe.test(v)) {
+      setAddError('Caractères non autorisés');
+      return;
+    }
+    const digits = digitsOnly(v);
+    if (digits.length < 4 || digits.length > 20) {
+      setAddError('Longueur invalide (4-20 chiffres)');
+      return;
+    }
+    if (personalPhones.some((p) => digitsOnly(p) === digits)) {
+      setAddError('Déjà ajouté');
+      return;
+    }
+    onPersonalPhonesChange([...personalPhones, v]);
+    setDraft('');
+    setAddError(null);
+  }
+
+  function removePhone(phone: string) {
+    onPersonalPhonesChange(personalPhones.filter((p) => p !== phone));
+  }
+
+  // Tels centres (lecture seule) — dédup par digits
+  const centreRows: Array<{ centre: string; tel: string }> = [];
+  const seenCentreDigits = new Set<string>();
+  for (const c of centres) {
+    if (!c.tel) continue;
+    const digits = digitsOnly(c.tel);
+    if (!digits) continue;
+    if (seenCentreDigits.has(digits)) continue;
+    seenCentreDigits.add(digits);
+    centreRows.push({ centre: c.nom, tel: c.tel });
+  }
+
+  return (
+    <div className="rounded-lg border border-[#E4DED3] bg-[#FDFBF7] p-3 font-sans space-y-3">
+      <div>
+        <div className="text-[11px] font-semibold text-[#6B7A90] uppercase tracking-wide mb-1.5">
+          Téléphones perso ({personalPhones.length})
+        </div>
+        {personalPhones.length > 0 && (
+          <ul className="flex flex-wrap gap-1.5 mb-2">
+            {personalPhones.map((p) => (
+              <li
+                key={p}
+                className="inline-flex items-center gap-1.5 bg-white border border-[#E4DED3] rounded-full pl-2.5 pr-1.5 py-0.5 text-xs text-[#1B2E4A]"
+              >
+                <a
+                  href={`tel:${digitsOnly(p)}`}
+                  className="hover:text-[#D97B3D] underline-offset-2 hover:underline"
+                >
+                  {p}
+                </a>
+                <button
+                  type="button"
+                  onClick={() => removePhone(p)}
+                  className="w-4 h-4 inline-flex items-center justify-center rounded-full text-[#6B7A90] hover:text-[#B34444] hover:bg-[#F6E3E3]"
+                  aria-label={`Supprimer ${p}`}
+                  title="Supprimer"
+                >
+                  ×
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="flex gap-1.5">
+          <input
+            type="tel"
+            value={draft}
+            onChange={(e) => {
+              setDraft(e.target.value);
+              setAddError(null);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                addPhone();
+              }
+            }}
+            placeholder="06 12 34 56 78"
+            className="flex-1 border border-[#E4DED3] bg-white px-2 py-1 rounded-md text-sm font-sans text-[#1B2E4A] focus:outline-2 focus:outline-[#D97B3D]"
+            aria-label="Nouveau téléphone perso"
+          />
+          <button
+            type="button"
+            onClick={addPhone}
+            disabled={!draft.trim()}
+            className="px-3 py-1 text-sm font-semibold text-white bg-[#1B2E4A] hover:bg-[#2a3d5e] rounded-md disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            + Ajouter
+          </button>
+        </div>
+        {addError && (
+          <div className="text-[#B34444] text-xs mt-1">{addError}</div>
+        )}
+      </div>
+
+      {centreRows.length > 0 && (
+        <div className="pt-3 border-t border-dashed border-[#E4DED3]">
+          <div className="text-[11px] font-semibold text-[#6B7A90] uppercase tracking-wide mb-1.5">
+            Téléphones centres liés ({centreRows.length})
+          </div>
+          <ul className="space-y-1 text-sm">
+            {centreRows.map((r, i) => (
+              <li key={`${r.tel}-${i}`} className="flex flex-wrap gap-x-2 gap-y-0.5 items-baseline">
+                <span className="text-[11px] text-[#6B7A90] uppercase tracking-wide">
+                  Centre
+                </span>
+                <a
+                  href={`tel:${digitsOnly(r.tel)}`}
+                  className="text-[#1B2E4A] hover:text-[#D97B3D] underline-offset-2 hover:underline"
+                >
+                  {r.tel}
                 </a>
                 <span className="text-[11px] text-[#6B7A90] truncate">· {r.centre}</span>
               </li>
