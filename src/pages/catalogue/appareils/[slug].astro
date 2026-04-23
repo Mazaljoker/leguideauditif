@@ -47,7 +47,7 @@ const defaultTitle = (fullName + titleSuffix).length > 60
 const defaultDescription = `${fullName} : ${FORME_TYPE_LABELS[product.formeType] || product.formeType}, ${product.puce || ''}. ${price ? formatPrice(price) + ' par appareil.' : ''} Fiche complète par un audioprothésiste DE.`;
 const title = product.metaTitle ?? defaultTitle;
 const description = product.metaDescription ?? defaultDescription;
-const schema = productJsonLd(product);
+const schema = productJsonLd(product, Astro.site);
 
 // Find platform page for this product's chip
 const allPlatforms = await getCollection('plateformes');

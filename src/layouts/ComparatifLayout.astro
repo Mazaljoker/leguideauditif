@@ -5,6 +5,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 import AuthorBox from '../components/AuthorBox.astro';
 import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
 import HealthDisclaimer from '../components/HealthDisclaimer.astro';
+import { buildProductSchema } from '../lib/schema-helpers';
 
 interface Product {
   brand: string;
@@ -19,6 +20,7 @@ interface Product {
   verdict: string;
   bestFor: string;
   affiliateUrl?: string;
+  score?: number;
 }
 
 interface Props {
@@ -98,13 +100,17 @@ const schemas: Record<string, unknown>[] = [articleSchema, breadcrumbSchema];
 
 if (products && products.length > 0) {
   for (const product of products) {
-    schemas.push({
-      '@context': 'https://schema.org',
-      '@type': 'Product',
-      name: `${product.brand} ${product.model}`,
-      brand: { '@type': 'Brand', name: product.brand },
-      description: product.verdict,
-    });
+    schemas.push(
+      buildProductSchema({
+        name: `${product.brand} ${product.model}`,
+        brand: product.brand,
+        description: product.verdict,
+        category: 'Aide auditive',
+        priceRange: product.priceRange,
+        score: product.score,
+        url: product.affiliateUrl,
+      }),
+    );
   }
 }
 

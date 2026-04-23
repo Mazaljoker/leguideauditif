@@ -3,6 +3,8 @@
  * Nomenclature : Marque + Forme + Niveau + Puce
  */
 
+import { buildProductSchema } from './schema-helpers';
+
 // ─── Labels marques ──────────────────────────────────
 export const BRAND_LABELS: Record<string, string> = {
   'phonak': 'Phonak', 'signia': 'Signia', 'resound': 'ReSound',
@@ -126,23 +128,32 @@ export function typeUrl(type: string): string {
 }
 
 // ─── Schéma JSON-LD (Product) ────────────────────────
-export function productJsonLd(product: any): Record<string, unknown> {
-  const price = getProductPrice(product);
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: `${product.marqueLabel} ${product.modele}${product.niveau ? ' ' + product.niveau : ''}`,
-    brand: { '@type': 'Brand', name: product.marqueLabel },
+// Fourchette de prix uniquement (règle .claude/rules/affiliate.md) +
+// review systématique + aggregateRating si noteExpert. Délègue au
+// helper partagé pour garantir la validité Google.
+export function productJsonLd(product: any, siteUrl?: string | URL): Record<string, unknown> {
+  const name = `${product.marqueLabel} ${product.modele}${product.niveau ? ' ' + product.niveau : ''}`;
+  const formeLabel = FORME_TYPE_SHORT[product.formeType] || product.formeType;
+  const fallbackDescription = `Aide auditive ${formeLabel} ${product.marqueLabel} ${product.modele}`;
+  const description = product.descriptionCourte || fallbackDescription;
+
+  const imagePath: string | undefined = product.image;
+  const image = imagePath && siteUrl ? new URL(imagePath, siteUrl).href : imagePath;
+
+  const url = siteUrl
+    ? new URL(productUrl(product.slug), siteUrl).href
+    : productUrl(product.slug);
+
+  return buildProductSchema({
+    name,
+    brand: product.marqueLabel,
+    description,
     category: 'Aide auditive',
-    description: `Aide auditive ${FORME_TYPE_SHORT[product.formeType] || product.formeType} ${product.marqueLabel} ${product.modele}`,
-    ...(price && {
-      offers: {
-        '@type': 'Offer',
-        priceCurrency: 'EUR',
-        price: price,
-        availability: 'https://schema.org/InStock',
-        seller: { '@type': 'Organization', name: 'LeGuideAuditif.fr' },
-      },
-    }),
-  };
+    image,
+    url,
+    priceMin: product.prix?.eur?.min,
+    priceMax: product.prix?.eur?.max,
+    score: product.noteExpert,
+    reviewBody: product.descriptionCourte || fallbackDescription,
+  });
 }
