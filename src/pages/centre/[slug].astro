@@ -58,7 +58,8 @@ const isPendingClaim = isRpps && typedCentre.claim_status === 'pending';
 
 // Indexation : noindex sur fiches RPPS non revendiquées (thin content — FINESS brut).
 // Les fiches claimed/premium portent `a_propos` + données enrichies = indexables.
-const isThin = isRpps;
+// Les fiches is_demo sont également noindex (démos ne doivent pas polluer l'index Google).
+const isThin = isRpps || typedCentre.is_demo === true;
 
 // Verifier si le visiteur est le proprietaire de cette fiche
 const user = Astro.locals.user;

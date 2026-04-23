@@ -28,6 +28,7 @@ while (hasMore) {
     .from('centres_auditifs')
     .select('id, slug, nom, adresse, cp, ville, departement, lat, lng, tel, is_premium, plan')
     .like('cp', `${cpPrefix}%`)
+    .eq('is_demo', false)
     .not('lat', 'is', null)
     .not('lng', 'is', null)
     .range(offset, offset + PAGE_SIZE - 1);

@@ -17,6 +17,7 @@ while (hasMore) {
   const { data: batch } = await supabase
     .from('centres_auditifs')
     .select('id, slug, nom, adresse, cp, ville, departement, lat, lng, tel, horaires, site_web, finess, source, is_premium, plan')
+    .eq('is_demo', false)
     .not('lat', 'is', null)
     .not('lng', 'is', null)
     .range(offset, offset + PAGE_SIZE - 1);
