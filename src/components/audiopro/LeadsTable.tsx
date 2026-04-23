@@ -103,17 +103,17 @@ const LeadsTable: FC<LeadsTableProps> = ({
   return (
     <div>
       {/* Filtres */}
-      <div className="flex items-center gap-2 mb-4">
+      <div className="flex items-center gap-2 mb-4 flex-wrap">
         <button
           type="button"
           onClick={() => setFilter('all')}
           className={
-            'rounded-full px-4 py-2 text-sm font-sans font-medium transition-colors ' +
+            'inline-flex items-center rounded-full px-4 py-2.5 text-sm font-sans font-medium transition-colors ' +
             (filter === 'all'
               ? 'bg-marine text-blanc'
               : 'bg-blanc border border-gris-clair text-gris-texte hover:text-marine')
           }
-          style={{ minHeight: '40px' }}
+          style={{ minHeight: '44px' }}
         >
           Toutes ({leads.length})
         </button>
@@ -121,12 +121,12 @@ const LeadsTable: FC<LeadsTableProps> = ({
           type="button"
           onClick={() => setFilter('unread')}
           className={
-            'rounded-full px-4 py-2 text-sm font-sans font-medium transition-colors flex items-center gap-2 ' +
+            'inline-flex items-center rounded-full px-4 py-2.5 text-sm font-sans font-medium transition-colors gap-2 ' +
             (filter === 'unread'
               ? 'bg-orange text-blanc'
               : 'bg-blanc border border-gris-clair text-gris-texte hover:text-marine')
           }
-          style={{ minHeight: '40px' }}
+          style={{ minHeight: '44px' }}
         >
           Non lues
           {unreadCount > 0 && (

@@ -68,19 +68,19 @@ const claimedCount = centres.filter((c) => c.plan === 'claimed').length;
     </p>
   </header>
 
-  {/* Résumé */}
-  <div class="grid gap-4 sm:grid-cols-3 mb-6">
-    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
-      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Fiches Premium</p>
-      <p class="text-2xl font-sans font-bold text-orange">{premiumCount}</p>
+  {/* Résumé — 3 colonnes dès mobile (chiffres courts) */}
+  <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-6">
+    <article class="rounded-xl border border-gris-clair bg-blanc p-3 sm:p-4">
+      <p class="text-[11px] sm:text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1 leading-tight">Premium</p>
+      <p class="text-xl sm:text-2xl font-sans font-bold text-orange">{premiumCount}</p>
     </article>
-    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
-      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Fiches Standard</p>
-      <p class="text-2xl font-sans font-bold text-marine">{claimedCount}</p>
+    <article class="rounded-xl border border-gris-clair bg-blanc p-3 sm:p-4">
+      <p class="text-[11px] sm:text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1 leading-tight">Standard</p>
+      <p class="text-xl sm:text-2xl font-sans font-bold text-marine">{claimedCount}</p>
     </article>
-    <article class="rounded-xl border border-gris-clair bg-blanc p-4">
-      <p class="text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">Total</p>
-      <p class="text-2xl font-sans font-bold text-marine">{centres.length}</p>
+    <article class="rounded-xl border border-gris-clair bg-blanc p-3 sm:p-4">
+      <p class="text-[11px] sm:text-xs font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1 leading-tight">Total</p>
+      <p class="text-xl sm:text-2xl font-sans font-bold text-marine">{centres.length}</p>
     </article>
   </div>
 
@@ -127,22 +127,22 @@ const claimedCount = centres.filter((c) => c.plan === 'claimed').length;
               )}
             </div>
 
-            <div class="flex flex-wrap items-center gap-2 shrink-0">
+            <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2 shrink-0 w-full lg:w-auto">
               <a
                 href={`/centre/${c.slug}/`}
                 target="_blank"
                 rel="noopener"
-                class="inline-flex items-center gap-1.5 rounded-lg border border-gris-clair px-3 py-2 text-xs font-sans font-medium text-marine hover:bg-creme transition-colors"
-                style="min-height: 36px;"
+                class="inline-flex items-center justify-center gap-1.5 rounded-lg border border-gris-clair px-4 py-2.5 text-sm font-sans font-medium text-marine hover:bg-creme transition-colors"
+                style="min-height: 44px;"
               >
-                <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
+                <Icon name="lucide:external-link" class="w-4 h-4" />
                 Voir la fiche
               </a>
               {isPremium ? (
                 <button
                   type="button"
-                  class="portal-btn inline-flex items-center gap-1.5 rounded-lg bg-marine text-blanc px-4 py-2 text-sm font-sans font-semibold hover:bg-marine/90 transition-colors disabled:opacity-60"
-                  style="min-height: 36px;"
+                  class="portal-btn inline-flex items-center justify-center gap-1.5 rounded-lg bg-marine text-blanc px-4 py-2.5 text-sm font-sans font-semibold hover:bg-marine/90 transition-colors disabled:opacity-60"
+                  style="min-height: 44px;"
                   data-slug={c.slug}
                 >
                   <Icon name="lucide:credit-card" class="w-4 h-4" />
@@ -151,8 +151,8 @@ const claimedCount = centres.filter((c) => c.plan === 'claimed').length;
               ) : (
                 <a
                   href={`/revendiquer/?centre=${c.slug}`}
-                  class="inline-flex items-center gap-1.5 rounded-lg bg-orange text-blanc px-4 py-2 text-sm font-sans font-semibold hover:bg-orange-hover transition-colors"
-                  style="min-height: 36px;"
+                  class="inline-flex items-center justify-center gap-1.5 rounded-lg bg-orange text-blanc px-4 py-2.5 text-sm font-sans font-semibold hover:bg-orange-hover transition-colors"
+                  style="min-height: 44px;"
                 >
                   <Icon name="lucide:crown" class="w-4 h-4" />
                   Passer en Premium
