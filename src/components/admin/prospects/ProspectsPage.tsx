@@ -87,6 +87,23 @@ export default function ProspectsPage({
     return () => clearTimeout(t);
   }, [searchInput]);
 
+  // Deep-link : ?open=<uuid> ouvre automatiquement le modal sur ce prospect.
+  // Utilisé depuis /admin/tasks → "Ouvrir la fiche prospect →".
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const openId = params.get('open');
+    if (!openId) return;
+    const exists = initialProspects.some((p) => p.id === openId);
+    if (exists) {
+      setModalProspectId(openId);
+      // Nettoie l'URL pour éviter le re-open si l'admin ferme le modal puis navigue
+      const url = new URL(window.location.href);
+      url.searchParams.delete('open');
+      window.history.replaceState({}, '', url.toString());
+    }
+  }, [initialProspects]);
+
   const stats = useMemo(() => buildStats(prospects), [prospects]);
 
   const filteredProspects = useMemo(() => {

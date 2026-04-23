@@ -313,6 +313,21 @@ export default function TaskEditModal({
                 }}
               />
             )}
+            {form.ownerType && form.ownerId && (
+              <a
+                href={
+                  form.ownerType === 'prospect'
+                    ? `/admin/prospects/?open=${form.ownerId}`
+                    : form.ownerType === 'contact'
+                      ? `/admin/contacts/?open=${form.ownerId}`
+                      : `/admin/centres/`
+                }
+                className="inline-flex items-center gap-1 mt-2 text-xs text-[#D97B3D] font-semibold hover:underline"
+                title={`Ouvrir la fiche ${TASK_OWNER_TYPE_LABELS[form.ownerType].toLowerCase()}`}
+              >
+                Ouvrir la fiche {TASK_OWNER_TYPE_LABELS[form.ownerType].toLowerCase()} →
+              </a>
+            )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
