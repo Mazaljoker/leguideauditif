@@ -240,7 +240,7 @@ const previewRevendicateurCentre = makeMockCentre();
       zoneChalandise={estimateZoneChalandise(centre.cp)}
       completeness={completeness}
       action={computeActionPremium(centre, completeness)}
-      audioPhotoUrl={metaPicture}
+      audioPhotoUrl={centre.audio_photo_url ?? metaPicture}
     />
   )}
 
@@ -248,7 +248,7 @@ const previewRevendicateurCentre = makeMockCentre();
     <DashboardReseau
       prenom={isPreview ? 'Anthony' : prenom}
       nom={isPreview ? 'Athuil' : nomFamille}
-      audioPhotoUrl={isPreview ? null : metaPicture}
+      audioPhotoUrl={isPreview ? null : (centre.audio_photo_url ?? metaPicture)}
       reseauLabel={isPreview ? '3 centres · Réseau Laboratoire Auditif Athuil' : undefined}
       nbCentres={isPreview ? 3 : centres.length}
       villesLabel={

@@ -118,6 +118,62 @@ const isPremium = centre.plan === 'premium';
       aria-labelledby="tab-label-identite"
     >
       <div class="grid gap-5 sm:grid-cols-2">
+        {/* Avatar de l'audioprothésiste — upload direct avec preview */}
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-marine font-sans mb-2">
+            Votre photo (avatar)
+          </label>
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4 rounded-lg border border-gris-clair bg-creme/40 p-4">
+            <div
+              id="avatar-preview-wrap"
+              class="w-20 h-20 rounded-full bg-marine text-blanc flex items-center justify-center font-sans font-bold text-xl overflow-hidden shrink-0 border-2 border-gris-clair"
+              aria-hidden="true"
+            >
+              {centre.audio_photo_url ? (
+                <img id="avatar-preview-img" src={centre.audio_photo_url} alt="" class="w-full h-full object-cover" />
+              ) : (
+                <span id="avatar-preview-initials">
+                  {(centre.audio_prenom?.[0] ?? centre.claimed_by_name?.[0] ?? 'A').toUpperCase()}
+                  {(centre.audio_nom?.[0] ?? centre.claimed_by_name?.split(' ')[1]?.[0] ?? '').toUpperCase()}
+                </span>
+              )}
+            </div>
+            <div class="flex-1 min-w-0">
+              <input
+                id="avatar-input"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                class="hidden"
+              />
+              <div class="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  id="avatar-trigger"
+                  class="inline-flex items-center justify-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-2.5 text-sm font-sans font-semibold text-marine hover:border-orange/40 transition-colors"
+                  style="min-height: 44px;"
+                >
+                  <Icon name="lucide:upload" class="w-4 h-4" />
+                  {centre.audio_photo_url ? 'Changer ma photo' : 'Uploader ma photo'}
+                </button>
+                {centre.audio_photo_url && (
+                  <button
+                    type="button"
+                    id="avatar-remove"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-2.5 text-sm font-sans font-medium text-gris-texte hover:text-marine transition-colors"
+                    style="min-height: 44px;"
+                  >
+                    Retirer
+                  </button>
+                )}
+              </div>
+              <p class="text-xs text-gris-texte font-sans mt-2">
+                JPG, PNG ou WebP · 4 Mo max · visible en haut de votre dashboard et sur votre fiche publique.
+              </p>
+              <div id="avatar-status" class="hidden mt-2 text-xs font-sans"></div>
+            </div>
+          </div>
+        </div>
+
         <div class="sm:col-span-2">
           <label for="edit-nom" class="block text-sm font-medium text-marine font-sans mb-1">
             Nom du centre
@@ -419,6 +475,87 @@ const isPremium = centre.plan === 'premium';
       border-bottom-color: var(--color-orange);
     }
   </style>
+
+  <script define:vars={{ centreSlug: centre.slug }}>
+    // --- Upload avatar audio ---
+    const avatarInput = document.getElementById('avatar-input');
+    const avatarTrigger = document.getElementById('avatar-trigger');
+    const avatarRemove = document.getElementById('avatar-remove');
+    const avatarStatus = document.getElementById('avatar-status');
+    const avatarWrap = document.getElementById('avatar-preview-wrap');
+
+    function showAvatarStatus(kind, message) {
+      avatarStatus.className = 'mt-2 text-xs font-sans ' + (kind === 'error' ? 'text-red-600' : 'text-[#639922]');
+      avatarStatus.textContent = message;
+      avatarStatus.classList.remove('hidden');
+    }
+
+    avatarTrigger?.addEventListener('click', () => avatarInput.click());
+
+    avatarInput?.addEventListener('change', async () => {
+      const file = avatarInput.files?.[0];
+      if (!file) return;
+      if (file.size > 4 * 1024 * 1024) {
+        showAvatarStatus('error', 'Image trop lourde (max 4 Mo).');
+        return;
+      }
+      if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
+        showAvatarStatus('error', 'Format non supporté (JPG, PNG ou WebP).');
+        return;
+      }
+
+      avatarTrigger.disabled = true;
+      avatarTrigger.textContent = 'Upload en cours…';
+
+      const formData = new FormData();
+      formData.append('centreSlug', centreSlug);
+      formData.append('file', file);
+
+      try {
+        const res = await fetch('/api/audiopro/upload-audio-avatar', {
+          method: 'POST',
+          body: formData,
+        });
+        const data = await res.json();
+        if (!res.ok || !data.url) throw new Error(data.error || 'Upload impossible.');
+
+        // Mise à jour visuelle immédiate
+        avatarWrap.innerHTML = '';
+        const img = document.createElement('img');
+        img.src = data.url;
+        img.alt = '';
+        img.className = 'w-full h-full object-cover';
+        avatarWrap.appendChild(img);
+
+        showAvatarStatus('success', 'Photo mise à jour. Visible partout dans les prochaines secondes.');
+        avatarTrigger.disabled = false;
+        avatarTrigger.innerHTML = '<svg class="w-4 h-4" ...></svg>Changer ma photo';
+        avatarTrigger.textContent = 'Changer ma photo';
+      } catch (err) {
+        showAvatarStatus('error', err.message || 'Erreur d\'upload.');
+        avatarTrigger.disabled = false;
+        avatarTrigger.textContent = 'Réessayer';
+      }
+    });
+
+    avatarRemove?.addEventListener('click', async () => {
+      if (!confirm('Retirer votre photo ? L\'avatar par initiales sera affiché.')) return;
+      avatarRemove.disabled = true;
+      try {
+        const res = await fetch('/api/centre-update', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ centreSlug, audio_photo_url: null }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Erreur.');
+        window.location.reload();
+      } catch (err) {
+        showAvatarStatus('error', err.message || 'Erreur lors du retrait.');
+        avatarRemove.disabled = false;
+      }
+    });
+  </script>
 
   <script define:vars={{ currentHoraires: centre.horaires || '' }}>
     // --- Onglets ---
