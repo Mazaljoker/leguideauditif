@@ -47,7 +47,7 @@ const previewState: DashboardState | null =
     ? (previewParam as DashboardState)
     : null;
 
-const resolvedState = resolveDashboardState(centres);
+const resolvedState = resolveDashboardState(active, centres);
 const state: DashboardState = previewState ?? resolvedState;
 const isPreview = previewState !== null;
 

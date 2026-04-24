@@ -21,20 +21,28 @@ export const FONDATEUR_SLOTS_TOTAL = 20;
 export const FONDATEUR_SLOTS_TAKEN = 6;
 
 /**
- * Résout l'état de dashboard à afficher en fonction du portefeuille du pro.
+ * Résout l'état de dashboard à afficher.
+ *
+ * La présentation suit le **centre actif** (celui sélectionné dans
+ * CentreSwitcher), pas l'agrégat du portefeuille. Motivation : un audio
+ * multi-centres avec 1 Premium + 2 Claimed doit voir les CTA d'upsell
+ * quand il pilote un centre Claimed, et le dashboard Premium quand il
+ * pilote son centre Premium.
  *
  *   - onboarding       : aucun centre approved (géré en amont via redirect)
- *   - revendicateur    : centres revendiqués mais aucun Premium
- *   - premium_solo     : 1 à RESEAU_MIN_FICHES-1 centres dont au moins 1 Premium
- *   - reseau           : RESEAU_MIN_FICHES+ centres Premium
+ *   - revendicateur    : le centre actif n'est pas Premium
+ *   - reseau           : centre actif Premium + au moins RESEAU_MIN_FICHES
+ *                        centres dans le portefeuille, tous Premium
+ *   - premium_solo     : centre actif Premium hors conditions Réseau
  */
 export function resolveDashboardState(
-  centres: { plan: CentrePlan }[],
+  active: { plan: CentrePlan } | null,
+  allCentres: { plan: CentrePlan }[],
 ): DashboardState {
-  if (centres.length === 0) return 'onboarding';
-  const hasPremium = centres.some((c) => c.plan === 'premium');
-  if (!hasPremium) return 'revendicateur';
-  if (centres.length >= RESEAU_MIN_FICHES) return 'reseau';
+  if (!active || allCentres.length === 0) return 'onboarding';
+  if (active.plan !== 'premium') return 'revendicateur';
+  const allPremium = allCentres.every((c) => c.plan === 'premium');
+  if (allPremium && allCentres.length >= RESEAU_MIN_FICHES) return 'reseau';
   return 'premium_solo';
 }
 
