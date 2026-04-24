@@ -1,0 +1,66 @@
+{
+  "slug": "resound-savi-2",
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "Savi",
+  "formeType": "RIC",
+  "formesDisponibles": "RIE|ITC|CIC",
+  "puce": "ReSound Savi",
+  "niveau": "2",
+  "niveauRaw": "2",
+  "niveauPosition": 2,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2025,
+  "specs": {
+    "canaux": 13,
+    "batterie": "Pile 312",
+    "autonomie": "5-7 jours",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à sévère"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": true,
+    "application": "ReSound Smart 3D",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "sourceUrl": "https://www.resound.com/fr-fr/hearing-aids/resound-savi",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-resound-savi-61.webp",
+  "descriptionCourte": "Niveau avancé de la gamme Savi, l'offre 100% Santé dédiée ReSound. 13 canaux, générateur d'acouphènes, Bluetooth LE Audio et Auracast. Reste à charge 0€.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "13 canaux — gestion du bruit plus fine que le niveau 1",
+    "Générateur d'acouphènes intégré",
+    "Bluetooth LE Audio et Auracast natifs",
+    "IP68 — robustesse quotidienne"
+  ],
+  "pointsFaibles": [
+    "Non rechargeable — piles 312",
+    "Pas de bobine T",
+    "Traitement du bruit reste limité face à un flagship Classe 2",
+    "Pas de mains libres"
+  ],
+  "noteExpert": 7,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/resound-nexia-brochure.pdf",
+  "descriptionComplete": "Le ReSound Savi 2 est le niveau intermédiaire de la gamme Savi, l'offre 100% Santé ReSound. Il ajoute au niveau 1 quelques fonctions pratiques tout en gardant le reste à charge zéro.\n\nPrix et remboursement\nSavi 2 est en Classe 1 à 950€ TTC par appareil, entièrement remboursé au titre du 100% Santé. Aucun reste à charge.\n\nTechnologie\nLe Savi 2 passe à 13 canaux de traitement (contre 10 pour le 1). La plage d'adaptation reste large (légère à sévère). Ajout notable : le générateur de bruit pour le soulagement des acouphènes. Connectivité identique au niveau 1 : Bluetooth LE Audio avec Auracast.\n\nFormats et autonomie\nDisponible en RIE, ITC et CIC. Pile 312, 5 à 7 jours d'autonomie. IP68.\n\nLes limites\nLa montée du 1 vers le 2 apporte un peu plus de finesse de traitement et le générateur d'acouphènes, mais reste dans les contraintes du 100% Santé : pas de rechargement, pas de bobine T, pas de mains libres. Face à un flagship Classe 2 type Nexia ou Vivia, le traitement du bruit reste moins performant — c'est la contrepartie du plafond 950€.\n\nVerdict expert\nNote : 7/10. Le Savi 2 est un bon compromis dans la gamme 100% Santé ReSound. Le saut de 10 à 13 canaux est perceptible dans les situations un peu plus complexes, et l'ajout du générateur d'acouphènes est pertinent pour les patients qui en souffrent. Pour un primo-appareillage avec acouphènes et budget contraint, c'est le niveau à viser.\n\nEn une phrase : le Savi qui ajoute les acouphènes au 100% Santé ReSound."
+  ,
+  "legacy": false,
+  "metaTitle": "ReSound Savi 2 : Classe 1 à 950€, fiche et avis",
+  "metaDescription": "Niveau avancé Savi 100% Santé. 13 canaux, générateur d'acouphènes, LE Audio + Auracast. RAC 0€. Avis audioprothésiste DE."
+}

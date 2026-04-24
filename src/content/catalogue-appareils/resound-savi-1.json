@@ -1,0 +1,65 @@
+{
+  "slug": "resound-savi-1",
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "Savi",
+  "formeType": "RIC",
+  "formesDisponibles": "RIE|ITC|CIC",
+  "puce": "ReSound Savi",
+  "niveau": "1",
+  "niveauRaw": "1",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2025,
+  "specs": {
+    "canaux": 10,
+    "batterie": "Pile 312",
+    "autonomie": "5-7 jours",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à sévère"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": true,
+    "application": "ReSound Smart 3D",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": false
+  },
+  "sourceUrl": "https://www.resound.com/fr-fr/hearing-aids/resound-savi",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-resound-savi-61.webp",
+  "descriptionCourte": "Entrée de la gamme Savi, l'offre 100% Santé dédiée de ReSound. RIC sur piles, 10 canaux, Bluetooth LE Audio et Auracast. Reste à charge 0€.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "Bluetooth LE Audio et Auracast natifs — rare à ce prix, même sur les entrées de gamme concurrentes",
+    "IP68 — résistance à l'eau et à la poussière",
+    "Compatible application ReSound Smart 3D pour les réglages à distance"
+  ],
+  "pointsFaibles": [
+    "Non rechargeable — piles 312 à changer tous les 5 à 7 jours",
+    "Pas de bobine T — incompatible boucles magnétiques",
+    "Pas de générateur d'acouphènes à ce niveau",
+    "10 canaux — gestion du bruit basique, réservé aux quotidiens calmes"
+  ],
+  "noteExpert": 6.5,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/resound-nexia-brochure.pdf",
+  "descriptionComplete": "Le ReSound Savi 1 est l'entrée de la gamme Savi, l'offre 100% Santé dédiée de ReSound (groupe GN). Lancée en 2025, cette gamme a remplacé la Key comme porte d'entrée ReSound sans reste à charge.\n\nPrix et remboursement\nSavi 1 est en Classe 1 à 950€ TTC par appareil, entièrement remboursé par l'Assurance Maladie et les complémentaires santé au titre du 100% Santé. Aucun reste à charge pour vous, à condition que votre contrat de complémentaire couvre le 100% Santé.\n\nTechnologie\nLe Savi 1 embarque 10 canaux de traitement, une plage d'adaptation légère à sévère, et surtout le Bluetooth LE Audio avec Auracast. C'est l'originalité majeure de la gamme Savi : ReSound a conservé sa connectivité moderne même sur l'offre sans reste à charge. Vous pouvez donc streamer depuis votre smartphone LE Audio et, dès que votre environnement s'équipera, capter les flux Auracast dans les lieux publics.\n\nFormats et autonomie\nDisponible en RIE (équivalent RIC), ITC (intra-canal) et CIC (mini intra). Fonctionne sur pile 312 avec 5 à 7 jours d'autonomie selon votre utilisation du streaming. IP68.\n\nLes limites\nLe niveau 1 est basique : 10 canaux pour le traitement, pas de bobine T, pas de générateur d'acouphènes, pas de rechargement. Pour un quotidien calme (domicile, conversations, télévision avec assistance), c'est suffisant. Pour un environnement bruyant régulier, le Savi 2 ou 3 apportera une gestion du bruit plus fine.\n\nVerdict expert\nNote : 6,5/10. Le Savi 1 est un appareil honnête à 950€. Son vrai atout face aux autres 100% Santé : la connectivité LE Audio et Auracast de 2025, qui n'existe pas sur la plupart des offres concurrentes à ce prix. Pour un primo-appareillage en Classe 1 avec priorité au streaming moderne, c'est un choix à considérer sérieusement.\n\nEn une phrase : l'entrée de gamme ReSound sans reste à charge avec le Bluetooth de dernière génération."
+  ,
+  "legacy": false,
+  "metaTitle": "ReSound Savi 1 : Classe 1 à 950€, fiche et avis",
+  "metaDescription": "Entrée de la gamme Savi, offre 100% Santé ReSound. RIC pile, LE Audio + Auracast. RAC 0€. Avis audioprothésiste DE."
+}
