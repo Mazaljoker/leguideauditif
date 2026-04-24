@@ -75,13 +75,19 @@ const breadcrumbs = [
 
   {needAdminMismatch && (
     <script>
-      document.getElementById('admin-mismatch-logout')?.addEventListener('click', () => {
-        // Supprime les cookies auth côté client (path + SameSite + Secure
-        // doivent matcher ceux du LoginForm sinon l'effacement échoue).
-        // Le middleware verra l'absence de cookies et mettra user=null au
-        // prochain request → l'user pourra se reconnecter proprement.
-        document.cookie = 'sb-access-token=; path=/; max-age=0; SameSite=Lax; Secure';
-        document.cookie = 'sb-refresh-token=; path=/; max-age=0; SameSite=Lax; Secure';
+      document.getElementById('admin-mismatch-logout')?.addEventListener('click', async () => {
+        const btn = document.getElementById('admin-mismatch-logout') as HTMLButtonElement;
+        btn.disabled = true;
+        btn.textContent = 'Déconnexion…';
+        // document.cookie ne peut PAS supprimer les cookies httpOnly posés
+        // par le middleware (PR #77 : sb-access-token/sb-refresh-token sont
+        // httpOnly pour la sécurité). On passe par l'endpoint serveur qui
+        // peut émettre Set-Cookie avec max-age=0 sur les cookies httpOnly.
+        try {
+          await fetch('/api/auth/logout', { method: 'POST' });
+        } catch {
+          // Ignore : le reload tentera de se reconnecter de toute façon
+        }
         window.location.reload();
       });
     </script>
