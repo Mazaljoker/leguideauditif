@@ -10,6 +10,7 @@ const ALLOWED_FIELDS = [
   'audio_bio', 'audio_annee_dip', 'audio_associations',
   'services_inclus', 'langues',
   'equipement_cabine', 'accessibilite', 'partenaires_locaux',
+  'photos_cabine',
 ];
 
 export const POST: APIRoute = async ({ request, cookies }) => {

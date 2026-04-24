@@ -15,6 +15,7 @@ export interface CentreData {
   email: string | null;
   photo_url: string | null;
   audio_photo_url: string | null;
+  photos_cabine: string[];
   audio_bio: string | null;
   audio_annee_dip: number | null;
   audio_associations: string[];
