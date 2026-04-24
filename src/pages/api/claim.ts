@@ -8,6 +8,7 @@ import { claimAdminNotificationEmail } from '../../emails/claim-admin-notificati
 import { generateAdminToken } from '../../lib/admin-token';
 import { sendMpEvent } from '../../lib/ga4-mp';
 import { ATTRIBUTION_COOKIE, parseAttribution } from '../../lib/attribution';
+import { upsertAudioproAtClaim, logEmailEvent } from '../../lib/audiopro-lifecycle';
 
 const MAX_PHOTO_SIZE = 5 * 1024 * 1024; // 5 Mo
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
@@ -176,6 +177,29 @@ export const POST: APIRoute = async ({ request, clientAddress, cookies }) => {
       );
     }
 
+    // ─────────────────────────────────────────────────────────────
+    // Sync audiopro_lifecycle (Phase 1 email pipeline)
+    // Non bloquant : si ça échoue, on log et on laisse le claim réussir.
+    // ─────────────────────────────────────────────────────────────
+    let audiopro_id: string | null = null;
+    try {
+      const rppsDetected = adeli && /^\d{11}$/.test(adeli.trim()) ? adeli.trim() : null;
+      const { audiopro_id: newId } = await upsertAudioproAtClaim(supabase, {
+        email,
+        nom,
+        prenom,
+        adeli,
+        rpps: rppsDetected,
+        centre_id: centre.id,
+        first_claim_at: new Date().toISOString(),
+      });
+      audiopro_id = newId;
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('[api/claim] audiopro sync failed:', msg);
+      // Silencieux côté user — la migration 029 est idempotente si on rattrape plus tard.
+    }
+
     // Persister l'attribution dans une table dédiée append-only.
     // Table séparée de centres_auditifs pour garder un historique si le centre est
     // re-claim après rejet — chaque tentative conserve sa source d'origine.
@@ -246,7 +270,7 @@ export const POST: APIRoute = async ({ request, clientAddress, cookies }) => {
     const rejectUrl = `${baseUrl}/quick-reject?slug=${centreSlug}&token=${rejectToken}`;
 
     // Envoi emails (non-bloquant — on ne fait pas echouer le claim si l'email echoue)
-    await Promise.allSettled([
+    const [claimConfResult] = await Promise.allSettled([
       sendEmail({
         to: email,
         subject: 'Votre demande de revendication a bien \u00e9t\u00e9 re\u00e7ue',
@@ -273,6 +297,25 @@ export const POST: APIRoute = async ({ request, clientAddress, cookies }) => {
         }),
       ),
     ]);
+
+    // Log email_events (Phase 1 — non bloquant)
+    try {
+      const messageId =
+        claimConfResult.status === 'fulfilled' && claimConfResult.value.success
+          ? claimConfResult.value.messageId ?? null
+          : null;
+      await logEmailEvent(supabase, {
+        audiopro_id,
+        centre_slug: centreSlug,
+        recipient_email: email,
+        template_key: 'claim_confirmation',
+        resend_message_id: messageId,
+        trigger: 'transactional',
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('[api/claim] email_events log failed:', msg);
+    }
 
     return new Response(
       JSON.stringify({

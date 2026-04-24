@@ -8,6 +8,11 @@ import { sendEmail, sendAdminNotification } from '../../lib/email';
 import { paymentConfirmationEmail } from '../../emails/payment-confirmation';
 import { paymentAdminNotificationEmail } from '../../emails/payment-admin-notification';
 import { subscriptionCancelledEmail } from '../../emails/subscription-cancelled';
+import { premiumWelcomeEmail } from '../../emails/premium-welcome';
+import {
+  transitionLifecycleStage,
+  logEmailEvent,
+} from '../../lib/audiopro-lifecycle';
 
 export const POST: APIRoute = async ({ request }) => {
   const stripe = getStripe();
@@ -135,7 +140,7 @@ export const POST: APIRoute = async ({ request }) => {
       // Idempotent : verifier si deja premium avant update
       const { data: centre } = await supabase
         .from('centres_auditifs')
-        .select('plan')
+        .select('plan, nom')
         .eq('slug', centreSlug)
         .single();
 
@@ -171,6 +176,57 @@ export const POST: APIRoute = async ({ request }) => {
           `<p>Le centre <strong>${centreSlug}</strong> est passé en premium.</p><p>Email : ${email}</p>`,
         );
       }
+
+      // ───────────────────────────────────────────────────────────
+      // Sync audiopro_lifecycle + email premium_welcome (Phase 1)
+      // Non bloquant — pas de rollback Stripe si ça casse.
+      // ───────────────────────────────────────────────────────────
+      if (email) {
+        try {
+          const { data: audio } = await supabase
+            .from('audiopro_lifecycle')
+            .select('id, prenom, lifecycle_stage')
+            .eq('email', email.toLowerCase())
+            .maybeSingle();
+
+          if (audio) {
+            await transitionLifecycleStage(
+              supabase,
+              audio.id,
+              'premium',
+              'stripe_paid',
+              {
+                centre_slug: centreSlug,
+                stripe_session_id: session.id,
+                stripe_subscription_id: session.subscription,
+              },
+            );
+
+            const welcomeResult = await sendEmail({
+              to: email,
+              subject: 'Bienvenue dans LeGuideAuditif Premium',
+              html: premiumWelcomeEmail({
+                prenom: audio.prenom ?? '',
+                centreNom: centre?.nom ?? centreSlug,
+                centreSlug,
+              }),
+              replyTo: 'franck@leguideauditif.fr',
+            });
+
+            await logEmailEvent(supabase, {
+              audiopro_id: audio.id,
+              centre_slug: centreSlug,
+              recipient_email: email,
+              template_key: 'premium_welcome',
+              resend_message_id: welcomeResult.messageId ?? null,
+              trigger: 'webhook_stripe',
+            });
+          }
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          console.error('[webhook] premium_welcome flow failed:', msg);
+        }
+      }
       break;
     }
 
@@ -202,12 +258,72 @@ export const POST: APIRoute = async ({ request }) => {
         .single();
 
       if (cancelledCentre?.claimed_by_email) {
-        await sendEmail({
+        const cancelResult = await sendEmail({
           to: cancelledCentre.claimed_by_email,
           subject: 'Votre abonnement Premium a été annulé',
           html: subscriptionCancelledEmail({ centreSlug: cancelledCentre.slug }),
           replyTo: 'franck@leguideauditif.fr',
         });
+
+        // ─────────────────────────────────────────────────────────
+        // Sync audiopro_lifecycle : transition premium → churned
+        // si aucun autre centre premium n'est lié à l'audio.
+        // Non bloquant.
+        // ─────────────────────────────────────────────────────────
+        try {
+          const { data: audio } = await supabase
+            .from('audiopro_lifecycle')
+            .select('id, lifecycle_stage')
+            .eq('email', cancelledCentre.claimed_by_email.toLowerCase())
+            .maybeSingle();
+
+          if (audio) {
+            await logEmailEvent(supabase, {
+              audiopro_id: audio.id,
+              centre_slug: cancelledCentre.slug,
+              recipient_email: cancelledCentre.claimed_by_email,
+              template_key: 'subscription_cancelled',
+              resend_message_id: cancelResult.messageId ?? null,
+              trigger: 'webhook_stripe',
+            });
+
+            if (audio.lifecycle_stage === 'premium') {
+              // Check "encore au moins un centre premium lié à cet audio"
+              // via 2 requêtes : plus simple que les embeds Supabase relational.
+              const { data: links } = await supabase
+                .from('audiopro_centres')
+                .select('centre_id')
+                .eq('audiopro_id', audio.id);
+              const centreIds = (links ?? []).map((l) => l.centre_id);
+
+              let stillPremium = 0;
+              if (centreIds.length > 0) {
+                const { count } = await supabase
+                  .from('centres_auditifs')
+                  .select('*', { count: 'exact', head: true })
+                  .in('id', centreIds)
+                  .eq('plan', 'premium');
+                stillPremium = count ?? 0;
+              }
+
+              if (stillPremium === 0) {
+                await transitionLifecycleStage(
+                  supabase,
+                  audio.id,
+                  'churned',
+                  'stripe_cancelled',
+                  {
+                    stripe_subscription_id: subscription.id,
+                    centre_slug: cancelledCentre.slug,
+                  },
+                );
+              }
+            }
+          }
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          console.error('[webhook] churn flow failed:', msg);
+        }
       }
       break;
     }

@@ -24,10 +24,10 @@ interface SendEmailOptions {
   replyTo?: string;
 }
 
-export async function sendEmail({ to, subject, html, replyTo }: SendEmailOptions): Promise<{ success: boolean; error?: string }> {
+export async function sendEmail({ to, subject, html, replyTo }: SendEmailOptions): Promise<{ success: boolean; messageId?: string | null; error?: string }> {
   try {
     const resend = getResend();
-    const { error } = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: Array.isArray(to) ? to : [to],
       subject,
@@ -40,7 +40,7 @@ export async function sendEmail({ to, subject, html, replyTo }: SendEmailOptions
       return { success: false, error: error.message };
     }
 
-    return { success: true };
+    return { success: true, messageId: data?.id ?? null };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.error('Email send error:', message);

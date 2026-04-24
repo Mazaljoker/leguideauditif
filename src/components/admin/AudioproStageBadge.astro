@@ -1,0 +1,21 @@
+---
+import type { LifecycleStage } from '../../types/audiopro-lifecycle';
+import {
+  LIFECYCLE_STAGE_LABELS,
+  LIFECYCLE_STAGE_COLORS,
+} from '../../types/audiopro-lifecycle';
+
+interface Props {
+  stage: LifecycleStage;
+  size?: 'sm' | 'md';
+}
+
+const { stage, size = 'sm' } = Astro.props;
+const label = LIFECYCLE_STAGE_LABELS[stage];
+const colorClass = LIFECYCLE_STAGE_COLORS[stage];
+const sizeClass = size === 'sm' ? 'text-xs px-2 py-0.5' : 'text-sm px-3 py-1';
+---
+
+<span class:list={['inline-flex font-medium rounded font-sans', colorClass, sizeClass]}>
+  {label}
+</span>

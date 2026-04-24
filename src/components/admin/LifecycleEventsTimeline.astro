@@ -1,0 +1,51 @@
+---
+import type { AudioproLifecycleEvent } from '../../types/audiopro-lifecycle';
+import { LIFECYCLE_STAGE_LABELS } from '../../types/audiopro-lifecycle';
+
+interface Props {
+  events: AudioproLifecycleEvent[];
+}
+const { events } = Astro.props;
+
+const REASON_LABELS: Record<string, string> = {
+  claim_submitted:                 'Revendication soumise',
+  claim_approved:                  'Claim approuvé par admin',
+  claim_rejected:                  'Claim rejeté par admin',
+  first_login_detected:            '1re connexion espace pro',
+  completeness_threshold_reached:  'Fiche passe à ≥ 60% complète',
+  email_clicked:                   'Clic sur mail nurture',
+  stripe_paid:                     'Paiement Stripe réussi',
+  stripe_paid_batch:               'Passage premium (batch cron)',
+  stripe_cancelled:                'Annulation Stripe',
+  manual_override:                 'Override manuel admin',
+  migration_initiale:              'Migration données existantes',
+  migration_premium_detected:      'Migration : centre déjà premium',
+  promoted_to_prospect:            'Promu en prospect CRM',
+};
+---
+
+{events.length === 0 ? (
+  <p class="text-sm text-gris-texte font-sans italic">Aucun événement lifecycle.</p>
+) : (
+  <ol class="space-y-2 font-sans">
+    {events.map((ev) => (
+      <li class="border-l-2 border-[#E4DED3] pl-4 py-1">
+        <div class="text-xs text-gris-texte">
+          {new Date(ev.occurred_at).toLocaleString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+        </div>
+        <div class="text-sm text-marine">
+          <span class="font-medium">
+            {ev.from_stage ? LIFECYCLE_STAGE_LABELS[ev.from_stage] : '(aucun)'}
+          </span>
+          <span class="mx-1">→</span>
+          <span class="font-semibold">{LIFECYCLE_STAGE_LABELS[ev.to_stage]}</span>
+        </div>
+        {ev.reason && (
+          <div class="text-xs text-gris-texte">
+            {REASON_LABELS[ev.reason] ?? ev.reason}
+          </div>
+        )}
+      </li>
+    ))}
+  </ol>
+)}

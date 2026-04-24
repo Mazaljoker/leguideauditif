@@ -3,372 +3,234 @@ export const prerender = false;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
-import { supabase } from '../../lib/supabase';
+import { supabase, createServerClient } from '../../lib/supabase';
 import { getAdminNavCounts } from '../../lib/adminNav';
 import AdminNav from '../../components/admin/AdminNav.astro';
 import AdminTasksDrawerProvider from '../../components/admin/AdminTasksDrawerProvider.tsx';
-
+import AudioproStageBadge from '../../components/admin/AudioproStageBadge.astro';
+import AudioproListFilters from '../../components/admin/AudioproListFilters.tsx';
+import RelanceEmailDropdown from '../../components/admin/RelanceEmailDropdown.tsx';
+import { getAudioproList } from '../../lib/audiopro-lifecycle';
+import {
+  EMAIL_TEMPLATE_LABELS,
+  LIFECYCLE_STAGES,
+  LIFECYCLE_STAGE_LABELS,
+  type LifecycleStage,
+  type AudioproListRow,
+} from '../../types/audiopro-lifecycle';
 import { requireAdmin } from '../../lib/admin-guard';
+
+// Auth admin — pattern partagé (preserve redirect + distinction need-login/need-admin)
 const guard = requireAdmin(Astro);
 if (guard) return guard;
 
-// Recuperer les claims + counts nav en parallele
-const [pendingRes, recentRes, navCounts] = await Promise.all([
-  supabase
-    .from('centres_auditifs')
-    .select('slug, nom, adresse, cp, ville, claimed_by_name, claimed_by_email, claimed_by_adeli, claimed_at, tel, site_web, horaires, specialites, marques, a_propos, photo_url')
-    .eq('claim_status', 'pending')
-    .order('claimed_at', { ascending: false }),
-  supabase
-    .from('centres_auditifs')
-    .select('slug, nom, cp, ville, claimed_by_name, claimed_by_email, claimed_by_adeli, claim_status, claimed_at, plan, tel, site_web, horaires, specialites, marques, a_propos, photo_url')
-    .in('claim_status', ['approved', 'rejected'])
-    .order('claimed_at', { ascending: false })
-    .limit(20),
+// --- Parse query params ---
+const url = Astro.url;
+const stageParam = url.searchParams.getAll('stage') as LifecycleStage[];
+const validStages = stageParam.filter((s): s is LifecycleStage =>
+  (LIFECYCLE_STAGES as readonly string[]).includes(s),
+);
+const hasProspectParam = url.searchParams.get('has_prospect');
+const hasProspect: boolean | null =
+  hasProspectParam === 'true' ? true : hasProspectParam === 'false' ? false : null;
+const compMin = Math.max(0, Math.min(100, Number(url.searchParams.get('comp_min') ?? 0) || 0));
+const compMax = Math.max(compMin, Math.min(100, Number(url.searchParams.get('comp_max') ?? 100) || 100));
+const search = (url.searchParams.get('q') ?? '').trim();
+
+// --- Fetch ---
+// createServerClient pour lire les tables Phase 1 (RLS bloque anon).
+// supabase (anon) reste pour les reads publics (adminNav counts + centres).
+const serverClient = createServerClient();
+
+const [rows, navCounts, stageDistributionRes, bouncedRes] = await Promise.all([
+  getAudioproList(serverClient, {
+    stage_filter: validStages.length > 0 ? validStages : undefined,
+    has_prospect: hasProspect,
+    completeness_range: [compMin, compMax],
+    search: search || undefined,
+    limit: 200,
+  }),
   getAdminNavCounts(supabase),
+  serverClient
+    .from('audiopro_lifecycle')
+    .select('lifecycle_stage'),
+  serverClient
+    .from('audiopro_lifecycle')
+    .select('id', { count: 'exact', head: true })
+    .not('hard_bounced_at', 'is', null),
 ]);
 
-const pendingClaims = pendingRes.data;
-const recentClaims = recentRes.data;
+// Distribution par stage pour la barre stats en haut
+const statsByStage: Record<LifecycleStage, number> = {
+  revendique: 0, approuve: 0, active: 0, engage: 0, premium: 0, churned: 0,
+};
+for (const r of stageDistributionRes.data ?? []) {
+  const s = r.lifecycle_stage as LifecycleStage;
+  if (s in statsByStage) statsByStage[s]++;
+}
+
+const hardBouncedCount = bouncedRes.count ?? 0;
+const listRows = rows as AudioproListRow[];
 ---
 
-<BaseLayout title="Admin — Claims en attente" description="Administration des revendications">
+<BaseLayout title="Admin — Revendications" description="Pipeline email revendicateurs">
   <meta slot="head" name="robots" content="noindex" />
 
   <AdminNav counts={navCounts} currentPath="/admin/claims" />
 
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 font-sans">
 
-    <h1 class="font-sans text-2xl font-bold text-marine mb-2">Revendications en attente</h1>
-    <p class="text-sm text-gris-texte font-sans mb-8">{pendingClaims?.length || 0} demande(s) a verifier</p>
-
-    {(!pendingClaims || pendingClaims.length === 0) ? (
-      <div class="rounded-xl bg-[#E1F5EE] p-6 text-center">
-        <Icon name="lucide:check-circle" class="w-8 h-8 text-[#0F6E56] mx-auto mb-2" />
-        <p class="text-sm font-medium text-[#04342C] font-sans">Aucune demande en attente</p>
+    <header class="flex items-start justify-between gap-4 flex-wrap">
+      <div>
+        <h1 class="text-2xl font-bold text-marine">Revendications</h1>
+        <p class="text-sm text-gris-texte mt-1">Vue audio-centric du pipeline lifecycle</p>
       </div>
-    ) : (
-      <div class="space-y-4 mb-12">
-        {pendingClaims.map((claim) => (
-          <div class="rounded-xl border border-gris-clair bg-blanc p-6" id={`claim-${claim.slug}`}>
-            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
-              <div>
-                <h2 class="font-sans text-lg font-bold text-marine">{claim.nom}</h2>
-                <p class="text-sm text-gris-texte font-sans">{claim.adresse}, {claim.cp} {claim.ville}</p>
-                <a href={`/centre/${claim.slug}/`} class="text-xs text-orange font-sans hover:underline" target="_blank">
-                  Voir la fiche
-                </a>
-              </div>
-              <span class="rounded-full bg-[#FAEEDA] px-3 py-1 text-xs font-medium text-[#854F0B] font-sans">
-                En attente
-              </span>
-            </div>
-
-            <div class="grid gap-3 sm:grid-cols-2 text-sm font-sans mb-4">
-              <div>
-                <span class="text-gris-texte">Demandeur :</span>
-                <span class="text-marine font-medium ml-1">{claim.claimed_by_name}</span>
-              </div>
-              <div>
-                <span class="text-gris-texte">Email :</span>
-                <span class="text-marine font-medium ml-1">{claim.claimed_by_email}</span>
-              </div>
-              <div>
-                <span class="text-gris-texte">ADELI/SIRET :</span>
-                <span class="text-marine font-medium ml-1">{claim.claimed_by_adeli}</span>
-              </div>
-              <div>
-                <span class="text-gris-texte">Date :</span>
-                <span class="text-marine font-medium ml-1">
-                  {claim.claimed_at ? new Date(claim.claimed_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}
-                </span>
-              </div>
-              <div>
-                <span class="text-gris-texte">Telephone :</span>
-                {claim.tel ? <span class="text-marine font-medium ml-1">{claim.tel}</span> : <span class="text-gris-texte italic ml-1">Non renseigné</span>}
-              </div>
-              <div>
-                <span class="text-gris-texte">Horaires :</span>
-                {claim.horaires ? <span class="text-marine font-medium ml-1">{claim.horaires}</span> : <span class="text-gris-texte italic ml-1">Non renseigné</span>}
-              </div>
-              <div>
-                <span class="text-gris-texte">Site web :</span>
-                {claim.site_web ? <a href={claim.site_web} target="_blank" rel="noopener" class="text-orange font-medium ml-1 hover:underline">{claim.site_web}</a> : <span class="text-gris-texte italic ml-1">Non renseigné</span>}
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <span class="text-xs text-gris-texte font-sans">Specialites : </span>
-              {claim.specialites && claim.specialites.length > 0 ? (
-                claim.specialites.map((s: string) => (
-                  <span class="inline-block rounded-full bg-[#E6F1FB] px-2 py-0.5 text-xs text-[#0C447C] font-sans mr-1">{s}</span>
-                ))
-              ) : (
-                <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
-              )}
-            </div>
-
-            <div class="mb-3">
-              <span class="text-xs text-gris-texte font-sans">Marques : </span>
-              {claim.marques && claim.marques.length > 0 ? (
-                claim.marques.map((m: string) => (
-                  <span class="inline-block rounded-full bg-[#F8F5F0] px-2 py-0.5 text-xs text-marine font-sans mr-1">{m}</span>
-                ))
-              ) : (
-                <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
-              )}
-            </div>
-
-            <div class="mb-3">
-              <span class="text-xs text-gris-texte font-sans">Description : </span>
-              {claim.a_propos ? (
-                <p class="text-sm text-marine font-sans mt-1">{claim.a_propos}</p>
-              ) : (
-                <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
-              )}
-            </div>
-
-            <div class="mb-4">
-              <span class="text-xs text-gris-texte font-sans">Photo : </span>
-              {claim.photo_url ? (
-                <img src={claim.photo_url} alt="Photo du centre" class="mt-1 w-32 h-24 rounded-lg object-cover" />
-              ) : (
-                <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
-              )}
-            </div>
-
-            <div class="flex gap-3 pt-4 border-t border-gris-clair">
-              <button
-                type="button"
-                class="admin-action rounded-lg bg-[#0F6E56] px-5 py-2.5 text-sm font-medium text-blanc font-sans hover:bg-[#0A5843] transition-colors cursor-pointer"
-                style="min-height: 44px;"
-                data-action="approve"
-                data-slug={claim.slug}
-              >
-                Approuver
-              </button>
-              <button
-                type="button"
-                class="admin-action rounded-lg bg-blanc border border-[#A32D2D] px-5 py-2.5 text-sm font-medium text-[#A32D2D] font-sans hover:bg-[#FCEBEB] transition-colors cursor-pointer"
-                style="min-height: 44px;"
-                data-action="reject"
-                data-slug={claim.slug}
-              >
-                Rejeter
-              </button>
-            </div>
-          </div>
+      <div class="flex gap-2 flex-wrap">
+        {LIFECYCLE_STAGES.map((stage) => (
+          <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#F8F5F0] text-xs">
+            <strong class="text-marine">{statsByStage[stage]}</strong>
+            <span class="text-gris-texte">{LIFECYCLE_STAGE_LABELS[stage]}</span>
+          </span>
         ))}
       </div>
+    </header>
+
+    {hardBouncedCount > 0 && (
+      <div class="bg-[#FCEBEB] border-l-4 border-[#A32D2D] p-3 text-sm text-[#A32D2D]">
+        <strong>{hardBouncedCount} email(s) en bounce permanent.</strong> Ces audios ne reçoivent plus de relance automatique.
+      </div>
     )}
 
-    {recentClaims && recentClaims.length > 0 && (
-      <>
-        <h2 class="font-sans text-lg font-bold text-marine mb-4">Recemment traites</h2>
-        <div class="space-y-3">
-          {recentClaims.map((c) => (
-            <details class="rounded-xl border border-gris-clair bg-blanc overflow-hidden group">
-              <summary class="flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-creme/50 transition-colors">
-                <div class="flex items-center gap-4">
-                  <div>
-                    <span class="text-sm font-bold text-marine font-sans">{c.nom}</span>
-                    <span class="text-xs text-gris-texte font-sans ml-2">{c.cp} {c.ville}</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-xs text-gris-texte font-sans">{c.claimed_by_name}</span>
-                  {c.claim_status === 'approved' ? (
-                    <span class="rounded-full bg-[#E1F5EE] px-2 py-0.5 text-xs font-medium text-[#0F6E56]">Approuve</span>
-                  ) : (
-                    <span class="rounded-full bg-[#FCEBEB] px-2 py-0.5 text-xs font-medium text-[#A32D2D]">Rejete</span>
-                  )}
-                  <Icon name="lucide:chevron-down" class="w-4 h-4 text-gris-texte group-open:rotate-180 transition-transform" />
-                </div>
-              </summary>
-              <div class="px-5 pb-5 border-t border-gris-clair pt-4">
-                <div class="grid gap-2 sm:grid-cols-2 text-sm font-sans mb-4">
-                  <div><span class="text-gris-texte">Email :</span> <a href={`mailto:${c.claimed_by_email}`} class="text-orange hover:underline">{c.claimed_by_email}</a></div>
-                  <div><span class="text-gris-texte">RPPS/SIRET :</span> <span class="text-marine">{c.claimed_by_adeli}</span></div>
-                  <div><span class="text-gris-texte">Tel :</span> {c.tel ? <span class="text-marine">{c.tel}</span> : <span class="text-gris-texte italic">Non renseigné</span>}</div>
-                  <div><span class="text-gris-texte">Site :</span> {c.site_web ? <a href={c.site_web} target="_blank" rel="noopener" class="text-orange hover:underline">{c.site_web}</a> : <span class="text-gris-texte italic">Non renseigné</span>}</div>
-                  <div><span class="text-gris-texte">Horaires :</span> {c.horaires ? <span class="text-marine">{c.horaires}</span> : <span class="text-gris-texte italic">Non renseigné</span>}</div>
-                  <div><span class="text-gris-texte">Date :</span> <span class="text-marine">{c.claimed_at ? new Date(c.claimed_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'}</span></div>
-                </div>
-                <div class="mb-2">
-                  <span class="text-xs text-gris-texte font-sans">Specialites : </span>
-                  {c.specialites && c.specialites.length > 0 ? (
-                    c.specialites.map((s: string) => (
-                      <span class="inline-block rounded-full bg-[#E6F1FB] px-2 py-0.5 text-xs text-[#0C447C] font-sans mr-1">{s}</span>
-                    ))
-                  ) : (
-                    <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
-                  )}
-                </div>
-                <div class="mb-3">
-                  <span class="text-xs text-gris-texte font-sans">Marques : </span>
-                  {c.marques && c.marques.length > 0 ? (
-                    c.marques.map((m: string) => (
-                      <span class="inline-block rounded-full bg-[#F8F5F0] px-2 py-0.5 text-xs text-marine font-sans mr-1">{m}</span>
-                    ))
-                  ) : (
-                    <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
-                  )}
-                </div>
-                <div class="mb-3">
-                  <span class="text-xs text-gris-texte font-sans">Description : </span>
-                  {c.a_propos ? (
-                    <p class="text-xs text-gris-texte font-sans mt-1">{c.a_propos}</p>
-                  ) : (
-                    <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
-                  )}
-                </div>
-                <div class="mb-3">
-                  <span class="text-xs text-gris-texte font-sans">Photo : </span>
-                  {c.photo_url ? (
-                    <img src={c.photo_url} alt={`Photo ${c.nom}`} class="mt-1 rounded max-w-[200px] max-h-[120px] object-cover" />
-                  ) : (
-                    <span class="text-xs text-gris-texte italic font-sans">Non renseigné</span>
-                  )}
-                </div>
-                <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-gris-clair">
-                  <a href={`/centre/${c.slug}/`} target="_blank" class="text-xs text-orange font-sans font-medium hover:underline">Voir la fiche</a>
-                  {c.claim_status === 'approved' && c.plan !== 'premium' && (
-                    <button
-                      type="button"
-                      class="admin-premium rounded px-2 py-1 text-xs bg-orange text-blanc font-sans font-medium hover:bg-orange-hover cursor-pointer"
-                      data-slug={c.slug}
+    <AudioproListFilters
+      client:load
+      initialStageFilter={validStages}
+      initialHasProspect={hasProspect}
+      initialCompletenessMin={compMin}
+      initialCompletenessMax={compMax}
+      initialSearch={search}
+    />
+
+    <div class="overflow-x-auto rounded-lg border border-[#E4DED3] bg-white">
+      <table class="w-full text-sm">
+        <thead class="bg-[#F8F5F0] text-left text-xs uppercase text-gris-texte">
+          <tr>
+            <th class="px-4 py-3">Date claim</th>
+            <th class="px-4 py-3">Audio</th>
+            <th class="px-4 py-3">Email</th>
+            <th class="px-4 py-3 text-center">Centres</th>
+            <th class="px-4 py-3">Statuts claims</th>
+            <th class="px-4 py-3">Lifecycle</th>
+            <th class="px-4 py-3 text-center">Complétude</th>
+            <th class="px-4 py-3">Dernier email</th>
+            <th class="px-4 py-3 text-center">30j</th>
+            <th class="px-4 py-3">Prospect</th>
+            <th class="px-4 py-3 text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listRows.length === 0 ? (
+            <tr>
+              <td colspan="11" class="px-4 py-8 text-center text-gris-texte italic">
+                Aucun audio ne correspond à ces filtres.
+              </td>
+            </tr>
+          ) : (
+            listRows.map((row) => {
+              const fullName = [row.prenom, row.nom].filter(Boolean).join(' ').trim() || '(sans nom)';
+              return (
+                <tr class="border-t border-[#F0EAE0] hover:bg-[#FDFBF7]">
+                  <td class="px-4 py-3 whitespace-nowrap text-xs text-gris-texte">
+                    {row.first_claim_at
+                      ? new Date(row.first_claim_at).toLocaleDateString('fr-FR')
+                      : '—'}
+                  </td>
+                  <td class="px-4 py-3">
+                    <a
+                      href={`/admin/claims/${row.audiopro_id}/`}
+                      class="font-medium text-marine hover:text-orange"
                     >
-                      Offrir Premium
-                    </button>
-                  )}
-                  {c.plan === 'premium' && (
-                    <span class="text-xs text-[#0F6E56] font-sans font-medium">Premium actif</span>
-                  )}
-                  <div id={`premium-link-${c.slug}`} class="hidden w-full mt-2">
-                    <div class="flex gap-2">
-                      <input type="text" readonly class="flex-1 rounded border border-gris-clair px-2 py-1 text-xs font-mono bg-creme" />
-                      <button type="button" class="copy-link rounded px-2 py-1 text-xs bg-marine text-blanc font-sans cursor-pointer hover:bg-marine/80">Copier</button>
+                      {fullName}
+                    </a>
+                  </td>
+                  <td class="px-4 py-3 text-xs text-gris-texte break-all">{row.email}</td>
+                  <td class="px-4 py-3 text-center font-semibold text-marine">{row.nb_centres}</td>
+                  <td class="px-4 py-3 text-xs text-gris-texte">
+                    {row.claim_status_summary ?? '—'}
+                  </td>
+                  <td class="px-4 py-3">
+                    <AudioproStageBadge stage={row.lifecycle_stage} />
+                  </td>
+                  <td class="px-4 py-3">
+                    <div class="inline-flex items-center gap-2">
+                      <div class="w-16 bg-[#F0EAE0] rounded-full h-2 overflow-hidden">
+                        <div
+                          class="h-full bg-orange rounded-full"
+                          style={`width: ${row.completeness_avg}%`}
+                        />
+                      </div>
+                      <span class="text-xs font-semibold text-marine">{row.completeness_avg}%</span>
                     </div>
-                    <p class="text-[10px] text-gris-texte font-sans mt-1">Envoyez ce lien au client — 1 clic = Premium active</p>
-                  </div>
-                  {c.claim_status === 'approved' && (
-                    <button
-                      type="button"
-                      class="admin-revoke text-xs text-[#A32D2D] font-sans font-medium hover:underline cursor-pointer"
-                      data-slug={c.slug}
-                    >
-                      Revoquer
-                    </button>
-                  )}
-                </div>
-              </div>
-            </details>
-          ))}
-        </div>
-      </>
-    )}
+                  </td>
+                  <td class="px-4 py-3 text-xs text-gris-texte">
+                    {row.last_email_template ? (
+                      <div>
+                        <div class="font-medium text-marine truncate max-w-[180px]">
+                          {EMAIL_TEMPLATE_LABELS[row.last_email_template] ?? row.last_email_template}
+                        </div>
+                        <div>
+                          {row.last_email_sent_at
+                            ? new Date(row.last_email_sent_at).toLocaleDateString('fr-FR')
+                            : '—'}
+                        </div>
+                        {row.last_email_clicked_at && (
+                          <div class="text-[#0F6E56] font-medium">Cliqué</div>
+                        )}
+                      </div>
+                    ) : '—'}
+                  </td>
+                  <td class="px-4 py-3 text-center text-marine">{row.emails_sent_30d}</td>
+                  <td class="px-4 py-3">
+                    {row.prospect_id ? (
+                      <a
+                        href={`/admin/prospects/${row.prospect_id}`}
+                        class="inline-flex px-2 py-1 text-xs rounded bg-[#D97B3D] bg-opacity-10 text-orange font-medium hover:underline"
+                      >
+                        {row.prospect_status ?? 'Prospect'}
+                      </a>
+                    ) : (
+                      <span class="text-xs text-gris-texte">—</span>
+                    )}
+                  </td>
+                  <td class="px-4 py-3 text-right">
+                    <div class="flex justify-end gap-1 items-center">
+                      <a
+                        href={`/admin/claims/${row.audiopro_id}/`}
+                        class="p-2 rounded hover:bg-[#F8F5F0]"
+                        aria-label={`Voir la fiche de ${fullName}`}
+                        style="min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center;"
+                      >
+                        <Icon name="lucide:eye" class="w-4 h-4 text-marine" />
+                      </a>
+                      <RelanceEmailDropdown
+                        client:load
+                        audioproId={row.audiopro_id}
+                        audioproEmail={row.email}
+                        isUnsubscribed={!!row.email_unsubscribed_at}
+                      />
+                    </div>
+                  </td>
+                </tr>
+              );
+            })
+          )}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-xs text-gris-texte">
+      {listRows.length} audio(s) affiché(s). Limite 200 — affinez les filtres si la liste est tronquée.
+    </p>
   </section>
-
-  <script>
-    // --- Offrir Premium ---
-    document.querySelectorAll('.admin-premium').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const slug = btn.getAttribute('data-slug');
-        btn.textContent = 'Generation...';
-
-        try {
-          const res = await fetch('/api/admin/generate-premium-link', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ centreSlug: slug }),
-          });
-          const data = await res.json();
-          if (!res.ok) throw new Error(data.error);
-
-          const container = document.getElementById('premium-link-' + slug);
-          if (container) {
-            const input = container.querySelector('input');
-            if (input) input.value = data.link;
-            container.classList.remove('hidden');
-          }
-          btn.textContent = 'Lien genere';
-          btn.setAttribute('disabled', 'true');
-        } catch (err) {
-          alert(err instanceof Error ? err.message : 'Erreur');
-          btn.textContent = 'Offrir Premium';
-        }
-      });
-    });
-
-    // --- Copier le lien premium ---
-    document.querySelectorAll('.copy-link').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const input = btn.parentElement?.querySelector('input');
-        if (input) {
-          navigator.clipboard.writeText(input.value);
-          btn.textContent = 'Copie !';
-          setTimeout(() => { btn.textContent = 'Copier'; }, 2000);
-        }
-      });
-    });
-
-    // --- Revoquer un claim approuve ---
-    document.querySelectorAll('.admin-revoke').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const slug = btn.getAttribute('data-slug');
-        if (!confirm('Revoquer cette revendication ? Le centre repassera en mode ghost.')) return;
-
-        btn.textContent = 'En cours...';
-
-        try {
-          const res = await fetch('/api/admin/reject-claim', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ centreSlug: slug }),
-          });
-          const data = await res.json();
-          if (!res.ok) throw new Error(data.error);
-          window.location.reload();
-        } catch (err) {
-          alert(err instanceof Error ? err.message : 'Erreur');
-          btn.textContent = 'Revoquer';
-        }
-      });
-    });
-
-    // --- Approuver / Rejeter un claim pending ---
-    document.querySelectorAll('.admin-action').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const action = btn.getAttribute('data-action');
-        const slug = btn.getAttribute('data-slug');
-        const endpoint = action === 'approve' ? '/api/admin/approve-claim' : '/api/admin/reject-claim';
-
-        btn.textContent = 'En cours...';
-        btn.setAttribute('disabled', 'true');
-
-        try {
-          const res = await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ centreSlug: slug }),
-          });
-
-          const data = await res.json();
-          if (!res.ok) throw new Error(data.error);
-
-          const card = document.getElementById(`claim-${slug}`);
-          if (card) {
-            card.style.opacity = '0.5';
-            card.innerHTML = `<p class="text-sm font-medium font-sans text-center py-4">${action === 'approve' ? 'Approuve' : 'Rejete'} avec succes</p>`;
-          }
-        } catch (err) {
-          alert(err instanceof Error ? err.message : 'Erreur');
-          btn.textContent = action === 'approve' ? 'Approuver' : 'Rejeter';
-          btn.removeAttribute('disabled');
-        }
-      });
-    });
-  </script>
 
   <AdminTasksDrawerProvider
     client:load

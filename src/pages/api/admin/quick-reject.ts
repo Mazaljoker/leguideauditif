@@ -27,7 +27,7 @@ export const GET: APIRoute = async ({ url }) => {
 
   const { data: centre, error: fetchError } = await supabase
     .from('centres_auditifs')
-    .select('slug, nom, claim_status')
+    .select('slug, nom, claim_status, claimed_by_email')
     .eq('slug', slug)
     .single();
 
@@ -45,6 +45,9 @@ export const GET: APIRoute = async ({ url }) => {
     });
   }
 
+  // Lookup audiopro AVANT l'UPDATE (qui nullifie claimed_by_email)
+  const rejectedEmail = centre.claimed_by_email;
+
   const { error: updateError } = await supabase
     .from('centres_auditifs')
     .update({
@@ -61,6 +64,33 @@ export const GET: APIRoute = async ({ url }) => {
       status: 500,
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
     });
+  }
+
+  // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  // Event lifecycle claim_rejected (Phase 1)
+  // Pas de changement de stage : l'audio reste \u00e0 'revendique'. Pas d'email
+  // envoy\u00e9 au revendicateur (le rejet est silencieux c\u00f4t\u00e9 user par design).
+  // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  if (rejectedEmail) {
+    try {
+      const { data: audio } = await supabase
+        .from('audiopro_lifecycle')
+        .select('id, lifecycle_stage')
+        .eq('email', rejectedEmail.toLowerCase())
+        .maybeSingle();
+      if (audio) {
+        await supabase.from('audiopro_lifecycle_events').insert({
+          audiopro_id: audio.id,
+          from_stage: audio.lifecycle_stage,
+          to_stage: audio.lifecycle_stage,
+          reason: 'claim_rejected',
+          metadata: { centre_slug: slug },
+        });
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('[quick-reject] lifecycle event failed:', msg);
+    }
   }
 
   return new Response(
