@@ -18,6 +18,12 @@ const LoginForm: FC<LoginFormProps> = ({ redirectTo = '/annonces/deposer/' }) =>
     setLoading(true);
     setError('');
 
+    // Clear cookies stale httpOnly d'une session precedente. Depuis PR #77,
+    // le middleware pose les refresh tokens rotes en httpOnly, ce que
+    // document.cookie ne peut PAS overwrite. Sans ce clear serveur, un
+    // cookie obsolete bloquerait la nouvelle session.
+    try { await fetch('/api/auth/logout', { method: 'POST' }); } catch { /* ignore */ }
+
     const { data, error: authError } = await signIn(email, password);
     setLoading(false);
 
