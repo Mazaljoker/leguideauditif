@@ -126,6 +126,11 @@ export const POST: APIRoute = async ({ request, cookies }) => {
         else if (current[i]) normalized.push(current[i]);
       }
       update.photos_cabine = normalized;
+      // Slot 0 = photo principale consommée par CentreHeader.astro via
+      // centre.photo_url. On synchronise pour que la photo reste visible
+      // sur la fiche publique (champ legacy, garder en sync tant qu'on
+      // n'a pas migré CentreHeader vers photos_cabine[0]).
+      if (slot === 0) update.photo_url = publicUrl;
     }
 
     const { error: updateError } = await supabase
@@ -187,6 +192,10 @@ export const DELETE: APIRoute = async ({ request, cookies }) => {
       const next = [...current];
       next.splice(slot, 1);
       update.photos_cabine = next;
+      // Slot 0 est aussi miroiré dans photo_url (champ legacy consommé par
+      // CentreHeader.astro public). On resynchronise sur le nouvel élément
+      // en tête, ou on clear si le tableau est vide.
+      if (slot === 0) update.photo_url = next[0] ?? null;
     }
 
     const { error } = await supabase
