@@ -105,6 +105,31 @@ def get_gsc_data(site="nposts", days=28, dimensions=None, row_limit=100):
     return results
 
 
+def inspect_url(inspection_url, site="leguideauditif"):
+    """
+    URL Inspection API : statut d'indexation Google pour une URL donnee.
+
+    Returns dict (indexStatusResult) avec notamment :
+      - verdict : PASS / PARTIAL / FAIL / NEUTRAL
+      - coverageState : "Submitted and indexed", "Crawled - currently not indexed",
+        "Page with redirect", "Not found (404)", "Blocked by robots.txt", ...
+      - lastCrawlTime, robotsTxtState, indexingState, pageFetchState
+      - googleCanonical, userCanonical
+    """
+    from googleapiclient.discovery import build
+
+    creds = _get_credentials()
+    service = build("searchconsole", "v1", credentials=creds)
+
+    request_body = {
+        "inspectionUrl": inspection_url,
+        "siteUrl": GSC_SITES[site],
+    }
+
+    response = service.urlInspection().index().inspect(body=request_body).execute()
+    return response.get("inspectionResult", {}).get("indexStatusResult", {})
+
+
 def get_ga4_data(site="nposts", days=28, dimensions=None, metrics=None):
     """
     Query Google Analytics 4.
