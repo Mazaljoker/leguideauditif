@@ -1,0 +1,419 @@
+---
+// TeamManager.astro — gestion de l'équipe d'un centre Premium.
+// SSR load de centre_audios + rendu cards + dialog recherche RPPS +
+// script client pour tous les fetch CRUD vers /api/audiopro/team/*.
+//
+// Max 10 audios par centre (MAX_TEAM_SIZE). Titulaire protégé
+// contre la suppression. Édition inline : specialite + bio + photo.
+
+import { Icon } from 'astro-icon/components';
+import { supabase } from '../../lib/supabase';
+import { getCentreTeam } from '../../lib/audiopro';
+import {
+  MAX_TEAM_SIZE,
+  SPECIALITE_LABELS,
+  type CentreAudioSpecialite,
+} from '../../types/centre-team';
+import type { CentreData } from '../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+const team = await getCentreTeam(supabase, centre.id);
+const count = team.length;
+const canAdd = count < MAX_TEAM_SIZE;
+
+const specialiteOptions = Object.entries(SPECIALITE_LABELS) as Array<[CentreAudioSpecialite, string]>;
+---
+
+<section
+  class="rounded-xl border border-gris-clair bg-creme/40 p-5 sm:p-6 mt-8"
+  data-team-manager
+  data-centre-slug={centre.slug}
+  data-centre-cp={centre.cp ?? ''}
+  aria-labelledby="team-title"
+>
+  <div class="flex items-start gap-3 mb-4">
+    <div class="w-10 h-10 rounded-full bg-orange/15 text-orange flex items-center justify-center shrink-0">
+      <Icon name="lucide:users" class="w-5 h-5" />
+    </div>
+    <div class="flex-1 min-w-0">
+      <h3 id="team-title" class="font-sans text-lg font-bold text-marine">
+        Équipe du centre
+      </h3>
+      <p class="text-sm text-gris-texte font-sans">
+        Ajoutez jusqu'à <strong>{MAX_TEAM_SIZE}</strong> audioprothésistes DE qui exercent dans votre centre.
+        Chacun apparaîtra avec son RPPS vérifié sur votre fiche publique — signal E-E-A-T fort pour Google.
+      </p>
+    </div>
+    <span class="text-xs font-sans font-bold text-marine/70 shrink-0 tabular-nums">
+      {count} / {MAX_TEAM_SIZE}
+    </span>
+  </div>
+
+  {/* Liste des membres */}
+  {team.length > 0 ? (
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+      {team.map((m) => (
+        <li
+          class="rounded-lg border border-gris-clair bg-blanc p-4"
+          data-team-card
+          data-audio-id={m.id}
+        >
+          <div class="flex items-start gap-3 mb-3">
+            <div class="w-14 h-14 rounded-full bg-marine text-blanc overflow-hidden shrink-0 flex items-center justify-center font-sans font-bold">
+              {m.photo_url ? (
+                <img src={m.photo_url} alt="" class="w-full h-full object-cover" />
+              ) : (
+                <span>{(m.prenom[0] ?? 'A').toUpperCase()}{(m.nom[0] ?? 'D').toUpperCase()}</span>
+              )}
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="font-sans font-semibold text-marine text-sm">
+                {m.prenom} <span class="uppercase">{m.nom}</span>
+              </p>
+              <p class="text-[11px] font-sans text-gris-texte font-mono mt-0.5">
+                RPPS {m.rpps}
+              </p>
+              {m.role === 'titulaire' && (
+                <span class="inline-flex items-center gap-1 rounded-full bg-orange/10 text-orange px-2 py-0.5 text-[10px] font-sans font-bold uppercase tracking-wide mt-1">
+                  <Icon name="lucide:crown" class="w-3 h-3" />
+                  Titulaire
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div>
+              <label class="block text-[11px] font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">
+                Spécialité
+              </label>
+              <select
+                data-field="specialite"
+                class="w-full rounded-md border border-gris-clair bg-blanc px-3 py-2 text-sm font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+                style="min-height: 40px;"
+              >
+                <option value="">— Choisir —</option>
+                {specialiteOptions.map(([code, label]) => (
+                  <option value={code} selected={m.specialite === code}>{label}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-sans font-semibold uppercase tracking-wide text-marine/70 mb-1">
+                Bio courte (max 400 car)
+              </label>
+              <textarea
+                data-field="bio"
+                rows="2"
+                maxlength="400"
+                placeholder="Parcours, approche patient, domaine d'intérêt…"
+                class="w-full rounded-md border border-gris-clair bg-blanc px-3 py-2 text-sm font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 resize-y"
+              >{m.bio ?? ''}</textarea>
+            </div>
+
+            <div class="flex items-center gap-2 pt-1">
+              <label
+                class="inline-flex items-center justify-center gap-1.5 rounded-md border border-gris-clair bg-blanc px-3 py-2 text-xs font-sans font-semibold text-marine hover:border-orange/40 transition-colors cursor-pointer"
+                style="min-height: 40px;"
+              >
+                <Icon name="lucide:upload" class="w-3.5 h-3.5" />
+                <span>{m.photo_url ? 'Changer photo' : 'Ajouter photo'}</span>
+                <input type="file" data-field="photo" accept="image/jpeg,image/png,image/webp" class="hidden" />
+              </label>
+
+              <button
+                type="button"
+                data-action="save"
+                class="inline-flex items-center justify-center gap-1.5 rounded-md bg-orange text-blanc font-sans font-semibold text-xs px-3 py-2 hover:bg-orange-hover transition-colors"
+                style="min-height: 40px;"
+              >
+                <Icon name="lucide:check" class="w-3.5 h-3.5" />
+                Enregistrer
+              </button>
+
+              {m.role !== 'titulaire' && (
+                <button
+                  type="button"
+                  data-action="remove"
+                  class="inline-flex items-center justify-center gap-1.5 rounded-md border border-red-200 bg-blanc text-red-600 font-sans font-medium text-xs px-3 py-2 hover:bg-red-50 transition-colors ml-auto"
+                  style="min-height: 40px;"
+                  aria-label={`Retirer ${m.prenom} ${m.nom}`}
+                >
+                  <Icon name="lucide:trash-2" class="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+
+            <p data-row-status class="hidden text-xs font-sans"></p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="text-sm font-sans italic text-gris-texte mb-4">
+      Aucun audioprothésiste dans l'équipe pour le moment. Ajoutez-vous d'abord comme titulaire via la suggestion RPPS en haut, puis ajoutez vos collaborateurs ici.
+    </p>
+  )}
+
+  {/* Bouton + dialog d'ajout */}
+  {canAdd && (
+    <div>
+      <button
+        type="button"
+        data-action="open-add"
+        class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-dashed border-orange/40 bg-blanc px-4 py-3 text-sm font-sans font-semibold text-marine hover:border-orange/70 hover:bg-orange/5 transition-colors"
+        style="min-height: 44px;"
+      >
+        <Icon name="lucide:user-plus" class="w-4 h-4 text-orange" />
+        Ajouter un collaborateur
+      </button>
+
+      <div
+        data-add-dialog
+        class="hidden mt-3 rounded-lg border border-gris-clair bg-blanc p-4"
+      >
+        <label class="block text-sm font-sans font-semibold text-marine mb-2">
+          Rechercher un audioprothésiste DE
+        </label>
+        <input
+          type="text"
+          data-search-input
+          placeholder="Tapez un nom ou prénom (min. 2 lettres)"
+          class="w-full rounded-md border border-gris-clair px-3 py-2.5 text-sm font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+          style="min-height: 44px;"
+        />
+        <p class="text-[11px] font-sans text-gris-texte mt-1">
+          Recherche dans l'annuaire RPPS officiel (7 146 audioprothésistes). Priorise votre département.
+        </p>
+
+        <ul data-search-results class="mt-3 space-y-2 max-h-[320px] overflow-y-auto"></ul>
+
+        <p data-add-status class="hidden mt-2 text-xs font-sans"></p>
+
+        <button
+          type="button"
+          data-action="close-add"
+          class="mt-3 inline-flex items-center justify-center gap-1.5 rounded-md border border-gris-clair bg-blanc px-3 py-2 text-xs font-sans font-medium text-gris-texte hover:text-marine transition-colors"
+        >
+          Fermer
+        </button>
+      </div>
+    </div>
+  )}
+
+  {!canAdd && (
+    <p class="text-sm font-sans text-marine font-semibold bg-orange/10 rounded-lg px-4 py-3">
+      <Icon name="lucide:info" class="inline w-4 h-4 text-orange" /> Limite de {MAX_TEAM_SIZE} audioprothésistes atteinte. Retirez un collaborateur pour en ajouter un nouveau.
+    </p>
+  )}
+</section>
+
+<script>
+  type SearchCandidate = {
+    rpps: string;
+    civilite: string | null;
+    nom: string;
+    prenom: string;
+    code_postal: string | null;
+    commune: string | null;
+    raison_sociale: string | null;
+    enseigne: string | null;
+  };
+
+  const root = document.querySelector<HTMLElement>('[data-team-manager]');
+  if (!root) {
+    // No-op: composant absent (non-premium)
+  } else {
+    const centreSlug = root.dataset.centreSlug ?? '';
+    const centreCp = root.dataset.centreCp ?? '';
+
+    function showRowStatus(card: HTMLElement, kind: 'success' | 'error', msg: string) {
+      const el = card.querySelector<HTMLElement>('[data-row-status]');
+      if (!el) return;
+      el.className = 'text-xs font-sans ' + (kind === 'error' ? 'text-red-600' : 'text-[#059669]');
+      el.textContent = msg;
+      el.classList.remove('hidden');
+    }
+
+    function showAddStatus(kind: 'success' | 'error', msg: string) {
+      const el = root!.querySelector<HTMLElement>('[data-add-status]');
+      if (!el) return;
+      el.className = 'mt-2 text-xs font-sans ' + (kind === 'error' ? 'text-red-600' : 'text-[#059669]');
+      el.textContent = msg;
+      el.classList.remove('hidden');
+    }
+
+    // ---- Save (specialite + bio) ----
+    root.querySelectorAll<HTMLButtonElement>('[data-action="save"]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const card = btn.closest<HTMLElement>('[data-team-card]');
+        if (!card) return;
+        const audioId = card.dataset.audioId;
+        const specialite = (card.querySelector('[data-field="specialite"]') as HTMLSelectElement).value || null;
+        const bio = (card.querySelector('[data-field="bio"]') as HTMLTextAreaElement).value.trim() || null;
+
+        btn.disabled = true;
+        try {
+          const res = await fetch('/api/audiopro/team/update', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ audioId, specialite, bio }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data?.error || 'Erreur');
+          showRowStatus(card, 'success', 'Enregistré.');
+        } catch (err) {
+          showRowStatus(card, 'error', err instanceof Error ? err.message : 'Erreur');
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    });
+
+    // ---- Photo upload ----
+    root.querySelectorAll<HTMLInputElement>('[data-field="photo"]').forEach((input) => {
+      input.addEventListener('change', async () => {
+        const card = input.closest<HTMLElement>('[data-team-card]');
+        if (!card || !input.files || input.files.length === 0) return;
+        const audioId = card.dataset.audioId;
+        const file = input.files[0];
+
+        const fd = new FormData();
+        fd.append('audioId', audioId!);
+        fd.append('file', file);
+
+        showRowStatus(card, 'success', 'Upload en cours…');
+        try {
+          const res = await fetch('/api/audiopro/team/upload-photo', {
+            method: 'POST',
+            body: fd,
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data?.error || 'Erreur');
+          showRowStatus(card, 'success', 'Photo mise à jour. Rechargement…');
+          setTimeout(() => window.location.reload(), 500);
+        } catch (err) {
+          showRowStatus(card, 'error', err instanceof Error ? err.message : 'Erreur');
+          input.value = '';
+        }
+      });
+    });
+
+    // ---- Remove collaborateur ----
+    root.querySelectorAll<HTMLButtonElement>('[data-action="remove"]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const card = btn.closest<HTMLElement>('[data-team-card]');
+        if (!card) return;
+        const audioId = card.dataset.audioId;
+        if (!confirm('Retirer ce collaborateur de l\'équipe ?')) return;
+        btn.disabled = true;
+        try {
+          const res = await fetch('/api/audiopro/team/remove', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ audioId }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data?.error || 'Erreur');
+          window.location.reload();
+        } catch (err) {
+          showRowStatus(card, 'error', err instanceof Error ? err.message : 'Erreur');
+          btn.disabled = false;
+        }
+      });
+    });
+
+    // ---- Dialog ajout + recherche + add ----
+    const openBtn = root.querySelector<HTMLButtonElement>('[data-action="open-add"]');
+    const closeBtn = root.querySelector<HTMLButtonElement>('[data-action="close-add"]');
+    const dialog = root.querySelector<HTMLElement>('[data-add-dialog]');
+    const searchInput = root.querySelector<HTMLInputElement>('[data-search-input]');
+    const resultsList = root.querySelector<HTMLElement>('[data-search-results]');
+
+    openBtn?.addEventListener('click', () => {
+      dialog?.classList.remove('hidden');
+      searchInput?.focus();
+    });
+    closeBtn?.addEventListener('click', () => {
+      dialog?.classList.add('hidden');
+      if (searchInput) searchInput.value = '';
+      if (resultsList) resultsList.innerHTML = '';
+    });
+
+    let searchTimer: ReturnType<typeof setTimeout> | null = null;
+    searchInput?.addEventListener('input', () => {
+      if (searchTimer) clearTimeout(searchTimer);
+      searchTimer = setTimeout(async () => {
+        const q = searchInput.value.trim();
+        if (q.length < 2) {
+          if (resultsList) resultsList.innerHTML = '';
+          return;
+        }
+        try {
+          const res = await fetch(`/api/audiopro/team/search-rpps?q=${encodeURIComponent(q)}&cp=${encodeURIComponent(centreCp)}`);
+          const data = await res.json();
+          const candidates = (data.candidates ?? []) as SearchCandidate[];
+          if (!resultsList) return;
+          if (candidates.length === 0) {
+            resultsList.innerHTML = '<li class="text-sm font-sans italic text-gris-texte py-2">Aucun résultat.</li>';
+            return;
+          }
+          resultsList.innerHTML = candidates.map((c) => `
+            <li class="rounded-md border border-gris-clair bg-creme/40 p-3 flex items-start gap-3">
+              <div class="flex-1 min-w-0">
+                <p class="font-sans font-semibold text-marine text-sm">
+                  ${escapeHtml(c.civilite ?? '')} ${escapeHtml(c.prenom)} <span class="uppercase">${escapeHtml(c.nom)}</span>
+                </p>
+                <p class="text-[11px] font-sans text-gris-texte mt-0.5">
+                  RPPS <span class="font-mono">${escapeHtml(c.rpps)}</span>${c.commune ? ` · ${escapeHtml(c.commune)} ${escapeHtml(c.code_postal ?? '')}` : ''}${c.raison_sociale ? ` · ${escapeHtml(c.raison_sociale)}` : ''}
+                </p>
+              </div>
+              <button type="button" data-add-rpps="${escapeHtml(c.rpps)}" class="team-add-btn inline-flex items-center justify-center gap-1.5 rounded-md bg-orange text-blanc font-sans font-semibold text-xs px-3 py-2 hover:bg-orange-hover transition-colors shrink-0" style="min-height: 40px;">Ajouter</button>
+            </li>
+          `).join('');
+
+          resultsList.querySelectorAll<HTMLButtonElement>('.team-add-btn').forEach((btn) => {
+            btn.addEventListener('click', async () => {
+              const rpps = btn.dataset.addRpps;
+              if (!rpps) return;
+              btn.disabled = true;
+              btn.textContent = 'Ajout…';
+              try {
+                const res = await fetch('/api/audiopro/team/add', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ centreSlug, rpps }),
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data?.error || 'Erreur');
+                showAddStatus('success', 'Collaborateur ajouté. Rechargement…');
+                setTimeout(() => window.location.reload(), 500);
+              } catch (err) {
+                showAddStatus('error', err instanceof Error ? err.message : 'Erreur');
+                btn.disabled = false;
+                btn.textContent = 'Ajouter';
+              }
+            });
+          });
+        } catch (err) {
+          showAddStatus('error', 'Erreur de recherche.');
+        }
+      }, 300);
+    });
+
+    function escapeHtml(s: string): string {
+      return s.replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      }[c] ?? c));
+    }
+  }
+</script>
