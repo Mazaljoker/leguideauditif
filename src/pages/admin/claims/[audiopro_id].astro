@@ -43,6 +43,12 @@ if (!audiopro) {
   return Astro.redirect('/admin/claims?error=notfound');
 }
 
+// Si l'audio est un doublon fusionné, rediriger vers le master.
+// Évite l'affichage d'une fiche orpheline sans centres.
+if (audiopro.merged_into_id) {
+  return Astro.redirect(`/admin/claims/${audiopro.merged_into_id}/?from_merge=${audiopro.id}`);
+}
+
 // --- Fetch centres liés, missing_fields, events, emails, prospect, interactions, attributions ---
 const [
   linkedCentresRes,
