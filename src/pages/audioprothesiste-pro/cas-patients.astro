@@ -1,0 +1,396 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import { createServerClient } from '../../lib/supabase';
+import {
+  ACTIVE_CENTRE_COOKIE,
+  getActiveCentreFull,
+  getUserCentres,
+  resolveActiveCentre,
+} from '../../lib/audiopro';
+
+const user = Astro.locals.user;
+if (!user || !user.email) return Astro.redirect('/connexion-pro/');
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+if (centres.length === 0) return Astro.redirect('/audioprothesiste-pro/bienvenue/');
+
+const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
+const active = resolveActiveCentre(centres, cookieSlug);
+if (!active) return Astro.redirect('/trouver-audioprothesiste/');
+
+const centre = await getActiveCentreFull(supabase, active.slug, user.email);
+if (!centre) return Astro.redirect('/trouver-audioprothesiste/');
+
+const isPremium = centre.plan === 'premium';
+
+interface CasRow {
+  id: string;
+  age_range: string;
+  sexe: string;
+  perte_type: string;
+  solution_type: string;
+  solution_classe: string;
+  resultat_comprehension_parole: boolean;
+  resultat_environnement_bruit: boolean;
+  resultat_television: boolean;
+  resultat_ecoute_musique: boolean;
+  resultat_autre: string | null;
+  verdict_audio: string | null;
+  status: 'pending' | 'approved' | 'rejected';
+  admin_reason: string | null;
+  reviewed_at: string | null;
+  created_at: string;
+}
+
+let cas: CasRow[] = [];
+if (isPremium) {
+  const { data } = await supabase
+    .from('centre_cas_patients')
+    .select('*')
+    .eq('centre_id', centre.id)
+    .order('created_at', { ascending: false });
+  cas = (data ?? []) as CasRow[];
+}
+
+const STATUS_META: Record<string, { label: string; class: string }> = {
+  pending: { label: 'En validation', class: 'bg-[#FEF3C7] text-[#D97706]' },
+  approved: { label: 'Publié', class: 'bg-[#D1FAE5] text-[#059669]' },
+  rejected: { label: 'Refusé', class: 'bg-[#FEE2E2] text-[#DC2626]' },
+};
+const PERTE_LABEL: Record<string, string> = {
+  legere: 'Légère',
+  moderee: 'Modérée',
+  severe: 'Sévère',
+  profonde: 'Profonde',
+  asymetrique: 'Asymétrique',
+  acouphenes: 'Acouphènes',
+};
+---
+
+<AudioproLayout
+  title="Cas patients — Espace pro LeGuideAuditif"
+  pageLabel="Cas patients"
+>
+  <header class="mb-6">
+    <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">Cas patients anonymisés</h1>
+    <p class="text-sm text-gris-texte font-sans mt-1">
+      Partagez des parcours patients (toujours anonymes) pour démontrer votre expertise. Chaque cas passe en validation LGA avant publication.
+    </p>
+  </header>
+
+  {!isPremium && (
+    <div class="rounded-xl border-2 border-orange/30 bg-orange/5 p-6 mb-8 flex flex-col sm:flex-row sm:items-center gap-4">
+      <Icon name="lucide:crown" class="w-8 h-8 text-orange shrink-0" />
+      <div class="flex-1">
+        <h2 class="font-sans font-bold text-marine mb-1">Feature réservée aux centres Premium</h2>
+        <p class="text-sm font-sans text-gris-texte">
+          Les cas patients anonymisés sont un signal E-E-A-T majeur pour Google (YMYL santé). Feature Premium.
+        </p>
+      </div>
+      <a
+        href={`/revendiquer/?centre=${centre.slug}`}
+        class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange px-5 py-3 text-sm font-sans font-semibold text-blanc hover:bg-orange-hover transition-colors shrink-0"
+        style="min-height: 44px;"
+      >
+        Passer Premium
+      </a>
+    </div>
+  )}
+
+  {isPremium && (
+    <>
+      <div class="rounded-lg border-2 border-red-300 bg-red-50 px-4 py-3 mb-6 flex items-start gap-2">
+        <Icon name="lucide:alert-triangle" class="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+        <div class="text-xs text-red-700 font-sans space-y-1">
+          <p><strong>Obligations RGPD & déontologiques :</strong></p>
+          <ul class="list-disc ml-4 space-y-0.5">
+            <li>Accord écrit du patient obligatoire avant toute publication (RGPD art. 9 — données de santé).</li>
+            <li>Anonymisation stricte : pas de nom, pas de ville précise, pas d'initiales, pas de situation rare identifiable.</li>
+            <li>Pas de promesse thérapeutique ("guérir", "miracle", "définitif").</li>
+            <li>Chaque cas est validé par LGA avant publication sur votre fiche.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Liste des cas soumis */}
+      <section class="space-y-4 mb-8" id="cas-list">
+        {cas.map((c) => {
+          const s = STATUS_META[c.status];
+          return (
+            <article class="rounded-xl border border-gris-clair bg-blanc p-5" data-id={c.id}>
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                <div class="flex-1 min-w-0">
+                  <div class="flex flex-wrap items-center gap-2 mb-2">
+                    <span class:list={['inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-sans font-bold uppercase tracking-wide', s.class]}>
+                      {s.label}
+                    </span>
+                    <span class="text-[11px] text-gris-texte font-sans">
+                      Soumis le {new Date(c.created_at).toLocaleDateString('fr-FR')}
+                    </span>
+                  </div>
+                  <p class="font-sans text-marine">
+                    <strong>{c.age_range} ans · {c.sexe === 'F' ? 'Femme' : c.sexe === 'M' ? 'Homme' : 'Patient'}</strong>
+                    <span class="text-gris-texte"> · Perte {PERTE_LABEL[c.perte_type] ?? c.perte_type}</span>
+                  </p>
+                  <p class="text-sm text-gris-texte font-sans mt-1">
+                    Solution : <strong class="text-marine">{c.solution_type}</strong> Classe {c.solution_classe === 'mixte' ? '1 & 2' : c.solution_classe}
+                  </p>
+                  {c.verdict_audio && (
+                    <blockquote class="text-sm font-serif text-marine italic border-l-2 border-orange pl-3 mt-2">
+                      « {c.verdict_audio} »
+                    </blockquote>
+                  )}
+                  {c.status === 'rejected' && c.admin_reason && (
+                    <div class="mt-3 rounded-lg bg-red-50 border border-red-200 p-3 text-xs font-sans text-red-700">
+                      <strong>Motif du refus :</strong> {c.admin_reason}
+                    </div>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  class="cas-delete inline-flex items-center justify-center gap-1.5 rounded-lg border border-red-200 bg-blanc px-4 py-2 text-sm font-sans font-medium text-red-600 hover:bg-red-50 transition-colors shrink-0"
+                  style="min-height: 44px;"
+                  data-id={c.id}
+                >
+                  <Icon name="lucide:trash-2" class="w-4 h-4" />
+                  Retirer
+                </button>
+              </div>
+            </article>
+          );
+        })}
+
+        {cas.length === 0 && (
+          <div class="rounded-xl border-2 border-dashed border-gris-clair bg-creme/40 p-10 text-center">
+            <Icon name="lucide:users" class="w-10 h-10 text-gris-texte mx-auto mb-3" />
+            <p class="font-sans text-marine font-semibold mb-1">Aucun cas soumis pour le moment</p>
+            <p class="text-sm font-sans text-gris-texte">Commencez par un parcours marquant — validation LGA sous 48h.</p>
+          </div>
+        )}
+      </section>
+
+      {/* Formulaire */}
+      <section class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7">
+        <h2 class="font-sans text-lg font-bold text-marine mb-1">Soumettre un nouveau cas patient</h2>
+        <p class="text-sm text-gris-texte font-sans mb-5">
+          Après soumission, LGA vérifie la conformité (anonymisation, YMYL) sous 48h. Approuvé ? Il apparaît sur votre fiche publique.
+        </p>
+
+        <form id="cas-form" class="space-y-5">
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div>
+              <label for="cas-age" class="block text-sm font-medium text-marine font-sans mb-1">Tranche d'âge *</label>
+              <select id="cas-age" name="age_range" required class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc" style="min-height: 44px;">
+                <option value="">—</option>
+                <option value="< 40">Moins de 40 ans</option>
+                <option value="40-50">40-50 ans</option>
+                <option value="50-60">50-60 ans</option>
+                <option value="60-70">60-70 ans</option>
+                <option value="70-80">70-80 ans</option>
+                <option value="> 80">Plus de 80 ans</option>
+              </select>
+            </div>
+            <div>
+              <label for="cas-sexe" class="block text-sm font-medium text-marine font-sans mb-1">Sexe *</label>
+              <select id="cas-sexe" name="sexe" required class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc" style="min-height: 44px;">
+                <option value="">—</option>
+                <option value="F">Femme</option>
+                <option value="M">Homme</option>
+                <option value="NC">Non communiqué</option>
+              </select>
+            </div>
+            <div>
+              <label for="cas-perte" class="block text-sm font-medium text-marine font-sans mb-1">Type de perte *</label>
+              <select id="cas-perte" name="perte_type" required class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc" style="min-height: 44px;">
+                <option value="">—</option>
+                <option value="legere">Légère</option>
+                <option value="moderee">Modérée</option>
+                <option value="severe">Sévère</option>
+                <option value="profonde">Profonde</option>
+                <option value="asymetrique">Asymétrique</option>
+                <option value="acouphenes">Avec acouphènes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="cas-solution-type" class="block text-sm font-medium text-marine font-sans mb-1">Type d'appareil *</label>
+              <select id="cas-solution-type" name="solution_type" required class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc" style="min-height: 44px;">
+                <option value="">—</option>
+                <option value="RITE">RITE</option>
+                <option value="BTE">BTE</option>
+                <option value="ITE">ITE</option>
+                <option value="CIC">CIC</option>
+                <option value="IIC">IIC</option>
+                <option value="contour">Contour</option>
+              </select>
+            </div>
+            <div>
+              <label for="cas-classe" class="block text-sm font-medium text-marine font-sans mb-1">Classe *</label>
+              <select id="cas-classe" name="solution_classe" required class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc" style="min-height: 44px;">
+                <option value="">—</option>
+                <option value="1">Classe 1 (100% Santé)</option>
+                <option value="2">Classe 2</option>
+                <option value="mixte">Mixte Classe 1 + 2</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend class="block text-sm font-medium text-marine font-sans mb-2">Résultats observés *</legend>
+            <p class="text-xs text-gris-texte font-sans mb-3">Au moins un résultat requis.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+                <input type="checkbox" name="resultat_comprehension_parole" class="sr-only peer" />
+                <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+                <span class="text-sm text-marine">Compréhension de la parole</span>
+              </label>
+              <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+                <input type="checkbox" name="resultat_environnement_bruit" class="sr-only peer" />
+                <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+                <span class="text-sm text-marine">Environnement bruité</span>
+              </label>
+              <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+                <input type="checkbox" name="resultat_television" class="sr-only peer" />
+                <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+                <span class="text-sm text-marine">Écoute télévision</span>
+              </label>
+              <label class="inline-flex items-center gap-2 rounded-lg border border-gris-clair bg-blanc px-4 py-3 font-sans cursor-pointer hover:border-orange/50 has-[:checked]:bg-[#E6F1FB] has-[:checked]:border-[#0C447C]/30" style="min-height: 44px;">
+                <input type="checkbox" name="resultat_ecoute_musique" class="sr-only peer" />
+                <Icon name="lucide:check" class="w-4 h-4 text-gris-texte peer-checked:text-[#0C447C]" />
+                <span class="text-sm text-marine">Écoute musicale</span>
+              </label>
+            </div>
+            <div class="mt-3">
+              <label for="cas-autre" class="block text-xs text-gris-texte font-sans mb-1">Autre résultat (optionnel, 200 chars max)</label>
+              <input
+                id="cas-autre"
+                name="resultat_autre"
+                type="text"
+                maxlength="200"
+                placeholder="Ex : Réduction des acouphènes perçue en 3 mois, retour à la vie sociale"
+                class="w-full rounded-lg border border-gris-clair px-4 py-2 text-sm font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+              />
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="cas-verdict" class="block text-sm font-medium text-marine font-sans mb-1">
+              Votre verdict (optionnel, 20-350 chars)
+            </label>
+            <textarea
+              id="cas-verdict"
+              name="verdict_audio"
+              rows="3"
+              minlength="20"
+              maxlength="350"
+              placeholder="Ex : Adaptation progressive sur 3 mois avec réglages hebdomadaires. L'anonymisation strict de ce verdict : pas de nom, pas de ville précise."
+              class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 resize-y"
+            ></textarea>
+          </div>
+
+          {/* Gate RGPD — checkbox bloquante */}
+          <label class="flex items-start gap-3 rounded-lg border-2 border-red-300 bg-red-50 p-4 cursor-pointer">
+            <input type="checkbox" name="patient_accord" id="cas-accord" required class="mt-1 w-5 h-5 accent-red-600" />
+            <div class="text-sm font-sans text-marine">
+              <strong class="text-red-700">J'atteste avoir obtenu l'accord écrit du patient</strong> pour la publication de ce cas anonymisé sur la fiche LGA (RGPD art. 9 — données de santé sensibles). Sans cette attestation, la soumission est impossible.
+            </div>
+          </label>
+
+          <div id="cas-error" class="hidden rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+          <div id="cas-success" class="hidden rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-700 font-sans"></div>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <button
+              type="submit"
+              id="cas-submit"
+              class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange px-6 py-3 text-base font-semibold text-blanc font-sans hover:bg-orange-hover transition-colors disabled:opacity-60"
+              style="min-height: 48px;"
+            >
+              <Icon name="lucide:send" class="w-4 h-4" />
+              Soumettre pour validation
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
+  )}
+
+  <script define:vars={{ centreSlug: centre.slug }}>
+    const form = document.getElementById('cas-form');
+    if (form) {
+      const submit = document.getElementById('cas-submit');
+      const errorDiv = document.getElementById('cas-error');
+      const successDiv = document.getElementById('cas-success');
+
+      // Delete
+      document.querySelectorAll('.cas-delete').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const id = btn.dataset.id;
+          if (!confirm('Retirer ce cas ? S\'il était publié, il disparaît de votre fiche.')) return;
+          btn.disabled = true;
+          try {
+            const res = await fetch('/api/audiopro/cas-patient', {
+              method: 'DELETE',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id, centreSlug }),
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Erreur');
+            window.location.reload();
+          } catch (err) {
+            alert(err.message || 'Erreur lors de la suppression.');
+            btn.disabled = false;
+          }
+        });
+      });
+
+      // Submit
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorDiv.classList.add('hidden');
+        successDiv.classList.add('hidden');
+        submit.disabled = true;
+
+        const fd = new FormData(form);
+        const payload = {
+          centreSlug,
+          age_range: fd.get('age_range'),
+          sexe: fd.get('sexe'),
+          perte_type: fd.get('perte_type'),
+          solution_type: fd.get('solution_type'),
+          solution_classe: fd.get('solution_classe'),
+          resultat_comprehension_parole: fd.get('resultat_comprehension_parole') === 'on',
+          resultat_environnement_bruit: fd.get('resultat_environnement_bruit') === 'on',
+          resultat_television: fd.get('resultat_television') === 'on',
+          resultat_ecoute_musique: fd.get('resultat_ecoute_musique') === 'on',
+          resultat_autre: fd.get('resultat_autre') || null,
+          verdict_audio: fd.get('verdict_audio') || null,
+          patient_accord: fd.get('patient_accord') === 'on',
+        };
+
+        try {
+          const res = await fetch('/api/audiopro/cas-patient', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || 'Erreur');
+          successDiv.textContent = 'Cas soumis. Validation LGA sous 48h.';
+          successDiv.classList.remove('hidden');
+          setTimeout(() => window.location.reload(), 1200);
+        } catch (err) {
+          errorDiv.textContent = err.message || 'Erreur inattendue.';
+          errorDiv.classList.remove('hidden');
+          submit.disabled = false;
+        }
+      });
+    }
+  </script>
+</AudioproLayout>

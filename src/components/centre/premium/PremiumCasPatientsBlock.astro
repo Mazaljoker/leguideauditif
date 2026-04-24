@@ -1,0 +1,151 @@
+---
+// Cas patients anonymisés publiés (uniquement status='approved').
+// Chaque cas est rendu sous une forme synthétique : profil -> solution ->
+// résultats. JSON-LD MedicalScholarlyArticle pour signaler à Google que
+// c'est du contenu médical sourcé (E-E-A-T Experience).
+//
+// Règle RGPD : aucune donnée identifiable ne doit apparaître. La
+// modération admin a validé l'anonymisation avant approbation.
+
+import { Icon } from 'astro-icon/components';
+import { supabase } from '../../../lib/supabase';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+
+interface CasRow {
+  id: string;
+  age_range: string;
+  sexe: string;
+  perte_type: string;
+  solution_type: string;
+  solution_classe: string;
+  resultat_comprehension_parole: boolean;
+  resultat_environnement_bruit: boolean;
+  resultat_television: boolean;
+  resultat_ecoute_musique: boolean;
+  resultat_autre: string | null;
+  verdict_audio: string | null;
+  created_at: string;
+  reviewed_at: string | null;
+}
+
+const { data } = await supabase
+  .from('centre_cas_patients')
+  .select('id, age_range, sexe, perte_type, solution_type, solution_classe, resultat_comprehension_parole, resultat_environnement_bruit, resultat_television, resultat_ecoute_musique, resultat_autre, verdict_audio, created_at, reviewed_at')
+  .eq('centre_id', centre.id)
+  .eq('status', 'approved')
+  .order('reviewed_at', { ascending: false })
+  .limit(5);
+
+const cas = (data ?? []) as CasRow[];
+
+const PERTE_LABEL: Record<string, string> = {
+  legere: 'perte légère',
+  moderee: 'perte modérée',
+  severe: 'perte sévère',
+  profonde: 'perte profonde',
+  asymetrique: 'perte asymétrique',
+  acouphenes: 'avec acouphènes',
+};
+
+function describeProfile(c: CasRow): string {
+  const sexe = c.sexe === 'F' ? 'Patiente' : c.sexe === 'M' ? 'Patient' : 'Patient';
+  return `${sexe}, ${c.age_range} ans · ${PERTE_LABEL[c.perte_type] ?? c.perte_type}`;
+}
+
+function describeSolution(c: CasRow): string {
+  const classeLabel = c.solution_classe === 'mixte' ? 'Classe 1 + 2' : `Classe ${c.solution_classe}`;
+  return `${c.solution_type} · ${classeLabel}`;
+}
+
+function describeResults(c: CasRow): string[] {
+  const out: string[] = [];
+  if (c.resultat_comprehension_parole) out.push('Meilleure compréhension de la parole');
+  if (c.resultat_environnement_bruit) out.push('Confort en environnement bruité');
+  if (c.resultat_television) out.push('Écoute TV plus nette');
+  if (c.resultat_ecoute_musique) out.push('Écoute musicale restaurée');
+  if (c.resultat_autre) out.push(c.resultat_autre);
+  return out;
+}
+
+// JSON-LD : un MedicalScholarlyArticle par cas pour signaler YMYL conforme
+const schema = cas.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: cas.map((c, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    item: {
+      '@type': 'MedicalScholarlyArticle',
+      headline: `Cas clinique : ${describeProfile(c)} — Solution ${describeSolution(c)}`,
+      articleBody: [describeProfile(c), describeSolution(c), ...describeResults(c), c.verdict_audio].filter(Boolean).join(' · '),
+      datePublished: c.reviewed_at ?? c.created_at,
+      author: {
+        '@type': 'Organization',
+        name: centre.nom,
+      },
+    },
+  })),
+} : null;
+---
+
+{cas.length > 0 && (
+  <>
+    <section
+      class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7 mb-8"
+      aria-labelledby="cas-patients-title"
+    >
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+          <Icon name="lucide:users" class="w-5 h-5" />
+        </div>
+        <div>
+          <h2 id="cas-patients-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+            Parcours patients anonymisés
+          </h2>
+          <p class="text-sm text-gris-texte font-sans mt-0.5">Cas réels avec accord patient · validés par LGA</p>
+        </div>
+      </div>
+
+      <ul class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {cas.map((c) => {
+          const results = describeResults(c);
+          return (
+            <li class="rounded-lg border border-gris-clair bg-creme/40 p-5">
+              <p class="font-sans font-bold text-marine text-sm mb-1">{describeProfile(c)}</p>
+              <p class="text-xs font-sans text-gris-texte uppercase tracking-wide mb-3">
+                Solution : <span class="text-marine">{describeSolution(c)}</span>
+              </p>
+              {results.length > 0 && (
+                <ul class="space-y-1.5 mb-3">
+                  {results.map((r) => (
+                    <li class="flex items-start gap-2 text-sm font-sans text-marine">
+                      <Icon name="lucide:check" class="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {c.verdict_audio && (
+                <blockquote class="text-sm font-serif text-marine italic border-l-2 border-orange pl-3 mt-2">
+                  « {c.verdict_audio} »
+                </blockquote>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+
+      <p class="text-xs text-gris-texte font-sans mt-5 pt-4 border-t border-gris-clair">
+        <Icon name="lucide:shield-check" class="inline w-3.5 h-3.5 text-[#059669]" /> Cas rapportés avec l'accord écrit des patients. Anonymisés et validés par l'équipe LGA avant publication.
+      </p>
+    </section>
+
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </>
+)}

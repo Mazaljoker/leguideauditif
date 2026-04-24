@@ -26,6 +26,7 @@ import PremiumEquipementBlock from '../../components/centre/premium/PremiumEquip
 import PremiumParcoursBlock from '../../components/centre/premium/PremiumParcoursBlock.astro';
 import PremiumAppareilsPharesBlock from '../../components/centre/premium/PremiumAppareilsPharesBlock.astro';
 import PremiumActualitesBlock from '../../components/centre/premium/PremiumActualitesBlock.astro';
+import PremiumCasPatientsBlock from '../../components/centre/premium/PremiumCasPatientsBlock.astro';
 import PremiumArticlesBlock from '../../components/centre/premium/PremiumArticlesBlock.astro';
 import PremiumAccessibiliteBlock from '../../components/centre/premium/PremiumAccessibiliteBlock.astro';
 import PremiumPartenairesBlock from '../../components/centre/premium/PremiumPartenairesBlock.astro';
@@ -298,6 +299,9 @@ if (typedCentre.marques?.length > 0) {
 
         {/* Actualités du centre — signal freshness Google */}
         <PremiumActualitesBlock centre={typedCentre} />
+
+        {/* Cas patients anonymisés validés — YMYL E-E-A-T */}
+        <PremiumCasPatientsBlock centre={typedCentre} />
 
         {/* Articles contextualisés — maillage interne SEO */}
         <PremiumArticlesBlock centre={typedCentre} />
