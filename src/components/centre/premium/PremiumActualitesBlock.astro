@@ -1,0 +1,100 @@
+---
+// Fil des actualités du centre Premium — 5 dernières publiées.
+// JSON-LD BlogPosting par actualité pour signaux freshness à Google.
+
+import { Icon } from 'astro-icon/components';
+import { supabase } from '../../../lib/supabase';
+import type { CentreData } from '../../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+
+interface ActualiteRow {
+  id: string;
+  template: string;
+  title: string;
+  body: string;
+  published_at: string;
+}
+
+const { data } = await supabase
+  .from('centre_actualites')
+  .select('id, template, title, body, published_at')
+  .eq('centre_id', centre.id)
+  .order('published_at', { ascending: false })
+  .limit(5);
+
+const actualites = (data ?? []) as ActualiteRow[];
+
+function formatFr(iso: string): string {
+  return new Date(iso).toLocaleDateString('fr-FR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+
+// JSON-LD : un Article/BlogPosting par actualité, regroupés dans ItemList
+const schema = actualites.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: actualites.map((a, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    item: {
+      '@type': 'BlogPosting',
+      headline: a.title,
+      articleBody: a.body,
+      datePublished: a.published_at,
+      author: {
+        '@type': 'Organization',
+        name: centre.nom,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'LeGuideAuditif',
+      },
+    },
+  })),
+} : null;
+---
+
+{actualites.length > 0 && (
+  <>
+    <section
+      class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7 mb-8"
+      aria-labelledby="actualites-title"
+    >
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+          <Icon name="lucide:megaphone" class="w-5 h-5" />
+        </div>
+        <div>
+          <h2 id="actualites-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+            Actualités du centre
+          </h2>
+          <p class="text-sm text-gris-texte font-sans mt-0.5">Dernières publications de l'équipe</p>
+        </div>
+      </div>
+
+      <ul class="space-y-5">
+        {actualites.map((a) => (
+          <li class="border-l-2 border-orange pl-4 sm:pl-5">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <time datetime={a.published_at} class="text-xs font-sans font-semibold text-orange uppercase tracking-wide">
+                {formatFr(a.published_at)}
+              </time>
+            </div>
+            <h3 class="font-sans text-base sm:text-lg font-bold text-marine leading-snug mb-1">{a.title}</h3>
+            <p class="text-sm font-serif text-marine leading-relaxed">{a.body}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </>
+)}
