@@ -6,6 +6,8 @@ Disallow: /annonces/mes-annonces/
 Disallow: /annonces/alertes/
 Disallow: /revendiquer/confirmation/
 Disallow: /revendiquer-gratuit/confirmation/
+Disallow: /revendiquer/?
+Disallow: /revendiquer-gratuit/?
 
 Sitemap: https://leguideauditif.fr/sitemap-index.xml
 Sitemap: https://leguideauditif.fr/sitemap-centres.xml

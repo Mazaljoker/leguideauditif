@@ -37,6 +37,11 @@
       "permanent": true
     },
     {
+      "source": "/audioprothesiste/st-ouen-l-aumone/",
+      "destination": "/audioprothesiste/saint-ouen-l-aumone/",
+      "permanent": true
+    },
+    {
       "source": "/centre/2-jf-optic-audio-66700/",
       "destination": "/centre/krys-optique-et-auditions-argeles-sur-mer-66700-045550/",
       "permanent": true
