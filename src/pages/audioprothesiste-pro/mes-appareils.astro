@@ -1,0 +1,393 @@
+---
+export const prerender = false;
+
+import { Icon } from 'astro-icon/components';
+import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import { createServerClient } from '../../lib/supabase';
+import {
+  ACTIVE_CENTRE_COOKIE,
+  getActiveCentreFull,
+  getUserCentres,
+  resolveActiveCentre,
+} from '../../lib/audiopro';
+
+const user = Astro.locals.user;
+if (!user || !user.email) return Astro.redirect('/connexion-pro/');
+
+const supabase = createServerClient();
+const centres = await getUserCentres(supabase, user.email);
+if (centres.length === 0) return Astro.redirect('/audioprothesiste-pro/bienvenue/');
+
+const cookieSlug = Astro.cookies.get(ACTIVE_CENTRE_COOKIE)?.value;
+const active = resolveActiveCentre(centres, cookieSlug);
+if (!active) return Astro.redirect('/trouver-audioprothesiste/');
+
+const centre = await getActiveCentreFull(supabase, active.slug, user.email);
+if (!centre) return Astro.redirect('/trouver-audioprothesiste/');
+
+const isPremium = centre.plan === 'premium';
+
+// Chargement des appareils phares existants
+interface AppareilPhare {
+  id: string;
+  marque: string;
+  modele: string;
+  classe: '1' | '2' | 'tous';
+  type_appareil: 'RITE' | 'BTE' | 'ITE' | 'CIC' | 'IIC' | 'contour';
+  verdict_audio: string;
+  ordre: number;
+}
+
+let appareils: AppareilPhare[] = [];
+if (isPremium) {
+  const { data } = await supabase
+    .from('centre_appareils_phares')
+    .select('id, marque, modele, classe, type_appareil, verdict_audio, ordre')
+    .eq('centre_id', centre.id)
+    .order('ordre', { ascending: true });
+  appareils = (data ?? []) as AppareilPhare[];
+}
+
+const marques = ['Phonak', 'Oticon', 'Signia', 'ReSound', 'Starkey', 'Widex', 'Bernafon', 'Unitron', 'Audioservice'];
+---
+
+<AudioproLayout
+  title="Mes appareils recommandés — Espace pro LeGuideAuditif"
+  pageLabel="Mes appareils"
+>
+  <header class="mb-6">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div>
+        <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">Mes appareils recommandés</h1>
+        <p class="text-sm text-gris-texte font-sans mt-1">
+          Jusqu'à 6 appareils phares avec votre verdict personnalisé. Affichés sur votre fiche publique Premium.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  {!isPremium && (
+    <div class="rounded-xl border-2 border-orange/30 bg-orange/5 p-6 mb-8 flex flex-col sm:flex-row sm:items-center gap-4">
+      <Icon name="lucide:crown" class="w-8 h-8 text-orange shrink-0" />
+      <div class="flex-1">
+        <h2 class="font-sans font-bold text-marine mb-1">Feature réservée aux centres Premium</h2>
+        <p class="text-sm font-sans text-gris-texte">
+          Les appareils recommandés avec verdict personnalisé sont une feature Premium. Passez à la version Premium pour les activer.
+        </p>
+      </div>
+      <a
+        href={`/revendiquer/?centre=${centre.slug}`}
+        class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange px-5 py-3 text-sm font-sans font-semibold text-blanc hover:bg-orange-hover transition-colors shrink-0"
+        style="min-height: 44px;"
+      >
+        Passer Premium
+      </a>
+    </div>
+  )}
+
+  {isPremium && (
+    <>
+      <div class="rounded-lg border border-marine/20 bg-marine/5 px-4 py-3 mb-6 flex items-start gap-2">
+        <Icon name="lucide:info" class="w-4 h-4 text-marine mt-0.5 shrink-0" />
+        <p class="text-xs text-marine/80 font-sans">
+          <strong>Règles YMYL :</strong> pas de promesses thérapeutiques ("guérir", "miracle", "définitif"),
+          pas de prix exact (utilisez "Classe 1", "Classe 2" ou "fourchette standard").
+          Verdict entre 20 et 250 caractères.
+        </p>
+      </div>
+
+      {/* Liste des appareils existants */}
+      <section class="space-y-4 mb-8" id="appareils-list">
+        {appareils.map((a) => (
+          <article
+            class="rounded-xl border border-gris-clair bg-blanc p-5 appareil-card"
+            data-id={a.id}
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <h3 class="font-sans text-lg font-bold text-marine">{a.marque} {a.modele}</h3>
+                  <span class:list={[
+                    'inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-sans font-bold uppercase tracking-wide',
+                    a.classe === '1' ? 'bg-[#D1FAE5] text-[#059669]' : a.classe === '2' ? 'bg-orange/10 text-orange' : 'bg-marine/10 text-marine',
+                  ]}>
+                    Classe {a.classe === 'tous' ? '1 & 2' : a.classe}
+                  </span>
+                  <span class="inline-flex items-center rounded-full bg-gris-clair text-marine px-2.5 py-0.5 text-[11px] font-sans font-bold uppercase tracking-wide">
+                    {a.type_appareil}
+                  </span>
+                </div>
+                <p class="text-sm font-serif text-marine leading-relaxed">{a.verdict_audio}</p>
+              </div>
+              <div class="flex gap-2 shrink-0">
+                <button
+                  type="button"
+                  class="appareil-edit inline-flex items-center justify-center gap-1.5 rounded-lg border border-gris-clair bg-blanc px-4 py-2 text-sm font-sans font-medium text-marine hover:border-orange/40 transition-colors"
+                  style="min-height: 44px;"
+                  data-id={a.id}
+                >
+                  <Icon name="lucide:pen-line" class="w-4 h-4" />
+                  Modifier
+                </button>
+                <button
+                  type="button"
+                  class="appareil-delete inline-flex items-center justify-center gap-1.5 rounded-lg border border-red-200 bg-blanc px-4 py-2 text-sm font-sans font-medium text-red-600 hover:bg-red-50 transition-colors"
+                  style="min-height: 44px;"
+                  data-id={a.id}
+                  aria-label={`Retirer ${a.marque} ${a.modele}`}
+                >
+                  <Icon name="lucide:trash-2" class="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </article>
+        ))}
+
+        {appareils.length === 0 && (
+          <div class="rounded-xl border-2 border-dashed border-gris-clair bg-creme/40 p-10 text-center">
+            <Icon name="lucide:package" class="w-10 h-10 text-gris-texte mx-auto mb-3" />
+            <p class="font-sans text-marine font-semibold mb-1">Aucun appareil ajouté pour le moment</p>
+            <p class="text-sm font-sans text-gris-texte">Ajoutez jusqu'à 6 appareils avec votre verdict personnalisé.</p>
+          </div>
+        )}
+      </section>
+
+      {/* Formulaire ajout/edit */}
+      {appareils.length < 6 && (
+        <section class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7" id="appareil-form-section">
+          <h2 class="font-sans text-lg font-bold text-marine mb-1" id="form-title">Ajouter un appareil</h2>
+          <p class="text-sm text-gris-texte font-sans mb-5">
+            {appareils.length}/6 appareils. Vous pouvez en ajouter {6 - appareils.length} supplémentaire(s).
+          </p>
+
+          <form id="appareil-form" class="grid gap-5 sm:grid-cols-2">
+            <input type="hidden" name="id" id="form-id" value="" />
+
+            <div>
+              <label for="form-marque" class="block text-sm font-medium text-marine font-sans mb-1">Marque</label>
+              <select
+                id="form-marque"
+                name="marque"
+                required
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
+                style="min-height: 44px;"
+              >
+                <option value="">—</option>
+                {marques.map((m) => <option value={m}>{m}</option>)}
+              </select>
+            </div>
+
+            <div>
+              <label for="form-modele" class="block text-sm font-medium text-marine font-sans mb-1">Modèle</label>
+              <input
+                id="form-modele"
+                name="modele"
+                type="text"
+                required
+                maxlength="80"
+                placeholder="Ex : Audéo Sphere Infinio I90"
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
+              />
+            </div>
+
+            <div>
+              <label for="form-classe" class="block text-sm font-medium text-marine font-sans mb-1">Classe de remboursement</label>
+              <select
+                id="form-classe"
+                name="classe"
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
+                style="min-height: 44px;"
+              >
+                <option value="tous">Classe 1 & 2</option>
+                <option value="1">Classe 1 (100% Santé)</option>
+                <option value="2">Classe 2</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="form-type" class="block text-sm font-medium text-marine font-sans mb-1">Type d'appareil</label>
+              <select
+                id="form-type"
+                name="type_appareil"
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
+                style="min-height: 44px;"
+              >
+                <option value="RITE">RITE (contour ouvert)</option>
+                <option value="BTE">BTE (contour classique)</option>
+                <option value="ITE">ITE (intra conque)</option>
+                <option value="CIC">CIC (intra canal)</option>
+                <option value="IIC">IIC (intra invisible)</option>
+                <option value="contour">Contour</option>
+              </select>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="form-verdict" class="block text-sm font-medium text-marine font-sans mb-1">
+                Votre verdict <span class="text-gris-texte font-normal">(20-250 caractères)</span>
+              </label>
+              <textarea
+                id="form-verdict"
+                name="verdict_audio"
+                rows="3"
+                minlength="20"
+                maxlength="250"
+                required
+                placeholder="Ex : Excellente intelligibilité dans le bruit grâce au processeur Sphere. Autonomie 16h, Bluetooth multipoints. Premier choix pour les presbyacousies sévères."
+                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 resize-y"
+              ></textarea>
+              <p class="text-xs text-gris-texte font-sans mt-1" id="verdict-count">0 / 250 caractères</p>
+            </div>
+
+            <div id="appareil-form-error" class="sm:col-span-2 hidden rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-600 font-sans"></div>
+            <div id="appareil-form-success" class="sm:col-span-2 hidden rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-700 font-sans"></div>
+
+            <div class="sm:col-span-2 flex flex-col sm:flex-row gap-3">
+              <button
+                type="submit"
+                id="form-submit"
+                class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange px-6 py-3 text-base font-semibold text-blanc font-sans hover:bg-orange-hover transition-colors disabled:opacity-60"
+                style="min-height: 48px;"
+              >
+                <Icon name="lucide:plus" class="w-4 h-4" />
+                <span id="submit-label">Ajouter cet appareil</span>
+              </button>
+              <button
+                type="button"
+                id="form-cancel"
+                class="hidden inline-flex items-center justify-center gap-2 rounded-lg border border-gris-clair px-6 py-3 text-base font-medium text-gris-texte font-sans hover:bg-creme transition-colors"
+                style="min-height: 48px;"
+              >
+                Annuler
+              </button>
+            </div>
+          </form>
+        </section>
+      )}
+    </>
+  )}
+
+  <script define:vars={{ centreSlug: centre.slug, appareilsJson: JSON.stringify(appareils) }}>
+    const appareils = JSON.parse(appareilsJson);
+    const form = document.getElementById('appareil-form');
+    if (!form) {
+      // Pas premium -> pas de form, on skip
+    } else {
+      const submitBtn = document.getElementById('form-submit');
+      const cancelBtn = document.getElementById('form-cancel');
+      const submitLabel = document.getElementById('submit-label');
+      const formTitle = document.getElementById('form-title');
+      const errorDiv = document.getElementById('appareil-form-error');
+      const successDiv = document.getElementById('appareil-form-success');
+      const verdictArea = document.getElementById('form-verdict');
+      const verdictCount = document.getElementById('verdict-count');
+      const idInput = document.getElementById('form-id');
+
+      function showMsg(kind, msg) {
+        errorDiv.classList.add('hidden');
+        successDiv.classList.add('hidden');
+        const target = kind === 'error' ? errorDiv : successDiv;
+        target.textContent = msg;
+        target.classList.remove('hidden');
+      }
+
+      verdictArea.addEventListener('input', () => {
+        verdictCount.textContent = `${verdictArea.value.length} / 250 caractères`;
+      });
+
+      function resetForm() {
+        form.reset();
+        idInput.value = '';
+        submitLabel.textContent = 'Ajouter cet appareil';
+        formTitle.textContent = 'Ajouter un appareil';
+        cancelBtn.classList.add('hidden');
+        verdictCount.textContent = '0 / 250 caractères';
+      }
+
+      cancelBtn?.addEventListener('click', () => {
+        resetForm();
+        errorDiv.classList.add('hidden');
+        successDiv.classList.add('hidden');
+      });
+
+      // Édition
+      document.querySelectorAll('.appareil-edit').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-id');
+          const a = appareils.find((x) => x.id === id);
+          if (!a) return;
+          idInput.value = a.id;
+          document.getElementById('form-marque').value = a.marque;
+          document.getElementById('form-modele').value = a.modele;
+          document.getElementById('form-classe').value = a.classe;
+          document.getElementById('form-type').value = a.type_appareil;
+          verdictArea.value = a.verdict_audio;
+          verdictCount.textContent = `${a.verdict_audio.length} / 250 caractères`;
+          submitLabel.textContent = 'Enregistrer les modifications';
+          formTitle.textContent = 'Modifier l\'appareil';
+          cancelBtn.classList.remove('hidden');
+          document.getElementById('appareil-form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      // Suppression
+      document.querySelectorAll('.appareil-delete').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const id = btn.getAttribute('data-id');
+          if (!confirm('Retirer cet appareil de votre sélection ?')) return;
+          btn.disabled = true;
+          try {
+            const res = await fetch('/api/audiopro/appareil-phare', {
+              method: 'DELETE',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id, centreSlug }),
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Erreur');
+            window.location.reload();
+          } catch (err) {
+            alert(err.message || 'Erreur lors de la suppression.');
+            btn.disabled = false;
+          }
+        });
+      });
+
+      // Submit
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorDiv.classList.add('hidden');
+        successDiv.classList.add('hidden');
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+        const id = formData.get('id');
+        const payload = {
+          centreSlug,
+          marque: formData.get('marque'),
+          modele: formData.get('modele'),
+          classe: formData.get('classe'),
+          type_appareil: formData.get('type_appareil'),
+          verdict_audio: formData.get('verdict_audio'),
+        };
+
+        const url = '/api/audiopro/appareil-phare';
+        const method = id ? 'PUT' : 'POST';
+        if (id) payload.id = id;
+
+        try {
+          const res = await fetch(url, {
+            method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || 'Erreur');
+          showMsg('success', id ? 'Appareil mis à jour.' : 'Appareil ajouté.');
+          setTimeout(() => window.location.reload(), 800);
+        } catch (err) {
+          showMsg('error', err.message || 'Erreur inattendue.');
+          submitBtn.disabled = false;
+        }
+      });
+    }
+  </script>
+</AudioproLayout>

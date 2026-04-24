@@ -24,6 +24,7 @@ import CentreMap from '../../components/centre/CentreMap.astro';
 import PremiumExpertiseBlock from '../../components/centre/premium/PremiumExpertiseBlock.astro';
 import PremiumEquipementBlock from '../../components/centre/premium/PremiumEquipementBlock.astro';
 import PremiumParcoursBlock from '../../components/centre/premium/PremiumParcoursBlock.astro';
+import PremiumAppareilsPharesBlock from '../../components/centre/premium/PremiumAppareilsPharesBlock.astro';
 import PremiumArticlesBlock from '../../components/centre/premium/PremiumArticlesBlock.astro';
 import PremiumAccessibiliteBlock from '../../components/centre/premium/PremiumAccessibiliteBlock.astro';
 import PremiumPartenairesBlock from '../../components/centre/premium/PremiumPartenairesBlock.astro';
@@ -290,6 +291,9 @@ if (typedCentre.marques?.length > 0) {
 
         {/* Parcours patient 4 étapes + HowTo JSON-LD */}
         <PremiumParcoursBlock centre={typedCentre} />
+
+        {/* Appareils recommandés par l'audio (si renseignés) */}
+        <PremiumAppareilsPharesBlock centre={typedCentre} />
 
         {/* Articles contextualisés — maillage interne SEO */}
         <PremiumArticlesBlock centre={typedCentre} />
