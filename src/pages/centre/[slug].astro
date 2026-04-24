@@ -71,6 +71,17 @@ if (typedCentre.is_demo === true && !Astro.locals.user) {
   return new Response(null, { status: 404 });
 }
 
+// Tracking vue de fiche : insert SSR pour capter le maximum de hits
+// (bots sans JS inclus, ad-blockers ne peuvent pas strip le fetch).
+// On attend la promesse dans un try/catch : en serverless, un .catch
+// fire-and-forget peut être tué si l'instance est recyclée avant
+// résolution — mieux vaut les 30-60ms de latence que des pertes.
+try {
+  await supabase.from('centre_page_views').insert({ centre_id: typedCentre.id });
+} catch (err) {
+  console.error('[centre view] insert failed', err);
+}
+
 const isRpps = typedCentre.plan === 'rpps';
 const isClaimed = typedCentre.plan === 'claimed';
 const isPremium = typedCentre.plan === 'premium';
@@ -345,13 +356,4 @@ if (typedCentre.marques?.length > 0) {
   </article>
 
   <HealthDisclaimer />
-
-  {/* Tracking page view */}
-  <script define:vars={{ centreId: typedCentre.id }}>
-    fetch('/api/page-view', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ centreId }),
-    }).catch(() => {});
-  </script>
 </BaseLayout>
