@@ -1,0 +1,62 @@
+{
+  "slug": "resound-vibrant",
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "Vibrant",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE 312",
+  "puce": "ReSound",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2022,
+  "specs": {
+    "canaux": 12,
+    "batterie": "Pile 312",
+    "autonomie": "5-7 jours",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à sévère"
+  },
+  "connectivite": {
+    "bluetooth": "Non",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": false
+  },
+  "sourceUrl": "https://www.resound.com/fr-fr/",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-resound-nexia-1.webp",
+  "descriptionCourte": "Contour d'oreille BTE ReSound en 100% Santé (Classe 1). 12 canaux, bobine T, pile 312, IP68. Pour les patients qui préfèrent un BTE traditionnel sans reste à charge.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "Format BTE classique — boîtier derrière l'oreille plus facile à manipuler pour les dextérités réduites",
+    "Bobine T incluse — compatible boucles magnétiques",
+    "12 canaux de réglage — largement suffisant pour un quotidien calme",
+    "IP68 — résistance à l'eau et à la poussière"
+  ],
+  "pointsFaibles": [
+    "Pas de Bluetooth — aucun streaming téléphone ni télévision",
+    "Non rechargeable — piles 312 à changer tous les 5 à 7 jours",
+    "Pas de générateur d'acouphènes à ce prix",
+    "Format BTE plus visible qu'un RIC ou un intra — pas idéal si discrétion prioritaire"
+  ],
+  "noteExpert": 6,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/resound-nexia-brochure.pdf",
+  "descriptionComplete": "Le ReSound Vibrant est le contour d'oreille BTE de ReSound positionné en 100% Santé. Contrairement à la gamme Savi (RIC, intra, CIC) lancée en 2025, le Vibrant vise spécifiquement le public qui préfère — ou qui a besoin — d'un BTE classique sans reste à charge.\n\nPrix et remboursement\nVibrant est en Classe 1 à 950€ TTC par appareil, entièrement remboursé par l'Assurance Maladie et les complémentaires santé au titre du 100% Santé. Aucun reste à charge pour vous, à condition que votre contrat de complémentaire couvre le 100% Santé (obligatoire pour les contrats responsables).\n\nPourquoi un BTE plutôt qu'un RIC\nLe BTE place l'ensemble de l'électronique derrière l'oreille et transmet le son au conduit auditif via un tube acoustique et un embout. Avantages concrets :\n- Boîtier plus gros, plus facile à manipuler pour les patients avec une dextérité réduite (arthrose, tremblements).\n- Écouteur protégé du cérumen — l'amplification est dans le boîtier, pas dans le conduit.\n- Puissance d'amplification supérieure à un RIC à gamme équivalente — utile pour les pertes plus marquées.\n\nTechnologie\n12 canaux de traitement, plage d'adaptation légère à sévère. Bobine T incluse pour les boucles magnétiques (théâtres, guichets, salles de culte). IP68. Pile 312 avec 5 à 7 jours d'autonomie.\n\nLes limites\nLe Vibrant est un appareil sobre. Pas de Bluetooth, pas de streaming, pas d'application, pas de mains libres. Si votre quotidien exige une connectivité multimédia ou si vous tenez à la discrétion visuelle, orientez-vous vers la gamme Savi (RIC, LE Audio + Auracast inclus) ou vers un flagship Classe 2.\n\nVerdict expert\nNote : 6/10. Le Vibrant est honnête pour son positionnement très spécifique : un patient qui veut un BTE traditionnel en 100% Santé, avec dextérité parfois réduite, qui ne demande pas de connectivité moderne. Pour ce profil, c'est un choix pertinent sans reste à charge. Pour tout autre profil, la gamme Savi est en 2026 un meilleur choix au même prix.\n\nEn une phrase : le contour d'oreille traditionnel ReSound sans reste à charge, pour qui n'a pas besoin de Bluetooth.",
+  "legacy": false,
+  "metaTitle": "ReSound Vibrant : Classe 1 à 950€, fiche BTE",
+  "metaDescription": "BTE ReSound 100% Santé. 12 canaux, bobine T, IP68, pile 312. RAC 0€. Avis audioprothésiste DE."
+}
