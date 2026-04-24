@@ -4,6 +4,7 @@ export const prerender = false;
 import { Icon } from 'astro-icon/components';
 import AudioproLayout from '../../layouts/AudioproLayout.astro';
 import RppsSuggestion from '../../components/audiopro/RppsSuggestion.astro';
+import TeamManager from '../../components/audiopro/TeamManager.astro';
 import { createServerClient } from '../../lib/supabase';
 import {
   ACTIVE_CENTRE_COOKIE,
@@ -637,6 +638,9 @@ const partenairesSlots = Array.from({ length: 5 }, (_, i) => partenairesInit[i] 
             </div>
           </div>
         </div>
+
+        {/* Bloc Équipe (multi-audios) - Premium only, sous les champs titulaire */}
+        <TeamManager centre={centre} />
       </section>
     )}
 
