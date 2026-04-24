@@ -7,6 +7,7 @@
 // -> 3 KPIs (2 visibles + 1 locked) -> 2 upsells 50/50 -> 3 leviers
 // teaser lockés -> accès rapide.
 
+import { Icon } from 'astro-icon/components';
 import WelcomeBanner from '../shared/WelcomeBanner.astro';
 import SectionHeader from '../shared/SectionHeader.astro';
 import KPICard from '../shared/KPICard.astro';
@@ -131,6 +132,33 @@ const claimedLabel =
     subtitle="Deux formules pour booster votre visibilité"
   />
 </div>
+
+{/* CTA demo Premium — lien vers fiche démo LGA remplie */}
+<aside class="mb-6 rounded-xl bg-gradient-to-br from-marine to-marine-light p-5 sm:p-6 text-blanc shadow-[0_4px_12px_rgba(27,46,74,0.15)]">
+  <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+    <div class="w-12 h-12 rounded-full bg-orange/20 text-orange flex items-center justify-center shrink-0">
+      <Icon name="lucide:sparkles" class="w-6 h-6" />
+    </div>
+    <div class="flex-1 min-w-0">
+      <p class="font-sans text-base sm:text-lg font-bold mb-1">
+        Voyez concrètement ce que Premium permet
+      </p>
+      <p class="text-sm font-sans text-blanc/85 leading-snug">
+        Fiche démo complète avec bio audio, 2 appareils phares (Phonak + Signia), parcours patient, actualités, cas patients anonymisés et FAQ locale.
+      </p>
+    </div>
+    <a
+      href="/centre/le-guide-auditif-69630-chaponost/"
+      target="_blank"
+      rel="noopener"
+      class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange text-blanc font-sans font-bold text-sm px-5 py-3 hover:bg-orange-hover transition-colors shrink-0"
+      style="min-height: 44px;"
+    >
+      Voir une fiche Premium
+      <Icon name="lucide:external-link" class="w-4 h-4" />
+    </a>
+  </div>
+</aside>
 
 <div class="grid grid-cols-1 gap-5 lg:grid-cols-[1.4fr_1fr] mb-10">
   <UpsellCard
