@@ -8,7 +8,7 @@ les upload dans le bucket centre-photos, met à jour la DB :
   - photos_cabine[] = URLs des 4 photos cabine (carré 1:1)
 
 Usage :
-    python scripts/generate-centre-photos.py --slug le-guide-auditif-69630-chaponost
+    python scripts/generate-centre-photos.py --slug le-guide-auditif-demo-premium-franck-olivier
     python scripts/generate-centre-photos.py --slug ... --dry-run
     python scripts/generate-centre-photos.py --slug ... --only avatar
     python scripts/generate-centre-photos.py --slug ... --only cabine-0
