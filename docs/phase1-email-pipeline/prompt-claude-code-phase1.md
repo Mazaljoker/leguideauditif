@@ -216,22 +216,29 @@ GO.
 
 ## Comment utiliser ce prompt
 
-Dans Claude Code, première instruction :
+### Option A — Tout dans un seul message Claude Code
 
+Tu colles le bloc ci-dessus (entre les ``` et ```) dans Claude Code au démarrage d'une nouvelle session, **avec les 4 documents de spec en pièce jointe** (ou accessibles dans le repo).
+
+### Option B — Les specs dans le repo (recommandée — déjà fait)
+
+Les 4 fichiers `.md` + ce prompt sont poussés sur la branche `feat/email-pipeline-phase1` dans `docs/phase1-email-pipeline/`.
+
+Dans Claude Code, première instruction :
 ```
-Lis les 4 fichiers dans docs/phase1-email-pipeline/ (prd-email-pipeline-revendicateurs.md, specs-phase1-data.md, specs-phase1-endpoints.md, specs-phase1-admin.md) puis applique l'étape 0 du prompt.
+Lis les 5 fichiers dans docs/phase1-email-pipeline/ sur la branche feat/email-pipeline-phase1, puis applique l'étape 0 du prompt.
 ```
 
 ---
 
-## Ce que Franck doit vérifier après chaque étape
+## Ce que tu dois vérifier après chaque étape
 
 ### Après Étape 1 (data)
 
 - [ ] 5 migrations poussées sur Supabase projet `ftinchxyuqpnxilypmyk`
 - [ ] Requête `SELECT COUNT(*) FROM audiopro_lifecycle;` renvoie ≈ 43 (ou le compte réel de revendicateurs actuels)
 - [ ] Requête `SELECT lifecycle_stage, COUNT(*) FROM audiopro_lifecycle GROUP BY lifecycle_stage;` a une distribution cohérente
-- [ ] Anthony Athuil apparaît avec 3 centres
+- [ ] Anthony Athuil apparaît avec 3 centres : `SELECT prenom, nom, email, (SELECT COUNT(*) FROM audiopro_centres WHERE audiopro_id = a.id) AS nb_centres FROM audiopro_lifecycle a WHERE email = 'anthony.athuil@...';`
 - [ ] `npm run build` passe
 - [ ] Commit sur la branche, pas sur main
 
