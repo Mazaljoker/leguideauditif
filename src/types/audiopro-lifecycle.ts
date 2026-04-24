@@ -81,6 +81,12 @@ export interface AudioproLifecycle {
 
   hard_bounced_at: string | null;
 
+  /**
+   * Fusion molle : pointe vers l'audio canonical si cette ligne est un
+   * doublon. NULL = ligne active (visible dans v_audiopro_list). Migration 031.
+   */
+  merged_into_id: string | null;
+
   created_at: string;
   updated_at: string;
 }
