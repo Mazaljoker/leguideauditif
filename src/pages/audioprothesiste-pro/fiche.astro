@@ -3,6 +3,7 @@ export const prerender = false;
 
 import { Icon } from 'astro-icon/components';
 import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import RppsSuggestion from '../../components/audiopro/RppsSuggestion.astro';
 import { createServerClient } from '../../lib/supabase';
 import {
   ACTIVE_CENTRE_COOKIE,
@@ -89,6 +90,9 @@ const partenairesSlots = Array.from({ length: 5 }, (_, i) => partenairesInit[i] 
       </a>
     </div>
   </header>
+
+  {/* Bloc suggestion RPPS (affiche si centre.rpps NULL + match trouve) */}
+  <RppsSuggestion centre={centre} />
 
   {/* Onglets */}
   <div class="mb-6" role="tablist" aria-label="Sections de la fiche">

@@ -1,0 +1,190 @@
+---
+// Bloc suggestion RPPS affiché en haut de /audioprothesiste-pro/fiche/
+// quand centre.rpps est NULL.
+//
+// Cherche dans la table rpps_audioprothesistes (7146 audios DE France
+// entiere) en matchant sur le prenom/nom extraits de claimed_by_name
+// (ou audio_prenom/audio_nom en secondary). Priorise les matches du
+// meme departement.
+//
+// Sans match : encart neutre invitant a saisir manuellement l'input
+// plus bas dans le form.
+// Avec matches : liste de candidats avec bouton "C'est moi" qui POST
+// /api/audiopro/link-rpps -> update centre.rpps.
+
+import { Icon } from 'astro-icon/components';
+import { supabase } from '../../lib/supabase';
+import type { CentreData } from '../../types/centre';
+
+export interface Props {
+  centre: CentreData;
+}
+
+const { centre } = Astro.props;
+
+// Extraction prenom/nom depuis les champs disponibles.
+// Priorite 1 : claimed_by_name (saisi par l'audio au claim)
+// Priorite 2 : audio_prenom + audio_nom (fallback FINESS/import)
+function parseName(raw: string): { firstName: string; lastName: string } | null {
+  const clean = raw.trim().replace(/\s+/g, ' ');
+  if (!clean) return null;
+  const parts = clean.split(' ').filter(Boolean);
+  if (parts.length === 0) return null;
+  if (parts.length === 1) return { firstName: '', lastName: parts[0] };
+  // "Anthony Athuil" -> firstName=Anthony, lastName=Athuil
+  // "Sandrine BRION BOGARD" -> firstName=Sandrine, lastName=BRION BOGARD
+  // "COMTE-LATHUILIERE" pris comme un seul lastName
+  return {
+    firstName: parts[0],
+    lastName: parts.slice(1).join(' '),
+  };
+}
+
+let candidates: Array<{
+  rpps: string;
+  civilite: string | null;
+  nom: string;
+  prenom: string;
+  code_postal: string | null;
+  commune: string | null;
+  raison_sociale: string | null;
+  enseigne: string | null;
+}> = [];
+
+if (!centre.rpps) {
+  const parsed =
+    (centre.claimed_by_name && parseName(centre.claimed_by_name)) ||
+    (centre.audio_prenom && centre.audio_nom
+      ? { firstName: centre.audio_prenom, lastName: centre.audio_nom }
+      : null);
+
+  if (parsed?.lastName) {
+    const depCode = (centre.cp ?? '').substring(0, 2);
+    // Match principal : nom exact (case-insensitive). On laisse le prenom
+    // en secondary dans l'ORDER BY pour remonter les meilleurs en tete.
+    const { data } = await supabase
+      .from('rpps_audioprothesistes')
+      .select('rpps, civilite, nom, prenom, code_postal, commune, raison_sociale, enseigne, departement_code')
+      .ilike('nom', parsed.lastName)
+      .limit(20);
+    candidates = (data ?? []) as typeof candidates;
+
+    // Scoring client : prenom match + departement match remontent en tete
+    const firstUpper = parsed.firstName.toUpperCase();
+    candidates.sort((a, b) => {
+      const scoreA =
+        (a.prenom.toUpperCase() === firstUpper ? 0 : a.prenom.toUpperCase().startsWith(firstUpper) ? 1 : 2) +
+        ((a as typeof a & { departement_code?: string }).departement_code === depCode ? 0 : 10);
+      const scoreB =
+        (b.prenom.toUpperCase() === firstUpper ? 0 : b.prenom.toUpperCase().startsWith(firstUpper) ? 1 : 2) +
+        ((b as typeof b & { departement_code?: string }).departement_code === depCode ? 0 : 10);
+      return scoreA - scoreB;
+    });
+    candidates = candidates.slice(0, 5);
+  }
+}
+---
+
+{!centre.rpps && (
+  <section
+    class="mb-6 rounded-xl border-2 border-orange/40 bg-orange/5 p-5 sm:p-6"
+    aria-labelledby="rpps-suggestion-title"
+  >
+    <div class="flex items-start gap-3 mb-4">
+      <div class="w-10 h-10 rounded-full bg-orange/15 text-orange flex items-center justify-center shrink-0">
+        <Icon name="lucide:shield-check" class="w-5 h-5" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <h2 id="rpps-suggestion-title" class="font-sans text-lg font-bold text-marine mb-1">
+          Vérification d'identité RPPS
+        </h2>
+        <p class="text-sm font-sans text-gris-texte">
+          {candidates.length > 0
+            ? 'Nous avons trouvé votre profil dans le répertoire RPPS officiel. Validez pour afficher « Identité vérifiée » sur votre fiche publique.'
+            : 'Votre N° RPPS est indispensable pour afficher la ligne « Identité vérifiée » sur votre fiche publique (signal Trust YMYL critique).'}
+        </p>
+      </div>
+    </div>
+
+    {candidates.length > 0 && (
+      <ul class="space-y-2" data-rpps-candidates data-centre-slug={centre.slug}>
+        {candidates.map((c) => (
+          <li class="rounded-lg border border-gris-clair bg-blanc p-4 flex flex-col sm:flex-row sm:items-center gap-3">
+            <div class="flex-1 min-w-0">
+              <p class="font-sans font-semibold text-marine">
+                {c.civilite ? `${c.civilite} ` : ''}{c.prenom} <span class="uppercase">{c.nom}</span>
+              </p>
+              <p class="text-xs font-sans text-gris-texte mt-0.5">
+                RPPS <span class="font-mono text-marine">{c.rpps}</span>
+                {c.commune && <> · {c.commune} {c.code_postal}</>}
+                {c.raison_sociale && <> · {c.raison_sociale}</>}
+                {c.enseigne && <> · {c.enseigne}</>}
+              </p>
+            </div>
+            <button
+              type="button"
+              data-rpps-link
+              data-rpps={c.rpps}
+              class="rpps-link-btn inline-flex items-center justify-center gap-2 rounded-lg bg-orange text-blanc font-sans font-semibold text-sm px-4 py-2.5 hover:bg-orange-hover transition-colors shrink-0"
+              style="min-height: 44px;"
+            >
+              <Icon name="lucide:check" class="w-4 h-4" />
+              C'est moi
+            </button>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    {candidates.length === 0 && (
+      <div class="rounded-lg border border-gris-clair bg-blanc p-4">
+        <p class="text-sm font-sans text-marine">
+          Aucun profil trouvé automatiquement pour <strong>{centre.claimed_by_name ?? `${centre.audio_prenom ?? ''} ${centre.audio_nom ?? ''}`}</strong>.
+          Saisissez votre N° RPPS manuellement dans le champ <strong>N° RPPS</strong> du formulaire ci-dessous.
+        </p>
+        <p class="text-xs font-sans text-gris-texte mt-2">
+          <Icon name="lucide:info" class="inline w-3.5 h-3.5" /> Vous trouverez votre RPPS sur <a href="https://annuaire.sante.fr/" target="_blank" rel="noopener" class="text-orange font-semibold hover:underline">annuaire.sante.fr</a> ou sur votre diplôme DE.
+        </p>
+      </div>
+    )}
+
+    <div id="rpps-link-status" class="hidden mt-3 text-xs font-sans"></div>
+  </section>
+)}
+
+<script>
+  const container = document.querySelector<HTMLElement>('[data-rpps-candidates]');
+  const status = document.getElementById('rpps-link-status');
+
+  function showStatus(kind: 'success' | 'error', msg: string) {
+    if (!status) return;
+    status.className = 'mt-3 text-xs font-sans ' + (kind === 'error' ? 'text-red-600' : 'text-[#059669]');
+    status.textContent = msg;
+    status.classList.remove('hidden');
+  }
+
+  container?.querySelectorAll<HTMLButtonElement>('.rpps-link-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const rpps = btn.dataset.rpps;
+      const centreSlug = container.dataset.centreSlug;
+      if (!rpps || !centreSlug) return;
+      btn.disabled = true;
+      btn.textContent = 'Enregistrement…';
+      try {
+        const res = await fetch('/api/audiopro/link-rpps', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ centreSlug, rpps }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data?.error || 'Erreur');
+        showStatus('success', 'RPPS lié. Rechargement…');
+        setTimeout(() => window.location.reload(), 600);
+      } catch (err) {
+        showStatus('error', err instanceof Error ? err.message : 'Erreur réseau');
+        btn.disabled = false;
+        btn.textContent = 'C\'est moi';
+      }
+    });
+  });
+</script>
