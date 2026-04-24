@@ -19,11 +19,11 @@ if (centreSlug) {
 }
 
 if (!centre) {
-  return Astro.redirect('/trouver-audioprothesiste/');
+  return Astro.redirect('/trouver-audioprothesiste/', 301);
 }
 
 if (centre.is_premium) {
-  return Astro.redirect(`/centre/${centre.slug}/`);
+  return Astro.redirect(`/centre/${centre.slug}/`, 301);
 }
 
 const displayVille = centre.ville || centre.cp;

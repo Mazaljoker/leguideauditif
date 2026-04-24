@@ -19,11 +19,11 @@ if (centreSlug) {
 }
 
 if (!centre) {
-  return Astro.redirect('/trouver-audioprothesiste/');
+  return Astro.redirect('/trouver-audioprothesiste/', 301);
 }
 
 if (centre.plan !== 'rpps' || centre.claim_status === 'pending') {
-  return Astro.redirect(`/centre/${centre.slug}/`);
+  return Astro.redirect(`/centre/${centre.slug}/`, 301);
 }
 
 // Lookup RPPS depuis la table rpps_audioprothesistes (par SIRET du centre)
