@@ -1,0 +1,68 @@
+{
+  "slug": "philips-hearlink-5010-ric",
+  "marque": "philips",
+  "marqueLabel": "Philips",
+  "groupe": "demant",
+  "modele": "HearLink 5010",
+  "formeType": "RIC",
+  "formesDisponibles": "miniRITE 312",
+  "puce": "Polaris R",
+  "niveau": "5010",
+  "niveauRaw": "5010",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2020,
+  "specs": {
+    "canaux": 16,
+    "batterie": "Pile 312",
+    "autonomie": "5-7 jours",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à sévère"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic + ASHA",
+    "auracast": false,
+    "application": "HearLink",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "sourceUrl": "https://www.laboratoires-unisson.com/appareils-auditifs",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-philips-hearlink-9050.webp",
+  "descriptionCourte": "RIC Philips HearLink 5010 en 100% Santé. Puce Polaris R partagée avec Oticon, Bluetooth Classic + ASHA, pile 312. Écoulement distributeur.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "Bluetooth Classic + ASHA — streaming iPhone et Android compatibles",
+    "Puce Polaris R partagée avec Oticon (même groupe Demant) — technologie éprouvée",
+    "16 canaux — un peu plus de finesse que les 8 canaux Paradise 30",
+    "Bobine T et générateur d'acouphènes inclus",
+    "IP68 — résistance à l'eau et à la poussière"
+  ],
+  "pointsFaibles": [
+    "Gamme HearLink 5010 antérieure aux modèles Philips actuels (HearLink IDO, 9050)",
+    "Non rechargeable — piles 312 uniquement",
+    "Pas de mains libres en appel — micro utilise le téléphone",
+    "Format unique miniRITE 312 — pas de version rechargeable ni d'autres formes",
+    "Distribution Philips limitée en France — disponibilité dépend de l'audioprothésiste"
+  ],
+  "noteExpert": 6,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/philips-hearlink-datasheet.pdf",
+  "descriptionComplete": "Le Philips HearLink 5010 miniRITE 312 est un RIC entrée de gamme du groupe Demant, positionné en 100% Santé chez certains distributeurs. Philips HearLink partage la plateforme technique avec Oticon (même groupe) — la puce Polaris R est donc la même que celle qu'on retrouvait sur les Oticon Real à la même époque.\n\nPrix et remboursement\nHearLink 5010 est en Classe 1 à 950€ TTC par appareil, entièrement remboursé au titre du 100% Santé. Aucun reste à charge, à condition que votre contrat de complémentaire couvre le 100% Santé.\n\nTechnologie\nPuce Polaris R, 16 canaux de traitement. Bluetooth Classic avec streaming direct iPhone (MFi) et compatibilité Android ASHA. Bobine T incluse, générateur d'acouphènes. IP68.\n\nLa vraie force du HearLink 5010 à ce prix : un Bluetooth plus complet que les autres RIC 100% Santé (Magnify Widex, Savi ReSound). Le streaming iPhone fonctionne nativement, et l'Android ASHA couvre une large partie des Android modernes.\n\nLes limites\nGamme plus ancienne face aux HearLink IDO et 9050 (au catalogue Philips France actuel). Non rechargeable. Pas de mains libres en appel — votre téléphone garde son rôle de micro. Et surtout, Philips HearLink a une distribution limitée en France par rapport à Oticon (même groupe) : tous les audioprothésistes ne le proposent pas.\n\nPour qui\nUn patient qui veut un RIC 100% Santé avec un vrai Bluetooth (pas juste BLE comme sur certains concurrents) et qui n'a pas besoin du mains libres. Le HearLink 5010 est alors un choix solide si votre audioprothésiste le référence. Sinon, la gamme ReSound Savi (LE Audio + Auracast) offre une connectivité plus moderne au même prix, avec une meilleure diffusion.\n\nVerdict expert\nNote : 6/10. Le HearLink 5010 est honnête pour son positionnement : un RIC Classe 1 avec Bluetooth Classic MFi et Android ASHA, 16 canaux. La contrainte principale est la disponibilité — tous les audioprothésistes ne vendent pas Philips HearLink. Si on vous le propose, c'est un choix à comparer sérieusement avec ReSound Savi.\n\nEn une phrase : le RIC Philips avec Bluetooth Classic MFi en 100% Santé — disponibilité variable, à envisager si votre audio le référence.",
+  "legacy": true,
+  "legacyReason": "Gamme antérieure aux HearLink actuels (IDO, 9050). Encore vendue en 100% Santé par certains distributeurs (Unisson) en écoulement.",
+  "metaTitle": "Philips HearLink 5010 : RIC Classe 1 avec Bluetooth, avis",
+  "metaDescription": "RIC Philips en 100% Santé. Puce Polaris R, Bluetooth Classic + ASHA. Avis audioprothésiste DE — comparer avec Savi ReSound."
+}
