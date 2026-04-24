@@ -50,8 +50,10 @@ const items: TodoItem[] = [
     ctaLabel: 'Renseigner',
   },
   {
-    label: 'Diplôme et numéro RPPS vérifié',
-    done: true,
+    label: 'Numéro RPPS renseigné',
+    done: Boolean(centre.rpps),
+    href: ficheHref,
+    ctaLabel: 'Renseigner',
   },
   {
     label: 'Ajouter votre photo de profil',
