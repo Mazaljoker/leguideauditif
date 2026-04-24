@@ -93,7 +93,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     if (!user || !user.email) return json({ error: 'Non autorisé.' }, 401);
 
     const body = await request.json();
-    const { centreSlug, marque, modele, classe, type_appareil, verdict_audio, ordre } = body;
+    const { centreSlug, marque, modele, classe, type_appareil, verdict_audio, ordre, produit_slug } = body;
 
     if (!centreSlug || !marque || !modele || !verdict_audio) {
       return json({ error: 'Champs manquants (centreSlug, marque, modele, verdict_audio requis).' }, 400);
@@ -124,6 +124,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
         classe: classe ?? 'tous',
         type_appareil: type_appareil ?? 'RITE',
         verdict_audio: verdict_audio.trim(),
+        produit_slug: typeof produit_slug === 'string' && produit_slug.trim().length > 0 ? produit_slug.trim() : null,
         ordre: typeof ordre === 'number' ? ordre : (count ?? 0) + 1,
       })
       .select()
@@ -147,7 +148,7 @@ export const PUT: APIRoute = async ({ request, cookies }) => {
     if (!user || !user.email) return json({ error: 'Non autorisé.' }, 401);
 
     const body = await request.json();
-    const { id, centreSlug, marque, modele, classe, type_appareil, verdict_audio, ordre } = body;
+    const { id, centreSlug, marque, modele, classe, type_appareil, verdict_audio, ordre, produit_slug } = body;
 
     if (!id || !centreSlug) return json({ error: 'id + centreSlug requis.' }, 400);
 
@@ -165,6 +166,11 @@ export const PUT: APIRoute = async ({ request, cookies }) => {
     if (type_appareil !== undefined) update.type_appareil = type_appareil;
     if (verdict_audio !== undefined) update.verdict_audio = String(verdict_audio).trim();
     if (ordre !== undefined) update.ordre = ordre;
+    if (produit_slug !== undefined) {
+      update.produit_slug = typeof produit_slug === 'string' && produit_slug.trim().length > 0
+        ? produit_slug.trim()
+        : null;
+    }
 
     const supabase = createServerClient();
     const { error } = await supabase

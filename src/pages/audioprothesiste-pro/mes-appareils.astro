@@ -2,6 +2,7 @@
 export const prerender = false;
 
 import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
 import AudioproLayout from '../../layouts/AudioproLayout.astro';
 import { createServerClient } from '../../lib/supabase';
 import {
@@ -35,6 +36,7 @@ interface AppareilPhare {
   classe: '1' | '2' | 'tous';
   type_appareil: 'RITE' | 'BTE' | 'ITE' | 'CIC' | 'IIC' | 'contour';
   verdict_audio: string;
+  produit_slug: string | null;
   ordre: number;
 }
 
@@ -42,13 +44,25 @@ let appareils: AppareilPhare[] = [];
 if (isPremium) {
   const { data } = await supabase
     .from('centre_appareils_phares')
-    .select('id, marque, modele, classe, type_appareil, verdict_audio, ordre')
+    .select('id, marque, modele, classe, type_appareil, verdict_audio, produit_slug, ordre')
     .eq('centre_id', centre.id)
     .order('ordre', { ascending: true });
   appareils = (data ?? []) as AppareilPhare[];
 }
 
-const marques = ['Phonak', 'Oticon', 'Signia', 'ReSound', 'Starkey', 'Widex', 'Bernafon', 'Unitron', 'Audioservice'];
+// Catalogue complet LGA pour le select produit (source de vérité)
+const catalogueRaw = await getCollection('catalogueAppareils');
+const catalogueOptions = catalogueRaw
+  .map((p) => ({
+    slug: p.id.replace(/\.json$/, ''),
+    label: `${p.data.marqueLabel} ${p.data.modele}${p.data.niveauRaw ? ' ' + p.data.niveauRaw : ''}`,
+    marque: p.data.marqueLabel,
+    modele: `${p.data.modele}${p.data.niveauRaw ? ' ' + p.data.niveauRaw : ''}`,
+    classe: p.data.classe ?? '2',
+    formeType: p.data.formeType,
+    marqueGroup: p.data.marqueLabel,
+  }))
+  .sort((a, b) => a.label.localeCompare(b.label, 'fr'));
 ---
 
 <AudioproLayout
@@ -162,63 +176,40 @@ const marques = ['Phonak', 'Oticon', 'Signia', 'ReSound', 'Starkey', 'Widex', 'B
 
           <form id="appareil-form" class="grid gap-5 sm:grid-cols-2">
             <input type="hidden" name="id" id="form-id" value="" />
+            <input type="hidden" name="marque" id="form-marque" value="" />
+            <input type="hidden" name="modele" id="form-modele" value="" />
+            <input type="hidden" name="classe" id="form-classe" value="2" />
+            <input type="hidden" name="type_appareil" id="form-type" value="RITE" />
 
-            <div>
-              <label for="form-marque" class="block text-sm font-medium text-marine font-sans mb-1">Marque</label>
+            {/* Select produit — source de vérité = catalogue LGA. Le lien
+                vers la fiche produit est généré automatiquement côté public. */}
+            <div class="sm:col-span-2">
+              <label for="form-produit" class="block text-sm font-medium text-marine font-sans mb-1">
+                Produit recommandé (catalogue LGA) *
+              </label>
               <select
-                id="form-marque"
-                name="marque"
+                id="form-produit"
+                name="produit_slug"
                 required
                 class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
                 style="min-height: 44px;"
               >
-                <option value="">—</option>
-                {marques.map((m) => <option value={m}>{m}</option>)}
+                <option value="">— Choisir un appareil —</option>
+                {catalogueOptions.map((p) => (
+                  <option
+                    value={p.slug}
+                    data-marque={p.marque}
+                    data-modele={p.modele}
+                    data-classe={p.classe}
+                    data-type={p.formeType}
+                  >
+                    {p.label}
+                  </option>
+                ))}
               </select>
-            </div>
-
-            <div>
-              <label for="form-modele" class="block text-sm font-medium text-marine font-sans mb-1">Modèle</label>
-              <input
-                id="form-modele"
-                name="modele"
-                type="text"
-                required
-                maxlength="80"
-                placeholder="Ex : Audéo Sphere Infinio I90"
-                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20"
-              />
-            </div>
-
-            <div>
-              <label for="form-classe" class="block text-sm font-medium text-marine font-sans mb-1">Classe de remboursement</label>
-              <select
-                id="form-classe"
-                name="classe"
-                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
-                style="min-height: 44px;"
-              >
-                <option value="tous">Classe 1 & 2</option>
-                <option value="1">Classe 1 (100% Santé)</option>
-                <option value="2">Classe 2</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="form-type" class="block text-sm font-medium text-marine font-sans mb-1">Type d'appareil</label>
-              <select
-                id="form-type"
-                name="type_appareil"
-                class="w-full rounded-lg border border-gris-clair px-4 py-3 text-base font-sans focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20 bg-blanc"
-                style="min-height: 44px;"
-              >
-                <option value="RITE">RITE (contour ouvert)</option>
-                <option value="BTE">BTE (contour classique)</option>
-                <option value="ITE">ITE (intra conque)</option>
-                <option value="CIC">CIC (intra canal)</option>
-                <option value="IIC">IIC (intra invisible)</option>
-                <option value="contour">Contour</option>
-              </select>
+              <p class="text-xs text-gris-texte font-sans mt-1">
+                Votre fiche renverra automatiquement vers la fiche produit complète (prix, specs, photos). {catalogueOptions.length} références disponibles.
+              </p>
             </div>
 
             <div class="sm:col-span-2">
@@ -294,9 +285,44 @@ const marques = ['Phonak', 'Oticon', 'Signia', 'ReSound', 'Starkey', 'Widex', 'B
         verdictCount.textContent = `${verdictArea.value.length} / 250 caractères`;
       });
 
+      // Auto-remplit marque/modele/classe/type depuis l'option produit sélectionnée
+      const produitSelect = document.getElementById('form-produit');
+      const marqueInput = document.getElementById('form-marque');
+      const modeleInput = document.getElementById('form-modele');
+      const classeInput = document.getElementById('form-classe');
+      const typeInput = document.getElementById('form-type');
+
+      function syncFromProduit() {
+        const opt = produitSelect.options[produitSelect.selectedIndex];
+        if (!opt || !opt.value) {
+          marqueInput.value = '';
+          modeleInput.value = '';
+          classeInput.value = '2';
+          typeInput.value = 'RITE';
+          return;
+        }
+        marqueInput.value = opt.dataset.marque || '';
+        modeleInput.value = opt.dataset.modele || '';
+        classeInput.value = opt.dataset.classe || '2';
+        // Normalise le type forme (RIC -> RITE par défaut côté API)
+        const forme = (opt.dataset.type || 'RIC').toUpperCase();
+        if (['RITE', 'BTE', 'ITE', 'CIC', 'IIC', 'CONTOUR'].includes(forme)) {
+          typeInput.value = forme === 'CONTOUR' ? 'contour' : forme;
+        } else if (forme === 'RIC' || forme === 'SLIM RIC') {
+          typeInput.value = 'RITE';
+        } else {
+          typeInput.value = 'RITE';
+        }
+      }
+      produitSelect?.addEventListener('change', syncFromProduit);
+
       function resetForm() {
         form.reset();
         idInput.value = '';
+        marqueInput.value = '';
+        modeleInput.value = '';
+        classeInput.value = '2';
+        typeInput.value = 'RITE';
         submitLabel.textContent = 'Ajouter cet appareil';
         formTitle.textContent = 'Ajouter un appareil';
         cancelBtn.classList.add('hidden');
@@ -316,10 +342,17 @@ const marques = ['Phonak', 'Oticon', 'Signia', 'ReSound', 'Starkey', 'Widex', 'B
           const a = appareils.find((x) => x.id === id);
           if (!a) return;
           idInput.value = a.id;
-          document.getElementById('form-marque').value = a.marque;
-          document.getElementById('form-modele').value = a.modele;
-          document.getElementById('form-classe').value = a.classe;
-          document.getElementById('form-type').value = a.type_appareil;
+          // Restore le produit sélectionné (si présent dans le catalogue)
+          if (a.produit_slug) {
+            produitSelect.value = a.produit_slug;
+            syncFromProduit();
+          } else {
+            produitSelect.value = '';
+            marqueInput.value = a.marque;
+            modeleInput.value = a.modele;
+            classeInput.value = a.classe;
+            typeInput.value = a.type_appareil;
+          }
           verdictArea.value = a.verdict_audio;
           verdictCount.textContent = `${a.verdict_audio.length} / 250 caractères`;
           submitLabel.textContent = 'Enregistrer les modifications';
@@ -367,6 +400,7 @@ const marques = ['Phonak', 'Oticon', 'Signia', 'ReSound', 'Starkey', 'Widex', 'B
           classe: formData.get('classe'),
           type_appareil: formData.get('type_appareil'),
           verdict_audio: formData.get('verdict_audio'),
+          produit_slug: formData.get('produit_slug'),
         };
 
         const url = '/api/audiopro/appareil-phare';
