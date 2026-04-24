@@ -48,13 +48,33 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   if (accessToken && refreshToken) {
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
-    const { data: { user } } = await supabase.auth.setSession({
+    const { data: { user, session } } = await supabase.auth.setSession({
       access_token: accessToken,
       refresh_token: refreshToken,
     });
 
     // Rendre le user disponible dans Astro.locals
     context.locals.user = user;
+
+    // Supabase rotate le refresh token à chaque setSession. Si on ne
+    // persiste pas les nouveaux tokens, la prochaine requête du même
+    // browser arrive avec des cookies obsolètes → user null → 401 sur
+    // les API /admin et /audiopro. Reécrire les cookies à chaque rotation
+    // rend le middleware auto-réparant entre deux requêtes.
+    if (
+      session &&
+      (session.access_token !== accessToken || session.refresh_token !== refreshToken)
+    ) {
+      const cookieOpts = {
+        path: '/',
+        httpOnly: true,
+        sameSite: 'lax' as const,
+        secure: import.meta.env.PROD,
+        maxAge: 60 * 60 * 24 * 30, // 30 jours
+      };
+      context.cookies.set('sb-access-token', session.access_token, cookieOpts);
+      context.cookies.set('sb-refresh-token', session.refresh_token, cookieOpts);
+    }
   } else {
     context.locals.user = null;
   }
