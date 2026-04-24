@@ -14,11 +14,8 @@ interface FicheIncompleteRelanceData {
 }
 
 /**
- * Template de relance manuelle sur la complétude de fiche.
- * Seul template Phase 1 déclenchable via /api/admin/relance-email.
- *
- * NOTE : copy placeholder entre <!-- BEGIN COPY --> et <!-- END COPY --> à
- * humaniser via nposts-social-humanizer avant mise en production.
+ * Seul template nurture fonctionnel en Phase 1 via
+ * /api/admin/relance-email. Voix Franck-Olivier, pair à pair.
  */
 export function ficheIncompleteRelanceEmail(data: FicheIncompleteRelanceData): string {
   const { prenom, centres } = data;
@@ -50,29 +47,33 @@ export function ficheIncompleteRelanceEmail(data: FicheIncompleteRelanceData): s
     ? `<p class="text-muted">${complete.length} de vos fiches sont déjà complètes.</p>`
     : '';
 
-  const ctaLabel = incomplete.length === 1 ? 'ma fiche' : 'mes fiches';
+  const isPlural = incomplete.length > 1;
+  const ctaLabel = isPlural ? 'mes fiches' : 'ma fiche';
+  const introLine = isPlural
+    ? `Vos fiches sont en ligne, mais plusieurs ont encore des champs vides que les patients attendent avant de prendre rendez-vous.`
+    : `Votre fiche est en ligne, mais il lui manque encore quelques infos que les patients regardent avant de prendre rendez-vous.`;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
 
   return emailLayout(
-    'Votre fiche mérite quelques minutes',
+    'Quelques minutes pour compléter',
     `
-    <!-- BEGIN COPY -->
     <p>${greeting}</p>
 
-    <p>Votre fiche est visible sur LeGuideAuditif, mais il manque encore quelques infos pour que les patients aient une vue complète de votre centre.</p>
+    <p>${introLine}</p>
 
     <h2>État de vos fiches</h2>
     ${centresBlock}
     ${completeBlock}
 
-    <p>D'expérience, les fiches complètes reçoivent en moyenne 3 fois plus de demandes de contact patient que les fiches partielles. Quelques minutes suffisent pour combler les champs manquants.</p>
+    <p>Trois champs font vraiment la différence : <strong>la photo de cabine</strong>, <strong>les horaires précis</strong> (y compris les coupures méridiennes) et <strong>une description de 3-4 phrases</strong> qui dit ce qui vous distingue. Les patients qui lisent ça avant d'appeler arrivent préparés, et la première consultation va plus vite.</p>
 
     <p><a href="${editUrl}" class="btn">Compléter ${ctaLabel}</a></p>
 
-    <p>Si vous avez besoin d'un coup de main, répondez directement à ce mail.</p>
+    <p>Si un champ du formulaire vous bloque ou si vous voulez un retour sur votre description avant de publier, répondez à ce mail, je regarde directement.</p>
 
-    <p>Cordialement,<br/>Franck-Olivier Chabbat<br/>Audioprothésiste DE — LeGuideAuditif.fr</p>
-    <!-- END COPY -->
+    <p>Cordialement,<br/>
+    Franck-Olivier Chabbat<br/>
+    Audioprothésiste DE — LeGuideAuditif.fr</p>
     `,
   );
 }
