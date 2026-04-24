@@ -4,8 +4,16 @@ export const prerender = false;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import LoginForm from '../../components/auth/LoginForm';
+import { Icon } from 'astro-icon/components';
 
 const redirect = Astro.url.searchParams.get('redirect') || '/annonces/deposer/';
+const reason = Astro.url.searchParams.get('reason');
+const loggedUser = Astro.locals.user;
+
+// Cas "need-admin" : l'user est connecté mais pas avec l'email admin.
+// Afficher un bandeau explicite + bouton logout pour éviter le redirect
+// loop silencieux qui laisse croire que le login est cassé.
+const needAdminMismatch = reason === 'need-admin' && loggedUser;
 
 const breadcrumbs = [
   { label: 'Accueil', href: '/' },
@@ -27,7 +35,55 @@ const breadcrumbs = [
         Accedez a votre espace pour deposer et gerer vos annonces.
       </p>
 
+      {needAdminMismatch && (
+        <div class="mb-6 rounded-xl border-2 border-orange bg-orange/5 p-5">
+          <div class="flex items-start gap-3 mb-3">
+            <Icon name="lucide:alert-triangle" class="w-6 h-6 text-orange shrink-0 mt-0.5" />
+            <div class="flex-1 min-w-0">
+              <p class="font-sans font-bold text-marine mb-1">
+                Ce compte n'a pas accès à l'administration
+              </p>
+              <p class="text-sm text-marine font-sans">
+                Vous êtes actuellement connecté comme <strong class="break-all">{loggedUser.email}</strong>.
+                La zone <code class="font-mono text-xs">/admin</code> est réservée à un compte spécifique.
+                Déconnectez-vous puis reconnectez-vous avec le compte admin.
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            id="admin-mismatch-logout"
+            class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-marine text-blanc font-sans font-semibold text-sm px-4 py-3 hover:bg-marine-light transition-colors"
+            style="min-height: 44px;"
+            data-redirect={redirect}
+          >
+            <Icon name="lucide:log-out" class="w-4 h-4" />
+            Se déconnecter
+          </button>
+        </div>
+      )}
+
+      {reason === 'need-login' && !loggedUser && (
+        <p class="mb-6 rounded-lg bg-marine/5 border border-marine/20 px-4 py-3 text-sm text-marine font-sans">
+          Connectez-vous pour accéder à la page demandée.
+        </p>
+      )}
+
       <LoginForm client:load redirectTo={redirect} />
     </div>
   </div>
+
+  {needAdminMismatch && (
+    <script>
+      document.getElementById('admin-mismatch-logout')?.addEventListener('click', () => {
+        // Supprime les cookies auth côté client (path + SameSite + Secure
+        // doivent matcher ceux du LoginForm sinon l'effacement échoue).
+        // Le middleware verra l'absence de cookies et mettra user=null au
+        // prochain request → l'user pourra se reconnecter proprement.
+        document.cookie = 'sb-access-token=; path=/; max-age=0; SameSite=Lax; Secure';
+        document.cookie = 'sb-refresh-token=; path=/; max-age=0; SameSite=Lax; Secure';
+        window.location.reload();
+      });
+    </script>
+  )}
 </BaseLayout>
