@@ -31,8 +31,10 @@ import PremiumArticlesBlock from '../../components/centre/premium/PremiumArticle
 import PremiumAccessibiliteBlock from '../../components/centre/premium/PremiumAccessibiliteBlock.astro';
 import PremiumPartenairesBlock from '../../components/centre/premium/PremiumPartenairesBlock.astro';
 import PremiumFaqBlock from '../../components/centre/premium/PremiumFaqBlock.astro';
+import PremiumTeamBlock from '../../components/centre/premium/PremiumTeamBlock.astro';
 
 import { supabase } from '../../lib/supabase';
+import { getCentreTeam } from '../../lib/audiopro';
 import { getDepartementByCode, slugifyVille } from '../../lib/departements';
 import type { CentreData } from '../../types/centre';
 
@@ -108,6 +110,10 @@ if (isRpps && typedCentre.lat && typedCentre.lng) {
   });
   if (data) competitors = data as unknown as CentreData[];
 }
+
+// Équipe (Premium only) — liste des audios rattachés au centre
+// depuis centre_audios. Vide pour les plans Claimed / RPPS.
+const team = isPremium ? await getCentreTeam(supabase, typedCentre.id) : [];
 
 // Stats de vues
 let viewCount = 0;
@@ -304,8 +310,13 @@ if (typedCentre.marques?.length > 0) {
         <CentreBrands centre={typedCentre} />
 
         {/* E-E-A-T : audio + diplôme + asso + bio (remplace l'ancien "à propos"
-            qui était pauvre — on intègre a_propos comme fallback bio dans le bloc) */}
-        <PremiumExpertiseBlock centre={typedCentre} />
+            qui était pauvre — on intègre a_propos comme fallback bio dans le bloc).
+            Si team[], rend N Person Schema.org au lieu d'un seul. */}
+        <PremiumExpertiseBlock centre={typedCentre} team={team} />
+
+        {/* L'équipe du centre — affiché uniquement si au moins 1 collaborateur
+            en plus du titulaire (sinon redondant avec PremiumExpertiseBlock) */}
+        <PremiumTeamBlock team={team} />
 
         {/* Équipement technique : cabine, REM, essai, garantie */}
         <PremiumEquipementBlock centre={typedCentre} />

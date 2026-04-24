@@ -1,0 +1,103 @@
+---
+// Bloc "L'équipe du centre" sur la fiche Premium publique.
+// Rendu uniquement si team.length >= 2 (sinon le bloc est redondant
+// avec PremiumExpertiseBlock qui affiche le titulaire seul).
+// Ne rend PAS de JSON-LD ici — le rendu Schema.org provider[] est
+// centralisé dans PremiumExpertiseBlock pour éviter la duplication.
+
+import { Icon } from 'astro-icon/components';
+import { SPECIALITE_LABELS, type CentreAudio } from '../../../types/centre-team';
+
+export interface Props {
+  team: CentreAudio[];
+}
+
+const { team } = Astro.props;
+
+// On skip le titulaire (déjà rendu dans PremiumExpertiseBlock) et on
+// liste les collaborateurs.
+const collaborateurs = team.filter((m) => m.role !== 'titulaire');
+
+const ASSOC_LABELS: Record<string, string> = {
+  UNSAF: 'UNSAF',
+  CNA: 'Collège National d\'Audioprothèse',
+  SFA: 'Société Française d\'Audiologie',
+  AES: 'AES',
+  AFREPA: 'AFREPA',
+};
+---
+
+{collaborateurs.length > 0 && (
+  <section
+    class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-7 mb-8"
+    aria-labelledby="team-title"
+  >
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center shrink-0">
+        <Icon name="lucide:users" class="w-5 h-5" />
+      </div>
+      <div>
+        <h2 id="team-title" class="font-sans text-xl sm:text-2xl font-bold text-marine">
+          L'équipe du centre
+        </h2>
+        <p class="text-sm text-gris-texte font-sans mt-0.5">
+          {collaborateurs.length + 1} audioprothésistes DE, tous vérifiés au Répertoire Partagé des Professionnels de Santé
+        </p>
+      </div>
+    </div>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {collaborateurs.map((m) => (
+        <li class="rounded-lg border border-gris-clair bg-creme/40 p-4">
+          <div class="flex items-start gap-3 mb-3">
+            <div class="w-16 h-16 rounded-full bg-marine text-blanc overflow-hidden shrink-0 flex items-center justify-center font-sans font-bold text-lg">
+              {m.photo_url ? (
+                <img src={m.photo_url} alt={`${m.prenom} ${m.nom}`} loading="lazy" class="w-full h-full object-cover" />
+              ) : (
+                <span>{(m.prenom[0] ?? 'A').toUpperCase()}{(m.nom[0] ?? 'D').toUpperCase()}</span>
+              )}
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="font-sans font-bold text-marine leading-tight">
+                {m.prenom} <span class="uppercase">{m.nom}</span>
+              </p>
+              <p class="text-xs font-sans text-orange font-semibold mt-0.5">
+                Audioprothésiste D.E.
+              </p>
+              {m.specialite && (
+                <span class="inline-flex items-center rounded-full bg-orange/10 text-orange px-2 py-0.5 text-[10px] font-sans font-bold uppercase tracking-wide mt-1">
+                  {SPECIALITE_LABELS[m.specialite] ?? m.specialite}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <ul class="space-y-1 text-xs font-sans text-gris-texte">
+            <li class="flex items-center gap-1.5">
+              <Icon name="lucide:shield-check" class="w-3.5 h-3.5 text-[#059669] shrink-0" />
+              <span>RPPS <strong class="text-marine font-mono">{m.rpps}</strong></span>
+            </li>
+            {m.annee_dip && (
+              <li class="flex items-center gap-1.5">
+                <Icon name="lucide:calendar" class="w-3.5 h-3.5 text-[#059669] shrink-0" />
+                <span>D.E. obtenu en <strong class="text-marine">{m.annee_dip}</strong></span>
+              </li>
+            )}
+            {m.associations.length > 0 && (
+              <li class="flex items-start gap-1.5">
+                <Icon name="lucide:users" class="w-3.5 h-3.5 text-[#059669] shrink-0 mt-0.5" />
+                <span>Membre de <strong class="text-marine">{m.associations.map((c) => ASSOC_LABELS[c] ?? c).join(', ')}</strong></span>
+              </li>
+            )}
+          </ul>
+
+          {m.bio && (
+            <p class="text-sm font-serif text-marine leading-relaxed mt-3 pt-3 border-t border-gris-clair">
+              {m.bio}
+            </p>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
