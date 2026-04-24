@@ -63,6 +63,14 @@ if (error || !centre) {
 const typedCentre = centre as unknown as CentreData;
 const displayVille = typedCentre.ville || typedCentre.cp;
 
+// Gate fiches démo : accessibles uniquement aux utilisateurs connectés
+// (flow marketing upsell Premium). Sans user → 404 pour ne même pas
+// révéler l'existence de la fiche. Garantit l'isolement du faux centre
+// vs les vraies fiches Google/patients.
+if (typedCentre.is_demo === true && !Astro.locals.user) {
+  return new Response(null, { status: 404 });
+}
+
 const isRpps = typedCentre.plan === 'rpps';
 const isClaimed = typedCentre.plan === 'claimed';
 const isPremium = typedCentre.plan === 'premium';
