@@ -210,7 +210,7 @@ export const POST: APIRoute = async ({ request }) => {
                 centreNom: centre?.nom ?? centreSlug,
                 centreSlug,
               }),
-              replyTo: 'franck@leguideauditif.fr',
+              replyTo: 'franckolivier@leguideauditif.fr',
             });
 
             await logEmailEvent(supabase, {
@@ -262,7 +262,7 @@ export const POST: APIRoute = async ({ request }) => {
           to: cancelledCentre.claimed_by_email,
           subject: 'Votre abonnement Premium a été annulé',
           html: subscriptionCancelledEmail({ centreSlug: cancelledCentre.slug }),
-          replyTo: 'franck@leguideauditif.fr',
+          replyTo: 'franckolivier@leguideauditif.fr',
         });
 
         // ─────────────────────────────────────────────────────────

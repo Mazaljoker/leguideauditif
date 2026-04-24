@@ -135,7 +135,7 @@ export const GET: APIRoute = async ({ url }) => {
       to: centre.claimed_by_email,
       subject: `Votre fiche ${centre.nom} est valid\u00e9e sur LeGuideAuditif.fr`,
       html: claimApprovedEmail({ prenom, centreNom: centre.nom, centreSlug: slug, magicLink }),
-      replyTo: 'franck@leguideauditif.fr',
+      replyTo: 'franckolivier@leguideauditif.fr',
     });
 
     // Log email_events (Phase 1 \u2014 non bloquant)

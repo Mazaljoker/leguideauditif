@@ -284,7 +284,7 @@ export const POST: APIRoute = async ({ request, clientAddress, cookies }) => {
           photo: !!photoUrl,
           aPropos: a_propos || null,
         }),
-        replyTo: 'franck@leguideauditif.fr',
+        replyTo: 'franckolivier@leguideauditif.fr',
       }),
       sendAdminNotification(
         `Nouvelle revendication : ${centre.nom}`,

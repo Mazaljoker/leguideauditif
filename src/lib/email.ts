@@ -14,7 +14,7 @@ function getResend(): Resend {
   return resendInstance;
 }
 
-const FROM_EMAIL = 'LeGuideAuditif <contact@leguideauditif.fr>';
+const FROM_EMAIL = 'Franck-Olivier — LeGuideAuditif <franckolivier@leguideauditif.fr>';
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
 
 interface SendEmailOptions {
