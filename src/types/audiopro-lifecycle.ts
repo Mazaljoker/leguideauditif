@@ -136,7 +136,9 @@ export type EmailTemplateKey =
   | 'nurture_02_offre_fondateurs'
   | 'nurture_03_cas_concret'
   | 'nurture_04_slots_restants'
-  | 'nurture_05_ads_ou_sortie';
+  | 'nurture_05_ads_ou_sortie'
+  // Annonce one-shot (hors séquence drip)
+  | 'nouvel_espace_pro_annonce';
 
 export const EMAIL_TEMPLATE_LABELS: Record<EmailTemplateKey, string> = {
   claim_confirmation:            'Confirmation de revendication',
@@ -153,6 +155,7 @@ export const EMAIL_TEMPLATE_LABELS: Record<EmailTemplateKey, string> = {
   nurture_03_cas_concret:        'Nurture 03 — Étude de cas',
   nurture_04_slots_restants:     'Nurture 04 — Slots restants',
   nurture_05_ads_ou_sortie:      'Nurture 05 — Ads ou sortie',
+  nouvel_espace_pro_annonce:     'Annonce — Nouvel espace pro',
 };
 
 export type EmailTrigger =

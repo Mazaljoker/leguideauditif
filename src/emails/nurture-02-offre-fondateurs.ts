@@ -3,7 +3,6 @@ import { emailLayout } from './layout';
 interface Nurture02Data {
   prenom: string;
   slotsRestants: number;   // 0..20
-  calendarUrl: string;     // lien Cal.com / Zoom pour réserver 20 min
 }
 
 /**
@@ -11,36 +10,45 @@ interface Nurture02Data {
  * Trigger : stage `approuve`/`active`/`engage` depuis ≥ 7j ET
  * feature_flag `fondateurs_drip_enabled` = true.
  * Skip si `slotsRestants = 0`.
+ *
+ * Offre réelle : 19€/mois à vie + 3 mois gratuits, pas d'engagement.
+ * Avantages énumérés = ce qui existe déjà côté produit (pas de vaporware).
+ * Ton confraternel — merci aux premiers, pas de CTA commercial pressant.
  */
 export function nurture02OffreFondateursEmail(data: Nurture02Data): string {
-  const { prenom, slotsRestants, calendarUrl } = data;
+  const { prenom, slotsRestants } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
+  const placesLabel = slotsRestants > 1 ? `${slotsRestants} places` : '1 place';
 
   return emailLayout(
-    `Programme Partenaires Fondateurs — ${slotsRestants} places restantes`,
+    `Programme Partenaires Fondateurs — ${placesLabel} restante${slotsRestants > 1 ? 's' : ''}`,
     `
     <p>${greeting}</p>
 
-    <p>Je lance <strong>20 places Fondateurs</strong> pour les premiers audioprothésistes qui rejoignent le réseau LeGuideAuditif. Il en reste <strong>${slotsRestants}</strong>.</p>
+    <p>D'abord merci. Vous avez rejoint LeGuideAuditif alors que le site sortait à peine, sans savoir si ça valait la peine. C'est ce qui permet au projet d'exister aujourd'hui — littéralement.</p>
 
-    <h2>Ce que je propose</h2>
+    <p>Je voulais vous parler du programme Partenaires Fondateurs.</p>
+
+    <h2>L'offre</h2>
     <ul>
-      <li><strong>Premium à vie offert</strong> : badge Centre vérifié, affichage prioritaire, demandes de devis exclusives sur votre zone</li>
-      <li><strong>Accompagnement perso</strong> pour la mise en place de votre fiche et son positionnement local</li>
-      <li><strong>Accès prioritaire</strong> aux fonctionnalités à venir (tracking des leads, campagnes Ads intégrées)</li>
+      <li>Premium à <strong>19&nbsp;€&nbsp;/&nbsp;mois à vie</strong> — tarif gelé tant que l'abonnement reste actif</li>
+      <li><strong>3 mois gratuits</strong> au démarrage, le temps de voir si ça vous sert</li>
+      <li>Pas d'engagement : vous résiliez quand vous voulez</li>
     </ul>
 
-    <h2>Ce que je demande en retour</h2>
+    <h2>Ce que ça change sur votre fiche — concrètement</h2>
     <ul>
-      <li>Votre <strong>feedback à froid</strong> sur la plateforme, ce qui marche et ce qui coince</li>
-      <li>Un <strong>court témoignage vidéo</strong> si vous êtes d'accord, au bout de quelques mois, pour aider les audios qui arrivent après</li>
+      <li>Le badge <strong>Centre vérifié</strong> apparaît sur votre fiche publique (signal fort côté patient)</li>
+      <li>Vous montez en <strong>tête des résultats de votre département</strong>, devant les fiches RPPS brutes des centres non revendiqués</li>
+      <li>Vos horaires, photo et description restent modifiables quand vous voulez depuis l'espace pro (comme aujourd'hui)</li>
     </ul>
 
-    <p>C'est tout. Pas de frais cachés, pas de lock-in.</p>
+    <h2>Ce que je vous demande</h2>
+    <p>Votre retour à froid, au bout de quelques semaines, sur ce qui vous sert et ce qui manque. C'est tout. Pas de témoignage obligatoire, pas de clause à signer.</p>
 
-    <p>Si ça vous parle, réservez 20 minutes en visio, je vous explique comment ça marche concrètement.</p>
+    <p><a href="https://leguideauditif.fr/audioprothesiste-pro/" class="btn">Accéder à mon espace pro</a></p>
 
-    <p><a href="${calendarUrl}" class="btn">Réserver un créneau</a></p>
+    <p>Il reste <strong>${placesLabel}</strong> sur les 20 du programme. Si vous voulez en parler de vive voix, <strong>répondez simplement à ce mail</strong> et on cale 20 minutes quand vous voulez — visio ou téléphone, comme vous préférez.</p>
 
     <p>Cordialement,<br/>
     Franck-Olivier Chabbat<br/>
