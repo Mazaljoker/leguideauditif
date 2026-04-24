@@ -1,0 +1,215 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { supabase } from '../../lib/supabase';
+import { getAdminNavCounts } from '../../lib/adminNav';
+import AdminNav from '../../components/admin/AdminNav.astro';
+
+const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
+const user = Astro.locals.user;
+if (!user || user.email !== ADMIN_EMAIL) {
+  return Astro.redirect('/auth/login/');
+}
+
+const [pendingRes, recentRes, navCounts] = await Promise.all([
+  supabase
+    .from('centre_cas_patients')
+    .select('*, centres_auditifs(slug, nom, ville, claimed_by_email)')
+    .eq('status', 'pending')
+    .order('created_at', { ascending: false }),
+  supabase
+    .from('centre_cas_patients')
+    .select('*, centres_auditifs(slug, nom, ville, claimed_by_email)')
+    .in('status', ['approved', 'rejected'])
+    .order('reviewed_at', { ascending: false })
+    .limit(20),
+  getAdminNavCounts(supabase),
+]);
+
+const pending = pendingRes.data ?? [];
+const recent = recentRes.data ?? [];
+
+const PERTE_LABEL: Record<string, string> = {
+  legere: 'Légère',
+  moderee: 'Modérée',
+  severe: 'Sévère',
+  profonde: 'Profonde',
+  asymetrique: 'Asymétrique',
+  acouphenes: 'Acouphènes',
+};
+
+function fmtDate(iso: string | null): string {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+}
+---
+
+<BaseLayout title="Admin — Cas patients à valider" description="Modération des cas patients soumis par les centres Premium">
+  <meta slot="head" name="robots" content="noindex" />
+
+  <AdminNav counts={navCounts} currentPath="/admin/cas-patients" />
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h1 class="font-sans text-2xl font-bold text-marine mb-2">Cas patients à valider</h1>
+    <p class="text-sm text-gris-texte font-sans mb-8">
+      {pending.length} cas en attente · Vérifiez anonymisation + YMYL avant d'approuver.
+    </p>
+
+    <div class="rounded-lg border-2 border-red-300 bg-red-50 px-4 py-3 mb-6 text-xs text-red-700 font-sans">
+      <strong>Checklist avant approbation :</strong>
+      <ul class="list-disc ml-4 mt-1 space-y-0.5">
+        <li>Anonymisation stricte : aucun nom, aucune initiale, aucune localisation précise (commune rare)</li>
+        <li>Pas de promesse thérapeutique ("guérir", "miracle", "définitif")</li>
+        <li>Pas de prix exact ni de marque exclue</li>
+        <li>Verdict factuel, pas d'affirmation médicale hors périmètre audioprothèse</li>
+      </ul>
+    </div>
+
+    {pending.length === 0 ? (
+      <div class="rounded-xl bg-[#E1F5EE] p-6 text-center mb-10">
+        <Icon name="lucide:check-circle" class="w-8 h-8 text-[#0F6E56] mx-auto mb-2" />
+        <p class="text-sm font-medium text-[#04342C] font-sans">Aucun cas en attente</p>
+      </div>
+    ) : (
+      <div class="space-y-4 mb-12">
+        {pending.map((c: any) => (
+          <article class="rounded-xl border border-gris-clair bg-blanc p-6" data-id={c.id}>
+            <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+              <div>
+                <h2 class="font-sans text-base font-bold text-marine">
+                  {c.centres_auditifs?.nom ?? 'Centre inconnu'}
+                  <span class="text-xs text-gris-texte font-normal ml-2">
+                    {c.centres_auditifs?.ville ?? ''}
+                  </span>
+                </h2>
+                <p class="text-xs text-gris-texte font-sans">
+                  {c.centres_auditifs?.claimed_by_email} · Soumis {fmtDate(c.created_at)}
+                </p>
+                <a href={`/centre/${c.centres_auditifs?.slug}/`} target="_blank" class="text-xs text-orange font-sans hover:underline">
+                  Voir la fiche publique →
+                </a>
+              </div>
+              <span class="rounded-full bg-[#FAEEDA] px-3 py-1 text-xs font-medium text-[#854F0B] font-sans">En attente</span>
+            </div>
+
+            <div class="rounded-lg bg-creme/50 p-4 mb-4 font-sans space-y-2">
+              <p class="text-marine">
+                <strong>{c.age_range} ans · {c.sexe === 'F' ? 'Femme' : c.sexe === 'M' ? 'Homme' : 'NC'}</strong>
+                <span class="text-gris-texte"> · Perte {PERTE_LABEL[c.perte_type] ?? c.perte_type}</span>
+              </p>
+              <p class="text-sm text-marine">
+                Solution : <strong>{c.solution_type}</strong> Classe {c.solution_classe === 'mixte' ? '1 & 2' : c.solution_classe}
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs">
+                {c.resultat_comprehension_parole && <span class="rounded-full bg-marine/10 text-marine px-2 py-0.5">Compréhension parole</span>}
+                {c.resultat_environnement_bruit && <span class="rounded-full bg-marine/10 text-marine px-2 py-0.5">Environnement bruité</span>}
+                {c.resultat_television && <span class="rounded-full bg-marine/10 text-marine px-2 py-0.5">TV</span>}
+                {c.resultat_ecoute_musique && <span class="rounded-full bg-marine/10 text-marine px-2 py-0.5">Musique</span>}
+              </div>
+              {c.resultat_autre && (
+                <p class="text-sm text-marine italic">« {c.resultat_autre} »</p>
+              )}
+              {c.verdict_audio && (
+                <blockquote class="text-sm text-marine italic border-l-2 border-orange pl-3 mt-2">
+                  « {c.verdict_audio} »
+                </blockquote>
+              )}
+              <p class="text-xs text-[#0F6E56] flex items-center gap-1 pt-1 border-t border-gris-clair mt-2">
+                <Icon name="lucide:shield-check" class="w-3 h-3" />
+                Accord patient attesté par l'audio (case cochée)
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2">
+              <button
+                type="button"
+                class="cas-approve inline-flex items-center justify-center gap-2 rounded-lg bg-[#0F6E56] text-blanc px-5 py-3 text-sm font-sans font-semibold hover:opacity-90 transition-opacity disabled:opacity-60"
+                style="min-height: 44px;"
+                data-id={c.id}
+              >
+                <Icon name="lucide:check" class="w-4 h-4" />
+                Approuver et publier
+              </button>
+              <button
+                type="button"
+                class="cas-reject inline-flex items-center justify-center gap-2 rounded-lg border-2 border-red-300 bg-blanc text-red-600 px-5 py-3 text-sm font-sans font-semibold hover:bg-red-50 transition-colors disabled:opacity-60"
+                style="min-height: 44px;"
+                data-id={c.id}
+              >
+                <Icon name="lucide:x" class="w-4 h-4" />
+                Rejeter avec motif
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+
+    <h2 class="font-sans text-lg font-bold text-marine mb-4">Historique récent</h2>
+    {recent.length === 0 ? (
+      <p class="text-sm text-gris-texte font-sans">Aucune décision récente.</p>
+    ) : (
+      <div class="space-y-2">
+        {recent.map((c: any) => (
+          <div class:list={[
+            'rounded-lg border px-4 py-3 font-sans text-sm flex flex-wrap items-center justify-between gap-2',
+            c.status === 'approved' ? 'border-[#D1FAE5] bg-[#F0FDF4]' : 'border-red-200 bg-red-50',
+          ]}>
+            <div class="flex items-center gap-2">
+              <Icon name={c.status === 'approved' ? 'lucide:check-circle' : 'lucide:x-circle'} class={c.status === 'approved' ? 'w-4 h-4 text-[#0F6E56]' : 'w-4 h-4 text-red-600'} />
+              <span class="text-marine">
+                <strong>{c.centres_auditifs?.nom}</strong> · {c.age_range} ans · {c.solution_type} C{c.solution_classe}
+              </span>
+            </div>
+            <span class="text-xs text-gris-texte">{fmtDate(c.reviewed_at)}</span>
+          </div>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <script>
+    async function reviewCas(id: string, decision: 'approved' | 'rejected', reason?: string) {
+      const res = await fetch('/api/admin/cas-patient-review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, decision, reason }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Erreur');
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('.cas-approve').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        if (!confirm('Approuver ce cas ? Il sera immédiatement publié sur la fiche publique.')) return;
+        const id = btn.dataset.id!;
+        btn.disabled = true;
+        try {
+          await reviewCas(id, 'approved');
+          window.location.reload();
+        } catch (err) {
+          alert(err instanceof Error ? err.message : 'Erreur');
+          btn.disabled = false;
+        }
+      });
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('.cas-reject').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const reason = prompt('Motif du rejet (10 caractères min, sera envoyé à l\'audio) :');
+        if (!reason || reason.trim().length < 10) return;
+        const id = btn.dataset.id!;
+        btn.disabled = true;
+        try {
+          await reviewCas(id, 'rejected', reason.trim());
+          window.location.reload();
+        } catch (err) {
+          alert(err instanceof Error ? err.message : 'Erreur');
+          btn.disabled = false;
+        }
+      });
+    });
+  </script>
+</BaseLayout>
