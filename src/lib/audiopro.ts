@@ -5,6 +5,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { CentreData, CentrePlan } from '../types/centre';
 import type { DashboardState } from '../types/audiopro';
+import type { CentreAudio } from '../types/centre-team';
 
 export const ACTIVE_CENTRE_COOKIE = 'lga_centre_slug';
 export const ACTIVE_CENTRE_MAX_AGE = 60 * 60 * 24 * 90; // 90 jours
@@ -206,6 +207,27 @@ export async function countUserLeads(
     last_7d: Number(row.last_7d) || 0,
     last_30d: Number(row.last_30d) || 0,
   };
+}
+
+/**
+ * Équipe audios d'un centre (Premium only). Lue depuis la table
+ * centre_audios, ordonnée par ordre croissant (titulaire en tête
+ * à ordre=0). Retourne [] si aucune entrée ou erreur.
+ */
+export async function getCentreTeam(
+  supabase: SupabaseClient,
+  centreId: string,
+): Promise<CentreAudio[]> {
+  const { data, error } = await supabase
+    .from('centre_audios')
+    .select('*')
+    .eq('centre_id', centreId)
+    .order('ordre', { ascending: true });
+  if (error) {
+    console.error('[audiopro] getCentreTeam error', error.message);
+    return [];
+  }
+  return (data ?? []) as CentreAudio[];
 }
 
 /**
