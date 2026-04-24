@@ -42,6 +42,146 @@
       "permanent": true
     },
     {
+      "source": "/centre/audika-france-64100/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ac-papazian-82110/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/action-audition-44410-herbignac/",
+      "destination": "/audioprothesiste/herbignac/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/alain-afflelou-acousticien-04100/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/accent-optique-67520-marlenheim/",
+      "destination": "/audioprothesiste/marlenheim/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-surdite-wernert-42700-firminy/",
+      "destination": "/audioprothesiste/firminy/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-et-audition-75014-paris-14e-arrondissement/",
+      "destination": "/audioprothesiste/paris/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-medicale-du-littoral-62630-etaples/",
+      "destination": "/audioprothesiste/etaples/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-57970/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ar-audition-78190/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-92600/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ac-optique-37000-tours/",
+      "destination": "/audioprothesiste/tours/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-charente-17200-royan/",
+      "destination": "/audioprothesiste/royan/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ars-audition-86800-saint-julien-l-ars/",
+      "destination": "/audioprothesiste/saint-julien-l-ars/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aa-p-a-c-a-06600-antibes/",
+      "destination": "/audioprothesiste/antibes/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-bretagne-ouest-29160-crozon/",
+      "destination": "/audioprothesiste/crozon/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aba-16-16430/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audiclair-38500-voiron/",
+      "destination": "/audioprothesiste/voiron/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ams-audition-13003-marseille-3e-arrondissement/",
+      "destination": "/audioprothesiste/marseille/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/ag-audition-69250/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/aesio-sante-mediterranee-84100-orange/",
+      "destination": "/audioprothesiste/orange/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-29270/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-france-36200/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/acoustique-medical-pro-53170/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audika-alpes-74000-annecy/",
+      "destination": "/audioprothesiste/annecy/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audicina-villeneuve-07170/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/audilab-limousin-audilab-87120/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
+      "source": "/centre/apt-nanterre-92000/",
+      "destination": "/trouver-audioprothesiste/",
+      "permanent": true
+    },
+    {
       "source": "/centre/2-jf-optic-audio-66700/",
       "destination": "/centre/krys-optique-et-auditions-argeles-sur-mer-66700-045550/",
       "permanent": true
