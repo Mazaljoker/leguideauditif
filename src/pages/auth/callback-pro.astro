@@ -2,6 +2,16 @@
 export const prerender = false;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Depuis PR #77, le middleware persiste les refresh tokens rotés avec
+// httpOnly=true. Conséquence : un document.cookie client ne peut PAS
+// overwrite un cookie httpOnly existant (le browser ignore silencieusement).
+// Si un user revient ici avec des cookies stale httpOnly (session expirée),
+// le script client ne peut pas poser les nouveaux tokens Google → login
+// silencieux échoué. On clear les cookies côté SSR avant le rendu pour
+// garantir que le script client peut écrire proprement.
+Astro.cookies.delete('sb-access-token', { path: '/' });
+Astro.cookies.delete('sb-refresh-token', { path: '/' });
 ---
 
 <BaseLayout

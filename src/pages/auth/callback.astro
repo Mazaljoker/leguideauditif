@@ -2,6 +2,11 @@
 export const prerender = false;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Voir callback-pro.astro pour le contexte — clear SSR des cookies auth
+// stale httpOnly qui bloqueraient sinon document.cookie côté client.
+Astro.cookies.delete('sb-access-token', { path: '/' });
+Astro.cookies.delete('sb-refresh-token', { path: '/' });
 ---
 
 <BaseLayout
