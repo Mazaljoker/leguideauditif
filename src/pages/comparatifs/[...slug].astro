@@ -7,7 +7,6 @@ import {
   buildPersonSchema,
   buildMedicalOrganizationSchema,
   buildHowToSchema,
-  buildAggregateRatingSchema,
   buildReviewSchema,
 } from '../../utils/schema';
 
@@ -69,23 +68,21 @@ if (howToSteps && howToSteps.length > 0) {
   );
 }
 
-/* AggregateRating + Reviews individuels si les produits ont un score expert. */
+/* Reviews individuels si les produits ont un score expert.
+   Chaque Product entity porte deja son aggregateRating local, un AggregateRating
+   top-level standalone est ambigu pour Google (validation GSC echouait par
+   absence d'itemReviewed) — on l'a retire. */
 if (products && products.length > 0) {
   const scoredProducts = products.filter((p) => typeof p.score === 'number');
-  if (scoredProducts.length > 0) {
-    const agg = buildAggregateRatingSchema(scoredProducts.map((p) => p.score!));
-    if (agg) extraSchemas.push(agg);
-
-    for (const p of scoredProducts) {
-      extraSchemas.push(
-        buildReviewSchema({
-          itemName: `${p.brand} ${p.model}`,
-          itemBrand: p.brand,
-          reviewBody: p.verdict,
-          rating: p.score!,
-        }),
-      );
-    }
+  for (const p of scoredProducts) {
+    extraSchemas.push(
+      buildReviewSchema({
+        itemName: `${p.brand} ${p.model}`,
+        itemBrand: p.brand,
+        reviewBody: p.verdict,
+        rating: p.score!,
+      }),
+    );
   }
 }
 ---
