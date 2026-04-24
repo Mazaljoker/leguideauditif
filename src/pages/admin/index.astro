@@ -11,13 +11,12 @@ import AdminTasksDrawerProvider from '../../components/admin/AdminTasksDrawerPro
 import TasksTodayBlock from '../../components/admin/tasks/TasksTodayBlock.tsx';
 import type { Task } from '../../types/task';
 
-// Protection admin
-const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
-const user = Astro.locals.user;
-
-if (!user || user.email !== ADMIN_EMAIL) {
-  return Astro.redirect('/auth/login/');
-}
+// Protection admin — preserve l'URL demandée pour reprise post-login
+// et signale à la page login le cas "mauvais email" pour éviter le
+// redirect loop silencieux.
+import { requireAdmin } from '../../lib/admin-guard';
+const guard = requireAdmin(Astro);
+if (guard) return guard;
 
 const supabase = createServerClient();
 const navCounts = await getAdminNavCounts(supabase);

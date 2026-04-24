@@ -18,13 +18,11 @@ import {
   type LifecycleStage,
   type AudioproListRow,
 } from '../../types/audiopro-lifecycle';
+import { requireAdmin } from '../../lib/admin-guard';
 
-// --- Auth admin (Pattern B, aligné sur les autres pages admin) ---
-const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
-const user = Astro.locals.user;
-if (!user || user.email !== ADMIN_EMAIL) {
-  return Astro.redirect('/auth/login/');
-}
+// Auth admin — pattern partagé (preserve redirect + distinction need-login/need-admin)
+const guard = requireAdmin(Astro);
+if (guard) return guard;
 
 // --- Parse query params ---
 const url = Astro.url;

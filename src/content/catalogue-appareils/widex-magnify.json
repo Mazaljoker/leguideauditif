@@ -8,10 +8,11 @@
   "annee": 2021,
   "specs": {
     "autonomie": "Li-ion|312",
-    "ip": "No",
-    "plageAdaptation": "Mild to severe"
+    "ip": "Non",
+    "plageAdaptation": "Légère à sévère"
   },
   "connectivite": {
+    "bluetooth": "Non",
     "auracast": false,
     "mainLibre": false
   },
@@ -21,29 +22,38 @@
     "acouphenes": true
   },
   "couleurs": 11,
-  "sourceUrl": "MySecondEar",
+  "sourceUrl": "https://www.widex.com/",
   "venduEnEurope": true,
   "slug": "widex-magnify",
   "niveauPosition": 1,
-  "rac0": false,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
   "image": "/images/appareils/aide-auditive-widex-magnify.webp",
-  "descriptionCourte": "Le Widex Magnify est un appareil auditif RIC entree de gamme, lance en 2021 par Widex (groupe WS Audiology).",
+  "descriptionCourte": "RIC Widex positionné en 100% Santé (Classe 1, RAC 0€). Son naturel PureSound ZeroDelay, générateur d'acouphènes intégré. L'entrée de gamme Widex accessible sans reste à charge.",
   "pointsForts": [
-    "Discret, leger, son naturel grace a l'ecouteur dans le conduit",
-    "Etanche No",
-    "Generateur de bruit pour acouphenes",
-    "11 coloris disponibles"
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "Son naturel PureSound avec ZeroDelay 0,5 ms — signature sonore Widex même en entrée",
+    "Générateur de bruit intégré pour le soulagement des acouphènes",
+    "11 coloris disponibles pour s'adapter à votre teint et votre style"
   ],
   "pointsFaibles": [
-    "Ecouteur expose au cerumen, necessitant un entretien regulier",
-    "Non rechargeable (piles)",
-    "Pas de connectivite Bluetooth",
-    "Pas de bobine T (boucle magnetique)"
+    "Pas de Bluetooth — aucun streaming, aucun appel mains libres",
+    "Non rechargeable — pile 312 à changer tous les 5 à 7 jours",
+    "Pas de bobine T (boucle magnétique)",
+    "Pas de certification IP — prudence avec l'humidité"
   ],
   "noteExpert": 6.1,
   "enAvant": false,
   "ficheTechniquePdf": "/docs/fiches-techniques/widex-moment-comparison.pdf",
-  "descriptionComplete": "Le Widex Magnify est une aide auditive de type contour a ecouteur deporte (RIC), le format le plus repandu pour sa discretion et sa qualite sonore. Lance en 2021 par Widex (groupe WS Audiology), son le plus naturel du marche, prefere des musiciens, cet appareil se positionne en entree de gamme, avec les fonctionnalites essentielles pour une premiere adaptation.\n\nTechnologie et traitement du son\nle Magnify beneficie de la technologie PureSound avec ZeroDelay. Traitement en zero delai (0.5ms), qualite sonore audiophile. La plage d'adaptation couvre les pertes legeres a severes. \n\nConfort et autonomie\nCet appareil fonctionne avec des piles . La certification No garantit une resistance a l'eau et a la poussiere pour une utilisation sans souci au quotidien. Disponible en 11 coloris pour s'adapter a votre teint et style. \n\nFonctionnalites complementaires\nLe Magnify integre egalement un generateur de bruit pour le soulagement des acouphenes. \n\nPrix et remboursement\nLe prix est communique sur devis par votre audioprothesiste. Un essai gratuit de 30 jours est obligatoire avant tout achat definitif.\n\nL'avis de l'audioprothesiste\nNote expert : 6.1/10. Le Widex Magnify est un appareil auditif RIC entree de gamme, lance en 2021 par Widex (groupe WS Audiology).",
-  "legacy": true,
-  "legacyReason": "Entrée de gamme Widex (2021) remplacée par la gamme Allure (2025, puce W1)"
+  "descriptionComplete": "Le Widex Magnify est une aide auditive RIC (contour à écouteur déporté) positionnée dans l'offre 100% Santé Widex. Lancée en 2021, elle reste en 2026 la porte d'entrée Widex pour les patients qui veulent le son naturel de la marque sans aucun reste à charge.\n\nPrix et remboursement\nLe Magnify est en Classe 1 à 950€ TTC par appareil, entièrement remboursé par l'Assurance Maladie et les complémentaires santé (offre 100% Santé). Aucun reste à charge pour vous, à condition que votre contrat de complémentaire couvre le 100% Santé (ce qui est obligatoire pour les contrats responsables).\n\nTechnologie et son\nLe Magnify bénéficie du traitement PureSound avec ZeroDelay (0,5 ms). C'est la signature Widex : un son perçu comme naturel, sans effet de décalage entre le son direct qui arrive à votre oreille et le son amplifié. Cette fidélité sonore est particulièrement appréciée par les musiciens et les patients sensibles au rendu musical.\n\nLa plage d'adaptation couvre les pertes légères à sévères. 11 coloris disponibles pour discrétion.\n\nLes limites\nÀ 950€, les compromis sont réels. Pas de Bluetooth, donc pas de streaming téléphone ni de télévision en direct. Non rechargeable — piles 312 à changer régulièrement. Pas de bobine T ni de certification IP. Si votre quotidien est principalement calme (domicile, conversations à deux, télévision avec boîtier auxiliaire), le Magnify fait largement le travail. Pour un usage actif, multimédia ou bruyant, il faudra monter dans la gamme Allure (Classe 2) ou envisager un autre fabricant.\n\nL'avis de l'audioprothésiste\nNote expert : 6,1/10. Le Magnify est un appareil honnête pour son positionnement. Pour un primo-appareillage en Classe 1 avec priorité au son naturel, c'est un choix défendable. Le principal bémol est l'absence totale de connectivité — rare en 2026, même à ce prix.\n\nEn une phrase : le son Widex sans reste à charge, pour un quotidien calme sans besoin de Bluetooth.",
+  "legacy": false,
+  "metaTitle": "Widex Magnify : Classe 1 à 950€, fiche et avis",
+  "metaDescription": "RIC Widex en 100% Santé (Classe 1, RAC 0€). Son PureSound ZeroDelay, 11 coloris, générateur d'acouphènes. Avis audioprothésiste DE."
 }

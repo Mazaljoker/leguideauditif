@@ -1,0 +1,67 @@
+{
+  "slug": "philips-hearlink-3020-bte-sp",
+  "marque": "philips",
+  "marqueLabel": "Philips",
+  "groupe": "demant",
+  "modele": "HearLink 3020",
+  "formeType": "BTE",
+  "formesDisponibles": "BTE SP 13",
+  "puce": "Polaris",
+  "niveau": "3020",
+  "niveauRaw": "3020",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2019,
+  "specs": {
+    "canaux": 12,
+    "batterie": "Pile 13",
+    "autonomie": "10-14 jours",
+    "ip": "IP68",
+    "plageAdaptation": "Modérée à profonde"
+  },
+  "connectivite": {
+    "bluetooth": "Non",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "sourceUrl": "https://www.laboratoires-unisson.com/appareils-auditifs",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-philips-hearlink-power-hdo.webp",
+  "descriptionCourte": "BTE Super Power Philips HearLink 3020 en 100% Santé. Pile 13, 10-14 jours d'autonomie. Pour pertes modérées à profondes sans reste à charge. Écoulement distributeur.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "Format BTE Super Power — adapté aux pertes sévères à profondes",
+    "Pile 13 grande capacité — 10 à 14 jours d'autonomie",
+    "Bobine T intégrée — compatible boucles magnétiques",
+    "Générateur d'acouphènes",
+    "IP68 — robustesse quotidienne"
+  ],
+  "pointsFaibles": [
+    "Gamme HearLink 3020 très ancienne (2019)",
+    "Pas de Bluetooth — aucun streaming ni appels mains libres",
+    "Non rechargeable — piles 13 uniquement",
+    "Format BTE visible — pas adapté si discrétion prioritaire",
+    "Distribution Philips limitée en France — disponibilité variable"
+  ],
+  "noteExpert": 5.5,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/philips-hearlink-datasheet.pdf",
+  "descriptionComplete": "Le Philips HearLink 3020 BTE SP 13 est un contour d'oreille Super Power, ancien modèle du groupe Demant encore vendu en 100% Santé chez certains distributeurs. Il cible spécifiquement les patients avec une perte sévère à profonde qui ont besoin d'une forte amplification, sans reste à charge.\n\nPrix et remboursement\nHearLink 3020 BTE SP est en Classe 1 à 950€ TTC par appareil, entièrement remboursé au titre du 100% Santé. Aucun reste à charge, à condition que votre contrat de complémentaire couvre le 100% Santé.\n\nFormat Super Power\nLe BTE SP (Super Power) est un format spécifique aux pertes plus marquées. Le boîtier derrière l'oreille est un peu plus grand qu'un BTE standard pour héberger un écouteur plus puissant. La pile 13 (grande capacité) offre 10 à 14 jours d'autonomie. La plage d'adaptation couvre les pertes modérées à profondes.\n\nTechnologie\nPuce Polaris (gen antérieure à Polaris R), 12 canaux. Bobine T intégrée — utile pour les patients qui fréquentent des lieux équipés de boucles magnétiques (théâtres, guichets, salles de culte, conférences). Générateur d'acouphènes. IP68.\n\nLes limites\nGénération 2019, aucun Bluetooth. Pas de streaming, pas d'appels mains libres, pas d'application smartphone. C'est un appareil amplificateur classique sans fonctions modernes. Pour un usage multimédia, il faudra un accessoire externe (boucle magnétique, TV streamer).\n\nLes HearLink actuels (IDO, 9050, Power HDO) ont pris le relais avec du Bluetooth moderne. Le 3020 ne se justifie que pour les écoulements de stock.\n\nPour qui\nUn patient avec une perte sévère à profonde, qui a besoin d'un BTE Super Power, qui tolère un format visible, et qui n'a pas besoin de connectivité Bluetooth. Dans ce profil spécifique (assez rare), le 3020 est une solution 100% Santé valide si un distributeur le propose. Alternative : ReSound Vibrant BTE (Classe 1, un peu moins puissant mais aussi sans Bluetooth).\n\nVerdict expert\nNote : 5,5/10. Le HearLink 3020 BTE SP reste pertinent uniquement pour une niche : pertes sévères nécessitant un Super Power en 100% Santé, sans exigence Bluetooth. Gen 2019 sans connectivité, mais format rare à ce prix. À évaluer cas par cas.\n\nEn une phrase : le BTE Super Power Philips sans reste à charge — pour pertes marquées sans besoin de connectivité.",
+  "legacy": true,
+  "legacyReason": "Gamme HearLink 3020 (2019), très ancienne. Remplacée par HearLink Power HDO au catalogue Philips actuel. Encore vendue en 100% Santé par certains distributeurs (Unisson) en écoulement.",
+  "metaTitle": "Philips HearLink 3020 BTE SP : Super Power Classe 1",
+  "metaDescription": "BTE Super Power Philips en 100% Santé. Pile 13, pour pertes modérées à profondes. Avis audioprothésiste DE."
+}

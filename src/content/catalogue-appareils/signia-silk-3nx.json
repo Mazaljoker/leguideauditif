@@ -1,0 +1,68 @@
+{
+  "slug": "signia-silk-3nx",
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Silk Nx",
+  "formeType": "CIC",
+  "formesDisponibles": "CIC instant-fit",
+  "puce": "Nx",
+  "niveau": "3",
+  "niveauRaw": "3Nx",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2018,
+  "specs": {
+    "canaux": 16,
+    "batterie": "Pile 10",
+    "autonomie": "3-5 jours",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à modérée"
+  },
+  "connectivite": {
+    "bluetooth": "Non",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "sourceUrl": "https://www.laboratoires-unisson.com/appareils-auditifs",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-signia-silk-ix-1.webp",
+  "descriptionCourte": "Ancienne génération Signia Silk (plateforme Nx, 2018) en 100% Santé. CIC instant-fit invisible, niveau 3, pile 10. Pas de Bluetooth, pas d'OVP. Écoulement distributeur.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "CIC instant-fit — pas d'empreinte, essai immédiat en cabine",
+    "Quasi invisible dans le conduit auditif",
+    "Générateur d'acouphènes intégré",
+    "IP68 — résistance à l'eau et à la poussière"
+  ],
+  "pointsFaibles": [
+    "Génération 2018 — plateforme Nx la plus ancienne encore vendue en 100% Santé",
+    "Pas d'Own Voice Processing (OVP) — introduit sur Xperience (3X), absent ici",
+    "Pas de Bluetooth, pas de streaming",
+    "Non rechargeable — pile 10 tous les 3 à 5 jours",
+    "Pas de bobine T",
+    "Plage d'adaptation limitée aux pertes légères à modérées",
+    "Plus au catalogue Signia France 2026 — uniquement en écoulement distributeur"
+  ],
+  "noteExpert": 5,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/signia-silk-ix-fiche-technique.pdf",
+  "descriptionComplete": "Le Signia Silk Nx niveau 3 est la plus ancienne génération Silk encore vendue en 100% Santé chez certains distributeurs. Plateforme Nx de 2018, elle a été remplacée par Xperience (2019, Silk 3X), AX (2021), puis IX (2024, Silk IX). Son intérêt en 2026 est strictement conditionné à une proposition distributeur de stock résiduel.\n\nPrix et remboursement\nSilk 3Nx est en Classe 1 à 950€ TTC par appareil, entièrement remboursé au titre du 100% Santé. Aucun reste à charge, à condition que votre contrat de complémentaire couvre le 100% Santé.\n\nFormat et technologie\nMême format CIC instant-fit que le reste de la gamme Silk : manchons en silicone souple de différentes tailles, pas d'empreinte, essai immédiat. 16 canaux sur la plateforme Nx. Plage d'adaptation légère à modérée (contrainte CIC).\n\nPar rapport au Silk 3X (plateforme Xperience), le 3Nx n'a pas l'Own Voice Processing — la perception de votre propre voix peut paraître moins naturelle, surtout les premières semaines. C'est le principal écart entre les deux générations à ce niveau.\n\nLes limites face à 2026\nPas de Bluetooth, pas d'OVP, pas de rechargement. En pratique, c'est un CIC des années 2018 vendu avec la garantie d'un constructeur sérieux et un remboursement intégral. Rien de plus, rien de moins.\n\nFace à la concurrence 100% Santé\nLe Silk 3Nx n'a que peu d'arguments contre le Silk 3X (Xperience +1 an, avec OVP) au même prix de 950€. Et aucun contre la gamme ReSound Savi (2025, RIE ou CIC avec LE Audio + Auracast) toujours au même plafond 950€. Si votre audioprothésiste vous propose un 3Nx, il est légitime de demander si un 3X ou un Savi est disponible en stock.\n\nVerdict expert\nNote : 5/10. Le Silk 3Nx est la proposition la moins intéressante de la gamme Silk 100% Santé. Seule justification en 2026 : un stock ponctuel proposé à votre audioprothésiste, sans alternative Silk 3X ou Savi. Dans tous les autres cas, préférez une gen plus récente au même prix.\n\nEn une phrase : la plus ancienne 100% Santé Silk — envisager uniquement si aucune autre Classe 1 n'est proposée.",
+  "legacy": true,
+  "legacyReason": "Plateforme Nx (2018), la plus ancienne encore vendue en 100% Santé. Plus au catalogue Signia France. Remplacée par Silk Xperience (2019), AX (2021), IX (2024). Écoulement distributeur uniquement (Unisson).",
+  "metaTitle": "Signia Silk 3Nx : ancien CIC Classe 1, avis",
+  "metaDescription": "CIC Signia Nx 2018 en 100% Santé. Instant-fit, pas de Bluetooth, pas d'OVP. Avis audioprothésiste DE — comparer avec 3X ou Savi."
+}
