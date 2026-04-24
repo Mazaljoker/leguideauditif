@@ -5,6 +5,13 @@ import { createServerClient } from '../../../lib/supabase';
 import { verifyAdminToken } from '../../../lib/admin-token';
 import { sendEmail } from '../../../lib/email';
 import { claimApprovedEmail } from '../../../emails/claim-approved';
+import {
+  transitionLifecycleStage,
+  logEmailEvent,
+} from '../../../lib/audiopro-lifecycle';
+import type { LifecycleStage } from '../../../types/audiopro-lifecycle';
+
+const STAGE_ORDER: LifecycleStage[] = ['revendique', 'approuve', 'active', 'engage', 'premium', 'churned'];
 
 export const GET: APIRoute = async ({ url }) => {
   const slug = url.searchParams.get('slug');
@@ -59,6 +66,39 @@ export const GET: APIRoute = async ({ url }) => {
     });
   }
 
+  // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  // Sync audiopro_lifecycle \u2014 transition * \u2192 approuve (Phase 1)
+  // Non bloquant : n'interrompt pas le flow si la table n'est pas joignable.
+  // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  let audiopro_id: string | null = null;
+  if (centre.claimed_by_email) {
+    try {
+      const { data: audio } = await supabase
+        .from('audiopro_lifecycle')
+        .select('id, lifecycle_stage')
+        .eq('email', centre.claimed_by_email.toLowerCase())
+        .maybeSingle();
+      if (audio) {
+        audiopro_id = audio.id;
+        // Anti-r\u00e9gression : on n'\u00e9crase pas un stage d\u00e9j\u00e0 plus avanc\u00e9.
+        const currentIdx = STAGE_ORDER.indexOf(audio.lifecycle_stage as LifecycleStage);
+        const approuveIdx = STAGE_ORDER.indexOf('approuve');
+        if (currentIdx >= 0 && currentIdx < approuveIdx) {
+          await transitionLifecycleStage(
+            supabase,
+            audio.id,
+            'approuve',
+            'claim_approved',
+            { centre_slug: slug, approved_by: 'admin_quick_action' },
+          );
+        }
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('[quick-approve] lifecycle sync failed:', msg);
+    }
+  }
+
   // Creer le compte Supabase Auth pour le professionnel (magic link)
   let magicLinkNote = '';
   if (centre.claimed_by_email) {
@@ -91,12 +131,27 @@ export const GET: APIRoute = async ({ url }) => {
 
     // Envoyer l'email au professionnel avec le magic link
     const prenom = centre.claimed_by_name?.split(' ')[0] || '';
-    await sendEmail({
+    const emailResult = await sendEmail({
       to: centre.claimed_by_email,
       subject: `Votre fiche ${centre.nom} est valid\u00e9e sur LeGuideAuditif.fr`,
       html: claimApprovedEmail({ prenom, centreNom: centre.nom, centreSlug: slug, magicLink }),
       replyTo: 'franck@leguideauditif.fr',
     });
+
+    // Log email_events (Phase 1 \u2014 non bloquant)
+    try {
+      await logEmailEvent(supabase, {
+        audiopro_id,
+        centre_slug: slug,
+        recipient_email: centre.claimed_by_email,
+        template_key: 'claim_approved',
+        resend_message_id: emailResult.messageId ?? null,
+        trigger: 'transactional',
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('[quick-approve] email_events log failed:', msg);
+    }
   }
 
   return new Response(
