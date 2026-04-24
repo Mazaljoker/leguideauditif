@@ -162,6 +162,17 @@ const claimedDaysAgo = centre.claimed_at
 //   3. rien d'urgent → pas d'alerte rendue
 // ------------------------------------------------------------
 function computeActionPremium(c: CentreData, comp: number): ActionPrioritaireInfo | undefined {
+  // Priorité 1 : RPPS manquant (bloque la ligne "N° RPPS vérifié" sur la
+  // fiche publique, élément clé du Trust YMYL pour Google).
+  if (!c.rpps) {
+    return {
+      label: 'Action prioritaire',
+      title: 'Votre N° RPPS n\'est pas renseigné',
+      desc: 'Sans RPPS, les visiteurs ne voient pas la ligne « Identité vérifiée » sur votre fiche — c\'est un signal de confiance critique en YMYL santé.',
+      ctaLabel: 'Renseigner mon RPPS',
+      ctaHref: '/audioprothesiste-pro/fiche/#edit-rpps',
+    };
+  }
   if (comp < 80) {
     return {
       label: 'Action prioritaire',
@@ -175,8 +186,20 @@ function computeActionPremium(c: CentreData, comp: number): ActionPrioritaireInf
 }
 
 function computeActionReseau(
+  activeCentre: CentreData,
   allCentres: UserCentre[],
 ): ActionPrioritaireInfo | undefined {
+  // Priorité 1 : RPPS manquant sur la fiche active (Trust YMYL)
+  if (!activeCentre.rpps) {
+    return {
+      label: 'Action prioritaire · Réseau',
+      title: `N° RPPS manquant sur ${activeCentre.nom}`,
+      desc: 'Sans RPPS, la ligne « Identité vérifiée » ne s\'affiche pas sur la fiche publique — signal de confiance YMYL santé critique.',
+      ctaLabel: 'Renseigner mon RPPS',
+      ctaHref: '/audioprothesiste-pro/fiche/#edit-rpps',
+    };
+  }
+  // Priorité 2 : landing pages en attente sur les centres Claimed
   const pending = allCentres.filter((c) => c.plan === 'claimed');
   if (pending.length > 0) {
     return {
@@ -278,7 +301,7 @@ const previewRevendicateurCentre = makeMockCentre();
               ctaLabel: 'Voir les livrables',
               ctaHref: '/audioprothesiste-pro/fiche/',
             }
-          : computeActionReseau(centres)
+          : computeActionReseau(centre, centres)
       }
       nbAdsActives={isPreview ? 1 : 0}
       codePostauxLabel={
