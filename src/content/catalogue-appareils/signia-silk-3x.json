@@ -1,0 +1,67 @@
+{
+  "slug": "signia-silk-3x",
+  "marque": "signia",
+  "marqueLabel": "Signia",
+  "groupe": "ws-audiology",
+  "modele": "Silk X",
+  "formeType": "CIC",
+  "formesDisponibles": "CIC instant-fit",
+  "puce": "Xperience",
+  "niveau": "3",
+  "niveauRaw": "3X",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2019,
+  "specs": {
+    "canaux": 16,
+    "batterie": "Pile 10",
+    "autonomie": "3-5 jours",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à modérée"
+  },
+  "connectivite": {
+    "bluetooth": "Non",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true
+  },
+  "sourceUrl": "https://www.laboratoires-unisson.com/appareils-auditifs",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-signia-silk-ix-1.webp",
+  "descriptionCourte": "Ancienne génération Signia Silk (plateforme Xperience, 2019) en 100% Santé. CIC instant-fit invisible, niveau 3, pile 10. Pas de Bluetooth. Écoulement distributeur.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "CIC instant-fit — pas d'empreinte, essai immédiat en cabine",
+    "Quasi invisible dans le conduit auditif — format CIC traditionnel Signia",
+    "Générateur d'acouphènes intégré",
+    "IP68 — résistance à l'eau et à la poussière"
+  ],
+  "pointsFaibles": [
+    "Génération 2019 — plateforme Xperience remplacée par AX (2021) puis IX (2024)",
+    "Pas de Bluetooth — aucun streaming, aucun appel mains libres",
+    "Non rechargeable — pile 10 à changer tous les 3 à 5 jours",
+    "Pas de bobine T — incompatible boucles magnétiques",
+    "Plage d'adaptation limitée aux pertes légères à modérées",
+    "Disponibilité dépendante du stock distributeur — plus au catalogue Signia France 2026"
+  ],
+  "noteExpert": 5.5,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/signia-silk-ix-fiche-technique.pdf",
+  "descriptionComplete": "Le Signia Silk X niveau 3 est l'ancienne génération du CIC instant-fit Signia, sur plateforme Xperience (2019). Il a été remplacé au catalogue fabricant par le Silk AX (2021) puis le Silk IX (2024). Il reste en 2026 en écoulement chez certains distributeurs en 100% Santé.\n\nPrix et remboursement\nSilk 3X est en Classe 1 à 950€ TTC par appareil, entièrement remboursé au titre du 100% Santé. Aucun reste à charge, à condition que votre contrat de complémentaire couvre le 100% Santé.\n\nFormat CIC instant-fit\nLe CIC instant-fit est la signature Silk : des manchons en silicone souple de différentes tailles (click sleeves) se glissent dans le conduit sans empreinte. Votre audioprothésiste peut donc vous faire essayer l'appareil dès le premier rendez-vous, sans délai de fabrication. Une fois en place, le Silk est quasi invisible même en regardant de face.\n\nTechnologie\nSur plateforme Xperience, le Silk 3X embarque 16 canaux et la fonction Own Voice Processing (OVP) pour naturaliser la perception de votre propre voix — c'était le gros apport de la gen Xperience face au Nx. La plage d'adaptation couvre les pertes légères à modérées, ce qui est cohérent avec le format CIC (limité par la taille de l'écouteur).\n\nLes limites face à 2026\nPas de Bluetooth. La plateforme Xperience de 2019 ne supporte pas le streaming smartphone natif — c'est la limitation majeure en 2026. Pour le streaming, il faudrait monter vers le Silk IX (2024, LE Audio + Auracast) qui est lui en Classe 2.\n\nFace à la concurrence 100% Santé\nUn patient qui envisage un CIC en 100% Santé en 2026 n'a pas beaucoup d'autres choix — les intras dédiés 100% Santé sont rares. Le Silk 3X reste donc un choix par défaut si vous voulez absolument un CIC à 950€. Mais si le format n'est pas prioritaire, la gamme ReSound Savi (RIE ou CIC, avec LE Audio + Auracast) offre plus de fonctionnalités au même prix.\n\nVerdict expert\nNote : 5,5/10. Le Silk 3X est un CIC fonctionnel pour les patients qui veulent l'invisibilité absolue sans reste à charge, et qui n'ont pas besoin de connectivité. Gen 2019, plus au catalogue Signia. À envisager uniquement si un distributeur vous propose un stock restant et que le CIC est un prérequis.\n\nEn une phrase : le CIC Signia d'avant-Bluetooth, encore vendu en 100% Santé par écoulement — évaluer par rapport au Savi avant de décider.",
+  "legacy": true,
+  "legacyReason": "Plateforme Xperience (2019) remplacée par Silk AX (2021) puis Silk IX (2024). Plus au catalogue Signia France. Encore vendue en 100% Santé par certains distributeurs (Unisson) en écoulement.",
+  "metaTitle": "Signia Silk 3X : ancien CIC Classe 1, avis",
+  "metaDescription": "CIC Signia Xperience 2019 en 100% Santé. Instant-fit, pas de Bluetooth. Avis audioprothésiste DE — comparez avec Savi."
+}

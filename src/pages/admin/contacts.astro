@@ -9,12 +9,9 @@ import AdminTasksDrawerProvider from '../../components/admin/AdminTasksDrawerPro
 import ContactsPage from '../../components/admin/contacts/ContactsPage.tsx';
 import type { Contact } from '../../types/prospect';
 
-const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
-const user = Astro.locals.user;
-
-if (!user || user.email !== ADMIN_EMAIL) {
-  return Astro.redirect('/auth/login/');
-}
+import { requireAdmin } from '../../lib/admin-guard';
+const guard = requireAdmin(Astro);
+if (guard) return guard;
 
 const supabase = createServerClient();
 const [navCounts, contactsRes] = await Promise.all([

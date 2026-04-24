@@ -1,0 +1,69 @@
+{
+  "slug": "phonak-virto-paradise-30",
+  "marque": "phonak",
+  "marqueLabel": "Phonak",
+  "groupe": "sonova",
+  "modele": "Virto Paradise",
+  "formeType": "ITE",
+  "formesDisponibles": "ITE 312|ITC 312|CIC 312|IIC 10",
+  "puce": "AutoSense OS 4.0",
+  "niveau": "30",
+  "niveauRaw": "P30",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2021,
+  "specs": {
+    "canaux": 8,
+    "batterie": "Pile 312|Pile 10",
+    "autonomie": "3-7 jours",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à sévère"
+  },
+  "connectivite": {
+    "bluetooth": "Bluetooth Classic",
+    "auracast": false,
+    "application": "myPhonak",
+    "mainLibre": true
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": false,
+    "acouphenes": true,
+    "antiFeedback": "WhistleBlock"
+  },
+  "sourceUrl": "https://www.laboratoires-unisson.com/appareils-auditifs",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-phonak-virto-infinio-r.webp",
+  "descriptionCourte": "Intra-auriculaire Phonak génération Paradise (2021), niveau 30 en 100% Santé. 4 formats (ITE à IIC), Bluetooth Classic mains libres. Écoulement distributeur.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "Bluetooth Classic mains libres — rare sur un intra en Classe 1",
+    "4 formats disponibles (ITE, ITC, CIC, IIC) — choix selon anatomie et préférence de discrétion",
+    "Plage d'adaptation large (légère à sévère)",
+    "IP68 — résistance à l'eau et à la poussière",
+    "Application myPhonak fonctionnelle"
+  ],
+  "pointsFaibles": [
+    "Génération Paradise (2021) — remplacée par Lumity (2022) puis Infinio (2024) au catalogue Phonak",
+    "8 canaux — gestion du bruit très basique pour un intra",
+    "Non rechargeable — piles 312 ou 10 selon format",
+    "Pas de bobine T",
+    "Plus au catalogue Phonak France 2026 — uniquement en écoulement distributeur"
+  ],
+  "noteExpert": 6,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/phonak-audeo-paradise-datasheet.pdf",
+  "descriptionComplete": "Le Phonak Virto Paradise 30 est l'intra-auriculaire sur mesure Phonak, génération Paradise (2021), niveau 30 (entrée de gamme). Il est encore vendu en 100% Santé par certains distributeurs (Unisson notamment) en écoulement de stock fabricant.\n\nPrix et remboursement\nVirto Paradise 30 est en Classe 1 à 950€ TTC par appareil, entièrement remboursé au titre du 100% Santé. Aucun reste à charge, à condition que votre contrat de complémentaire couvre le 100% Santé.\n\nFormat sur mesure\nContrairement au Silk instant-fit de Signia, le Virto Paradise est un intra sur mesure : votre audioprothésiste prend une empreinte de votre conduit, et l'appareil est fabriqué selon cette empreinte par Phonak en 2 à 3 semaines. Avantage : ajustement parfait, tenue optimale. Inconvénient : délai de fabrication.\n\nQuatre formats disponibles selon la profondeur et la discrétion souhaitées :\n- ITE (intra classique, visible) — plus facile à manipuler, pile 312.\n- ITC (intra-canal, moins visible) — pile 312.\n- CIC (mini intra, presque invisible) — pile 312.\n- IIC (invisible dans le conduit) — pile 10, pour la discrétion maximale.\n\nTechnologie\nPlateforme Paradise (puce AutoSense OS 4.0), 8 canaux. L'atout majeur par rapport aux Silk Nx/X de Signia au même prix : le Bluetooth Classic natif. Vous pouvez streamer depuis un iPhone ou un Android compatible, et passer des appels mains libres directement depuis l'appareil — c'est exceptionnel sur un intra en Classe 1.\n\nLes limites\nGénération 2021, 8 canaux en entrée de gamme. Le traitement du bruit est très basique — pour un environnement calme, c'est suffisant. Pour le bruit, vous sentirez vite les limites. Non rechargeable (piles 312 ou 10 selon format). Pas de bobine T. Et surtout : Paradise est une génération dépassée chez Phonak, remplacée par Lumity (2022) puis Infinio (2024).\n\nPour qui\nUn patient qui veut un intra en 100% Santé AVEC du Bluetooth — c'est le créneau unique du Virto Paradise 30. Le Silk 3X/3Nx de Signia est au même prix mais sans Bluetooth. Pour un usage téléphone régulier ou du streaming musique en intra Classe 1, le Virto Paradise est le choix à considérer en 2026, tant qu'il est disponible en stock.\n\nVerdict expert\nNote : 6/10. Le Virto Paradise 30 tient uniquement grâce à son Bluetooth Classic sur un format intra Classe 1. Traitement du bruit basique et gen 2021, mais la connectivité mains libres reste un différenciateur fort face aux autres intras 100% Santé. À envisager si un distributeur propose un stock et que le Bluetooth est important pour vous.\n\nEn une phrase : le seul intra 100% Santé avec Bluetooth Classic mains libres — mais uniquement en écoulement, gen Paradise 2021.",
+  "legacy": true,
+  "legacyReason": "Gamme Paradise (2021), remplacée par Lumity (2022) puis Infinio (2024). Plus au catalogue Phonak France 2026. Encore vendue en 100% Santé par certains distributeurs (Unisson) en écoulement.",
+  "metaTitle": "Phonak Virto Paradise 30 : intra Classe 1 avec Bluetooth",
+  "metaDescription": "Intra-auriculaire Phonak Paradise 2021 en 100% Santé. 4 formats, Bluetooth Classic mains libres. Avis audioprothésiste DE."
+}

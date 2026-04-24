@@ -8,13 +8,9 @@ import { getAdminNavCounts } from '../../lib/adminNav';
 import AdminNav from '../../components/admin/AdminNav.astro';
 import AdminTasksDrawerProvider from '../../components/admin/AdminTasksDrawerProvider.tsx';
 
-// Protection par session admin
-const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
-const user = Astro.locals.user;
-
-if (!user || user.email !== ADMIN_EMAIL) {
-  return Astro.redirect('/auth/login/');
-}
+import { requireAdmin } from '../../lib/admin-guard';
+const guard = requireAdmin(Astro);
+if (guard) return guard;
 
 // Recuperer les claims + counts nav en parallele
 const [pendingRes, recentRes, navCounts] = await Promise.all([

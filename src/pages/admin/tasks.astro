@@ -9,12 +9,9 @@ import { getAdminNavCounts } from '../../lib/adminNav';
 import { fetchInitialTasks } from '../../lib/tasks';
 import TasksPage from '../../components/admin/tasks/TasksPage.tsx';
 
-const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
-const user = Astro.locals.user;
-
-if (!user || user.email !== ADMIN_EMAIL) {
-  return Astro.redirect('/auth/login/');
-}
+import { requireAdmin } from '../../lib/admin-guard';
+const guard = requireAdmin(Astro);
+if (guard) return guard;
 
 const supabase = createServerClient();
 const [navCounts, initialTasks] = await Promise.all([

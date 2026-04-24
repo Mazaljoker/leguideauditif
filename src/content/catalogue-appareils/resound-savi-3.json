@@ -1,0 +1,66 @@
+{
+  "slug": "resound-savi-3",
+  "marque": "resound",
+  "marqueLabel": "ReSound",
+  "groupe": "gn",
+  "modele": "Savi",
+  "formeType": "RIC",
+  "formesDisponibles": "RIE|ITC|CIC",
+  "puce": "ReSound Savi",
+  "niveau": "3",
+  "niveauRaw": "3",
+  "niveauPosition": 2,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2025,
+  "specs": {
+    "canaux": 16,
+    "batterie": "Pile 312",
+    "autonomie": "5-7 jours",
+    "ip": "IP68",
+    "plageAdaptation": "Légère à sévère"
+  },
+  "connectivite": {
+    "bluetooth": "BLE LE Audio",
+    "auracast": true,
+    "application": "ReSound Smart 3D",
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "sourceUrl": "https://www.resound.com/fr-fr/hearing-aids/resound-savi",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-resound-savi.webp",
+  "descriptionCourte": "Niveau premium de la gamme Savi, l'offre 100% Santé ReSound. 16 canaux, bobine T, acouphènes, Bluetooth LE Audio et Auracast. Le maximum sans reste à charge.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "16 canaux — le traitement le plus fin de la gamme Savi",
+    "Bobine T incluse — compatible boucles magnétiques (théâtres, guichets, salles de culte)",
+    "Générateur d'acouphènes",
+    "Bluetooth LE Audio et Auracast natifs"
+  ],
+  "pointsFaibles": [
+    "Non rechargeable — piles 312 uniquement",
+    "Pas de mains libres",
+    "Face à un flagship Classe 2, la gestion du bruit reste en retrait dans les environnements très complexes",
+    "Niveau 3 parfois difficile à trouver selon les audioprothésistes — vérifier la disponibilité"
+  ],
+  "noteExpert": 7.5,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/resound-nexia-brochure.pdf",
+  "descriptionComplete": "Le ReSound Savi 3 est le niveau le plus complet de la gamme Savi, l'offre 100% Santé ReSound. Il pousse les spécifications au maximum de ce qu'un appareil à 950€ peut embarquer en 2026.\n\nPrix et remboursement\nSavi 3 est en Classe 1 à 950€ TTC par appareil, entièrement remboursé au titre du 100% Santé. Aucun reste à charge.\n\nTechnologie\nSavi 3 embarque 16 canaux de traitement — le maximum de la gamme Savi. Il ajoute la bobine T pour les boucles magnétiques (théâtres, salles de conférence, guichets bancaires équipés), en plus du générateur d'acouphènes déjà présent sur le Savi 2. Connectivité Bluetooth LE Audio et Auracast identiques aux niveaux inférieurs.\n\nFormats et autonomie\nDisponible en RIE, ITC et CIC. Pile 312, 5 à 7 jours d'autonomie. IP68.\n\nLes limites\nMême à 16 canaux et avec la bobine T, les contraintes du 100% Santé restent : pas de rechargement, pas de mains libres. Et face à un flagship Classe 2 type Nexia 9 ou Vivia 9, la gestion du bruit en environnement très complexe reste en retrait. C'est un compromis cohérent pour rester sous le plafond 950€.\n\nVerdict expert\nNote : 7,5/10. Le Savi 3 est ce que ReSound peut offrir de mieux à 950€. La bobine T et les 16 canaux en font un vrai outil pour les patients qui fréquentent des lieux équipés de boucles magnétiques ou qui ont besoin d'une finesse de réglage. Si votre complémentaire couvre le 100% Santé et que vous n'avez pas besoin de streaming mains libres ni de rechargement, c'est un excellent choix sans reste à charge.\n\nEn une phrase : le haut de gamme 100% Santé ReSound — complet, connecté LE Audio, sans reste à charge."
+  ,
+  "legacy": false,
+  "metaTitle": "ReSound Savi 3 : Classe 1 à 950€, fiche et avis",
+  "metaDescription": "Niveau premium Savi 100% Santé. 16 canaux, bobine T, acouphènes, LE Audio + Auracast. RAC 0€. Avis audioprothésiste DE."
+}
