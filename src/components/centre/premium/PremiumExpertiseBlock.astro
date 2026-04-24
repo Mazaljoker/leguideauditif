@@ -11,12 +11,14 @@
 
 import { Icon } from 'astro-icon/components';
 import type { CentreData } from '../../../types/centre';
+import type { CentreAudio } from '../../../types/centre-team';
 
 export interface Props {
   centre: CentreData;
+  team?: CentreAudio[];
 }
 
-const { centre } = Astro.props;
+const { centre, team = [] } = Astro.props;
 
 const hasMinimalContent =
   !!centre.audio_bio ||
@@ -58,7 +60,45 @@ const LANG_LABELS: Record<string, string> = {
   PT: 'Portugais',
 };
 
-// Schema.org ProfessionalService + Person pour E-E-A-T YMYL
+// Schema.org ProfessionalService + Person(s) pour E-E-A-T YMYL.
+// Source Person : team[] si fournie (un Person par ligne centre_audios,
+// gain SEO N× fort), sinon fallback sur les colonnes centres_auditifs.audio_*
+// (compat legacy avec les Premium qui n'ont pas encore de team migrée).
+function buildPersonSchema(input: {
+  name: string;
+  rpps?: string | null;
+  anneeDip?: number | null;
+  associations: string[];
+}): Record<string, unknown> {
+  return {
+    '@type': 'Person',
+    name: input.name,
+    jobTitle: 'Audioprothésiste D.E.',
+    ...(input.rpps ? { identifier: { '@type': 'PropertyValue', propertyID: 'RPPS', value: input.rpps } } : {}),
+    ...(input.anneeDip ? { alumniOf: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Diplôme d\'État d\'Audioprothésiste', dateCreated: String(input.anneeDip) } } : {}),
+    ...(input.associations.length > 0 ? { memberOf: input.associations.map((code) => ({ '@type': 'Organization', name: ASSOC_LABELS[code] ?? code })) } : {}),
+  };
+}
+
+const providerFromTeam = team.map((m) => buildPersonSchema({
+  name: `${m.prenom} ${m.nom}`,
+  rpps: m.rpps,
+  anneeDip: m.annee_dip,
+  associations: m.associations,
+}));
+
+const providerFromCentre = buildPersonSchema({
+  name: audioFullName,
+  rpps: centre.rpps,
+  anneeDip: centre.audio_annee_dip,
+  associations: centre.audio_associations,
+});
+
+const provider: Record<string, unknown> | Record<string, unknown>[] =
+  providerFromTeam.length > 1
+    ? providerFromTeam
+    : providerFromTeam[0] ?? providerFromCentre;
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
@@ -70,14 +110,7 @@ const schema = {
     addressLocality: centre.ville ?? '',
     addressCountry: 'FR',
   },
-  provider: {
-    '@type': 'Person',
-    name: audioFullName,
-    jobTitle: 'Audioprothésiste D.E.',
-    ...(centre.rpps ? { identifier: { '@type': 'PropertyValue', propertyID: 'RPPS', value: centre.rpps } } : {}),
-    ...(centre.audio_annee_dip ? { alumniOf: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Diplôme d\'État d\'Audioprothésiste', dateCreated: String(centre.audio_annee_dip) } } : {}),
-    ...(centre.audio_associations.length > 0 ? { memberOf: centre.audio_associations.map((code) => ({ '@type': 'Organization', name: ASSOC_LABELS[code] ?? code })) } : {}),
-  },
+  provider,
   ...(centre.audio_bio ? { description: centre.audio_bio } : {}),
 };
 ---
