@@ -258,7 +258,10 @@ const partenairesSlots = Array.from({ length: 5 }, (_, i) => partenairesInit[i] 
                 isPremium ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-1 sm:grid-cols-2',
               ]}>
                 {(isPremium ? [0, 1, 2, 3] : [0]).map((slot) => {
-                  const url = centre.photos_cabine?.[slot];
+                  // Slot 0 fallback sur centre.photo_url (champ legacy encore
+                  // utilisé par CentreHeader.astro public) → on affiche bien
+                  // la photo existante en prod avec bouton "Changer".
+                  const url = centre.photos_cabine?.[slot] ?? (slot === 0 ? centre.photo_url : null);
                   return (
                     <div class="rounded-lg border border-gris-clair bg-creme/40 p-3" data-photo-slot={slot}>
                       <div class="aspect-square rounded-lg bg-blanc border border-gris-clair overflow-hidden mb-2 flex items-center justify-center">
