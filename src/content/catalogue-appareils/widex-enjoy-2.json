@@ -1,0 +1,65 @@
+{
+  "slug": "widex-enjoy-2",
+  "marque": "widex",
+  "marqueLabel": "Widex",
+  "groupe": "ws-audiology",
+  "modele": "Enjoy 2",
+  "formeType": "RIC",
+  "formesDisponibles": "Fusion RIC 312|Passion RIC 10|Fashion mini BTE 312|Fashion BTE 312|Fashion power BTE 312",
+  "puce": "Widex Enjoy",
+  "niveau": "220",
+  "niveauRaw": "220",
+  "niveauPosition": 1,
+  "classe": "1",
+  "rac0": true,
+  "prix": {
+    "eur": {
+      "unitaire": 950,
+      "min": 950,
+      "max": 950
+    }
+  },
+  "annee": 2020,
+  "specs": {
+    "canaux": 10,
+    "batterie": "Pile 312|Pile 10",
+    "autonomie": "5-10 jours",
+    "plageAdaptation": "Légère à sévère"
+  },
+  "connectivite": {
+    "bluetooth": "Non",
+    "auracast": false,
+    "mainLibre": false
+  },
+  "fonctionnalites": {
+    "rechargeable": false,
+    "bobineT": true,
+    "acouphenes": true
+  },
+  "sourceUrl": "https://www.laboratoires-unisson.com/appareils-auditifs",
+  "venduEnEurope": true,
+  "image": "/images/appareils/aide-auditive-widex-magnify.webp",
+  "descriptionCourte": "Ancienne gamme 100% Santé Widex (2020), encore vendue en RAC 0€ par certains distributeurs en écoulement. Cinq formats disponibles (RIC et BTE). Son naturel Widex sans Bluetooth.",
+  "pointsForts": [
+    "Éligible 100% Santé — reste à charge 0€, plafond 950€ TTC",
+    "Cinq formats au choix (Fusion RIC 312, Passion RIC 10, Fashion mini BTE, Fashion BTE, Fashion power BTE) — couverture large des anatomies et des pertes",
+    "Son naturel Widex — signature sonore reconnue",
+    "Bobine T et générateur d'acouphènes inclus",
+    "Version Fashion power BTE adaptée aux pertes sévères"
+  ],
+  "pointsFaibles": [
+    "Génération 2020 — remplacée par Magnify puis Allure au catalogue Widex",
+    "Pas de Bluetooth — aucun streaming, aucun appel mains libres",
+    "Non rechargeable — piles uniquement",
+    "Pas de certification IP — prudence avec l'humidité",
+    "Disponibilité dépendante du stock distributeur — plus au catalogue Widex France 2026"
+  ],
+  "noteExpert": 5.5,
+  "enAvant": false,
+  "ficheTechniquePdf": "/docs/fiches-techniques/widex-moment-comparison.pdf",
+  "descriptionComplete": "La gamme Enjoy 2 de Widex a été lancée en 2020 comme offre 100% Santé (Classe 1) avec cinq formats distincts, ce qui en faisait à l'époque la gamme RAC 0€ la plus diversifiée du marché français. Widex l'a depuis remplacée par Magnify (2021) puis Allure (2025) dans son catalogue actif.\n\nStatut 2026\nL'Enjoy 2 n'apparaît plus au catalogue Widex France en 2026. Elle reste néanmoins vendue par certains distributeurs (Laboratoires Unisson notamment) qui écoulent les stocks fabricants en 100% Santé. Le prix plafond est 950€ TTC par appareil.\n\nPrix et remboursement\nEnjoy 2 est en Classe 1 à 950€ TTC par appareil, entièrement remboursé au titre du 100% Santé. Aucun reste à charge, à condition que votre contrat de complémentaire couvre le 100% Santé.\n\nLes cinq formats disponibles\n- Fusion RIC 312 — le contour à écouteur déporté classique, pile 312 (autonomie ~5-7 jours). Le plus polyvalent.\n- Passion RIC 10 — même concept RIC mais pile 10 (plus petit, autonomie ~3-5 jours).\n- Fashion mini BTE 312 — contour d'oreille compact, pile 312.\n- Fashion BTE 312 — contour d'oreille standard, pile 312.\n- Fashion power BTE 312 — contour d'oreille puissant pour pertes sévères, pile 312.\n\nTechnologie\n10 canaux de traitement, plage d'adaptation légère à sévère. Bobine T et générateur d'acouphènes inclus. Pas de Bluetooth — c'est la limitation majeure en 2026.\n\nPour qui aujourd'hui\nL'Enjoy 2 ne se justifie que si votre audioprothésiste vous propose un stock restant à 950€ et que vous n'avez pas besoin de connectivité. Dans la plupart des cas, la gamme Savi de ReSound (2025, avec LE Audio + Auracast inclus, même prix 950€) ou la gamme Allure de Widex (Classe 2 mais technologie 2025) sont des alternatives plus pertinentes.\n\nSi votre perte est sévère et que la version Fashion power BTE est proposée, c'est la seule configuration où l'Enjoy 2 reste particulièrement intéressant — les BTE power en 100% Santé sont rares.\n\nVerdict expert\nNote : 5,5/10. L'Enjoy 2 n'est plus un choix par défaut en 2026. Sans Bluetooth ni rechargement, et remplacée au catalogue Widex, elle tient uniquement pour les écoulements de stock ponctuels. Si elle vous est proposée, comparez avec la gamme Savi avant de décider.\n\nEn une phrase : l'ancienne 100% Santé Widex qui survit par écoulement distributeur — évaluer au cas par cas selon la disponibilité Classe 1 plus récente.",
+  "legacy": true,
+  "legacyReason": "Gamme Widex 2020, remplacée par Magnify (2021) puis Allure (2025). N'apparaît plus au catalogue Widex France 2026. Encore vendue en 100% Santé par certains distributeurs (Unisson) en écoulement de stock fabricant.",
+  "metaTitle": "Widex Enjoy 2 : ancienne Classe 1, écoulement distributeur",
+  "metaDescription": "Gamme 100% Santé Widex 2020 en écoulement. 5 formats (RIC, BTE). Pas de Bluetooth. Avis audioprothésiste DE — comparez avec Savi avant décision."
+}
