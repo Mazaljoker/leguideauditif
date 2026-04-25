@@ -1,0 +1,65 @@
+---
+// "Plan B" self-service en bas de dashboard Revendicateur : pour les
+// audios qui ne veulent pas (encore) prendre 30 min mais sont prêts à
+// activer un Premium ou Fondateur seuls. Réutilise UpsellCard à
+// l'identique — les CTAs, prix et features restent inchangés. Ce
+// wrapper apporte uniquement le titre sobre et la disposition 1.4/1
+// déjà en place dans le dashboard d'origine.
+
+import SectionHeader from './SectionHeader.astro';
+import UpsellCard from './UpsellCard.astro';
+import { FONDATEUR_SLOTS_TAKEN, FONDATEUR_SLOTS_TOTAL } from '../../../lib/audiopro';
+
+export interface Props {
+  centreSlug: string;
+}
+
+const { centreSlug } = Astro.props;
+---
+
+<SectionHeader
+  title="Vous préférez avancer seul pour l'instant ?"
+  subtitle="Deux formules self-service, sans RDV"
+/>
+
+<div class="grid grid-cols-1 gap-5 lg:grid-cols-[1.4fr_1fr] mb-10">
+  <UpsellCard
+    variant="fondateur"
+    badge="Offre Fondateur limitée"
+    title="Devenez Partenaire Fondateur"
+    tagline="Pour les 20 premiers audios qui nous rejoignent et témoignent de leur expérience."
+    scarcityTaken={FONDATEUR_SLOTS_TAKEN}
+    scarcityTotal={FONDATEUR_SLOTS_TOTAL}
+    priceMain="19€"
+    priceSub="/mois à vie"
+    priceNote="au lieu de 39€/mois · soit <strong>240€ d'économie par an, à vie</strong>"
+    features={[
+      'Toutes les fonctionnalités Premium',
+      'Visibilité prioritaire dans votre zone',
+      'Tarif 19€/mois verrouillé à vie (non réévalué)',
+      'Vous témoignez (vidéo courte) et partagez vos résultats pour nourrir le site',
+      'Vous êtes mis en avant comme audio référent de votre zone',
+    ]}
+    ctaLabel="Réserver ma place Fondateur"
+    ctaHref={`/revendiquer/?centre=${centreSlug}&plan=fondateur`}
+  />
+
+  <UpsellCard
+    variant="premium"
+    badge="Premium Standard"
+    title="Fiche Premium"
+    tagline="Pour faire remonter votre centre en tête des recherches."
+    priceMain="39€"
+    priceSub="/mois"
+    priceNote="ou <strong>390€/an</strong> (2 mois offerts)"
+    features={[
+      'Visibilité prioritaire dans votre zone',
+      'Analytics avancés : ranking, trafic, demandes',
+      'Accès aux leviers Ads, Leads, nPosts',
+      'Badge Premium visible sur votre fiche publique',
+      'Résiliable à tout moment',
+    ]}
+    ctaLabel="Passer Premium"
+    ctaHref={`/revendiquer/?centre=${centreSlug}&plan=premium`}
+  />
+</div>

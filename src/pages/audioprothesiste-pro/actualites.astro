@@ -3,12 +3,14 @@ export const prerender = false;
 
 import { Icon } from 'astro-icon/components';
 import AudioproLayout from '../../layouts/AudioproLayout.astro';
+import PremiumLockedBanner from '../../components/audiopro/shared/PremiumLockedBanner.astro';
 import { createServerClient } from '../../lib/supabase';
 import {
   ACTIVE_CENTRE_COOKIE,
   getActiveCentreFull,
   getUserCentres,
   resolveActiveCentre,
+  resolveProName,
 } from '../../lib/audiopro';
 import { TEMPLATES, TEMPLATE_ORDER } from '../../lib/actualites-templates';
 
@@ -27,6 +29,7 @@ const centre = await getActiveCentreFull(supabase, active.slug, user.email);
 if (!centre) return Astro.redirect('/trouver-audioprothesiste/');
 
 const isPremium = centre.plan === 'premium';
+const proName = resolveProName(user, centre.claimed_by_name ?? null);
 
 interface ActualiteRow {
   id: string;
@@ -68,22 +71,15 @@ function formatFr(iso: string): string {
   </header>
 
   {!isPremium && (
-    <div class="rounded-xl border-2 border-orange/30 bg-orange/5 p-6 mb-8 flex flex-col sm:flex-row sm:items-center gap-4">
-      <Icon name="lucide:crown" class="w-8 h-8 text-orange shrink-0" />
-      <div class="flex-1">
-        <h2 class="font-sans font-bold text-marine mb-1">Feature réservée aux centres Premium</h2>
-        <p class="text-sm font-sans text-gris-texte">
-          Les actualités du centre sont une feature Premium : elles apparaissent sur votre fiche publique et envoient un signal de fraîcheur à Google.
-        </p>
-      </div>
-      <a
-        href={`/revendiquer/?centre=${centre.slug}`}
-        class="inline-flex items-center justify-center gap-2 rounded-lg bg-orange px-5 py-3 text-sm font-sans font-semibold text-blanc hover:bg-orange-hover transition-colors shrink-0"
-        style="min-height: 44px;"
-      >
-        Passer Premium
-      </a>
-    </div>
+    <PremiumLockedBanner
+      title="Feature réservée aux centres Premium"
+      body="Les actualités du centre sont une feature Premium : elles apparaissent sur votre fiche publique et envoient un signal de fraîcheur à Google."
+      centreSlug={centre.slug}
+      lockedSource="locked-actualites"
+      prefillName={proName.fullName}
+      prefillEmail={user.email}
+      centreId={centre.id}
+    />
   )}
 
   {isPremium && (

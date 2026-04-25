@@ -13,6 +13,8 @@ import LeverCard from '../shared/LeverCard.astro';
 import QuickAccess from '../shared/QuickAccess.astro';
 import AudioAvatar from '../shared/AudioAvatar.astro';
 import FlagshipProducts from '../shared/FlagshipProducts.astro';
+import HeroRDV from '../shared/HeroRDV.astro';
+import ProblemCardsGrid from '../shared/ProblemCardsGrid.astro';
 import KPIsReseau from './KPIsReseau.astro';
 import CentresTable from './CentresTable.astro';
 import type { ActionPrioritaireInfo, CentreTableRow } from '../../../types/audiopro';
@@ -32,6 +34,9 @@ export interface Props {
   codePostauxLabel: string;
   audioPhotoUrl?: string | null;
   reseauLabel?: string;
+  centreActifNom: string;
+  centreActifId: string;
+  prefillEmail?: string;
 }
 
 const {
@@ -49,16 +54,32 @@ const {
   codePostauxLabel,
   audioPhotoUrl,
   reseauLabel,
+  centreActifNom,
+  centreActifId,
+  prefillEmail,
 } = Astro.props;
 
 const audioFullName = nom ? `${prenom} ${nom}` : prenom;
 const avatarSublabel = reseauLabel ?? `${nbCentres} centres · ${villesLabel}`;
+const prefillName = nom ? `${prenom} ${nom}`.trim() : prenom;
+const heroReseauLabel =
+  nbCentres > 1
+    ? `${centreActifNom} + ${nbCentres - 1} ${nbCentres - 1 === 1 ? 'autre centre' : 'autres centres'}`
+    : centreActifNom;
 ---
 
+<HeroRDV
+  variant="reseau"
+  prenom={prenom}
+  centreNom={centreActifNom}
+  reseauLabel={heroReseauLabel}
+  prefillName={prefillName}
+  prefillEmail={prefillEmail}
+  centreId={centreActifId}
+  plan="premium"
+/>
+
 <header class="mb-6 sm:mb-8">
-  <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine mb-4">
-    Bonjour {prenom}
-  </h1>
   <div class="rounded-xl bg-blanc border border-gris-clair p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
     <AudioAvatar
       photoUrl={audioPhotoUrl}
@@ -71,6 +92,14 @@ const avatarSublabel = reseauLabel ?? `${nbCentres} centres · ${villesLabel}`;
     </span>
   </div>
 </header>
+
+<ProblemCardsGrid
+  variant="reseau"
+  prefillName={prefillName}
+  prefillEmail={prefillEmail}
+  centreId={centreActifId}
+  plan="premium"
+/>
 
 {action && (
   <ActionPrioritaire

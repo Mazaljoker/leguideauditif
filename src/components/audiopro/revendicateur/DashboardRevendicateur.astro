@@ -1,40 +1,45 @@
 ---
-// Orchestrateur du dashboard "Revendicateur" (compte gratuit, 1+ fiche
-// revendiquée approved, pas d'abonnement Premium).
+// Orchestrateur du dashboard "Revendicateur" — version RDV-funnel.
 //
-// Objectif produit : convertir vers Fondateur (scarcity) ou Premium.
-// Pour cela on enchaîne : welcome banner -> h1 prénom -> todo complétude
-// -> 3 KPIs (2 visibles + 1 locked) -> 2 upsells 50/50 -> 3 leviers
-// teaser lockés -> accès rapide.
+// Architecture cible (brief refonte espace pro 2026-04-25) :
+//   1. Hero RDV (photo Franck + pitch confrère + CTA Calendly)
+//   2. 4 cards problème (Acquisition, Conversion, Charge mentale, Base patient)
+//   3. Activité de la fiche (3 KPIs : vues, demandes, position locked)
+//   4. Complétion fiche (accordéon replié)
+//   5. Leviers d'acquisition (3 cards reformulées avec CTA RDV)
+//   6. Plan B self-service (Fondateur 19€ + Premium 39€)
+//
+// Self-service reste accessible mais déprioritisé visuellement —
+// l'objectif business est la prise de RDV avec Franck-Olivier.
 
 import { Icon } from 'astro-icon/components';
-import WelcomeBanner from '../shared/WelcomeBanner.astro';
+import HeroRDV from '../shared/HeroRDV.astro';
+import ProblemCardsGrid from '../shared/ProblemCardsGrid.astro';
+import CompletudeAccordion from '../shared/CompletudeAccordion.astro';
+import PlanBSelfService from '../shared/PlanBSelfService.astro';
 import SectionHeader from '../shared/SectionHeader.astro';
 import KPICard from '../shared/KPICard.astro';
 import KPICardLocked from '../shared/KPICardLocked.astro';
-import UpsellCard from '../shared/UpsellCard.astro';
 import QuickAccess from '../shared/QuickAccess.astro';
-import CompletudeTodo, { type TodoItem } from './CompletudeTodo.astro';
 import LeviersTeaser from './LeviersTeaser.astro';
-import {
-  FONDATEUR_SLOTS_TAKEN,
-  FONDATEUR_SLOTS_TOTAL,
-} from '../../../lib/audiopro';
+import type { TodoItem } from './CompletudeTodo.astro';
 import type { CentreData } from '../../../types/centre';
 
 export interface Props {
   prenom: string;
+  nomFamille?: string;
   centre: CentreData;
   viewCount30j: number;
   leadCount30j: number;
   claimedDaysAgo: number;
+  prefillEmail?: string;
 }
 
-const { prenom, centre, viewCount30j, leadCount30j, claimedDaysAgo } = Astro.props;
+const { prenom, nomFamille, centre, viewCount30j, leadCount30j, claimedDaysAgo, prefillEmail } =
+  Astro.props;
 
 const ficheHref = '/audioprothesiste-pro/fiche/';
 
-// Liste des 8 étapes de complétude calculée à partir des champs du centre.
 const items: TodoItem[] = [
   { label: 'Revendiquer votre fiche', done: true },
   {
@@ -44,7 +49,7 @@ const items: TodoItem[] = [
     ctaLabel: 'Compléter',
   },
   {
-    label: 'Horaires d’ouverture',
+    label: 'Horaires d\'ouverture',
     done: Boolean(centre.horaires),
     href: ficheHref,
     ctaLabel: 'Renseigner',
@@ -83,28 +88,33 @@ const items: TodoItem[] = [
 
 const claimedLabel =
   claimedDaysAgo === 0
-    ? "aujourd'hui"
+    ? 'aujourd\'hui'
     : claimedDaysAgo === 1
       ? 'hier'
       : `il y a ${claimedDaysAgo} jours`;
+
+const prefillName = nomFamille ? `${prenom} ${nomFamille}`.trim() : prenom;
 ---
 
-<WelcomeBanner prenom={prenom} centreId={centre.id} />
+<HeroRDV
+  variant="revendicateur"
+  prenom={prenom}
+  centreNom={centre.nom}
+  prefillName={prefillName}
+  prefillEmail={prefillEmail}
+  centreId={centre.id}
+  plan="standard"
+/>
 
-<header class="mb-6 sm:mb-8">
-  <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine">
-    Bonjour {prenom}
-  </h1>
-  <p class="text-sm sm:text-base font-sans text-gris-texte mt-1">
-    Voici l'état de votre fiche ·
-    <strong class="text-marine">{centre.nom}</strong>
-    · revendiquée {claimedLabel}
-  </p>
-</header>
+<ProblemCardsGrid
+  variant="revendicateur"
+  prefillName={prefillName}
+  prefillEmail={prefillEmail}
+  centreId={centre.id}
+  plan="standard"
+/>
 
-<CompletudeTodo items={items} />
-
-<SectionHeader title="Votre activité" subtitle="30 derniers jours" />
+<SectionHeader title="Votre activité" subtitle={`30 derniers jours · fiche revendiquée ${claimedLabel}`} />
 
 <div class="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-10">
   <KPICard
@@ -128,25 +138,33 @@ const claimedLabel =
   />
 </div>
 
-<div id="upsell">
-  <SectionHeader
-    title="Passez à l'étape suivante"
-    subtitle="Deux formules pour booster votre visibilité"
-  />
-</div>
+<CompletudeAccordion items={items} />
 
-{/* CTA demo Premium — lien vers fiche démo LGA remplie */}
-<aside class="mb-6 rounded-xl bg-gradient-to-br from-marine to-marine-light p-5 sm:p-6 text-blanc shadow-[0_4px_12px_rgba(27,46,74,0.15)]">
+<SectionHeader
+  title="Leviers d'acquisition"
+  subtitle="Disponibles en Premium ou via accompagnement Pilote"
+/>
+
+<LeviersTeaser
+  prefillName={prefillName}
+  prefillEmail={prefillEmail}
+  centreId={centre.id}
+/>
+
+<aside
+  id="upsell"
+  class="mb-6 rounded-xl bg-gradient-to-br from-marine to-marine-light p-5 sm:p-6 text-blanc shadow-[0_4px_12px_rgba(27,46,74,0.15)]"
+>
   <div class="flex flex-col sm:flex-row sm:items-center gap-4">
     <div class="w-12 h-12 rounded-full bg-orange/20 text-orange flex items-center justify-center shrink-0">
-      <Icon name="lucide:sparkles" class="w-6 h-6" />
+      <Icon name="lucide:sparkles" class="w-6 h-6" aria-hidden="true" />
     </div>
     <div class="flex-1 min-w-0">
       <p class="font-sans text-base sm:text-lg font-bold mb-1">
         Voyez concrètement ce que Premium permet
       </p>
       <p class="text-sm font-sans text-blanc/85 leading-snug">
-        Fiche démo complète avec bio audio, 2 appareils phares (Phonak + Signia), parcours patient, actualités, cas patients anonymisés et FAQ locale.
+        Fiche démo complète avec bio audio, 2 appareils phares, parcours patient, actualités, cas patients anonymisés et FAQ locale.
       </p>
     </div>
     <a
@@ -162,54 +180,7 @@ const claimedLabel =
   </div>
 </aside>
 
-<div class="grid grid-cols-1 gap-5 lg:grid-cols-[1.4fr_1fr] mb-10">
-  <UpsellCard
-    variant="fondateur"
-    badge="Offre Fondateur limitée"
-    title="Devenez Partenaire Fondateur"
-    tagline="Pour les 20 premiers audios qui nous rejoignent et témoignent de leur expérience."
-    scarcityTaken={FONDATEUR_SLOTS_TAKEN}
-    scarcityTotal={FONDATEUR_SLOTS_TOTAL}
-    priceMain="19€"
-    priceSub="/mois à vie"
-    priceNote="au lieu de 39€/mois · soit <strong>240€ d'économie par an, à vie</strong>"
-    features={[
-      'Toutes les fonctionnalités Premium',
-      'Visibilité prioritaire dans votre zone',
-      'Tarif 19€/mois verrouillé à vie (non réévalué)',
-      'Vous témoignez (vidéo courte) et partagez vos résultats pour nourrir le site',
-      'Vous êtes mis en avant comme audio référent de votre zone',
-    ]}
-    ctaLabel="Réserver ma place Fondateur"
-    ctaHref={`/revendiquer/?centre=${centre.slug}&plan=fondateur`}
-  />
-
-  <UpsellCard
-    variant="premium"
-    badge="Premium Standard"
-    title="Fiche Premium"
-    tagline="Pour faire remonter votre centre en tête des recherches."
-    priceMain="39€"
-    priceSub="/mois"
-    priceNote="ou <strong>390€/an</strong> (2 mois offerts)"
-    features={[
-      'Visibilité prioritaire dans votre zone',
-      'Analytics avancés : ranking, trafic, demandes',
-      'Accès aux leviers Ads, Leads, nPosts',
-      'Badge Premium visible sur votre fiche publique',
-      'Résiliable à tout moment',
-    ]}
-    ctaLabel="Passer Premium"
-    ctaHref={`/revendiquer/?centre=${centre.slug}&plan=premium`}
-  />
-</div>
-
-<SectionHeader
-  title="Débloquez les leviers d'acquisition"
-  subtitle="Disponibles en Premium ou Fondateur"
-/>
-
-<LeviersTeaser />
+<PlanBSelfService centreSlug={centre.slug} />
 
 <QuickAccess
   links={[

@@ -14,12 +14,15 @@ import QuickAccess from '../shared/QuickAccess.astro';
 import CompletudeBar from '../shared/CompletudeBar.astro';
 import AudioAvatar from '../shared/AudioAvatar.astro';
 import FlagshipProducts from '../shared/FlagshipProducts.astro';
+import HeroRDV from '../shared/HeroRDV.astro';
+import ProblemCardsGrid from '../shared/ProblemCardsGrid.astro';
 import LeviersActifs from './LeviersActifs.astro';
 import type { ActionPrioritaireInfo } from '../../../types/audiopro';
 import type { CentreData } from '../../../types/centre';
 
 export interface Props {
   prenom: string;
+  nomFamille?: string;
   centre: CentreData;
   viewCount30j: number;
   leadCount30j: number;
@@ -27,10 +30,12 @@ export interface Props {
   completeness: number;
   action?: ActionPrioritaireInfo;
   audioPhotoUrl?: string | null;
+  prefillEmail?: string;
 }
 
 const {
   prenom,
+  nomFamille,
   centre,
   viewCount30j,
   leadCount30j,
@@ -38,7 +43,10 @@ const {
   completeness,
   action,
   audioPhotoUrl,
+  prefillEmail,
 } = Astro.props;
+
+const prefillName = nomFamille ? `${prenom} ${nomFamille}`.trim() : prenom;
 
 // Nom complet de l'audioprothésiste à afficher en header. Priorité :
 //   1. audio_prenom + audio_nom (RPPS source)
@@ -67,10 +75,17 @@ const completenessStepsTotal = 9;
 const completenessStepsDone = Math.round((completeness / 100) * completenessStepsTotal);
 ---
 
+<HeroRDV
+  variant="premium_solo"
+  prenom={prenom}
+  centreNom={centre.nom}
+  prefillName={prefillName}
+  prefillEmail={prefillEmail}
+  centreId={centre.id}
+  plan="premium"
+/>
+
 <header class="mb-6 sm:mb-8">
-  <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine mb-4">
-    Bonjour {prenom}
-  </h1>
   <div class="rounded-xl bg-blanc border border-gris-clair p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
     <AudioAvatar
       photoUrl={audioPhotoUrl}
@@ -83,6 +98,14 @@ const completenessStepsDone = Math.round((completeness / 100) * completenessStep
     </span>
   </div>
 </header>
+
+<ProblemCardsGrid
+  variant="premium_solo"
+  prefillName={prefillName}
+  prefillEmail={prefillEmail}
+  centreId={centre.id}
+  plan="premium"
+/>
 
 {action && (
   <ActionPrioritaire
