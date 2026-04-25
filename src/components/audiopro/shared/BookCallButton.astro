@@ -1,0 +1,220 @@
+---
+// CTA de prise de RDV Calendly pour l'espace pro audioprothésiste.
+//
+// Charge `widget.js` une seule fois par page (singleton via flag global
+// fenêtre). Au clic : `Calendly.initPopupWidget` avec UTM dynamique
+// dérivé de `source`, plus prefill nom/email récupérés des dataset.
+// Tracking GA4 (`book_call_initiated`) déclenché au clic ; le listener
+// `message` `calendly.event_scheduled` envoie `book_call_completed`
+// si l'audio confirme dans le widget.
+//
+// 3 variants visuels alignés sur le design system :
+//   - primary : bouton orange plein, CTA hero
+//   - secondary : bouton marine plein, CTA Plan B
+//   - ghost : outline marine sur fond clair, CTA card / locked banner
+//
+// Toujours touch target >= 48px en taille md/lg, >= 44px en sm.
+// Focus visible orange via `:focus-visible` global.
+
+import { Icon } from 'astro-icon/components';
+import { buildCalendlyUrl } from '../../../lib/calendly';
+
+export interface Props {
+  source: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  label?: string;
+  fullWidth?: boolean;
+  iconRight?: boolean;
+  prefillName?: string;
+  prefillEmail?: string;
+  centreId?: string;
+  plan?: 'standard' | 'premium' | 'fondateur';
+  ariaLabel?: string;
+  className?: string;
+}
+
+const {
+  source,
+  variant = 'primary',
+  size = 'md',
+  label = 'Réserver 30 min avec Franck-Olivier',
+  fullWidth = false,
+  iconRight = true,
+  prefillName,
+  prefillEmail,
+  centreId,
+  plan,
+  ariaLabel,
+  className = '',
+} = Astro.props;
+
+const url = buildCalendlyUrl(source);
+
+const sizeClass =
+  size === 'sm'
+    ? 'text-sm px-4 py-2.5'
+    : size === 'lg'
+      ? 'text-base sm:text-lg px-7 py-4'
+      : 'text-sm sm:text-base px-6 py-3.5';
+
+const minHeight = size === 'sm' ? '44px' : size === 'lg' ? '56px' : '48px';
+
+const variantClass =
+  variant === 'primary'
+    ? 'bg-orange text-blanc hover:bg-orange-hover'
+    : variant === 'secondary'
+      ? 'bg-marine text-blanc hover:bg-marine-light'
+      : 'border-2 border-marine bg-blanc text-marine hover:bg-marine hover:text-blanc';
+
+const widthClass = fullWidth ? 'w-full' : '';
+---
+
+<button
+  type="button"
+  data-book-call
+  data-source={source}
+  data-url={url}
+  data-prefill-name={prefillName ?? ''}
+  data-prefill-email={prefillEmail ?? ''}
+  data-centre-id={centreId ?? ''}
+  data-plan={plan ?? ''}
+  aria-label={ariaLabel ?? label}
+  class:list={[
+    'inline-flex items-center justify-center gap-2 rounded-lg font-sans font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-2',
+    sizeClass,
+    variantClass,
+    widthClass,
+    className,
+  ]}
+  style={`min-height: ${minHeight};`}
+>
+  <span>{label}</span>
+  {iconRight && <Icon name="lucide:arrow-right" class="w-4 h-4 shrink-0" />}
+</button>
+
+<script>
+  import { trackBookCall } from '../../../lib/track';
+
+  type Plan = 'standard' | 'premium' | 'fondateur';
+
+  interface BookCallContext {
+    source: string;
+    centreId?: string;
+    plan?: Plan;
+  }
+
+  interface CalendlyApi {
+    initPopupWidget: (opts: {
+      url: string;
+      prefill?: { name?: string; email?: string };
+    }) => void;
+  }
+
+  declare global {
+    interface Window {
+      Calendly?: CalendlyApi;
+      __lgaCalendlyLoading?: Promise<void>;
+      __lgaCalendlyEventListener?: boolean;
+      __lgaLastBookCall?: BookCallContext;
+    }
+  }
+
+  const WIDGET_JS = 'https://assets.calendly.com/assets/external/widget.js';
+  const WIDGET_CSS = 'https://assets.calendly.com/assets/external/widget.css';
+
+  function loadCalendlyOnce(): Promise<void> {
+    if (window.Calendly) return Promise.resolve();
+    if (window.__lgaCalendlyLoading) return window.__lgaCalendlyLoading;
+
+    window.__lgaCalendlyLoading = new Promise((resolve, reject) => {
+      const cssLoaded = !!document.querySelector(`link[href="${WIDGET_CSS}"]`);
+      if (!cssLoaded) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = WIDGET_CSS;
+        document.head.appendChild(link);
+      }
+
+      const existingScript = document.querySelector<HTMLScriptElement>(
+        `script[src="${WIDGET_JS}"]`,
+      );
+      if (existingScript) {
+        existingScript.addEventListener('load', () => resolve());
+        existingScript.addEventListener('error', () => reject(new Error('Calendly load failed')));
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = WIDGET_JS;
+      script.async = true;
+      script.addEventListener('load', () => resolve());
+      script.addEventListener('error', () => reject(new Error('Calendly load failed')));
+      document.head.appendChild(script);
+    });
+
+    return window.__lgaCalendlyLoading;
+  }
+
+  function ensureScheduledListener(): void {
+    if (window.__lgaCalendlyEventListener) return;
+    window.__lgaCalendlyEventListener = true;
+
+    window.addEventListener('message', (event: MessageEvent) => {
+      if (typeof event.data !== 'object' || event.data === null) return;
+      const data = event.data as { event?: string };
+      if (data.event !== 'calendly.event_scheduled') return;
+
+      const ctx = window.__lgaLastBookCall;
+      if (!ctx) return;
+
+      trackBookCall('completed', {
+        source: ctx.source,
+        centreId: ctx.centreId,
+        plan: ctx.plan,
+      });
+    });
+  }
+
+  function bindButtons(): void {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('button[data-book-call]');
+    buttons.forEach((btn) => {
+      if (btn.dataset.lgaBound === '1') return;
+      btn.dataset.lgaBound = '1';
+
+      btn.addEventListener('click', async () => {
+        const source = btn.dataset.source ?? 'unknown';
+        const url = btn.dataset.url ?? '';
+        const name = btn.dataset.prefillName || undefined;
+        const email = btn.dataset.prefillEmail || undefined;
+        const centreId = btn.dataset.centreId || undefined;
+        const planRaw = btn.dataset.plan;
+        const plan: Plan | undefined =
+          planRaw === 'standard' || planRaw === 'premium' || planRaw === 'fondateur'
+            ? planRaw
+            : undefined;
+
+        trackBookCall('initiated', { source, centreId, plan });
+
+        window.__lgaLastBookCall = { source, centreId, plan };
+
+        try {
+          await loadCalendlyOnce();
+          ensureScheduledListener();
+          window.Calendly?.initPopupWidget({
+            url,
+            prefill: name || email ? { name, email } : undefined,
+          });
+        } catch {
+          window.location.href = url;
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindButtons);
+  } else {
+    bindButtons();
+  }
+</script>

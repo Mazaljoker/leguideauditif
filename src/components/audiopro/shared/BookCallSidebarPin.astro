@@ -1,0 +1,57 @@
+---
+// Pin sticky en bas de la sidebar de l'espace pro audioprothésiste.
+// Reste visible sur toutes les pages internes (Tableau de bord, Ma
+// fiche, Mes appareils, etc.). Caché en mobile (la sidebar y devient
+// une topbar scrollable d'icônes — pas de place pour ce pin).
+//
+// La photo Franck mini (48px) est cliquable au même titre que le
+// bouton — full surface tappable sur la card.
+
+import BookCallButton from './BookCallButton.astro';
+
+export interface Props {
+  prefillName?: string;
+  prefillEmail?: string;
+  centreId?: string;
+  plan?: 'standard' | 'premium' | 'fondateur';
+}
+
+const { prefillName, prefillEmail, centreId, plan } = Astro.props;
+---
+
+<aside
+  class="hidden lg:block mt-6 rounded-xl bg-marine text-blanc p-4 shadow-[0_2px_8px_rgba(27,46,74,0.15)]"
+  aria-label="Une question, un projet ?"
+>
+  <div class="flex items-center gap-3 mb-3">
+    <img
+      src="/images/franck-olivier-chabbat.webp"
+      alt="Franck-Olivier Chabbat"
+      width="48"
+      height="48"
+      loading="lazy"
+      decoding="async"
+      class="w-12 h-12 rounded-full object-cover ring-2 ring-orange/40 shrink-0"
+    />
+    <div class="min-w-0">
+      <p class="font-sans text-sm font-bold leading-tight">
+        Une question, un projet ?
+      </p>
+      <p class="text-xs font-sans text-blanc/75 mt-0.5">
+        30 min avec Franck-Olivier
+      </p>
+    </div>
+  </div>
+
+  <BookCallButton
+    source="sidebar-pin"
+    variant="primary"
+    size="sm"
+    label="Réserver 30 min"
+    fullWidth={true}
+    prefillName={prefillName}
+    prefillEmail={prefillEmail}
+    centreId={centreId}
+    plan={plan}
+  />
+</aside>

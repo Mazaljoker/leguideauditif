@@ -1,51 +1,65 @@
 ---
-// Teaser des 3 leviers d'acquisition (Ads, Leads, nPosts) lockés pour les
-// comptes gratuits. Opacité réduite au repos pour signaler le cadenas ;
-// le hover restore l'opacité pleine (le mockup fait déjà ça).
+// Teaser des 3 leviers d'acquisition (Ads, Leads, nPosts) pour comptes
+// gratuits. Refonte 2026-04-25 : on remplace le badge "Premium requis"
+// par un CTA ghost "On en parle en 30 min →" qui ouvre Calendly.
 //
-// Cliquer un teaser ramène vers l'upsell Premium (pas vers une page
-// intermédiaire — un revendicateur curieux = conversion chaude).
+// Chaque card garde son UTM dédié (utm_content=levier-ads /
+// levier-leads / levier-nposts) pour suivre la performance par card.
 
 import { Icon } from 'astro-icon/components';
+import BookCallButton from '../shared/BookCallButton.astro';
+
+export interface Props {
+  prefillName?: string;
+  prefillEmail?: string;
+  centreId?: string;
+}
+
+const { prefillName, prefillEmail, centreId } = Astro.props;
 
 const leviers = [
   {
     iconName: 'lucide:megaphone',
     title: 'Campagnes Google Ads',
     body: 'Landing LGA co-brandée et gestion de vos campagnes pour attirer des patients sur votre zone.',
+    source: 'levier-ads',
   },
   {
     iconName: 'lucide:target',
     title: 'Leads qualifiés',
     body: 'Recevez des demandes patients exclusives sur votre code postal. Paiement à la performance.',
+    source: 'levier-leads',
   },
   {
     iconName: 'lucide:smartphone',
     title: 'Réseaux sociaux (nPosts)',
     body: 'Publiez automatiquement sur Facebook, Instagram et Google Business Profile.',
+    source: 'levier-nposts',
   },
 ];
-
-const upsellHref = '#upsell';
 ---
 
 <div class="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-8">
   {leviers.map((l) => (
-    <a
-      href={upsellHref}
-      class="block rounded-xl bg-blanc border border-gris-clair p-5 sm:p-6 opacity-75 hover:opacity-100 transition-opacity shadow-[0_1px_3px_rgba(27,46,74,0.06)]"
-    >
-      <div class="w-10 h-10 rounded-full bg-[#F3F4F6] text-gris-texte flex items-center justify-center mb-3">
-        <Icon name={l.iconName} class="w-5 h-5" />
+    <article class="rounded-xl bg-blanc border border-gris-clair p-5 sm:p-6 flex flex-col shadow-[0_1px_3px_rgba(27,46,74,0.06)]">
+      <div class="w-10 h-10 rounded-full bg-marine/10 text-marine flex items-center justify-center mb-3 shrink-0">
+        <Icon name={l.iconName} class="w-5 h-5" aria-hidden="true" />
       </div>
       <h3 class="font-sans text-base font-bold text-marine mb-1.5">{l.title}</h3>
-      <p class="text-sm font-sans text-gris-texte leading-snug mb-4 min-h-[50px]">
+      <p class="text-sm font-sans text-gris-texte leading-snug mb-4 flex-1">
         {l.body}
       </p>
-      <span class="inline-flex items-center gap-1.5 rounded-md bg-[#F3F4F6] text-marine text-[11px] font-sans font-bold px-3 py-1.5">
-        <Icon name="lucide:lock" class="w-3 h-3" />
-        Premium requis
-      </span>
-    </a>
+      <BookCallButton
+        source={l.source}
+        variant="ghost"
+        size="sm"
+        label="On en parle en 30 min"
+        fullWidth={true}
+        prefillName={prefillName}
+        prefillEmail={prefillEmail}
+        centreId={centreId}
+        plan="standard"
+      />
+    </article>
   ))}
 </div>

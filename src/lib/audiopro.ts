@@ -230,6 +230,60 @@ export async function getCentreTeam(
   return (data ?? []) as CentreAudio[];
 }
 
+export interface ResolvedProName {
+  prenom: string;
+  nomFamille: string;
+  fullName: string;
+}
+
+/**
+ * Résout le nom affiché de l'audio connecté en suivant la cascade :
+ *   1. user_metadata.given_name + family_name (RPPS / OAuth)
+ *   2. user_metadata.full_name / .name (Google / Facebook)
+ *   3. claimed_by_name du centre actif (snapshot du claim)
+ *   4. partie locale de l'email (fallback ultime)
+ *
+ * Utilisé par les pages du dashboard ET par AudioproLayout pour pré-
+ * remplir le widget Calendly du sidebar pin.
+ */
+export function resolveProName(
+  user: { email?: string | null; user_metadata?: Record<string, unknown> | null } | null,
+  claimedByName?: string | null,
+): ResolvedProName {
+  const meta = user?.user_metadata ?? {};
+  const metaGivenName = typeof meta.given_name === 'string' ? meta.given_name.trim() : '';
+  const metaFamilyName = typeof meta.family_name === 'string' ? meta.family_name.trim() : '';
+  const metaFullName = typeof meta.full_name === 'string' ? meta.full_name.trim() : '';
+  const metaName = typeof meta.name === 'string' ? meta.name.trim() : '';
+  const claimedFirstName = claimedByName?.split(' ')[0]?.trim() ?? '';
+  const claimedFamilyName = claimedByName?.split(' ').slice(1).join(' ').trim() ?? '';
+  const emailLocal = (user?.email ?? '').split('@')[0]?.trim() ?? '';
+  const emailFallback = emailLocal
+    ? emailLocal.charAt(0).toUpperCase() + emailLocal.slice(1)
+    : '';
+
+  const prenom =
+    metaGivenName ||
+    metaFullName.split(' ')[0] ||
+    metaName.split(' ')[0] ||
+    claimedFirstName ||
+    emailFallback ||
+    'Docteur';
+
+  const nomFamille =
+    metaFamilyName ||
+    metaFullName.split(' ').slice(1).join(' ') ||
+    metaName.split(' ').slice(1).join(' ') ||
+    claimedFamilyName ||
+    '';
+
+  return {
+    prenom,
+    nomFamille,
+    fullName: nomFamille ? `${prenom} ${nomFamille}` : prenom,
+  };
+}
+
 /**
  * Calcul de complétude identique à CentreCompleteness.astro.
  * Renvoie un pourcentage 0-100 (plan rpps forcé à 15).

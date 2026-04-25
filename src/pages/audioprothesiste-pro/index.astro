@@ -247,16 +247,19 @@ const previewRevendicateurCentre = makeMockCentre();
   {state === 'revendicateur' && (
     <DashboardRevendicateur
       prenom={isPreview ? 'Sophie' : prenom}
+      nomFamille={isPreview ? 'Martin' : nomFamille}
       centre={isPreview ? previewRevendicateurCentre : centre}
       viewCount30j={isPreview ? 12 : viewCountActive}
       leadCount30j={isPreview ? 0 : (leadCountActive ?? 0)}
       claimedDaysAgo={isPreview ? 3 : claimedDaysAgo}
+      prefillEmail={user.email}
     />
   )}
 
   {state === 'premium_solo' && (
     <DashboardPremiumSolo
       prenom={prenom}
+      nomFamille={nomFamille}
       centre={centre}
       viewCount30j={isPreview ? 28 : viewCountActive}
       leadCount30j={isPreview ? 4 : (leadCountActive ?? 0)}
@@ -264,6 +267,7 @@ const previewRevendicateurCentre = makeMockCentre();
       completeness={completeness}
       action={computeActionPremium(centre, completeness)}
       audioPhotoUrl={centre.audio_photo_url ?? metaPicture}
+      prefillEmail={user.email}
     />
   )}
 
@@ -309,6 +313,9 @@ const previewRevendicateurCentre = makeMockCentre();
           ? '75008 · 75015 · 75016'
           : centres.map((c) => c.cp).filter(Boolean).join(' · ')
       }
+      centreActifNom={centre.nom}
+      centreActifId={centre.id}
+      prefillEmail={user.email}
     />
   )}
 </AudioproLayout>

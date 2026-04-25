@@ -1,0 +1,133 @@
+---
+// Grille de 4 cards "problème ressenti" (revendicateur / premium_solo)
+// ou 3 cards (réseau, sans Conversion). Aucun prix, aucun nom d'offre :
+// chaque card pousse au RDV avec une UTM différenciée pour mesurer
+// le funnel (utm_content = card-acquisition / card-conversion / etc.).
+//
+// Le wording est centralisé ici pour qu'un seul composant alimente
+// les 3 dashboards. Si on veut adapter la formulation par variant,
+// on enrichit le mapping interne.
+
+import { Icon } from 'astro-icon/components';
+import BookCallButton from './BookCallButton.astro';
+
+export type ProblemCardsVariant = 'revendicateur' | 'premium_solo' | 'reseau';
+
+export interface Props {
+  variant: ProblemCardsVariant;
+  prefillName?: string;
+  prefillEmail?: string;
+  centreId?: string;
+  plan?: 'standard' | 'premium' | 'fondateur';
+}
+
+const { variant, prefillName, prefillEmail, centreId, plan } = Astro.props;
+
+interface ProblemCard {
+  key: 'acquisition' | 'conversion' | 'charge-mentale' | 'base-patient';
+  iconName: string;
+  title: string;
+  body: string;
+  source: string;
+}
+
+const isReseau = variant === 'reseau';
+
+const acquisition: ProblemCard = {
+  key: 'acquisition',
+  iconName: 'lucide:trending-up',
+  title: isReseau
+    ? 'Pas assez de nouveaux patients dans vos cabines ?'
+    : 'Pas assez de nouveaux patients dans votre cabine ?',
+  body: isReseau
+    ? 'On installe une machine d\'acquisition cohérente sur l\'ensemble de votre réseau : campagnes ciblées par centre, landings co-brandées, pilotage consolidé. Vous coupez quand vous voulez.'
+    : 'On installe une machine d\'acquisition propre : campagne ciblée, landing co-brandée, suivi des conversions. Vous coupez quand vous voulez.',
+  source: 'card-acquisition',
+};
+
+const conversion: ProblemCard = {
+  key: 'conversion',
+  iconName: 'lucide:phone-call',
+  title: 'Le téléphone sonne, mais peu de RDV pris ?',
+  body: 'Audit patient mystère : 3 appels enregistrés, rapport, script correctif pour votre assistante.',
+  source: 'card-conversion',
+};
+
+const chargeMentale: ProblemCard = {
+  key: 'charge-mentale',
+  iconName: 'lucide:brain',
+  title: isReseau
+    ? 'Coordonner le digital sur N centres prend trop de temps ?'
+    : 'Trop de digital, pas assez de temps ?',
+  body: isReseau
+    ? 'On gère tout pour l\'ensemble du réseau : Ads, contenus sociaux, avis Google, dashboard consolidé. Vous restez audio.'
+    : 'On gère tout : Ads, contenus sociaux, avis Google. Vous faites votre métier.',
+  source: 'card-charge-mentale',
+};
+
+const basePatient: ProblemCard = {
+  key: 'base-patient',
+  iconName: 'lucide:database',
+  title: isReseau
+    ? 'Bases patient endormies sur plusieurs centres ?'
+    : 'Centre installé depuis 4+ ans avec base endormie ?',
+  body: isReseau
+    ? 'Réactivation orchestrée multi-centres : patients à renouveler et devis non signés. Les renouvellements classe 2 dorment dans votre logiciel métier.'
+    : 'Réactivation des patients à renouveler et des devis non signés. Les renouvellements classe 2 dorment dans votre logiciel métier.',
+  source: 'card-base-patient',
+};
+
+const cards: ProblemCard[] = isReseau
+  ? [acquisition, chargeMentale, basePatient]
+  : [acquisition, conversion, chargeMentale, basePatient];
+
+const fallbackText = isReseau
+  ? 'Autres situations (ouverture de centre, domination locale SEO multi-villes, audit patient mystère sur un centre cible) : on en parle pendant les 30 min.'
+  : 'Autres situations (ouverture de centre, domination locale SEO, réseau multi-centres) : on en parle pendant les 30 min.';
+
+const gridClass = isReseau
+  ? 'grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5'
+  : 'grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5';
+---
+
+<section class="mb-8 sm:mb-10" aria-label="Sur quel sujet voulez-vous échanger ?">
+  <div class={gridClass}>
+    {cards.map((c) => (
+      <article
+        class="rounded-2xl bg-blanc border border-gris-clair p-5 sm:p-6 flex flex-col shadow-[0_1px_3px_rgba(27,46,74,0.06)]"
+        aria-labelledby={`problem-card-${c.key}`}
+      >
+        <div class="w-11 h-11 rounded-full bg-orange/10 text-orange flex items-center justify-center mb-3 shrink-0">
+          <Icon name={c.iconName} class="w-5 h-5" aria-hidden="true" />
+        </div>
+
+        <h3
+          id={`problem-card-${c.key}`}
+          class="font-sans text-base sm:text-lg font-bold text-marine leading-snug mb-2"
+        >
+          {c.title}
+        </h3>
+
+        <p class="font-sans text-sm sm:text-base text-marine leading-relaxed mb-5 flex-1">
+          {c.body}
+        </p>
+
+        <BookCallButton
+          source={c.source}
+          variant="ghost"
+          size="md"
+          label="En parler 30 min"
+          fullWidth={true}
+          prefillName={prefillName}
+          prefillEmail={prefillEmail}
+          centreId={centreId}
+          plan={plan}
+        />
+      </article>
+    ))}
+  </div>
+
+  <p class="mt-5 text-center text-sm font-sans italic text-gris-texte">
+    {fallbackText}
+  </p>
+</section>
