@@ -65,8 +65,8 @@ CUSTOM_DIMENSIONS = [
     },
     {
         "parameterName": "utm_source",
-        "displayName": "UTM Source (conversion)",
-        "description": "Source marketing first-touch capturee au landing",
+        "displayName": "UTM Source conversion",
+        "description": "Source marketing first-touch capturee au landing (utm_source)",
         "scope": "EVENT",
     },
     {
@@ -77,7 +77,7 @@ CUSTOM_DIMENSIONS = [
     },
     {
         "parameterName": "source",
-        "displayName": "Source (espace pro RDV funnel)",
+        "displayName": "Source espace pro RDV",
         "description": "utm_content du CTA Calendly espace pro : hero-*, card-*, levier-*, locked-*, sidebar-pin",
         "scope": "EVENT",
     },
