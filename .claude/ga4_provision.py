@@ -1,9 +1,10 @@
 """
-Script one-shot : regenere le token OAuth avec analytics.edit,
-puis provisionne GA4 (Key Event + 4 Custom Dimensions) pour leguideauditif.fr.
+Script idempotent : regenere le token OAuth avec analytics.edit,
+puis provisionne GA4 (Key Events + Custom Dimensions) pour leguideauditif.fr.
 
 Usage :
     python .claude/ga4_provision.py
+    python .claude/ga4_provision.py --rollback-only   # retire scope edit sans re-provisionner
 
 Le script :
 1. Lit le token existant pour recuperer client_id/client_secret
@@ -11,7 +12,12 @@ Le script :
 3. Sauve le nouveau token
 4. Appelle l'API Admin GA4 :
    - POST keyEvents pour marquer revendication_success
-   - POST customDimensions x4 (transaction_id, event_source, utm_source, centre_slug)
+   - POST keyEvents pour book_call_initiated et book_call_completed
+   - POST customDimensions (transaction_id, event_source, utm_source,
+     centre_slug, source)
+
+Le script est idempotent : ALREADY_EXISTS est traite comme un succes,
+on peut donc le re-jouer apres ajout d'events sans casser l'existant.
 """
 
 import json
@@ -27,6 +33,21 @@ SCOPES = [
     "https://www.googleapis.com/auth/analytics.readonly",
     "https://www.googleapis.com/auth/webmasters.readonly",
     "https://www.googleapis.com/auth/analytics.edit",  # NOUVEAU
+]
+
+KEY_EVENTS = [
+    {
+        "eventName": "revendication_success",
+        "countingMethod": "ONCE_PER_EVENT",
+    },
+    {
+        "eventName": "book_call_initiated",
+        "countingMethod": "ONCE_PER_EVENT",
+    },
+    {
+        "eventName": "book_call_completed",
+        "countingMethod": "ONCE_PER_EVENT",
+    },
 ]
 
 CUSTOM_DIMENSIONS = [
@@ -52,6 +73,12 @@ CUSTOM_DIMENSIONS = [
         "parameterName": "centre_slug",
         "displayName": "Centre Slug",
         "description": "Slug du centre audioprothesiste revendique",
+        "scope": "EVENT",
+    },
+    {
+        "parameterName": "source",
+        "displayName": "Source (espace pro RDV funnel)",
+        "description": "utm_content du CTA Calendly espace pro : hero-*, card-*, levier-*, locked-*, sidebar-pin",
         "scope": "EVENT",
     },
 ]
@@ -91,30 +118,35 @@ def regenerate_token():
 
 
 def provision_ga4(creds):
-    """Cree Key Event + 4 Custom Dimensions via Admin API."""
+    """Cree Key Events + Custom Dimensions via Admin API. Idempotent."""
     from googleapiclient.discovery import build
 
     service = build("analyticsadmin", "v1beta", credentials=creds)
     property_path = f"properties/{PROPERTY_ID}"
+    total = len(KEY_EVENTS) + len(CUSTOM_DIMENSIONS)
+    step = 0
 
-    # --- 1. Key Event : revendication_success ---
-    print(f"\n[1/5] Creation Key Event 'revendication_success'...")
-    try:
-        result = service.properties().keyEvents().create(
-            parent=property_path,
-            body={"eventName": "revendication_success", "countingMethod": "ONCE_PER_EVENT"},
-        ).execute()
-        print(f"  OK : {result.get('name')}")
-    except Exception as e:
-        msg = str(e)
-        if "already exists" in msg.lower() or "ALREADY_EXISTS" in msg:
-            print(f"  Deja present (OK)")
-        else:
-            print(f"  ERREUR : {msg[:200]}")
+    # --- Key Events ---
+    for ke in KEY_EVENTS:
+        step += 1
+        print(f"\n[{step}/{total}] Creation Key Event '{ke['eventName']}'...")
+        try:
+            result = service.properties().keyEvents().create(
+                parent=property_path,
+                body=ke,
+            ).execute()
+            print(f"  OK : {result.get('name')}")
+        except Exception as e:
+            msg = str(e)
+            if "already exists" in msg.lower() or "ALREADY_EXISTS" in msg:
+                print(f"  Deja present (OK)")
+            else:
+                print(f"  ERREUR : {msg[:200]}")
 
-    # --- 2-5. Custom Dimensions ---
-    for i, dim in enumerate(CUSTOM_DIMENSIONS, start=2):
-        print(f"\n[{i}/5] Creation Custom Dimension '{dim['displayName']}' (param={dim['parameterName']})...")
+    # --- Custom Dimensions ---
+    for dim in CUSTOM_DIMENSIONS:
+        step += 1
+        print(f"\n[{step}/{total}] Creation Custom Dimension '{dim['displayName']}' (param={dim['parameterName']})...")
         try:
             result = service.properties().customDimensions().create(
                 parent=property_path,
