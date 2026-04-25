@@ -1,0 +1,582 @@
+AUDIT leguideauditif.fr — genere le 2026-04-21 21:28
+Property GA4 : properties/531522931
+Site GSC     : sc-domain:leguideauditif.fr
+NOTE : Tarteaucitron CMP actif — utilisateurs non-consentants NE sont PAS dans GA4.
+
+
+##############################################################################
+#  PERIODE : 7 DERNIERS JOURS  (site jeune : penser au trend)
+##############################################################################
+
+==============================================================================
+  1. TOTAUX GLOBAUX — 7 DERNIERS JOURS
+==============================================================================
+  Sessions            : 1 116
+  Utilisateurs total  : 827
+  Nouveaux utilisat.  : 756
+  Pages vues          : 3 187
+  Events total        : 8 335
+  Key events (conv.)  : 27
+  Engagement rate     : 47.1%
+  Bounce rate         : 52.9%
+  Duree moy. session  : 271.6s
+
+==============================================================================
+  2. CANAUX — 7 DERNIERS JOURS
+==============================================================================
+  Direct                    sess=   495  users=   367  eng= 43.0%  conv=   6
+  Organic Social            sess=   481  users=   416  eng= 47.0%  conv=  16
+  Organic Search            sess=    94  users=    50  eng= 61.7%  conv=   4
+  Referral                  sess=    41  users=     5  eng= 63.4%  conv=   1
+  Unassigned                sess=    23  users=    17  eng=  8.7%  conv=   0
+
+==============================================================================
+  3. SOURCE / MEDIUM — 7 DERNIERS JOURS
+==============================================================================
+  (direct) / (none)                        sess=   495  users=   367  eng= 43.0%
+  linkedin / organic                       sess=   151  users=   127  eng= 31.8%
+  m.facebook.com / referral                sess=   108  users=   104  eng= 42.6%
+  google / organic                         sess=    89  users=    48  eng= 61.8%
+  lm.facebook.com / referral               sess=    74  users=    63  eng= 67.6%
+  facebook.com / referral                  sess=    70  users=    69  eng= 60.0%
+  linkedin.com / referral                  sess=    44  users=    38  eng= 59.1%
+  l.facebook.com / referral                sess=    33  users=    27  eng= 45.5%
+  vercel.com / referral                    sess=    26  users=     3  eng= 73.1%
+  (not set) / (not set)                    sess=    21  users=    16  eng=  0.0%
+  laboratoireaa.com / referral             sess=    13  users=     1  eng= 38.5%
+  search.google.com / referral             sess=     3  users=     1  eng= 66.7%
+  bing / organic                           sess=     2  users=     1  eng= 50.0%
+  linkedin / social                        sess=     2  users=     2  eng= 50.0%
+  test_e2e_bulletproof / validation        sess=     2  users=     1  eng=100.0%
+  messageriepro.orange.fr / referral       sess=     1  users=     1  eng=100.0%
+  zimbra.oc-pratique.com / referral        sess=     1  users=     1  eng=100.0%
+
+==============================================================================
+  4. LANDING PAGES (top 25) — 7 DERNIERS JOURS
+==============================================================================
+  (total distinct : 104)
+  /                                                            sess=  461  eng= 57.0%  conv= 10
+  /trouver-audioprothesiste                                    sess=  158  eng= 49.4%  conv= 12
+  /guides/appareils-auditifs/classe-1-vs-classe-2              sess=  123  eng= 22.8%  conv=  0
+  /centre/test-centre-e2e-99999                                sess=   42  eng= 19.0%  conv=  0
+  /comparatifs/meilleur-appareil-auditif-2026                  sess=   33  eng= 45.5%  conv=  0
+  (not set)                                                    sess=   31  eng=  0.0%  conv=  0
+  /guides/remboursement                                        sess=   28  eng= 39.3%  conv=  0
+  /catalogue                                                   sess=   18  eng= 66.7%  conv=  0
+                                                               sess=   15  eng=  0.0%  conv=  0
+  /outils/analyse-audiogramme                                  sess=   13  eng= 61.5%  conv=  0
+  /revendiquer                                                 sess=   13  eng= 15.4%  conv=  0
+  /annonces                                                    sess=   12  eng= 75.0%  conv=  0
+  /admin                                                       sess=   10  eng= 30.0%  conv=  0
+  /admin/claims                                                sess=   10  eng= 70.0%  conv=  0
+  /revendiquer-gratuit                                         sess=   10  eng= 60.0%  conv=  2
+  /auth/login                                                  sess=    7  eng= 71.4%  conv=  1
+  /connexion-pro                                               sess=    7  eng= 14.3%  conv=  0
+  /guides                                                      sess=    7  eng= 42.9%  conv=  0
+  /a-propos                                                    sess=    6  eng= 16.7%  conv=  0
+  /audioprothesiste                                            sess=    6  eng= 66.7%  conv=  0
+  /enseignes                                                   sess=    5  eng= 80.0%  conv=  0
+  /guides/appareils-auditifs                                   sess=    5  eng= 20.0%  conv=  0
+  /admin/prospects                                             sess=    3  eng=  0.0%  conv=  0
+  /audioprothesiste/chaponost                                  sess=    3  eng= 33.3%  conv=  0
+  /auteur/franck-olivier                                       sess=    3  eng= 33.3%  conv=  0
+
+==============================================================================
+  5. TOP PAGES VUES (top 25) — 7 DERNIERS JOURS
+==============================================================================
+  (total distinct : 466)
+  /                                                            pv=  626  users=  424  dur=   71s
+  /trouver-audioprothesiste/                                   pv=  447  users=  234  dur=  134s
+  /catalogue/                                                  pv=  156  users=   78  dur=  110s
+  /guides/appareils-auditifs/classe-1-vs-classe-2/             pv=  150  users=  127  dur=   98s
+  /comparatifs/meilleur-appareil-auditif-2026/                 pv=  112  users=   82  dur=  187s
+  /audioprothesiste/                                           pv=   84  users=   51  dur=   50s
+  /revendiquer-gratuit/                                        pv=   84  users=   53  dur=  200s
+  /guides/remboursement/                                       pv=   82  users=   62  dur=  114s
+  /admin/claims/                                               pv=   78  users=    4  dur=  678s
+  /guides/                                                     pv=   69  users=   49  dur=  118s
+  /outils/analyse-audiogramme/                                 pv=   57  users=   49  dur=   88s
+  /centre/test-centre-e2e-99999/                               pv=   45  users=   42  dur=    2s
+  /revendiquer-gratuit/confirmation/                           pv=   40  users=   26  dur=  161s
+  /admin/                                                      pv=   37  users=    3  dur=  171s
+  /enseignes/afflelou/                                         pv=   37  users=    1  dur= 4283s
+  /trouver-audioprothesiste                                    pv=   32  users=   26  dur=   64s
+  /auth/login/                                                 pv=   30  users=    6  dur=  113s
+  /devis/                                                      pv=   27  users=   25  dur=   55s
+  /guides/appareils-auditifs/                                  pv=   24  users=   22  dur=  180s
+  /audioprothesiste/lyon/                                      pv=   23  users=    3  dur=  413s
+  /annonces/                                                   pv=   21  users=   18  dur=   69s
+  /audioprothesiste/departement/rhone/                         pv=   21  users=    3  dur=  564s
+  /a-propos/                                                   pv=   18  users=   11  dur=  370s
+  /audioprothesiste/paris/                                     pv=   18  users=    4  dur=  379s
+  /offres/                                                     pv=   18  users=   10  dur=  115s
+
+==============================================================================
+  6. DEVICE — 7 DERNIERS JOURS
+==============================================================================
+  mobile       sess=   751  users=   592  eng= 46.7%  bounce= 53.3%
+  desktop      sess=   358  users=   230  eng= 48.9%  bounce= 51.1%
+  tablet       sess=     6  users=     6  eng=  0.0%  bounce=100.0%
+
+==============================================================================
+  7. PAYS (top 10) — 7 DERNIERS JOURS
+==============================================================================
+  France                    sess=   789  users=   631  eng= 48.3%
+  Israel                    sess=   197  users=    82  eng= 51.8%
+  United States             sess=    41  users=    40  eng= 19.5%
+  (not set)                 sess=    12  users=    12  eng=  0.0%
+  Belgium                   sess=    12  users=     8  eng= 58.3%
+  Netherlands               sess=     8  users=     7  eng= 50.0%
+  Indonesia                 sess=     6  users=     4  eng= 33.3%
+  Germany                   sess=     5  users=     4  eng=  0.0%
+  United Kingdom            sess=     5  users=     5  eng= 80.0%
+  Canada                    sess=     4  users=     4  eng= 25.0%
+
+==============================================================================
+  8. VILLES FR (top 15) — 7 DERNIERS JOURS
+==============================================================================
+  Petah Tikva               sess=   174  users=    75
+  (not set)                 sess=   163  users=   143
+  Paris                     sess=   163  users=   148
+  Grenoble                  sess=    45  users=    39
+  Marseille                 sess=    43  users=    28
+  Lyon                      sess=    30  users=    26
+  Tel Aviv-Yafo             sess=    18  users=     7
+  Toulouse                  sess=    18  users=    17
+  Montpellier               sess=    15  users=    13
+  Lille                     sess=    12  users=    11
+  Bordeaux                  sess=    11  users=     8
+  Rennes                    sess=     9  users=     9
+  Des Moines                sess=     7  users=     7
+  Strasbourg                sess=     7  users=     6
+  Eysines                   sess=     6  users=     2
+
+==============================================================================
+  9. EVENTS (top 25) — 7 DERNIERS JOURS
+==============================================================================
+  (total event names distincts : 13)
+  page_view                           count=  3 187  users=   825
+  user_engagement                     count=  2 320  users=   389
+  session_start                       count=  1 112  users=   825
+  scroll                              count=    788  users=   227
+  first_visit                         count=    756  users=   756
+  form_start                          count=    115  users=    72
+  revendication_success               count=     29  users=     9
+  click                               count=     22  users=    10
+  quiz_completed                      count=      2  users=     2
+  download_fiche_produit              count=      1  users=     1
+  file_download                       count=      1  users=     1
+  form_submit                         count=      1  users=     1
+  test_verification                   count=      1  users=     1
+
+==============================================================================
+  10. KEY EVENTS (conversions) — 7 DERNIERS JOURS
+==============================================================================
+  revendication_success               count=    26  users=    8
+  download_fiche_produit              count=     1  users=    1
+
+==============================================================================
+  11. EVOLUTION JOURNALIERE (sessions/jour) — 7 DERNIERS JOURS
+==============================================================================
+  2026-04-14   sess= 300   users= 263   conv=  0
+  2026-04-15   sess= 213   users= 180   conv=  1
+  2026-04-16   sess= 275   users= 226   conv=  0
+  2026-04-17   sess= 136   users= 118   conv=  2
+  2026-04-18   sess=  30   users=  19   conv=  0
+  2026-04-19   sess=  21   users=  13   conv=  2
+  2026-04-20   sess= 105   users=  83   conv= 22
+  2026-04-21   sess=  38   users=  25   conv=  0
+
+==============================================================================
+  12. GSC GLOBAL — 7 DERNIERS JOURS
+==============================================================================
+  Clicks       : 54
+  Impressions  : 1435
+  CTR moyen    : 3.76%
+  Position moy : 26.1
+
+==============================================================================
+  13. GSC TOP QUERIES (top 25) — 7 DERNIERS JOURS
+==============================================================================
+  audiogramme normal 70 ans                          clicks=   1  impr=   13  ctr= 7.7%  pos=11.5
+  "amplifon france" -site:corporama.com -site:verif. clicks=   0  impr=    1  ctr= 0.0%  pos=60.0
+  acouphènes appareil auditif                        clicks=   0  impr=    1  ctr= 0.0%  pos=65.0
+  afflelou audition autour de moi                    clicks=   0  impr=    1  ctr= 0.0%  pos=48.0
+  afflelou sommières                                 clicks=   0  impr=    1  ctr= 0.0%  pos=58.0
+  aide auditive morsang sur orge                     clicks=   0  impr=    1  ctr= 0.0%  pos=15.0
+  amplifon montigny le bretonneux                    clicks=   0  impr=    2  ctr= 0.0%  pos=51.5
+  amplifon nemours                                   clicks=   0  impr=    1  ctr= 0.0%  pos=19.0
+  amplifon ouistreham                                clicks=   0  impr=    1  ctr= 0.0%  pos=54.0
+  amplifon quiberon                                  clicks=   0  impr=    2  ctr= 0.0%  pos= 9.0
+  amplifon sanary                                    clicks=   0  impr=    1  ctr= 0.0%  pos=41.0
+  appareil acouphene                                 clicks=   0  impr=    1  ctr= 0.0%  pos=60.0
+  appareil auditif acouphène                         clicks=   0  impr=    4  ctr= 0.0%  pos=57.8
+  appareil auditif anti acouphènes                   clicks=   0  impr=   12  ctr= 0.0%  pos=51.5
+  appareil auditif avesnes sur helpe                 clicks=   0  impr=    1  ctr= 0.0%  pos=14.0
+  appareil auditif caissargues                       clicks=   0  impr=    1  ctr= 0.0%  pos=10.0
+  appareil auditif classe 1                          clicks=   0  impr=    2  ctr= 0.0%  pos=79.5
+  appareil auditif classe 1 et 2                     clicks=   0  impr=    3  ctr= 0.0%  pos=32.7
+  appareil auditif classe 2                          clicks=   0  impr=    1  ctr= 0.0%  pos=36.0
+  appareil auditif d occasion                        clicks=   0  impr=    1  ctr= 0.0%  pos=53.0
+  appareil auditif gévezé                            clicks=   0  impr=    1  ctr= 0.0%  pos=30.0
+  appareil auditif invisible lunel                   clicks=   0  impr=    1  ctr= 0.0%  pos=84.0
+  appareil auditif montbrison                        clicks=   0  impr=    1  ctr= 0.0%  pos=23.0
+  appareil auditif montpellier                       clicks=   0  impr=    1  ctr= 0.0%  pos=20.0
+  appareil auditif morsang sur orge                  clicks=   0  impr=    2  ctr= 0.0%  pos=35.0
+
+==============================================================================
+  14. GSC TOP PAGES (top 25) — 7 DERNIERS JOURS
+==============================================================================
+  /                                                       clicks=  44  impr=   63  ctr=69.8%  pos= 7.1
+  /centre/acousie-cornimont-0015/                         clicks=   4  impr=   10  ctr=40.0%  pos= 3.3
+  /guides/audiogramme/                                    clicks=   3  impr=  105  ctr= 2.9%  pos= 9.6
+  /a-propos/                                              clicks=   2  impr=   23  ctr= 8.7%  pos= 7.6
+  /audioprothesiste/departement/paris/                    clicks=   1  impr=    1  ctr=100.0%  pos= 4.0
+  /centre/audilis-sante-audition-montpellier-0018/        clicks=   1  impr=    5  ctr=20.0%  pos= 6.2
+  /annonces/emploi/                                       clicks=   0  impr=    3  ctr= 0.0%  pos= 9.3
+  /audioprothesiste/acheres-la-foret/                     clicks=   0  impr=    1  ctr= 0.0%  pos=10.0
+  /audioprothesiste/ajaccio/                              clicks=   0  impr=    1  ctr= 0.0%  pos=49.0
+  /audioprothesiste/amboise/                              clicks=   0  impr=    2  ctr= 0.0%  pos=47.5
+  /audioprothesiste/ambon/                                clicks=   0  impr=    1  ctr= 0.0%  pos=28.0
+  /audioprothesiste/amiens/                               clicks=   0  impr=    4  ctr= 0.0%  pos=34.8
+  /audioprothesiste/angers/                               clicks=   0  impr=    2  ctr= 0.0%  pos=39.0
+  /audioprothesiste/annecy/                               clicks=   0  impr=    2  ctr= 0.0%  pos=40.0
+  /audioprothesiste/antibes/                              clicks=   0  impr=   10  ctr= 0.0%  pos=19.8
+  /audioprothesiste/anzin/                                clicks=   0  impr=    2  ctr= 0.0%  pos=46.5
+  /audioprothesiste/apt/                                  clicks=   0  impr=    2  ctr= 0.0%  pos=21.0
+  /audioprothesiste/aramon/                               clicks=   0  impr=    1  ctr= 0.0%  pos= 5.0
+  /audioprothesiste/argeles-sur-mer/                      clicks=   0  impr=    3  ctr= 0.0%  pos=36.3
+  /audioprothesiste/argentat-sur-dordogne/                clicks=   0  impr=    3  ctr= 0.0%  pos=25.7
+  /audioprothesiste/argenteuil/                           clicks=   0  impr=    3  ctr= 0.0%  pos=40.7
+  /audioprothesiste/argenton-sur-creuse/                  clicks=   0  impr=    1  ctr= 0.0%  pos=32.0
+  /audioprothesiste/arles/                                clicks=   0  impr=    2  ctr= 0.0%  pos=42.5
+  /audioprothesiste/arras/                                clicks=   0  impr=    1  ctr= 0.0%  pos=32.0
+  /audioprothesiste/aubagne/                              clicks=   0  impr=    3  ctr= 0.0%  pos=36.0
+
+==============================================================================
+  15. GSC QUERY x PAGE (top 30 couples) — 7 DERNIERS JOURS
+==============================================================================
+  audiogramme normal 70 ans      -> /guides/audiogramme/           clicks=  1  pos=11.5
+  "amplifon france" -site:corpor -> /centre/amplifon-france-33700- clicks=  0  pos=60.0
+  acouphènes appareil auditif    -> /guides/acouphenes/appareil-au clicks=  0  pos=65.0
+  afflelou audition autour de mo -> /a-propos/                     clicks=  0  pos=48.0
+  afflelou sommières             -> /centre/alain-afflelou-acousti clicks=  0  pos=58.0
+  aide auditive morsang sur orge -> /audioprothesiste/morsang-sur- clicks=  0  pos=15.0
+  amplifon montigny le bretonneu -> /audioprothesiste/departement/ clicks=  0  pos=91.0
+  amplifon montigny le bretonneu -> /audioprothesiste/montigny-le- clicks=  0  pos=12.0
+  amplifon nemours               -> /audioprothesiste/nemours/     clicks=  0  pos=19.0
+  amplifon ouistreham            -> /audioprothesiste/ouistreham/  clicks=  0  pos=54.0
+  amplifon quiberon              -> /centre/amplifon-france-56170- clicks=  0  pos= 9.0
+  amplifon sanary                -> /audioprothesiste/sanary-sur-m clicks=  0  pos=41.0
+  appareil acouphene             -> /guides/acouphenes/appareil-au clicks=  0  pos=60.0
+  appareil auditif acouphène     -> /guides/acouphenes/appareil-au clicks=  0  pos=57.8
+  appareil auditif anti acouphèn -> /guides/acouphenes/appareil-au clicks=  0  pos=51.5
+  appareil auditif avesnes sur h -> /audioprothesiste/avesnes-sur- clicks=  0  pos=14.0
+  appareil auditif caissargues   -> /audioprothesiste/caissargues/ clicks=  0  pos=10.0
+  appareil auditif classe 1      -> /guides/appareils-auditifs/cla clicks=  0  pos=79.5
+  appareil auditif classe 1 et 2 -> /guides/appareils-auditifs/cla clicks=  0  pos=32.7
+  appareil auditif classe 2      -> /guides/appareils-auditifs/cla clicks=  0  pos=36.0
+  appareil auditif d occasion    -> https://www.leguideauditif.fr/ clicks=  0  pos=53.0
+  appareil auditif gévezé        -> /audioprothesiste/geveze/      clicks=  0  pos=30.0
+  appareil auditif invisible lun -> /centre/alain-afflelou-acousti clicks=  0  pos=84.0
+  appareil auditif montbrison    -> /audioprothesiste/montbrison/  clicks=  0  pos=23.0
+  appareil auditif montpellier   -> /audioprothesiste/montpellier/ clicks=  0  pos=20.0
+  appareil auditif morsang sur o -> /audioprothesiste/morsang-sur- clicks=  0  pos=35.0
+  appareil auditif occasion      -> https://www.leguideauditif.fr/ clicks=  0  pos=52.0
+  appareil auditif perpignan     -> /audioprothesiste/perpignan/   clicks=  0  pos=45.0
+  appareil auditif rive de gier  -> /audioprothesiste/rive-de-gier clicks=  0  pos=22.0
+  appareil auditif saint-chamond -> /audioprothesiste/saint-chamon clicks=  0  pos=17.0
+
+
+##############################################################################
+#  PERIODE : 28 DERNIERS JOURS  (site jeune : penser au trend)
+##############################################################################
+
+==============================================================================
+  1. TOTAUX GLOBAUX — 28 DERNIERS JOURS
+==============================================================================
+  Sessions            : 2 071
+  Utilisateurs total  : 1 576
+  Nouveaux utilisat.  : 1 575
+  Pages vues          : 5 984
+  Events total        : 15 939
+  Key events (conv.)  : 27
+  Engagement rate     : 50.9%
+  Bounce rate         : 49.1%
+  Duree moy. session  : 245.2s
+
+==============================================================================
+  2. CANAUX — 28 DERNIERS JOURS
+==============================================================================
+  Organic Social            sess= 1 023  users=   890  eng= 51.3%  conv=  16
+  Direct                    sess=   859  users=   648  eng= 46.8%  conv=   6
+  Organic Search            sess=   121  users=    66  eng= 66.9%  conv=   4
+  Referral                  sess=    61  users=     6  eng= 70.5%  conv=   1
+  Unassigned                sess=    23  users=    17  eng=  8.7%  conv=   0
+
+==============================================================================
+  3. SOURCE / MEDIUM — 28 DERNIERS JOURS
+==============================================================================
+  (direct) / (none)                        sess=   859  users=   648  eng= 46.8%
+  m.facebook.com / referral                sess=   453  users=   429  eng= 42.8%
+  lm.facebook.com / referral               sess=   212  users=   180  eng= 75.0%
+  linkedin / organic                       sess=   158  users=   133  eng= 33.5%
+  google / organic                         sess=   107  users=    62  eng= 65.4%
+  facebook.com / referral                  sess=    75  users=    74  eng= 58.7%
+  l.facebook.com / referral                sess=    69  users=    55  eng= 65.2%
+  linkedin.com / referral                  sess=    53  users=    47  eng= 56.6%
+  vercel.com / referral                    sess=    26  users=     3  eng= 73.1%
+  (not set) / (not set)                    sess=    21  users=    16  eng=  0.0%
+  app.neilpatel.com / referral             sess=    15  users=     1  eng= 93.3%
+  laboratoireaa.com / referral             sess=    13  users=     1  eng= 38.5%
+  search.google.com / referral             sess=    10  users=     1  eng= 80.0%
+  github.com / referral                    sess=     5  users=     1  eng= 60.0%
+  bing / organic                           sess=     2  users=     1  eng= 50.0%
+  linkedin / social                        sess=     2  users=     2  eng= 50.0%
+  linkedin-page / organic                  sess=     2  users=     2  eng=100.0%
+  test_e2e_bulletproof / validation        sess=     2  users=     1  eng=100.0%
+  messageriepro.orange.fr / referral       sess=     1  users=     1  eng=100.0%
+  zimbra.oc-pratique.com / referral        sess=     1  users=     1  eng=100.0%
+
+==============================================================================
+  4. LANDING PAGES (top 25) — 28 DERNIERS JOURS
+==============================================================================
+  (total distinct : 137)
+  /                                                            sess=1 100  eng= 57.0%  conv= 10
+  /trouver-audioprothesiste                                    sess=  223  eng= 54.3%  conv= 12
+  /guides/appareils-auditifs/classe-1-vs-classe-2              sess=  123  eng= 22.8%  conv=  0
+  /comparatifs/meilleur-appareil-auditif-2026                  sess=   98  eng= 49.0%  conv=  0
+  /guides/remboursement                                        sess=   54  eng= 50.0%  conv=  0
+  (not set)                                                    sess=   46  eng=  0.0%  conv=  0
+  /centre/test-centre-e2e-99999                                sess=   42  eng= 19.0%  conv=  0
+  /catalogue                                                   sess=   33  eng= 69.7%  conv=  0
+  /guides/appareils-auditifs                                   sess=   18  eng= 33.3%  conv=  0
+  /guides                                                      sess=   17  eng= 64.7%  conv=  0
+                                                               sess=   15  eng=  0.0%  conv=  0
+  /revendiquer-gratuit                                         sess=   15  eng= 60.0%  conv=  2
+  /annonces                                                    sess=   14  eng= 78.6%  conv=  0
+  /a-propos                                                    sess=   13  eng= 38.5%  conv=  0
+  /outils/analyse-audiogramme                                  sess=   13  eng= 61.5%  conv=  0
+  /revendiquer                                                 sess=   13  eng= 15.4%  conv=  0
+  /admin                                                       sess=   10  eng= 30.0%  conv=  0
+  /admin/claims                                                sess=   10  eng= 70.0%  conv=  0
+  /etudes/deserts-auditifs-france-2026                         sess=    9  eng= 33.3%  conv=  0
+  /auth/login                                                  sess=    8  eng= 75.0%  conv=  1
+  /connexion-pro                                               sess=    8  eng= 12.5%  conv=  0
+  /guides/acouphenes                                           sess=    8  eng= 50.0%  conv=  0
+  /audioprothesiste                                            sess=    6  eng= 66.7%  conv=  0
+  /catalogue/marques/phonak                                    sess=    6  eng= 83.3%  conv=  0
+  /guides/audiogramme                                          sess=    6  eng= 50.0%  conv=  0
+
+==============================================================================
+  5. TOP PAGES VUES (top 25) — 28 DERNIERS JOURS
+==============================================================================
+  (total distinct : 679)
+  /                                                            pv=1 489  users=1 021  dur=   65s
+  /trouver-audioprothesiste/                                   pv=  702  users=  373  dur=  120s
+  /catalogue/                                                  pv=  345  users=  189  dur=   93s
+  /comparatifs/meilleur-appareil-auditif-2026/                 pv=  322  users=  265  dur=  160s
+  /guides/remboursement/                                       pv=  179  users=  142  dur=  111s
+  /guides/appareils-auditifs/classe-1-vs-classe-2/             pv=  156  users=  133  dur=   98s
+  /guides/                                                     pv=  153  users=  110  dur=   76s
+  /revendiquer-gratuit/                                        pv=  136  users=   76  dur=  242s
+  /trouver-audioprothesiste                                    pv=  101  users=   77  dur=   79s
+  /admin/claims/                                               pv=   88  users=    5  dur=  618s
+  /devis/                                                      pv=   88  users=   82  dur=   46s
+  /guides/appareils-auditifs/                                  pv=   85  users=   62  dur=  107s
+  /audioprothesiste/                                           pv=   84  users=   51  dur=   50s
+  /guides/audiogramme/                                         pv=   84  users=   53  dur=  144s
+  /outils/analyse-audiogramme/                                 pv=   64  users=   55  dur=   87s
+  /revendiquer-gratuit/confirmation/                           pv=   56  users=   37  dur=  119s
+  /a-propos/                                                   pv=   46  users=   16  dur=  226s
+  /auth/login/                                                 pv=   45  users=    7  dur=  142s
+  /centre/test-centre-e2e-99999/                               pv=   45  users=   42  dur=    2s
+  /annonces/                                                   pv=   43  users=   21  dur=   61s
+  /admin/                                                      pv=   37  users=    3  dur=  171s
+  /enseignes/afflelou/                                         pv=   37  users=    1  dur= 4283s
+  /guides/acouphenes/                                          pv=   36  users=   23  dur=   96s
+  /annonces/deposer/                                           pv=   31  users=    6  dur=  245s
+  /faq/                                                        pv=   29  users=   21  dur=   30s
+
+==============================================================================
+  6. DEVICE — 28 DERNIERS JOURS
+==============================================================================
+  mobile       sess= 1 542  users= 1 241  eng= 51.5%  bounce= 48.5%
+  desktop      sess=   519  users=   326  eng= 49.7%  bounce= 50.3%
+  tablet       sess=    10  users=    10  eng= 20.0%  bounce= 80.0%
+
+==============================================================================
+  7. PAYS (top 10) — 28 DERNIERS JOURS
+==============================================================================
+  France                    sess= 1 503  users= 1 244  eng= 52.5%
+  Israel                    sess=   297  users=    96  eng= 58.2%
+  United States             sess=    64  users=    63  eng= 18.8%
+  Hong Kong                 sess=    27  users=    27  eng=  0.0%
+  Belgium                   sess=    23  users=    19  eng= 69.6%
+  Canada                    sess=    19  users=    16  eng= 31.6%
+  (not set)                 sess=    15  users=    15  eng=  6.7%
+  Indonesia                 sess=    12  users=     9  eng= 41.7%
+  Netherlands               sess=    11  users=     9  eng= 54.5%
+  Réunion                   sess=    11  users=    10  eng= 45.5%
+
+==============================================================================
+  8. VILLES FR (top 15) — 28 DERNIERS JOURS
+==============================================================================
+  Paris                     sess=   303  users=   274
+  (not set)                 sess=   297  users=   266
+  Petah Tikva               sess=   269  users=    84
+  Lyon                      sess=    62  users=    56
+  Marseille                 sess=    58  users=    42
+  Grenoble                  sess=    55  users=    49
+  Toulouse                  sess=    43  users=    40
+  Bordeaux                  sess=    29  users=    24
+  Lille                     sess=    29  users=    28
+  Montpellier               sess=    27  users=    23
+  Hong Kong                 sess=    26  users=    26
+  Tel Aviv-Yafo             sess=    22  users=    10
+  Rennes                    sess=    15  users=    14
+  Nice                      sess=    13  users=    12
+  Montreal                  sess=    12  users=     9
+
+==============================================================================
+  9. EVENTS (top 25) — 28 DERNIERS JOURS
+==============================================================================
+  (total event names distincts : 13)
+  page_view                           count=  5 984  users= 1 576
+  user_engagement                     count=  4 249  users=   762
+  session_start                       count=  2 066  users= 1 576
+  scroll                              count=  1 828  users=   468
+  first_visit                         count=  1 575  users= 1 575
+  form_start                          count=    164  users=    93
+  click                               count=     38  users=    16
+  revendication_success               count=     29  users=     9
+  quiz_completed                      count=      2  users=     2
+  download_fiche_produit              count=      1  users=     1
+  file_download                       count=      1  users=     1
+  form_submit                         count=      1  users=     1
+  test_verification                   count=      1  users=     1
+
+==============================================================================
+  10. KEY EVENTS (conversions) — 28 DERNIERS JOURS
+==============================================================================
+  revendication_success               count=    26  users=    8
+  download_fiche_produit              count=     1  users=    1
+
+==============================================================================
+  11. EVOLUTION JOURNALIERE (sessions/jour) — 28 DERNIERS JOURS
+==============================================================================
+  2026-04-07   sess=  19   users=  14   conv=  0
+  2026-04-08   sess=  19   users=  14   conv=  0
+  2026-04-09   sess=  15   users=   4   conv=  0
+  2026-04-10   sess=  10   users=   6   conv=  0
+  2026-04-11   sess=  49   users=  34   conv=  0
+  2026-04-12   sess=  27   users=  16   conv=  0
+  2026-04-13   sess= 816   users= 747   conv=  0
+  2026-04-14   sess= 300   users= 263   conv=  0
+  2026-04-15   sess= 213   users= 180   conv=  1
+  2026-04-16   sess= 275   users= 226   conv=  0
+  2026-04-17   sess= 136   users= 118   conv=  2
+  2026-04-18   sess=  30   users=  19   conv=  0
+  2026-04-19   sess=  21   users=  13   conv=  2
+  2026-04-20   sess= 105   users=  83   conv= 22
+  2026-04-21   sess=  38   users=  25   conv=  0
+
+==============================================================================
+  12. GSC GLOBAL — 28 DERNIERS JOURS
+==============================================================================
+  Clicks       : 76
+  Impressions  : 1560
+  CTR moyen    : 4.87%
+  Position moy : 25.0
+
+==============================================================================
+  13. GSC TOP QUERIES (top 25) — 28 DERNIERS JOURS
+==============================================================================
+  audiogramme normal 70 ans                          clicks=   1  impr=   13  ctr= 7.7%  pos=11.5
+  oticon intent 2 avis                               clicks=   1  impr=    1  ctr=100.0%  pos=12.0
+  "amplifon france" -site:corporama.com -site:verif. clicks=   0  impr=    1  ctr= 0.0%  pos=60.0
+  acouphènes appareil auditif                        clicks=   0  impr=    1  ctr= 0.0%  pos=65.0
+  afflelou audition autour de moi                    clicks=   0  impr=    1  ctr= 0.0%  pos=48.0
+  afflelou sommières                                 clicks=   0  impr=    1  ctr= 0.0%  pos=58.0
+  aide auditive morsang sur orge                     clicks=   0  impr=    1  ctr= 0.0%  pos=15.0
+  amplifon montigny le bretonneux                    clicks=   0  impr=    2  ctr= 0.0%  pos=51.5
+  amplifon nemours                                   clicks=   0  impr=    1  ctr= 0.0%  pos=19.0
+  amplifon ouistreham                                clicks=   0  impr=    1  ctr= 0.0%  pos=54.0
+  amplifon quiberon                                  clicks=   0  impr=    2  ctr= 0.0%  pos= 9.0
+  amplifon sanary                                    clicks=   0  impr=    1  ctr= 0.0%  pos=41.0
+  appareil acouphene                                 clicks=   0  impr=    1  ctr= 0.0%  pos=60.0
+  appareil auditif 48 canaux                         clicks=   0  impr=    1  ctr= 0.0%  pos=23.0
+  appareil auditif acouphène                         clicks=   0  impr=    4  ctr= 0.0%  pos=57.8
+  appareil auditif acouphène remboursement           clicks=   0  impr=    1  ctr= 0.0%  pos=85.0
+  appareil auditif anti acouphènes                   clicks=   0  impr=   12  ctr= 0.0%  pos=51.5
+  appareil auditif avesnes sur helpe                 clicks=   0  impr=    1  ctr= 0.0%  pos=14.0
+  appareil auditif bernafon rechargeable             clicks=   0  impr=    1  ctr= 0.0%  pos=14.0
+  appareil auditif caissargues                       clicks=   0  impr=    1  ctr= 0.0%  pos=10.0
+  appareil auditif classe 1                          clicks=   0  impr=    2  ctr= 0.0%  pos=79.5
+  appareil auditif classe 1 et 2                     clicks=   0  impr=    3  ctr= 0.0%  pos=32.7
+  appareil auditif classe 2                          clicks=   0  impr=    1  ctr= 0.0%  pos=36.0
+  appareil auditif d occasion                        clicks=   0  impr=    1  ctr= 0.0%  pos=53.0
+  appareil auditif gévezé                            clicks=   0  impr=    1  ctr= 0.0%  pos=30.0
+
+==============================================================================
+  14. GSC TOP PAGES (top 25) — 28 DERNIERS JOURS
+==============================================================================
+  /                                                       clicks=  61  impr=   97  ctr=62.9%  pos= 6.0
+  /a-propos/                                              clicks=   4  impr=   52  ctr= 7.7%  pos= 5.4
+  /centre/acousie-cornimont-0015/                         clicks=   4  impr=   10  ctr=40.0%  pos= 3.3
+  /guides/audiogramme/                                    clicks=   4  impr=  146  ctr= 2.7%  pos= 8.5
+  /audioprothesiste/departement/paris/                    clicks=   1  impr=    1  ctr=100.0%  pos= 4.0
+  /catalogue/appareils/oticon-intent-2/                   clicks=   1  impr=    6  ctr=16.7%  pos=11.5
+  /centre/audilis-sante-audition-montpellier-0018/        clicks=   1  impr=    5  ctr=20.0%  pos= 6.2
+  https://www.leguideauditif.fr/                          clicks=   1  impr=    4  ctr=25.0%  pos=23.0
+  /annonces/emploi/                                       clicks=   0  impr=    6  ctr= 0.0%  pos= 8.5
+  /audioprothesiste/acheres-la-foret/                     clicks=   0  impr=    1  ctr= 0.0%  pos=10.0
+  /audioprothesiste/ajaccio/                              clicks=   0  impr=    1  ctr= 0.0%  pos=49.0
+  /audioprothesiste/amboise/                              clicks=   0  impr=    2  ctr= 0.0%  pos=47.5
+  /audioprothesiste/ambon/                                clicks=   0  impr=    1  ctr= 0.0%  pos=28.0
+  /audioprothesiste/amiens/                               clicks=   0  impr=    4  ctr= 0.0%  pos=34.8
+  /audioprothesiste/angers/                               clicks=   0  impr=    2  ctr= 0.0%  pos=39.0
+  /audioprothesiste/annecy/                               clicks=   0  impr=    2  ctr= 0.0%  pos=40.0
+  /audioprothesiste/antibes/                              clicks=   0  impr=   10  ctr= 0.0%  pos=19.8
+  /audioprothesiste/anzin/                                clicks=   0  impr=    2  ctr= 0.0%  pos=46.5
+  /audioprothesiste/apt/                                  clicks=   0  impr=    2  ctr= 0.0%  pos=21.0
+  /audioprothesiste/aramon/                               clicks=   0  impr=    1  ctr= 0.0%  pos= 5.0
+  /audioprothesiste/argeles-sur-mer/                      clicks=   0  impr=    3  ctr= 0.0%  pos=36.3
+  /audioprothesiste/argentat-sur-dordogne/                clicks=   0  impr=    3  ctr= 0.0%  pos=25.7
+  /audioprothesiste/argenteuil/                           clicks=   0  impr=    3  ctr= 0.0%  pos=40.7
+  /audioprothesiste/argenton-sur-creuse/                  clicks=   0  impr=    1  ctr= 0.0%  pos=32.0
+  /audioprothesiste/arles/                                clicks=   0  impr=    2  ctr= 0.0%  pos=42.5
+
+==============================================================================
+  15. GSC QUERY x PAGE (top 30 couples) — 28 DERNIERS JOURS
+==============================================================================
+  audiogramme normal 70 ans      -> /guides/audiogramme/           clicks=  1  pos=11.5
+  oticon intent 2 avis           -> /catalogue/appareils/oticon-in clicks=  1  pos=12.0
+  "amplifon france" -site:corpor -> /centre/amplifon-france-33700- clicks=  0  pos=60.0
+  acouphènes appareil auditif    -> /guides/acouphenes/appareil-au clicks=  0  pos=65.0
+  afflelou audition autour de mo -> /a-propos/                     clicks=  0  pos=48.0
+  afflelou sommières             -> /centre/alain-afflelou-acousti clicks=  0  pos=58.0
+  aide auditive morsang sur orge -> /audioprothesiste/morsang-sur- clicks=  0  pos=15.0
+  amplifon montigny le bretonneu -> /audioprothesiste/departement/ clicks=  0  pos=91.0
+  amplifon montigny le bretonneu -> /audioprothesiste/montigny-le- clicks=  0  pos=12.0
+  amplifon nemours               -> /audioprothesiste/nemours/     clicks=  0  pos=19.0
+  amplifon ouistreham            -> /audioprothesiste/ouistreham/  clicks=  0  pos=54.0
+  amplifon quiberon              -> /centre/amplifon-france-56170- clicks=  0  pos= 9.0
+  amplifon sanary                -> /audioprothesiste/sanary-sur-m clicks=  0  pos=41.0
+  appareil acouphene             -> /guides/acouphenes/appareil-au clicks=  0  pos=60.0
+  appareil auditif 48 canaux     -> https://www.leguideauditif.fr/ clicks=  0  pos=23.0
+  appareil auditif acouphène     -> /guides/acouphenes/appareil-au clicks=  0  pos=57.8
+  appareil auditif acouphène rem -> /                              clicks=  0  pos=85.0
+  appareil auditif anti acouphèn -> /guides/acouphenes/appareil-au clicks=  0  pos=51.5
+  appareil auditif avesnes sur h -> /audioprothesiste/avesnes-sur- clicks=  0  pos=14.0
+  appareil auditif bernafon rech -> /catalogue/appareils/bernafon- clicks=  0  pos=14.0
+  appareil auditif caissargues   -> /audioprothesiste/caissargues/ clicks=  0  pos=10.0
+  appareil auditif classe 1      -> /guides/appareils-auditifs/cla clicks=  0  pos=79.5
+  appareil auditif classe 1 et 2 -> /guides/appareils-auditifs/cla clicks=  0  pos=32.7
+  appareil auditif classe 2      -> /guides/appareils-auditifs/cla clicks=  0  pos=36.0
+  appareil auditif d occasion    -> https://www.leguideauditif.fr/ clicks=  0  pos=53.0
+  appareil auditif gévezé        -> /audioprothesiste/geveze/      clicks=  0  pos=30.0
+  appareil auditif invisible lun -> /centre/alain-afflelou-acousti clicks=  0  pos=84.0
+  appareil auditif montbrison    -> /audioprothesiste/montbrison/  clicks=  0  pos=23.0
+  appareil auditif montpellier   -> /audioprothesiste/montpellier/ clicks=  0  pos=20.0
+  appareil auditif morsang sur o -> /audioprothesiste/morsang-sur- clicks=  0  pos=35.0
