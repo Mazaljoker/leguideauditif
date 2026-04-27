@@ -32,3 +32,16 @@ audit/
 
 # Tarteaucitron self-hosted — copie auto depuis node_modules au prebuild
 public/tarteaucitron/
+
+# Git worktrees isolation (jamais à versionner)
+.claude/worktrees/
+
+# Scripts Python ad hoc d'audit (one-shot, non réutilisables)
+.claude/audit_*.py
+.claude/extract_*.py
+.claude/fix_*.py
+
+# Fichiers lourds référence locale uniquement
+Docs/pdf anthropic/
+scripts/finess-geoloc.csv
+
