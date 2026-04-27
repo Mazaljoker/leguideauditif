@@ -3,26 +3,35 @@
  *
  * Source : https://gateway.api.esante.gouv.fr/fhir/v2
  * Auth : header `ESANTE-API-KEY` (gateway Gravitee, clé d'API persistante).
- * Profession ciblée : code 26 (audioprothésistes), nomenclature ASIP-Santé.
+ * Profession ciblée : code 26 (audioprothésistes), nomenclature TRE-G15.
+ *
+ * Aligné sur la spec du skill `lga-rpps-detector` v1.0
+ * (.claude/skills/lga-rpps-detector/SKILL.md) :
+ *   - Query incrémentale : `qualification-code=26&active=true&_lastUpdated=ge{date}`
+ *     → ne pulle que les changements depuis le dernier run success
+ *   - Env var canonique : ESANTE_API_KEY (fallback RPPS_FHIR_API_KEY pour rétrocompat)
+ *   - Mode `full=true` : ignore le filtre incrémental pour rafraîchissement complet
+ *     périodique (recommandé : 1×/trimestre pour détecter les inactifs)
  *
  * Usage côté endpoint :
  *
- *   const result = await runRppsSync(supabase, { triggerSource: 'cron' });
- *   if (result.newCentresDetected.length > 0) {
- *     await sendSyncReport(result);
- *   }
+ *   const result = await runRppsSync(supabase, { triggerSource: 'cron', mode: 'incremental' });
+ *   if (result.newCentresDetected.length > 0) await sendSyncReport(result);
  *
- * Idempotent : upsert via .onConflict='rpps' (la table a un index UNIQUE sur rpps).
- * Les RPPS qui ne reviennent plus dans le flux sont marqués etat_rpps='inactif'
- * en fin de run (UPDATE conditionnel sur last_seen_at < runStartedAt).
+ * Idempotent : upsert via .onConflict='rpps' (index UNIQUE sur rpps).
+ * En mode `full`, les RPPS pas vus sont marqués etat_rpps='inactif'.
  */
 
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 const FHIR_API_URL = import.meta.env.RPPS_FHIR_API_URL ?? 'https://gateway.api.esante.gouv.fr/fhir/v2';
-const FHIR_API_KEY = import.meta.env.RPPS_FHIR_API_KEY;
+// ESANTE_API_KEY est le nom canonique (cf. skill lga-rpps-detector).
+// Fallback sur RPPS_FHIR_API_KEY pour ne pas casser les preview deployments
+// qui auraient déjà la variable sous l'ancien nom.
+const FHIR_API_KEY = import.meta.env.ESANTE_API_KEY ?? import.meta.env.RPPS_FHIR_API_KEY;
 const PROFESSION_CODE_AUDIO = '26';
 const FHIR_PAGE_SIZE = 200; // FHIR par défaut 20, on augmente pour limiter le nombre de pages.
+const INITIAL_LOOKBACK_DAYS = 7; // Première exécution : pull les 7 derniers jours
 
 // ──────────────────────────────────────────────────────────────────────
 // Types FHIR (subset des champs Practitioner qu'on consomme)
@@ -163,15 +172,25 @@ async function fetchFhirBundle(url: string): Promise<FhirBundle> {
 }
 
 /**
- * Itère paresseusement sur tous les Practitioner code 26 via le pattern Bundle next links.
- * Yield 1 Practitioner à la fois pour limiter la mémoire.
+ * Itère sur les Practitioner code 26 via pagination Bundle next links.
+ *
+ * @param sinceIso ISO8601 date — si fourni, ajoute `_lastUpdated=ge{sinceIso}`
+ *                 pour ne pulle que les changements (mode incrémental).
+ *                 Si null, full pull (pour le marquage inactif périodique).
+ *
+ * Aligné sur le skill lga-rpps-detector :
+ *   `Practitioner?qualification-code=26&active=true&_lastUpdated=ge{last_run_date}`
  */
-export async function* iterPractitioners(): AsyncGenerator<FhirPractitioner> {
-  // Note : la query exacte dépend du système FHIR exposé. La gateway Annuaire Santé
-  // utilise typiquement `qualification:role` ou `_filter`. On passe par
-  // `qualification` (search param standard FHIR) avec le code profession 26.
-  let nextUrl: string | null =
-    `${FHIR_API_URL}/Practitioner?qualification=${PROFESSION_CODE_AUDIO}&_count=${FHIR_PAGE_SIZE}`;
+export async function* iterPractitioners(sinceIso: string | null): AsyncGenerator<FhirPractitioner> {
+  const params = new URLSearchParams({
+    'qualification-code': PROFESSION_CODE_AUDIO,
+    active: 'true',
+    _count: String(FHIR_PAGE_SIZE),
+  });
+  if (sinceIso) {
+    params.set('_lastUpdated', `ge${sinceIso}`);
+  }
+  let nextUrl: string | null = `${FHIR_API_URL}/Practitioner?${params.toString()}`;
 
   let pageCount = 0;
   while (nextUrl) {
@@ -279,10 +298,38 @@ export function parsePractitioner(p: FhirPractitioner): RppsRow | null {
 
 export interface RunRppsSyncOptions {
   triggerSource: 'manual' | 'cron';
+  /**
+   * `incremental` (défaut) : `_lastUpdated=ge{lastRunDate}` — ne pulle que les
+   *   changements depuis le dernier run success, ne touche pas etat_rpps.
+   * `full` : pulle tous les Practitioner code 26 actifs et marque inactif les
+   *   RPPS non vus (last_seen_at < runStartedAt). À lancer manuellement
+   *   ~1×/trimestre via /admin/rpps-sync (option à ajouter dans une v2 de l'UI).
+   */
+  mode?: 'incremental' | 'full';
+}
+
+/**
+ * Récupère la date de référence pour le pull incrémental.
+ * = max(started_at) des runs success, fallback today - 7 jours (première fois).
+ */
+async function resolveLastRunDate(supabase: SupabaseClient): Promise<Date> {
+  const { data } = await supabase
+    .from('rpps_sync_runs')
+    .select('started_at')
+    .eq('status', 'success')
+    .order('started_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (data?.started_at) return new Date(data.started_at as string);
+  const fallback = new Date();
+  fallback.setUTCDate(fallback.getUTCDate() - INITIAL_LOOKBACK_DAYS);
+  return fallback;
 }
 
 export async function runRppsSync(supabase: SupabaseClient, opts: RunRppsSyncOptions): Promise<SyncRunResult> {
   const startedAt = new Date();
+  const mode = opts.mode ?? 'incremental';
+  const lastRunDate = mode === 'incremental' ? await resolveLastRunDate(supabase) : null;
 
   // 1. Crée la ligne run (status='running')
   const { data: runRow, error: runErr } = await supabase
@@ -350,7 +397,7 @@ export async function runRppsSync(supabase: SupabaseClient, opts: RunRppsSyncOpt
       batch = [];
     };
 
-    for await (const practitioner of iterPractitioners()) {
+    for await (const practitioner of iterPractitioners(lastRunDate?.toISOString() ?? null)) {
       const row = parsePractitioner(practitioner);
       if (!row) continue;
       if (seenRpps.has(row.rpps)) continue; // dédup au cas où FHIR renverrait le même RPPS 2x
@@ -378,11 +425,11 @@ export async function runRppsSync(supabase: SupabaseClient, opts: RunRppsSyncOpt
     await flushBatch();
 
     // 5. Marque inactif tous les RPPS pas vus dans ce run.
-    // Approche par timestamp plutôt que par NOT IN (...) : avec ~7 200 RPPS, la liste
-    // dépasserait la limite d'URL HTTP Supabase REST. last_seen_at < runStartedAt
-    // capture exactement les rows qui n'ont pas été touchés par ce run.
+    // SEULEMENT en mode `full` : l'incrémental ne pulle que les changements
+    // depuis lastRunDate, donc l'absence d'un RPPS ne signifie pas son inactivité.
+    // last_seen_at < runStartedAt capture exactement les rows non touchés.
     let markedInactive = 0;
-    if (seenRpps.size > 0) {
+    if (mode === 'full' && seenRpps.size > 0) {
       const { count, error } = await supabase
         .from('rpps_audioprothesistes')
         .update({ etat_rpps: 'inactif', updated_at: new Date().toISOString() }, { count: 'exact' })

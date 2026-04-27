@@ -51,19 +51,25 @@ export const POST: APIRoute = async ({ request, url, locals }) => {
   const sourceParam = url.searchParams.get('source');
   const triggerSource: 'manual' | 'cron' = isCronAuth || sourceParam === 'cron' ? 'cron' : 'manual';
 
-  // Garde-fou : si l'env FHIR n'est pas configurée, on échoue tôt avec un message clair
+  // Mode `full` : pull complet + marquage inactif. Mode défaut `incremental` :
+  // ne pulle que les changes via _lastUpdated=ge{lastRunDate} (cf. skill lga-rpps-detector).
+  const mode = url.searchParams.get('mode') === 'full' ? 'full' : 'incremental';
+
+  // Garde-fou : si la clé FHIR n'est pas configurée, on échoue tôt avec un message clair
   // au lieu de partir en sync et laisser fetch() planter dans le helper.
-  if (!import.meta.env.RPPS_FHIR_API_KEY) {
+  // ESANTE_API_KEY = nom canonique (cf. skill lga-rpps-detector). Fallback sur
+  // l'ancien nom RPPS_FHIR_API_KEY pour les preview deployments en transition.
+  if (!import.meta.env.ESANTE_API_KEY && !import.meta.env.RPPS_FHIR_API_KEY) {
     return json({
       status: 'failed',
-      error: 'RPPS_FHIR_API_KEY non configuré côté serveur. Ajouter la clé Gravitee dans Vercel env.',
+      error: 'ESANTE_API_KEY non configuré côté serveur. Ajouter la clé Gravitee dans Vercel env.',
     }, 500);
   }
 
   const supabase = createServerClient();
 
   try {
-    const result = await runRppsSync(supabase, { triggerSource });
+    const result = await runRppsSync(supabase, { triggerSource, mode });
 
     // Envoi du rapport email (no-op si rien de nouveau et run réussi)
     try {
