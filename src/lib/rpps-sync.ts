@@ -127,6 +127,8 @@ export interface NewCentreDetected {
   enseigne: string | null;
   code_postal: string | null;
   commune: string | null;
+  email: string | null;
+  telephone: string | null;
 }
 
 export interface SyncRunResult {
@@ -403,22 +405,33 @@ export async function runRppsSync(supabase: SupabaseClient, opts: RunRppsSyncOpt
     const BATCH_SIZE = 100;
     let batch: RppsRow[] = [];
 
-    // Strip les keys avec valeur null avant upsert : sinon Supabase ECRASE les
-    // colonnes existantes avec null. Le FHIR Practitioner ne porte pas l'adresse
-    // d'exercice (elle est sur PractitionerRole, pas implémenté ici), donc
-    // code_postal/commune/voie etc. seraient null et écraseraient les valeurs
-    // existantes ingérées depuis le CSV initial du 10 avril.
-    const stripNulls = (obj: Record<string, unknown>): Record<string, unknown> => {
+    // Strip les keys avec valeur "vide" avant upsert : sinon Supabase ECRASE les
+    // colonnes existantes. Le FHIR Practitioner ne porte pas l'adresse d'exercice
+    // (elle est sur PractitionerRole, pas implémenté ici), donc code_postal/commune/voie
+    // etc. seraient null et écraseraient les valeurs existantes ingérées depuis le CSV
+    // initial du 10 avril. On filtre aussi les undefined et empty strings — observé
+    // après run du 27/04 : delta -18 emails inexpliqué, possiblement dû à des "" ou
+    // undefined qui passaient le filtre original (v !== null seul).
+    // Whitelist : on garde rpps + les tracking fields (updated_at, last_seen_at, etat_rpps)
+    // toujours, même si vides — ils sont pilotés par le code, pas par le FHIR.
+    const TRACKING_KEYS = new Set(['rpps', 'updated_at', 'last_seen_at', 'etat_rpps']);
+    const stripEmpty = (obj: Record<string, unknown>): Record<string, unknown> => {
       const out: Record<string, unknown> = {};
       for (const [k, v] of Object.entries(obj)) {
-        if (v !== null) out[k] = v;
+        if (TRACKING_KEYS.has(k)) {
+          out[k] = v;
+          continue;
+        }
+        if (v === null || v === undefined) continue;
+        if (typeof v === 'string' && v.trim() === '') continue;
+        out[k] = v;
       }
       return out;
     };
 
     const flushBatch = async (): Promise<void> => {
       if (batch.length === 0) return;
-      const rowsToWrite = batch.map((r) => stripNulls({
+      const rowsToWrite = batch.map((r) => stripEmpty({
         ...r,
         updated_at: new Date().toISOString(),
         last_seen_at: new Date().toISOString(),
@@ -451,6 +464,8 @@ export async function runRppsSync(supabase: SupabaseClient, opts: RunRppsSyncOpt
           enseigne: row.enseigne,
           code_postal: row.code_postal,
           commune: row.commune,
+          email: row.email,
+          telephone: row.telephone,
         });
       }
       batch.push(row);
