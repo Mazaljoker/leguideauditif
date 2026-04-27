@@ -1,0 +1,315 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import AdminNav from '../../components/admin/AdminNav.astro';
+import { createServerClient } from '../../lib/supabase';
+import { getAdminNavCounts } from '../../lib/adminNav';
+import { requireAdmin } from '../../lib/admin-guard';
+
+const guard = requireAdmin(Astro);
+if (guard) return guard;
+
+const supabase = createServerClient();
+const navCounts = await getAdminNavCounts(supabase);
+
+const { data: runs } = await supabase
+  .from('rpps_propagation_runs')
+  .select('*')
+  .order('started_at', { ascending: false })
+  .limit(12);
+
+interface PropagationRun {
+  id: string;
+  started_at: string;
+  completed_at: string | null;
+  status: 'running' | 'success' | 'failed';
+  trigger_source: 'manual' | 'cron';
+  apply_mode: boolean;
+  since_iso: string | null;
+  centres_created: number;
+  centres_updated: number;
+  centres_skipped_claimed: number;
+  centres_unmatched: number;
+  flagged_for_review: Array<{
+    centre_id: string;
+    centre_slug: string;
+    centre_plan: string;
+    claimed_by_email: string | null;
+    rpps: string;
+    practitioner_name: string;
+    old_address: string;
+    new_address: string;
+    change_summary: string;
+  }>;
+  changes_applied: Array<{
+    centre_id: string | null;
+    centre_slug: string | null;
+    rpps: string;
+    action: 'create' | 'update';
+    fields_changed: Record<string, { from: unknown; to: unknown }>;
+  }>;
+  error_message: string | null;
+  duration_seconds: number | null;
+}
+
+const typedRuns: PropagationRun[] = (runs ?? []) as PropagationRun[];
+const lastRun = typedRuns[0];
+
+function formatDate(iso: string | null): string {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleString('fr-FR', {
+    day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
+  });
+}
+
+function formatDuration(s: number | null): string {
+  if (s === null) return '—';
+  if (s < 60) return `${s} s`;
+  return `${Math.floor(s / 60)} min ${s % 60}s`;
+}
+---
+
+<BaseLayout title="Propagation RPPS — Admin LGA" description="Propagation des changements RPPS vers les fiches centres." noindex>
+  <meta slot="head" name="robots" content="noindex" />
+
+  <div class="bg-creme min-h-screen">
+    <AdminNav counts={navCounts} currentPath={Astro.url.pathname} />
+
+    <main class="max-w-[1140px] mx-auto px-5 py-8">
+      <header class="mb-6">
+        <h1 class="font-sans text-[28px] font-extrabold text-marine mb-1">Propagation RPPS → fiches centres</h1>
+        <p class="text-gris-texte text-sm">
+          Applique les changements détectés par la sync RPPS sur les fiches publiques. Mode dry-run par défaut pour preview avant apply.
+        </p>
+      </header>
+
+      <!-- Boutons d'action -->
+      <div class="flex gap-3 mb-6 flex-wrap">
+        <button
+          id="dry-run-btn"
+          type="button"
+          class="rounded-lg border-2 border-marine px-5 py-2.5 text-sm font-semibold text-marine font-sans hover:bg-marine hover:text-blanc transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          <Icon name="lucide:eye" class="inline w-4 h-4 mr-1 align-text-bottom" />
+          Lancer un dry-run (preview)
+        </button>
+        <button
+          id="apply-btn"
+          type="button"
+          class="rounded-lg bg-orange px-5 py-2.5 text-sm font-semibold text-blanc font-sans hover:bg-orange-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          <Icon name="lucide:zap" class="inline w-4 h-4 mr-1 align-text-bottom" />
+          Apply changes (écrit en DB)
+        </button>
+      </div>
+
+      <div id="status-box" class="hidden mb-4 rounded-lg border p-4 font-sans text-sm"></div>
+
+      <!-- Bandeau dernier run -->
+      {lastRun && (
+        <div class={`rounded-xl border p-4 mb-6 ${lastRun.status === 'success' ? 'bg-green-50 border-green-200' : lastRun.status === 'failed' ? 'bg-red-50 border-red-200' : 'bg-yellow-50 border-yellow-200'}`}>
+          <div class="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <p class="font-sans font-semibold text-base">Dernier run : {formatDate(lastRun.started_at)}</p>
+              <p class="text-xs mt-1 opacity-80">
+                {lastRun.trigger_source} · {lastRun.apply_mode ? 'apply' : 'dry-run'} · {formatDuration(lastRun.duration_seconds)} · {lastRun.status}
+              </p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold font-sans">{lastRun.centres_created + lastRun.centres_updated}</p>
+              <p class="text-xs">change{lastRun.centres_created + lastRun.centres_updated > 1 ? 's' : ''}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Liste des runs -->
+      <div class="bg-blanc rounded-xl shadow-[0_1px_4px_rgba(27,46,74,0.05)] overflow-hidden">
+        <table class="w-full text-sm font-sans">
+          <thead class="bg-creme">
+            <tr class="text-left text-gris-texte text-xs uppercase tracking-wide">
+              <th class="px-4 py-3">Date</th>
+              <th class="px-4 py-3">Mode</th>
+              <th class="px-4 py-3">Statut</th>
+              <th class="px-4 py-3 text-right">Créées</th>
+              <th class="px-4 py-3 text-right">MàJ</th>
+              <th class="px-4 py-3 text-right">Skip claimed</th>
+              <th class="px-4 py-3 text-right">À review</th>
+              <th class="px-4 py-3 text-right">Détail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {typedRuns.length === 0 && (
+              <tr><td colspan="8" class="px-4 py-12 text-center text-gris-texte">
+                Aucune propagation lancée. Commencez par un dry-run.
+              </td></tr>
+            )}
+            {typedRuns.map((r) => (
+              <tr class="border-t border-gris-clair">
+                <td class="px-4 py-3">{formatDate(r.started_at)}</td>
+                <td class="px-4 py-3">
+                  <span class={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${r.apply_mode ? 'bg-orange/10 text-orange' : 'bg-gray-100 text-gray-700'}`}>
+                    {r.apply_mode ? 'apply' : 'dry-run'}
+                  </span>
+                </td>
+                <td class="px-4 py-3">
+                  <span class={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${r.status === 'success' ? 'bg-green-50 text-green-700' : r.status === 'failed' ? 'bg-red-50 text-red-700' : 'bg-yellow-50 text-yellow-700'}`}>
+                    {r.status}
+                  </span>
+                </td>
+                <td class="px-4 py-3 text-right font-medium text-green-700">+{r.centres_created}</td>
+                <td class="px-4 py-3 text-right text-blue-700">{r.centres_updated}</td>
+                <td class="px-4 py-3 text-right text-orange">{r.centres_skipped_claimed}</td>
+                <td class="px-4 py-3 text-right">
+                  {r.flagged_for_review && r.flagged_for_review.length > 0 ? (
+                    <button type="button" class="text-orange hover:underline detail-btn font-medium" data-run-id={r.id} data-tab="flagged">
+                      {r.flagged_for_review.length} fiche{r.flagged_for_review.length > 1 ? 's' : ''}
+                    </button>
+                  ) : <span class="text-gris-texte">—</span>}
+                </td>
+                <td class="px-4 py-3 text-right">
+                  {(r.changes_applied && r.changes_applied.length > 0) ? (
+                    <button type="button" class="text-orange hover:underline detail-btn font-medium" data-run-id={r.id} data-tab="changes">
+                      {r.changes_applied.length} change{r.changes_applied.length > 1 ? 's' : ''}
+                    </button>
+                  ) : r.error_message ? (
+                    <button type="button" class="text-red-700 hover:underline error-btn" data-error={r.error_message}>Erreur</button>
+                  ) : <span class="text-gris-texte">—</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modale détail -->
+      <div id="detail-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-blanc rounded-xl max-w-3xl w-full max-h-[80vh] overflow-auto">
+          <div class="px-6 py-4 border-b border-gris-clair flex items-center justify-between">
+            <h2 id="detail-modal-title" class="font-sans font-bold text-marine">Détail</h2>
+            <button id="detail-modal-close" type="button" class="text-gris-texte hover:text-marine">
+              <Icon name="lucide:x" class="w-5 h-5" />
+            </button>
+          </div>
+          <div id="detail-modal-body" class="px-6 py-4 font-sans text-sm"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script define:vars={{ runsJson: JSON.stringify(typedRuns) }}>
+    // JS pur — define:vars force is:inline (pas de TypeScript ici)
+    const runs = JSON.parse(runsJson);
+    const runsById = new Map(runs.map((r) => [r.id, r]));
+
+    function escapeHtml(s) {
+      if (s === null || s === undefined) return '';
+      return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    const dryRunBtn = document.getElementById('dry-run-btn');
+    const applyBtn = document.getElementById('apply-btn');
+    const statusBox = document.getElementById('status-box');
+
+    async function runPropagation(applyMode) {
+      const btn = applyMode ? applyBtn : dryRunBtn;
+      const otherBtn = applyMode ? dryRunBtn : applyBtn;
+
+      if (applyMode) {
+        const ok = window.confirm('APPLY mode : les changes seront ÉCRITS en DB et les fiches publiques modifiées. Continuer ?');
+        if (!ok) return;
+      }
+
+      btn.disabled = true;
+      otherBtn.disabled = true;
+      btn.textContent = applyMode ? 'Apply en cours…' : 'Dry-run en cours…';
+      statusBox.className = 'mb-4 rounded-lg border p-4 font-sans text-sm bg-blue-50 border-blue-200 text-blue-800';
+      statusBox.classList.remove('hidden');
+      statusBox.textContent = `Propagation lancée (${applyMode ? 'apply' : 'dry-run'})…`;
+
+      try {
+        const res = await fetch(`/api/admin/propagate-rpps?apply=${applyMode}`, { method: 'POST' });
+        const data = await res.json();
+        if (!res.ok || data.status === 'failed') {
+          throw new Error(data.error_message || data.error || 'Erreur propagation');
+        }
+        statusBox.className = 'mb-4 rounded-lg border p-4 font-sans text-sm bg-green-50 border-green-200 text-green-800';
+        statusBox.textContent = `${applyMode ? 'Apply OK' : 'Dry-run OK'} : +${data.centres_created} créées, ${data.centres_updated} màj, ${data.centres_skipped_claimed} skip claimed (${data.flagged_count} à review). Reload…`;
+        setTimeout(() => window.location.reload(), 2500);
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        statusBox.className = 'mb-4 rounded-lg border p-4 font-sans text-sm bg-red-50 border-red-200 text-red-800';
+        statusBox.textContent = `Erreur : ${msg}`;
+        btn.disabled = false;
+        otherBtn.disabled = false;
+        btn.textContent = applyMode ? 'Apply changes (écrit en DB)' : 'Lancer un dry-run (preview)';
+      }
+    }
+
+    dryRunBtn.addEventListener('click', () => runPropagation(false));
+    applyBtn.addEventListener('click', () => runPropagation(true));
+
+    // Modale
+    const modal = document.getElementById('detail-modal');
+    const modalTitle = document.getElementById('detail-modal-title');
+    const modalBody = document.getElementById('detail-modal-body');
+    const modalClose = document.getElementById('detail-modal-close');
+
+    function closeModal() { modal.classList.add('hidden'); }
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    document.querySelectorAll('.detail-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const runId = btn.dataset.runId;
+        const tab = btn.dataset.tab;
+        const run = runId ? runsById.get(runId) : undefined;
+        if (!run) return;
+
+        if (tab === 'flagged') {
+          modalTitle.textContent = `${run.flagged_for_review.length} fiche(s) claimed à review`;
+          modalBody.innerHTML = `
+            <ul class="space-y-3">
+              ${run.flagged_for_review.map((f) => `
+                <li class="border-b border-gris-clair pb-3 last:border-0">
+                  <p class="font-semibold text-marine">${escapeHtml(f.practitioner_name)}
+                    <span class="text-xs ml-2 px-2 py-0.5 rounded bg-orange/10 text-orange">${escapeHtml(f.centre_plan)}</span>
+                  </p>
+                  <p class="text-xs text-gris-texte">RPPS ${escapeHtml(f.rpps)} · ${escapeHtml(f.claimed_by_email || '')}</p>
+                  <p class="text-sm mt-1"><strong>Avant :</strong> ${escapeHtml(f.old_address)}</p>
+                  <p class="text-sm"><strong>Après FHIR :</strong> ${escapeHtml(f.new_address)}</p>
+                  <p class="text-xs text-gris-texte mt-1"><a href="/centre/${escapeHtml(f.centre_slug)}/" class="text-orange hover:underline">Voir la fiche</a></p>
+                </li>
+              `).join('')}
+            </ul>`;
+        } else {
+          modalTitle.textContent = `${run.changes_applied.length} change(s) ${run.apply_mode ? 'appliqué(s)' : '(dry-run)'}`;
+          modalBody.innerHTML = `
+            <ul class="space-y-3">
+              ${run.changes_applied.slice(0, 50).map((c) => `
+                <li class="border-b border-gris-clair pb-3 last:border-0">
+                  <p class="font-semibold text-marine">${escapeHtml(c.action === 'create' ? 'Créée' : 'Update')} — RPPS ${escapeHtml(c.rpps)}</p>
+                  ${c.centre_slug ? `<p class="text-xs text-gris-texte"><a href="/centre/${escapeHtml(c.centre_slug)}/" class="text-orange hover:underline">${escapeHtml(c.centre_slug)}</a></p>` : '<p class="text-xs text-gris-texte">(nouveau slug)</p>'}
+                  <ul class="text-xs mt-1 space-y-0.5">
+                    ${Object.entries(c.fields_changed).slice(0, 8).map(([k, v]) => `<li><strong>${escapeHtml(k)}</strong> : ${escapeHtml(JSON.stringify(v.from))} → ${escapeHtml(JSON.stringify(v.to))}</li>`).join('')}
+                  </ul>
+                </li>
+              `).join('')}
+            </ul>
+            ${run.changes_applied.length > 50 ? `<p class="text-xs text-gris-texte mt-3">${run.changes_applied.length - 50} autres changes non affichés.</p>` : ''}`;
+        }
+        modal.classList.remove('hidden');
+      });
+    });
+
+    document.querySelectorAll('.error-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        modalTitle.textContent = 'Erreur de propagation';
+        modalBody.innerHTML = `<pre class="bg-red-50 text-red-800 p-3 rounded text-xs overflow-auto whitespace-pre-wrap">${escapeHtml(btn.dataset.error || '')}</pre>`;
+        modal.classList.remove('hidden');
+      });
+    });
+  </script>
+</BaseLayout>
