@@ -474,14 +474,22 @@ export async function runRppsPropagation(
     // sur le même SIRET — défensif).
     const processedCentreIds = new Set<string>();
 
+    // V2 batch writes : on bufferise tous les writes pendant la boucle de
+    // matching (en mémoire), puis on flush par chunks à la fin. Sans batching,
+    // 6235 round-trips Supabase REST sequentiels = timeout Vercel 300s garanti.
+    const inserts: Array<Record<string, unknown>> = [];
+    const updates: Array<{ id: string; patch: Record<string, unknown> }> = [];
+    let centresSkippedNoAddress = 0;
+
     // Closure : applique le diff/flag/update sur un match trouvé. Mute les
     // compteurs et arrays du scope. Réutilisée pour priorité 1, 1bis, 2.
-    const processCentreUpdate = async (params: {
+    // En mode apply, on BUFFERISE l'update (flush par batch en fin de boucle).
+    const processCentreUpdate = (params: {
       match: CentreRecord;
       payload: Record<string, unknown>;
       rpps: string;
       practitionerName: string;
-    }): Promise<void> => {
+    }): void => {
       const { match, payload, rpps, practitionerName } = params;
       const isProtected =
         match.plan === 'claimed' ||
@@ -515,18 +523,9 @@ export async function runRppsPropagation(
         for (const [k, v] of Object.entries(diff)) {
           updatePatch[k] = v.to;
         }
-        const { error } = await supabase
-          .from('centres_auditifs')
-          .update(updatePatch)
-          .eq('id', match.id);
-        if (error) {
-          console.error(`[propagate] update failed for centre ${match.id}: ${error.message}`);
-          return;
-        }
-        centresUpdated += 1;
-      } else {
-        centresUpdated += 1;
+        updates.push({ id: match.id, patch: updatePatch });
       }
+      centresUpdated += 1;
       changesApplied.push({
         centre_id: match.id,
         centre_slug: match.slug,
@@ -549,7 +548,7 @@ export async function runRppsPropagation(
         if (!centreSecondaire || processedCentreIds.has(centreSecondaire.id)) continue;
         if (centreSecondaire.rpps === r.rpps) continue;
         processedCentreIds.add(centreSecondaire.id);
-        await processCentreUpdate({
+        processCentreUpdate({
           match: centreSecondaire,
           payload: buildCentrePayloadFromRole(role, r),
           rpps: r.rpps,
@@ -564,11 +563,18 @@ export async function runRppsPropagation(
       const payload = buildCentrePayload(r);
 
       if (!match) {
-        // Aucun match → créer une fiche plan='rpps' (priorité 3 fuzzy = V2)
+        // Skip si l'audio FHIR n'a pas d'adresse (colonnes NOT NULL côté DB :
+        // adresse / cp / departement). Sans elles, l'INSERT fail.
+        if (!payload.adresse || !payload.cp || !payload.departement) {
+          centresSkippedNoAddress += 1;
+          continue;
+        }
+        // Aucun match → créer une fiche plan='rpps' (priorité 3 fuzzy = V3)
         centresUnmatched += 1;
         const newSlug = buildSlugForNewRpps(r);
         const insertPayload = {
           ...payload,
+          legacy_id: `rpps-${r.rpps}`, // NOT NULL côté DB, déterministe via RPPS
           slug: newSlug,
           plan: 'rpps' as const,
           claim_status: 'none' as const,
@@ -576,11 +582,11 @@ export async function runRppsPropagation(
           is_demo: false,
         };
         if (opts.applyMode) {
-          const { error } = await supabase.from('centres_auditifs').insert(insertPayload);
-          if (error) {
-            console.error(`[propagate] insert failed for rpps ${r.rpps}: ${error.message}`);
-            continue;
-          }
+          inserts.push(insertPayload);
+        }
+        // En dry-run on incrémente centresCreated pour le report. En apply,
+        // c'est le batch flush qui décide après écriture réelle.
+        if (!opts.applyMode) {
           centresCreated += 1;
         }
         changesApplied.push({
@@ -597,7 +603,7 @@ export async function runRppsPropagation(
 
       // Match trouvé via priorité 1 ou 2 → délègue à la closure
       processedCentreIds.add(match.id);
-      await processCentreUpdate({
+      processCentreUpdate({
         match,
         payload,
         rpps: r.rpps,
@@ -605,9 +611,60 @@ export async function runRppsPropagation(
       });
     }
 
-    // 5. Update run row → success
+    // 5. Flush des writes en batch (apply mode uniquement)
+    let insertErrors = 0;
+    let updateErrors = 0;
+    if (opts.applyMode) {
+      // 5a. INSERTs : .insert(rows[]) par chunks de 100
+      const INSERT_CHUNK = 100;
+      for (let i = 0; i < inserts.length; i += INSERT_CHUNK) {
+        const chunk = inserts.slice(i, i + INSERT_CHUNK);
+        const { error } = await supabase.from('centres_auditifs').insert(chunk);
+        if (error) {
+          // En cas d'erreur batch, fallback row-par-row pour identifier le row toxique
+          // sans perdre les autres rows valides du chunk.
+          console.error(`[propagate] batch insert failed (chunk ${i}-${i + chunk.length}): ${error.message}. Falling back to row-by-row.`);
+          for (const row of chunk) {
+            const { error: rowErr } = await supabase.from('centres_auditifs').insert(row);
+            if (rowErr) {
+              insertErrors += 1;
+              console.error(`[propagate] row insert failed (legacy_id=${row.legacy_id}): ${rowErr.message}`);
+            } else {
+              centresCreated += 1;
+            }
+          }
+        } else {
+          centresCreated += chunk.length;
+        }
+      }
+
+      // 5b. UPDATEs : Promise.all par chunks de 50 (concurrence Supabase REST safe)
+      const UPDATE_CHUNK = 50;
+      for (let i = 0; i < updates.length; i += UPDATE_CHUNK) {
+        const chunk = updates.slice(i, i + UPDATE_CHUNK);
+        const results = await Promise.all(
+          chunk.map((u) =>
+            supabase.from('centres_auditifs').update(u.patch).eq('id', u.id),
+          ),
+        );
+        for (const r of results) {
+          if (r.error) {
+            updateErrors += 1;
+            console.error(`[propagate] update failed: ${r.error.message}`);
+          }
+        }
+      }
+    }
+
+    // 6. Update run row → success
     const completedAt = new Date();
     const durationSeconds = Math.round((completedAt.getTime() - startedAt.getTime()) / 1000);
+
+    if (centresSkippedNoAddress > 0 || insertErrors > 0 || updateErrors > 0) {
+      console.warn(
+        `[propagate] skipped_no_address=${centresSkippedNoAddress}, insert_errors=${insertErrors}, update_errors=${updateErrors}`,
+      );
+    }
 
     await supabase
       .from('rpps_propagation_runs')
@@ -615,7 +672,7 @@ export async function runRppsPropagation(
         completed_at: completedAt.toISOString(),
         status: 'success',
         centres_created: centresCreated,
-        centres_updated: centresUpdated,
+        centres_updated: centresUpdated - updateErrors,
         centres_skipped_claimed: centresSkippedClaimed,
         centres_unmatched: centresUnmatched,
         flagged_for_review: flaggedForReview,
