@@ -20,14 +20,32 @@ const FIXTURE_PATH = resolve(__dirname, '../tests/fixtures/rpps-fhir-bundle.json
 
 // ─── Réimplémentation 1:1 du parsing dans rpps-sync.ts ───
 // Si le module TS change, ce script doit être resynchronisé manuellement.
+
+function normalizeRpps(value) {
+  const cleaned = value.trim();
+  if (/^\d{11}$/.test(cleaned)) return cleaned;
+  if (/^8\d{11}$/.test(cleaned)) return cleaned.substring(1); // IDNPS audio → RPPS
+  return null;
+}
+
 function extractRpps(p) {
   for (const id of p.identifier ?? []) {
-    if (id.system && id.system.toLowerCase().includes('rpps') && id.value) return id.value;
+    const sys = id.system?.toLowerCase() ?? '';
+    if ((sys.includes('rpps') || sys.includes('idnps')) && id.value) {
+      const normalized = normalizeRpps(id.value);
+      if (normalized) return normalized;
+    }
     const code = id.type?.coding?.[0]?.code;
-    if (code && /rpps|idnps/i.test(code) && id.value) return id.value;
+    if (code && /rpps|idnps/i.test(code) && id.value) {
+      const normalized = normalizeRpps(id.value);
+      if (normalized) return normalized;
+    }
   }
   for (const id of p.identifier ?? []) {
-    if (id.value && /^\d{11}$/.test(id.value)) return id.value;
+    if (id.value) {
+      const normalized = normalizeRpps(id.value);
+      if (normalized) return normalized;
+    }
   }
   return null;
 }
@@ -99,7 +117,7 @@ const bundle = JSON.parse(readFileSync(FIXTURE_PATH, 'utf-8'));
 
 test('Bundle structure', () => {
   assertEqual(bundle.resourceType, 'Bundle', 'resourceType is Bundle');
-  assertEqual(bundle.entry.length, 3, '3 entries in bundle');
+  assertEqual(bundle.entry.length, 4, '4 entries in bundle');
 });
 
 test('Practitioner #1 (Jean DUPONT, Bayonne, RPPS via system)', () => {
@@ -134,6 +152,22 @@ test('Practitioner #2 (Marie Claire MARTIN, Paris 75015, RPPS via 11-digit fallb
 test('Practitioner #3 (no identifier) → returns null', () => {
   const row = parsePractitioner(bundle.entry[2].resource);
   assertEqual(row, null, 'no RPPS identifier → null');
+});
+
+test('Practitioner #4 (IDNPS 12 digits via system=idnps) → normalised to RPPS 11 digits', () => {
+  const row = parsePractitioner(bundle.entry[3].resource);
+  assertEqual(row !== null, true, 'parsing returned a row');
+  assertEqual(row.rpps, '10002460995', 'IDNPS 810002460995 normalisé en RPPS 10002460995 (strip prefix 8)');
+  assertEqual(row.nom, 'HEILIG', 'family name');
+  assertEqual(row.prenom, 'CELINE', 'given name');
+});
+
+test('normalizeRpps direct unit tests', () => {
+  assertEqual(normalizeRpps('10002460995'), '10002460995', 'RPPS 11 digits → no-op');
+  assertEqual(normalizeRpps('810002460995'), '10002460995', 'IDNPS 12 digits préfixe 8 → strip');
+  assertEqual(normalizeRpps('1234'), null, 'too short → null');
+  assertEqual(normalizeRpps('123456789012'), null, '12 digits NOT prefixed by 8 → null (pas un IDNPS audio)');
+  assertEqual(normalizeRpps(''), null, 'empty → null');
 });
 
 test('departementFromCp DOM/TOM', () => {
