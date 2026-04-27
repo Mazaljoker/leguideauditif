@@ -1,0 +1,152 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { createServerClient } from '../lib/supabase';
+
+// Page publique de gestion du consentement email.
+// Auth = token UUID dans la query string (audiopro_lifecycle.email_preferences_token).
+// Pas d'auth Supabase requise — pattern standard pour les pages d'unsub
+// embarquées dans un footer email.
+
+const token = Astro.url.searchParams.get('token')?.trim() ?? '';
+const submitted = Astro.url.searchParams.get('done') === '1';
+const submittedLevel = Astro.url.searchParams.get('level') ?? '';
+
+let audiopro: {
+  id: string;
+  email: string;
+  prenom: string | null;
+  email_unsubscribed_at: string | null;
+  unsubscribe_level: string | null;
+} | null = null;
+let tokenError: string | null = null;
+
+if (!token) {
+  tokenError = 'Lien invalide ou expiré : aucun token fourni.';
+} else {
+  const supabase = createServerClient();
+  const { data, error } = await supabase
+    .from('audiopro_lifecycle')
+    .select('id, email, prenom, email_unsubscribed_at, unsubscribe_level')
+    .eq('email_preferences_token', token)
+    .maybeSingle();
+
+  if (error || !data) {
+    tokenError = 'Lien invalide ou expiré. Si vous voulez vous désabonner, répondez simplement au mail que vous avez reçu.';
+  } else {
+    audiopro = data;
+  }
+}
+---
+
+<BaseLayout
+  title="Préférences email — LeGuideAuditif"
+  description="Gestion de vos préférences de réception d'emails"
+>
+  <meta slot="head" name="robots" content="noindex" />
+
+  <section class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 font-sans">
+
+    {tokenError && (
+      <div class="bg-[#FCEBEB] border-l-4 border-[#A32D2D] p-4 text-sm text-[#A32D2D] mb-6">
+        {tokenError}
+      </div>
+    )}
+
+    {!tokenError && audiopro && submitted && (
+      <div class="bg-[#E1F5EE] border-l-4 border-[#0F6E56] p-4 text-sm text-[#04342C] mb-6">
+        <p class="font-medium mb-1">Vos préférences ont été enregistrées.</p>
+        {submittedLevel === 'soft' && (
+          <p>Vous ne recevrez plus d'emails d'information de notre part. Les emails liés à votre compte (validation de fiche, paiement, annulation) restent envoyés.</p>
+        )}
+        {submittedLevel === 'hard' && (
+          <p>Vous ne recevrez plus aucun email de LeGuideAuditif.</p>
+        )}
+        {submittedLevel === 'reactivate' && (
+          <p>Vous recevrez à nouveau les emails d'information.</p>
+        )}
+      </div>
+    )}
+
+    {!tokenError && audiopro && (
+      <>
+        <h1 class="text-2xl font-bold text-marine mb-2">Préférences email</h1>
+        <p class="text-sm text-gris-texte mb-8">
+          Compte : <strong class="text-marine">{audiopro.email}</strong>
+          {audiopro.email_unsubscribed_at && (
+            <span class="ml-2 inline-block px-2 py-0.5 rounded bg-[#FAEEDA] text-[#854F0B] text-xs font-medium">
+              Désabonné depuis le {new Date(audiopro.email_unsubscribed_at).toLocaleDateString('fr-FR')}
+            </span>
+          )}
+        </p>
+
+        <form action="/api/email-preferences" method="POST" class="space-y-4">
+          <input type="hidden" name="token" value={token} />
+
+          <fieldset class="space-y-3">
+            <legend class="text-sm font-medium text-marine mb-3">Choisissez vos préférences :</legend>
+
+            <label class="flex items-start gap-3 p-4 border border-[#E4DED3] rounded-lg cursor-pointer hover:bg-[#FDFBF7]">
+              <input
+                type="radio"
+                name="level"
+                value="soft"
+                checked={audiopro.unsubscribe_level === 'soft'}
+                class="mt-1"
+                required
+              />
+              <div>
+                <strong class="text-marine">Ne plus recevoir les emails d'information</strong>
+                <p class="text-sm text-gris-texte mt-1">
+                  Plus de newsletter, plus de relances. Vous continuez à recevoir les emails liés à votre compte (validation de fiche, paiement, annulation d'abonnement).
+                </p>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-4 border border-[#E4DED3] rounded-lg cursor-pointer hover:bg-[#FDFBF7]">
+              <input
+                type="radio"
+                name="level"
+                value="hard"
+                checked={audiopro.unsubscribe_level === 'hard'}
+                class="mt-1"
+                required
+              />
+              <div>
+                <strong class="text-marine">Me désabonner de tout</strong>
+                <p class="text-sm text-gris-texte mt-1">
+                  Plus aucun email de LeGuideAuditif, y compris les confirmations de compte. Choix RGPD strict — recommandé uniquement si vous quittez définitivement.
+                </p>
+              </div>
+            </label>
+
+            {audiopro.email_unsubscribed_at && (
+              <label class="flex items-start gap-3 p-4 border border-[#E4DED3] rounded-lg cursor-pointer hover:bg-[#FDFBF7]">
+                <input type="radio" name="level" value="reactivate" class="mt-1" required />
+                <div>
+                  <strong class="text-marine">Réactiver tous les emails</strong>
+                  <p class="text-sm text-gris-texte mt-1">
+                    Vous recevrez à nouveau les emails d'information et les emails de compte.
+                  </p>
+                </div>
+              </label>
+            )}
+          </fieldset>
+
+          <button
+            type="submit"
+            class="px-6 py-3 bg-marine text-white rounded font-medium hover:opacity-90 focus:outline-2 focus:outline-orange"
+            style="min-height: 44px;"
+          >
+            Enregistrer mes préférences
+          </button>
+        </form>
+
+        <p class="text-xs text-gris-texte mt-8 leading-relaxed">
+          Cette page est conforme au RGPD. Aucune authentification n'est requise — la sécurité repose sur le token unique reçu dans votre email. Si vous suspectez que quelqu'un a accès à votre adresse mail, signalez-le à <a href="mailto:franckolivier@leguideauditif.fr" class="text-orange">franckolivier@leguideauditif.fr</a>.
+        </p>
+      </>
+    )}
+  </section>
+</BaseLayout>

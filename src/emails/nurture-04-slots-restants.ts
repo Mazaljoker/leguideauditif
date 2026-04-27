@@ -3,6 +3,7 @@ import { emailLayout } from './layout';
 interface Nurture04Data {
   prenom: string;
   slotsRestants: number;   // typiquement 1..5 (sinon le cron skip ce template)
+  unsubscribeToken: string;
 }
 
 /**
@@ -12,7 +13,7 @@ interface Nurture04Data {
  * 19 €/mois à vie + 3 mois gratuits, pas de Cal.com, pas de vaporware).
  */
 export function nurture04SlotsRestantsEmail(data: Nurture04Data): string {
-  const { prenom, slotsRestants } = data;
+  const { prenom, slotsRestants, unsubscribeToken } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
   const plural = slotsRestants > 1;
   const placesLabel = plural ? `${slotsRestants} places` : '1 place';
@@ -39,5 +40,6 @@ export function nurture04SlotsRestantsEmail(data: Nurture04Data): string {
     Franck-Olivier Chabbat<br/>
     LeGuideAuditif.fr</p>
     `,
+    { unsubscribeToken },
   );
 }

@@ -2,6 +2,7 @@ import { emailLayout } from './layout';
 
 interface Nurture05Data {
   prenom: string;
+  unsubscribeToken: string;
 }
 
 /**
@@ -18,7 +19,7 @@ interface Nurture05Data {
  * + 20 %") sont retirés au profit d'un "sur devis" qui force le 1:1.
  */
 export function nurture05AdsOuSortieEmail(data: Nurture05Data): string {
-  const { prenom } = data;
+  const { prenom, unsubscribeToken } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
 
   return emailLayout(
@@ -44,5 +45,6 @@ export function nurture05AdsOuSortieEmail(data: Nurture05Data): string {
     Audioprothésiste DE — 28 ans en cabine<br/>
     LeGuideAuditif.fr</p>
     `,
+    { unsubscribeToken },
   );
 }

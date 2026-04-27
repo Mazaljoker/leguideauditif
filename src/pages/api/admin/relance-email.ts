@@ -80,6 +80,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const html = ficheIncompleteRelanceEmail({
     prenom: audiopro.prenom ?? '',
     centres: missing,
+    unsubscribeToken: audiopro.email_preferences_token,
   });
 
   const nbIncomplet = missing.filter((m) => m.missing_fields.length > 0).length;

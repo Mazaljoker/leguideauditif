@@ -4,6 +4,7 @@ interface PremiumWelcomeData {
   prenom: string;
   centreNom: string;
   centreSlug: string;
+  unsubscribeToken: string;
 }
 
 /**
@@ -12,7 +13,7 @@ interface PremiumWelcomeData {
  * en premium. Voix Franck-Olivier, pair à pair, 28 ans d'exercice.
  */
 export function premiumWelcomeEmail(data: PremiumWelcomeData): string {
-  const { prenom, centreNom, centreSlug } = data;
+  const { prenom, centreNom, centreSlug, unsubscribeToken } = data;
   const editUrl = `https://leguideauditif.fr/audioprothesiste-pro/fiche?centre=${centreSlug}`;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
 
@@ -49,5 +50,6 @@ export function premiumWelcomeEmail(data: PremiumWelcomeData): string {
     Audioprothésiste DE — 28 ans en cabine<br/>
     LeGuideAuditif.fr</p>
     `,
+    { unsubscribeToken },
   );
 }

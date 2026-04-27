@@ -2,6 +2,7 @@ import { emailLayout } from './layout';
 
 interface NouvelEspaceProAnnonceData {
   prenom: string;
+  unsubscribeToken: string;
 }
 
 /**
@@ -15,7 +16,7 @@ interface NouvelEspaceProAnnonceData {
  * vaporware), CTA clair vers /audioprothesiste-pro/.
  */
 export function nouvelEspaceProAnnonceEmail(data: NouvelEspaceProAnnonceData): string {
-  const { prenom } = data;
+  const { prenom, unsubscribeToken } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
 
   return emailLayout(
@@ -47,5 +48,6 @@ export function nouvelEspaceProAnnonceEmail(data: NouvelEspaceProAnnonceData): s
     Audioprothésiste DE — 28 ans en cabine<br/>
     LeGuideAuditif.fr</p>
     `,
+    { unsubscribeToken },
   );
 }

@@ -7,6 +7,7 @@ interface Nurture03Data {
    * À produire et valider via la chaîne GAN avant activation Phase 2.
    */
   articleUrl: string;
+  unsubscribeToken: string;
 }
 
 /**
@@ -18,7 +19,7 @@ interface Nurture03Data {
  * honnête qu'un "j'ai un audio qui..." inventé.
  */
 export function nurture03CasConcretEmail(data: Nurture03Data): string {
-  const { prenom, articleUrl } = data;
+  const { prenom, articleUrl, unsubscribeToken } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
 
   return emailLayout(
@@ -46,5 +47,6 @@ export function nurture03CasConcretEmail(data: Nurture03Data): string {
     Audioprothésiste DE — 28 ans en cabine<br/>
     LeGuideAuditif.fr</p>
     `,
+    { unsubscribeToken },
   );
 }

@@ -3,6 +3,7 @@ import { emailLayout } from './layout';
 interface Nurture02Data {
   prenom: string;
   slotsRestants: number;   // 0..20
+  unsubscribeToken: string;
 }
 
 /**
@@ -16,7 +17,7 @@ interface Nurture02Data {
  * Ton confraternel — merci aux premiers, pas de CTA commercial pressant.
  */
 export function nurture02OffreFondateursEmail(data: Nurture02Data): string {
-  const { prenom, slotsRestants } = data;
+  const { prenom, slotsRestants, unsubscribeToken } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
   const placesLabel = slotsRestants > 1 ? `${slotsRestants} places` : '1 place';
 
@@ -55,5 +56,6 @@ export function nurture02OffreFondateursEmail(data: Nurture02Data): string {
     Audioprothésiste DE — 28 ans en cabine<br/>
     LeGuideAuditif.fr</p>
     `,
+    { unsubscribeToken },
   );
 }

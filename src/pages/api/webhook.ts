@@ -185,7 +185,7 @@ export const POST: APIRoute = async ({ request }) => {
         try {
           const { data: audio } = await supabase
             .from('audiopro_lifecycle')
-            .select('id, prenom, lifecycle_stage')
+            .select('id, prenom, lifecycle_stage, email_preferences_token, unsubscribe_level')
             .eq('email', email.toLowerCase())
             .maybeSingle();
 
@@ -202,6 +202,13 @@ export const POST: APIRoute = async ({ request }) => {
               },
             );
 
+            // Hard unsub : on respecte la demande RGPD même pour le transactionnel.
+            // Le centre passe quand même en premium côté DB — on saute juste l'envoi mail.
+            if (audio.unsubscribe_level === 'hard') {
+              console.log(`[webhook] premium_welcome skipped (hard unsub) pour ${email}`);
+              break;
+            }
+
             const welcomeResult = await sendEmail({
               to: email,
               subject: 'Bienvenue dans LeGuideAuditif Premium',
@@ -209,6 +216,7 @@ export const POST: APIRoute = async ({ request }) => {
                 prenom: audio.prenom ?? '',
                 centreNom: centre?.nom ?? centreSlug,
                 centreSlug,
+                unsubscribeToken: audio.email_preferences_token,
               }),
               replyTo: 'franckolivier@leguideauditif.fr',
             });

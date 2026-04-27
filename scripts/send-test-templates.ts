@@ -48,6 +48,9 @@ const SAMPLE = {
   calendarUrl: 'https://cal.com/franckolivier/lga-fondateurs',
   articleUrl: 'https://leguideauditif.fr/blog/etude-de-cas-3-centres-structures',
   stayFreeUrl: 'https://leguideauditif.fr/audioprothesiste-pro/preferences?choix=gratuit',
+  // Token sample pour le footer unsub. UUID v4 fixe pour les tests —
+  // en prod c'est audiopro_lifecycle.email_preferences_token.
+  unsubscribeToken: '00000000-0000-4000-8000-000000000000',
 };
 
 // Sample pour fiche_incomplete_relance (format AudioproMissingField[])
@@ -82,6 +85,7 @@ const emails: TestEmail[] = [
       prenom: SAMPLE.prenom,
       centreNom: SAMPLE.centreNom,
       centreSlug: SAMPLE.centreSlug,
+      unsubscribeToken: SAMPLE.unsubscribeToken,
     }),
   },
   {
@@ -90,6 +94,7 @@ const emails: TestEmail[] = [
     html: ficheIncompleteRelanceEmail({
       prenom: SAMPLE.prenom,
       centres: MISSING_SAMPLE as unknown as Parameters<typeof ficheIncompleteRelanceEmail>[0]['centres'],
+      unsubscribeToken: SAMPLE.unsubscribeToken,
     }),
   },
   {
@@ -100,6 +105,7 @@ const emails: TestEmail[] = [
       nbCentres: SAMPLE.nbCentres,
       completenessAvg: SAMPLE.completenessAvg,
       primaryCentreSlug: SAMPLE.primaryCentreSlug,
+      unsubscribeToken: SAMPLE.unsubscribeToken,
     }),
   },
   {
@@ -108,6 +114,7 @@ const emails: TestEmail[] = [
     html: nurture02OffreFondateursEmail({
       prenom: SAMPLE.prenom,
       slotsRestants: SAMPLE.slotsRestants,
+      unsubscribeToken: SAMPLE.unsubscribeToken,
     }),
   },
   {
@@ -116,6 +123,7 @@ const emails: TestEmail[] = [
     html: nurture03CasConcretEmail({
       prenom: SAMPLE.prenom,
       articleUrl: SAMPLE.articleUrl,
+      unsubscribeToken: SAMPLE.unsubscribeToken,
     }),
   },
   {
@@ -124,6 +132,7 @@ const emails: TestEmail[] = [
     html: nurture04SlotsRestantsEmail({
       prenom: SAMPLE.prenom,
       slotsRestants: SAMPLE.slotsRestants,
+      unsubscribeToken: SAMPLE.unsubscribeToken,
     }),
   },
   {
@@ -131,6 +140,7 @@ const emails: TestEmail[] = [
     subject: '[TEST 7/8 v3] Des RDV patients ou vous restez en vitrine ?',
     html: nurture05AdsOuSortieEmail({
       prenom: SAMPLE.prenom,
+      unsubscribeToken: SAMPLE.unsubscribeToken,
     }),
   },
   {
@@ -138,6 +148,7 @@ const emails: TestEmail[] = [
     subject: '[TEST 8/8 v2] Votre espace pro LeGuideAuditif a été refondu',
     html: nouvelEspaceProAnnonceEmail({
       prenom: SAMPLE.prenom,
+      unsubscribeToken: SAMPLE.unsubscribeToken,
     }),
   },
 ];
