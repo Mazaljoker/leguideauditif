@@ -249,34 +249,69 @@ async function fetchUpdatedRpps(supabase: SupabaseClient, sinceIso: string): Pro
 }
 
 // ──────────────────────────────────────────────────────────────────────
-// Matching : trouve la fiche centres_auditifs correspondante (priorité 1+2)
+// Matching : trouve les fiches centres_auditifs correspondantes (priorité 1+2)
+// en batch — 2 SELECTs au total au lieu de 2*N (où N = nombre de RPPS).
 // ──────────────────────────────────────────────────────────────────────
 
-async function findMatchingCentre(supabase: SupabaseClient, r: RppsRecord): Promise<CentreRecord | null> {
-  // Priorité 1 : match exact sur le RPPS
-  const { data: byRpps } = await supabase
-    .from('centres_auditifs')
-    .select('id, slug, nom, rpps, siret, adresse, cp, ville, plan, claim_status, claimed_by_email, raison_sociale, audio_nom, audio_prenom, departement, tel, email')
-    .eq('rpps', r.rpps)
-    .eq('is_demo', false)
-    .limit(1)
-    .maybeSingle();
-  if (byRpps) return byRpps as unknown as CentreRecord;
+const CENTRE_FIELDS =
+  'id, slug, nom, rpps, siret, adresse, cp, ville, plan, claim_status, claimed_by_email, raison_sociale, audio_nom, audio_prenom, departement, tel, email';
 
-  // Priorité 2 : match exact sur le SIRET (si RPPS pas en DB)
-  if (r.siret) {
-    const { data: bySiret } = await supabase
+/**
+ * Charge en batch toutes les fiches centres_auditifs dont le RPPS est dans
+ * la liste fournie. Pagine par chunks de 500 pour éviter les URL trop longues
+ * (limite Supabase REST ~32 KB → ~2000 RPPS de 11 chars + boilerplate).
+ */
+async function batchLoadCentresByRpps(
+  supabase: SupabaseClient,
+  rppsList: string[],
+): Promise<Map<string, CentreRecord>> {
+  const byRpps = new Map<string, CentreRecord>();
+  if (rppsList.length === 0) return byRpps;
+
+  const CHUNK = 500;
+  for (let i = 0; i < rppsList.length; i += CHUNK) {
+    const chunk = rppsList.slice(i, i + CHUNK);
+    const { data, error } = await supabase
       .from('centres_auditifs')
-      .select('id, slug, nom, rpps, siret, adresse, cp, ville, plan, claim_status, claimed_by_email, raison_sociale, audio_nom, audio_prenom, departement, tel, email')
-      .eq('siret', r.siret)
-      .eq('is_demo', false)
-      .is('rpps', null) // évite de match un siret partagé entre 2 audios différents
-      .limit(1)
-      .maybeSingle();
-    if (bySiret) return bySiret as unknown as CentreRecord;
+      .select(CENTRE_FIELDS)
+      .in('rpps', chunk)
+      .eq('is_demo', false);
+    if (error) throw new Error(`batchLoadCentresByRpps failed: ${error.message}`);
+    for (const c of (data ?? []) as unknown as CentreRecord[]) {
+      if (c.rpps) byRpps.set(c.rpps, c);
+    }
   }
+  return byRpps;
+}
 
-  return null;
+/**
+ * Charge en batch toutes les fiches centres_auditifs dont le SIRET est dans
+ * la liste fournie ET dont le RPPS est null (évite faux positifs sur un SIRET
+ * partagé entre plusieurs audios — on ne veut matcher que les fiches sans
+ * RPPS déjà identifié).
+ */
+async function batchLoadCentresBySiret(
+  supabase: SupabaseClient,
+  siretList: string[],
+): Promise<Map<string, CentreRecord>> {
+  const bySiret = new Map<string, CentreRecord>();
+  if (siretList.length === 0) return bySiret;
+
+  const CHUNK = 500;
+  for (let i = 0; i < siretList.length; i += CHUNK) {
+    const chunk = siretList.slice(i, i + CHUNK);
+    const { data, error } = await supabase
+      .from('centres_auditifs')
+      .select(CENTRE_FIELDS)
+      .in('siret', chunk)
+      .is('rpps', null)
+      .eq('is_demo', false);
+    if (error) throw new Error(`batchLoadCentresBySiret failed: ${error.message}`);
+    for (const c of (data ?? []) as unknown as CentreRecord[]) {
+      if (c.siret) bySiret.set(c.siret, c);
+    }
+  }
+  return bySiret;
 }
 
 // ──────────────────────────────────────────────────────────────────────
@@ -311,6 +346,16 @@ export async function runRppsPropagation(
     // 2. Charge les RPPS modifiés depuis sinceDate
     const updated = await fetchUpdatedRpps(supabase, sinceDate.toISOString());
 
+    // 3. Batch load des fiches centres correspondantes (priorité 1 + 2)
+    // → 2-N queries au total au lieu de 2*N queries dans la boucle.
+    // Critique pour la perf : sur 7152 RPPS modifiés, on évite 14000+ queries.
+    const allRpps = updated.map((r) => r.rpps);
+    const centresByRpps = await batchLoadCentresByRpps(supabase, allRpps);
+    const siretsToLookup = updated
+      .filter((r) => !centresByRpps.has(r.rpps) && !!r.siret)
+      .map((r) => r.siret as string);
+    const centresBySiret = await batchLoadCentresBySiret(supabase, siretsToLookup);
+
     let centresCreated = 0;
     let centresUpdated = 0;
     let centresSkippedClaimed = 0;
@@ -318,9 +363,11 @@ export async function runRppsPropagation(
     const flaggedForReview: FlaggedForReview[] = [];
     const changesApplied: ChangeApplied[] = [];
 
-    // 3. Traite chaque RPPS modifié
+    // 4. Traite chaque RPPS modifié — matching en mémoire
     for (const r of updated) {
-      const match = await findMatchingCentre(supabase, r);
+      const match = centresByRpps.get(r.rpps)
+        ?? (r.siret ? centresBySiret.get(r.siret) : undefined)
+        ?? null;
       const payload = buildCentrePayload(r);
 
       if (!match) {
