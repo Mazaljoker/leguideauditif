@@ -229,30 +229,21 @@ function formatDuration(s: number | null): string {
   </div>
 
   <script define:vars={{ runsJson: JSON.stringify(typedRuns) }}>
-    interface SyncRun {
-      id: string;
-      new_centres_detected: Array<{
-        rpps: string;
-        nom: string | null;
-        prenom: string | null;
-        enseigne: string | null;
-        raison_sociale: string | null;
-        code_postal: string | null;
-        commune: string | null;
-      }>;
-    }
+    // IMPORTANT : avec `define:vars`, Astro met le script en is:inline → JS PUR.
+    // Pas de TypeScript ici (pas d'`interface`, pas de `as Type`, pas de generics).
+    // Sinon SyntaxError au parse navigateur, et TOUS les listeners sont KO.
 
-    const runs: SyncRun[] = JSON.parse(runsJson);
+    const runs = JSON.parse(runsJson);
     const runsById = new Map(runs.map((r) => [r.id, r]));
 
-    function escapeHtml(s: string | null): string {
+    function escapeHtml(s) {
       if (!s) return '';
-      return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
+      return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     }
 
     // ── Bouton "Lancer sync manuelle" ──
-    const manualBtn = document.getElementById('manual-sync-btn') as HTMLButtonElement;
-    const statusBox = document.getElementById('sync-status') as HTMLDivElement;
+    const manualBtn = document.getElementById('manual-sync-btn');
+    const statusBox = document.getElementById('sync-status');
 
     manualBtn.addEventListener('click', async () => {
       manualBtn.disabled = true;
@@ -280,16 +271,16 @@ function formatDuration(s: number | null): string {
     });
 
     // ── Modale détail ──
-    const modal = document.getElementById('detail-modal') as HTMLDivElement;
-    const modalTitle = document.getElementById('detail-modal-title') as HTMLHeadingElement;
-    const modalBody = document.getElementById('detail-modal-body') as HTMLDivElement;
-    const modalClose = document.getElementById('detail-modal-close') as HTMLButtonElement;
+    const modal = document.getElementById('detail-modal');
+    const modalTitle = document.getElementById('detail-modal-title');
+    const modalBody = document.getElementById('detail-modal-body');
+    const modalClose = document.getElementById('detail-modal-close');
 
-    function closeModal(): void { modal.classList.add('hidden'); }
+    function closeModal() { modal.classList.add('hidden'); }
     modalClose.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-    document.querySelectorAll<HTMLButtonElement>('.detail-btn').forEach((btn) => {
+    document.querySelectorAll('.detail-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const runId = btn.dataset.runId;
         const run = runId ? runsById.get(runId) : undefined;
@@ -311,7 +302,7 @@ function formatDuration(s: number | null): string {
       });
     });
 
-    document.querySelectorAll<HTMLButtonElement>('.error-btn').forEach((btn) => {
+    document.querySelectorAll('.error-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         modalTitle.textContent = 'Erreur de sync';
         const errorText = btn.dataset.error || 'Erreur inconnue';
