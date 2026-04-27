@@ -58,8 +58,11 @@ export const POST: APIRoute = async ({ request, url, locals }) => {
 
   // V2 — phase 2 : pull les PractitionerRole (multi-lieux) en plus des Practitioner.
   // Defaut activé (signal Thomas Perron : sans phase 2, on rate les lieux secondaires).
-  // `?phase=v1` permet de basculer en V1 only pour debug ou rollback rapide.
+  // `?phase=v1` : V1 only (skip V2) — debug/rollback rapide.
+  // `?phase=v2` : V2 only (skip V1) — rattrapage ciblé multi-lieux sans toucher
+  //   à la sync Practitioner principale (utile combiné à `?mode=full`).
   const phaseParam = url.searchParams.get('phase');
+  const runV1 = phaseParam !== 'v2';
   const runRoles = phaseParam !== 'v1';
 
   // Garde-fou : si la clé FHIR n'est pas configurée, on échoue tôt avec un message clair
@@ -76,16 +79,19 @@ export const POST: APIRoute = async ({ request, url, locals }) => {
   const supabase = createServerClient();
 
   try {
-    // Phase 1 — Practitioner sync (V1, alimente rpps_audioprothesistes)
-    const result = await runRppsSync(supabase, { triggerSource, mode });
+    // Phase 1 — Practitioner sync (V1, alimente rpps_audioprothesistes).
+    // Skipped si `?phase=v2` (rattrapage V2 ciblé sans toucher V1).
+    const result = runV1
+      ? await runRppsSync(supabase, { triggerSource, mode })
+      : null;
 
     // Phase 2 — PractitionerRole sync (V2, alimente rpps_practitioner_roles).
-    // Lance seulement si la phase 1 a réussi : si V1 plante, V2 sur la même borne
-    // n'aurait pas de sens. La borne `sinceIso` est calculée par runRolesSync via
-    // MAX(last_seen_at) de la table — auto-entretenu, pas besoin de la propager.
+    // Lance seulement si V1 a réussi (ou skip si phase=v2). La borne `sinceIso`
+    // est calculée par runRolesSync via MAX(last_seen_at) — auto-entretenu.
     let rolesResult: Awaited<ReturnType<typeof runRolesSync>> | null = null;
     let rolesError: string | null = null;
-    if (runRoles && result.status === 'success') {
+    const v1Ok = !runV1 || result?.status === 'success';
+    if (runRoles && v1Ok) {
       try {
         rolesResult = await runRolesSync(supabase, { mode });
       } catch (err) {
@@ -94,12 +100,32 @@ export const POST: APIRoute = async ({ request, url, locals }) => {
       }
     }
 
-    // Envoi du rapport email (no-op si rien de nouveau et phase 2 OK)
-    try {
-      await sendSyncReport(result, runRoles ? { rolesResult, rolesError } : undefined);
-    } catch (emailErr) {
-      const msg = emailErr instanceof Error ? emailErr.message : String(emailErr);
-      console.error('[sync-rpps] email report failed (sync continues OK):', msg);
+    // Envoi du rapport email (skip pour V2-only — pas de stats V1 à reporter)
+    if (result) {
+      try {
+        await sendSyncReport(result, runRoles ? { rolesResult, rolesError } : undefined);
+      } catch (emailErr) {
+        const msg = emailErr instanceof Error ? emailErr.message : String(emailErr);
+        console.error('[sync-rpps] email report failed (sync continues OK):', msg);
+      }
+    }
+
+    const phase2Stats = rolesResult ? {
+      processed: rolesResult.rolesProcessed,
+      upserted: rolesResult.rolesUpserted,
+      skipped_no_rpps: rolesResult.rolesSkippedNoRpps,
+      organizations_resolved: rolesResult.organizationsResolved,
+      duration_seconds: rolesResult.durationSeconds,
+    } : null;
+
+    if (!result) {
+      // V2-only response
+      return json({
+        status: rolesError ? 'failed' : 'success',
+        phase: 'v2',
+        roles: phase2Stats,
+        roles_error: rolesError,
+      }, rolesError ? 500 : 200);
     }
 
     return json({
@@ -113,13 +139,7 @@ export const POST: APIRoute = async ({ request, url, locals }) => {
       duration_seconds: result.durationSeconds,
       error_message: result.errorMessage,
       // V2 — phase 2 stats
-      roles: rolesResult ? {
-        processed: rolesResult.rolesProcessed,
-        upserted: rolesResult.rolesUpserted,
-        skipped_no_rpps: rolesResult.rolesSkippedNoRpps,
-        organizations_resolved: rolesResult.organizationsResolved,
-        duration_seconds: rolesResult.durationSeconds,
-      } : null,
+      roles: phase2Stats,
       roles_error: rolesError,
     }, result.status === 'success' ? 200 : 500);
   } catch (err) {
