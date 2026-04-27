@@ -1,0 +1,110 @@
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 3,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://gateway.api.esante.gouv.fr/fhir/v2/Practitioner?qualification=26&_count=200"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://gateway.api.esante.gouv.fr/fhir/v2/Practitioner/example-001",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "example-001",
+        "identifier": [
+          {
+            "system": "https://annuaire.sante.fr/idnps",
+            "value": "10003456789",
+            "type": {
+              "coding": [
+                { "system": "https://annuaire.sante.fr/idnps-types", "code": "RPPS" }
+              ]
+            }
+          }
+        ],
+        "name": [
+          {
+            "family": "DUPONT",
+            "given": ["Jean"],
+            "prefix": ["M"]
+          }
+        ],
+        "address": [
+          {
+            "line": ["12 RUE DU MARCHE"],
+            "city": "Bayonne",
+            "postalCode": "64100",
+            "country": "FR"
+          }
+        ],
+        "telecom": [
+          { "system": "phone", "value": "0559123456", "use": "work" },
+          { "system": "email", "value": "j.dupont@example.fr", "use": "work" }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://mos.esante.gouv.fr/NOS/TRE_R94-ProfessionSocial/FHIR/TRE-R94-ProfessionSocial",
+                  "code": "26",
+                  "display": "Audioprothésiste"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://gateway.api.esante.gouv.fr/fhir/v2/Practitioner/example-002",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "example-002",
+        "identifier": [
+          {
+            "system": "https://annuaire.sante.fr/idnps",
+            "value": "10009876543"
+          }
+        ],
+        "name": [
+          {
+            "family": "MARTIN",
+            "given": ["Marie", "Claire"]
+          }
+        ],
+        "address": [
+          {
+            "line": ["5 BIS AVENUE DES TILLEULS"],
+            "city": "PARIS",
+            "postalCode": "75015",
+            "country": "FR"
+          }
+        ],
+        "telecom": [
+          { "system": "phone", "value": "0142998877" }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                { "code": "26", "display": "Audioprothésiste" }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://gateway.api.esante.gouv.fr/fhir/v2/Practitioner/example-003-no-rpps",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "example-003-no-rpps",
+        "name": [{ "family": "SANSRPPS", "given": ["Test"] }]
+      }
+    }
+  ]
+}

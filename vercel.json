@@ -5186,6 +5186,14 @@
     {
       "path": "/api/cron/email-drip",
       "schedule": "0 8 * * 1,4"
+    },
+    {
+      "path": "/api/admin/sync-rpps?source=cron",
+      "schedule": "0 4 1 * *"
+    },
+    {
+      "path": "/api/admin/sync-rpps?source=cron",
+      "schedule": "0 4 15 * *"
     }
   ]
 }
