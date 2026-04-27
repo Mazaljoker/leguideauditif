@@ -6,8 +6,10 @@ import { supabase } from '../lib/supabase';
 export const GET: APIRoute = async () => {
   // Seules les fiches claimed/premium sont exposées au sitemap : les fiches RPPS brutes
   // sont noindex (thin content) et ne doivent pas être poussées à Google.
+  // Vue v_centres_auditifs_public : exclut les fiches etat_administratif=C (cf. migration 033)
+  // pour ne pas publier d'URLs qui retournent 410 Gone.
   const { data: centres, error } = await supabase
-    .from('centres_auditifs')
+    .from('v_centres_auditifs_public')
     .select('slug, updated_at, plan')
     .in('plan', ['claimed', 'premium'])
     .eq('is_demo', false)

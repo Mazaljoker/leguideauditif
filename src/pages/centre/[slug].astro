@@ -65,6 +65,24 @@ if (error || !centre) {
 const typedCentre = centre as unknown as CentreData;
 const displayVille = typedCentre.ville || typedCentre.cp;
 
+// Établissement cessé (etat='C' SIRENE) ou fermé ('F') : 410 Gone.
+// On garde l'accès direct à la fiche (pas 404) pour signaler à Google que la
+// ressource a existé puis a été retirée définitivement. La page affiche un
+// message explicatif et oriente vers les centres actifs les plus proches.
+// Exception : claim_status='approved' → l'audio revendicateur a été validé manuellement
+// par l'admin, on continue d'afficher sa fiche normalement (la sync RPPS bi-mensuelle
+// corrigera l'état administratif quand l'INSEE poussera la nouvelle entité).
+// Cf. signal terrain Aurélie Azam, Carcassonne, 27 avril 2026 (UNION MUTUALITE
+// FRANCAISE AUDE) et migration 033_centres_public_view.sql.
+const adminState = typedCentre.etat_administratif;
+const isClaimedApproved = typedCentre.claim_status === 'approved';
+const isCeased = (adminState === 'C' || adminState === 'F') && !isClaimedApproved;
+const isFermeture = adminState === 'F'; // libellé adapté ("fermé" vs "cessé")
+if (isCeased) {
+  Astro.response.status = 410;
+  Astro.response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+}
+
 // Gate fiches démo : accessibles uniquement aux utilisateurs connectés
 // (flow marketing upsell Premium). Sans user → 404 pour ne même pas
 // révéler l'existence de la fiche. Garantit l'isolement du faux centre
@@ -73,26 +91,72 @@ if (typedCentre.is_demo === true && !Astro.locals.user) {
   return new Response(null, { status: 404 });
 }
 
-// Tracking vue de fiche : insert SSR pour capter le maximum de hits
+// Tracking vue de fiche : skip pour fiches cessées (signal mort, pas de valeur
+// analytique) et fiches démo. Insert SSR pour capter le maximum de hits sinon
 // (bots sans JS inclus, ad-blockers ne peuvent pas strip le fetch).
-// On attend la promesse dans un try/catch : en serverless, un .catch
-// fire-and-forget peut être tué si l'instance est recyclée avant
-// résolution — mieux vaut les 30-60ms de latence que des pertes.
-try {
-  await supabase.from('centre_page_views').insert({ centre_id: typedCentre.id });
-} catch (err) {
-  console.error('[centre view] insert failed', err);
+if (!isCeased && typedCentre.is_demo !== true) {
+  try {
+    await supabase.from('centre_page_views').insert({ centre_id: typedCentre.id });
+  } catch (err) {
+    console.error('[centre view] insert failed', err);
+  }
 }
 
-const isRpps = typedCentre.plan === 'rpps';
-const isClaimed = typedCentre.plan === 'claimed';
-const isPremium = typedCentre.plan === 'premium';
+const isRpps = !isCeased && typedCentre.plan === 'rpps';
+const isClaimed = !isCeased && typedCentre.plan === 'claimed';
+const isPremium = !isCeased && typedCentre.plan === 'premium';
 const isPendingClaim = isRpps && typedCentre.claim_status === 'pending';
+
+// Pour les fiches cessées : récupérer les 5 centres actifs les plus proches
+// via la vue publique (haversine côté JS, scope département pour limiter le coût).
+type NearestCentre = { slug: string; nom: string; adresse: string; cp: string; ville: string; distance: number };
+let nearestActiveCentres: NearestCentre[] = [];
+if (isCeased && typedCentre.lat && typedCentre.lng) {
+  const cpPrefix = (typedCentre.cp || '').substring(0, 2);
+  const { data: candidates } = await supabase
+    .from('v_centres_auditifs_public')
+    .select('slug, nom, adresse, cp, ville, lat, lng')
+    .like('cp', `${cpPrefix}%`)
+    .not('lat', 'is', null)
+    .not('lng', 'is', null)
+    .eq('is_demo', false)
+    .limit(500);
+
+  if (candidates && candidates.length > 0) {
+    const haversine = (lat1: number, lng1: number, lat2: number, lng2: number): number => {
+      const R = 6371;
+      const dLat = ((lat2 - lat1) * Math.PI) / 180;
+      const dLng = ((lng2 - lng1) * Math.PI) / 180;
+      const a = Math.sin(dLat / 2) ** 2
+        + Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180)
+        * Math.sin(dLng / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(a));
+    };
+    const baseLat = typedCentre.lat;
+    const baseLng = typedCentre.lng;
+    nearestActiveCentres = (candidates as Array<{
+      slug: string; nom: string; adresse: string; cp: string; ville: string;
+      lat: number | null; lng: number | null;
+    }>)
+      .filter((c) => c.lat !== null && c.lng !== null && c.slug !== typedCentre.slug)
+      .map((c) => ({
+        slug: c.slug,
+        nom: c.nom,
+        adresse: c.adresse,
+        cp: c.cp,
+        ville: c.ville,
+        distance: haversine(baseLat, baseLng, c.lat as number, c.lng as number),
+      }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 5);
+  }
+}
 
 // Indexation : noindex sur fiches RPPS non revendiquées (thin content — FINESS brut).
 // Les fiches claimed/premium portent `a_propos` + données enrichies = indexables.
 // Les fiches is_demo sont également noindex (démos ne doivent pas polluer l'index Google).
-const isThin = isRpps || typedCentre.is_demo === true;
+// Les fiches cessées (isCeased) sont noindex via X-Robots-Tag header + meta noindex ici.
+const isThin = isRpps || typedCentre.is_demo === true || isCeased;
 
 // Verifier si le visiteur est le proprietaire de cette fiche
 const user = Astro.locals.user;
@@ -131,8 +195,13 @@ const { count } = await supabase
 if (count) leadCount = count;
 
 // --- SEO ---
-const pageTitle = `${typedCentre.nom} — Audioprothésiste ${displayVille}`;
-const pageDescription = isRpps
+const ceasedHeadline = isFermeture ? 'Ce centre est fermé' : 'Ce centre a cessé son activité';
+const pageTitle = isCeased
+  ? `${ceasedHeadline} — ${displayVille}`
+  : `${typedCentre.nom} — Audioprothésiste ${displayVille}`;
+const pageDescription = isCeased
+  ? `${typedCentre.nom} situé ${typedCentre.adresse}, ${typedCentre.cp} ${typedCentre.ville} n'est plus en activité. Trouvez un audioprothésiste actif à proximité.`
+  : isRpps
   ? `${typedCentre.nom}, audioprothésiste à ${displayVille}. Demandez un bilan auditif gratuit près de chez vous.`
   : `${typedCentre.nom}, audioprothésiste à ${displayVille}. Coordonnées, horaires et prise de rendez-vous.`;
 
@@ -190,8 +259,10 @@ if (typedCentre.marques?.length > 0) {
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
-  canonical={`https://leguideauditif.fr/centre/${typedCentre.slug}/`}
-  schema={schema}
+  canonical={isCeased && centreVilleSlug
+    ? `https://leguideauditif.fr/audioprothesiste/${centreVilleSlug}/`
+    : `https://leguideauditif.fr/centre/${typedCentre.slug}/`}
+  schema={isCeased ? undefined : schema}
   noindex={isThin}
 >
   <div class="bg-creme">
@@ -201,6 +272,74 @@ if (typedCentre.marques?.length > 0) {
   </div>
 
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    {/* ================================================================
+        ÉTAT 0 — Établissement cessé (etat_administratif='C') ou fermé ('F').
+        HTTP 410 Gone — l'entité juridique n'est plus en activité (ou le centre fermé).
+        Exception : claim_status='approved' → fiche affichée normalement (cf. migration 033).
+        On affiche un message explicatif + 5 centres actifs les plus proches.
+        ================================================================ */}
+    {isCeased && (
+      <>
+        <div class="rounded-xl border border-gris-clair bg-blanc p-6 mb-6">
+          <div class="flex items-start gap-3">
+            <Icon name="lucide:alert-circle" class="w-6 h-6 text-[#A32D2D] shrink-0 mt-1" />
+            <div>
+              <h1 class="font-sans text-2xl sm:text-3xl font-bold text-marine mb-2">
+                {ceasedHeadline}
+              </h1>
+              <p class="text-gris-texte font-sans leading-relaxed">
+                L'établissement <strong class="text-marine">{typedCentre.nom}</strong> situé{' '}
+                <span class="text-marine">{typedCentre.adresse}, {typedCentre.cp} {typedCentre.ville}</span>{' '}
+                {isFermeture ? "n'est plus ouvert" : "n'est plus en activité d'après le Répertoire National SIRENE"}.
+              </p>
+              <p class="text-gris-texte font-sans mt-2">
+                Vous trouverez ci-dessous les centres actifs les plus proches.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {nearestActiveCentres.length > 0 && (
+          <section class="mb-8" aria-label="Centres actifs à proximité">
+            <h2 class="font-sans text-xl font-bold text-marine mb-4">
+              Audioprothésistes actifs à proximité
+            </h2>
+            <div class="space-y-3">
+              {nearestActiveCentres.map((c) => (
+                <a
+                  href={`/centre/${c.slug}/`}
+                  class="block bg-blanc rounded-xl p-4 shadow-[0_1px_4px_rgba(27,46,74,0.05)] hover:shadow-md transition-shadow no-underline hover:no-underline"
+                >
+                  <div class="flex justify-between items-start gap-4">
+                    <div class="min-w-0">
+                      <h3 class="font-sans text-base font-semibold text-marine">{c.nom}</h3>
+                      <p class="text-sm text-gris-texte">{c.adresse} — {c.cp} {c.ville}</p>
+                    </div>
+                    <span class="text-xs text-gris-texte font-sans shrink-0 mt-1">
+                      {c.distance.toFixed(1)} km
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {centreVilleSlug && (
+          <section class="rounded-lg bg-creme p-5 mb-6">
+            <p class="text-sm font-sans">
+              <a
+                href={`/audioprothesiste/${centreVilleSlug}/`}
+                class="text-orange hover:underline font-semibold"
+              >
+                Voir tous les audioprothésistes de {displayVille}
+              </a>
+            </p>
+          </section>
+        )}
+      </>
+    )}
 
     {/* ================================================================
         ÉTAT 1 — Non revendiquée (RPPS)

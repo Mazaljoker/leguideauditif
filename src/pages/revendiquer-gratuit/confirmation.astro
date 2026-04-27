@@ -10,8 +10,10 @@ const centreSlug = Astro.url.searchParams.get('centre');
 
 let centre = null;
 if (centreSlug) {
+  // Vue v_centres_auditifs_public : exclut les fiches etat_administratif=C (cf. migration 033).
+  // Une fiche cessée n'a pas vocation à apparaître ici ; le bouton "Retour à ma fiche" sera caché.
   const { data } = await supabase
-    .from('centres_auditifs')
+    .from('v_centres_auditifs_public')
     .select('slug, nom')
     .eq('slug', centreSlug)
     .single();

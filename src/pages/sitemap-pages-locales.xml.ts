@@ -30,8 +30,11 @@ export const GET: APIRoute = async () => {
 
   let offset = 0;
   while (true) {
+    // Vue v_centres_auditifs_public : exclut les fiches etat_administratif=C (cf. migration 033).
+    // Évite que des fiches cessées contribuent au comptage et fassent passer une ville fine
+    // au-dessus du seuil de 6 centres (indexation incohérente).
     const { data, error } = await supabase
-      .from('centres_auditifs')
+      .from('v_centres_auditifs_public')
       .select('ville, cp')
       .eq('is_demo', false)
       .not('ville', 'is', null)
