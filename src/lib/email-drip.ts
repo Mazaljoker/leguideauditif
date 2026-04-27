@@ -25,6 +25,7 @@ import { nurture02OffreFondateursEmail } from '../emails/nurture-02-offre-fondat
 import { nurture03CasConcretEmail } from '../emails/nurture-03-cas-concret';
 import { nurture04SlotsRestantsEmail } from '../emails/nurture-04-slots-restants';
 import { nurture05AdsOuSortieEmail } from '../emails/nurture-05-ads-ou-sortie';
+import { nouvelEspaceProAnnonceEmail } from '../emails/nouvel-espace-pro-annonce';
 
 // ────────────────────────────────────────────────────────────
 // Constantes éditoriales — ancienneté minimale par template
@@ -322,12 +323,33 @@ export async function pickTemplateForAudio(
 // Builder HTML + subject par template
 // ────────────────────────────────────────────────────────────
 
-interface BuilderInputs {
+/**
+ * Inputs partagés par template. Selon le template choisi, certains champs
+ * sont obligatoires :
+ *  - `missing` requis pour `fiche_incomplete_relance` et `nurture_01`
+ *  - `slotsRestants` requis pour `nurture_02` et `nurture_04`
+ * Les autres templates ignorent ces champs.
+ *
+ * Le caller doit pré-fetcher ces données — ainsi le cron n'appelle qu'une
+ * fois `getAudioproMissingFields` / `getSlotsFondateursRestants` même si
+ * plusieurs templates sont évalués pour le même audio.
+ */
+export interface BuilderInputs {
   missing?: AudioproMissingField[];
   slotsRestants?: number;
 }
 
-function buildChoice(
+/**
+ * Construit le couple `{subject, html}` pour un template donné. Utilisé
+ * par le cron drip (`pickTemplateForAudio`) ET par l'endpoint admin
+ * (`/api/admin/relance-email`). Pas de validation métier ici (collisions,
+ * désabonnement, complétude) — le caller décide d'envoyer ou pas.
+ *
+ * Lance pour les templates non supportés (transactionnels webhook,
+ * `premium_welcome`) — c'est volontaire : ces templates ont leur propre
+ * point d'entrée et ne doivent pas pouvoir partir d'ici.
+ */
+export function buildEmailForTemplate(
   template_key: EmailTemplateKey,
   audiopro: AudioproLifecycle,
   inputs: BuilderInputs,
@@ -402,8 +424,29 @@ function buildChoice(
         html: nurture05AdsOuSortieEmail({ prenom, unsubscribeToken }),
       };
 
+    case 'nouvel_espace_pro_annonce':
+      return {
+        template_key,
+        subject: 'Votre espace pro LeGuideAuditif a été refondu',
+        html: nouvelEspaceProAnnonceEmail({ prenom, unsubscribeToken }),
+      };
+
     default:
-      // Garde TS exhaustif — les autres EmailTemplateKey ne sont pas drip-able
-      throw new Error(`buildChoice: template non supporté en drip — ${template_key}`);
+      // Templates transactionnels (claim_*, payment_*, subscription_cancelled,
+      // premium_welcome) ont leur propre point d'entrée — pas de relance manuelle.
+      throw new Error(`buildEmailForTemplate: template non supporté — ${template_key}`);
   }
+}
+
+/**
+ * Wrapper interne pour le cron drip — préserve le nom historique.
+ * Les templates drip-ables ne sont qu'un sous-ensemble de ce que
+ * `buildEmailForTemplate` accepte (le cron ne sert pas `nouvel_espace_pro_annonce`).
+ */
+function buildChoice(
+  template_key: EmailTemplateKey,
+  audiopro: AudioproLifecycle,
+  inputs: BuilderInputs,
+): DripChoice {
+  return buildEmailForTemplate(template_key, audiopro, inputs);
 }

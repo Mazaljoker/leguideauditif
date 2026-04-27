@@ -6,23 +6,37 @@ import { sendEmail } from '../../../lib/email';
 import {
   logEmailEvent,
   getAudioproMissingFields,
+  getSlotsFondateursRestants,
 } from '../../../lib/audiopro-lifecycle';
-import { ficheIncompleteRelanceEmail } from '../../../emails/fiche-incomplete-relance';
+import { buildEmailForTemplate } from '../../../lib/email-drip';
 import type { EmailTemplateKey } from '../../../types/audiopro-lifecycle';
 
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
 
 /**
  * Endpoint de relance manuelle déclenché par le bouton dropdown
- * dans /admin/claims (Étape 3). Auth : session Supabase + email admin
+ * dans /admin/claims. Auth : session Supabase + email admin
  * (pattern aligné sur src/pages/api/admin/prospects/create.ts).
  *
- * Phase 1 : seul `fiche_incomplete_relance` est fonctionnel. Les autres
- * templates retournent 400 "non implémenté en Phase 1".
+ * Phase 2 (PR-d) : tous les nurtures + `nouvel_espace_pro_annonce` sont
+ * fonctionnels en plus de `fiche_incomplete_relance`. Templates
+ * transactionnels (claim_*, payment_*, subscription_cancelled,
+ * premium_welcome) restent refusés — ils ont leur propre point d'entrée.
  *
  * Bypasse les règles de collision CRM (Franck décide). Respecte
- * email_unsubscribed_at et hard_bounced_at.
+ * `email_unsubscribed_at` et `hard_bounced_at` (RGPD non négociable).
  */
+
+const ALLOWED_TEMPLATES: ReadonlySet<EmailTemplateKey> = new Set([
+  'fiche_incomplete_relance',
+  'nurture_01_premiers_patients',
+  'nurture_02_offre_fondateurs',
+  'nurture_03_cas_concret',
+  'nurture_04_slots_restants',
+  'nurture_05_ads_ou_sortie',
+  'nouvel_espace_pro_annonce',
+]);
+
 export const POST: APIRoute = async ({ request, locals }) => {
   const user = locals.user;
   if (!user || user.email !== ADMIN_EMAIL) {
@@ -41,12 +55,11 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return json({ error: 'audiopro_id et template_key requis.' }, 400);
   }
 
-  // En Phase 1 : seul fiche_incomplete_relance est fonctionnel.
-  // premium_welcome est bien déclaré EmailTemplateKey, mais ce endpoint
-  // ne le sert PAS (déclenché uniquement par le webhook Stripe).
-  if (template_key !== 'fiche_incomplete_relance') {
+  if (!ALLOWED_TEMPLATES.has(template_key as EmailTemplateKey)) {
+    // premium_welcome est webhook-only ; les transactionnels claim_*/payment_*
+    // ont leur propre route. On ne les expose pas en relance manuelle.
     return json(
-      { error: `Template "${template_key}" non implémenté en Phase 1.` },
+      { error: `Template "${template_key}" non disponible en relance manuelle.` },
       400,
     );
   }
@@ -70,28 +83,44 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return json({ error: 'Adresse email en bounce permanent.' }, 409);
   }
 
-  // fiche_incomplete_relance : génération HTML + check complétude
+  // Pré-fetch des inputs partagés. On les fetch tout le temps (overhead minime
+  // pour un envoi unitaire admin), même si certains templates n'en ont pas
+  // besoin — ça simplifie le code et évite des switch redondants.
   const missing = await getAudioproMissingFields(supabase, audiopro_id);
-  const hasIncompleteCentre = missing.some((m) => m.missing_fields.length > 0);
-  if (!hasIncompleteCentre) {
-    return json({ error: 'Fiches déjà complètes — rien à relancer.' }, 409);
+  const slotsRestants = await getSlotsFondateursRestants(supabase);
+
+  const tk = template_key as EmailTemplateKey;
+
+  // Précondition métier : `fiche_incomplete_relance` n'a aucun sens si
+  // toutes les fiches sont complètes. On bloque (409) plutôt qu'envoyer un
+  // mail "il manque X" alors que rien ne manque.
+  if (tk === 'fiche_incomplete_relance') {
+    const hasIncompleteCentre = missing.some((m) => m.missing_fields.length > 0);
+    if (!hasIncompleteCentre) {
+      return json({ error: 'Fiches déjà complètes — rien à relancer.' }, 409);
+    }
   }
 
-  const html = ficheIncompleteRelanceEmail({
-    prenom: audiopro.prenom ?? '',
-    centres: missing,
-    unsubscribeToken: audiopro.email_preferences_token,
-  });
+  // Précondition douce : on prévient si l'admin envoie un nurture Fondateurs
+  // alors qu'il n'y a plus de slots. On laisse passer (Franck décide), mais
+  // c'est un signal qu'un message statique du genre "0 places restantes"
+  // est en route — utile en relecture inbox avant un broadcast.
+  if ((tk === 'nurture_02_offre_fondateurs' || tk === 'nurture_04_slots_restants') && slotsRestants <= 0) {
+    console.warn(`[relance-email] ${tk} envoyé avec slotsRestants=${slotsRestants} — l'email indiquera "0 places".`);
+  }
 
-  const nbIncomplet = missing.filter((m) => m.missing_fields.length > 0).length;
-  const subject = nbIncomplet === 1
-    ? 'Il manque quelques infos sur votre fiche'
-    : `Il manque des infos sur ${nbIncomplet} de vos fiches`;
+  let choice;
+  try {
+    choice = buildEmailForTemplate(tk, audiopro, { missing, slotsRestants });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return json({ error: `Build template a échoué : ${msg}` }, 500);
+  }
 
   const emailResult = await sendEmail({
     to: audiopro.email,
-    subject,
-    html,
+    subject: choice.subject,
+    html: choice.html,
     replyTo: 'franckolivier@leguideauditif.fr',
   });
 
@@ -108,7 +137,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       audiopro_id: audiopro.id,
       centre_slug: null,
       recipient_email: audiopro.email,
-      template_key: template_key as EmailTemplateKey,
+      template_key: tk,
       resend_message_id: emailResult.messageId ?? null,
       trigger: 'manual_admin',
     });
@@ -118,13 +147,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
   }
 
   // Si l'audio est lié à un prospect : trace dans la timeline CRM.
-  // Table réelle : prospect_interactions (pas `interactions` comme la spec PRD).
   if (audiopro.prospect_id) {
     try {
       await supabase.from('prospect_interactions').insert({
         prospect_id: audiopro.prospect_id,
         kind: 'email',
-        content: `Email manuel envoyé : ${template_key}`,
+        content: `Email manuel envoyé : ${tk}`,
         occurred_at: new Date().toISOString(),
       });
     } catch (err) {
@@ -133,7 +161,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
   }
 
-  return json({ success: true }, 200);
+  return json({ success: true, template_key: tk }, 200);
 };
 
 function json(body: unknown, status: number) {
