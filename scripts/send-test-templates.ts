@@ -77,7 +77,7 @@ interface TestEmail {
 const emails: TestEmail[] = [
   {
     key: 'premium_welcome',
-    subject: '[TEST 1/7] Bienvenue dans LeGuideAuditif Premium',
+    subject: '[TEST 1/8 v2] Bienvenue dans LeGuideAuditif Premium',
     html: premiumWelcomeEmail({
       prenom: SAMPLE.prenom,
       centreNom: SAMPLE.centreNom,
@@ -86,7 +86,7 @@ const emails: TestEmail[] = [
   },
   {
     key: 'fiche_incomplete_relance',
-    subject: `[TEST 2/7] Il manque des infos sur ${MISSING_SAMPLE.length} de vos fiches`,
+    subject: `[TEST 2/8 v2] Il manque des infos sur ${MISSING_SAMPLE.length} de vos fiches`,
     html: ficheIncompleteRelanceEmail({
       prenom: SAMPLE.prenom,
       centres: MISSING_SAMPLE as unknown as Parameters<typeof ficheIncompleteRelanceEmail>[0]['centres'],
@@ -94,7 +94,7 @@ const emails: TestEmail[] = [
   },
   {
     key: 'nurture_01_premiers_patients',
-    subject: '[TEST 3/7] Vos premiers patients sur LeGuideAuditif — quelques repères',
+    subject: '[TEST 3/8 v2] Vos premiers patients sur LeGuideAuditif — quelques repères',
     html: nurture01PremiersPatientsEmail({
       prenom: SAMPLE.prenom,
       nbCentres: SAMPLE.nbCentres,
@@ -112,7 +112,7 @@ const emails: TestEmail[] = [
   },
   {
     key: 'nurture_03_cas_concret',
-    subject: '[TEST 5/7] Comment un pair a structuré sa présence',
+    subject: '[TEST 5/8 v2] Trois choses qui changent la perception côté patient',
     html: nurture03CasConcretEmail({
       prenom: SAMPLE.prenom,
       articleUrl: SAMPLE.articleUrl,
@@ -120,20 +120,17 @@ const emails: TestEmail[] = [
   },
   {
     key: 'nurture_04_slots_restants',
-    subject: `[TEST 6/7] Plus que ${SAMPLE.slotsRestants} places Fondateurs`,
+    subject: `[TEST 6/8 v2] Plus que ${SAMPLE.slotsRestants} places Fondateurs`,
     html: nurture04SlotsRestantsEmail({
       prenom: SAMPLE.prenom,
       slotsRestants: SAMPLE.slotsRestants,
-      calendarUrl: SAMPLE.calendarUrl,
     }),
   },
   {
     key: 'nurture_05_ads_ou_sortie',
-    subject: '[TEST 7/8] Des RDV patients ou vous restez en vitrine ?',
+    subject: '[TEST 7/8 v3] Des RDV patients ou vous restez en vitrine ?',
     html: nurture05AdsOuSortieEmail({
       prenom: SAMPLE.prenom,
-      calendarUrl: SAMPLE.calendarUrl,
-      stayFreeUrl: SAMPLE.stayFreeUrl,
     }),
   },
   {

@@ -65,7 +65,7 @@ export function ficheIncompleteRelanceEmail(data: FicheIncompleteRelanceData): s
     ${centresBlock}
     ${completeBlock}
 
-    <p>Trois champs font vraiment la différence : <strong>la photo de cabine</strong>, <strong>les horaires précis</strong> (y compris les coupures méridiennes) et <strong>une description de 3-4 phrases</strong> qui dit ce qui vous distingue. Les patients qui lisent ça avant d'appeler arrivent préparés, et la première consultation va plus vite.</p>
+    <p>Trois champs font la différence : <strong>la photo de cabine</strong>, <strong>les horaires précis</strong> (y compris les coupures méridiennes) et <strong>une description de 3-4 phrases</strong> qui dit ce qui vous distingue. Les patients qui lisent ça avant d'appeler arrivent préparés, et la première consultation va plus vite.</p>
 
     <p><a href="${editUrl}" class="btn">Compléter ${ctaLabel}</a></p>
 

@@ -3,9 +3,8 @@ import { emailLayout } from './layout';
 interface Nurture03Data {
   prenom: string;
   /**
-   * URL de l'article blog LeGuideAuditif qui développe l'étude de cas.
-   * À produire + valider par Franck-Olivier avant activation Phase 2
-   * (rôle du skill me-affiliate-writer + gate me-eeat-compliance).
+   * URL de l'article blog LeGuideAuditif qui développe la méthode complète.
+   * À produire et valider via la chaîne GAN avant activation Phase 2.
    */
   articleUrl: string;
 }
@@ -13,43 +12,39 @@ interface Nurture03Data {
 /**
  * Template nurture #3 — Phase 2.
  * Trigger : 14 jours après passage `approuve` OU entrée `engage`.
- * Angle preuve sociale terrain, pas de chiffres garantis
- * (§10.2 PRD : qualitatif, pas de leads promis).
+ *
+ * Angle : pas un faux cas client, mais la méthode que Franck-Olivier
+ * recommande à partir de son expérience cabine. Plus durable et plus
+ * honnête qu'un "j'ai un audio qui..." inventé.
  */
 export function nurture03CasConcretEmail(data: Nurture03Data): string {
   const { prenom, articleUrl } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
 
   return emailLayout(
-    'Comment un pair a structuré sa présence',
+    'Trois choses qui changent la perception côté patient',
     `
     <p>${greeting}</p>
 
-    <p>Un audio qui a rejoint LeGuideAuditif dans les premiers jours vient de passer 6 mois sur la plateforme. Je voulais partager ce qu'il a mis en place — pas pour vanter le site, mais parce que sa méthode est transposable.</p>
+    <p>Je vois passer beaucoup de fiches sur LeGuideAuditif. Celles qui convertissent les patients en RDV ont presque toujours les trois mêmes basiques en place. Pas de magie, juste de la cohérence.</p>
 
-    <p><strong>Contexte</strong> : 3 centres indépendants, aucune présence en ligne structurée avant LGA, patientèle locale mature.</p>
+    <h2>1. Une vraie photo, pas une image de banque</h2>
+    <p>Une photo de votre cabine, prise au téléphone, en lumière naturelle, ça vaut mieux qu'un visuel propre mais générique. Le patient cherche un humain, pas un cabinet médical anonyme. Si vous avez une équipe, un cliché en blouse devant la machine de mesure fonctionne très bien.</p>
 
-    <h2>Ce qu'il a fait en priorité</h2>
-    <ol>
-      <li><strong>Une photo par centre</strong>, pas une photo générique. Cabine réelle, lumière naturelle. Zéro frais de photographe.</li>
-      <li><strong>Des horaires différents pour chaque centre</strong>, avec les vraies coupures méridiennes. Les patients détestent découvrir un "fermé" sur place.</li>
-      <li><strong>Une description de 3-4 phrases par fiche</strong>. Pas un copier-coller : chaque équipe a sa spécificité (appareillage enfant sur un centre, implantologie sur l'autre, pédiatrie sur le troisième).</li>
-    </ol>
+    <h2>2. Des horaires sincères, coupures méridiennes incluses</h2>
+    <p>Si vous fermez de 12h à 14h, écrivez-le. Si l'agenda du lundi est différent du mardi, mettez-les distincts. Les patients détestent découvrir un "fermé" sur place après s'être déplacés. Une fiche avec des horaires détaillés génère plus de confiance qu'une fiche avec "9h-19h" écrasé sur tous les jours.</p>
 
-    <h2>Ce qui a changé concrètement</h2>
-    <ul>
-      <li>Plus de questions techniques posées en premier RDV — les patients arrivent en ayant lu les spécialités</li>
-      <li>Moins de patients qui débarquent en pensant que son centre fait des tests auditifs gratuits sans appareillage</li>
-      <li>Moins de friction au premier contact, plus de temps utile en cabine</li>
-    </ul>
+    <h2>3. Une description qui dit ce que vous faites vraiment</h2>
+    <p>Trois ou quatre phrases. Pas un copier-coller corporate. Si votre centre fait beaucoup d'appareillage senior à domicile, dites-le. Si vous avez une expertise tinnitus, mettez-le en avant. Si l'équipe parle plusieurs langues dans une zone touristique, c'est pertinent. Le patient qui lit votre description avant d'appeler arrive en consultation avec les bonnes attentes — et la première séance va plus vite.</p>
 
-    <p>Rien de magique. Juste des basiques bien faits.</p>
+    <p>Ces trois points prennent vingt minutes à mettre à jour. Les retours patients qu'on observe ensuite sont qualitativement différents : moins de questions techniques en ouverture de RDV, moins de patients qui pensent qu'on fait des tests gratuits sans appareillage.</p>
 
-    <p><a href="${articleUrl}" class="btn">Lire l'étude de cas complète</a></p>
+    <p><a href="${articleUrl}" class="btn">Lire la méthode complète</a></p>
 
     <p>Cordialement,<br/>
     Franck-Olivier Chabbat<br/>
-    Audioprothésiste DE — LeGuideAuditif.fr</p>
+    Audioprothésiste DE — 28 ans en cabine<br/>
+    LeGuideAuditif.fr</p>
     `,
   );
 }

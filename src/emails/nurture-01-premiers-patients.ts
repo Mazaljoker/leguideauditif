@@ -27,11 +27,11 @@ export function nurture01PremiersPatientsEmail(data: Nurture01Data): string {
 
     <p>Votre fiche est validée et visible sur LeGuideAuditif depuis quelques jours. Quelques repères pour bien démarrer.</p>
 
-    <p>Les patients vous trouvent principalement par deux chemins : la <strong>carte du département</strong> et la <strong>recherche par ville</strong>. Dans les deux cas, ce qui déclenche le clic ce n'est pas le premier nom affiché, c'est celui qui a une photo de cabine, des horaires précis et quelques mots qui décrivent à qui on a affaire.</p>
+    <p>Les patients vous trouvent par deux chemins : la <strong>carte du département</strong> et la <strong>recherche par ville</strong>. Dans les deux cas, ce qui déclenche le clic ce n'est pas le premier nom affiché, c'est celui qui a une photo de cabine, des horaires précis et quelques mots qui décrivent à qui on a affaire.</p>
 
     <div class="info-box">
       <p style="margin:0;"><strong>${fichesLabel} à ${completenessAvg}% de complétude aujourd'hui.</strong></p>
-      <p style="margin:4px 0 0;" class="text-muted">Quelques champs suffisent pour passer à la vitesse supérieure.</p>
+      <p style="margin:4px 0 0;" class="text-muted">Quelques champs en plus, et la fiche commence à parler aux patients.</p>
     </div>
 
     <p>Pas d'urgence, juste quelques minutes quand vous aurez un moment.</p>

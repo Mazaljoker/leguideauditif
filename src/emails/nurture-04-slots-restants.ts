@@ -3,16 +3,16 @@ import { emailLayout } from './layout';
 interface Nurture04Data {
   prenom: string;
   slotsRestants: number;   // typiquement 1..5 (sinon le cron skip ce template)
-  calendarUrl: string;
 }
 
 /**
  * Template nurture #4 — Phase 2.
  * Trigger : 21 jours après passage `approuve` ET slotsRestants ≤ 5.
- * Rappel court, factuel. Ne part qu'à ceux qui n'ont pas encore candidaté.
+ * Rappel court, factuel. Aligné avec nurture_02 v4 (offre réelle :
+ * 19 €/mois à vie + 3 mois gratuits, pas de Cal.com, pas de vaporware).
  */
 export function nurture04SlotsRestantsEmail(data: Nurture04Data): string {
-  const { prenom, slotsRestants, calendarUrl } = data;
+  const { prenom, slotsRestants } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
   const plural = slotsRestants > 1;
   const placesLabel = plural ? `${slotsRestants} places` : '1 place';
@@ -22,18 +22,18 @@ export function nurture04SlotsRestantsEmail(data: Nurture04Data): string {
     `
     <p>${greeting}</p>
 
-    <p>Message court : il reste <strong>${placesLabel}</strong> sur les 20 du programme Fondateurs. Dès que ça passe à zéro, on ferme cette offre et le Premium bascule sur le tarif standard.</p>
+    <p>Message court : il reste <strong>${placesLabel}</strong> sur les 20 du programme Fondateurs. Une fois la liste pleine, l'offre se ferme.</p>
 
-    <h2>Les 3 bénéfices essentiels</h2>
+    <h2>Rappel</h2>
     <ul>
-      <li>Premium à vie, sans abonnement récurrent</li>
-      <li>Affichage prioritaire dans votre département</li>
-      <li>Accès privilégié aux fonctionnalités à venir (tracking leads, campagnes Ads)</li>
+      <li>Premium à <strong>19&nbsp;€&nbsp;/&nbsp;mois à vie</strong>, tarif gelé tant que l'abonnement reste actif</li>
+      <li><strong>3 mois gratuits</strong> au démarrage</li>
+      <li>Pas d'engagement : vous résiliez quand vous voulez</li>
     </ul>
 
-    <p>Si vous hésitez encore, 20 minutes en visio pour trancher.</p>
+    <p>Si vous voulez en parler, <strong>répondez à ce mail</strong> et on cale 20 minutes — visio ou téléphone.</p>
 
-    <p><a href="${calendarUrl}" class="btn">Candidater en 5 min</a></p>
+    <p><a href="https://leguideauditif.fr/audioprothesiste-pro/" class="btn">Accéder à mon espace pro</a></p>
 
     <p>Cordialement,<br/>
     Franck-Olivier Chabbat<br/>
