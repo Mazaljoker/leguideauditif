@@ -2,6 +2,8 @@
 // Docs : https://developers.google.com/analytics/devguides/collection/protocol/ga4
 
 import { randomUUID } from 'node:crypto';
+import type { AstroCookies } from 'astro';
+import { hasNoTrackCookie } from './no-track';
 
 type MpEventParams = Record<string, string | number | boolean | null | undefined>;
 
@@ -17,6 +19,9 @@ type SendMpEventInput = {
   events: MpEvent[];
   userIpAddress?: string | null;
   userAgent?: string | null;
+  // Si fourni et que le cookie `lga_no_track` est présent, l'event est skippé
+  // sans appel réseau. Opt-out admin (cf. no-track.ts).
+  cookies?: AstroCookies;
 };
 
 const ENDPOINT = 'https://www.google-analytics.com/mp/collect';
@@ -41,7 +46,11 @@ export async function sendMpEvent({
   events,
   userIpAddress,
   userAgent,
+  cookies,
 }: SendMpEventInput): Promise<boolean> {
+  // Opt-out admin : pas d'appel réseau, pas de log bruyant — comportement attendu.
+  if (cookies && hasNoTrackCookie(cookies)) return false;
+
   const measurementId = import.meta.env.GA4_MEASUREMENT_ID;
   const apiSecret = import.meta.env.GA4_API_SECRET;
 

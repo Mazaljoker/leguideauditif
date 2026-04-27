@@ -235,7 +235,10 @@ export const POST: APIRoute = async ({ request, clientAddress, cookies }) => {
 
     if (gtagConsented) {
       // Non bloquant — le claim reste valide même si GA4 est down.
+      // `cookies` permet à sendMpEvent de skipper l'event si le cookie
+      // d'opt-out admin `lga_no_track` est présent (cf. lib/no-track.ts).
       void sendMpEvent({
+        cookies,
         clientId: gaClientId,
         sessionId: gaSessionId,
         userIpAddress: clientAddress ?? null,

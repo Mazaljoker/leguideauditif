@@ -3,6 +3,10 @@
 // gtag est gaté par tarteaucitron (cookie `!gtag=true`). Si l'audio
 // n'a pas accepté, `window.gtag` n'existe pas et on no-op proprement.
 // Pas d'erreur, pas de log — comportement attendu côté CNIL.
+//
+// Second gate : opt-out admin via cookie `lga_no_track` (cf. no-track.ts).
+
+import { hasNoTrackCookieClient } from './no-track';
 
 export type BookCallPhase = 'initiated' | 'completed';
 
@@ -14,6 +18,7 @@ export interface BookCallPayload {
 
 export function trackBookCall(phase: BookCallPhase, payload: BookCallPayload): void {
   if (typeof window === 'undefined') return;
+  if (hasNoTrackCookieClient()) return;
   if (typeof window.gtag !== 'function') return;
   window.gtag('event', `book_call_${phase}`, {
     source: payload.source,
