@@ -5196,11 +5196,11 @@
       "schedule": "0 4 15 * *"
     },
     {
-      "path": "/api/admin/propagate-rpps?source=cron&apply=true",
+      "path": "/api/admin/propagate-rpps?source=cron",
       "schedule": "30 4 1 * *"
     },
     {
-      "path": "/api/admin/propagate-rpps?source=cron&apply=true",
+      "path": "/api/admin/propagate-rpps?source=cron",
       "schedule": "30 4 15 * *"
     }
   ]

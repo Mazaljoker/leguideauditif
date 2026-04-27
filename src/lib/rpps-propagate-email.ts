@@ -190,15 +190,21 @@ export async function sendPropagationReport(run: PropagationRunResult): Promise<
     });
     return;
   }
-  // Success : on envoie SI il y a quelque chose à dire
+  // Success : on envoie SI il y a quelque chose à dire.
+  // En dry-run, centresCreated reste à 0 (pas d'INSERT effectif) mais
+  // centresUnmatched compte les fiches qui SERAIENT créées en apply.
+  // On envoie aussi pour permettre à FOC de valider avant apply manuel.
+  const wouldCreate = run.applyMode ? run.centresCreated : run.centresUnmatched;
   const hasContent =
-    run.centresCreated > 0 ||
+    wouldCreate > 0 ||
     run.centresUpdated > 0 ||
     run.flaggedForReview.length > 0;
   if (!hasContent) return;
 
-  const mode = run.applyMode ? '' : ' (dry-run)';
-  const subject = `[LGA] Propagation RPPS du ${formatDate(run.startedAt)}${mode} : +${run.centresCreated} créées, ${run.centresUpdated} màj, ${run.flaggedForReview.length} à review`;
+  const mode = run.applyMode ? '' : ' (dry-run, action requise)';
+  const verbCreated = run.applyMode ? 'créées' : 'à créer';
+  const verbUpdated = run.applyMode ? 'màj' : 'à màj';
+  const subject = `[LGA] Propagation RPPS du ${formatDate(run.startedAt)}${mode} : +${wouldCreate} ${verbCreated}, ${run.centresUpdated} ${verbUpdated}, ${run.flaggedForReview.length} à review`;
   await sendEmail({
     to: ADMIN_EMAIL,
     subject,
