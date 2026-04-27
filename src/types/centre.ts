@@ -45,6 +45,11 @@ export interface CentreData {
   claimed_at: string | null;
   claim_status: 'none' | 'pending' | 'approved' | 'rejected';
   is_demo?: boolean;
+  // SIRENE INSEE : 'A' actif, 'C' cessé, 'F' fermé.
+  // Les fiches 'C' sont exclues de la vue publique v_centres_auditifs_public (sauf
+  // exception claim_status='approved'). La page /centre/[slug] retourne HTTP 410 Gone
+  // pour 'C' et 'F' (cf. migration 033_centres_public_view.sql).
+  etat_administratif?: 'A' | 'C' | 'F' | null;
 }
 
 export type CentrePlan = 'rpps' | 'claimed' | 'premium';

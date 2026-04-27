@@ -10,8 +10,10 @@ const centreSlug = Astro.url.searchParams.get('centre');
 
 let centre = null;
 if (centreSlug) {
+  // Vue v_centres_auditifs_public : refuse la revendication d'une fiche etat_administratif=C
+  // (cf. migration 033). Si pas trouvé → redirect 301 vers l'annuaire ci-dessous.
   const { data } = await supabase
-    .from('centres_auditifs')
+    .from('v_centres_auditifs_public')
     .select('slug, nom, adresse, cp, ville, plan, claim_status, siret')
     .eq('slug', centreSlug)
     .single();

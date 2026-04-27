@@ -24,7 +24,7 @@ let hasMore = true;
 // Première passe : chercher par slug de ville
 while (hasMore) {
   const { data: batch } = await supabase
-    .from('centres_auditifs')
+    .from('v_centres_auditifs_public')
     .select('id, slug, nom, adresse, cp, ville, departement, lat, lng, tel, horaires, site_web, is_premium, plan, finess')
     .eq('is_demo', false)
     .not('lat', 'is', null)
