@@ -40,25 +40,39 @@ interface TemplateRule {
 }
 
 /**
- * Ordre prioritaire §7.1 PRD. Si plusieurs templates matchent au même
- * run, on prend le premier. La règle "1 mail par audio par run" est
- * appliquée par le caller (cron) — ce module se contente de retourner
- * le 1er match.
+ * Ordre prioritaire — séquence "valeur avant offre" (décision 2026-04-27).
+ * Si plusieurs templates matchent au même run, on prend le premier.
+ * La règle "1 mail par audio par run" est appliquée par le caller (cron) —
+ * ce module se contente de retourner le 1er match.
+ *
+ * Logique éditoriale en pair-à-pair :
+ *  1. nurture_01 (J+3)  — premiers repères onboarding
+ *  2. nurture_03 (J+7)  — méthode 3 points (valeur)
+ *  3. fiche_incomplete (J+10) — pratique, si fiche pas finie
+ *  4. nurture_02 (J+14) — offre Fondateurs (après 2 emails de valeur)
+ *  5. nurture_04 (J+21) — relance offre, slots restants
+ *  6. nurture_05 (J+30) — dernière relance (ads ou sortie)
+ *
+ * Drip total compressé sur ~30 jours (vs J+45 historique). Combiné avec
+ * un cron Lundi+Jeudi (vercel.json) et MIN_DAYS_BETWEEN_MAILS=3, on
+ * obtient ~6 mails étalés sur 4 semaines, max 4 jours d'écart.
  */
 export const TEMPLATE_RULES: readonly TemplateRule[] = [
   { key: 'nurture_01_premiers_patients', minStageAgeDays: 3,  allowedStages: ['approuve'] },
+  { key: 'nurture_03_cas_concret',       minStageAgeDays: 7,  allowedStages: ['approuve', 'active', 'engage'] },
   { key: 'fiche_incomplete_relance',     minStageAgeDays: 10, allowedStages: ['approuve', 'active'] },
-  { key: 'nurture_02_offre_fondateurs',  minStageAgeDays: 7,  allowedStages: ['approuve', 'active', 'engage'] },
-  { key: 'nurture_03_cas_concret',       minStageAgeDays: 14, allowedStages: ['approuve', 'active', 'engage'] },
+  { key: 'nurture_02_offre_fondateurs',  minStageAgeDays: 14, allowedStages: ['approuve', 'active', 'engage'] },
   { key: 'nurture_04_slots_restants',    minStageAgeDays: 21, allowedStages: ['approuve', 'active', 'engage'] },
-  { key: 'nurture_05_ads_ou_sortie',     minStageAgeDays: 45, allowedStages: ['approuve', 'active', 'engage'] },
+  { key: 'nurture_05_ads_ou_sortie',     minStageAgeDays: 30, allowedStages: ['approuve', 'active', 'engage'] },
 ];
 
 /**
- * Limite anti-abus : 1 mail nurture max par audio par semaine
- * tous templates confondus (décision Franck-Olivier 2026-04-24).
+ * Cooldown minimum entre 2 mails nurture/manuels pour un même audio.
+ * 3 jours = compatible avec un cron Lundi+Jeudi (écart Mon→Thu=3, Thu→Mon=4).
+ * Décision Franck-Olivier 2026-04-27 : compresser le drip pour engager
+ * plus tôt, avec valeur avant offre.
  */
-export const MIN_DAYS_BETWEEN_MAILS = 7;
+export const MIN_DAYS_BETWEEN_MAILS = 3;
 
 // ────────────────────────────────────────────────────────────
 // Eligibilité : audios candidats au drip
