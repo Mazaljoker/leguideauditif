@@ -1,0 +1,114 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { requireAdmin } from '../../lib/admin-guard';
+import {
+  NO_TRACK_COOKIE,
+  NO_TRACK_VALUE,
+  NO_TRACK_MAX_AGE_SECONDS,
+  hasNoTrackCookie,
+} from '../../lib/no-track';
+
+const guard = requireAdmin(Astro);
+if (guard) return guard;
+
+// Toggle via query string. Le gate admin ci-dessus garantit qu'aucun visiteur
+// non-autorisé ne peut bouger le cookie. Pas de CSRF nécessaire — le pire cas
+// est que Franck désactive son propre opt-out, sans impact business.
+const action = Astro.url.searchParams.get('action');
+
+if (action === 'enable') {
+  Astro.cookies.set(NO_TRACK_COOKIE, NO_TRACK_VALUE, {
+    path: '/',
+    maxAge: NO_TRACK_MAX_AGE_SECONDS,
+    sameSite: 'lax',
+    secure: import.meta.env.PROD,
+    httpOnly: false,
+  });
+  return Astro.redirect('/admin/no-track/');
+}
+
+if (action === 'disable') {
+  Astro.cookies.delete(NO_TRACK_COOKIE, { path: '/' });
+  return Astro.redirect('/admin/no-track/');
+}
+
+const isOptedOut = hasNoTrackCookie(Astro.cookies);
+const userAgent = Astro.request.headers.get('user-agent') ?? '';
+const isMobile = /Mobi|Android|iPhone|iPad/i.test(userAgent);
+---
+
+<BaseLayout
+  title="Opt-out tracking — Admin"
+  description="Toggle tracking GA4 pour l'admin"
+  noindex={true}
+>
+  <div class="container max-w-2xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold text-marine mb-2">Opt-out tracking</h1>
+    <p class="text-gray-600 mb-8">
+      Empêche tes propres visites de polluer les stats GA4 (client + serveur).
+      Cookie installé sur ce navigateur uniquement, durée 10 ans.
+    </p>
+
+    {isOptedOut ? (
+      <div class="rounded-lg border-2 border-orange-500 bg-orange-50 p-6 mb-6">
+        <div class="flex items-center gap-3 mb-4">
+          <Icon name="lucide:eye-off" class="w-6 h-6 text-orange-600" />
+          <h2 class="text-xl font-semibold text-marine">Tracking désactivé</h2>
+        </div>
+        <p class="text-gray-700 mb-4">
+          Ton activité sur ce navigateur n'est <strong>pas comptée</strong> dans GA4 :
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-1 mb-6">
+          <li>Tarteaucitron ne charge pas le tag Google</li>
+          <li>Les wrappers gtag (lib/track.ts) sont en no-op</li>
+          <li>Le Measurement Protocol serveur skip les events liés à tes claims/leads</li>
+          <li>Le cookie d'attribution <code class="bg-white px-1 rounded">lga_attr</code> reste actif (volontaire)</li>
+        </ul>
+        <a
+          href="/admin/no-track/?action=disable"
+          class="inline-block px-6 py-3 bg-marine text-white rounded-lg hover:bg-marine-dark font-medium"
+        >
+          Réactiver le tracking
+        </a>
+      </div>
+    ) : (
+      <div class="rounded-lg border-2 border-gray-300 bg-gray-50 p-6 mb-6">
+        <div class="flex items-center gap-3 mb-4">
+          <Icon name="lucide:eye" class="w-6 h-6 text-gray-600" />
+          <h2 class="text-xl font-semibold text-marine">Tracking actif</h2>
+        </div>
+        <p class="text-gray-700 mb-6">
+          Tes visites sont actuellement comptées dans GA4. Active l'opt-out pour
+          ne plus polluer les stats avec ta navigation perso.
+        </p>
+        <a
+          href="/admin/no-track/?action=enable"
+          class="inline-block px-6 py-3 bg-orange text-white rounded-lg hover:opacity-90 font-medium"
+        >
+          Activer l'opt-out tracking
+        </a>
+      </div>
+    )}
+
+    <div class="text-sm text-gray-500 space-y-2">
+      <p>
+        <strong>Couverture cross-device</strong> : à répéter sur chaque navigateur
+        que tu utilises (Chrome desktop, Safari mobile, etc.). Le cookie est local
+        à un navigateur.
+      </p>
+      {isMobile && (
+        <p class="text-orange-600">
+          Tu es actuellement sur mobile — pense à activer aussi sur ton desktop
+          si ce n'est pas déjà fait.
+        </p>
+      )}
+      <p>
+        <strong>Vérification</strong> : DevTools → Application → Cookies →
+        chercher <code class="bg-white px-1 rounded">{NO_TRACK_COOKIE}={NO_TRACK_VALUE}</code>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
