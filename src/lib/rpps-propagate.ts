@@ -5,8 +5,11 @@
  *
  * Stratégie de matching :
  *   1. centres_auditifs.rpps == rpps_audioprothesistes.rpps (exact)
+ *   1bis (V2) centres_auditifs.siret == rpps_practitioner_roles.siret (exact, si centre.rpps null)
+ *        — capte les lieux secondaires d'un audio (ex: Thomas Perron à Bayonne, alors
+ *        que son Practitioner principal est à Pessac).
  *   2. centres_auditifs.siret == rpps_audioprothesistes.siret (exact, si rpps null)
- *   3. (V2) fuzzy nom + CP — non implémenté cette PR
+ *   3. (V3) fuzzy nom + CP — non implémenté cette PR
  *
  * Protection fiches claimed/premium :
  *   - Si plan IN ('claimed', 'premium') OU claim_status='approved' → SKIP update
@@ -44,6 +47,27 @@ export interface RppsRecord {
   email: string | null;
   departement_code: string | null;
   updated_at: string;
+}
+
+/**
+ * V2 — un lieu d'exercice (PractitionerRole) côté FHIR.
+ * Sert à matcher centre.siret == role.siret (priorité 1bis) et à construire
+ * le payload de la fiche depuis ce lieu (pas le Practitioner principal).
+ */
+export interface RoleRecord {
+  rpps: string;
+  role_id: string;
+  siret: string | null;
+  raison_sociale: string | null;
+  enseigne: string | null;
+  num_voie: string | null;
+  type_voie: string | null;
+  voie: string | null;
+  code_postal: string | null;
+  commune: string | null;
+  departement_code: string | null;
+  telephone: string | null;
+  email: string | null;
 }
 
 export interface CentreRecord {
@@ -111,7 +135,7 @@ export interface RunPropagationOptions {
  * Reconstitue l'adresse normalisée depuis les champs RPPS éclatés.
  * Format : "12 RUE DU MARCHE" (sans CP/ville, qui sont stockés à part).
  */
-function buildRppsAdresse(r: RppsRecord): string {
+function buildRppsAdresse(r: RppsRecord | RoleRecord): string {
   return [r.num_voie, r.type_voie, r.voie]
     .map((s) => (s ?? '').trim())
     .filter((s) => s.length > 0)
@@ -166,6 +190,35 @@ function buildCentrePayload(r: RppsRecord): Record<string, unknown> {
     email: r.email,
     audio_nom: r.nom,
     audio_prenom: r.prenom,
+  };
+}
+
+/**
+ * V2 — payload depuis un rôle (PractitionerRole). Diffère de buildCentrePayload :
+ * l'adresse/CP/ville/tel/email viennent du LIEU (pas du Practitioner principal).
+ * On enrichit avec nom/prénom du Practitioner principal pour l'audio_nom / audio_prenom
+ * (un rôle ne porte pas le nom du praticien — il faut joindre RppsRecord).
+ *
+ * Cas Thomas Perron : RppsRecord = Practitioner Pessac, RoleRecord = lieu Bayonne.
+ * Le payload doit refléter l'adresse Bayonne mais l'audio reste Thomas Perron.
+ */
+function buildCentrePayloadFromRole(role: RoleRecord, practitioner: RppsRecord): Record<string, unknown> {
+  const adresse = buildRppsAdresse(role);
+  const audioFullName = [practitioner.prenom, practitioner.nom].filter(Boolean).join(' ').trim();
+  const nomCentre = role.enseigne ?? role.raison_sociale ?? `${audioFullName} Audioprothésiste`;
+  return {
+    rpps: practitioner.rpps,
+    siret: role.siret,
+    nom: nomCentre,
+    raison_sociale: role.raison_sociale,
+    adresse: adresse || null,
+    cp: role.code_postal,
+    ville: role.commune,
+    departement: role.departement_code,
+    tel: role.telephone,
+    email: role.email,
+    audio_nom: practitioner.nom,
+    audio_prenom: practitioner.prenom,
   };
 }
 
@@ -285,6 +338,46 @@ async function batchLoadCentresByRpps(
 }
 
 /**
+ * V2 — charge en batch tous les rôles (rpps_practitioner_roles) pour les RPPS
+ * fournis, qui ont un SIRET non null. Sert au matching priorité 1bis.
+ *
+ * Retourne :
+ *   - byRpps : Map<rpps, RoleRecord[]>  — tous les rôles d'un praticien
+ *   - bySiret : Map<siret, RoleRecord> — pour le matching SIRET → rpps secondaire
+ */
+async function batchLoadRolesByRpps(
+  supabase: SupabaseClient,
+  rppsList: string[],
+): Promise<{ byRpps: Map<string, RoleRecord[]>; bySiret: Map<string, RoleRecord> }> {
+  const byRpps = new Map<string, RoleRecord[]>();
+  const bySiret = new Map<string, RoleRecord>();
+  if (rppsList.length === 0) return { byRpps, bySiret };
+
+  const FIELDS =
+    'rpps, role_id, siret, raison_sociale, enseigne, num_voie, type_voie, voie, code_postal, commune, departement_code, telephone, email';
+  const CHUNK = 500;
+  for (let i = 0; i < rppsList.length; i += CHUNK) {
+    const chunk = rppsList.slice(i, i + CHUNK);
+    const { data, error } = await supabase
+      .from('rpps_practitioner_roles')
+      .select(FIELDS)
+      .in('rpps', chunk)
+      .eq('etat_role', 'actif')
+      .not('siret', 'is', null);
+    if (error) throw new Error(`batchLoadRolesByRpps failed: ${error.message}`);
+    for (const role of (data ?? []) as unknown as RoleRecord[]) {
+      const list = byRpps.get(role.rpps) ?? [];
+      list.push(role);
+      byRpps.set(role.rpps, list);
+      if (role.siret && !bySiret.has(role.siret)) {
+        bySiret.set(role.siret, role);
+      }
+    }
+  }
+  return { byRpps, bySiret };
+}
+
+/**
  * Charge en batch toutes les fiches centres_auditifs dont le SIRET est dans
  * la liste fournie ET dont le RPPS est null (évite faux positifs sur un SIRET
  * partagé entre plusieurs audios — on ne veut matcher que les fiches sans
@@ -346,13 +439,27 @@ export async function runRppsPropagation(
     // 2. Charge les RPPS modifiés depuis sinceDate
     const updated = await fetchUpdatedRpps(supabase, sinceDate.toISOString());
 
-    // 3. Batch load des fiches centres correspondantes (priorité 1 + 2)
-    // → 2-N queries au total au lieu de 2*N queries dans la boucle.
-    // Critique pour la perf : sur 7152 RPPS modifiés, on évite 14000+ queries.
+    // 3. Batch load des fiches centres correspondantes (priorité 1 + 1bis + 2)
+    // → quelques queries au total au lieu de 3*N queries dans la boucle.
+    // Critique pour la perf : sur 7152 RPPS modifiés, on évite 21000+ queries.
     const allRpps = updated.map((r) => r.rpps);
     const centresByRpps = await batchLoadCentresByRpps(supabase, allRpps);
+
+    // V2 — priorité 1bis : matching via rpps_practitioner_roles.siret
+    // Pour chaque RPPS, charger ses rôles (1+ lieux d'exercice). Puis chercher
+    // les centres dont le SIRET correspond à un de ces rôles (avec centre.rpps null).
+    const rolesIndex = await batchLoadRolesByRpps(supabase, allRpps);
+    const roleSiretsToLookup = Array.from(rolesIndex.bySiret.keys());
+    const centresByRoleSiret = await batchLoadCentresBySiret(supabase, roleSiretsToLookup);
+
+    // Priorité 2 — siret du Practitioner principal (V1 fallback inchangé).
+    // On ne charge QUE pour les RPPS pas encore matchés (par 1 ni par 1bis).
+    const isMatchedByRoleSiret = (rpps: string): boolean => {
+      const roles = rolesIndex.byRpps.get(rpps) ?? [];
+      return roles.some((role) => role.siret && centresByRoleSiret.has(role.siret));
+    };
     const siretsToLookup = updated
-      .filter((r) => !centresByRpps.has(r.rpps) && !!r.siret)
+      .filter((r) => !centresByRpps.has(r.rpps) && !isMatchedByRoleSiret(r.rpps) && !!r.siret)
       .map((r) => r.siret as string);
     const centresBySiret = await batchLoadCentresBySiret(supabase, siretsToLookup);
 
@@ -363,11 +470,97 @@ export async function runRppsPropagation(
     const flaggedForReview: FlaggedForReview[] = [];
     const changesApplied: ChangeApplied[] = [];
 
+    // Évite de traiter 2x le même centre (un audio peut être primaire ET secondaire
+    // sur le même SIRET — défensif).
+    const processedCentreIds = new Set<string>();
+
+    // Closure : applique le diff/flag/update sur un match trouvé. Mute les
+    // compteurs et arrays du scope. Réutilisée pour priorité 1, 1bis, 2.
+    const processCentreUpdate = async (params: {
+      match: CentreRecord;
+      payload: Record<string, unknown>;
+      rpps: string;
+      practitionerName: string;
+    }): Promise<void> => {
+      const { match, payload, rpps, practitionerName } = params;
+      const isProtected =
+        match.plan === 'claimed' ||
+        match.plan === 'premium' ||
+        match.claim_status === 'approved';
+
+      if (isProtected) {
+        centresSkippedClaimed += 1;
+        const diff = diffCentreVsRpps(match, payload);
+        if (Object.keys(diff).length > 0) {
+          flaggedForReview.push({
+            centre_id: match.id,
+            centre_slug: match.slug,
+            centre_plan: match.plan ?? 'rpps',
+            claimed_by_email: match.claimed_by_email,
+            rpps,
+            practitioner_name: practitionerName,
+            old_address: `${match.adresse ?? '—'}, ${match.cp ?? ''} ${match.ville ?? ''}`.trim(),
+            new_address: `${payload.adresse ?? '—'}, ${payload.cp ?? ''} ${payload.ville ?? ''}`.trim(),
+            change_summary: summariseAddressChange(match, payload),
+          });
+        }
+        return;
+      }
+
+      const diff = diffCentreVsRpps(match, payload);
+      if (Object.keys(diff).length === 0) return;
+
+      if (opts.applyMode) {
+        const updatePatch: Record<string, unknown> = { updated_at: new Date().toISOString() };
+        for (const [k, v] of Object.entries(diff)) {
+          updatePatch[k] = v.to;
+        }
+        const { error } = await supabase
+          .from('centres_auditifs')
+          .update(updatePatch)
+          .eq('id', match.id);
+        if (error) {
+          console.error(`[propagate] update failed for centre ${match.id}: ${error.message}`);
+          return;
+        }
+        centresUpdated += 1;
+      } else {
+        centresUpdated += 1;
+      }
+      changesApplied.push({
+        centre_id: match.id,
+        centre_slug: match.slug,
+        rpps,
+        action: 'update',
+        fields_changed: diff,
+      });
+    };
+
     // 4. Traite chaque RPPS modifié — matching en mémoire
     for (const r of updated) {
+      const practitionerName = [r.prenom, r.nom].filter(Boolean).join(' ');
+
+      // V2 — priorité 1bis : pour chaque rôle (lieu) du praticien avec un SIRET
+      // qui matche un centre.rpps null, on traite la fiche avec le payload du rôle.
+      const rolesForThisRpps = rolesIndex.byRpps.get(r.rpps) ?? [];
+      for (const role of rolesForThisRpps) {
+        if (!role.siret) continue;
+        const centreSecondaire = centresByRoleSiret.get(role.siret);
+        if (!centreSecondaire || processedCentreIds.has(centreSecondaire.id)) continue;
+        if (centreSecondaire.rpps === r.rpps) continue;
+        processedCentreIds.add(centreSecondaire.id);
+        await processCentreUpdate({
+          match: centreSecondaire,
+          payload: buildCentrePayloadFromRole(role, r),
+          rpps: r.rpps,
+          practitionerName,
+        });
+      }
+
       const match = centresByRpps.get(r.rpps)
         ?? (r.siret ? centresBySiret.get(r.siret) : undefined)
         ?? null;
+      if (match && processedCentreIds.has(match.id)) continue;
       const payload = buildCentrePayload(r);
 
       if (!match) {
@@ -402,67 +595,17 @@ export async function runRppsPropagation(
         continue;
       }
 
-      // Match trouvé. Si la fiche est claimed/premium ou claim approved → flag review.
-      const isProtected =
-        match.plan === 'claimed' ||
-        match.plan === 'premium' ||
-        match.claim_status === 'approved';
-
-      if (isProtected) {
-        centresSkippedClaimed += 1;
-        const diff = diffCentreVsRpps(match, payload);
-        if (Object.keys(diff).length > 0) {
-          flaggedForReview.push({
-            centre_id: match.id,
-            centre_slug: match.slug,
-            centre_plan: match.plan ?? 'rpps',
-            claimed_by_email: match.claimed_by_email,
-            rpps: r.rpps,
-            practitioner_name: [r.prenom, r.nom].filter(Boolean).join(' '),
-            old_address: `${match.adresse ?? '—'}, ${match.cp ?? ''} ${match.ville ?? ''}`.trim(),
-            new_address: `${payload.adresse ?? '—'}, ${payload.cp ?? ''} ${payload.ville ?? ''}`.trim(),
-            change_summary: summariseAddressChange(match, payload),
-          });
-        }
-        continue;
-      }
-
-      // Fiche non protégée → diff + update si changements
-      const diff = diffCentreVsRpps(match, payload);
-      if (Object.keys(diff).length === 0) continue; // déjà à jour
-
-      if (opts.applyMode) {
-        // On n'applique que les colonnes du diff, jamais l'objet entier (évite
-        // d'écraser des colonnes hors RPPS comme a_propos, photo_url, etc.)
-        const updatePatch: Record<string, unknown> = {
-          updated_at: new Date().toISOString(),
-        };
-        for (const [k, v] of Object.entries(diff)) {
-          updatePatch[k] = v.to;
-        }
-        const { error } = await supabase
-          .from('centres_auditifs')
-          .update(updatePatch)
-          .eq('id', match.id);
-        if (error) {
-          console.error(`[propagate] update failed for centre ${match.id}: ${error.message}`);
-          continue;
-        }
-        centresUpdated += 1;
-      } else {
-        // Dry-run : on compte quand même pour le rapport
-        centresUpdated += 1;
-      }
-      changesApplied.push({
-        centre_id: match.id,
-        centre_slug: match.slug,
+      // Match trouvé via priorité 1 ou 2 → délègue à la closure
+      processedCentreIds.add(match.id);
+      await processCentreUpdate({
+        match,
+        payload,
         rpps: r.rpps,
-        action: 'update',
-        fields_changed: diff,
+        practitionerName,
       });
     }
 
-    // 4. Update run row → success
+    // 5. Update run row → success
     const completedAt = new Date();
     const durationSeconds = Math.round((completedAt.getTime() - startedAt.getTime()) / 1000);
 

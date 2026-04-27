@@ -25,6 +25,7 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { createServerClient } from '../../../lib/supabase';
 import { runRppsSync } from '../../../lib/rpps-sync';
+import { runRolesSync } from '../../../lib/rpps-roles-sync';
 import { sendSyncReport } from '../../../lib/rpps-sync-email';
 
 const ADMIN_EMAIL = 'franckolivier@leguideauditif.fr';
@@ -55,6 +56,12 @@ export const POST: APIRoute = async ({ request, url, locals }) => {
   // ne pulle que les changes via _lastUpdated=ge{lastRunDate} (cf. skill lga-rpps-detector).
   const mode = url.searchParams.get('mode') === 'full' ? 'full' : 'incremental';
 
+  // V2 — phase 2 : pull les PractitionerRole (multi-lieux) en plus des Practitioner.
+  // Defaut activé (signal Thomas Perron : sans phase 2, on rate les lieux secondaires).
+  // `?phase=v1` permet de basculer en V1 only pour debug ou rollback rapide.
+  const phaseParam = url.searchParams.get('phase');
+  const runRoles = phaseParam !== 'v1';
+
   // Garde-fou : si la clé FHIR n'est pas configurée, on échoue tôt avec un message clair
   // au lieu de partir en sync et laisser fetch() planter dans le helper.
   // ESANTE_API_KEY = nom canonique (cf. skill lga-rpps-detector). Fallback sur
@@ -69,11 +76,27 @@ export const POST: APIRoute = async ({ request, url, locals }) => {
   const supabase = createServerClient();
 
   try {
+    // Phase 1 — Practitioner sync (V1, alimente rpps_audioprothesistes)
     const result = await runRppsSync(supabase, { triggerSource, mode });
 
-    // Envoi du rapport email (no-op si rien de nouveau et run réussi)
+    // Phase 2 — PractitionerRole sync (V2, alimente rpps_practitioner_roles).
+    // Lance seulement si la phase 1 a réussi : si V1 plante, V2 sur la même borne
+    // n'aurait pas de sens. La borne `sinceIso` est calculée par runRolesSync via
+    // MAX(last_seen_at) de la table — auto-entretenu, pas besoin de la propager.
+    let rolesResult: Awaited<ReturnType<typeof runRolesSync>> | null = null;
+    let rolesError: string | null = null;
+    if (runRoles && result.status === 'success') {
+      try {
+        rolesResult = await runRolesSync(supabase, { mode });
+      } catch (err) {
+        rolesError = err instanceof Error ? err.message : String(err);
+        console.error('[sync-rpps] phase 2 roles failed:', rolesError);
+      }
+    }
+
+    // Envoi du rapport email (no-op si rien de nouveau et phase 2 OK)
     try {
-      await sendSyncReport(result);
+      await sendSyncReport(result, runRoles ? { rolesResult, rolesError } : undefined);
     } catch (emailErr) {
       const msg = emailErr instanceof Error ? emailErr.message : String(emailErr);
       console.error('[sync-rpps] email report failed (sync continues OK):', msg);
@@ -89,6 +112,15 @@ export const POST: APIRoute = async ({ request, url, locals }) => {
       new_centres_count: result.newCentresDetected.length,
       duration_seconds: result.durationSeconds,
       error_message: result.errorMessage,
+      // V2 — phase 2 stats
+      roles: rolesResult ? {
+        processed: rolesResult.rolesProcessed,
+        upserted: rolesResult.rolesUpserted,
+        skipped_no_rpps: rolesResult.rolesSkippedNoRpps,
+        organizations_resolved: rolesResult.organizationsResolved,
+        duration_seconds: rolesResult.durationSeconds,
+      } : null,
+      roles_error: rolesError,
     }, result.status === 'success' ? 200 : 500);
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
