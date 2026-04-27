@@ -334,7 +334,6 @@ function buildChoice(
 ): DripChoice {
   const prenom = audiopro.prenom ?? '';
   const unsubscribeToken = audiopro.email_preferences_token;
-  const articleUrl = 'https://leguideauditif.fr/audioprothesiste-pro/methode-fiche-patient/';
 
   switch (template_key) {
     case 'nurture_01_premiers_patients': {
@@ -384,7 +383,7 @@ function buildChoice(
       return {
         template_key,
         subject: 'Trois choses qui changent la perception côté patient',
-        html: nurture03CasConcretEmail({ prenom, articleUrl, unsubscribeToken }),
+        html: nurture03CasConcretEmail({ prenom, unsubscribeToken }),
       };
 
     case 'nurture_04_slots_restants': {

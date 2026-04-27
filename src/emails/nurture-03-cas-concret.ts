@@ -1,12 +1,8 @@
 import { emailLayout } from './layout';
+import { CALENDLY_URL } from './constants';
 
 interface Nurture03Data {
   prenom: string;
-  /**
-   * URL de l'article blog LeGuideAuditif qui développe la méthode complète.
-   * À produire et valider via la chaîne GAN avant activation Phase 2.
-   */
-  articleUrl: string;
   unsubscribeToken: string;
 }
 
@@ -17,9 +13,13 @@ interface Nurture03Data {
  * Angle : pas un faux cas client, mais la méthode que Franck-Olivier
  * recommande à partir de son expérience cabine. Plus durable et plus
  * honnête qu'un "j'ai un audio qui..." inventé.
+ *
+ * CTA : RDV 20 minutes Calendly (cf. CALENDLY_URL). L'angle "méthode"
+ * justifie un échange direct plutôt qu'un article — l'expertise se
+ * transmet mieux en 20 min de visio que par lecture passive.
  */
 export function nurture03CasConcretEmail(data: Nurture03Data): string {
-  const { prenom, articleUrl, unsubscribeToken } = data;
+  const { prenom, unsubscribeToken } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
 
   return emailLayout(
@@ -40,7 +40,11 @@ export function nurture03CasConcretEmail(data: Nurture03Data): string {
 
     <p>Ces trois points prennent vingt minutes à mettre à jour. Les retours patients qu'on observe ensuite sont qualitativement différents : moins de questions techniques en ouverture de RDV, moins de patients qui pensent qu'on fait des tests gratuits sans appareillage.</p>
 
-    <p><a href="${articleUrl}" class="btn">Lire la méthode complète</a></p>
+    <p>Si vous voulez qu'on regarde votre fiche ensemble et qu'on cale les trois points en direct, le plus simple est d'en parler 20 minutes en visio.</p>
+
+    <p><a href="${CALENDLY_URL}" class="btn">Réserver 20 minutes avec moi</a></p>
+
+    <p>Sinon vous pouvez répondre à ce mail avec une question précise, je regarde directement.</p>
 
     <p>Cordialement,<br/>
     Franck-Olivier Chabbat<br/>

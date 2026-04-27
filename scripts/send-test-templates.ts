@@ -45,8 +45,6 @@ const SAMPLE = {
   completenessAvg: 62,
   primaryCentreSlug: 'audika-paris-11e-75011-demo',
   slotsRestants: 5,
-  calendarUrl: 'https://cal.com/franckolivier/lga-fondateurs',
-  articleUrl: 'https://leguideauditif.fr/blog/etude-de-cas-3-centres-structures',
   stayFreeUrl: 'https://leguideauditif.fr/audioprothesiste-pro/preferences?choix=gratuit',
   // Token sample pour le footer unsub. UUID v4 fixe pour les tests —
   // en prod c'est audiopro_lifecycle.email_preferences_token.
@@ -110,7 +108,7 @@ const emails: TestEmail[] = [
   },
   {
     key: 'nurture_02_offre_fondateurs',
-    subject: `[TEST 4/8 v4] Programme Partenaires Fondateurs — ${SAMPLE.slotsRestants} places restantes`,
+    subject: `[TEST 4/8 v5] Programme Partenaires Fondateurs — ${SAMPLE.slotsRestants} places restantes`,
     html: nurture02OffreFondateursEmail({
       prenom: SAMPLE.prenom,
       slotsRestants: SAMPLE.slotsRestants,
@@ -119,16 +117,15 @@ const emails: TestEmail[] = [
   },
   {
     key: 'nurture_03_cas_concret',
-    subject: '[TEST 5/8 v2] Trois choses qui changent la perception côté patient',
+    subject: '[TEST 5/8 v3] Trois choses qui changent la perception côté patient',
     html: nurture03CasConcretEmail({
       prenom: SAMPLE.prenom,
-      articleUrl: SAMPLE.articleUrl,
       unsubscribeToken: SAMPLE.unsubscribeToken,
     }),
   },
   {
     key: 'nurture_04_slots_restants',
-    subject: `[TEST 6/8 v2] Plus que ${SAMPLE.slotsRestants} places Fondateurs`,
+    subject: `[TEST 6/8 v3] Plus que ${SAMPLE.slotsRestants} places Fondateurs`,
     html: nurture04SlotsRestantsEmail({
       prenom: SAMPLE.prenom,
       slotsRestants: SAMPLE.slotsRestants,
@@ -137,7 +134,7 @@ const emails: TestEmail[] = [
   },
   {
     key: 'nurture_05_ads_ou_sortie',
-    subject: '[TEST 7/8 v3] Des RDV patients ou vous restez en vitrine ?',
+    subject: '[TEST 7/8 v4] Des RDV patients ou vous restez en vitrine ?',
     html: nurture05AdsOuSortieEmail({
       prenom: SAMPLE.prenom,
       unsubscribeToken: SAMPLE.unsubscribeToken,

@@ -1,4 +1,5 @@
 import { emailLayout } from './layout';
+import { CALENDLY_URL } from './constants';
 
 interface Nurture02Data {
   prenom: string;
@@ -47,9 +48,11 @@ export function nurture02OffreFondateursEmail(data: Nurture02Data): string {
     <h2>Ce que je vous demande</h2>
     <p>Votre retour à froid, au bout de quelques semaines, sur ce qui vous sert et ce qui manque. C'est tout. Pas de témoignage obligatoire, pas de clause à signer.</p>
 
-    <p><a href="https://leguideauditif.fr/audioprothesiste-pro/" class="btn">Accéder à mon espace pro</a></p>
+    <p><a href="${CALENDLY_URL}" class="btn">Réserver 20 minutes avec moi</a></p>
 
-    <p>Il reste <strong>${placesLabel}</strong> sur les 20 du programme. Si vous voulez en parler de vive voix, <strong>répondez simplement à ce mail</strong> et on cale 20 minutes quand vous voulez — visio ou téléphone, comme vous préférez.</p>
+    <p style="margin-top:16px;">Vous pouvez aussi <a href="https://leguideauditif.fr/audioprothesiste-pro/">accéder directement à votre espace pro</a> si vous préférez voir la plateforme avant d'en parler.</p>
+
+    <p>Il reste <strong>${placesLabel}</strong> sur les 20 du programme. Si vous préférez le mail, répondez simplement à celui-ci et on échange à l'écrit.</p>
 
     <p>Cordialement,<br/>
     Franck-Olivier Chabbat<br/>
