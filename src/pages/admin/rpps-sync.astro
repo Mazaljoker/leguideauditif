@@ -288,14 +288,24 @@ function formatDuration(s: number | null): string {
         modalTitle.textContent = `Nouvelles ouvertures — ${run.new_centres_detected.length}`;
         modalBody.innerHTML = `
           <ul class="space-y-3">
-            ${run.new_centres_detected.map((c) => `
+            ${run.new_centres_detected.map((c) => {
+              const contactLine = (c.email || c.telephone)
+                ? `<p class="text-xs mt-1">${
+                    c.email ? `<a href="mailto:${encodeURIComponent(c.email)}" class="text-green-700 font-semibold no-underline">${escapeHtml(c.email)}</a>` : ''
+                  }${c.email && c.telephone ? ' · ' : ''}${
+                    c.telephone ? `<a href="tel:${encodeURIComponent(c.telephone)}" class="text-marine">${escapeHtml(c.telephone)}</a>` : ''
+                  }</p>`
+                : '<p class="text-xs text-gris-texte mt-1 italic">contact non publié dans le RPPS</p>';
+              return `
               <li class="border-b border-gris-clair pb-3 last:border-0">
                 <p class="font-semibold text-marine">${escapeHtml(c.prenom)} ${escapeHtml(c.nom)}</p>
                 <p class="text-gris-texte text-xs">RPPS ${escapeHtml(c.rpps)}</p>
                 <p class="text-sm">${escapeHtml(c.enseigne || c.raison_sociale || '—')}</p>
                 <p class="text-xs text-gris-texte mt-1">${escapeHtml(c.commune || '')} ${escapeHtml(c.code_postal || '')}</p>
+                ${contactLine}
               </li>
-            `).join('')}
+            `;
+            }).join('')}
           </ul>
         `;
         modal.classList.remove('hidden');

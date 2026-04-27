@@ -39,8 +39,17 @@ function formatDate(d: Date): string {
 
 function buildSuccessHtml(run: SyncRunResult): string {
   const rows = run.newCentresDetected
-    .map(
-      (c) => `
+    .map((c) => {
+      // Contact direct si publié dans l'Annuaire Santé (~10% des cas).
+      // Sinon liens de recherche LinkedIn/Google pour enrichissement manuel
+      // (le skill lga-rpps-enricher couvre l'enrichissement automatique en V2).
+      const contactCell = c.email || c.telephone
+        ? [
+            c.email ? `<a href="mailto:${encodeURIComponent(c.email)}" style="color: #2e7d32; text-decoration: none; font-weight: 600;">${escapeHtml(c.email)}</a>` : '',
+            c.telephone ? `<a href="tel:${encodeURIComponent(c.telephone)}" style="color: #1B2E4A; text-decoration: none;">${escapeHtml(c.telephone)}</a>` : '',
+          ].filter(Boolean).join('<br/>')
+        : `<span style="color: #999; font-size: 12px;">non publié</span>`;
+      return `
       <tr>
         <td style="padding: 8px 12px; border-bottom: 1px solid #eee; font-family: sans-serif; font-size: 14px;">
           <strong>${escapeHtml(c.prenom)} ${escapeHtml(c.nom)}</strong>
@@ -53,12 +62,15 @@ function buildSuccessHtml(run: SyncRunResult): string {
           <span style="color: #666; font-size: 12px;">${escapeHtml(c.code_postal ?? '')}</span>
         </td>
         <td style="padding: 8px 12px; border-bottom: 1px solid #eee; font-family: sans-serif; font-size: 13px;">
+          ${contactCell}
+        </td>
+        <td style="padding: 8px 12px; border-bottom: 1px solid #eee; font-family: sans-serif; font-size: 13px;">
           <a href="${linkedinSearchUrl(c)}" style="color: #0A66C2; text-decoration: none;">LinkedIn</a>
           &nbsp;·&nbsp;
           <a href="${googleSearchUrl(c)}" style="color: #1a73e8; text-decoration: none;">Google</a>
         </td>
-      </tr>`,
-    )
+      </tr>`;
+    })
     .join('');
 
   return `
@@ -99,6 +111,7 @@ function buildSuccessHtml(run: SyncRunResult): string {
                 <th style="padding: 10px 12px; text-align: left; font-family: sans-serif; font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">Praticien</th>
                 <th style="padding: 10px 12px; text-align: left; font-family: sans-serif; font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">Centre / Raison sociale</th>
                 <th style="padding: 10px 12px; text-align: left; font-family: sans-serif; font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">Localisation</th>
+                <th style="padding: 10px 12px; text-align: left; font-family: sans-serif; font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">Contact RPPS</th>
                 <th style="padding: 10px 12px; text-align: left; font-family: sans-serif; font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">Recherches</th>
               </tr>
             </thead>
