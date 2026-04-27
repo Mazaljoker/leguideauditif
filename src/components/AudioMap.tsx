@@ -609,7 +609,11 @@ export default function AudioMap({ data }: AudioMapProps) {
             />
 
             {clusters.map((cluster, idx) =>
-              cluster.items.length === 1 ? (
+              // Markers individuels uniquement au zoom proche (>= 8 = ville/aire urbaine).
+              // Au zoom large (France/Europe), même les clusters size=1 sont rendus
+              // en pastille orange — évite les pins gris orphelins isolés sur les zones
+              // rurales (cf. Audika Guilvinec, Amplifon La Tranche-sur-Mer 27/04/2026).
+              cluster.items.length === 1 && zoom >= 8 ? (
                 <Marker
                   key={cluster.items[0].id}
                   position={[cluster.lat, cluster.lng]}
