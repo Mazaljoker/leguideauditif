@@ -5,6 +5,7 @@ interface Nurture01Data {
   nbCentres: number;
   completenessAvg: number;        // 0..100 — moyenne des centres de l'audio
   primaryCentreSlug: string;      // centre le moins complet (pour l'ancrage)
+  unsubscribeToken: string;       // audiopro_lifecycle.email_preferences_token
 }
 
 /**
@@ -13,7 +14,7 @@ interface Nurture01Data {
  * Angle confraternel, pédagogique. Aucune vente, juste des repères.
  */
 export function nurture01PremiersPatientsEmail(data: Nurture01Data): string {
-  const { prenom, nbCentres, completenessAvg, primaryCentreSlug } = data;
+  const { prenom, nbCentres, completenessAvg, primaryCentreSlug, unsubscribeToken } = data;
   const editUrl = `https://leguideauditif.fr/audioprothesiste-pro/fiche?centre=${primaryCentreSlug}`;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
 
@@ -44,5 +45,6 @@ export function nurture01PremiersPatientsEmail(data: Nurture01Data): string {
     Franck-Olivier Chabbat<br/>
     Audioprothésiste DE — LeGuideAuditif.fr</p>
     `,
+    { unsubscribeToken },
   );
 }

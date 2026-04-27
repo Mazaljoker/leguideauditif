@@ -2,8 +2,32 @@
  * Layout HTML partag\u00e9 pour tous les emails LeGuideAuditif.
  * Palette marine/cr\u00e8me/orange du design system.
  * Dark mode via @media (prefers-color-scheme: dark).
+ *
+ * @param title         Titre HTML (head + h1 implicite)
+ * @param body          Corps HTML
+ * @param options       Options optionnelles (PR-c Phase 2) :
+ *   - unsubscribeToken : UUID `audiopro_lifecycle.email_preferences_token`.
+ *     Si fourni, le footer affiche un lien token-based vers
+ *     /email-preferences (RGPD : obligatoire sur les nurture/relances).
+ *     Les transactionnels qui n'ont pas l'audio en main peuvent l'omettre.
  */
-export function emailLayout(title: string, body: string): string {
+export interface EmailLayoutOptions {
+  unsubscribeToken?: string;
+}
+
+export function emailLayout(
+  title: string,
+  body: string,
+  options: EmailLayoutOptions = {},
+): string {
+  const { unsubscribeToken } = options;
+  const unsubBlock = unsubscribeToken
+    ? `<p style="margin-top:12px;font-size:12px;color:#6B7B8D;">
+         Vous recevez ce mail parce que vous avez revendiqu\u00e9 votre fiche sur LeGuideAuditif.
+         Pour ne plus recevoir d'emails d'information :
+         <a href="https://leguideauditif.fr/email-preferences/?token=${unsubscribeToken}">g\u00e9rer mes pr\u00e9f\u00e9rences</a>.
+       </p>`
+    : '';
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -74,8 +98,9 @@ export function emailLayout(title: string, body: string): string {
       ${body}
     </div>
     <div class="footer">
-      <p>&copy; ${new Date().getFullYear()} LeGuideAuditif.fr &mdash; Information ind\u00e9pendante en sant\u00e9 auditive</p>
+      <p>&copy; ${new Date().getFullYear()} LeGuideAuditif.fr &mdash; Annuaire ind\u00e9pendant en sant\u00e9 auditive</p>
       <p><a href="https://leguideauditif.fr">leguideauditif.fr</a></p>
+      ${unsubBlock}
     </div>
   </div>
 </body>

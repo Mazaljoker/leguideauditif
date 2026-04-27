@@ -1,8 +1,10 @@
 import { emailLayout } from './layout';
+import { CALENDLY_URL } from './constants';
 
 interface Nurture04Data {
   prenom: string;
   slotsRestants: number;   // typiquement 1..5 (sinon le cron skip ce template)
+  unsubscribeToken: string;
 }
 
 /**
@@ -12,7 +14,7 @@ interface Nurture04Data {
  * 19 €/mois à vie + 3 mois gratuits, pas de Cal.com, pas de vaporware).
  */
 export function nurture04SlotsRestantsEmail(data: Nurture04Data): string {
-  const { prenom, slotsRestants } = data;
+  const { prenom, slotsRestants, unsubscribeToken } = data;
   const greeting = prenom ? `Bonjour ${prenom},` : 'Bonjour,';
   const plural = slotsRestants > 1;
   const placesLabel = plural ? `${slotsRestants} places` : '1 place';
@@ -31,13 +33,16 @@ export function nurture04SlotsRestantsEmail(data: Nurture04Data): string {
       <li>Pas d'engagement : vous résiliez quand vous voulez</li>
     </ul>
 
-    <p>Si vous voulez en parler, <strong>répondez à ce mail</strong> et on cale 20 minutes — visio ou téléphone.</p>
+    <p>Si vous voulez en parler, le plus simple est de caler 20 minutes en visio.</p>
 
-    <p><a href="https://leguideauditif.fr/audioprothesiste-pro/" class="btn">Accéder à mon espace pro</a></p>
+    <p><a href="${CALENDLY_URL}" class="btn">Réserver 20 minutes avec moi</a></p>
+
+    <p style="margin-top:16px;">Ou <a href="https://leguideauditif.fr/audioprothesiste-pro/">accédez à votre espace pro</a> si vous voulez voir avant d'en parler.</p>
 
     <p>Cordialement,<br/>
     Franck-Olivier Chabbat<br/>
     LeGuideAuditif.fr</p>
     `,
+    { unsubscribeToken },
   );
 }

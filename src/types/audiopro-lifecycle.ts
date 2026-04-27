@@ -60,6 +60,8 @@ export const LIFECYCLE_STAGE_COLORS: Record<LifecycleStage, string> = {
 
 export type LinkedVia = 'claim' | 'manual';
 
+export type UnsubscribeLevel = 'soft' | 'hard';
+
 export interface AudioproLifecycle {
   id: string;
   email: string;
@@ -76,6 +78,11 @@ export interface AudioproLifecycle {
 
   email_unsubscribed_at: string | null;
   email_preferences_token: string;   // UUID
+  /**
+   * NULL = actif. 'soft' = pas de nurture (transactionnels OK).
+   * 'hard' = aucun mail (RGPD strict). Migration 032.
+   */
+  unsubscribe_level: UnsubscribeLevel | null;
 
   prospect_id: string | null;
 

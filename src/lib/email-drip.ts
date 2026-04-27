@@ -333,7 +333,7 @@ function buildChoice(
   inputs: BuilderInputs,
 ): DripChoice {
   const prenom = audiopro.prenom ?? '';
-  const articleUrl = 'https://leguideauditif.fr/audioprothesiste-pro/methode-fiche-patient/';
+  const unsubscribeToken = audiopro.email_preferences_token;
 
   switch (template_key) {
     case 'nurture_01_premiers_patients': {
@@ -351,6 +351,7 @@ function buildChoice(
           nbCentres,
           completenessAvg,
           primaryCentreSlug: primarySlug,
+          unsubscribeToken,
         }),
       };
     }
@@ -365,7 +366,7 @@ function buildChoice(
       return {
         template_key,
         subject,
-        html: ficheIncompleteRelanceEmail({ prenom, centres: missing }),
+        html: ficheIncompleteRelanceEmail({ prenom, centres: missing, unsubscribeToken }),
       };
     }
 
@@ -374,7 +375,7 @@ function buildChoice(
       return {
         template_key,
         subject: `Programme Partenaires Fondateurs — ${slots} place${slots > 1 ? 's' : ''} restante${slots > 1 ? 's' : ''}`,
-        html: nurture02OffreFondateursEmail({ prenom, slotsRestants: slots }),
+        html: nurture02OffreFondateursEmail({ prenom, slotsRestants: slots, unsubscribeToken }),
       };
     }
 
@@ -382,7 +383,7 @@ function buildChoice(
       return {
         template_key,
         subject: 'Trois choses qui changent la perception côté patient',
-        html: nurture03CasConcretEmail({ prenom, articleUrl }),
+        html: nurture03CasConcretEmail({ prenom, unsubscribeToken }),
       };
 
     case 'nurture_04_slots_restants': {
@@ -390,7 +391,7 @@ function buildChoice(
       return {
         template_key,
         subject: `Plus que ${slots} place${slots > 1 ? 's' : ''} Fondateurs`,
-        html: nurture04SlotsRestantsEmail({ prenom, slotsRestants: slots }),
+        html: nurture04SlotsRestantsEmail({ prenom, slotsRestants: slots, unsubscribeToken }),
       };
     }
 
@@ -398,7 +399,7 @@ function buildChoice(
       return {
         template_key,
         subject: 'Des RDV patients ou vous restez en vitrine ?',
-        html: nurture05AdsOuSortieEmail({ prenom }),
+        html: nurture05AdsOuSortieEmail({ prenom, unsubscribeToken }),
       };
 
     default:

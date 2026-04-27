@@ -11,6 +11,7 @@ interface FicheIncompleteRelanceData {
    * Ordre attendu : centre le moins complet en premier (cible magic link).
    */
   centres: AudioproMissingField[];
+  unsubscribeToken: string;
 }
 
 /**
@@ -18,7 +19,7 @@ interface FicheIncompleteRelanceData {
  * /api/admin/relance-email. Voix Franck-Olivier, pair à pair.
  */
 export function ficheIncompleteRelanceEmail(data: FicheIncompleteRelanceData): string {
-  const { prenom, centres } = data;
+  const { prenom, centres, unsubscribeToken } = data;
 
   const incomplete = centres.filter(c => c.missing_fields.length > 0);
   const complete   = centres.filter(c => c.missing_fields.length === 0);
@@ -75,5 +76,6 @@ export function ficheIncompleteRelanceEmail(data: FicheIncompleteRelanceData): s
     Franck-Olivier Chabbat<br/>
     Audioprothésiste DE — LeGuideAuditif.fr</p>
     `,
+    { unsubscribeToken },
   );
 }
