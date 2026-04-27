@@ -5181,5 +5181,11 @@
       "destination": "/centre/audition-metz-metz-57000-8fcbc8/",
       "permanent": true
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/email-drip",
+      "schedule": "0 8 * * *"
+    }
   ]
 }
