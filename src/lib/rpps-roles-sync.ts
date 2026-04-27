@@ -165,12 +165,16 @@ async function fetchFhirBundle(url: string): Promise<FhirBundle> {
 }
 
 /**
- * Itère sur les PractitionerRole code 26 avec organization included.
- * Yield des objets `{ role, organization | undefined }` — l'organization
- * vient du même Bundle quand `_include=PractitionerRole:organization`.
+ * Itère sur une fenêtre temporelle FHIR (avec `_lastUpdated=ge<from>&_lastUpdated=le<to>`).
+ * Suit le `next` link tant qu'il y en a.
+ *
+ * Pourquoi : le gateway Gravitee de l'API FHIR Annuaire Santé ne pagine
+ * PAS au-delà de 200 résultats sans filtre `_lastUpdated`. Pour rattraper
+ * tous les rôles historiques, il faut découper en fenêtres temporelles.
  */
-export async function* iterPractitionerRoles(
-  sinceIso: string | null,
+async function* iterPractitionerRolesInWindow(
+  fromIso: string | null,
+  toIso: string | null,
 ): AsyncGenerator<{ role: FhirPractitionerRole; organization: FhirOrganization | undefined }> {
   const params = new URLSearchParams({
     'practitioner.qualification-code': PROFESSION_CODE_AUDIO,
@@ -178,9 +182,11 @@ export async function* iterPractitionerRoles(
     _include: 'PractitionerRole:organization',
     _count: String(FHIR_PAGE_SIZE),
   });
-  if (sinceIso) {
-    params.set('_lastUpdated', `ge${sinceIso}`);
-  }
+  // FHIR : on peut chainer 2 occurrences `_lastUpdated` pour une fenêtre [from, to].
+  // URLSearchParams.append (pas .set !) pour préserver les deux occurrences.
+  if (fromIso) params.append('_lastUpdated', `ge${fromIso}`);
+  if (toIso) params.append('_lastUpdated', `le${toIso}`);
+
   let nextUrl: string | null = `${FHIR_API_URL}/PractitionerRole?${params.toString()}`;
 
   let pageCount = 0;
@@ -188,7 +194,6 @@ export async function* iterPractitionerRoles(
     pageCount += 1;
     const bundle = await fetchFhirBundle(nextUrl);
 
-    // Bundle contient à la fois les PractitionerRole et les Organization (search.mode='match' vs 'include')
     const orgs = new Map<string, FhirOrganization>();
     const roles: FhirPractitionerRole[] = [];
     for (const entry of bundle.entry ?? []) {
@@ -209,8 +214,48 @@ export async function* iterPractitionerRoles(
 
     const next = bundle.link?.find((l) => l.relation === 'next');
     nextUrl = next?.url ?? null;
-    if (pageCount > 200) {
-      throw new Error(`FHIR pagination exceeded 200 pages, aborting`);
+    if (pageCount > 50) {
+      throw new Error(`FHIR pagination exceeded 50 pages in single window [${fromIso}, ${toIso}], aborting`);
+    }
+  }
+}
+
+/**
+ * Itère sur les PractitionerRole code 26.
+ *
+ * - sinceIso fourni : mode incrémental, fenêtre unique [sinceIso, now] (cap 200 sans filtre = OK ici car incrémental ramène peu)
+ * - sinceIso null : mode full chunked, boucle sur des fenêtres MENSUELLES de
+ *   2020-01 jusqu'à aujourd'hui pour contourner le cap Gravitee 200/req.
+ */
+export async function* iterPractitionerRoles(
+  sinceIso: string | null,
+): AsyncGenerator<{ role: FhirPractitionerRole; organization: FhirOrganization | undefined }> {
+  if (sinceIso) {
+    yield* iterPractitionerRolesInWindow(sinceIso, null);
+    return;
+  }
+
+  // Mode full : chunking par fenêtres mensuelles, du plus RÉCENT au plus ANCIEN.
+  // Pourquoi DESC : si on timeout (Vercel 300s), on aura quand même capturé
+  // les rôles récents (Thomas Perron oct 2024 et plus récents).
+  // Hypothèse : <200 rôles modifiés par mois en moyenne (sinon le `next` link
+  // intra-fenêtre prend le relais via iterPractitionerRolesInWindow).
+  const start = new Date('2020-01-01T00:00:00Z');
+  const today = new Date();
+  // Borne supérieure du mois courant = premier jour du mois suivant
+  const upperBound = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth() + 1, 1));
+  let windowEnd = new Date(upperBound);
+  let windowCount = 0;
+  while (windowEnd > start) {
+    const windowStart = new Date(windowEnd);
+    windowStart.setUTCMonth(windowStart.getUTCMonth() - 1);
+    const fromIso = windowStart.toISOString().substring(0, 10);
+    const toIso = windowEnd.toISOString().substring(0, 10);
+    yield* iterPractitionerRolesInWindow(fromIso, toIso);
+    windowEnd = windowStart;
+    windowCount += 1;
+    if (windowCount > 240) {
+      throw new Error(`Time-window chunking exceeded 240 windows, aborting`);
     }
   }
 }
@@ -425,7 +470,14 @@ export async function runRolesSync(
     batch = [];
   };
 
+  // Dédup intra-run : un rôle peut apparaître dans 2 fenêtres adjacentes
+  // (frontière `_lastUpdated=le2024-02-01` + `ge2024-02-01`). Le upsert DB
+  // gère le doublon mais on évite de gonfler les compteurs et le batch.
+  const seenRoleIds = new Set<string>();
+
   for await (const { role, organization } of iterPractitionerRoles(sinceIso)) {
+    if (role.id && seenRoleIds.has(role.id)) continue;
+    if (role.id) seenRoleIds.add(role.id);
     rolesProcessed += 1;
     if (organization) organizationsResolved += 1;
     const row = parseRoleRow(role, organization);
