@@ -9,6 +9,12 @@
 
 import { sendEmail } from './email';
 import type { SyncRunResult, NewCentreDetected } from './rpps-sync';
+import type { RolesSyncResult } from './rpps-roles-sync';
+
+export interface RolesSyncSummary {
+  rolesResult: RolesSyncResult | null;
+  rolesError: string | null;
+}
 
 const ADMIN_EMAIL = import.meta.env.ADMIN_EMAIL ?? 'franckolivier@leguideauditif.fr';
 const SITE_BASE = 'https://leguideauditif.fr';
@@ -37,7 +43,37 @@ function formatDate(d: Date): string {
   return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
 }
 
-function buildSuccessHtml(run: SyncRunResult): string {
+function buildRolesSection(summary: RolesSyncSummary | undefined): string {
+  if (!summary) return '';
+  if (summary.rolesError) {
+    return `
+      <tr><td style="padding: 0 32px 16px 32px; font-family: sans-serif; color: #333;">
+        <h2 style="margin: 16px 0 12px 0; font-size: 16px; color: #A32D2D;">Phase 2 — multi-lieux (échec)</h2>
+        <p style="font-size: 13px; color: #666; margin: 0 0 8px 0;">
+          La phase 2 (PractitionerRole / multi-lieux d'exercice) a échoué. La phase 1 (Practitioner) reste valide.
+        </p>
+        <pre style="background: #fff5f5; padding: 12px; border-radius: 6px; overflow: auto; font-size: 12px; color: #c00; border-left: 3px solid #A32D2D;">${escapeHtml(summary.rolesError)}</pre>
+      </td></tr>`;
+  }
+  const r = summary.rolesResult;
+  if (!r) return '';
+  return `
+      <tr><td style="padding: 0 32px 16px 32px; font-family: sans-serif; color: #333;">
+        <h2 style="margin: 16px 0 12px 0; font-size: 16px; color: #1B2E4A;">Phase 2 — multi-lieux d'exercice</h2>
+        <p style="font-size: 13px; color: #666; margin: 0 0 12px 0;">
+          Sync FHIR PractitionerRole : 1 ligne par lieu d'exercice (un audio peut avoir 2-5 lieux).
+        </p>
+        <table cellpadding="0" cellspacing="0" style="font-size: 14px; line-height: 1.7;">
+          <tr><td style="padding-right: 16px; color: #666;">Rôles traités</td><td><strong>${r.rolesProcessed}</strong></td></tr>
+          <tr><td style="padding-right: 16px; color: #666;">Rôles upsert</td><td><strong style="color: #2e7d32;">${r.rolesUpserted}</strong></td></tr>
+          <tr><td style="padding-right: 16px; color: #666;">Skipped (RPPS introuvable)</td><td>${r.rolesSkippedNoRpps}</td></tr>
+          <tr><td style="padding-right: 16px; color: #666;">Organizations résolues</td><td>${r.organizationsResolved}</td></tr>
+          <tr><td style="padding-right: 16px; color: #666;">Durée phase 2</td><td>${r.durationSeconds}&nbsp;s</td></tr>
+        </table>
+      </td></tr>`;
+}
+
+function buildSuccessHtml(run: SyncRunResult, rolesSummary?: RolesSyncSummary): string {
   const rows = run.newCentresDetected
     .map((c) => {
       // Contact direct si publié dans l'Annuaire Santé (~10% des cas).
@@ -99,6 +135,8 @@ function buildSuccessHtml(run: SyncRunResult): string {
             <tr><td style="padding-right: 16px; color: #666;">Total avant / après</td><td>${run.rppsCountBefore} → ${run.rppsCountAfter}</td></tr>
           </table>
         </td></tr>
+
+        ${buildRolesSection(rolesSummary)}
 
         <tr><td style="padding: 8px 32px 24px 32px; font-family: sans-serif; color: #333;">
           <h2 style="margin: 16px 0 12px 0; font-size: 16px; color: #1B2E4A;">Nouvelles ouvertures détectées</h2>
@@ -163,16 +201,32 @@ function buildFailureHtml(run: SyncRunResult): string {
 
 /**
  * Envoie le rapport email approprié selon l'issue du run.
- * - Run success + new_centres > 0 → email résumé avec tableau
- * - Run success + 0 new_centres → no-op (silence)
+ * - Run success + new_centres > 0 → email résumé avec tableau (incl. phase 2 roles)
+ * - Run success + 0 new_centres + phase 2 OK → no-op (silence)
+ * - Run success + 0 new_centres + phase 2 KO → email d'alerte phase 2
  * - Run failed → email d'alerte distinct
+ *
+ * @param rolesSummary V2 — stats phase 2 PractitionerRole (multi-lieux)
  */
-export async function sendSyncReport(run: SyncRunResult): Promise<void> {
+export async function sendSyncReport(
+  run: SyncRunResult,
+  rolesSummary?: RolesSyncSummary,
+): Promise<void> {
   if (run.status === 'failed') {
     await sendEmail({
       to: ADMIN_EMAIL,
       subject: `[LGA] Échec sync RPPS du ${formatDate(run.startedAt)}`,
       html: buildFailureHtml(run),
+    });
+    return;
+  }
+  // Cas spécial : phase 1 OK mais phase 2 KO et pas de nouvelle ouverture
+  // → on envoie quand même un email d'alerte sur le roles_error pour pas le rater.
+  if (run.newCentresDetected.length === 0 && rolesSummary?.rolesError) {
+    await sendEmail({
+      to: ADMIN_EMAIL,
+      subject: `[LGA] Sync RPPS ${formatDate(run.startedAt)} : phase 2 multi-lieux a échoué`,
+      html: buildSuccessHtml(run, rolesSummary),
     });
     return;
   }
@@ -182,6 +236,6 @@ export async function sendSyncReport(run: SyncRunResult): Promise<void> {
   await sendEmail({
     to: ADMIN_EMAIL,
     subject: `[LGA] Sync RPPS du ${formatDate(run.startedAt)} : ${run.newCentresDetected.length} nouvelle${run.newCentresDetected.length > 1 ? 's' : ''} ouverture${run.newCentresDetected.length > 1 ? 's' : ''} détectée${run.newCentresDetected.length > 1 ? 's' : ''}`,
-    html: buildSuccessHtml(run),
+    html: buildSuccessHtml(run, rolesSummary),
   });
 }

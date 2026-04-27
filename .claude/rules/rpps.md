@@ -3,17 +3,36 @@ globs: ["src/lib/rpps-*.ts", "src/pages/api/admin/sync-rpps.ts", "src/pages/api/
 ---
 # Pipeline RPPS — règles techniques
 
-Pipeline déployé fin avril 2026 (signal Thomas Perron Manéo Bayonne + Aurélie Azam Carcassonne). 3 maillons obligatoires.
+Pipeline déployé fin avril 2026 (signal Thomas Perron Manéo Bayonne + Aurélie Azam Carcassonne). 3 maillons obligatoires + V2 multi-lieux ajoutée 27/04.
 
 ## Architecture
 
 ```
-API FHIR Annuaire Santé → rpps_audioprothesistes (sync, mig 034)
-                              ↓
+API FHIR Annuaire Santé
+   ├─ Phase 1 : Practitioner code 26 → rpps_audioprothesistes (mig 034)
+   └─ Phase 2 : PractitionerRole + Organization → rpps_practitioner_roles (mig 036)
+                                  ↓
                     rpps_propagation_runs (mig 035)
-                              ↓
-                       centres_auditifs (fiches publiques)
+                                  ↓
+                          centres_auditifs (fiches publiques)
 ```
+
+## V2 — multi-lieux d'exercice (PractitionerRole)
+
+V1 ne capturait que l'adresse Practitioner principale (1 par audio). V2 (mig 036) capture les rôles = lieux d'exercice (N par audio). Cas d'usage : Thomas Perron exerce à Pessac (Practitioner) ET Bayonne (PractitionerRole) — sans V2, Manéo Bayonne ne se lie jamais à son RPPS.
+
+**Query FHIR V2** :
+```
+PractitionerRole?practitioner.qualification-code=26&active=true
+                &_include=PractitionerRole:organization
+                &_lastUpdated=ge{ISO}&_count=200
+```
+
+`_include=PractitionerRole:organization` ramène l'`Organization` (SIRET, raison sociale, adresse) dans le même Bundle. `Organization` apparaît avec `search.mode='include'`, le rôle avec `search.mode='match'`.
+
+**Borne incrémentale V2** : `MAX(last_seen_at) - 1h` depuis `rpps_practitioner_roles` (overlap d'1h pour ne rien rater). Première run : today - 7 jours. Pas de table `rpps_roles_sync_runs` séparée — auto-entretenu via la table principale.
+
+**Endpoint** : `/api/admin/sync-rpps` lance V1 puis V2 séquentiellement. V2 ne tourne que si V1 a réussi. `?phase=v1` court-circuite V2 pour debug/rollback.
 
 ## API FHIR Annuaire Santé — specifics critiques
 
@@ -125,11 +144,26 @@ Cron Vercel `/api/admin/propagate-rpps?source=cron` (1er + 15 du mois 04:30 UTC)
 | `/api/admin/sync-rpps?source=cron` | `0 4 1 * *` + `0 4 15 * *` | apply auto (sync FHIR safe) |
 | `/api/admin/propagate-rpps?source=cron` | `30 4 1 * *` + `30 4 15 * *` | DRY-RUN only |
 
-## V2 / sprints suivants à scoper
+## Matching propagation (priorités)
+
+V2 a ajouté la priorité **1bis** :
+
+| Prio | Critère | Source payload | Cas typique |
+|---|---|---|---|
+| 1 | `centre.rpps == rpps_audioprothesistes.rpps` | RppsRecord | Audio principal déjà lié |
+| **1bis** | `centre.siret == rpps_practitioner_roles.siret` ET `centre.rpps IS NULL` | RoleRecord (lieu) | Lieu secondaire d'un audio (ex: Manéo Bayonne) |
+| 2 | `centre.siret == rpps_audioprothesistes.siret` ET `centre.rpps IS NULL` | RppsRecord | Centre sans RPPS lié, audio principal connu |
+| 3 (V3) | fuzzy nom + CP | TBD | À implémenter |
+
+**Important payload prio 1bis** : utiliser `buildCentrePayloadFromRole(role, practitioner)` — l'adresse/CP/ville/tel/email viennent du LIEU (pas du Practitioner principal), sinon on écrit l'adresse Pessac sur la fiche Bayonne.
+
+**Garde-fou doublons** : `processedCentreIds` Set évite qu'un même centre soit traité 2× (cas où un audio est primaire ET secondaire sur le même SIRET).
+
+## V3 / sprints suivants à scoper
 
 - Géocodage BAN automatique (api-adresse.data.gouv.fr) pour les fiches créées par propagation
 - Match fuzzy nom + CP (priorité 3) avec review manuelle
 - Désactivation/redirect 301 pour les déménagements lointains
 - Chainage direct sync → propagate (au lieu de 2 crons séparés)
 - Skill `lga-rpps-enricher` (Apollo + web search) pour enrichir les 90% sans email FHIR
-- Appel `PractitionerRole?practitioner=...` pour récupérer adresse d'exercice (au lieu de Practitioner direct)
+- Inférer `period_end` côté V2 quand un rôle disparaît du flux FHIR (= fin d'exercice à ce lieu)
