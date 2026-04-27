@@ -13,6 +13,7 @@
 
 import 'dotenv/config';
 import { Resend } from 'resend';
+import { createClient } from '@supabase/supabase-js';
 
 import { premiumWelcomeEmail } from '../src/emails/premium-welcome';
 import { ficheIncompleteRelanceEmail } from '../src/emails/fiche-incomplete-relance';
@@ -35,6 +36,18 @@ if (!apiKey) {
   process.exit(1);
 }
 const resend = new Resend(apiKey);
+
+// Client Supabase optionnel pour logger email_events.
+// Sans ces vars : on saute le log (le mail part quand même, juste pas de
+// tracking webhook côté admin/email-events).
+const supabaseUrl = process.env.PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabase = supabaseUrl && supabaseServiceKey
+  ? createClient(supabaseUrl, supabaseServiceKey)
+  : null;
+if (!supabase) {
+  console.warn('Supabase non configuré (PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY) — pas de log email_events');
+}
 
 // Données sample partagées
 const SAMPLE = {
@@ -171,7 +184,26 @@ async function main() {
       if (error) {
         console.error(`  [X] ${email.key} — ${error.message}`);
       } else {
-        console.log(`  [OK] ${email.key} — messageId=${data?.id ?? '?'}`);
+        const messageId = data?.id ?? null;
+        console.log(`  [OK] ${email.key} — messageId=${messageId}`);
+
+        // Log email_events IMMÉDIATEMENT après l'envoi pour que le webhook
+        // Resend (qui peut arriver dans la seconde) trouve la row.
+        // Sans ce log, race condition : webhook arrive avant insert → 0 row matché.
+        if (supabase && messageId) {
+          const { error: logErr } = await supabase.from('email_events').insert({
+            audiopro_id: null,
+            centre_slug: null,
+            recipient_email: recipient,
+            template_key: email.key,
+            resend_message_id: messageId,
+            trigger: 'manual_admin',
+            metadata: { test: true, source: 'send-test-templates.ts' },
+          });
+          if (logErr) {
+            console.warn(`     log email_events failed: ${logErr.message}`);
+          }
+        }
       }
       // Petite pause pour éviter un rate limit agressif
       await new Promise((r) => setTimeout(r, 500));

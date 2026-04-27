@@ -114,9 +114,6 @@ export const POST: APIRoute = async ({ request }) => {
   const eventTime = new Date(event.created_at ?? Date.now()).toISOString();
   const supabase = createServerClient();
 
-  // Log systématique pour debug delivrabilité — à retirer plus tard
-  console.log(`[webhook/resend] type=${event.type} email_id=${emailId} eventTime=${eventTime}`);
-
   switch (event.type) {
     case 'email.delivered':
       await updateEmailEvent(supabase, emailId, 'delivered_at', eventTime);
@@ -172,11 +169,11 @@ async function updateEmailEvent(
     console.error(`[webhook/resend] update ${column} failed pour ${emailId}:`, error.message);
     return;
   }
-  const rowCount = data?.length ?? 0;
-  if (rowCount === 0) {
-    console.warn(`[webhook/resend] update ${column}: aucune row matchée pour resend_message_id=${emailId} (déjà set ou orphan)`);
-  } else {
-    console.log(`[webhook/resend] update ${column} OK : ${rowCount} row pour ${emailId}`);
+  // Pas de log sur 0 row matchée — cas normal pour les mails envoyés via
+  // le webhook Stripe (premium_welcome, payment_*) ou les notifs admin RPPS
+  // qui n'ont pas de ligne dans email_events. Faut pas spammer les logs.
+  if ((data?.length ?? 0) === 0) {
+    return;
   }
 }
 
