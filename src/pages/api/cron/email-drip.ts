@@ -48,7 +48,10 @@ interface DripStats {
 
 export const POST: APIRoute = async ({ request, url }) => {
   // ── Auth Vercel cron ───────────────────────────────────────
-  const cronSecret = import.meta.env.CRON_SECRET;
+  // Fallback process.env nécessaire : sur Vercel, import.meta.env est inliné
+  // au build → un secret ajouté côté dashboard après build n'est pas détecté
+  // sans ce fallback. Pattern aligné sur src/pages/api/webhook.ts.
+  const cronSecret = (import.meta.env.CRON_SECRET || process.env.CRON_SECRET || '').trim();
   const authHeader = request.headers.get('authorization');
 
   if (!cronSecret) {
