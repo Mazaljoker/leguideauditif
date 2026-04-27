@@ -5194,6 +5194,14 @@
     {
       "path": "/api/admin/sync-rpps?source=cron",
       "schedule": "0 4 15 * *"
+    },
+    {
+      "path": "/api/admin/propagate-rpps?source=cron&apply=true",
+      "schedule": "30 4 1 * *"
+    },
+    {
+      "path": "/api/admin/propagate-rpps?source=cron&apply=true",
+      "schedule": "30 4 15 * *"
     }
   ]
 }
