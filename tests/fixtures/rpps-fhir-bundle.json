@@ -1,7 +1,7 @@
 {
   "resourceType": "Bundle",
   "type": "searchset",
-  "total": 3,
+  "total": 4,
   "link": [
     {
       "relation": "self",
@@ -104,6 +104,23 @@
         "resourceType": "Practitioner",
         "id": "example-003-no-rpps",
         "name": [{ "family": "SANSRPPS", "given": ["Test"] }]
+      }
+    },
+    {
+      "fullUrl": "https://gateway.api.esante.gouv.fr/fhir/v2/Practitioner/example-004-idnps",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "example-004-idnps",
+        "identifier": [
+          {
+            "system": "https://annuaire.sante.fr/idnps",
+            "value": "810002460995"
+          }
+        ],
+        "name": [{ "family": "HEILIG", "given": ["CELINE"], "prefix": ["MME"] }],
+        "qualification": [
+          { "code": { "coding": [{ "code": "26" }] } }
+        ]
       }
     }
   ]

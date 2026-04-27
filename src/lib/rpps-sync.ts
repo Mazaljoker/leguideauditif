@@ -215,21 +215,44 @@ export async function* iterPractitioners(sinceIso: string | null): AsyncGenerato
 // Parse FHIR Practitioner → RppsRow
 // ──────────────────────────────────────────────────────────────────────
 
+/**
+ * Normalise un identifier IDNPS/RPPS au format canonique 11 chiffres.
+ * L'API FHIR Annuaire Santé expose des IDNPS 12 chiffres pour les audioprothésistes
+ * (préfixe "8" + 11 chiffres RPPS). La table rpps_audioprothesistes stocke en 11
+ * chiffres (format ASIP-Santé canonique). Pour matcher correctement les RPPS
+ * existants, on strip le préfixe IDNPS si présent.
+ *
+ * Exemples :
+ *   "810002460995" → "10002460995"  (IDNPS 12 → RPPS 11)
+ *   "10002460995"  → "10002460995"  (déjà 11 chiffres, no-op)
+ */
+function normalizeRpps(value: string): string | null {
+  const cleaned = value.trim();
+  if (/^\d{11}$/.test(cleaned)) return cleaned;
+  if (/^8\d{11}$/.test(cleaned)) return cleaned.substring(1); // IDNPS audio → RPPS
+  return null;
+}
+
 function extractRpps(p: FhirPractitioner): string | null {
   // Le RPPS est un identifier de type IDNPS/RPPS. On cherche d'abord par system
-  // contenant 'rpps', puis on fallback sur tout identifier numérique de 11 chiffres.
+  // contenant 'rpps' ou 'idnps', puis fallback sur tout identifier numérique
+  // 11 ou 12 chiffres. Toutes les valeurs sont normalisées en RPPS 11 chiffres.
   for (const id of p.identifier ?? []) {
-    if (id.system && id.system.toLowerCase().includes('rpps') && id.value) {
-      return id.value;
+    const sys = id.system?.toLowerCase() ?? '';
+    if ((sys.includes('rpps') || sys.includes('idnps')) && id.value) {
+      const normalized = normalizeRpps(id.value);
+      if (normalized) return normalized;
     }
     const code = id.type?.coding?.[0]?.code;
     if (code && /rpps|idnps/i.test(code) && id.value) {
-      return id.value;
+      const normalized = normalizeRpps(id.value);
+      if (normalized) return normalized;
     }
   }
   for (const id of p.identifier ?? []) {
-    if (id.value && /^\d{11}$/.test(id.value)) {
-      return id.value;
+    if (id.value) {
+      const normalized = normalizeRpps(id.value);
+      if (normalized) return normalized;
     }
   }
   return null;
@@ -380,9 +403,22 @@ export async function runRppsSync(supabase: SupabaseClient, opts: RunRppsSyncOpt
     const BATCH_SIZE = 100;
     let batch: RppsRow[] = [];
 
+    // Strip les keys avec valeur null avant upsert : sinon Supabase ECRASE les
+    // colonnes existantes avec null. Le FHIR Practitioner ne porte pas l'adresse
+    // d'exercice (elle est sur PractitionerRole, pas implémenté ici), donc
+    // code_postal/commune/voie etc. seraient null et écraseraient les valeurs
+    // existantes ingérées depuis le CSV initial du 10 avril.
+    const stripNulls = (obj: Record<string, unknown>): Record<string, unknown> => {
+      const out: Record<string, unknown> = {};
+      for (const [k, v] of Object.entries(obj)) {
+        if (v !== null) out[k] = v;
+      }
+      return out;
+    };
+
     const flushBatch = async (): Promise<void> => {
       if (batch.length === 0) return;
-      const rowsToWrite = batch.map((r) => ({
+      const rowsToWrite = batch.map((r) => stripNulls({
         ...r,
         updated_at: new Date().toISOString(),
         last_seen_at: new Date().toISOString(),
