@@ -108,12 +108,14 @@ export const POST: APIRoute = async ({ request }) => {
   const emailId = event.data?.email_id;
   if (!emailId) {
     console.warn(`[webhook/resend] event ${event.type} sans email_id`);
-    // 200 : on n'a rien à faire mais Resend ne doit pas retry
     return new Response('OK (no email_id)', { status: 200 });
   }
 
   const eventTime = new Date(event.created_at ?? Date.now()).toISOString();
   const supabase = createServerClient();
+
+  // Log systématique pour debug delivrabilité — à retirer plus tard
+  console.log(`[webhook/resend] type=${event.type} email_id=${emailId} eventTime=${eventTime}`);
 
   switch (event.type) {
     case 'email.delivered':
@@ -140,8 +142,7 @@ export const POST: APIRoute = async ({ request }) => {
     case 'email.sent':
     case 'email.delivery_delayed':
     case 'email.failed':
-      // Pas de col dédiée — on log
-      console.log(`[webhook/resend] ${event.type} pour ${emailId}`);
+      // Pas de col dédiée
       break;
     default:
       console.log(`[webhook/resend] type non géré: ${event.type}`);
@@ -160,14 +161,22 @@ async function updateEmailEvent(
   column: 'delivered_at' | 'opened_at' | 'clicked_at' | 'bounced_at' | 'complaint_at',
   eventTime: string,
 ): Promise<void> {
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('email_events')
     .update({ [column]: eventTime })
     .eq('resend_message_id', emailId)
-    .is(column, null);
+    .is(column, null)
+    .select('id');
 
   if (error) {
     console.error(`[webhook/resend] update ${column} failed pour ${emailId}:`, error.message);
+    return;
+  }
+  const rowCount = data?.length ?? 0;
+  if (rowCount === 0) {
+    console.warn(`[webhook/resend] update ${column}: aucune row matchée pour resend_message_id=${emailId} (déjà set ou orphan)`);
+  } else {
+    console.log(`[webhook/resend] update ${column} OK : ${rowCount} row pour ${emailId}`);
   }
 }
 
